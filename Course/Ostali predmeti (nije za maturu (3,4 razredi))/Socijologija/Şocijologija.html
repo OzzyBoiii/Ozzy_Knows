@@ -1,0 +1,1767 @@
+<!DOCTYPE html>>
+<html>
+  <head>
+    <title>Socijologija</title>
+    <style>
+      /* New Window */
+      /* New Window */
+      /* New Window */
+      /* New Window */
+      .newWindow {
+        position: fixed;
+        top: 5%;
+        left: 5%;
+        height: 90%;
+        width: 90%;
+        background-color: white;
+        border: 1px solid black;
+        display: none;
+        flex-direction: row;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+      /**/
+      /**/
+      .newWindow.active { display: flex; }
+      /**/
+      /**/
+      .newWindow .left, .newWindow .right {
+        width: 15%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        overflow: auto;
+        scrollbar-width: thin;
+        overflow-y: scroll;
+      }
+      /**/
+      /**/
+      .newWindow .center {
+        width: 70%;
+        padding: 0 15px;
+        overflow-y: scroll;
+        scrollbar-width: thin;
+      }
+      /**/
+      /**/
+      .newWindow img {
+        max-width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+        object-fit: contain;
+        margin-bottom: 15px;
+      }
+      /**/
+      /**/
+      .zoom-controls {
+        position: sticky;
+        bottom: 0;
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 8px;
+        border-radius: 6px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        flex-wrap: wrap;
+      }
+      /**/
+      /**/
+      .zoom-controls button {
+        flex: 1 1 auto;
+        min-width: 100px;
+      }
+      /**/
+      /**/
+      /* Scrollbar styling */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      /**/
+      /**/
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      /**/
+      /**/
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+      }
+      /**/
+      /**/
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      /**/
+      /**/
+      #Img_Zoom{
+        min-width: 10px;
+        min-height: 10px;
+      }
+      /**/
+      /**/
+      .close{
+        text-align: center;
+      }
+      /* Background */
+      /* Background */
+      /* Background */
+      /* Background */
+      body {
+        margin: 0;
+        height: 100vh;
+        font-weight: 100;
+        background: radial-gradient(#a23982, #1f1013);
+        animation: fadeIn 1s ease-out;
+      }
+      /**/
+      /**/
+      .light {
+        position: absolute;
+        width: 0px;
+        opacity: 0.75;
+        background-color: white;
+        box-shadow: #e9f1f1 0px 0px 20px 2px;
+        opacity: 0;
+        top: 100vh;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin: auto;
+      }
+      /**/
+      /**/
+      .x1 { animation: floatUp 4s infinite linear; transform: scale(1); }
+      .x2 { animation: floatUp 7s infinite linear; transform: scale(1.6); left: 15%; }
+      .x3 { animation: floatUp 2.5s infinite linear; transform: scale(0.5); left: -15%; }
+      .x4 { animation: floatUp 4.5s infinite linear; transform: scale(1.2); left: -34%; }
+      .x5 { animation: floatUp 8s infinite linear; transform: scale(2.2); left: -57%; }
+      .x6 { animation: floatUp 3s infinite linear; transform: scale(0.8); left: -81%; }
+      .x7 { animation: floatUp 5.3s infinite linear; transform: scale(3.2); left: 37%; }
+      .x8 { animation: floatUp 4.7s infinite linear; transform: scale(1.7); left: 62%; }
+      .x9 { animation: floatUp 4.1s infinite linear; transform: scale(0.9); left: 85%; }
+      /**/
+      /**/
+      @keyframes floatUp {
+        0% { top: 100vh; opacity: 0; }
+        25% { opacity: 1; }
+        50% { top: 0vh; opacity: 0.8; }
+        75% { opacity: 1; }
+        100% { top: -100vh; opacity: 0; }
+      }
+      /**/
+      /**/
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      /*SCROLLING ANIMATION*/
+      /*SCROLLING ANIMATION*/
+      /*SCROLLING ANIMATION*/
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Asap", sans-serif;
+      }
+      /**/
+      /**/
+      section {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /**/
+      /**/
+      section .container {
+        margin: 100px;
+      }
+      /**/
+      /**/
+      section h1 {
+        font-size: 3rem;
+        margin: 20px;
+      }
+      /**/
+      /**/
+      section h2 {
+        font-size: 40px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      /**/
+      /**/
+      section .text-container {
+        display: flex;
+      }
+      /**/
+      /**/
+      section .text-container .text-box {
+        margin: 20px;
+        padding: 20px;
+        background: #00c2cb;
+      }
+      /**/
+      /**/
+      section .text-container .text-box h3 {
+        font-size: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      /**/
+      /**/
+      @media (max-width: 900px) {
+        section h1 {
+          font-size: 2rem;
+          text-align: center;
+        }
+        section .text-container {
+          flex-direction: column;
+        }
+      }
+      /**/
+      /**/
+      .reveal {
+        position: relative;
+        opacity: 0;
+      }
+      /**/
+      /**/
+      .reveal.active {
+        opacity: 1;
+      }
+      /**/
+      /**/
+      .active.fade-bottom {
+        animation: fade-bottom 1s ease-in;
+      }
+      /**/
+      /**/
+      .active.fade-left {
+        animation: fade-left 1s ease-in;
+      }
+      /**/
+      /**/
+      .active.fade-right {
+        animation: fade-right 1s ease-in;
+      }
+      /**/
+      /**/
+      @keyframes fade-bottom {
+        0% {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      /**/
+      /**/
+      @keyframes fade-left {
+        0% {
+          transform: translateX(-100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      /**/
+      /**/
+      @keyframes fade-right {
+        0% {
+          transform: translateX(100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      /* Button */
+      /* Button */
+      /* Button */
+      /* Button */
+      button {
+        animation: shimmer 1.5s ease infinite alternate;
+        background: linear-gradient(90deg, #ffe27d 0%, #64e3ff 30%, #9192ff 85%);
+        background-size: 200% 100%;
+        border: none;
+        border-radius: 6px;
+        box-shadow: -2px -2px 10px rgba(255, 227, 126, 0.5), 2px 2px 10px rgba(144, 148, 255, 0.5);
+        color: #170f1e;
+        cursor: pointer;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 670;
+        line-height: 1.2;
+        padding: 8px 12px;
+        text-decoration: none;
+        transition: 0.2s;
+        white-space: nowrap;
+      }
+      /**/
+      /**/
+      button:hover { transform: rotate(-3deg); }
+      button:active { transform: scale(0.95) rotate(-3deg); }
+      /**/
+      /**/
+      @keyframes shimmer {
+        to { background-size: 100% 100%; box-shadow: -2px -2px 6px rgba(255, 227, 126, 0.5), 2px 2px 6px rgba(144, 148, 255, 0.5); }
+      }
+      /*MINDMAP*/
+      /*MINDMAP*/
+      /*MINDMAP*/
+      /*MINDMAP*/
+      :root {
+        --primary-color: red;
+        --secondary-color: silver;
+        --node-max-width: 100px;
+        --node-spacing: 0.5em;
+        --stroke-width: 2;
+        --border-radius: 0.5em;
+        --background-color: #f3f3f3;
+        --font-family: system-ui, sans-serif;
+        --container-min-width: 600px;
+      }
+      /**/
+      /**/
+      .f-col {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+      }
+      /**/
+      /**/
+      #container {
+        display: flex;
+        justify-content: space-between;
+        padding: var(--node-spacing);
+        min-width: var(--container-min-width);
+      }
+      /**/
+      /**/
+      #container p {
+        padding: 0.25em 0.5em;
+        background: var(--background-color);
+        border: 3px solid var(--primary-color);
+        border-radius: var(--border-radius);
+        text-align: center;
+        max-width: var(--node-max-width);
+      }
+      /**/
+      /**/
+      svg {
+        position: absolute;
+        z-index: -1;
+      }
+      /**/
+      /**/
+      .path {
+        stroke: var(--secondary-color);
+        fill: none;
+        stroke-width: var(--stroke-width);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+        <h2>Sociologija</h2>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+        <h2>DRUŠTVO I DRUŠTVENOST I DRUŠTVENA INTERKACIJA</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Što je društvo i zajednica</button>
+            <div id="newWindow_1" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="DRUŠTVO I DRUŠTVENOST I DRUŠTVENA INTERKACIJA_1.png" class="zoomable-image" data-row="1">
+                <img src="DRUŠTVO I DRUŠTVENOST I DRUŠTVENA INTERKACIJA_2.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_1');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                Sociologija je znanost o društvu
+                Znanost koja se bavi istraživanjem i tumačenjem društvenih
+                ponašanja ljudi, društvenih pojava i odnosa, odnosno društva
+                općenito
+                Što je društvo?
+                Sociologija definira društvo kao „skupinu ljudi s zajedničkim teritorijem, interakcijom i
+                kulturom“.
+                Što je zajednica
+                Zajednica je skupina ljudi koji žive na istom mjestu ili imaju zajedničko obilježje
+                August Comte – osnivač sociologije
+                „Opažanjima se mogu razvijati spoznaje o društvu i predvidjeti budući
+                društveni događaji”
+                SOCIJALNA FIZIKA
+                Pozitivizam – sociologija će objasniti zakonitosti društva
+                Nisu svi ljudi jednako poznavali pjesme, no svi se uključili
+                na refrenu
+                Uključivali mobitel
+                Ljudi su se slikali i fotografije dijelili na društvenim
+                mrežama
+                DRUŠTVENO PONAŠANJE
+                Odvija se pod utjecajem drugih ili sam pojedinac utječe na
+                druge oko sebe
+                Društveno ponašanje je svako
+                ponašanje pojedinca koje uzima u
+                obzir zajedničke norme i vrijednosti
+                neke grupe te osobna uvjerenja i
+                motive
+              </p>
+            </div>
+            <div class="right">
+              <div class="zoom-controls">
+                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+              <img src="DRUŠTVO I DRUŠTVENOST I DRUŠTVENA INTERKACIJA_3.png" class="zoomable-image" data-row="2">
+            </div>
+          </div>
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Društveni pojmovi</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                Većina naših aktivnosti društveno određena
+                DRUŠTVENI
+                ODNOSI
+                Društveni su odnosi skup veza i utjecaja koje pojedinci
+                ostvaruju s drugim ljudima.
+                DRUŠTVENA INTERAKCIJA
+                Skup složenih postupaka u kojima članovi neke zajednice ili
+                grupe sudjeluju, svjesno ili nesvjesno, kako bi prenijeli neku
+                poruku ili ostvarili određeni odnos
+                KOMUNIKACIJA
+                I današnja lekcija je interaktivna
+              </p>
+              <img src="DRUŠTVO I DRUŠTVENOST I DRUŠTVENA INTERKACIJA_4.png">
+              <p>
+                Društvene činjenice - načini djelovanja, mišljenja i osjećanja
+                izvanjski pojedincu, koji mu se nameću prinudnom snagom, htio on
+                to ili ne
+                Emile Durkheim
+                Samoubojstvo
+              </p>
+              <img src="DRUŠTVO I DRUŠTVENOST I DRUŠTVENA INTERKACIJA_5.png">
+              <p>
+                Stopa samoubojstva razlikuje se od jedne do druge društvene grupe.
+                Najvažnije su sljedeće:
+                Religija – među protestantima je veća stopa samoubojstava nego li među
+                katolicima
+                Obiteljski odnosi – oženjeni ili udani imali manju stopu od samaca
+                Rat i mir – stopa samoubojstava opadala je u doba rata, bez obzira je li
+                zemlja dobivala ili gubila
+                Ekonomska kriza - stopa se povećava za vrijeme ekonomske krize...
+                zašto? Jer bankrot, nazaposlenost i oskudica potiču sklonost samoubojstvu
+                DRUŠTVENA SOLIDARNOST - spone koje drže ljude zajedno
+                (moralne norme i osjećaji koji osiguravaju integraciju društva)
+                INTEGRACIJA I REGULACIJA
+                Integracija – snaga povezanosti pojedinca s društvenom grupom.
+                Regulacija – kontrola individualnih poriva i želja pomoću društvenih
+                normi, pravila ponašanja.
+                Ovisno o tome jesu li te spone prejake ili preslabe, Durkheim razlikuje
+                4 tipa samoubojstva:
+                Egoistično samoubojstvo – Naziva se tako jer niska integracija vodi izolaciji pojedinca
+                koji postaje pretjerano fokusiran na sebe.
+                Anomično samoubojstvo – proizlazi iz nedostatka regulacije. Pretjerane želje nisu ničim
+                regulirane.
+                Altruistično samoubojstvo – suprotno egoističnom. Pojedinac je previše integriran u
+                zajednicu, spone su prejake.
+                Fatalistično samoubojstvo – suprotno anomičnom. Rezultat je pretjerane regulacije
+                PRIMJERI
+                Vojnik poginuo bacivši se na granatu kako bi spasio ostale vojnike iz svoga
+                voda.
+                Zatvorenik počinio samoubojstvo vješanjem u ćeliji.
+                Čovjek počinio samoubojstvo iako je nedavno osvojio glavni zgoditak na
+                lutriji.
+                56godišnji neoženjeni muškarac počinio samoubostvo bacivši se sa vrha
+                zgrade.
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Mikrosociologija i makrosociologija</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                MIKROSOCIOLOGIJA I MAKROSOCIOLOGIJA
+                Mikrosociologija izučava izbliza ljudsko ponašanje i promatra što
+                se događa u interakcijama licem-u-lice.
+                Makrosociologija je proučavanje većih grupa, institucija i
+                društvenih sustava – države, klase, ekonomije, demografske
+                promjene, utjecaj uvođenja novih tehnologija itd.
+                Primjeri makrosocioloških pitanja:
+                Što je uzrokovalo prijelaz iz feudalizma u kapitalizam?
+                Kako rasa utječe na obrazovna postignuća?
+                Primjeri mikrosocioloških pitanja:
+                Razgovaraju li doktori drukčije s pacijentima drugih rasa?
+                Kako se ponašaju posjetitelji na rock koncertu?
+              </p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+        <h2>NORME I VRIJEDNOSTI; SIMBOLI, JEZIK I RITUALI</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Kultura</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                Društvima je zajedničko da su njihovi članovi organizirani pomoću
+                strukturiranih društvenih odnosa, u skladu s njima jedinstvenom
+                kulturom
+                Ponašanje pojedinaca se odvija po nekim društvenim pravilima i
+                vrijednostima
+                Što god mi radili u društvu, ovisi o KULTURI
+                Način na koji peremo suđe, prelazimo cestu, razgovaramo s
+                drugima, gradimo kuće, definiramo što je lijepo ili ružno – sve je to
+                društveno nasljeđe neke grupe ljudi, odnosno kultura
+              </p>
+              <img src="NORME I VRIJEDNOSTI; SIMBOLI, JEZIK I RITUALI_1.png">
+              <img src="NORME I VRIJEDNOSTI; SIMBOLI, JEZIK I RITUALI_2.png">
+              <img src="NORME I VRIJEDNOSTI; SIMBOLI, JEZIK I RITUALI_3.png">
+              <p>
+                Kultura se odnosi na naučene, a ne nasljeđene aspekte ljudskih društava,
+                dok se društvo odnosi na ljude koji tu kulturu prakticiraju
+                Ljudsko društvo i kultura su povezani pojmovi – nema ljudskog društva bez
+                kulture, ni kulture bez društva
+                Opće značajke kulture
+                SIMBOLI
+                NAUČENA (uči se, ne rađamo se s njom)
+                ZAJEDNIČKA (dijelimo je s drugima)
+                KUMULATIVNA (neprestano raste, stalno joj se dodaju novi elementi)
+                NEPRESTANO SE MIJENJA
+                Razlike među kulturama
+              </p>
+              <img src="NORME I VRIJEDNOSTI; SIMBOLI, JEZIK I RITUALI_10.png">
+              <p>
+                Kultura u suvremenom društvu
+              </p>
+              <img src="NORME I VRIJEDNOSTI; SIMBOLI, JEZIK I RITUALI_11.png">
+            </div>
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Norme i sankcije</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                Mr. Bean nije znao kada treba platiti večeru – nije se
+                ponašao u restoranu na način kako društvo očekuje,
+                odnosno nije poštivao društvene norme
+                Što su društvene norme?
+                Norme su društvena pravila koja nam govore kako
+                se trebamo ponašati u određenoj situaciji
+              </p>
+              <img src="NORME I VRIJEDNOSTI; SIMBOLI, JEZIK I RITUALI_4.png">
+              <p>
+                Norme su:
+                RELATIVNE – razlikuju se od društva do društva
+                SPECIFIČNE – društvo nam govori kako se trebamo ponašati u točno
+                određenim situacijama
+                Norme se razlikuju s obzirom na oštrinu sankcija koje se javljaju kad ih
+                prekršimo
+                Vrste norma
+                Folkways
+                Mores/zakoni
+                Tabui
+              </p>
+              <img src="NORME I VRIJEDNOSTI; SIMBOLI, JEZIK I RITUALI_5.png">
+              <img src="NORME I VRIJEDNOSTI; SIMBOLI, JEZIK I RITUALI_6.png">
+              <p>
+                Folkways norme su one kojima društvo ne pridaje jako veliku važnost i
+                njihovo kršenje izaziva blage ili nikakve sankcije (pravilo da se dignemo
+                starijim osobama u tramvaju ili pravilo da ne bacamo papiriće po cesti)
+                Ako pak bacimo papirić na ulicu, slijedit će reakcija društva u obliku
+                komentara, ružnog pogleda ili će jednotavno reakcija društva izostati
+                Moresi – pravila koja su moralno obvezujuća i njihovo kršenje uzrokuje
+                oštre sankcije
+                Kada se dogodi ubojstvo ili financijska prevara, društvo će oštro reagirat i
+                zbog toga će slijediti oštra sankcija kao što je zatvor, smrtna kazna ili
+                izopćenje iz zajednice
+                U modernim društvima umjesto moresa koji su tipični za mala tradicionalna
+                društva, javljaju se zakoni
+                Kako bi ljudi znali kako se treba ponašati u modernim društvima u kojima
+                postoje različite kulture, došlo se do stvaranja zakona, odnosno do formalnih
+                društvenih pravila
+                Provođenje i poštivanje zakona provode posebne društvene organizacije –
+                policija i sudstvo
+                Kada u društvu osim oštrih sankcija imamo i snažnu emocionalnu reakciju
+                kao što je na primjer nevjerica, zgražanje, ljutnja, onda govorimo o
+                tabuima
+                Tabui su norme koje apsolutno nikad ne bi smjeli prekršiti
+                Tabu znači apsolutnu zabranu
+                Tu spadaju kanibalizam i incest
+                Tabu kanibalizma znači apsolutnu zabranu jedenja ljudskog mesa, a tabu
+                incesta apsolutnu zabranu imanja spolnih odnosa s krvnim srodnicima
+                Zašto je kanibalizam tabu?
+                1972. godine srušio se avion u Andama. Od 45 osoba stradalo njih 10. Spasilačke službe
+                nisu odmah mogle pronaći pali avion, pa su ljudi morali čekati skoro 70ak dana da ih
+                pronađu. U tih 70 dana samo ih je 16 preživjelo,a tih 16 osoba preživjelo jedući ljudsko
+                meso. Nakon što su ih pronašli, društvo ih dočekalo raširenih ruku, no uskoro uslijedio
+                hladan tuš. Javnost je počela reagirati i počeli su se pojavljivati natpisi u novinama zašto
+                su preživjeli. Ti natpisi se pojavljivali zato što se kanibalizam smatra tabuom,
+                apsolutnom zabranom. Nikad ne bi smjeli prekršiti tu normu
+                Postoje tradicionalna društa koja dozvoljavaju jedenje ljudskog mesa ali prvenstveno u
+                ritualne svrhe, da bi se prenijea mana, odnosno životna energija s jedne osobe ne drugu
+                Tabu incesta univerzalniji od tabua kanibalizma
+                Smatra se da upravo postojanje tabua incesta je točka prijelaza
+                ljudske vrste iz prirodnog stanja u kulturno stanje
+                Društvo očekuje da se ponašamo prem aodređenim pravilima i sukladno tome reagira na
+                naše ponašanje
+                Reakcija društva na naše ponašanje naziva se SANKCIJOM
+                Formalne su reakcije od strane državnih institucija, a neformalne su reakcije od strane
+                društva, naših prijatelja ili poznanika
+                Ocjena 5 i ocjena 1?
+                SANKCIJE
+                POZITIVNE
+                NEGATIVNE
+                FORMALNE
+                POVEĆANJE PLAĆE
+                DIPLOMA
+                NOVČANA KAZNA
+                ZATVORSKA KAZNA
+                NEFORMALNE
+                OSMIJEH
+                POZDRAV
+                PONIŽENJE
+                UVREDA
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Vrijednosti i simboli</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                Apstraktne ideje o tome što je vrijedno, ispravno i poželjno nazivamo vrijednostima
+                One ne propisuju izravno što je prihvatljivo ili neprihvatljivo ponašanje nego služe kao mjerilo za
+                prosudbu ljudi, pojava ili događaja
+                Društvene norme nastaju na temelju društvenih vrijednosti
+                Primjer vrijednosti ljudski život – različite društvene norme nam omogućuju da ostvarujemo tu
+                vrijednost
+                Te različite društvene norme bi bile norma Ne ubij ili pridržavanje pravila za održavanje higijene ili
+                pridržavanje prehrambenih pravila
+                Vrijednosti se razlikuju od kulture do kulture
+                Neke kulture više cijene individualizam, a neke više cijene kolektivizam
+                Te vrijednosti možemo uočiti u obrazovnom sustavu Amerike i Rusije – u američkom društvu se neće
+                blagonaklono gledati na prepisivanje tuđeg testa jer se time narušava vrijednsot individualnog
+                postignuća. Za razliku od ruskog društva koje njeguje kolektivizam kao vrijednost gdje će si učenici
+                pomagati i dopuštati međusobno prepisivanje
+                Osim normi i vrijednosti, svaka kultura koristi simbole
+                Koje su od ovih slika ujedno i simboli?
+                Sve!
+                Simbol je fenomen kojemu je društveno pripisano određeno značenje
+                Tetovaža može biti ukras, osobni svjetonazor ili označavanje religijske pripadnosti
+                Pronađite na društvenim mrežama primjer tetovaže kojom se označava religijska
+                pripadost
+                ...tetovaže katolika u srednjoj Bosni
+              </p>
+              <img src="NORME I VRIJEDNOSTI; SIMBOLI, JEZIK I RITUALI_7.png">
+              <p>
+                Simboli su svuda oko nas
+                Simboli države?
+                Zastava i grb
+                Socijalni pokreti i subkulture
+                Npr. simbol mira...
+                Crvena boja na ruži simbol ljubavi
+                Na semaforu crvena boja znači nešto drugo
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Jezik i rituali</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                Simbol je i jezik
+                Jezik kao najbitnija komponenta ljudske kulture omogućava nam da
+                najlakše prenesemo kulturu novim generacijama
+                S jezikom ne imenujemo samo određene predmete, nego i doživljavanje
+                različite stvarnosti
+                U hrvatskom jetiku postoje riječi strah i sram i one omogućavaju da
+                razlikujemo ta dva osjećaja
+                Australski Aboridžini, za razliku od nas, nemaju odvojene riječi za te
+                osjećaje. Imaju jednu riječ
+                Na društvenim mrežama sve se više skraćuje jezik i koriste simboli
+                Koristite li vi skraćenice u virtualnom prostoru? Koje?
+              </p>
+              <img src="NORME I VRIJEDNOSTI; SIMBOLI, JEZIK I RITUALI_8.png">
+              <img src="NORME I VRIJEDNOSTI; SIMBOLI, JEZIK I RITUALI_9.png">
+              <p>
+                Rituali su načini izražavanja središnjih vrijednosti nekog društva
+                RITUALI SOLIDARNOSTI i RITUALI PRIJELAZA
+                Rituali solidarnosti izazivaju osjećaj zajedništva kod pojedinaca i to se javlja za vrijeme
+                državnih praznika, religijskih blagdana ili za vrijeme intoniranja himne
+                Rituali prijelaza označavaju prijelaz pojedinaca iz jednog društvenog položaja u drugi
+                društveni položaj – rođenje, pubertet, vjenčanje, odlazak u mirovinu, inicijacija i sl.
+                Rituali prijelaza su bitni za pojedinca jer označavaju prijelaz iz jedne
+                životne faze u drugu životnu fazu ali su isto tako bitni i za društvo jer
+                omogućuje društvu da zna kako se treba ponašati prema tom pojedincu
+                u određenoj fazi njegova života
+                Obred brit milah – savez obrezivanja kod Židova gdje dječaci osmog
+                dana života bivaju obrezani kao znak potvrde saveza s Bogom
+                Kod Katolika obred krštenja
+                Kod plemena Hamar u Etiopiji inicijacija uključuje preskakanje goveda
+                koji su poslagani jedan pored drugog – mladići moraju četiri puta
+                preskočiti tako poredana goveda kako bi im društvo dozvolilo da se
+                ožene
+              </p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+        <h2>Kultura i religije, Velike svjetske religije</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Povezanost kulture i religije</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                Religiju prepoznajemo i predstavljamo pomoću kulturnih sastavnica ili komponenti (simbola, jezika,
+                obreda ili rituala)
+                KULTURA RELIGIJA
+                Religija i kultura utječu jedna na drugo i prihvaćene su kao dio ljudske individualnosti
+                Lat. colere – uzgajati, obrađivati, štovati
+                Kultura uključuje određeno ponašanje,
+                materijalne stvari, običaje, institucije,
+                vjerovanja, znanja, umjetnost, moral,
+                zakone, običaje i vjeru
+                Lat. religio – vjera
+                KULT (religijski pojam) lat.
+                cultus – obrađivati, štovati
+                Sociologija istražuje društvenu ulogu religije
+                SOCIOLOŠKA DEFINICIJA RELIGIJE
+                Religija je skup simbola koji izazivaju osjećaj strahopoštovanja i obožavanja, a
+                povezani su s ritualima, ceremonijama u kojima sudjeluju zajednice vjernika.
+                EMILE
+                DURKHEIM
+                U religiji razlikuje:
+                SVJETOVNO (PROFANO) SVETO (SAKRALNO)
+                Durkheim istraživao vjerovanja primitivnih australskih plemena
+                Zaključio da je funkcija religijskih ceremonijala osnažiti osjećaj
+                solidarnosti i jedinstva između plemenskih članova
+                Ta primitivna australska plemena žive u malim izoliranim grupama i
+                unutar njih osnovane su jedinice okupljanja odnosno klanovi
+                Svaki klan ima svoj TOTEM i služi kao objekt prepoznavanja pripadnosti
+                Funkcija totema je podsjećati svakoga da pripada toj zajednici i da ima
+                dužnost i uloge koje odatle proizlaze
+                Takvi osjećaji se obnavljaju periodičnim okupljanjima plemena,
+                ceremonijama, slavljima – zanos, osjećaj pripadnosti
+                Nije važno koliko je neki čin objektivan i racionalan, već kakav učinak ima
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Načini povezivanja</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                Utjecaj društvenih promjena na religiju
+                SEKULARIZACIJA – proces kojim religija gubi važnost i utjecaj u društvenom životu.
+                Izdvajanje religije iz javne u privatnu sferu života
+                Vidljivi pokazatelji sekularizacije:
+                1. manji broj članova u vjerskim zajednicama
+                2. manji broj vjenčanja u crkvama
+                3. smanjenje pohađanja vjerskih obreda
+                4. smanjenje političkog utjecaja vjerskih organizacija
+                5. školstvo, zdravstvena i socijalna pomoć prelaze u državne institucija
+                Vjerski fundamentalizam
+                Podrazumijeva ideologije i pokrete koji doslovno tumače temeljne
+                religijske tekstove i spise kako bi se prema njima uskladio društveni
+                život.
+                CILJEVI:
+                Obrana tradicionalnih vjerovanja pred brzim društvenim promjenama
+                Zagovaranje religijske čistoće
+                Otvorite poveznicu, pročitajte tekst i zapišite vrste vjerskog fundamentalizma.
+                Bit.ly/fundamentalizam
+                Civilna religija
+                Vezanje za simbole i institucije sekularnog života
+                To nije religija vezana uz neke religijske organizacije već skup vjerovanja, simbola i rituala koji se
+                onda odnose na društveni poredak
+                Državni i nacionalni simboli koji se doživljavaju kao svetinja
+              </p>
+              <img src="Kultura i religije, velike svjetske religije_1.png"
+            </div>
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Velike svjetske religije</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                Dijelimo ih u dvije kategorije:
+                Monoteističke (vjeruju u jednog Boga)
+                Politeističke (vjeruju u više bogova)
+              </p>
+              <img src="Kultura i religije, velike svjetske religije_2.png">
+              <img src="Kultura i religije, velike svjetske religije_3.png">
+              <p>
+                Svih pet religija imaju neke zajedničke značajke
+                Svaka ima skup SIMBOLA koji izazivaju strahopoštovanje i
+                obožavanje, RITUALE, tj. obrede ili ceremonije i sve imaju
+                zajednice vjernika koje onda sudjeluju na tim ritualima
+                SLIČNOSTI RELIGIJA:
+                ISTICANJE SVETOG – onoga što je najvrjednije, nedodorljivo, nepovredivo
+                SUSTAV PRAVILA PONAŠANJA - uključuje običaje, obrede, ceremonije, moralne norme
+                (propisane u svetim knjigama)
+              </p>
+              <img src="Kultura i religije, velike svjetske religije_4.png">
+              <p>
+                Sve te norme reguliraju odnos prema sebi i prema drugima. One su različite u svakoj religiji, no
+                postoje često podudarnosti...
+                Kod Hinduista pravilo nemoj lagati, nemoj ukrasti, nemoj uništiti, budi pažljiv i
+                strpljiv...
+                Kod Židova i Kršćana imamo ne ubij, ne kradi, ne svjedoči lažno, poštuj oca i
+                majku
+                Kod Budista imamo ne ubij živo biće, ne uzimaj što ti nije dano, ne laži
+                U Islamu se očituje na upućivanje na dobro i zabranjivanje zla
+                Sve one ističu da treba biti pošten i ne nanositi štetu drugima
+                Prijateljstvo, suradnja, mir i ljubav
+                3. UČENJE O NEKOM OBLIKU ŽIVOTA NAKON SMRTI –
+                ovisi o tome koliko se pojedinac pridržavao pravila ponašanja, odnosno
+                moralnih normi
+                Treba biti informiran o različitim kulturama i religijama
+              </p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+        <h2>Od čega se društvo sastoji</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Društvna struktura</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                Društvena struktura
+                &nbsp;&nbsp;&nbsp;&nbsp; - Cjelina koja se sastoji od društvenih uloga, položaja, grupa i institucija
+                &nbsp;&nbsp;&nbsp;&nbsp; - Može se odnositi na kompletno društvo neke zemlje (Hrvatske turističke zajednice, političke stranke), na lokalnu zajednicu (obitelj, razred, klub u kojem treniramo, makrosociološke zajednice)
+              </p>
+              <img src="Od_čega_se_društvo_sastoji_1.png" title="Pčele ima jednu ulogu, ljudski život puno složeniji – brojne uloge, razne grupe, tijekom života se uloge mijenjajuPčele svoju „društvenost” temelje na instinktu">
+              <img src="Od čega se društvo sastoji_2.png">
+              <img src="Od_čega_se_društvo_sastoji_3.png">
+              <p>
+                &nbsp;&nbsp;&nbsp;&nbsp; - Nagle promjene u svakodnevnom životu mogu izmijeniti društvenu strukturu i njene elemente
+                &nbsp;&nbsp;&nbsp;&nbsp; - Ljudi nadopune, promijene, odbace ili usvoje nove društvene uloge
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pandemija (Prema maskama pretpostavljali nečije uloge)
+              </p>
+              <img src="Od_čega_se_društvo_sastoji_4.png">
+              <img src="Od_čega_se_društvo_sastoji_5.png">
+            </div>
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Elementi društvene strukture</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                DRUŠTVENA ULOGA 
+                &nbsp;&nbsp;&nbsp;&nbsp; – niz normi ili očekivanih ponašanja pojedinaca prilikom stupanja ljudi u društvene odnose kako bi igrali određenu ulogu
+                &nbsp;&nbsp;&nbsp;&nbsp; - Uloge uređuju društvene odnose i čine naše ponašanje predvidljivim te označuju mjesto koje pojedinac zauzima unutar društvene strukture
+                &nbsp;&nbsp;&nbsp;&nbsp; - Ukoliko je položaj vrednovan kao viši, govorimo o višem društvenom statusu i obrnuto
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Cijeli naš život je interakcija niza društvenih uloga
+              </p>
+              <img src="Od_čega_se_društvo_sastoji_6.png">
+              <img src="Od_čega_se_društvo_sastoji_7.png">
+              <img src="Od_čega_se_društvo_sastoji_8.png" title="Žene iz Afganistana ako žele napustiti svoj obiteljski dom, moraju biti pokrivene, a dom smiju napustiti isključivo u pratnji muškog člana obitelji (oca, supruga, brata)">
+              <p>
+                DRUŠTVENI STATUS 
+                &nbsp;&nbsp;&nbsp;&nbsp; – mjesto koje pojedinac zauzima na ljestvici vrijednosti
+                &nbsp;&nbsp;&nbsp;&nbsp; - Svaki društveni položaj ima više uloga (SKUP ULOGA) 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Položaj žene u suvremenom društvu
+                &nbsp;&nbsp;&nbsp;&nbsp; - Uloge su proturječne (SUKOB ULOGA)
+              </p>
+              <img src="Od_čega_se_društvo_sastoji_9.png">
+              <p>
+                &nbsp;&nbsp;&nbsp;&nbsp; - Društveni status može biti:
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - PRIPISANI (stječemo ga rođenjem)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - POSTIGNUTI (rezultat osobnog izbora, upornosti, znanja ili talenta)
+              </p>
+              <img src="Od_čega_se_društvo_sastoji_10.png">
+              <img src="Od_čega_se_društvo_sastoji_11.png">
+            </div>
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Društvene grupe i kolektivno ponašanje</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <img src="Od_čega_se_društvo_sastoji_12.png">
+              <p>
+                DRUŠTVENE GRUPE
+                &nbsp;&nbsp;&nbsp;&nbsp; - Sve uloge jednog roda (muškog ili ženskog)
+                &nbsp;&nbsp;&nbsp;&nbsp; - Za svaku od uloga potrebna bar jedna osoba s kojom smo u nekoj vrsti odnosa
+                &nbsp;&nbsp;&nbsp;&nbsp; - skupina ljudi (dvoje ili više ljudi) s kojima smo u stalnoj interakciji
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - osim roditelja i djece, obitelj čine i bake, djedovi, tetke, strine, bratići...
+              </p>
+              <img src="Od_čega_se_društvo_sastoji_13.png">
+              <p>
+                &nbsp;&nbsp;&nbsp;&nbsp; - Pripadnici društvene grupe dijele osjećaj pripadnosti i zajednički idenititet
+                &nbsp;&nbsp;&nbsp;&nbsp; - Grupe kojima pripadamo nemaju za nas jednaku važnost
+              </p>
+              <img src="Od_čega_se_društvo_sastoji_14.png">
+              <p>
+                <table>
+                  <tr>
+                    <th>PRIMARNE GRUPE (PRIJATELJICE)</th>
+                    <th>SEKUNDARNE GRUPE KOLEGE NA POSLU:</th>
+                  </tr>
+                  <tr>
+                    <td>Manja</td>
+                    <td>Veće</td>
+                  </tr>
+                  <tr>
+                    <td>Članovi blisko povezani personalnim odnosima</td>
+                    <td>Formalni odnosi (Slabije veze među članovima)</td>
+                  </tr>
+                  <tr>
+                    <td>Dugotrajniji i stabilniji odnosi</td>
+                    <td>Povremeni, promjenjivi odnosi</td>
+                  </tr>
+                  <tr>
+                    <td>Naglašena socijalizacija</td>
+                    <td>Parcijalna socijalizacija</td>
+                  </tr>
+                  <tr>
+                    <td>Pripadanje grupi je cilj za sebe</td>
+                    <td>Ciljevi grupe su izvanjski</td>
+                  </tr>
+                </table>
+                &nbsp;&nbsp;&nbsp;&nbsp; - Osim podjela na primarne i sekundarne, grupe možemo dijeliti prema različitim obilježjima
+                <table>
+                  <tr>
+                    <th>Obilježja</th>
+                    <th>Tipovi grupa</th>
+                  </tr>
+                  <tr>
+                    <td>Brojnost članova/veličina</td>
+                    <td>Male,velike</td>
+                  </tr>
+                  <tr>
+                    <td>Stupanj regularnosti odnosa</td>
+                    <td>Formalne-neformalne</td>
+                  </tr>
+                  <tr>
+                    <td>Stupanj otvorenosti</td>
+                    <td>Otvorene-zatvorene</td>
+                  </tr>
+                  <tr>
+                    <td>Svrha okupljanja</td>
+                    <td>Ekonomske,političke,kulturne, ...</td>
+                  </tr>
+                </table>
+                - DRUŠTVENA KATEGORIJA 
+                &nbsp;&nbsp;&nbsp;&nbsp; – nije društvena grupa, nego puko statističko grupiranje ljudi koji dijele određene zajedničko obilježje
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - osobe rođene 2002. godine, tinejdžeri, crvenokosi…
+                DRUŠTVENI AGREGAT 
+                &nbsp;&nbsp;&nbsp;&nbsp; – skupina anonimnih, nepovezanih pojedinaca koji se fizički nalaze na jednome prostoru 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- ljudi na autobusnoj stanici, u dizalu, ili publika u kinodvorani
+              </p>
+              <img src="Od_čega_se_društvo_sastoji_15.png">
+              <p>
+                KOLEKTIVNO PONAŠANJE 
+                &nbsp;&nbsp;&nbsp;&nbsp; – ponašanje u kojem je interakcija slaba, a ljudi međusobno nisu povezani već samo obavljaju zajedničku aktivnost
+                &nbsp;&nbsp;&nbsp;&nbsp; - spontano i nestrukturirano ponašanje većeg broja ljudi koje odstupa od prihvaćenih društvenih normi
+              </p>
+              <img src="Od_čega_se_društvo_sastoji_16.png">
+              <p>
+                &nbsp;&nbsp;&nbsp;&nbsp; - Tipovi kolektivnog ponašanja
+                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Divergirajuće (raspršeno) kolektivno ponašanje 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Događaji koji su kratkotrajni, spontani bez jasnog cilja, vrlo labavo strukturirani
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Glasine - neprovjerene informacije koje se prenose neformalno, “od usta do usta”
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Ogovaranje (tračevi) - odnosi se na osobni život drugih ljudi
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Moda – široko prihvaćanje neke novosti, retro – stil, modne ludosti (engl. fads)     kratkotrajne i    oduševljeno prihvaćene novosti
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Pomama, masovna histerija, panika.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Konvergirajuće kolektivno ponašanje
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Čvršća struktura i veća koncentracija od raspršenog 
+              </p>
+              <img src="Od_čega_se_društvo_sastoji_17.png">
+              <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Gomila – najpoznatiji oblik konvergirajućeg kolektivnog  ponašanja. Privremeno okupljanje većeg broja ljudi koji imaju zajedničko središte pozornosti i snažno utječu jedni na druge
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Tipovi gomile
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- SLUČAJNA GOMILA  (ljudi se okupili da promatraju požar…)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- KONVENCIONALNA GOMILA (publika u kazalištu…) 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- EKSPRESIVNA GOMILA (rock- koncert, religijsko okupljanje - sudionici žele uzbuđenje!)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- AKTIVNA GOMILA (pozornost usmjerena na točno određeni cilj, snažne emocije, agresivne i rušilačke značajke, rulja)
+              </p>
+              <img src="Od čega se društvo sastoji_19.png">
+              <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Konvencionalna i ekspresivna gomila lako se pretvaraju u aktivnu gomilu.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- ZNAČAJKE GOMILE:
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sugestibilnost
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Deindividualizacija
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Osjećaj neranjivosto
+              </p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+        <h2>Univerzalne društvene institucije Društvene mreže i društveni odnosi</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Kultura</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p></p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+        <h2>Devijatnost</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Uvod</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                Devijantnost je ponašanje koje preko prihvatljive mjere odstupa od normi što ih većina
+                članova skupine ili društva prihvaća. Takvo se ponašanje najčešće negativno vrednuje i
+                izaziva neprijateljske reakcije.
+                O devijantnosti obično mislimo kao o socijalnom
+                problemu, potencijalnoj opasnosti za društvo, takvo ponašanje može imati i pozitivne funkcije za cjelinu društva.
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">SOCIOLOŠKA OBJAŠNJENJA DEVIJANTNOSTI</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                a) TEORIJA STRUKTURALNOG PRITISKA
+                Tijekom brzih socijalnih promjena ljudi često postaju nesigurni glede toga što se od njih očekuje i teško im je
+                priladogoditi svoje ponašanje konvencionalnim normama. Stare norme ne čine se relevantnima za datu situaciju, a
+                nove su nejasne i nedovoljno određene da bi pružile sigurne putokaze za ponašanje. To je situacija anomije u kojoj
+                se može očekivati učestalo devijantno ponašanje.
+                Sociolog Robert Merton ponudio je pet odgovora na dvojbu u izboru kulturnih ciljeva (npr. bogatstvo, uspjeh,
+                status, prihvaćenost...) i sredstava (načini kako postići kulturne ciljeve – npr. putem obrazovanja).
+                1. Konformnost imamo kada ljudi prihvaćaju i kulturno definirane ciljeve i institucionalizirana sredstva. 2.
+                Inovaciju odlikuje prihvaćanje ciljeva ali napuštanje dozvoljenih sredstava. 3. Ritualizam znači napuštanje ili
+                zanemarivanje ciljeva, ali uporno ostajanje pri postojećim sredstvima. 4. Povlačenje je karakteristično za ljude koji
+                su „ispali“ iz društva: oni odbacuju i ciljeve i sredstva. 5. U pobunama, anarhijama i radikalnim situacijama ljudi
+                također odbacuju i kulturne ciljeve i odobrena sredstva i zamjenjuju ih novim normama.
+                b) TEORIJE KULTURNE TRANSMISIJE
+                Teorije kulturne transmisije naglašavaju sličnosti između načina na koji se uči
+                devijantno ponašanje i načina na koji seuči normalno ponašanje.
+                Taj fenomen se naziva diferencijalna asocijacija. Pojedinci postaju delinkventi ili
+                kriminalci kroz povezivanje (asocijaciju) s nositeljima kriminalnih normi. Većina
+                devijantnog ponašanja uči se u primarnim grupama, ponajprije grupama vršnjaka.
+                c) KONFLIKTNA PERSPEKTIVA na devijantnost polazi od pretpostavke o
+                postojanju suprotstavljenih interesa različitih društvenih grupa. Moćne društvene
+                grupe kontroliraju izradu zakona i njihovo provođenje, nastojeći vlastite
+                vrijednosti i norme nametnuti čitavom društvu. Konfliktna perspektiva na
+                devijantnost polazi od uvida da se u kapitalističkom društvu
+                većina prekršaja normi i zakona odnosi na povredu vlasništva, dok je u manjoj mje
+                ri prisutan kriminal počinjen od strane velikih poduzeća.
+                Zakon nije uvijek neutralan, nego promiče interese i vrijednosti samo nekih
+                društvenih grupa.
+                d) TEORIJA ETIKETIRANJA
+                Teorija etiketiranja pristupa devijantnosti sa stajališta socijalne interakcije. U središtu pozornosti je proces kojim neki
+                ljudi bivaju označeni devijantnima, počinju sebe doživljavati kao devijantne, te se konačno zaista počnu tako i
+                ponašati.
+                1.Nijedan čin nije po sebi devijantan. Ono „loše“ u nekom činu ne proizlazi iz njegova sadržaja, nego iz načina na koji
+                ga drugi ljudi definiraju i reagiraju na nj.
+                2. Većina ljudi se ponaša manje ili više devijantno pa ne stoji podjela na devijantne i „normalne“. Takve pojave se
+                nazivaju primarnom devijantnošću – kršenje normi koje uglavnom prolazi nezapaženo.
+                3. Devijantnost ovisi o tome koja pravila društvo izabire, u kojimih prigodama i prema kojim ljudima provodi. Teorija
+                etiketiranja slična konfliktnoj perspektivi u poimanju devijantnosti upozoravajući da izbor pravila, prigode i osobe na
+                koje će se pravila primjenjivati ovise o strukturi moći u društvu.
+                4. Označavanje (etiketiranje) pojedinaca kao devijantnih stvara povoljne uvjete za sekundarnu
+                devijantnost – devijantnost koju sami pojedinci usvajaju kao odgovor na reakcije okoline. Nova se devijantnost
+                proizvodi putem neprijateljskih reakcija onih koji stvaraju i poštuju pravila. Etiketa pridaje pojedincu status devijantne
+                osobe, a on/ona postupno prihvaća taj status i tako se ponaša. Ljudi etiketirani kao devijantni obično bivaju odbačeni i
+                izolirani, što ih tjera da potraže društvo sebi sličnih. Participacija u devijantnoj subkulturi postaje način rješavanja
+                frustitajućih situacija i nalaženja emocionalne podrške. Istodobno, priključivanje devijantnoj grupi učvršćuje devijantnu
+                sliku vlastite ličnosti, potpomaže devijantni stil života i oslabljuje veze s „normalnim“ dijelom društva.
+              </p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+        <h2>IDENTITET – INDIVIDUALNI I KOLEKTIVNI</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Uvod</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                IDENTITET – skup ideja o tome tko smo, što smo i kakvi smo.
+                Identitet stječemo procesom SOCIJALIZACIJE
+                Vratite onih 5 papirića koje ste maknuli i sve ih stavite ispred sebe
+                Identitet koji usvajamo u prvim godinama tijekom primarne socijalizacije
+                života nazivamo PRIMARNI IDENTITET, a onaj koji usvajamo tijekom
+                sekundarne socijalizacije, SEKUNDARNI IDENTITET
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">PRIMARNI IDENTITET</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                Na temelju bioloških značajki odeđuje se pripadnost određenom RODU
+                I SPOLU te se prema tome odgaja dijete koje razvija svoju OSOBNOST
+                Kada dijete uočava da se razlikuje od drugih ljudi u svojoj okolini, ono
+                razvija INDIVIDUALNI IDENTITET – naglašava razlike u odnosu
+                prema drugima.
+                Socijalizacijom u svojoj okolini dijete uočava sličnosti s članovima
+                svoje obitelji i ljudi koji ga okružuju (SRODSTVO, ETNICITET) te na
+                taj način razvija KOLEKTIVNI IDENTITET
+                PRIMARNI IDENTITET
+                Rod i spol, osobnost, etnicitet i srodstvo značajke su primarnog
+                identiteta
+                Kako ste se osjećali dok ste micali papiriće?
+                Odgovarajući na pitanje Tko sam ja? osvijestili ste svoju osobnost,
+                odnosno osjećaj vlastitog JA
+                Maske… gubimo li identitet kada se ne vidi lice?
+              </p>
+              <img src="Identitet_1.png">
+              <p>
+                ROD je kulturno određen i odnosi se na sociokulturno određenje spolnih
+                razlika.
+                SPOL je biološki određen, a označuje tjelesne značajke muškaraca i
+                žena
+                SRODSTVO – veza s obitelji je trajan izvor primarnog identiteta
+                ETNICITET – označuje pripadnost etničkoj zajednici, npr. etničkoj ili
+                rasnoj grupi (Talijani, Židovi…)
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">SEKUNDARNI IDENTITET</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                Zanimanje i stil života
+                KRIZA IDENTITETA
+                Česta u adolescentskoj dobi (buntovništvo, kršenje pravila)
+                Može se javiti u bilo kojoj dobi
+              </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+        <h2>SUBKULTURE I KONTRAKULTURE</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Kultura</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p></p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+        <h2>Od čega se društvo sastoji</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Kultura</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p></p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+        <h2>NORME I VRIJEDNOSTI; SIMBOLI, JEZIK I RITUALI</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Kultura</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p></p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+        <h2>NORME I VRIJEDNOSTI; SIMBOLI, JEZIK I RITUALI</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Kultura</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p></p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+        <h2>NORME I VRIJEDNOSTI; SIMBOLI, JEZIK I RITUALI</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Kultura</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p></p>
+              <table>
+                <tr>
+                  <th>Statement</th>
+                  <th>Showing interest</th>
+                </tr>
+                <tr>
+                  <td>I have got loads of friends and they want to meet you</td>
+                  <td>Really? that is cool!</td>
+                </tr>
+                <tr>
+                  <td>I have just got one sister. She is a model</td>
+                  <td>Tell me more about her</td>
+                </tr>
+                <tr>
+                  <td>She is training to be a pilot</td>
+                  <td>Wow, that is interesting</td>
+                </tr>
+              </table>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <script>
+/*NEW WINDOW*/
+      /*NEW WINDOW*/
+      /*NEW WINDOW*/
+      /*NEW WINDOW*/
+      function toggleWindow(windowId) {
+        const windowToToggle = document.getElementById(windowId);
+        windowToToggle.classList.toggle('active');
+        document.body.style.overflow = windowToToggle.classList.contains('active') ? 'hidden' : '';
+      }
+      /*SCROOLL REVEAL*/
+      /*SCROOLL REVEAL*/
+      /*SCROOLL REVEAL*/
+      /*SCROOLL REVEAL*/
+      function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 150;
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+          } 
+          else {
+            reveals[i].classList.remove("active");
+          }
+        }
+      }
+      /**/
+      /**/
+      window.addEventListener("scroll", reveal, { passive: true });
+      /*LOCK AND UNLOCK SCROLL*/
+      /*LOCK AND UNLOCK SCROLL*/
+      /*LOCK AND UNLOCK SCROLL*/
+      /*LOCK AND UNLOCK SCROLL*/
+      function lockA() {
+        var xPos = window.scrollX;
+        var yPos = window.scrollY;
+        window.onscroll = () => window.scroll(xPos, yPos);
+      }
+      /**/
+      /**/
+      function lockB() {
+        var target = document.getElementById("demoB");
+        target.scrollIntoView();
+        window.onscroll = () => target.scrollIntoView();
+      }
+      /**/
+      /**/
+      function unlock() {
+        window.onscroll = "";
+      }
+      /*ZOOMING ABILITY*/
+      /*ZOOMING ABILITY*/
+      /*ZOOMING ABILITY*/
+      /*ZOOMING ABILITY*/
+      /* Zoom Functions for Images*/
+      function zoomIn(row) {
+        const images = document.querySelectorAll(`.zoomable-image[data-row="${row}"]`);
+        images.forEach(img => {
+          let currentScale = parseFloat(img.style.transform.replace('scale(', '').replace(')', '')) || 1;
+          img.style.transform = `scale(${currentScale + 0.1})`;
+        });
+      }
+      /**/
+      /**/
+      function zoomOut(row) {
+        const images = document.querySelectorAll(`.zoomable-image[data-row="${row}"]`);
+        images.forEach(img => {
+          let currentScale = parseFloat(img.style.transform.replace('scale(', '').replace(')', '')) || 1;
+          img.style.transform = `scale(${Math.max(currentScale - 0.1, 0.5)})`;
+        });
+      }
+      /**/
+      /**/
+      function resetZoom(row) {
+        const images = document.querySelectorAll(`.zoomable-image[data-row="${row}"]`);
+        images.forEach(img => {
+          img.style.transform = 'scale(1)';
+        });
+      }
+      /**/
+      /**/
+      // Zoom Functions for Text
+      function zoomInText() {
+        const text = document.querySelector('.zoomable-text');
+        let currentSize = parseFloat(window.getComputedStyle(text).fontSize);
+        text.style.fontSize = `${currentSize + 2}px`;
+      }
+      /**/
+      /**/
+      function zoomOutText() {
+        const text = document.querySelector('.zoomable-text');
+        let currentSize = parseFloat(window.getComputedStyle(text).fontSize);
+        text.style.fontSize = `${Math.max(currentSize - 2, 12)}px`;
+      }
+      /**/
+      /**/
+      function resetZoomText() {
+        const text = document.querySelector('.zoomable-text');
+        text.style.fontSize = '16px';
+      }
+      /*MINDMAP SETTINGS*/
+      /*MINDMAP SETTINGS*/
+      /*MINDMAP SETTINGS*/
+      /*MINDMAP SETTINGS*/
+      "use strict";
+      /* Configuration object*/
+      const config = {
+        containerId: 'container',
+        svgId: 'mindmap-svg',
+        nodeClasses: 'mindmap-node',
+        curveIntensity: 0.5,
+        layoutDirection: 'horizontal',
+        initialMinWidth: 600
+      };
+      /**/
+      /**/
+      /* Debounce function*/
+      const debounce = (func, wait) => {
+        let timeout;
+        return (...args) => {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+      };
+      /**/
+      /**/
+      /* Helper function*/
+      const $ = function(t = null) {
+        return new class {
+          constructor(t) {
+            if (t) {
+              this.nodes = t.nodeType ? [t] 
+              : NodeList.prototype.isPrototypeOf(t) ? t 
+              : document.querySelectorAll(t);
+              this.n = this.nodes[0];
+            }
+          }
+          each = t => (this.nodes.forEach(s => t(s)), this);
+          addClass = t => this.each(s => s.classList.add(...t.split(",").map(c => c.trim())));
+          html = t => this.each(s => s.innerHTML = t);
+          create = t => $(document.createElement(t));
+          append = t => {
+            let s = this.create(t);
+            this.n.appendChild(s.n);
+            return s;
+          };
+          remove = () => this.each(node => node.remove());
+          insertAfter = t => (t.n.after(this.n), this);
+          setAttr = (t, s = "") => this.each(e => e.setAttribute(t, s));
+          sCreate = t => {
+            let s = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            s.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
+            s.setAttribute("viewBox", t);
+            return $(s);
+          };
+          sAppend = t => (this.n.appendChild(t.n), this);
+          sC = t => document.createElementNS("http://www.w3.org/2000/svg", t);
+          id = t => (this.setAttr("id", t), this);
+          d = t => (this.setAttr("d", t), this);
+          stroke = t => (this.setAttr("stroke", t), this);
+          strokeWidth = t => (this.setAttr("stroke-width", t), this);
+          sBezier = (x1, y1, x2, y2) => {
+            const path = this.sC("path");
+            const midX = (x1 + x2) / 2;
+            return $(path).d(`M${x1},${y1} C ${midX},${y1} ${midX},${y2} ${x2},${y2}`);
+          };
+        }(t);
+      };
+      /**/
+      /**/
+      /* Resize observer*/
+      const resizeObserver = new ResizeObserver(debounce(() => {
+        $(`#${config.svgId}`).remove();
+        drawLines(data);
+      }, 100));
+      /**/
+      /**/
+      /* Create mind map structure*/
+      function createMap(data) {
+        function calculateDepth(id, depth = 0) {
+          let current = data.find(x => x.id === id);
+          while (current?.parentId !== undefined) {
+            depth++;
+            current = data.find(x => x.id === current.parentId);
+          }
+          return depth;
+        }
+        let direction = -1;
+        data.filter(x => x.parentId === null).forEach(x => {
+          x.div = direction; 
+          direction *= -1;
+        });
+        const root = data.find(x => x.id === null);
+        if (root) root.div = 0;
+        data.filter(x => x.parentId !== null).forEach(x => {
+          x.div = calculateDepth(x.id) * (x.div || 1);
+        });
+        const divs = [...new Set(data.map(x => x.div))].sort((a, b) => a - b);
+        divs.forEach(div => {
+          $(`#${config.containerId}`).append('div').id(`div${div}`).addClass('f-col');
+        });
+        data.forEach(node => {
+          const parentDiv = $(`#div${node.div}`);
+          if (parentDiv.n) {
+            parentDiv.append('p')
+            .html(node.text)
+            .id(`p${node.id}`)
+            .addClass(config.nodeClasses);
+          }
+        });
+      }
+      /**/
+      /**/
+      /* Draw connecting lines*/
+      function drawLines(data) {
+        const container = $(`#${config.containerId}`).n;
+        if (!container) return;
+        const rect = container.getBoundingClientRect();
+        const svg = $().sCreate(`0 0 ${rect.width} ${rect.height}`)
+        .id(config.svgId)
+        .insertAfter($('h1'));
+        svg.n.style = `top:${rect.top}px;left:${rect.left}px; width:${rect.width}px;height:${rect.height}px;`;
+        /* Updated filter to include nodes with parentId: null*/
+        data.filter(x => x.parentId !== undefined).forEach(node => {
+          const nodeEl = $(`#p${node.id}`).n;
+          const parentEl = $(`#p${node.parentId}`).n;
+          if (!nodeEl || !parentEl) return;
+          const parentRect = parentEl.getBoundingClientRect(); // Parent is the start point
+          const nodeRect = nodeEl.getBoundingClientRect(); // Child is the end point
+          const startX = parentRect.left - rect.left + (parentRect.width / 2);
+          const startY = parentRect.top - rect.top + parentRect.height;
+          const endX = nodeRect.left - rect.left + (nodeRect.width / 2);
+          const endY = nodeRect.top - rect.top;
+          svg.sAppend(
+            $().sBezier(startX, startY, endX, endY)
+            .addClass('path')
+            .stroke('var(--secondary-color)')
+            .strokeWidth('var(--stroke-width)')
+          );
+        });
+      }
+      /**/
+      /**/
+      /* Sample data*/
+      const data = [
+        { id: null, text: "<b>Test<br>Mind Map</b>" },
+        { id: 1, parentId: null, text: "Idea - 1" },
+        { id: 2, parentId: null, text: "Dr. Helmut Zimmermann" },
+        { id: 3, parentId: null, text: "Idea - 3" },
+        { id: 4, parentId: 1, text: "order Cake and <b>Coffee</b>" },
+        { id: 5, parentId: 1, text: "Idea - 1 - 2 " },
+        { id: 6, parentId: 3, text: "Idea - 3 - 1 " },
+        { id: 7, parentId: 3, text: "Idea- 3 - 2" },
+        { id: 10, parentId: 2, text: "Idea - 2 - 1" },
+        { id: 12, parentId: 2, text: "Idea - 2 - 2" },
+        { id: 13, parentId: 3, text: "Idea- 3 - 5"},
+      ];
+      /**/
+      /**/
+      /* Initialize*/
+      createMap(data);
+      drawLines(data);
+      resizeObserver.observe($(`#${config.containerId}`).n);
+    </script>
+  </body>
+</html>

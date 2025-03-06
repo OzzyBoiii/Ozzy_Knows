@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            width: 500px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            margin: 20px auto;
+            border: 2px solid #333;
+            overflow-y: scroll;
+        }
+
+        .slider {
+            display: flex;
+            width: 100%; /* Width adjusts dynamically based on number of windows */
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .window {
+            flex: 0 0 100%; /* Each window takes full width of the container */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .window img {
+            max-width: 100%;
+            max-height: 150px;
+            margin-bottom: 10px;
+        }
+
+        .window p {
+            font-size: 16px;
+            text-align: center;
+            margin: 5px 0;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .slide-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .slide-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <!-- Container 1 -->
+    <div class="container" id="container1">
+        <div class="slider">
+            <!-- Window 1 -->
+            <div class="window">
+                <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+                <p>This is the first window of Container 1.</p>
+            </div>
+
+            <!-- Window 2 -->
+            <div class="window">
+                <p>This is the second window of Container 1.</p>
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="slide-button" onclick="slidePrevious('container1')">Previous</button>
+        <button class="slide-button" onclick="slideNext('container1')">Next</button>
+    </div>
+
+    <!-- Container 2 -->
+    <div class="container" id="container2">
+        <div class="slider">
+            <!-- Window 1 -->
+            <div class="window">
+                <p>This is the first window of Container 2.</p>
+                <p>You can add any content here!</p>
+            </div>
+
+            <!-- Window 2 -->
+            <div class="window">
+                <img src="https://via.placeholder.com/200" alt="Another Placeholder">
+                <p>This is the second window of Container 2.</p>
+            </div>
+
+            <!-- Window 3 -->
+            <div class="window">
+                <p>This is the third window of Container 2.</p>
+                <button onclick="alert('Hello from Container 2!')">Click Me</button>
+            </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="slide-button" onclick="slidePrevious('container2')">Previous</button>
+        <button class="slide-button" onclick="slideNext('container2')">Next</button>
+    </div>
+
+    <!-- Container 2 -->
+    <div class="container" id="container3">
+      <div class="slider">
+          <!-- Window 1 -->
+          <div class="window">
+              <p>This is the first window of Container 2.</p>
+              <p>You can add any content here!</p>
+          </div>
+
+          <!-- Window 2 -->
+          <div class="window">
+              <img src="https://via.placeholder.com/200" alt="Another Placeholder">
+              <p>This is the second window of Container 2.</p>
+          </div>
+
+          <!-- Window 3 -->
+          <div class="window">
+              <p>This is the third window of Container 2.</p>
+              <button onclick="alert('Hello from Container 2!')">Click Me</button>
+          </div>
+      </div>
+  </div>
+  <div class="button-container">
+      <button class="slide-button" onclick="slidePrevious('container3')">Previous</button>
+      <button class="slide-button" onclick="slideNext('container3')">Next</button>
+  </div>
+    <script>
+        // Function to slide to the next window
+        function slideNext(containerId) {
+            const container = document.getElementById(containerId);
+            const slider = container.querySelector('.slider');
+            const totalWindows = slider.children.length;
+            let currentWindow = parseInt(container.dataset.currentWindow || 0);
+
+            if (currentWindow < totalWindows - 1) {
+                currentWindow++;
+                updateSlider(container, slider, currentWindow);
+                updateButtons(container, currentWindow, totalWindows);
+            }
+        }
+
+        // Function to slide to the previous window
+        function slidePrevious(containerId) {
+            const container = document.getElementById(containerId);
+            const slider = container.querySelector('.slider');
+            const totalWindows = slider.children.length;
+            let currentWindow = parseInt(container.dataset.currentWindow || 0);
+
+            if (currentWindow > 0) {
+                currentWindow--;
+                updateSlider(container, slider, currentWindow);
+                updateButtons(container, currentWindow, totalWindows);
+            }
+        }
+
+        // Function to update the slider's position
+        function updateSlider(container, slider, currentWindow) {
+            const translateX = -(currentWindow * 100);
+            slider.style.transform = `translateX(${translateX}%)`;
+            container.dataset.currentWindow = currentWindow; // Store current window index
+        }
+
+        // Function to update button states
+        function updateButtons(container, currentWindow, totalWindows) {
+            const prevButton = container.nextElementSibling.querySelector('.slide-button:first-of-type');
+            const nextButton = container.nextElementSibling.querySelector('.slide-button:last-of-type');
+
+            prevButton.disabled = currentWindow === 0; // Disable "Previous" on first window
+            nextButton.disabled = currentWindow === totalWindows - 1; // Disable "Next" on last window
+        }
+
+        // Initialize button states for all containers
+        document.querySelectorAll('.container').forEach(container => {
+            const slider = container.querySelector('.slider');
+            const totalWindows = slider.children.length;
+            updateButtons(container, 0, totalWindows); // Start at the first window
+        });
+    </script>
+</body>
+</html>

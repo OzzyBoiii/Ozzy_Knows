@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Layout Example</title>
+  <style>
+    /* General Styles */
+    body {
+      background-image: url(Learning.jpg);
+      background-repeat: repeat;
+      background-attachment: fixed;
+      background-size: 20% 60%;
+      color: darkgreen;
+      text-align: center;
+      font-style: italic;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Grid Containers */
+    .quotes-grid-container {
+      display: grid;
+      grid-template-columns: 80% 20%;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    #quotes-grid-container_2 {
+      display: grid;
+      grid-template-columns: 20% 80%;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* Quote Items */
+    .quotes-item {
+      background-color: lightblue;
+      padding: 20px;
+      border: 1px solid darkblue;
+      text-align: center;
+      min-height: 80px;
+    }
+
+    /* Button Items */
+    .button-item {
+      background-color: lightcoral;
+      padding: 10px;
+      border: 1px solid darkred;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Images Grid */
+    .photo-grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+      gap: 10px; /* Space between items */
+      margin-bottom: 20px;
+    }
+
+    .photo-item {
+      background-color: lightgreen;
+      padding: 10px;
+      border: 1px solid darkgreen;
+      text-align: center;
+    }
+
+    .photo-item img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* New Windows */
+    .new-window {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 300px;
+      background-color: white;
+      border: 1px solid black;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: none;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .new-window.visible {
+      display: block;
+    }
+
+    /* Stopwatch Styles */
+    #Timer_1 {
+      font-family: "Courier Prime", monospace;
+      font-size: 48px;
+      margin: 20px 0;
+    }
+
+    .stopwatch-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .stopwatch-buttons img {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+    }
+
+    /* Buttons */
+    #Button_1,
+    #Button_3 {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 50px;
+      height: 50px;
+      border: 0;
+      cursor: pointer;
+    }
+
+    #Button_1 {
+      background-image: url(Testing/settings-logo-clipart-2.png);
+    }
+
+    #Button_3 {
+      background-image: url(Main\ Page/Relax/Sandclock.jpg);
+    }
+
+    /* Timer */
+    #demo {
+      font-size: 30px;
+      color: red;
+      text-decoration: solid;
+      text-align: center;
+    }
+
+    /* Settings Window Buttons */
+    .settings-window-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 40px;
+    }
+    #image_1,
+      #image_2,
+      #image_3,
+      #image_4 {
+        height: 70%;
+        width: 70%;
+        position: relative;
+        margin: 0%;
+      }
+      .Stopwatch_Images{
+        width: 15%;
+        height: 15%;
+      }
+  </style>
+</head>
+<body>
+  <!-- First Quotes Grid -->
+  <div class="quotes-grid-container">
+    <div class="quotes-item" id="quotes-item-1"></div>
+    <div class="button-item">
+      <button id="Button_1" onclick="toggleNewWindow('settings-window')"></button>
+    </div>
+  </div>
+
+  <!-- Timer -->
+  <div class="timer-grid-container">
+    <p id="demo"></p>
+  </div>
+
+  <!-- Photos Grid -->
+  <h1 id="Link_1">OSNOVNI PREDMETI (&#8595;)</h1>
+  <div class="photo-grid-container">
+    <!-- Each image is in its own .photo-item -->
+    <div class="photo-item">
+      <a href="http://127.0.0.1:5500/Course/Biology/Biology.html" title="Biologija">
+        <img id="image_1" src="Course/Biology/Background_image.png">
+      </a>
+    </div>
+    <div class="photo-item">
+      <a href="http://127.0.0.1:5500/Course/English/English.html" target="Engleski">
+        <img id="image_2" src="Course/English/Background.png">
+      </a>
+    </div>
+    <div class="photo-item">
+      <a href="http://127.0.0.1:5500/Course/Fizika/Fizika.html" target="Fizika">
+        <img id="image_3" src="Course/Fizika/Background image.png">
+      </a>
+    </div>
+    <div class="photo-item">
+      <a href="http://127.0.0.1:5500/Course/Hrvatski/Hrvatski.html" title="Hrvatski">
+        <img id="image_4" src="Course/Hrvatski/Background_image.png">
+      </a>
+    </div>
+    <div class="photo-item">
+      <a href="http://127.0.0.1:5500/Course/Kemija/Kemija.html" title="Kemija">
+        <img id="image_5" src="Course/Kemija/Background_Chem.webp">
+      </a>
+    </div>
+    <div class="photo-item">
+      <a href="http://127.0.0.1:5500/Course/Math/Math.html" title="Math">
+        <img id="image_6" src="Course/Math/Untitled.png">
+      </a>
+    </div>
+  </div>
+  <div class="grid-container, grid-container1">
+    <h1 id="Link_1">OSTALI PREDMETI (&#8595;)</h1>
+    <h5>
+      <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Logika/Logika.html" >
+        Logika
+      </a>
+      <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Povijest/Povijest.html"  >
+        Povijest
+      </a>
+      <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Psihologija/Psihologija.html">
+        Psihologija
+      </a>
+      <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Socijologija/%C5%9Eocijologija.html">
+        Socijologija
+      </a>
+      <a href="https://learngerman.dw.com/en/learn-german/s-9528" class="d-1">
+        Deutsch
+      </a>
+      <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Likovni.html" >
+        Likovni
+      </a>
+      <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Nutricionizam/Nutricionizam.html" >
+        Nutricionizam
+      </a>
+      <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Glazbeni/Glazbeni.html">
+        Glazbeni
+      </a>
+    </h5>
+  </div>
+  <!-- Second Quotes Grid -->
+  <div class="quotes-grid-container" id="quotes-grid-container_2">
+    <div class="button-item">
+      <button id="Button_3" onclick="toggleNewWindow('settings-window')"></button>
+    </div>
+    <div class="quotes-item" id="quotes-item-2"></div>
+  </div>
+
+  <!-- Windows -->
+  <div id="settings-window" class="new-window">
+    <div class="settings-window-buttons">
+      <button onclick="toggleNewWindow('empty-window')">LINKOVI</button>
+      <button id="sand-clock-btn" onclick="toggleNewWindow('stopwatch-window')"></button>
+    </div>
+    <button onclick="toggleNewWindow('settings-window')">Close</button>
+  </div>
+
+  <div id="stopwatch-window" class="new-window">
+    <h1 id="Timer_1">00:00:00</h1>
+    <div class="stopwatch-buttons">
+      <img src="Main Page/Stopwatch/Play.jpg" onclick="watchStart()">
+      <img src="Main Page/Stopwatch/Stop.png" onclick="watchStop()">
+      <img src="Main Page/Stopwatch/reset.jpg" onclick="watchReset()">
+    </div>
+    <button onclick="toggleNewWindow('stopwatch-window')">Close</button>
+  </div>
+
+  <div id="empty-window" class="new-window">
+    <p>
+      <a href="https://scholar.google.com/" target="_blank">
+        Istraživanje podataka (projekti)
+        </a><br>
+    <a href="https://www.science.org/" target="_blank">
+      Novosti_1
+    </a><br>
+    <a href="https://www.ccdc.cam.ac.uk/" target="_blank">
+      Novosti (UK)
+      </a><br>
+    <a href="https://trello.com/u/lovrorh/boards" target="_blank">
+      Raspored
+    </a><br>
+    <a href="lovretos.oreski@gmail.com" target="blank">
+      Email me
+    </a><br>
+    </p>
+    <button onclick="toggleNewWindow('empty-window')">Close</button>
+  </div>
+
+  <script>
+    // Quote Rotation System
+    const textItems = [
+      "Everybody lies",
+      "It always seems impossible until it is done.",
+      "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
+      "Either you run the day or the day runs you."
+    ];
+    
+    let currentIndex = 0;
+    const rotateQuotes = () => {
+      document.getElementById("quotes-item-1").textContent = textItems[currentIndex];
+      document.getElementById("quotes-item-2").textContent = textItems[(currentIndex + 1) % textItems.length];
+      currentIndex = (currentIndex + 1) % textItems.length;
+    };
+    setInterval(rotateQuotes, 3000);
+    rotateQuotes(); // Initialize immediately
+
+    // Window Toggle System
+    const toggleNewWindow = (windowId) => {
+      document.getElementById(windowId).classList.toggle("visible");
+    };
+
+    // Stopwatch System
+    let [seconds, minutes, hours] = [0, 0, 0];
+    let timer = null;
+    const Timer_1 = document.getElementById("Timer_1");
+
+    const updateTimer = () => {
+      Timer_1.textContent = 
+        `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    };
+
+    const Stopwatch = () => {
+      seconds++;
+      if (seconds === 60) {
+        seconds = 0;
+        minutes++;
+        if (minutes === 60) {
+          minutes = 0;
+          hours++;
+        }
+      }
+      updateTimer();
+    };
+
+    const watchStart = () => {
+      if (!timer) timer = setInterval(Stopwatch, 1000);
+    };
+
+    const watchStop = () => clearInterval(timer);
+    
+    const watchReset = () => {
+      watchStop();
+      [seconds, minutes, hours] = [0, 0, 0];
+      updateTimer();
+      timer = null;
+    };
+
+    // Countdown Timer
+    const countDownDate = new Date("Jun 13, 2026 00:00:00").getTime();
+    const countdownTimer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+      
+      document.getElementById("demo").innerHTML = 
+        `${Math.floor(distance / (1000 * 60 * 60 * 24))}d 
+        ${Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))}h 
+        ${Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))}m 
+        ${Math.floor((distance % (1000 * 60)) / 1000)}s`;
+
+      if (distance < 0) {
+        clearInterval(countdownTimer);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Memory</title>
+    <meta name="author" content="Anna" />
+    <style>
+      body {
+        background-image: url("Learning_1.jpg");
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-size: 20% 60%;
+        position: absolute;
+        color: darkgreen;
+        text-align: center;
+        font-style: italic;
+      }
+
+      .Img1 {
+        width: 30%;
+        height: 30%;
+        position: relative;
+        overflow: hidden;
+      }
+      #link1 {
+        color: red;
+        display: inline-block;
+      }
+      #link1:hover {
+        color: yellow;
+        text-decoration: none;
+        background-color: red;
+        display: inline-block;
+      }
+      #heading_1 {
+        font-size: 33px;
+        color: yellow;
+        text-align: center;
+        text-shadow: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="heading_1">
+      The beginning of remembering,<br />
+      there is still a lot to do
+    </p>
+    <img
+      class="Img1"
+      src="Images (JPG)/Other/Razum.jpg"
+      alt="Mislim, sve je jasno"
+    /><br /><br /><br /><br />
+    <a id="link1" href="http://127.0.0.1:5500/Untitled-1.html"
+      >Mathematics course</a
+    ><br /><br /><br />
+    <a id="link1" href="http://127.0.0.1:5500/Biology.html">Biology course</a
+    ><br /><br /><br />
+    <a id="link1" href="http://127.0.0.1:5500/Fizika.html">Fizika course</a
+    ><br /><br /><br />
+    <a id="link1" href="http://127.0.0.1:5500/Kemija.html">Kemija course</a>
+    <script>
+      function changeColor() {
+        let x = document.getElementById("heading_1");
+        x.style.color = "green";
+      }
+      changeColor();
+    </script>
+  </body>
+</html>

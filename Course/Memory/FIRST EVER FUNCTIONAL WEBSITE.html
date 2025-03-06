@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>OZZY_knows</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      p {
+        text-align: center;
+        font-size: 60px;
+        margin-top: 0px;
+      }
+    /**/
+    /**/
+    /**/
+      .marquee-w {
+        position: relative;
+        display: block;
+        width: 750px;
+        height: 140px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+      }
+      .marquee {
+        position: absolute;
+        display: block;
+        margin: auto auto;
+        white-space: nowrap;
+        overflow: hidden;
+        min-width: 100%;
+        height: 100%;
+      }
+      .marquee span {
+        display: inline-block;
+        padding-left: 100%;
+        font-family: "poppinsbold";
+        text-align: center;
+        -webkit-text-stroke: 1px #43e486;
+        white-space: nowrap;
+        min-width: 100%;
+        height: 100%;
+        line-height: 140px;
+        font-size: 85px;
+        animation: marquee 10s linear infinite;
+      }
+      .marquee2 span {
+        animation-delay: 5s;
+      }
+      @keyframes marquee {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(-100%, 0);
+        }
+      }
+      /**/
+      /**/
+      /**/
+      .flip-card {
+        background-color: transparent;
+        width: 300px;
+        height: 200px;
+        border: 1px solid #f1f1f1;
+        perspective: 1000px; /* Remove this if you don't want the 3D effect */
+      }
+
+      /* This container is needed to position the front and back side */
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
+
+      /* Do an horizontal flip when you move the mouse over the flip box container */
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      /* Position the front and back side */
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+      }
+
+      /* Style the front side (fallback if image is missing) */
+      .flip-card-front {
+        background-color: #bbb;
+        color: black;
+      }
+
+      /* Style the back side */
+      .flip-card-back {
+        background-color: dodgerblue;
+        color: white;
+        transform: rotateY(180deg);
+      }
+      /**/
+      /**/
+      /**/
+      .newWindow {
+        position: absolute;
+        top: 30px;
+        right: 700px;
+        width: 300px;
+        height: 200px;
+        background-color: white;
+        border: 1px solid black;
+      }
+      .hidden {
+        display: none;
+      }
+      /**/
+      /**/
+      /**/
+      #ssd {
+        font-size: 33px;
+        color: green;
+        text-align: center;
+        text-shadow: 6px;
+        font-family: Arial;
+        line-height: normal;
+        width: 500px;
+      }
+      /**/
+      /**/
+      /**/
+      body {
+        background-image: url(Learning.jpg);
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-size: 20% 60%;
+        color: darkgreen;
+        text-align: center;
+        font-style: italic;
+        scroll-behavior: smooth;
+      }
+      #Ozzy_1 {
+        display: inline-block;
+      }
+      /**/
+      /**/
+      /**/
+      #Link_1 {
+        font-size: 33px;
+        color: green;
+        text-align: center;
+        text-shadow: 6px;
+        text-decoration: underline;
+      }
+      #link1 {
+        color: red;
+        display: inline-block;
+        transition: background-color 0.4s;
+      }
+      #link1:hover {
+        color: green;
+        font-weight: bold;
+        text-decoration: none;
+        background-color: red;
+        display: inline-block;
+      }
+      #link1:active {
+        color: green;
+        font-weight: bold;
+        text-decoration: none;
+        background-color: red;
+        display: inline-block;
+        transition: box-shadow 0.3s;
+        box-shadow: 5px 5px 20px rgba(255, 0, 0, 0.6);
+      }
+      /**/
+      /**/
+      /**/
+      #Quote_1 {
+        font-weight: bold;
+      }
+      #Quote_1:hover {
+        font-weight: bold;
+        color: red;
+        transition: color 0.4s;
+      }
+      /**/
+      /**/
+      /**/
+      #Button_1 {
+        background-image: url(Testing/settings-logo-clipart-2.png);
+        height: 50px;
+        background-color: white;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 50px;
+        border: 0px;
+        margin-bottom: 50px;
+        padding: 0.5em 1em;
+      }
+      #Button_1:hover {
+      }
+      /**/
+      /**/
+      /**/
+      #Button_2 {
+        background-image: url(Testing/Untitled.png);
+        height: 50px;
+        background-color: white;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 50px;
+        border: 0px;
+        position: relative;
+        left: 30%;
+        top: 10%;
+      }
+      /**/
+      /**/
+      /**/
+      #Button_3 {
+        background-image: url(Main\ Page/Relax/Sandclock.jpg);
+        height: 50px;
+        background-color: white;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 50px;
+        border: 0px;
+      }
+      /**/
+      /**/
+      /**/
+      #newWindow_3 {
+        width: 90%;
+        max-width: 600px;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.8)
+          ),
+          url(Main\ Page/Stopwatch/background.jpg);
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        padding: 40px 0px;
+        color: #fff;
+        margin: 200px auto 0;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+        position: relative;
+        right: 50px;
+        align-self: center;
+      }
+      #Timer_1 {
+        font-family: "Courier Prime", monospace;
+        margin-top: 60px;
+        font-size: 64px;
+        font-weight: 300;
+      }
+      /**/
+      /**/
+      /**/
+      #image_1,
+      #image_2,
+      #image_3,
+      #image_4 {
+        height: 25%;
+        width: 25%;
+        position: relative;
+        margin: 0%;
+      }
+      #image_1 {
+        width: 15%;
+        height: 15%;
+        margin-right: 15px;
+      }
+      #image_2 {
+        width: 15%;
+        height: 15%;
+        margin-right: 15px;
+      }
+      #image_3 {
+        width: 15%;
+        height: 15%;
+      }
+      .Stopwatch_Images {
+        height: 50px;
+        width: 50px;
+        margin: 0 20px;
+        cursor: pointer;
+      }
+      #image_5{
+        height:50%;
+        width:50% ;
+      }
+      #Button_4 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #Button_4 :nth-child(2) {
+        width: 80px;
+        height: 80px;
+      }
+      #Button_5 {
+        background-image: url();
+        height: 50px;
+        background-color: white;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 50px;
+        border: 0px;
+      }
+      .text-item {
+        display: none;
+      }
+      #text-container {
+        margin: auto;
+        width: 100%;
+        padding: 10px;
+        padding-left: 30%;
+      }
+      /**/
+      /**/
+      /**/
+      #Link_3{
+        position: relative;
+        right: 100px;
+      }
+    </style>
+  </head>
+
+  <div>
+    <img
+      src="Main Page/Raspored/ujutro.png"
+      title="ujutro"
+      width="100px"
+      height="100px"
+    />
+    <img
+      src="Main Page/Raspored/popodne.png"
+      title="popodne"
+      width="100px"
+      height="100px"
+    /><br />
+    <div id="text-container">
+      <div class="text-item" id="ssd">"Everybody lies"</div>
+      <div class="text-item" id="ssd">
+        “It always seems impossible until it is done.”
+      </div>
+      <div class="text-item" id="ssd">
+        "Tell me and I forget. Teach me and I remember. Involve me and I learn."
+      </div>
+      <div class="text-item" id="ssd">
+        "Either you run the day <spam id="Quote_1">or</spam> the day runs
+        you&#183;"
+      </div>
+    </div>
+    <!---->
+    <!---->
+    <!---->
+    <button onclick="toggleWindow('newWindow_6')" id="Button_2"></button>
+    <div id="newWindow_6" class="newWindow hidden" aria-hidden="true">
+      <button onclick="toggleWindow('newWindow_3')" id="Button_3"></button>
+      <div id="newWindow_3" class="newWindow hidden" aria-hidden="true">
+        <button onclick="toggleWindow('newWindow_6')" id="Button_2">&times;</button>
+        <h1 id="Timer_1">00:00:00</h1>
+        <div id="Button_4">
+          <img
+            class="Stopwatch_Images"
+            src="Main Page/Stopwatch/Stop.png"
+            onclick="watchStop()"
+          />
+          <img
+            class="Stopwatch_Images"
+            src="Main Page/Stopwatch/Play.jpg"
+            onclick="watchStart()"
+          />
+          <img
+            class="Stopwatch_Images"
+            src="Main Page/Stopwatch/reset.jpg"
+            onclick="watchReset()"
+          />
+        </div>
+      </div>
+      <br />
+      <!---->
+      <button onclick="toggleWindow('newWindow_1')" id="Button_1"></button>
+      <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
+        <p>dgfhgfd</p>
+      </div>
+      <a href="http://127.0.0.1:5500/Main%20Page/Relax/Relaxing.html"
+        ><img id="image_5" src="Main Page/Razum.jpg" />
+      </a>
+      <button onclick="toggleWindow('newWindow_7')">Assisting programs</button>
+      <div id="newWindow_7" class="newWindow hidden" aria-hidden="true">
+<a href="https://chemix.org/" target="_blank"
+        >Crtanje laboratorijskog pribora</a
+      ><br />
+      <a href="https://scholar.google.com/" target="_blank"
+        >Istraživanje podataka (projekti)</a
+      ><br />
+      <a href="https://www.science.org/" target="_blank">Novosti_1</a><br />
+      <a href="https://www.ccdc.cam.ac.uk/" target="_blank">Novosti (UK)</a
+      ><br />
+      <a href="https://trello.com/u/lovrorh/boards" target="_blank">Raspored</a>
+      <a href="lovretos.oreski@gmail.com" target="blank">Email me</a><br />
+      </div>
+    </div>
+  </div>
+    <br /><br /><br /><br />
+    <!---->
+    <!---->
+    <!---->
+     <p id="demo"></p>
+    <!---->
+    <!---->
+    <!---->
+    <h1 id="Link_1">VAŽNI PREDMETI&#8595;</h1>
+    <a href="http://127.0.0.1:5500/Course/Biology/Biology.html" title="Bio education" ;>
+      <img id="image_1" src="Course/Biology/Background_image.png">
+    </a>
+    <a
+      href="http://127.0.0.1:5500/Course/Kemija/Kemija.html"
+      title="Chem education"
+      ><img id="image_2" src="Course/Kemija/Background_Chem.webp" /></a
+    ><br />
+    <a href="http://127.0.0.1:5500/Corse/Math/Math.html" title="Math education"
+      ><img id="image_3" src="Course/Math/Untitled.png" /></au
+    ><br />
+    <a href="http://127.0.0.1:5500/Course/Fizika/Fizika.html" target="_blank"
+      ><img id="image_4" src="Course/Fizika/Background image.png"
+    /></a>
+    <h1 id="Link_1">OSTALI PREDMETI &#8595;</h1>
+    <br />
+    <h5>
+    <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Logika.html" >Logika</a>
+    <a href=http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Geografija.html >Geografija</a>
+    <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Povijest.html"  >Povijest</a>
+    <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Psihologija.html">Psihologija</a>
+    <a
+href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/%C5%9Eocijologija.html">Socijologija</a>
+    <a href="https://learngerman.dw.com/en/learn-german/s-9528" class="d-1">Deutsch</a>
+    <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Likovni.html" >Likovni</a>
+    <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Nutricionizam.html" >Nutricionizam</a>
+    <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Glazbeni.html">Glazbeni</a>
+    <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Vjeronauk.html" >Vjeronauk</a>
+    </h5>
+    
+    <!---->
+    <!---->
+    <!---->
+    <div class="marquee-w"></div>
+      <div class="marquee">
+        <span
+          >DZ (OVAJ TJEDAN)=&nbsp;&nbsp;&nbsp;</span
+        >
+      </div>
+      <div class="marquee marquee2">
+        <span
+          >DZ (OVAJ TJEDAN)=&nbsp;&nbsp;&nbsp;</span
+        >
+      </div>
+    </div>
+    <!---->
+    <!---->
+    <!---->
+    <button onclick="toggleWindow('newWindow_6')" id="Button_2"></button>
+    <div id="text-container">
+      <div class="text-item" id="ssd">"Everybody lies"</div>
+      <div class="text-item" id="ssd">
+        “It always seems impossible until it is done.”
+      </div>
+      <div class="text-item" id="ssd">
+        "Tell me and I forget. Teach me and I remember. Involve me and I learn."
+      </div>
+      <div class="text-item" id="ssd">
+        "Either you run the day <spam id="Quote_1">or</spam> the day runs
+        you&#183;"
+      </div>
+    </div>
+    <p>HDFGHFJDHJD</p>
+    <div id="text-container">
+      <div class="text-item" id="ssd">"Everybody lies"</div>
+      <div class="text-item" id="ssd">
+        “It always seems impossible until it is done.”
+      </div>
+      <div class="text-item" id="ssd">
+        "Tell me and I forget. Teach me and I remember. Involve me and I learn."
+      </div>
+      <div class="text-item" id="ssd">
+        "Either you run the day <spam id="Quote_1">or</spam> the day runs
+        you&#183;"
+      </div>
+    </div>
+    </body>
+
+    <script>
+      const bttn_close = document.getElementById("bttn_close");
+      const newWindow_3 = document.getElementById("newWindow_3");
+      const Button_3 = document.getElementById("Button_3");
+      bttn_close.addEventListener("click", (event) => {
+        if (newWindow_3.style.display === "none") {
+          newWindow_3.style.display = "block";
+          bttn_close.textContent = "hide";
+        } else {
+          newWindow_3.style.display = "none";
+          Button_3.textContent = "show";
+        }
+      });
+      //
+      //
+      //
+      let [seconds, minutes, hours] = [0, 0, 0];
+      let Timer_1 = document.getElementById("Timer_1");
+      let timer = null;
+      function Stopwatch() {
+        seconds++;
+        if (seconds == 60) {
+          seconds = 0;
+          minutes++;
+          if (minutes == 60) {
+            minutes = 0;
+            hours++;
+          }
+        }
+        let h = hours < 10 ? "0" + hours : hours;
+        let m = minutes < 10 ? "0" + minutes : minutes;
+        let s = seconds < 10 ? "0" + seconds : seconds;
+
+        Timer_1.innerHTML = h + ":" + m + ":" + s;
+      }
+      //
+      function watchStart() {
+        if (timer !== null) {
+          clearInterval(timer);
+        }
+        timer = setInterval(Stopwatch, 1000);
+      }
+      function watchStop() {
+        clearInterval(timer);
+      }
+      function watchReset() {
+        clearInterval(timer);
+        [seconds, minutes, hours] = [0, 0, 0];
+        Timer_1.innerHTML = "00:00:00";
+      }
+      //
+      function toggleWindow(windowId) {
+        const windowToToggle = document.getElementById(windowId);
+        windowToToggle.classList.toggle("hidden");
+        windowToToggle.setAttribute(
+          "aria-hidden",
+          windowToToggle.classList.contains("hidden")
+        );
+      }
+      //
+      const textContainer = document.getElementById("text-container");
+      const textItems = document.querySelectorAll(".text-item");
+      let currentIndex = 0;
+
+      // Show the first text item immediately
+      textItems[currentIndex].style.display = "block";
+
+      // Use setInterval for subsequent text items
+      setInterval(showNextText, 7000); // Replace 2000 with your desired interval in milliseconds
+
+      function showNextText() {
+        textItems[currentIndex].style.display = "none";
+        currentIndex = (currentIndex + 1) % textItems.length;
+        textItems[currentIndex].style.display = "block";
+      }
+      //
+      //
+      //
+       // Set the date we're counting down to
+      var countDownDate = new Date("Jun 13,2026 0:0:0").getTime();
+
+      // Update the count down every 1 second
+      var x = setInterval(function () {
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="demo"
+        document.getElementById("demo").innerHTML =
+          days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+        // If the count down is over, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
