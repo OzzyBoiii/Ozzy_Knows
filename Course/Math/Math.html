@@ -644,25 +644,78 @@
           <div class="text-box">
             <!---->
             <!---->
-            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_3');lockA()">Racionalni brojevi</button>
-            <div id="newWindow_3" class="newWindow hidden" aria-hidden="true">
-              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_3');unlock()">X</button>
-              <p>- Racionalni brojevi
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Skup prirodnih brojeva</button>
+            <div id="newWindow_1" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Glazbene_sastavnice_1.png" class="zoomable-image" data-row="1">
+                <img src="Glazbene_sastavnice_2.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_1');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                  - Racionalni brojevi
                 - količnici brojnika i nazivnika (cijeli brojevi (m:n)) zapisani u razlomcima (m/n)
                 - dijeljenje s 0 nije izvedivo (n≠0), zbog čega se ne može pisati u nazivniku
                 - Skup racionalnih brojeva označavamo s Q
               </p>
             </div>
-            <!---->
-            <!---->
-            <button onclick="toggleWindow('newWindow_4')">Decimalni zapis racionalnih brojeva</button>
-            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
-              <p id="brojevi"> - Provedemo li razlomkom zadano dijeljenje cijelih brojeva, dobit ćemo racionalan broj zapisan u decimalnom obliku </p><br>
-              <!--img here-->
-              <p id="brojevi"><span class="bar">/</span>Svi navedeni primjeri konačni su decimalni brojevi. Postoje i beskonačni decimalni racionalni brojevi</p><br>
-              <!--img here-->
-              <p id="brojevi">Valja uočiti kako se u decimalnom zapisu svakog od triju navedenih brojeva uzastopce ponavlja skupina znamenki. U prvom primjeru to su znamenke 428571, u drugom je to znamenka 3, a u trećem su to znamenke 90. Kažemo da su ovakvi brojevi periodički. Skupinu znamenki koja se uzastopce ponavlja zovemo period. Ovakve brojeve zapisujemo tako da navedemo sve znamenke jednog perioda, a nad prvu i posljednju znamenku stavimo točku. To je, naravno, više načelno nego praktično izvedivo rješenje jer period može ponekad biti toliko velik da ga nema smisla navoditi. Brojeve koji su odabrani za primjere zapisujemo:</p>
+          <div class="right">
+            <div class="zoom-controls">
+              <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+              <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+              <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
             </div>
+            <img src="Glazbene_sastavnice_3.png" class="zoomable-image" data-row="2">
+            <img src="Glazbene_sastavnice_4.png" class="zoomable-image" data-row="2">
+          </div>
+        </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Decimalni zapis realnog brojeva</button>
+            <div id="newWindow_1" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Glazbene_sastavnice_1.png" class="zoomable-image" data-row="1">
+                <img src="Glazbene_sastavnice_2.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_1');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                  - Provedemo li razlomkom zadano dijeljenje cijelih brojeva, dobit ćemo racionalan broj zapisan u decimalnom obliku </p><br>
+              <!--img here-->
+              <span class="bar">/</span>Svi navedeni primjeri konačni su decimalni brojevi. Postoje i beskonačni decimalni racionalni brojevi</p><br>
+              <!--img here-->
+              Valja uočiti kako se u decimalnom zapisu svakog od triju navedenih brojeva uzastopce ponavlja skupina znamenki. U prvom primjeru to su znamenke 428571, u drugom je to znamenka 3, a u trećem su to znamenke 90. Kažemo da su ovakvi brojevi periodički. Skupinu znamenki koja se uzastopce ponavlja zovemo period. Ovakve brojeve zapisujemo tako da navedemo sve znamenke jednog perioda, a nad prvu i posljednju znamenku stavimo točku. To je, naravno, više načelno nego praktično izvedivo rješenje jer period može ponekad biti toliko velik da ga nema smisla navoditi. Brojeve koji su odabrani za primjere zapisujemo:</p>
+            </div>
+            <div class="right">
+              <div class="zoom-controls">
+                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+              <img src="Glazbene_sastavnice_3.png" class="zoomable-image" data-row="2">
+              <img src="Glazbene_sastavnice_4.png" class="zoomable-image" data-row="2">
+            </div>
+          </div>
             <!---->
             <!---->
           </div>
@@ -9517,7 +9570,7 @@
     <!---->
     <section>
       <div class="container reveal fade-bottom">
-        <h3>Formule pretvorbe</h3>
+        <h3>Trigonometrijske nejednadžbe</h3>
         <div class="text-container">
           <div class="text-box">
             <!---->
@@ -9526,7 +9579,7 @@
             <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
               <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
               <p>
-
+                <!--PRIMJERI-->
               </p>
             </div>
             <!---->
@@ -9540,16 +9593,114 @@
     <!---->
     <section>
       <div class="container reveal fade-bottom">
-        <h3>Formule pretvorbe</h3>
+        <h3>Osnovni pojmovi o vektorima</h3>
         <div class="text-container">
           <div class="text-box">
             <!---->
             <!---->
-            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Transformacija umnoška u zbroj</button>
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Definicija vektora</button>
             <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
               <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
               <p>
-
+                Vektor (lat. vector  − nositelj) je usmjerena dužina −−→AB u kojoj razlikujemo početnu točku (hvatište) A i završnu točku (kraj) B. Vektor crtamo poput obične dužine, s tim da je završna točka označena strelicom. 
+              </p>
+              <img src="Osnovni_pojmovi_o_vektoru_1.png"
+              <p>
+                Zato ćemo vektor označavati s −−→AB, −−→CD, −−→PQ ili samo malim slovom iznad kojeg je postavljena strelica: →a, →b itd.
+                S V2 ćemo označavati skup svih vektora čija se početna i završna točka nalaze u jednoj ravnini. Kažemo da je V2 skup svih vektora u ravnini.
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Smjer i kolinearnost vektora</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Vektor je određen ako poznajemo njegovu duljinu, smjer i orijentaciju.
+                Duljina vektora →a=−−→AB
+                udaljenost je između njegove početne i završne točke. To je, dakle, duljina dužine ¯¯¯¯¯¯¯¯AB. Duljinu vektora označavamo s |→a|, odnosno |−−→AB|:
+                |→a|=|−−→AB|=|AB|.
+              </p>
+              <img src="Osnovni_pojmovi_o_vektoru_2.png">
+              <p>
+                Smjer vektora. Ako pravac p prolazi točkama A i B vektora −−→AB, onda kažemo da taj pravac sadrži vektor −−→AB, ili da vektor −−→AB leži na pravcu p. Govorimo još da je pravac p nositelj vektora −−→AB.
+              </p>
+              <img src="Osnovni_pojmovi_o_vektoru_3.png">
+              <p>
+                Za sve vektore koji leže na paralelnim pravcima reći ćemo da imaju isti smjer. Za njih još kažemo da su kolinearni.
+                Smjer i kolinearnost vektora
+                Ako dva vektora leže na paralelnim pravcima, za njih kažemo da imaju isti smjer ili da su kolinearni. U suprotnom slučaju govorimo o nekolinearnim vektorima.
+              </p>
+              <img src="Osnovni_pojmovi_o_vektoru_4.png">
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Orijentacija vektora</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Orijentacija vektora. Vektor nije potpuno određen ako mu poznajemo duljinu i pravac nositelj. Moramo mu poznavati još i orijentaciju.
+                Nacrtajmo pravac p i izdvojimo na njemu tri točke. Neka su to (tim poretkom) A, B i C. Onda su vektori −−→AB, −−→AC i −−→BC iste orijentacije. Također su iste orijentacije i vektori −−→CB, −−→CA, −−→BA. Međutim, vektori −−→BA i −−→BC na slici suprotne su orijentacije.
+              </p>
+              <img src="Osnovni_pojmovi_o_vektoru_5.png">
+              <p>
+                Orijentacija se na prirodan način prenosi i na vektore istog smjera. Tako su na slici, primjerice, vektori −−→AB i −−→RS istog smjera i iste orijentacije, a −−→AB i −−→QP su vektori istog smjera, ali suprotne orijentacije.
+              </p>
+              <img src="Osnovni_pojmovi_o_vektoru_6.png">
+              <p>
+                Određenost i jednakost vektora
+                Vektor je određen ako mu znamo duljinu, smjer i orijentaciju.
+                Dva su vektora jednaka ako se podudaraju po duljini, smjeru i orijentaciji
+                <!--PRIMJER 1-->
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Orijentacija vektora</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Vektori čiji je nositelj isti jednaki su kad imaju istu duljinu i orijentaciju. Za vektore kojima se nositelji razlikuju imamo sljedeći kriterij.
+                Kriterij za jednakost vektora
+                Vektori −−→AB
+                i −−→CD jednaki su onda i samo onda ako je četverokut ABDC
+                paralelogram.
+                Jedan je smjer u ovoj tvrdnji očit: ako je četverokut ABDC
+                paralelogram, tada vrijedi |AB|=|CD|, pravci AB i CD su paralelni, a orijentacije vektora −−→AB i −−→CD su identične. 
+              </p>
+              <img src="Osnovni_pojmovi_o_vektoru_7.png">
+              <p>
+                Obratno, ako je −−→AB=−−→CD, tada su u četverokutu ABDC
+                dvije nasuprotne stranice paralelne i jednake duljine, što je dovoljno da bi on bio paralelogram.
+                Za svaki vektor možemo odrediti njemu jednak vektor koji ima početak u unaprijed zadanoj točki O
+                . Odaberimo neki vektor −−→AB i neka je dana točka O. Postoji (samo jedna) točka T takva da je OTBA paralelogram. Onda je −−→OT=−−→AB. 
+              </p>
+              <img src="Osnovni_pojmovi_o_vektoru_8.png">
+              <p>
+                Radijus-vektor. Temeljni stavak o vektorima
+                Neka je O bilo koja točka ravnine (ili prostora) i −−→AB zadani vektor. Tada postoji jedinstvena točka T u ravnini (ili prostoru) za koju je −−→OT=−−→AB. Vektor −−→OT nazivamo radijus-vektor točke T.
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Suprotni vektori</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Vektori koji imaju istu duljinu i smjer ne moraju biti jednaki. Oni se mogu razlikovati po orijentaciji.
+                Suprotni vektori
+                Za dva vektora kažemo da su suprotna ako imaju istu duljinu i smjer, a suprotnu orijentaciju. Suprotan vektor vektoru →a
+                označavat ćemo s −→a.
+                <!--PRIMJER 2-->
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Nul vektor</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Vektor kojem se podudaraju početna i završna točka nazivamo nul-vektor i označavamo s →0. Njegova je duljina 0, i to je jedini vektor duljine nula. Tako je →0=−−→AA, za bilo koju točku A. Jedino za nul-vektor nema smisla govoriti o smjeru niti o orijentaciji. Prema dogovoru uzimamo da je nul-vektor kolinearan sa svakim vektorom.
               </p>
             </div>
             <!---->
@@ -9563,16 +9714,201 @@
     <!---->
     <section>
       <div class="container reveal fade-bottom">
-        <h3>Formule pretvorbe</h3>
+        <h3>Zbrajanje vektora</h3>
         <div class="text-container">
           <div class="text-box">
             <!---->
             <!---->
-            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Transformacija umnoška u zbroj</button>
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Pravilo paralelograma</button>
             <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
               <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
               <p>
-
+                Ako čamac plovi preko rijeke brzinom 3 m/s okomito na njezin tok, a brzina vode je 1 m/s, kakva će biti njegova putanja? Na ovo su pitanje znali odgovoriti još stari Grci: čamac će se gibati po pravcu koji je dijagonala pravokutnika koji čine pojedina gibanja. Krene li čamac iz točke A prema točki B i ako cijelo vrijeme vozi okomito na tok vode, stići će na drugu obalu u točki C.
+              </p>
+              <img src="Zbrajanje_vektora_1.png"
+              <p>
+                Pred oko 400 godina nizozemski znanstvenik Simon Stevin rješavao je općenitiji problem gibanja tijela na koje djeluju različite sile. Mnogo prije nego što je pojam vektora ušao u matematiku, on je ispravno odgovorio na pitanje: može li se djelovanje dviju sila zamijeniti djelovanjem samo jedne sile koja će imati isti učinak? Djelovanje dviju sila predstavljenih vektorima F⃗ 1 i F⃗ 2 može se  zamijeniti djelovanjem samo jedne sile predstavljene vektorom F⃗ . Pritom je F⃗  dijagonala  paralelograma kojemu su F⃗ 1 i F⃗ 2 susjedne stranice. 
+              </p>
+              <img src="Zbrajanje_vektora_2.png">
+              <p>
+                Time je opravdana sljedeća definicija zbrajanja vektora.
+                Zbroj dvaju vektora OA−→− i OB−→− s istim početkom O je vektor OC−→− takav da je OC¯¯¯¯¯¯¯¯ dijagonala paralelograma OACB.
+                Pišemo
+                OC−→−=OA−→−+OB−→−.
+              </p>
+              <img src="Zbrajanje_vektora_3.png">
+              <p>
+                <!--PRIMJER 1-->
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Pravilo trokuta</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Kako ćemo zbrajati vektore a⃗  i b⃗  koji imaju početke u različitim točkama?
+                Označimo početnu točku vektora a⃗  s O. Neka je A njegova završna točka. Izaberimo vektor OB−→− jednak vektoru b⃗ .
+              </p>
+              <img src="Zbrajanje_vektora_4.png">
+              <p>
+                Zbrojimo vektore OA−→− i OB−→−. Njihov je zbroj vektor c⃗ =OC−→−. Kako se vektori OB−→− i b⃗  podudaraju, vrijedi
+                c⃗ =OC−→−=OA−→−+OB−→−=a⃗ +b⃗ .
+                Zbrajanje vektora možemo opisati na još jedan način. Pogledajmo sliku. 
+              </p>
+              <img src="Zbrajanje_vektora_5.png">
+              <p>
+                Neka su a⃗  i b⃗  bilo koja dva vektora. Označimo početnu točku vektora a⃗  s A, a završnu s B.
+                Dakle, a⃗ =AB−→−. Izaberimo vektor AD−→− jednak vektoru b⃗ . Nacrtajmo paralelogram ABCD. Po pravilu paralelograma za zbrajanje dvaju vektora jea⃗ +b⃗ =AB−→−+AD−→−=AC−→−.
+                Međutim, vektori AD−→− i BC−→− su jednaki, b⃗ =AD−→−=BC−→−. To znači da se zbroj dvaju vektora može dobiti i na ovaj način:a⃗ +b⃗ =AC−→−=AB−→−+BC−→−.
+                Primijetimo da smo tu izabrali dva vektora, AB−→− i BC−→−
+                tako da se završetak jednog podudara s početkom drugog vektora. Za takve vektore kažemo da su ulančaniili da se nadovezuju.
+                Zbrajanje vektora - pravilo trokuta
+                Vektori a⃗ i b⃗  su ulančani ako se završetak prvog podudara s početkom drugog. Zbroj dvaju ulančanih vektora AB−→− i BC−→− je vektor AC−→− koji spaja početnu točku prvog vektora sa završnom točkom drugog vektora.
+              </p>
+              <img src="Zbrajanje_vektora_6.png">
+              <p>
+                <!--PRIMJER 2-->
+              </p>
+              </div>
+              <!---->
+              <!---->
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Svojstva operacije zbrajanja vektora</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Realne brojeve a i b možemo zbrajati u bilo kojem poretku, jer vrijedi a+b=b+a. Isto svojstvo ima i operacija zbrajanja vektora, jer se po pravilu paralelograma zbrojevi a⃗ +b⃗  i b⃗ +a⃗  računaju na isti način.
+                <!--PRIMJER 3-->
+                Komutativnost zbrajanja vektora
+                Zbrajanje vektora je komutativno, tj. za bilo koja dva vektora a⃗ i b⃗  vrijedi a⃗ +b⃗ =b⃗ +a⃗ .
+                Da bismo zbrojili više od dva broja, moramo odabrati poredak zbrajanja. Tako,  primjerice, tri broja a, b i c možemo zbrojiti na način (a+b)+c, u kojem se zbroju prvih dvaju brojeva dodaje treći, ali i na način a+(b+c), u kojem smo najprije zbrojili posljednja dva broja i taj zbroj dodali prvom broju. Kako je zbrajanje realnih brojeva asocijativno, u oba ćemo postupka dobiti isti rezultat. Pokažimo da isto svojstvo ima i zbrajanje vektora.
+              </p>
+              <img src="Zbrajanje_vektora_7.png">
+              <p>
+                Uvjerimo se u istinitost ovog svojstva koristeći pravilo trokuta za zbrajanje vektora. Izaberimo vektore a⃗ , b⃗  i c⃗  tako da budu ulančani. Neka je a⃗ =AB−→−, b⃗ =BC−→− i c⃗ =CD−→−. Onda vrijedi:
+                (a⃗ +b⃗ )+c⃗ =(AB−→−+BC−→−)+CD−→−=AC−→−+CD−→−=AD−→−.
+                Zbrajajući u drugom poretku dobit ćemo a⃗ +(b⃗ +c⃗ )=AB−→−+(BC−→−+CD−→−)=AB−→−+BD−→−=AD−→−.
+                Dakle, vrijedi (a⃗ +b⃗ )+c⃗ =a⃗ +(b⃗ +c⃗ ).
+                Asocijativnost zbrajanja vektora
+                Zbrajanje vektora je asocijativno, tj. za bilo koja tri vektora a⃗ , b⃗  i c⃗  vrijedi (a⃗ +b⃗ )+c⃗ =a⃗ +(b⃗ +c⃗ ).
+                <!--PRIMJER 4-->
+              </p>
+              </div>
+              <!---->
+              <!---->
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Zbroj suprotnih vektora</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Vektori AB−→− i BA−→− suprotni su jer imaju istog nositelja i suprotnu orijentaciju. Za zbroj ovih dvaju vektora vrijedi:
+                AB−→−+BA−→−=AA−→−=0⃗ .
+                Dakle, zbroj suprotnih vektora jednak je nul-vektoru. Ta činjenica opravdava oznaku
+                BA−→−=−AB−→−.
+                Suprotan vektor bilo kojeg vektora a⃗  označavali smo s −a⃗ . Dakle, vrijedi a⃗ +(−a⃗ )=(−a⃗ )+a⃗ =0⃗ .
+                Nul-vektor možemo napisati na način 0⃗ =AA−→−, gdje je A bilo koja točka. Ako je a⃗ =AB−→− neki vektor, onda je 0⃗ +a⃗ =AA−→−+AB−→−=AB−→−=a⃗ .
+                Isto tako je a⃗ +0⃗ =a⃗ . To pokazuje da nul-vektor ima slična svojstva koja ima i broj nula za operaciju zbrajanja brojeva.
+                <!--PRIMEJR 5-->
+              </p>
+              </div>
+              <!---->
+              <!---->
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Oduzimanje vektora</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Oduzimanje je operacija izvedena iz zbrajanja. Prisjetimo se operacije oduzimanja realnih brojeva. Razliku a−b brojeva a i b možemo izračunati tako da broju a pribrojimo broj −b suprotan broju b:
+                a−b=a+(−b).
+                Na isti se način definira i oduzimanje vektora.
+                Oduzimanje vektora
+                Razlika vektora definira se kao zbroj sa suprotnim vektorom:
+                a⃗ −b⃗ =a⃗ +(−b⃗ ).
+                Opišimo kako se geometrijski određuje razlika a⃗ −b⃗ dvaju vektora. Izaberimo vektore jednake početnima tako da imaju zajednički početak. Neka je a⃗ =AB−→−, b⃗ =AC−→−. Onda je CA−→−=−b⃗ , pa je a⃗ +(−b⃗ )=(−b⃗ )+a⃗ =CA−→−+AB−→−=CB−→−.
+              </p>
+              <img src="Zbrajanje_vektora_8.png">
+              <p>
+                Razlika vektora
+                Razlika a⃗ −b⃗ vektora a⃗  i b⃗  određuje se tako da se izaberu vektori jednaki početnima, a da imaju zajednički početak. Tada je razlika vektor koji spaja završetak drugog sa završetkom prvog vektora.
+                <!--PRIMEJR 6-->
+              </p>
+              </div>
+              <!---->
+              <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <h3>Množenje vektora skalarom</h3>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Množenje skalarom</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Sada ćemo definirati novu operaciju: množenje vektora realnim brojem. Realni broj kratko ćemo zvati skalarom.
+                U skupu realnih brojeva množenje je operacija izvedena iz zbrajanja. Tako je, primjerice, zbroj a+a jednak broju 2a, te a+a+a=3a itd. 
+                Prirodno je zahtijevati da isto  svojstvo vrijedi i za vektore.
+                Vektor 2a⃗ definiramo kao zbroj a⃗ +a⃗ . Odredimo taj vektor. Neka je a⃗ =AB−→−. Nacrtajmo još jednom vektor a⃗ , ali tako da mu početak bude u točki B. Dakle, a⃗ =BC−→−. Pritom su točke A, B i C kolinearne i vrijedi |a⃗ |=|AB|=|BC|. Onda je 2a⃗ =AC−→−.
+              </p>
+              <img src="Množenje_vektora_skalarom_1.png">
+              <p>
+                Dakle, za vektor 2a⃗  vrijedi:
+                njegov je smjer isti kao i za vektor a⃗ vektori a⃗ i 2a⃗ 
+                imaju istu orijentaciju za njegovu duljinu vrijedi |2a⃗ |=2|a⃗ |.
+                Kako ćemo množiti vektor negativnim brojem? Prisjetimo se ponovno svojstava množenja realnih brojeva. Umnožak realnog broja a i negativnog broja −2 je broj suprotan broju 2a. To ćemo svojstvo zahtijevati i za množenje vektora negativnim skalarom: umnožak (−2)a⃗  bit će vektor suprotan vektoru 2a⃗ .
+                Ovim smo pokazali koji je vektor dobiva množenjem vektora cijelim brojem. Pokažimo sada kako se definira operacija množenja vektora bilo kojim skalarom. Rezultat te operacije bit će vektor. Moramo mu odrediti duljinu, smjer i orijentaciju.
+                Množenje vektora skalarom
+                Vektor a⃗ množi se skalarom α tako da se dobije vektor αa⃗  sa svojstvima:
+                1. duljina mu je jednaka umnošku apsolutne vrijednosti skalara i duljine vektora: |αa⃗ |=|α|⋅|a⃗ |
+                2. smjer mu je jednak smjeru vektora a⃗ 
+                3. orijentacija mu je jednaka orijentaciji vektora a⃗  ako je α>0, a suprotna orijentaciji vektora a⃗  ako je α<0.
+              </p>
+              <img src="Množenje_vektora_skalarom_3.png">
+              <p>
+                S vektorima ćemo računati koristeći slična pravila koja vrijede za realne brojeve. Tako, primjerice, vrijedi
+                6(a⃗ +2b⃗ )−2(4⃗ a−2b⃗ )=6a⃗ +12b⃗ −8a⃗ +4b⃗ =−2a⃗ +16b⃗ .
+                Koristeći se vektorima vrlo zorno možemo dokazati neke važne geometrijske činjenice. Navedimo primjere:
+                <!--PRIMJER 1-->
+                <!--PRIMJER 2-->
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Jedinični vektor</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Za vektor a⃗ 0 kažemo da je jedinični vektor (ili ort) ako je njegova duljina |a⃗ 0|=1.
+              </p>
+              <img src="Množenje_vektora_skalarom_4.png">
+              <p>
+                Podijelimo li bilo koji vektor a⃗  (različit od nul-vektora) njegovom duljinom1, dobit ćemo jedinični vektor a⃗ 0:a⃗ 0=a⃗ |a⃗ |.
+                1 Zapravo, radi se o množenju vektora skalarom jednakim recipročnoj vrijednosti duljine vektora
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">vektor kolinearnosti</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Izvedimo važan kriterij za kolinearnost vektora. Neka su a⃗ 1 i a⃗ 2 kolinearni vektori (vektori istog smjera), različiti od nul-vektora. Tad se oni mogu razlikovati po duljini i po orijentaciji. Ako su iste orijentacije, stavimo
+                k=|a⃗ 1||a⃗ 2|,
+                a ako su suprotne orijentacije, neka je
+                k=−|a⃗ 1||a⃗ 2|.
+                Sad ćemo provjeriti da vrijedi a⃗ 1=ka⃗ 2
+                . Naime, vektori a⃗ 1 i ka⃗ 2 imaju isti smjer, istu orijentaciju (zbog izbora predznaka broja k) i istu duljinu: |ka⃗ 2|=|k|⋅|a⃗ 2|=|a⃗ 1||a⃗ 2|⋅|a⃗ 2|=|a⃗ 1|,
+                pa je tvrdnja dokazana.
+                Vrijedi i obrat ove tvrdnje: vektori a⃗ 2 i a⃗ 1=ka⃗ 2 su kolinearni, prema definiciji množenja vektora skalarom. Zapamtimo:
+                Kriterij kolinearnosti
+                Vektori a⃗ 1 i a⃗ 2 (a⃗ 2≠0⃗ ) kolinearni su ako i samo ako postoji skalar k takav da vrijedi
+                a⃗ 1=ka⃗ 2.
               </p>
             </div>
             <!---->
@@ -9586,43 +9922,60 @@
     <!---->
     <section>
       <div class="container reveal fade-bottom">
-        <h3>Formule pretvorbe</h3>
+        <h3>Linearna nezavisnost vektora</h3>
         <div class="text-container">
           <div class="text-box">
             <!---->
             <!---->
-            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Transformacija umnoška u zbroj</button>
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Linearna kombinacija, zavisnost i nezavisnost</button>
             <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
               <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
               <p>
-
+                Dva vektora a⃗ 1,a⃗ 2≠0⃗  su kolinearna ako i samo ako postoji skalar k takav da je a⃗ 1=ka⃗ 2. Tu jednakost možemo napisati u obliku
+                1⋅a⃗ 1−k⋅a⃗ 2=0⃗ .(1)
+                Izraz s lijeve strane jedna je linearna kombinacija vektora a⃗ 1 i a⃗ 2. Općenito je linearna kombinacija dvaju vektora a⃗ 1 i a⃗ 2 svaki izraz oblika α1a⃗ 1+α2a⃗ 2.
+                Skalare α1 i α2 nazivamo koeficijentima linearne kombinacije. Ako su oba skalara, α1 i α2 jednaka nuli, onda je linearna kombinacija jednaka nul-vektoru.
+                Linearna nezavisnost
+                Dva su vektora a⃗ 1 i a⃗ 2 linearno nezavisna ako iz jednakosti α1a⃗ 1+α2a⃗ 2=0⃗  nužno slijedi da je α1=α2=0.
+                U suprotnom slučaju su a⃗ 1 i a⃗ 2 linearno zavisni. Tada postoji linearna kombinacija jednaka nul-vektoru u kojoj je barem jedan koeficijent različit od nule.
+                Za svaka dva linearno nezavisna vektora a⃗ 1 i a⃗ 2 kažemo da čine bazu skupa vektora u ravnini V2.
+                Vidimo da su kolinearni vektori linearno zavisni. Vrijedi i obrat: ako su dva vektora linearno zavisna, oni su kolinearni. Naime, ako je α1a⃗ 1+α2a⃗ 2=0⃗  i (primjerice) α1≠0, onda slijedi a⃗ 1=−α2α1⋅a⃗ 2=k⋅a⃗ 2 pa su a⃗ 1 i a⃗ 2 kolinearni.
+                Kolinearnost i linearna nezavisnost
+                Dva su vektora kolinearna ako i samo ako su linearno zavisna.
+                Dakle, a⃗ 1 i a⃗ 2 su nekolinearni vektori ako i samo ako su linearno nezavisni.
               </p>
             </div>
             <!---->
             <!---->
-          </div>
-        </div>
-      </div>
-    </section>
-    <!---->
-    <!---->
-    <!---->
-    <section>
-      <div class="container reveal fade-bottom">
-        <h3>Formule pretvorbe</h3>
-        <div class="text-container">
-          <div class="text-box">
-            <!---->
-            <!---->
-            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Transformacija umnoška u zbroj</button>
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Rastav vektora</button>
             <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
               <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
               <p>
-
-              </p>
-            </div>
-            <!---->
-            <!---->
+                Neka a⃗ 1, a⃗ 2 čine bazu u V2 (tj. a⃗ 1, a⃗ 2 su nekolinearni). Uzmimo bilo koji vektor b⃗ ∈V2. Vektor b⃗  može se prikazati u obliku linearne kombinacije vektora a⃗ 1 i a⃗ 2
+                . Opišimo taj postupak.
+                Translatirajmo vektore a⃗ 1 i a⃗ 2 tako da imaju zajednički početak O. Nacrtajmo pravce p1 i p2 određene tim vektorima. Izaberimo i vektor →b s početkom u O. Neka je →b=−−→OB. Povucimo kroz točku B pravce usporedne s p2 i p1. Označimo redom s C1 i C2 presječne točke s pravcima p1 i p2. 
+                Onda vrijedi
+                →b=−−→OB=−−→OC1+−−→OC2.
+                Međutim, vektori −−→OC1 i →a1 su kolinearni. Zato postoji skalar α1 takav da je −−→OC1=α1→a1. Slično tome, vrijedi −−→OC2=α2→a2. Dakle,
+                →b=α1→a1+α2→a2, što smo htjeli pokazati.
+                </p>
+                <img src="Linearna_nezavisnost_vektora_1.png">
+                <p>
+                  Neka su →a1 i →a2 linearno nezavisni vektori: baza u V2. Svaki se vektor →b∈V2 može prikazati kao linearna kombinacija vektora baze: →b=α1→a1+α2→a2.(2) Kažemo da smo vektor →b rastavili na komponente po vektorima →a1 i →a2. Koeficijenti α1 i α2 linearne kombinacije nazivaju se koordinate vektora →b u prikazu s pomoću vektora →a1 i →a2.
+                  Prikaz vektora u obliku (2) je jedinstven. To znači da postoji samo jedan izbor koordinata α1 i α2 za koji vrijedi (2).
+                  Prvu smo tvrdnju dokazali. Dokažimo još tvrdnju o jedinstvenosti prikaza. Pretpostavimo suprotno: vektor →b može se prikazati na dva različita načina:
+                  →b=α1→a1+α2→a2=β1→a1+β2→a2.
+                  U tom je slučaju (α1−β1)→a1+(α2−β2)→a2=→0.
+                  S lijeve je strane linearna kombinacija vektora →a1 i →a2 jednaka nul-vektoru. Međutim, kako su vektori →a1 i →a2 linearno nezavisni, to se može dogoditi samo onda kad su oba koeficijenta linearne kombinacije jednaka nuli. Dakle, mora biti α1−β1=0, α2−β2=0, odakle slijedi β1=α1, β2=α2 i jedinstvenost je dokazana.
+                <!--PRIMJER 1-->
+                <!--PRIMJER 2-->
+                <!--PRIMEJR 3-->
+                <!--PRIMJER 4-->
+                <!--PRIMJER 5-->
+                </p>
+              </div>
+              <!---->
+              <!---->
           </div>
         </div>
       </div>
