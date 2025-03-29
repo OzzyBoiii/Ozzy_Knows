@@ -477,6 +477,26 @@
         fill: none;
         stroke-width: var(--stroke-width);
       }
+      /*VEKTORI*/
+      /*VEKTORI*/
+      /*VEKTORI*/
+      /*VEKTORI*/
+      .sy {
+        position: relative;
+        text-align: center;
+      }
+      .oncapital,
+      .onsmall {
+        position: absolute;
+        top: -1em;
+        left: 0px;
+        width: 100%;
+        font-size: 70%;
+        text-align: center;
+      }
+      .onsmall {
+        top: -0.7em;
+      }
       /*EXAMPLE WINDOW*/
       /*EXAMPLE WINDOW*/
       /*EXAMPLE WINDOW*/
@@ -574,69 +594,536 @@
     <!---->
     <section>
       <div class="container reveal fade-bottom">
-        <h3>Prirodni i cijeli brojevi (U RADU)</h3>
+        <h3>Osnovni pojmovi o vektorima</h3>
         <div class="text-container">
           <div class="text-box">
             <!---->
             <!---->
-            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Skup prirodnih brojeva</button>
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Definicija vektora</button>
             <div id="newWindow_1" class="newWindow">
               <div class="left">
                 <div class="zoom-controls">
-                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
-                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
-                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                  <button class="button-87" id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button class="button-87" id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button class="button-87" id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
                 </div>
-                <img src="Glazbene_sastavnice_1.png" class="zoomable-image" data-row="1">
-                <img src="Glazbene_sastavnice_2.png" class="zoomable-image" data-row="1">
+                <img src="Osnovni_pojmovi_o_vektoru_1.png" class="zoomable-image" data-row="1">
               </div>
               <div class="center">
-                <button class="close" onclick="toggleWindow('newWindow_1');unlock()">X</button>
+                <button class="close; button-87" onclick="toggleWindow('newWindow_1');unlock()">X</button>
                 <div class="zoom-controls">
-                  <button onclick="zoomInText()">+</button>
-                  <button onclick="zoomOutText()">-</button>
-                  <button onclick="resetZoomText()">Reset </button>
+                  <button class="button-87" onclick="zoomInText()">+</button>
+                  <button class="button-87" onclick="zoomOutText()">-</button>
+                  <button class="button-87" onclick="resetZoomText()">Reset </button>
                 </div>
                 <p class="zoomable-text">
-                - iskazujemo brojnost nekog skupa (odgovaramo na pitanje koliko je u skupu članova <br>
-                - najmanji prirodni broj je 1<br>
-                - najveći prirodni broj ne postoji (skup prirodnih brojeva beskonačan)<br>
-                - Zbroj dvaju prirodnih brojeva uvijek je prirodan broj (m+n = N), dok njihovim oduzimanjem nije uvijek prirodan broj (m-n = N)<br>
-                - skup označavamo sa N<br>
-                - N={1,2,3,4,5,…,n…}<br>
-                - prosti brojevi (primobroji)<br>
-                - prirodni brojevi koji osim samoga sebe i broja 1 nemaju drugih djelitelja <br>
+                &bull; Vektor (lat. vector - nositelj)  <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; usmjerena dužina (<span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span>) u kojoj razlikujemo početnu točku (hvatište (A)) i završnu točku (kraj (B)). <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; crtamo ga poput obične dužine, s tim da je završna točka označena strelicom. (SLIKA 1)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; možemo ga označavati ili zapisom točaka koje omeđuje (s <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span>, <span class="sy"><i>CD</i><span class="oncapital">&rarr;</span></span>,) ili izmišljenim malim slovom (<span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span>,<span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span>)<br>
+                &bull; skup svih vektora čije se početna i završna točka nalazi u jednoj ravnini označavamo s V<sup>2</sup><br>
               </p>
             </div>
             <div class="right">
               <div class="zoom-controls">
-                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
-                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
-                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                <button class="button-87" id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button class="button-87" id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button class="button-87" id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
               </div>
-              <img src="Glazbene_sastavnice_3.png" class="zoomable-image" data-row="2">
-              <img src="Glazbene_sastavnice_4.png" class="zoomable-image" data-row="2">
+              <img src="" class="zoomable-image" data-row="2">
+              <img src="" class="zoomable-image" data-row="2">
             </div>
           </div>
-            <!---->
-            <!---->
-            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_2');lockA()">Skup cijelih brojeva</button>
-            <div id="newWindow_2" class="newWindow hidden" aria-hidden="true">
-              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()">X</button>
-              <p> - iskazujemo vrijednost svih prirodnih brojeva zajedno s negativnim cijelim brojevima i nulom <br>
-                - skup označavamo sa Z<br>
-                - Z={…−3,−2,−1,0,1,2,3…} <br>
+          <!---->
+          <!---->
+          <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_2');lockA()">Smjer i kolinearnost vektora</button>
+          <div id="newWindow_2" class="newWindow">
+            <div class="left">
+              <div class="zoom-controls">
+                <button class="button-87" id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                <button class="button-87" id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                <button class="button-87" id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+              </div>
+              <img src="Osnovni_pojmovi_o_vektoru_2.png" class="zoomable-image" data-row="1">
+              <img src="Osnovni_pojmovi_o_vektoru_3.png" class="zoomable-image" data-row="1">
+            </div>
+            <div class="center">
+              <button class="close; button-87" onclick="toggleWindow('newWindow_2');unlock()">X</button>
+              <div class="zoom-controls">
+                <button class="button-87" onclick="zoomInText()">+</button>
+                <button class="button-87" onclick="zoomOutText()">-</button>
+                <button class="button-87" onclick="resetZoomText()">Reset </button>
+              </div>
+              <p class="zoomable-text">
+                &bull; Vektor je određen ako poznajemo njegovu duljinu, smjer i orijentaciju.<br>
+                &bull; Duljina vektora <span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span>=<span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; udaljenost između njegove početne i završne točke (duljina dužine AB).<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; označavamo je s |<span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span>| ili |<span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span>|. (SLIKA 2)<br>
+                &bull; Smjer vektora. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Njime opisujemo kada je pravac p nositelj vektora <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span>/ pravac p prolazi točkama A i B vektora <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span> (SLIKA 3)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Vektori koji se nalaze na pravcima paralelnim s pravcem na kojem se nalazi vektor koji promatramo kažemo da vektori imaju isti smjer/ da su kolinearni. (SLIKA 4)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;U suprotnom slučaju govorimo o nekolinearnim vektorima.<br>
+              </p>
+            </div>
+            <div class="right">
+              <div class="zoom-controls">
+                <button class="button-87" id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button class="button-87" id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button class="button-87" id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+              <img src="Osnovni_pojmovi_o_vektoru_4.png" class="zoomable-image" data-row="2">
+            </div>
+          </div>
+          <!---->
+          <!---->
+          <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Orijentacija vektora</button>
+          <div id="newWindow_4" class="newWindow">
+            <div class="left">
+              <div class="zoom-controls">
+                <button class="button-87" id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                <button class="button-87" id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                <button class="button-87" id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+              </div>
+              <img src="Osnovni_pojmovi_o_vektoru_5.png" class="zoomable-image" data-row="1">
+              <img src="Osnovni_pojmovi_o_vektoru_6.png" class="zoomable-image" data-row="1">
+            </div>
+            <div class="center">
+              <button class="close; button-87" onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <div class="zoom-controls">
+                <button class="button-87" onclick="zoomInText()">+</button>
+                <button class="button-87" onclick="zoomOutText()">-</button>
+                <button class="button-87" onclick="resetZoomText()">Reset </button>
+              </div>
+              <p class="zoomable-text">
+                &bull; Orijentacija vektora.<br>
+                &bull; Određivanje orijentacije<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Nacrtajmo pravac p i izdvojimo na njemu tri točke (A,B,C) (SLIKA 5).<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; Iz toga vidimo kako su vektori <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span>, <span class="sy"><i>AC</i><span class="oncapital">&rarr;</span></span>, <span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span>, <span class="sy"><i>CB</i><span class="oncapital">&rarr;</span></span>, <span class="sy"><i>BA</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>CA</i><span class="onsmall">&rarr;</span></span> iste orijentacije. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; Međutim, vektori <span class="sy"><i>BA</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span> suprotne su orijentacije.<br>
+                &bull; Prijenos orijentacije na vektore istog smjera<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Nacrtajmo 3 pravca i označimo vektore <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span>, <span class="sy"><i>CD</i><span class="oncapital">&rarr;</span></span>, <span class="sy"><i>RS</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>OP</i><span class="oncapital">&rarr;</span></span><br>  
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Prema slici, vektori <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>RS</i><span class="oncapital">&rarr;</span></span> istog su smjera i orijentacije <br> 
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; vektori <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>QP</i><span class="oncapital">&rarr;</span></span> istog su smjera, ali suprotne orijentacije.<br>
+                &bull; Određenost i jednakost vektora<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Vektor je određen ako mu znamo duljinu, smjer i orijentaciju.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Dva su vektora jednaka ako se podudaraju po duljini, smjeru i orijentaciji<br>
+                <!--PRIMJER 1-->
+                <div class="CONTAINER" id="CONTAINER_1">
+                  <div class="slider" id="slider">
+                    <!-- Window 1 -->
+                    <div class="window">
+                      <li>Odredi vektore i njegove karakterisitike u usporedbi s ostalima</li><br>
+                      <img src="Osnovni_pojmovi_o_vektorima_PRIMJER_1.png">
+                    </div>
+                    <!-- Window 2 -->
+                    <div class="window">
+                      <li>Vektori <span class="sy"><i>AE</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>BD</i><span class="oncapital">&rarr;</span></span> imaju istu duljinu, smjer i orijentaciju pa su jednaki</li><br>
+                      <li>Vektori <span class="sy"><i>AC</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>ED</i><span class="oncapital">&rarr;</span></span> imaju isti smjer, ali različite duljine, pa nisu jednaki</li><br>
+                      <li>Vektori <span class="sy"><i>AE</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>CD</i><span class="oncapital">&rarr;</span></span> imaju iste duljine, ali nemaju isti smjer pa nisu jednaki</li><br>
+                      <li>Vektori <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>DE</i><span class="oncapital">&rarr;</span></span> imaju istu duljinu i smjer, ali suprotnu orijentaciju, pa također nisu jednaki</li><br>
+                    </div>
+                  </div>
+                </div>
+                <!---->
+                <div class="button-CONTAINER">
+                  <button class="slide-button" onclick="slidePrevious('CONTAINER_1')">Previous</button>
+                  <button class="slide-button" onclick="slideNext('CONTAINER_1')">Next</button>
+                </div>
+              </p>
+            </div>
+            <div class="right">
+              <div class="zoom-controls">
+                <button class="button-87" id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button class="button-87" id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button class="button-87" id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+              <img src="Osnovni_pojmovi_o_vektoru_4.png" class="zoomable-image" data-row="2">
+            </div>
+          </div>
+          <!---->
+          <!---->
+          <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_5');lockA()">Kriterij za jednakost vektora</button>
+          <div id="newWindow_5" class="newWindow">
+            <div class="left">
+              <div class="zoom-controls">
+                <button class="button-87" id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                <button class="button-87" id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                <button class="button-87" id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+              </div>
+              <img src="Osnovni_pojmovi_o_vektoru_7.png" class="zoomable-image" data-row="1">
+              <img src="Osnovni_pojmovi_o_vektoru_8.png" class="zoomable-image" data-row="1">
+            </div>
+            <div class="center">
+              <button class="close; button-87" onclick="toggleWindow('newWindow_5');unlock()">X</button>
+              <div class="zoom-controls">
+                <button class="button-87" onclick="zoomInText()">+</button>
+                <button class="button-87" onclick="zoomOutText()">-</button>
+                <button class="button-87" onclick="resetZoomText()">Reset </button>
+              </div>
+              <p class="zoomable-text">
+                &bull; Vektori čiji je nositelj isti jednaki su kad imaju istu duljinu i orijentaciju. <br>
+                &bull; Ukoliko se pravci između dvaju vektora razlikuju: onda vektori <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>CD</i><span class="oncapital">&rarr;</span></span> jednaki samo ako je četverokut ABDC paralelogram.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; ako je četverokut ABDC paralelogram, tada vrijedi da su dužine AB I CD iste duljine i paralelne, a orijentacije vektora identične. (SLIKA 7)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; ako je <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>CD</i><span class="oncapital">&rarr;</span></span>, tada su u četverokutu ABDC dvije nasuprotne stranice paralelne i jednake duljine, što je dovoljno da bi on bio paralelogram.<br>
+                &bull; Za svaki vektor možemo odrediti njemu jednak vektor koji ima početak u unaprijed zadanoj točki O (radijus vektor).<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Odaberimo neki vektor <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span> i označimo točku O. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Postoji samo jedna točka T takva da je OTBA paralelogram. Onda je <span class="sy"><i>OT</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span>. (SLIKA 8)<br>
               </p>
             </div>
             <!---->
             <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_6');lockA()">Suprotni vektori</button>
+          <div id="newWindow_6" class="newWindow">
+            <div class="left">
+              <div class="zoom-controls">
+                <button class="button-87" id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                <button class="button-87" id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                <button class="button-87" id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+              </div>
+              <img src="" class="zoomable-image" data-row="1">
+              <img src="" class="zoomable-image" data-row="1">
+            </div>
+            <div class="center">
+              <button class="close; button-87" onclick="toggleWindow('newWindow_6');unlock()">X</button>
+              <div class="zoom-controls">
+                <button class="button-87" onclick="zoomInText()">+</button>
+                <button class="button-87" onclick="zoomOutText()">-</button>
+                <button class="button-87" onclick="resetZoomText()">Reset </button>
+              </div>
+              <p class="zoomable-text">
+                &bull; Suprotni vektori<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; dva vektora koji imaju istu duljinu i smjer, a suprotnu orijentaciju. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Suprotan vektor vektoru <span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span> označavamo −<span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span>.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Vektor suprotan vektoru <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span> je <span class="sy"><i>BA</i><span class="oncapital">&rarr;</span></span>, jer taj vektor ima isti iznos i smjer, a suprotnu orijentaciju(<span class="sy"><i>-AB</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>BA</i><span class="oncapital">&rarr;</span></span>)
+                <!--PRIMJER 2-->
+                <div class="CONTAINER" id="CONTAINER_1">
+                  <div class="slider" id="slider">
+                    <!-- Window 1 -->
+                    <div class="window">
+                      <li>Odredi Suprotne vektore</li><br>
+                      <img src="Osnovni_pojmovi_o_vektorima_PRIMJER_2.png">
+                    </div>
+                    <!-- Window 2 -->
+                    <div class="window">
+                      <li>Vektori <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>ED</i><span class="oncapital">&rarr;</span></span> imaju isti iznos (duljinu), smjer i orijentaciju pa su jednaki</li><br>
+                      <li>Vektori <span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>EF</i><span class="oncapital">&rarr;</span></span> suprotni su</li><br>
+                      <li>Vektori <span class="sy"><i>AC</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>DF</i><span class="oncapital">&rarr;</span></span> suprotni su</li><br>
+                    </div>
+                  </div>
+                </div>
+                <!---->
+                <div class="button-CONTAINER">
+                  <button class="slide-button" onclick="slidePrevious('CONTAINER_1')">Previous</button>
+                  <button class="slide-button" onclick="slideNext('CONTAINER_1')">Next</button>
+                </div>
+              </p>
+            </div>
+            <div class="right">
+              <div class="zoom-controls">
+                <button class="button-87" id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button class="button-87" id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button class="button-87" id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+              <img src="Osnovni_pojmovi_o_vektoru_4.png" class="zoomable-image" data-row="2">
+            </div>
           </div>
+          <!---->
+          <!---->
+          <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_7');lockA()">Nul vektor</button>
+          <div id="newWindow_7" class="newWindow">
+            <div class="left">
+              <div class="zoom-controls">
+                <button class="button-87" id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                <button class="button-87" id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                <button class="button-87" id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+              </div>
+              <img src="" class="zoomable-image" data-row="1">
+              <img src="" class="zoomable-image" data-row="1">
+            </div>
+            <div class="center">
+              <button class="close; button-87" onclick="toggleWindow('newWindow_7');unlock()">X</button>
+              <div class="zoom-controls">
+                <button class="button-87" onclick="zoomInText()">+</button>
+                <button class="button-87" onclick="zoomOutText()">-</button>
+                <button class="button-87" onclick="resetZoomText()">Reset </button>
+              </div>
+              <p class="zoomable-text">
+                &bull; Nul vektor<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Vektor kojem se podudaraju početna i završna točka označavamo s <span class="sy"><i>0</i><span class="oncapital">&rarr;</span></span>. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Njegova je duljina 0, i vrijedi <span class="sy"><i>0</i><span class="oncapital">&rarr;</span></span>=−−<span class="sy"><i>AA</i><span class="oncapital">&rarr;</span></span> za bilo koju točku A. <br> 
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Prema dogovoru uzimamo da je nul-vektor kolinearan sa svakim vektorom.<br>
+              </p>
+            </div>
+            <div class="right">
+              <div class="zoom-controls">
+                <button class="button-87" id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button class="button-87" id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button class="button-87" id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+              <img src="Osnovni_pojmovi_o_vektoru_4.png" class="zoomable-image" data-row="2">
+            </div>
+          </div>
+          <!---->
+          <!---->
         </div>
       </div>
-    </section>
+    </div>
+  </section>
     <!---->
     <!---->
     <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <h3>Zbrajanje vektora</h3>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_8');lockA()">Definicija vektora</button>
+            <div id="newWindow_8" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button class="button-87" id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button class="button-87" id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button class="button-87" id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Zbrajanje_vektora_3.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close; button-87" onclick="toggleWindow('newWindow_8');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button class="button-87" onclick="zoomInText()">+</button>
+                  <button class="button-87" onclick="zoomOutText()">-</button>
+                  <button class="button-87" onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                  &bull; Zbroj dvaju vektora - Pravilo paralelograma<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Zbroj vektora <span class="sy"><i>OA</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>OB</i><span class="oncapital">&rarr;</span></span> s istim početkom O je vektor <span class="sy"><i>OC</i><span class="oncapital">&rarr;</span></span> takav da je OC dijagonala paralelograma OACB. 
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; (OC−→−=OA−→−+OB−→−. (SLIKA 3))<br>
+                <!--PRIMJER 1-->
+                <div class="CONTAINER" id="CONTAINER_1">
+                  <div class="slider" id="slider">
+                    <!-- Window 1 -->
+                    <div class="window">
+                      <li>Kosi hitac. Tijelo je izbačeno pod nekim kutom početnom brzinom →vp. Pod pretpostavkom odsustva trenja, ono će se nastaviti gibati u tom smjeru istom brzinom. Međutim, u svakom trenutku, zbog utjecaja gravitacijske sile, iznos komponente brzine →vo prema tlu povećava se proporcionalno proteklom vremenu: vo=gt. Rezultantno gibanje odvija se po paraboli. </li><br>
+                      <img src="Zbrajanje_vektora_PRIMJER_1.png">
+                    </div>
+                    <!-- Window 2 -->
+                    <div class="window">
+                      <li>Vektor brzine tijela dobiva se zbrajanjem jedne stalne komponente u smjeru početne brzine i druge kojoj se iznos mijenja proporcionalno proteklom vremenu. Rezultantna brzina bit će uvijek tangencijalna na putanju tijela.</li>
+                    </div>
+                  </div>
+                </div>
+                </p>
+              </div>
+              <div class="right">
+                <div class="zoom-controls">
+                  <button class="button-87" id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                  <button class="button-87" id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                  <button class="button-87" id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                </div>
+                <img src="Osnovni_pojmovi_o_vektoru_4.png" class="zoomable-image" data-row="2">
+              </div>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_9');lockA()">Pravilo trokuta</button>
+            <div id="newWindow_9" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button class="button-87" id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button class="button-87" id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button class="button-87" id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Zbrajanje vektora_4.png" class="zoomable-image" data-row="1">
+                <img src="Zbrajanje vektora_5.png" class="zoomable-image" data-row="1">
+                <img src="Zbrajanje vektora_6.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close; button-87" onclick="toggleWindow('newWindow_9');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button class="button-87" onclick="zoomInText()">+</button>
+                  <button class="button-87" onclick="zoomOutText()">-</button>
+                  <button class="button-87" onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                  &bull; Zbroj vektora- Pravilo trokuta<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Vektori <span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span> i <span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span> ulančani su ako se završetak prvog podudara s početkom drugog. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Zbroj dvaju ulančanih vektora <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span> je vektor <span class="sy"><i>AC</i><span class="oncapital">&rarr;</span></span> koji spaja početnu točku prvog vektora sa završnom točkom drugog vektora. (SLIKA 6)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Izvedba (SLIKA 5)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; Označimo početnu točku vektora <span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span>  s O.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; Neka je A njegova završna točka, zbog koje Izaberemo vektor <span class="sy"><i>OB</i><span class="oncapital">&rarr;</span></span> jednak vektoru <span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span> . (SLIKA 4)<br>
+                <!---->
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; Zbrojimo vektore <span class="sy"><i>OA</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>OB</i><span class="onsmall">&rarr;</span></span>, čime dobijemo zbroj vektor <span class="sy"><i>c</i><span class="onsmall">&rarr;</span></span> =<span class="sy"><i>OC</i><span class="oncapital">&rarr;</span></span>. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; Kako se vektori <span class="sy"><i>OB</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span>  podudaraju, vrijedi <span class="sy"><i>c</i><span class="onsmall">&rarr;</span></span> =<span class="sy"><i>OC</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>OA</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>OB</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span> +<span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span> .
+                Zbrajanje vektora možemo opisati na još jedan način. Pogledajmo sliku. (SLIKA 5)
+                <!---->
+                Neka su a⃗  i b⃗  bilo koja dva vektora. Označimo početnu točku vektora a⃗  s A, a završnu s B.
+                Dakle, a⃗ =AB−→−. Izaberimo vektor AD−→− jednak vektoru b⃗ . Nacrtajmo paralelogram ABCD. Po pravilu paralelograma za zbrajanje dvaju vektora jea⃗ +b⃗ =AB−→−+AD−→−=AC−→−.
+                Međutim, vektori AD−→− i BC−→− su jednaki, b⃗ =AD−→−=BC−→−. To znači da se zbroj dvaju vektora može dobiti i na ovaj način:a⃗ +b⃗ =AC−→−=AB−→−+BC−→−.
+                Primijetimo da smo tu izabrali dva vektora, AB−→− i BC−→−
+                tako da se završetak jednog podudara s početkom drugog vektora. Za takve vektore kažemo da su ulančaniili da se nadovezuju.
+                
+                <!--PRIMJER 2-->
+                <div class="CONTAINER" id="CONTAINER_1">
+                  <div class="slider" id="slider">
+                    <!-- Window 1 -->
+                    <div class="window">
+                      <li>Neka je dan pravilni šesterokut ABCDEF i neka je S njegovo središte. Odredimo sljedeće vektore:
+                        1) <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>CD</i><span class="oncapital">&rarr;</span></span>; 2) <span class="sy"><i>FS</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>ED</i><span class="oncapital">&rarr;</span></span>;
+                        3) <span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>ED</i><span class="oncapital">&rarr;</span></span>; 4) <span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>EF</i><span class="oncapital">&rarr;</span></span>. </li><br>
+                      <img src="Zbrajanje_vektora_PRIMJER_2.png">
+                    </div>
+                    <!-- Window 2 -->
+                    <div class="window">
+                      <li>
+                        Rješenje: Promatrajmo sliku i pratimo redom sljedeće jednakosti:
+                        1) <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>CD</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>BS</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>AS</i><span class="oncapital">&rarr;</span></span>;
+                        2) <span class="sy"><i>FS</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>ED</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>FS</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>SC</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>FC</i><span class="oncapital">&rarr;</span></span>;
+                        3) <span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>ED</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>AS</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>SC</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>AC</i><span class="oncapital">&rarr;</span></span>;
+                        4) <span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>EF</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>CB</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>BB</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>0</i><span class="oncapital">&rarr;</span></span>.
+                      </li><br>
+                      </div>
+                  </div>
+                </div>
+              </p>
+              </div>
+              <div class="right">
+                <div class="zoom-controls">
+                  <button class="button-87" id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                  <button class="button-87" id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                  <button class="button-87" id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                </div>
+                <img src="Osnovni_pojmovi_o_vektoru_4.png" class="zoomable-image" data-row="2">
+              </div>
+            </div>
+              <!---->
+              <!---->
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_10');lockA()">Svojstva operacije zbrajanja vektora</button>
+              <div id="newWindow_10" class="newWindow">
+                <div class="left">
+                  <div class="zoom-controls">
+                    <button class="button-87" id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                    <button class="button-87" id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                    <button class="button-87" id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                  </div>
+                  <img src="Zbrajanje vektora_7.png" class="zoomable-image" data-row="1">
+                </div>
+                <div class="center">
+                  <button class="close; button-87" onclick="toggleWindow('newWindow_10');unlock()">X</button>
+                  <div class="zoom-controls">
+                    <button class="button-87" onclick="zoomInText()">+</button>
+                    <button class="button-87" onclick="zoomOutText()">-</button>
+                    <button class="button-87" onclick="resetZoomText()">Reset </button>
+                  </div>
+                  <p class="zoomable-text">
+                Realne brojeve a i b možemo zbrajati u bilo kojem poretku, jer vrijedi a+b=b+a. 
+                Isto svojstvo ima i operacija zbrajanja vektora, jer se po pravilu paralelograma zbrojevi a⃗ +b⃗  i b⃗ +a⃗  računaju na isti način.
+                <!--PRIMJER 3-->
+                <div class="CONTAINER" id="CONTAINER_1">
+                  <div class="slider" id="slider">
+                    <!-- Window 1 -->
+                    <div class="window">
+                      <li>Provjera svojstva komutativnosti:
+                        <img src="Zbrajanje_vektora_PRIMJER_3.png">
+                    </div>
+                    <!-- Window 2 -->
+                    <div class="window">
+                      <li>
+                        Rješenje: Neka su <span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span> i <span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span> bilo koja dva vektora. 
+                        Odaberimo njima jednake vektore tako da budu ulančani (<span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span>=<span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span>=<span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span>. 
+                        Onda je <span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span>+<span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span>=<span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>AC</i><span class="oncapital">&rarr;</span></span>.
+                        Odaberimo zatim vektore jednake vektorima <span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span> i <span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span>, ulančane u drugom poretku (Vrijedi <span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span>=<span class="sy"><i>AD</i><span class="oncapital">&rarr;</span></span> i <span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span>=<span class="sy"><i>DC</i><span class="oncapital">&rarr;</span></span>. 
+                        Zato je <span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span>+<span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span>=<span class="sy"><i>AD</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>DC</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>AC</i><span class="oncapital">&rarr;</span></span>. 
+                        Zaključujemo da vrijedi <span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span>+<span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span>=<span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span>+<span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span>, pa je zbrajanje vektora komutativno.
+                      </li><br>
+                      </div>
+                  </div>
+                </div>
+                &bull; Komutativnost zbrajanja vektora: za bilo koja dva vektora <span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span> i <span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span>  vrijedi <span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span> +<span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span> =<span class="sy"><i>b</i><span class="onsmall">&rarr;</span></span> +<span class="sy"><i>a</i><span class="onsmall">&rarr;</span></span> .
+                Da bismo zbrojili više od dva broja, moramo odabrati poredak zbrajanja. Tako,  primjerice, tri broja a, b i c možemo zbrojiti na način (a+b)+c, u kojem se zbroju prvih dvaju brojeva dodaje treći, ali i na način a+(b+c), u kojem smo najprije zbrojili posljednja dva broja i taj zbroj dodali prvom broju. Kako je zbrajanje realnih brojeva asocijativno, u oba ćemo postupka dobiti isti rezultat. Pokažimo da isto svojstvo ima i zbrajanje vektora.
+                Uvjerimo se u istinitost ovog svojstva koristeći pravilo trokuta za zbrajanje vektora. Izaberimo vektore a⃗ , b⃗  i c⃗  tako da budu ulančani. Neka je a⃗ =AB−→−, b⃗ =BC−→− i c⃗ =CD−→−. Onda vrijedi:
+                (a⃗ +b⃗ )+c⃗ =(AB−→−+BC−→−)+CD−→−=AC−→−+CD−→−=AD−→−.
+                Zbrajajući u drugom poretku dobit ćemo a⃗ +(b⃗ +c⃗ )=AB−→−+(BC−→−+CD−→−)=AB−→−+BD−→−=AD−→−.
+                Dakle, vrijedi (a⃗ +b⃗ )+c⃗ =a⃗ +(b⃗ +c⃗ ).
+                Asocijativnost zbrajanja vektora
+                Zbrajanje vektora je asocijativno, tj. za bilo koja tri vektora a⃗ , b⃗  i c⃗  vrijedi (a⃗ +b⃗ )+c⃗ =a⃗ +(b⃗ +c⃗ ).
+                <!--PRIMJER 4-->
+                <div class="CONTAINER" id="CONTAINER_1">
+                  <div class="slider" id="slider">
+                    <!-- Window 1 -->
+                    <div class="window">
+                      <li>Neka je dan pravilni šesterokut ABCDEF i neka je S njegovo središte. Odredimo sljedeće vektore:
+                        1) <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>CD</i><span class="oncapital">&rarr;</span></span>; 2) <span class="sy"><i>FS</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>ED</i><span class="oncapital">&rarr;</span></span>;
+                        3) <span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>ED</i><span class="oncapital">&rarr;</span></span>; 4) <span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>EF</i><span class="oncapital">&rarr;</span></span>. </li><br>
+                      <img src="Zbrajanje_vektora_PRIMJER_2.png">
+                    </div>
+                    <!-- Window 2 -->
+                    <div class="window">
+                      <li>
+                        Rješenje: Promatrajmo sliku i pratimo redom sljedeće jednakosti:
+                        1) <span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>CD</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>AB</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>BS</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>AS</i><span class="oncapital">&rarr;</span></span>;
+                        2) <span class="sy"><i>FS</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>ED</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>FS</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>SC</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>FC</i><span class="oncapital">&rarr;</span></span>;
+                        3) <span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>ED</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>AS</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>SC</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>AC</i><span class="oncapital">&rarr;</span></span>;
+                        4) <span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>EF</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>BC</i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>CB</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>BB</i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>0</i><span class="oncapital">&rarr;</span></span>.
+                      </li><br>
+                      </div>
+                  </div>
+                </div>
+              </p>
+              </div>
+              <div class="right">
+                <div class="zoom-controls">
+                  <button class="button-87" id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                  <button class="button-87" id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                  <button class="button-87" id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                </div>
+                <img src="Osnovni_pojmovi_o_vektoru_4.png" class="zoomable-image" data-row="2">
+              </div>
+            </div>
+              <!---->
+              <!---->
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Zbroj suprotnih vektora</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Vektori AB−→− i BA−→− suprotni su jer imaju istog nositelja i suprotnu orijentaciju. Za zbroj ovih dvaju vektora vrijedi:
+                AB−→−+BA−→−=AA−→−=0⃗ .
+                Dakle, zbroj suprotnih vektora jednak je nul-vektoru. Ta činjenica opravdava oznaku
+                BA−→−=−AB−→−.
+                Suprotan vektor bilo kojeg vektora a⃗  označavali smo s −a⃗ . Dakle, vrijedi a⃗ +(−a⃗ )=(−a⃗ )+a⃗ =0⃗ .
+                Nul-vektor možemo napisati na način 0⃗ =AA−→−, gdje je A bilo koja točka. Ako je a⃗ =AB−→− neki vektor, onda je 0⃗ +a⃗ =AA−→−+AB−→−=AB−→−=a⃗ .
+                Isto tako je a⃗ +0⃗ =a⃗ . To pokazuje da nul-vektor ima slična svojstva koja ima i broj nula za operaciju zbrajanja brojeva.
+                <!--PRIMEJR 5-->
+              </p>
+              </div>
+              <!---->
+              <!---->
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Oduzimanje vektora</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Oduzimanje je operacija izvedena iz zbrajanja. Prisjetimo se operacije oduzimanja realnih brojeva. Razliku a−b brojeva a i b možemo izračunati tako da broju a pribrojimo broj −b suprotan broju b:
+                a−b=a+(−b).
+                Na isti se način definira i oduzimanje vektora.
+                Oduzimanje vektora
+                Razlika vektora definira se kao zbroj sa suprotnim vektorom:
+                a⃗ −b⃗ =a⃗ +(−b⃗ ).
+                Opišimo kako se geometrijski određuje razlika a⃗ −b⃗ dvaju vektora. Izaberimo vektore jednake početnima tako da imaju zajednički početak. Neka je a⃗ =AB−→−, b⃗ =AC−→−. Onda je CA−→−=−b⃗ , pa je a⃗ +(−b⃗ )=(−b⃗ )+a⃗ =CA−→−+AB−→−=CB−→−.
+              </p>
+              <img src="Zbrajanje_vektora_8.png">
+              <p>
+                Razlika vektora
+                Razlika a⃗ −b⃗ vektora a⃗  i b⃗  određuje se tako da se izaberu vektori jednaki početnima, a da imaju zajednički početak. Tada je razlika vektor koji spaja završetak drugog sa završetkom prvog vektora.
+                <!--PRIMEJR 6-->
+              </p>
+            </div>
+            <!---->
+            <!---->
+            </div>
+            </div>
+            </div>
+            </section>
     <!---->
     <!---->
     <!---->
