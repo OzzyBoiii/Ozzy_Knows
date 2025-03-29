@@ -9985,12 +9985,511 @@
     <!---->
     <section>
       <div class="container reveal fade-bottom">
-        <h3>Formule pretvorbe</h3>
+        <h3>Vektori u Karzijevu koordinatnom sustavu</h3>
         <div class="text-container">
           <div class="text-box">
             <!---->
             <!---->
-            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Transformacija umnoška u zbroj</button>
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Kartezijev koordinatni sustav</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Dva su istaknuta vektora u Kartezijevu koordinatnom sustavu:
+                i⃗ :j⃗ :jedinični vektor na osi apscisajedinični vektor na osi ordinata.
+                Par vektora (i⃗ ,j⃗ ) čine bazu Kartezijeva pravokutnog sustava.
+              </p>
+              <img src="Vektori_u_Karzijevu_koordinatnom_sustavu_1.png">
+              <p>
+                Svaki se vektor u ravnini može rastaviti na komponente u smjeru vektora baze.
+                Kako se određuju koordinate vektora u tom prikazu ako bazu čine vektori i⃗ , j⃗ ?
+                Uzmimo najprije bilo koju točku A(x,y) ravnine. Neka je A1 ortogonalna projekcija točke A na os apscisa, a A2 ortogonalna projekcija na os ordinata. Vektori OA1−→− i i⃗ su kolinearni.
+                Kako je duljina vektora OA1−→− jednaka |OA1−→−|=|x|, vrijedi OA1−→−=xi⃗ .
+                Slično je OA2−→−=yj⃗ . Zato je a⃗ =OA−→−=OA1−→−+OA2−→−=xi⃗ +yj⃗ .
+                Koordinate vektora
+                Radijus-vektor a⃗ =OA−→− točke A(x,y) možemo prikazati kao linearnu kombinaciju vektora i⃗ , j⃗  ovako:
+                OA−→−=xi⃗ +yj⃗ .(1)
+                Realne brojeve x i y nazivamo koordinate vektora OA−→−.
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Prikaz vektora</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Dokažimo sad općenitiju formulu.
+                Prikaz vektora
+                Vektor AB−→− s početkom u točki A(x1,y1) i završetkom u točki B(x2,y2) ima prikaz AB−→−=(x2−x1)i⃗ +(y2−y1)j⃗ .(2)
+                Vektor AB−→− možemo napisati kao razliku dvaju radijus-vektora:
+                AB−→−=OB−→−−OA−→−.
+                Primjenom prikaza (1) možemo pisati OA−→−=x1i⃗ +y1j⃗ , OB−→−=x2i⃗ +y2j⃗ , pa je AB−→−=(x2i⃗ +y2j⃗ )−(x1i⃗ +y1j⃗ )=(x2−x1)i⃗ +(y2−y1)j⃗ .
+              </p>
+              <img src="Vektori_u_Karzijevu_koordinatnom_sustavu_2.png">
+              <p>
+                Uobičajeno je koordinate vektora a⃗  označavati s ax, ay, vektora b⃗  s bx, by itd. Neka su a⃗ =axi⃗ +ayj⃗ ,b⃗ =bxi⃗ +byj⃗  zadani vektori. Pitamo se: kad će biti a⃗ =b⃗  ? Zbog jednoznačnosti prikaza tada mora biti ax=bx i ay=by
+                . Obrnuto: ako se koordinate vektora podudaraju, podudaraju se i vektori.
+                Kriterij za jednakost vektora
+                Dva su vektora, a⃗ =axi⃗ +ayj⃗ i b⃗ =bxi⃗ +byj⃗  jednaka ako i samo ako im se podudaraju njihove pravokutne koordinate: a⃗ =b⃗ ⟺ax=bx,ay=by.
+              </p>
+              </div>
+              <!---->
+              <!---->
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Udaljenost dviju točaka i duljina vektora</button>
+              <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+                <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+                <p>
+                  Udaljenost dviju točaka A(x1,y1), B(x2,y2) računa se formulom:
+                  |AB|=(x2−x1)2+(y2−y1)2−−−−−−−−−−−−−−−−−−√ jer je ta udaljenost duljina hipotenuze pravokutng trokuta kojemu katete imaju duljine |x2−x1| i |y2−y1|. Vidi sliku lijevo. Ta je udaljenost jednaka duljini vektora AB−→−
+                  |AB−→−|=(x2−x1)2+(y2−y1)2−−−−−−−−−−−−−−−−−−√.
+                  Općenitije, duljina vektora a⃗ =axi⃗ +ayj⃗  je |a⃗ |=a2x+a2y−−−−−−√.
+                </p>
+                <img src="Vektori_u_Karzijevu_koordinatnom_sustavu_3.png">
+                <p>
+                  <!--PRIMJER 1-->
+                  <!--PRIMJER 2-->
+                </p>
+                </div>
+                <!---->
+                <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <h3>Skalarni umnožak</h3>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Skalarni umnožak</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Sada ćemo upoznati još jednu operaciju: množenje vektora. Rezultat tog množenja bit će skalar. Zato se ta operacija naziva skalarno množenjevektora.
+                Neka su a⃗ ≠0⃗ i b⃗ ≠0⃗  bilo koja dva vektora. Translatirajmo ih tako da imaju zajednički početak O, pa imamo a⃗ =OA−→−, b⃗ =OB−→−.
+                Neka je φ=<)(→a,→b) neorijentirani kut što ga određuju vektori →a i →b. Mjera tog kuta je u intervalu [0∘,180∘]. 
+              </p>
+              <img src="Skalarni_umnožak_1.png">
+              <p>
+                Skalarni umnožak vektora →a i →b je realni broj →a⋅→b definiran s →a⋅→b=|→a|⋅|→b|cosφ, gdje je φ kut između vektora →a i →b.
+                Ako je neki (ili oba) od vektora →a, →b nul-vektor, onda se pojam kuta između vektora ne definira. Tada je skalarni umnožak po definiciji jednak nuli.
+              </p>
+              <img src="Skalarni_umnožak_2.png">
+              <p>
+                Ako je skalarni umnožak jednak nuli, onda je ili jedan od vektora nul-vektor, ili je kut između njih pravi pa su vektori okomiti. Tada pišemo →a⊥→b.
+                Skalarni produkt vektora sa samim sobom jednak je kvadratu duljine vektora:
+                →a⋅→a=|→a|2, jer je tada kut φ jednak nuli.
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Svojstva skalarnog umnoška</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Svojstva skalarnog umnoška
+                Za sve vektore →a, →b, →c i svaki skalar  g∈R vrijedi:
+                1) pozitivnost: →a⋅→a≥0,→a⋅→a=0⟺→a=→0
+                2) komutativnost: →a⋅→b=→b⋅→a
+                3) homogenost: ( g→a)⋅→b= g(→a⋅→b)
+                4) distributivnost: (→a+→b)⋅→c=→a⋅→c+→b⋅→c.
+                Prva tri svojstva slijede direktno iz same definicije. Dokažimo svojstvo distributivnosti. U tu svrhu, promotrimo sljedeću sliku 
+                </p>
+                <img src="Skalarni_umnožak_3.png">
+                <p>
+                  Sa slike lijevo vidimo: ako se jedan vektor projicira ortogonalno na pravac određen drugim vektorom, onda imamo:
+                  →a⋅→c=|OA||BC|cosφ=|OA||PQ|.
+                  Sad sa slike desno sada slijedi →a⋅(→b+→c)=|OA||OQ|=|OA|(|OP|+|PQ|)=|OA||OP|+|OA|⋅|PQ|=→a⋅→b+→a⋅→c.
+                  <!--PRIMJER 1-->
+                </p>
+                </div>
+                <!---->
+                <!---->
+                <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Skalarni umnožak u koordinatnom sustavu</button>
+                <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+                  <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+                  <p>
+                    Skalarni umnožak u Kartezijevu sustavu
+                    Skalarni umnožak vektora →a=ax→i+ay→j i →b=bx→i+by→j računa se formulom →a⋅→b=axbx+ayby. Posebice, ∥→a∥=√a2x+a2y.
+                    Dokažimo formulu za skalarni umnožak. Formula za duljinu vektora dobiva se iz umnoška →a⋅→a
+                    . Najprije primijetimo: →i⋅→i=|→i|⋅|→i|⋅cos0∘=1,→j⋅→j=|→j|⋅|→j|⋅cos0∘=1.
+                    Također, vrijedi →i⋅→j=|→i|⋅|→j|⋅cos90∘=0.
+                    Jednako je tako →j⋅→i=0. I sada imamo →a⋅→b=(ax→i+ay→j)(bx→i+by→j)=axbx→i⋅→i+axby→i⋅→j+aybx→j⋅→i+ayby→j⋅→j=axbx+ayby.
+                    <!--PRIMEJR 2-->
+                    </p>
+                    </div>
+                    <!---->
+                    <!---->
+                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Kut između vektora</button>
+                <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+                  <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+                  <p>
+                    Ako su zadani vektori →a=ax→i+ay→j i →b=bx→i+by→j, onda se primjenom skalarnog umnoška može odrediti kut φ između tih dvaju vektora. 
+                  </p>
+                  <img src="Skalarni_umnožak_4.png">
+                  <p>
+                    Najprije zapišimo →a⋅→b=|→a|⋅|→b|⋅cosφ=√a2x+a2y⋅√b2x+b2y⋅cosφ.
+                    No također je →a⋅→b=axbx+ayby
+                    Izjednačimo te dvije jednakosti i dobijemo cosφ=axbx+ayby√a2x+a2y⋅√b2x+b2y.
+                    Posebno, vektori →a i →b su okomiti onda i samo onda ako vrijedi →a⋅→b=axbx+ayby=0.
+                    <!--PRIMJER 3-->
+                    <!--PRIMJER 4-->
+                  </p>
+                  </div>
+                  <!---->
+                  <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <h3>Dijeljenje dužine u zadanom omjeru</h3>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Dijeljenje dužine u omjeru</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Polovište dužine dijeli tu dužinu u omjeru 1:1. Težište trokuta dijeli težišnicu u omjeru 2:1.
+              </p>
+              <img src="Dijeljenje_dužine_u_zadanom_omjeru_1.png">
+              <p>
+                Neka je AB¯¯¯¯¯¯¯¯ zadana dužina i C neka njezina točka. Kažemo da C dijeli dužinu AB¯¯¯¯¯¯¯¯ u omjeru  g ako vrijedi |AC|:|CB|= g.
+                Dijeljenje dužine u zadanom omjeru možemo opisati korištenjem vektora.
+                Naime, vektori AC−→− i CB−→− su kolinearni, a za njihove duljine vrijedi |AC−→−|:|CB−→−|= g pa je zato AC−→−= gCB−→−. Vektori AC−→− i CB−→− iste su orijentacije pa je  g pozitivan realni broj. 
+              </p>
+              <img src="Dijeljenje_dužine_u_zadanom_omjeru_2.png">
+              <p>
+                Dijeljenje dužine u zadanom omjeru
+                Neka je  g pozitivan realni broj. Točka C dijeli dužinu AB¯¯¯¯¯¯¯¯ u omjeru  g ako vrijedi AC−→−= gCB−→−.(1)
+              </p>
+              <img src="Dijeljenje_dužine_u_zadanom_omjeru_3.png">
+              <p>
+                Neka je O ishodište koordinatnog sustava. Prikažimo vektor OC−→− kao linearnu kombinaciju vektora OA−→− i OB−→−. U jednakost AC−→−=λCB−→− uvrstimo AC−→−=OC−→−−OA−→−, CB−→−=OB−→−−OC−→−:
+                OC−→−−OA−→−= g(OB−→−−OC−→−).
+                Odavde izračunajmo OC−→−: OC−→−+ gOC−→−=OA−→−+ gOB−→−.
+                Konačno je: OC−→−=11+ gOA−→−+ g1+ gOB−→−.
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Koordinate djelišne točke</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Ako znamo koordinate točaka A i B u Kartezijevu sustavu, onda iz posljednje jednadžbe možemo odrediti koordinate točke C koja dužinu ¯¯¯¯¯¯¯¯AB dijeli u omjeru  g. Neka je, dakle, A(xA,yA), B(xB,yB), C(xC,yC). Onda je: xC→i+yC→j=11+ g(xA→i+yA→j)+ g1+ g(xB→i+yB→j).
+                Izjednačimo li koordinate vektora s lijeve i s desne strane jednakosti, dobit ćemo:
+                Koordinate djelišne točke
+                Točka C koja dijeli dužinu ¯¯¯¯¯¯¯¯AB u omjeru  g ima koordinate xC=xA+ gxB1+ g,yC=yA+ gyB1+ g.
+                <!--PRIMJER 1-->
+              </p>
+              </div>
+              <!---->
+              <!---->
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Polovište dužine i težište trokuta</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                PolovišteP dužine ¯¯¯¯¯¯¯¯AB je točka koja dužinu dijeli na dva jednaka dijela. Kako je, dakle, |−−→AP|=|−−→PB|, onda je λ=1. Stavljajući λ=1 u formule za određivanje koordinata djelišne točke dužine izravno dobijemo: xP=xA+xB2,yP=yA+yB2
+                Polovište dužine
+                Neka su A(xA,yA), B(xB,yB) zadane točke. Polovište P dužine ¯¯¯¯¯¯¯¯AB ima koordinate xP=xA+xB2,yP=yA+yB2.
+                <!--PRIMJER 2-->
+                Da bismo odredili koordinate težišta T trokuta s poznatim vrhovima A, B i C, primijenit ćemo dva puta formule za koordinate djelišne točke. Neka je D polovište dužine ¯¯¯¯¯¯¯¯BC. Njezine su koordinate xD=xB+xC2, yD=yB+yC2. 
+              </p>
+              <img src="Dijeljenje_dužine_u_zadanom_omjeru_4.png">
+              <p>
+                Težište T dijeli težišnicu ¯¯¯¯¯¯¯¯¯AD u omjeru 2:1. Dakle, λ=2. Zato ćemo koordinate točke T odrediti s pomoću koordinata točaka A i D:
+                xT=xA+2xD1+2=xA+xB+xC3.
+                Slično bismo dobili i yT.
+                Koordinate težišta trokuta
+                Težište T trokuta ABC s vrhovima A(xA,yA), B(xB,yB), C(xC,yC) ima koordinate xT=xA+xB+xC3,yT=yA+yB+yC3.
+                <!--PRIMJER 3-->
+              </p>
+              </div>
+              <!---->
+              <!---->
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Površina trokuta</button>
+              <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+                <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+                <p>
+                  Trokut je u koordinatnoj ravnini određen koordinatama svojih vrhova. Uzmimo da su točke T1(x1,y1), T2(x2,y2) i T3(x3,y3) vrhovi trokuta. Kako mu izračunati površinu? 
+                  </p>
+                  <img src="Dijeljenje_dužine_u_zadanom_omjeru_5.png">
+                  <p>
+                    Spustimo iz točaka T1, T2 i T3 okomice na os x, sjecišta tih okomica s osi x označimo s T′1, T′2 i T′3.
+                    Da bismo izračunali površinu P trokuta T1T2T3, zbrojit ćemo površinu P1 trapeza T1T′1T′3T3 i površinu P2 trapeza T3T′3T′2T2 te od tog zbroja oduzeti površinu P3 trapeza T1T′1T′2T2. 
+                  </p>
+                  <img src="Dijeljenje_dužine_u_zadanom_omjeru_6.png">
+                  <p>
+                    Prisjetimo se: ako su a i c duljine osnovica trapeza a v duljina njegove visine, površina mu je jednaka P=a+c2⋅v. Računamo redom: P1=12(y1+y3)(x3x1),P2=12(y2+y3)(x2−x3),P3=12(y1+y2)(x2−x1). Sada je P=P1+P2−P3=12(x1y2−x1y3+x2y3−x2y1+x3y1−x3y2).
+                    Time je zadatak riješen. Ovu ćemo formulu zapisati u obliku koji je pogodniji i za računanje i za pamćenje:
+                    Površina trokuta
+                    Površina trokuta kojemu su vrhovi točke T1(x1,y1), T2(x2,y2) i T3(x3,y3) jednaka je \tv[8][8] P=12|x1(y2−y3)+x2(y3−y1)+x3(y1−y2)|.
+                    Stavljanjem oznake za apsolutnu vrijednost osiguravamo da površina trokuta bude pozitivan broj.
+                    <!--PRIMJER 4-->
+                    <!--PRIMJER 5-->
+                  </p>
+                  </div>
+                  <!---->
+                  <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <h3>Eksplicitni i implicitni oblik jednadžbe pravca</h3>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Pravac</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                U prvom smo razredu razmatrali problem rješavanja linearne jednadžbe s dvjema nepoznanicama oblika Ax+By+C=0. Ova jednadžba ima beskonačno mnogo rješenja, uređenih parova realnih brojeva (x,y). Sva ta rješenja prikazana u koordinatnom sustavu pripadaju pravcu pa za jednadžbu Ax+By+C=0 kažemo još i da je jednadžba pravca.
+                Pravac
+                Pravac je skup svih točaka (x,y) u ravnini čije koordinate zadovoljavaju jednadžbu Ax+By+C=0, pri čemu je barem jedan od koeficijenata A, B različit od nule. Ova se jednadžba naziva implicitni oblik jednadžbe pravca.
+                Kako se crta pravac zadan nekom linearnom jednadžbom?
+                Dovoljno je odrediti dvije točke koje leže na tom pravcu, uzimajući po volji dvije vrijednosti za nepoznanicu x ili za nepoznanicu y.
+                <!--PRIMJER 1-->
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Pravac</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                </p>
+                </div>
+                <!---->
+                <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <h3>Eksplicitni i implicitni oblik jednadžbe pravca</h3>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Pravac</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                U prvom smo razredu razmatrali problem rješavanja linearne jednadžbe s dvjema nepoznanicama oblika Ax+By+C=0. Ova jednadžba ima beskonačno mnogo rješenja, uređenih parova realnih brojeva (x,y). Sva ta rješenja prikazana u koordinatnom sustavu pripadaju pravcu pa za jednadžbu Ax+By+C=0
+                kažemo još i da je jednadžba pravca.
+                Pravac
+                Pravac je skup svih točaka (x,y) u ravnini čije koordinate zadovoljavaju jednadžbu Ax+By+C=0, pri čemu je barem jedan od koeficijenata A, B različit od nule. Ova se jednadžba naziva implicitni oblik jednadžbe pravca.
+                Kako se crta pravac zadan nekom linearnom jednadžbom?
+                Dovoljno je odrediti dvije točke koje leže na tom pravcu, uzimajući po volji dvije vrijednosti za nepoznanicu x ili za nepoznanicu y.
+                <!--PRIMJER 1-->
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Pravci paralelni s koordinatnim osima</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Ako je u općoj jednadžbi pravca A=0, onda ona glasi By+C=0.
+                Tu jednadžbu zadovoljavaju sve točke (x,y) ravnine za koje vrijedi y=−CB. Te se točke nalaze na pravcu koji prolazi točkom (0,−CB) i paralelan je s osi apscisa.
+                Ako je u općoj jednadžbi B=0, onda ona glasi Ax+C=0.
+                Tu jednadžbu zadovoljavaju sve točke (x,y) ravnine za koje vrijedi x=−CA. Te se točke nalaze na pravcu koji prolazi točkom (−CA,0) i paralelan je s osi ordinata.
+                </p>
+                <img src="Eksplicitni_i_implicitni_oblik_jednadžbe_pravca_1.png">
+                <p><!--PRIMJER 2--></p>
+                </div>
+                <!---->
+                <!---->
+                <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Eksplicitni oblik jednadžbe pravca</button>
+                <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+                  <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+                  <p>
+                    Ako je B≠0, jednadžbu Ax+By+C=0 dijeljenjem s koeficijentom B prevodimo u jednadžbu oblika y=−ABx−CB.
+                    Stavimo li k=−AB i l=−CB, dobit ćemo jednadžbu pravca u obliku y=kx+l.
+                    Eksplicitni oblik jednadžbe pravca
+                    Ako pravac nije paralelan s osi ordinata, njegova se jednadžba može napisati u obliku y=kx+l.
+                    Tu jednadžbu zovemo eksplicitni oblik jednadžbe pravca.
+                    Koeficijent k u eksplicitnoj jednadžbi pravca zovemo nagib ili koeficijent smjera.
+                    Koeficijent l nazivamo odsječak na osi ordinata.
+                    Koeficijent smjera k može biti bilo koji realan broj. Ako je k=0, tad jednadžba pravca glasi y=l i on je paralelan s osi apscisa.
+                    Stavimo li u eksplicitnu jednadžbu pravca x=0 , dobit ćemo y=k⋅0+l=l. To znači da pravac prolazi točkom (0,l) na osi ordinata. Zato se l nazivaodsječak na osi ordinata. Ako je l=0, pravac prolazi ishodištem.
+                  <!--PRIMJER 3-->  
+                  </p>
+                    </div>
+                    <!---->
+                    <!---->
+                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Koeficijent smjera i jednadžbe pravca</button>
+                <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+                  <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+                  <p>
+                    Kako glasi jednadžba pravca koji prolazi točkom A(x1,y1) i ima zadani koeficijent smjera k? Napišimo njegovu eksplicitnu jednadžbu: y=kx+l.
+                    Točka A leži na pravcu pa njezine koordinate zadovoljavaju tu jednadžbu: y1=kx1+l.
+                    Oduzimanjem ovih dviju jednadžbi dobivamo: y−y1=k(x−x1)
+                    (1) i to je tražena jednadžba.
+                    ***
+                    Znamo također da je pravac određen dvjema svojim točkama. Da bismo odredili jednadžbu pravca koji prolazi točkama A(x1,y1) i B(x2,y2), možemo iskoristiti jednadžbu (1) jer taj pravac prolazi točkom A. Koeficijent k odredit ćemo iz uvjeta da i druga točka B leži na pravcu: y2−y1=k(x2−x1)⟹k=y2−y1x2−x1. Tražena jednadžba glasi y−y1=y2−y1x2−x1(x−x1).
+                    </p>
+                    <img src="Eksplicitni_i_implicitni_oblik_jednadžbe_pravca_2.png">
+                    <p>
+                      Pogledajmo koje je geometrijsko značenje koeficijenta smjera k. Označimo s φ kut koji pravac zatvara s pozitivnim smjerom osi apscisa. Taj kut uvijek možemo izabrati u granicama 0∘≤φ je manje od 180∘. Iz pravokutnog trokuta na slici vidimo da vrijedi tg φ=y2−y1x2−x1. Prema tome, koeficijent smjera pravca jednak je tangensu priklonog kuta φ.
+                    <!--PRIMJER 4-->
+                    Pravac koji prolazi točkom A(x1,y1) i ima poznati koeficijent smjera k ima jednadžbu y−y1=k(x−x1). Ako on prolazi i točkom B(x2,y2), tada koeficijent smjera glasi k=y2−y1x2−x1. Jednadžba pravca koji prolazi točkama A(x1,y1), B(x2,y2) glasi y−y1=y2−y1x2−x1(x−x1). Za koeficijent smjera vrijedi k=tg φ, gdje je φ kut koji pravac zatvara s pozitivnim dijelom osi apscisa.
+                    <!--PRIMJER 5-->
+                    <!--PRIMJER 6-->
+                    <!--PRIMJER 7-->  
+                  </p>
+                    </div>
+                    <!---->
+                    <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <h3>Segmentni oblik jednadžbe pravca</h3>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Segmentni oblik jednadžbe pravca</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                <!--PRIMEJR 1-->
+                Izvest ćemo još jedan oblik jednadžbe pravca određen odsječcima (segmentima) pravca na koordinatnim osima. Krenimo od implicitne jednadžbe pravca: (1) Ax+By+C=0.
+                Izdvojimo najprije tri posebne situacije.
+                1. C=0
+                . Jednadžba pravca glasi Ax+By=0 i nju zadovoljava točka (0,0). Dakle, pravac prolazi ishodištem. Dakako da vrijedi i obrat: ako pravac prolazi ishodištem, onda mora biti C=0.
+                2. A=0. Sad je jednadžba By+C=0
+                . Ovaj je pravac paralelan s osi apscisa.
+                3. B=0. Jednadžba pravca je Ax+C=0 i on je paralelan s osi ordinata.
+                Pretpostavimo sada da su svi koeficijenti A, B i C različiti od nule. Tada pravac nije paralelan niti s jednom koordinatnom osi i ne prolazi ishodištem. On zato siječe obje koordinatne osi u točkama koje nisu ishodište.
+                Podijelimo jednadžbu (1) s C: ACx+BCy+1=0, odnosno x−CA+y−CB=1.
+                Označimo brojeve u nazivnicima s m i n. Dobili smo jednadžbu oblika xm+yn=1.
+                Nazivamo je segmentni oblik jednadžbe pravca1.
+                </p>
+                </div>
+                <!---->
+                <!---->
+                <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Geometrijsko značenje brojeva m i n</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Koja su geometrijska značenja brojeva m i n? Potražimo presjeke pravca p s koordinatnim osima. Presjek s osi apscisa dobivamo za y=0:xm+0n=1⟹x=m.
+                Dakle, koordinate presječne točke su (m,0), pa je m jednak apscisi presjeka pravca s Ox-osi.
+              </p>
+              <img src="Segmentni_oblik_jednadžbe_pravca_1.png">
+              <!--PRIMEJR 2-->
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>           
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <h3>Kut dvaju pravaca. Paralelnost i okomitost pravaca</h3>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Kut između pravaca</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Dva pravca koja se sijeku određuju dva suplementarna neorijentirana kuta. Ako pravci nisu okomiti, mjera jednog od kutova manja je od 90∘, a drugog je veća od 90∘. Kut φ između pravaca definiramo kao manji od tih dvaju kutova. Dakle, uvijek je 0∘<φ≤90∘. Kut između paralelnih pravaca ima mjeru φ=0∘.
+              </p>
+              <img src="Kut_dvaju_pravaca._Paralelnost_i_okomitost_pravaca_1.png">
+              <p>
+                Pokažimo kako se računa kut između pravaca zadanih eksplicitnim jednadžbama: p...y=k1x+l1,q...y=k2x+l2. kutove koje ti pravci zatvaraju s pozitivnim dijelom osi apscisa. Onda je tg ϕ1=k1, tg ϕ2=k2.
+              </p>
+              <img src="Kut_dvaju_pravaca._Paralelnost_i_okomitost_pravaca_2.png">
+              <p>
+                Neka je α kut za koji treba zarotirati pravac p da bi prešao u pravac q. Onda je α=ϕ2−ϕ1, pa se taj kut računa iz formule tg α=tg (ϕ2−ϕ1)=tg ϕ2−tg ϕ11+tg ϕ1tg ϕ2=k2−k11+k1k2.
+              </p>
+              <img src="Kut_dvaju_pravaca._Paralelnost_i_okomitost_pravaca_3.png">
+              <p>
+                Koja je veza kuta α i kuta φ između pravaca p i q? Ako je α šiljast ili pravi, onda je φ=α (slika lijevo). Ako je α tup, onda vrijedi φ=180∘−α (slika desno). Tada je tg α negativan, a za tg φ vrijedi tg φ=tg (180∘−α)=−tg α=|tg α|.
+                Tako oba slučaja možemo obuhvatiti istom formulom.
+                Kut između pravaca
+                Kut φ između pravaca p...y=k1x+l1, q...y=k2x+l2 računa se iz formule tg φ=∣∣k2−k11+k1k2∣∣.
+                <!--PRIMEJR 1-->
+                <!--PRIMEJR 2-->
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Uvjet paralelnosti pravaca</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Dva su pravca paralelna ako je kut između njih 0∘. Tada je tg φ=0, pa iz k2−k11+k1k2=0 vidimo da mora biti k1=k2. Korisno je znati kriterij za paralelnost pravaca napisanih jednadžbama u implicitnom obliku. Neka su jednadžbe pravaca p1...A1x+B1y+C1=0,p2...A2x+B2y+C2=0.
+                Pretpostavimo da su koeficijenti A1,A2,B1,B2 različiti od nule. 2 Koeficijenti smjera ovih pravaca su k1=−A1B1,k2=−A2B2.
+                Iz k1=k2 slijedi −A1B1=−A2B2,tj.A1A2=B1B2.
+                Kriteriji paralelnosti pravaca
+                Dva pravca zadana svojim jednadžbama u eksplicitnom ili implicitnom obliku, p1...y=k1x+l1...A1x+B1y+C1=0,p2...y=k2x+l2...A2x+B2y+C2=0, paralelna su onda i samo onda ako vrijedi k1=k2, odnosno A1A2=B1B2.
+                Ako taj uvjet nije ispunjen, onda je pravac paralelan s nekom koordinatnom osi.
+              </p>
+              </div>
+              <!---->
+              <!---->
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Uvjet okomitosti pravaca</button>
+            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
+              <p>
+                Ako su dva pravca okomita, onda je kut između njih 90∘, pa je tg φ=±∞. To znači da nazivnik izraza tg φ=k2−k11+k1k2 mora biti jednak nuli: 1+k1k2=0⟹k2=−1k1. Izvedimo i kriterij za okomitost pravaca napisanih jednadžbama u implicitnom obliku. Uvrstimo li izraz za koeficijente smjera tih pravaca, dobivamo −A2B2=B1A1\qq tj.\qqA1A2+B1B2=0.
+                Kriteriji okomitosti pravaca
+                Dva pravca zadana jednadžbama u eksplicitnom ili implicitnom obliku, p1...y=k1x+l1...A1x+B1y+C1=0,p2...y=k2x+l2...A2x+B2y+C2=0, okomita su onda i samo onda ako vrijedi k1k2=−1, odnosno A1A2+B1B2=0.
+                <!--PRIMEJR 3-->
+                <!--PRIMEJR 4-->
+              </p>
+              </div>
+              <!---->
+              <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <h3>Segmentni oblik jednadžbe pravca</h3>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Segmentni oblik jednadžbe pravca</button>
             <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
               <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
               <p>
@@ -10008,81 +10507,12 @@
     <!---->
     <section>
       <div class="container reveal fade-bottom">
-        <h3>Formule pretvorbe</h3>
+        <h3>Segmentni oblik jednadžbe pravca</h3>
         <div class="text-container">
           <div class="text-box">
             <!---->
             <!---->
-            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Transformacija umnoška u zbroj</button>
-            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
-              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
-              <p>
-
-              </p>
-            </div>
-            <!---->
-            <!---->
-          </div>
-        </div>
-      </div>
-    </section>
-    <!---->
-    <!---->
-    <!---->
-    <section>
-      <div class="container reveal fade-bottom">
-        <h3>Formule pretvorbe</h3>
-        <div class="text-container">
-          <div class="text-box">
-            <!---->
-            <!---->
-            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Transformacija umnoška u zbroj</button>
-            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
-              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
-              <p>
-
-              </p>
-            </div>
-            <!---->
-            <!---->
-          </div>
-        </div>
-      </div>
-    </section>
-    <!---->
-    <!---->
-    <!---->
-    <section>
-      <div class="container reveal fade-bottom">
-        <h3>Formule pretvorbe</h3>
-        <div class="text-container">
-          <div class="text-box">
-            <!---->
-            <!---->
-            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Transformacija umnoška u zbroj</button>
-            <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
-              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
-              <p>
-
-              </p>
-            </div>
-            <!---->
-            <!---->
-          </div>
-        </div>
-      </div>
-    </section>
-    <!---->
-    <!---->
-    <!---->
-    <section>
-      <div class="container reveal fade-bottom">
-        <h3>Formule pretvorbe</h3>
-        <div class="text-container">
-          <div class="text-box">
-            <!---->
-            <!---->
-            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Transformacija umnoška u zbroj</button>
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_74');lockA()">Segmentni oblik jednadžbe pravca</button>
             <div id="newWindow_74" class="newWindow hidden" aria-hidden="true">
               <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
               <p>
@@ -10102,7 +10532,7 @@
     <!---->
     <!---->
     <script>
-    /*NEW WINDOW*/
+      /*NEW WINDOW*/
       /*NEW WINDOW*/
       /*NEW WINDOW*/
       /*NEW WINDOW*/

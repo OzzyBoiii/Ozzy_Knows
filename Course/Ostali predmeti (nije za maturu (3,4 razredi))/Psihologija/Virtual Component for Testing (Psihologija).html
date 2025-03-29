@@ -1,0 +1,753 @@
+<!DOCTYPE html>>
+<html>
+  <head>
+    <title>Povijest</title>
+    <style>
+      /* New Window */
+      /* New Window */
+      /* New Window */
+      /* New Window */
+      .newWindow {
+        position: fixed;
+        top: 5%;
+        left: 5%;
+        height: 90%;
+        width: 90%;
+        background-color: white;
+        border: 1px solid black;
+        display: none;
+        flex-direction: row;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+      /**/
+      /**/
+      .newWindow.active { display: flex; }
+      /**/
+      /**/
+      .newWindow .left, .newWindow .right {
+        width: 15%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        overflow: auto;
+        scrollbar-width: thin;
+        overflow-y: scroll;
+      }
+      /**/
+      /**/
+      .newWindow .center {
+        width: 70%;
+        padding: 0 15px;
+        overflow-y: scroll;
+        scrollbar-width: thin;
+      }
+      /**/
+      /**/
+      .newWindow img {
+        max-width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+        object-fit: contain;
+        margin-bottom: 15px;
+      }
+      /**/
+      /**/
+      .zoom-controls {
+        position: sticky;
+        bottom: 0;
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 8px;
+        border-radius: 6px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        flex-wrap: wrap;
+      }
+      /**/
+      /**/
+      .zoom-controls button {
+        flex: 1 1 auto;
+        min-width: 100px;
+      }
+      /**/
+      /**/
+      /* Scrollbar styling */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      /**/
+      /**/
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      /**/
+      /**/
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+      }
+      /**/
+      /**/
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      /**/
+      /**/
+      #Img_Zoom{
+        min-width: 10px;
+        min-height: 10px;
+      }
+      /**/
+      /**/
+      .close{
+        text-align: center;
+      }
+      /* Background */
+      /* Background */
+      /* Background */
+      /* Background */
+      body {
+        margin: 0;
+        height: 100vh;
+        font-weight: 100;
+        background: radial-gradient(#a23982, #1f1013);
+        animation: fadeIn 1s ease-out;
+      }
+      /**/
+      /**/
+      .light {
+        position: absolute;
+        width: 0px;
+        opacity: 0.75;
+        background-color: white;
+        box-shadow: #e9f1f1 0px 0px 20px 2px;
+        opacity: 0;
+        top: 100vh;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin: auto;
+      }
+      /**/
+      /**/
+      .x1 { animation: floatUp 4s infinite linear; transform: scale(1); }
+      .x2 { animation: floatUp 7s infinite linear; transform: scale(1.6); left: 15%; }
+      .x3 { animation: floatUp 2.5s infinite linear; transform: scale(0.5); left: -15%; }
+      .x4 { animation: floatUp 4.5s infinite linear; transform: scale(1.2); left: -34%; }
+      .x5 { animation: floatUp 8s infinite linear; transform: scale(2.2); left: -57%; }
+      .x6 { animation: floatUp 3s infinite linear; transform: scale(0.8); left: -81%; }
+      .x7 { animation: floatUp 5.3s infinite linear; transform: scale(3.2); left: 37%; }
+      .x8 { animation: floatUp 4.7s infinite linear; transform: scale(1.7); left: 62%; }
+      .x9 { animation: floatUp 4.1s infinite linear; transform: scale(0.9); left: 85%; }
+      /**/
+      /**/
+      @keyframes floatUp {
+        0% { top: 100vh; opacity: 0; }
+        25% { opacity: 1; }
+        50% { top: 0vh; opacity: 0.8; }
+        75% { opacity: 1; }
+        100% { top: -100vh; opacity: 0; }
+      }
+      /**/
+      /**/
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      /*SCROLLING ANIMATION*/
+      /*SCROLLING ANIMATION*/
+      /*SCROLLING ANIMATION*/
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Asap", sans-serif;
+      }
+      /**/
+      /**/
+      section {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /**/
+      /**/
+      section .container {
+        margin: 100px;
+      }
+      /**/
+      /**/
+      section h1 {
+        font-size: 3rem;
+        margin: 20px;
+      }
+      /**/
+      /**/
+      section h2 {
+        font-size: 40px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      /**/
+      /**/
+      section .text-container {
+        display: flex;
+      }
+      /**/
+      /**/
+      section .text-container .text-box {
+        margin: 20px;
+        padding: 20px;
+        background: #00c2cb;
+      }
+      /**/
+      /**/
+      section .text-container .text-box h3 {
+        font-size: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      /**/
+      /**/
+      @media (max-width: 900px) {
+        section h1 {
+          font-size: 2rem;
+          text-align: center;
+        }
+        section .text-container {
+          flex-direction: column;
+        }
+      }
+      /**/
+      /**/
+      .reveal {
+        position: relative;
+        opacity: 0;
+      }
+      /**/
+      /**/
+      .reveal.active {
+        opacity: 1;
+      }
+      /**/
+      /**/
+      .active.fade-bottom {
+        animation: fade-bottom 1s ease-in;
+      }
+      /**/
+      /**/
+      .active.fade-left {
+        animation: fade-left 1s ease-in;
+      }
+      /**/
+      /**/
+      .active.fade-right {
+        animation: fade-right 1s ease-in;
+      }
+      /**/
+      /**/
+      @keyframes fade-bottom {
+        0% {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      /**/
+      /**/
+      @keyframes fade-left {
+        0% {
+          transform: translateX(-100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      /**/
+      /**/
+      @keyframes fade-right {
+        0% {
+          transform: translateX(100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      /* Button */
+      /* Button */
+      /* Button */
+      /* Button */
+      button {
+        animation: shimmer 1.5s ease infinite alternate;
+        background: linear-gradient(90deg, #ffe27d 0%, #64e3ff 30%, #9192ff 85%);
+        background-size: 200% 100%;
+        border: none;
+        border-radius: 6px;
+        box-shadow: -2px -2px 10px rgba(255, 227, 126, 0.5), 2px 2px 10px rgba(144, 148, 255, 0.5);
+        color: #170f1e;
+        cursor: pointer;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 670;
+        line-height: 1.2;
+        padding: 8px 12px;
+        text-decoration: none;
+        transition: 0.2s;
+        white-space: nowrap;
+      }
+      /**/
+      /**/
+      button:hover { transform: rotate(-3deg); }
+      button:active { transform: scale(0.95) rotate(-3deg); }
+      /**/
+      /**/
+      @keyframes shimmer {
+        to { background-size: 100% 100%; box-shadow: -2px -2px 6px rgba(255, 227, 126, 0.5), 2px 2px 6px rgba(144, 148, 255, 0.5); }
+      }
+      /*MINDMAP*/
+      /*MINDMAP*/
+      /*MINDMAP*/
+      /*MINDMAP*/
+      :root {
+        --primary-color: red;
+        --secondary-color: silver;
+        --node-max-width: 100px;
+        --node-spacing: 0.5em;
+        --stroke-width: 2;
+        --border-radius: 0.5em;
+        --background-color: #f3f3f3;
+        --font-family: system-ui, sans-serif;
+        --container-min-width: 600px;
+      }
+      /**/
+      /**/
+      .f-col {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+      }
+      /**/
+      /**/
+      #container {
+        display: flex;
+        justify-content: space-between;
+        padding: var(--node-spacing);
+        min-width: var(--container-min-width);
+      }
+      /**/
+      /**/
+      #container p {
+        padding: 0.25em 0.5em;
+        background: var(--background-color);
+        border: 3px solid var(--primary-color);
+        border-radius: var(--border-radius);
+        text-align: center;
+        max-width: var(--node-max-width);
+      }
+      /**/
+      /**/
+      svg {
+        position: absolute;
+        z-index: -1;
+      }
+      /**/
+      /**/
+      .path {
+        stroke: var(--secondary-color);
+        fill: none;
+        stroke-width: var(--stroke-width);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+        <h2>Psihologija</h2>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <h2>Što je psiologija</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <div class="text-container">
+              <div class="text-box">
+                <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Što je psihologija</button>
+                <div id="newWindow_1" class="newWindow">
+                  <div class="left">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                    </div>
+                    <img src="Glazbene_sastavnice_1.png" class="zoomable-image" data-row="1">
+                    <img src="Glazbene_sastavnice_2.png" class="zoomable-image" data-row="1">
+                  </div>
+                  <div class="center">
+                    <button class="close" onclick="toggleWindow('newWindow_1');unlock()">X</button>
+                    <div class="zoom-controls">
+                      <button onclick="zoomInText()">+</button>
+                      <button onclick="zoomOutText()">-</button>
+                      <button onclick="resetZoomText()">Reset </button>
+                    </div>
+                    <p class="zoomable-text">
+                Psihologija je znanost o čovjeku, njegovim psihičkim procesima i ponašanju, zbog čega je neraskidivo povezana sa svim područjima ljudskoga života i djelovanja.
+                Psihički procesi: npr. Mišljenje, pamćenje, učenje, percepcija, emocije…
+                Po čemu se znanstvena psihologija razlikuje od svakodnevnog razmišljanja ljudi?  
+                - zaključke temelji na znanstvenim istraživanjima    
+                Psihologija je znanost o psihičkim procesima i ponašanju te o njihovim uzrocima i posljedicama. 
+                Psihički procesi: mišljenje, emocije, pamćenje, odlučivanje, sanjanje...
+                Ponašanje je svaka aktivnost čovjeka ili životinje koja se može opažati ili mjeriti, npr. pokret tijela, klimanje glavom, izraz lica, govor. 
+                Za naše psihičke procese i ponašanje najvažniji je rad živčanog sustava i endokrinog sustava (žlijezde s unutrašnjim izlučivanjem)
+              </p>
+            </div>
+            <div class="right">
+              <div class="zoom-controls">
+                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+              <img src="Glazbene_sastavnice_3.png" class="zoomable-image" data-row="2">
+              <img src="Glazbene_sastavnice_4.png" class="zoomable-image" data-row="2">
+            </div>
+          </div>
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Povijest psihologije</button>
+            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
+              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
+              <p>Psihologija je dugo (do sredine 19. stoljeća) bila sastavni dio filozofije, a onda se izdvojila i postala samostalna znanost
+                Riječ psihologija nastala je spajanjem dviju grčkih riječi  psyché (= duša) + logos (= riječ, govor, znanost). Ta definicija se danas više ne koristi!  
+                Psihologija postaje eksperimentalna znanost 1879. – Wilhelm Wundt, Leibnitz – prvi laboratorij za eksperimentalnu psihologiju
+                U Hrvatskoj – prvi laboratorij 1920. Ramiro Bujas
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">psihologija kao znanost</button>
+            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
+              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
+              <p>Psihologija je znanost - to znači da svoje tvrdnje, zakone i teorije zasniva na provedenim istraživanjima koja su ponovljiva i čiji su zaključci znanstveno valjani</p>
+              <img src="Što je psihologija_1.png">
+              <img src="Što je psihologija_2.png">
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <script>
+      /*NEW WINDOW*/
+      /*NEW WINDOW*/
+      /*NEW WINDOW*/
+      /*NEW WINDOW*/
+      function toggleWindow(windowId) {
+        const windowToToggle = document.getElementById(windowId);
+        windowToToggle.classList.toggle('active');
+        document.body.style.overflow = windowToToggle.classList.contains('active') ? 'hidden' : '';
+      }
+      /*SCROOLL REVEAL*/
+      /*SCROOLL REVEAL*/
+      /*SCROOLL REVEAL*/
+      /*SCROOLL REVEAL*/
+      function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 150;
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+          } 
+          else {
+            reveals[i].classList.remove("active");
+          }
+        }
+      }
+      /**/
+      /**/
+      window.addEventListener("scroll", reveal, { passive: true });
+      /*LOCK AND UNLOCK SCROLL*/
+      /*LOCK AND UNLOCK SCROLL*/
+      /*LOCK AND UNLOCK SCROLL*/
+      /*LOCK AND UNLOCK SCROLL*/
+      function lockA() {
+        var xPos = window.scrollX;
+        var yPos = window.scrollY;
+        window.onscroll = () => window.scroll(xPos, yPos);
+      }
+      /**/
+      /**/
+      function lockB() {
+        var target = document.getElementById("demoB");
+        target.scrollIntoView();
+        window.onscroll = () => target.scrollIntoView();
+      }
+      /**/
+      /**/
+      function unlock() {
+        window.onscroll = "";
+      }
+      /*ZOOMING ABILITY*/
+      /*ZOOMING ABILITY*/
+      /*ZOOMING ABILITY*/
+      /*ZOOMING ABILITY*/
+      /* Zoom Functions for Images*/
+      function zoomIn(row) {
+        const images = document.querySelectorAll(`.zoomable-image[data-row="${row}"]`);
+        images.forEach(img => {
+          let currentScale = parseFloat(img.style.transform.replace('scale(', '').replace(')', '')) || 1;
+          img.style.transform = `scale(${currentScale + 0.1})`;
+        });
+      }
+      /**/
+      /**/
+      function zoomOut(row) {
+        const images = document.querySelectorAll(`.zoomable-image[data-row="${row}"]`);
+        images.forEach(img => {
+          let currentScale = parseFloat(img.style.transform.replace('scale(', '').replace(')', '')) || 1;
+          img.style.transform = `scale(${Math.max(currentScale - 0.1, 0.5)})`;
+        });
+      }
+      /**/
+      /**/
+      function resetZoom(row) {
+        const images = document.querySelectorAll(`.zoomable-image[data-row="${row}"]`);
+        images.forEach(img => {
+          img.style.transform = 'scale(1)';
+        });
+      }
+      /**/
+      /**/
+      // Zoom Functions for Text
+      function zoomInText() {
+        const text = document.querySelector('.zoomable-text');
+        let currentSize = parseFloat(window.getComputedStyle(text).fontSize);
+        text.style.fontSize = `${currentSize + 2}px`;
+      }
+      /**/
+      /**/
+      function zoomOutText() {
+        const text = document.querySelector('.zoomable-text');
+        let currentSize = parseFloat(window.getComputedStyle(text).fontSize);
+        text.style.fontSize = `${Math.max(currentSize - 2, 12)}px`;
+      }
+      /**/
+      /**/
+      function resetZoomText() {
+        const text = document.querySelector('.zoomable-text');
+        text.style.fontSize = '16px';
+      }
+      /*MINDMAP SETTINGS*/
+      /*MINDMAP SETTINGS*/
+      /*MINDMAP SETTINGS*/
+      /*MINDMAP SETTINGS*/
+      "use strict";
+      /* Configuration object*/
+      const config = {
+        containerId: 'container',
+        svgId: 'mindmap-svg',
+        nodeClasses: 'mindmap-node',
+        curveIntensity: 0.5,
+        layoutDirection: 'horizontal',
+        initialMinWidth: 600
+      };
+      /**/
+      /**/
+      /* Debounce function*/
+      const debounce = (func, wait) => {
+        let timeout;
+        return (...args) => {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+      };
+      /**/
+      /**/
+      /* Helper function*/
+      const $ = function(t = null) {
+        return new class {
+          constructor(t) {
+            if (t) {
+              this.nodes = t.nodeType ? [t] 
+              : NodeList.prototype.isPrototypeOf(t) ? t 
+              : document.querySelectorAll(t);
+              this.n = this.nodes[0];
+            }
+          }
+          each = t => (this.nodes.forEach(s => t(s)), this);
+          addClass = t => this.each(s => s.classList.add(...t.split(",").map(c => c.trim())));
+          html = t => this.each(s => s.innerHTML = t);
+          create = t => $(document.createElement(t));
+          append = t => {
+            let s = this.create(t);
+            this.n.appendChild(s.n);
+            return s;
+          };
+          remove = () => this.each(node => node.remove());
+          insertAfter = t => (t.n.after(this.n), this);
+          setAttr = (t, s = "") => this.each(e => e.setAttribute(t, s));
+          sCreate = t => {
+            let s = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            s.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
+            s.setAttribute("viewBox", t);
+            return $(s);
+          };
+          sAppend = t => (this.n.appendChild(t.n), this);
+          sC = t => document.createElementNS("http://www.w3.org/2000/svg", t);
+          id = t => (this.setAttr("id", t), this);
+          d = t => (this.setAttr("d", t), this);
+          stroke = t => (this.setAttr("stroke", t), this);
+          strokeWidth = t => (this.setAttr("stroke-width", t), this);
+          sBezier = (x1, y1, x2, y2) => {
+            const path = this.sC("path");
+            const midX = (x1 + x2) / 2;
+            return $(path).d(`M${x1},${y1} C ${midX},${y1} ${midX},${y2} ${x2},${y2}`);
+          };
+        }(t);
+      };
+      /**/
+      /**/
+      /* Resize observer*/
+      const resizeObserver = new ResizeObserver(debounce(() => {
+        $(`#${config.svgId}`).remove();
+        drawLines(data);
+      }, 100));
+      /**/
+      /**/
+      /* Create mind map structure*/
+      function createMap(data) {
+        function calculateDepth(id, depth = 0) {
+          let current = data.find(x => x.id === id);
+          while (current?.parentId !== undefined) {
+            depth++;
+            current = data.find(x => x.id === current.parentId);
+          }
+          return depth;
+        }
+        let direction = -1;
+        data.filter(x => x.parentId === null).forEach(x => {
+          x.div = direction; 
+          direction *= -1;
+        });
+        const root = data.find(x => x.id === null);
+        if (root) root.div = 0;
+        data.filter(x => x.parentId !== null).forEach(x => {
+          x.div = calculateDepth(x.id) * (x.div || 1);
+        });
+        const divs = [...new Set(data.map(x => x.div))].sort((a, b) => a - b);
+        divs.forEach(div => {
+          $(`#${config.containerId}`).append('div').id(`div${div}`).addClass('f-col');
+        });
+        data.forEach(node => {
+          const parentDiv = $(`#div${node.div}`);
+          if (parentDiv.n) {
+            parentDiv.append('p')
+            .html(node.text)
+            .id(`p${node.id}`)
+            .addClass(config.nodeClasses);
+          }
+        });
+      }
+      /**/
+      /**/
+      /* Draw connecting lines*/
+      function drawLines(data) {
+        const container = $(`#${config.containerId}`).n;
+        if (!container) return;
+        const rect = container.getBoundingClientRect();
+        const svg = $().sCreate(`0 0 ${rect.width} ${rect.height}`)
+        .id(config.svgId)
+        .insertAfter($('h1'));
+        svg.n.style = `top:${rect.top}px;left:${rect.left}px; width:${rect.width}px;height:${rect.height}px;`;
+        /* Updated filter to include nodes with parentId: null*/
+        data.filter(x => x.parentId !== undefined).forEach(node => {
+          const nodeEl = $(`#p${node.id}`).n;
+          const parentEl = $(`#p${node.parentId}`).n;
+          if (!nodeEl || !parentEl) return;
+          const parentRect = parentEl.getBoundingClientRect(); // Parent is the start point
+          const nodeRect = nodeEl.getBoundingClientRect(); // Child is the end point
+          const startX = parentRect.left - rect.left + (parentRect.width / 2);
+          const startY = parentRect.top - rect.top + parentRect.height;
+          const endX = nodeRect.left - rect.left + (nodeRect.width / 2);
+          const endY = nodeRect.top - rect.top;
+          svg.sAppend(
+            $().sBezier(startX, startY, endX, endY)
+            .addClass('path')
+            .stroke('var(--secondary-color)')
+            .strokeWidth('var(--stroke-width)')
+          );
+        });
+      }
+      /**/
+      /**/
+      /* Sample data*/
+      const data = [
+        { id: null, text: "<b>Test<br>Mind Map</b>" },
+        { id: 1, parentId: null, text: "Idea - 1" },
+        { id: 2, parentId: null, text: "Dr. Helmut Zimmermann" },
+        { id: 3, parentId: null, text: "Idea - 3" },
+        { id: 4, parentId: 1, text: "order Cake and <b>Coffee</b>" },
+        { id: 5, parentId: 1, text: "Idea - 1 - 2 " },
+        { id: 6, parentId: 3, text: "Idea - 3 - 1 " },
+        { id: 7, parentId: 3, text: "Idea- 3 - 2" },
+        { id: 10, parentId: 2, text: "Idea - 2 - 1" },
+        { id: 12, parentId: 2, text: "Idea - 2 - 2" },
+        { id: 13, parentId: 3, text: "Idea- 3 - 5"},
+      ];
+      /**/
+      /**/
+      /* Initialize*/
+      createMap(data);
+      drawLines(data);
+      resizeObserver.observe($(`#${config.containerId}`).n);
+    </script>
+  </body>
+</html>

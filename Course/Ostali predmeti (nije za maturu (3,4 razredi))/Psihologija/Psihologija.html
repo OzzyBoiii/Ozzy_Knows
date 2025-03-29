@@ -1013,112 +1013,169 @@
           <div class="text-box">
             <!---->
             <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Način pamćenja</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <p>
-                Što je pamćenje i zašto je važno?
-Pamćenje je proces usvajanja, zadržavanja i korištenja informacija.
-Neraskidivo povezano s procesom učenja
-Tri kontrolna procesa pamćenja
-              </p>
-              <img src="Pamćenje_1.png">
-              <p>
-                Međusobno povezani i nezavisni procesi 
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_21');lockA()">Način pamćenja</button>
+            <div id="newWindow_21" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Pamćenje_1.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_21');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                Pamćenje<br>
+                &bull; proces usvajanja, zadržavanja i korištenja informacija.<br>
+                &bull; povezano je s procesom učenja<br>
+                &bull; Postoje tri kontrolna međusobno povezana i nezavisna procesa pamćenja (SLIKA 1)<br>
               </p>
             </div>
-            <!---->
-            <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Pouzdanost pamćenja</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <p>
-                Pamćenje nije poput snimke događaja koje smo doživjeli – mi interpretiramo i ispunjavamo praznine ukoliko ih nađemo 
-              </p>
-              <img src="Pamćenje_2.png">
+            <div class="right">
+              <div class="zoom-controls">
+                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
             </div>
+          </div>
             <!---->
             <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Faze pamćenja</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <p>
-                Postoje tri faze pamćenja kroz koje informacije prolaze: 
-                Senzorno
-                Kratkoročno 
-                Dugoročno pamćenje
-                SENZORNO PAMĆENJE
-                kapacitet golem
-                omogućuje nam kontinuitet doživljaja (paosjet)
-                informacije se tu zadržavaju vrlo kratko npr. u vidnom sustavu samo oko dvije sekunde, a u slušnom tri do četiri sekunde. 
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_21');lockA()">Pouzdanost pamćenja</button>
+            <div id="newWindow_21" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Pamćenje_2.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_21');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                &bull; Pamćenje nije poput snimke događaja koje smo doživjeli – mi pamćenje interpretiramo i praznine koje nađemo pokušavamo ispuniti<br>
               </p>
-              <img src="Pamćenje_3.png">
-              <p>
-                KRATKOROČNO – RADNO PAMĆENJE
-                Obuhvaća one informacije kojih smo u određenom trenutku svjesni i s kojima nešto radimo
-                Kapacitet je ograničen   
-                Mjerenje kapaciteta kratkoročnog pamćenja- kako?
-                Maksimalan broj vrlo sličan kod većine ljudi i obično varira između 5 i 9 (7+/-2). 
-                Kakve pojmove lakšepamtimo?
-                Lakše konkretne nego apstraktne
-                Smislene sadržaje pamtimo mnogo lakše od besmislenih
-              </p>
-              <img src="Pamćenje_4.png">
-              <p>
-                DUGOROČNO PAMĆENJE
-                Većina informacija iz senzornog i kratkoročnog pamćenja se gubi. 
-                Dio informacija odlazi u dugoročno pamćenje.
+            </div>
+            <div class="right">
+              <div class="zoom-controls">
+                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+            </div>
+          </div>
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_21');lockA()">Faze pamćenja</button>
+            <div id="newWindow_21" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Pamćenje_3.png" class="zoomable-image" data-row="1">
+                <img src="Pamćenje_4.png" class="zoomable-image" data-row="1">
+                <img src="Pamćenje_5.png" class="zoomable-image" data-row="1">
+                <img src="Pamćenje_6.png" class="zoomable-image" data-row="1">
+                <img src="Pamćenje_7.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_21');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                &bull; Faze pamćenja kroz koje informacije prolaze: <br>
+                Senzorno<br>
+                omogućuje kontinuitet doživljaja (paosjet)<br>
+                sadrži golem kapacitet pamćenja iako se informacije vrlo kratko zadržavaju<br>
+                u vidnom sustavu samo oko dvije sekunde, a u slušnom tri do četiri sekunde (slika 3) <br>
+                Kratkoročno (RADNO PAMĆENJE) <br>
+                Obuhvaća informacije kojih smo u određenom trenutku svjesni i s kojima nešto radimo<br>
+                sadrži ograničen kapacitet <br>
+                maksimalan kapacitet pamćenja kod ljudi varira između 5 i 9 (7+/-2) <br>
+                Lakše je upamtiti konkretne informacije nego apstraktne te smislene sadržaje od besmislenih (SLIKA 4) <br>
+                Dugoročno pamćenje<br>
+                Dio informacija koji se nije izgubio iz senzornog i kratkoroćnog se tu pojavljuje <br>
                 Kapacitet mu je neograničen!
-                DUGOROČNO PAMĆENJE
-                Brojne informacije ostaju pohranjene u dugoročnom pamćenju  do kraja života
-                Upamćivanje dovodi do tragova pamćenja (tzv. engrama) koji se stvaraju između pojedinih stanica u mozgu. 
-                Trag pamćenja predstavlja promjenu u putevima kojima se prenose živčani impulsi kroz mozak. 
+                Informacije ostaju pohranjene do kraja života <br>
+                Trag pamćenja (engrama)
+                predstavlja promjenu u putevima kojima se prenose živčani impulsi kroz mozak. <br>
+                događa se zbog upamćivanja informacija te stvaranja engrama između stanica<br>
+                Vrste dugoročnog pamćenja <br>
+                1) Epizodičko pamćenje (autobiografsko) <br>
+                pamćenje događaja, pamtimo gdje i kada se nešto dogodilo <br>
+                2) Semantičko pamćenje ili znanje <br>
+                pamćenje stvari koje jednostavno znamo, ne znajući kada i gdje smo ih naučili. <br>
+                Koji je glavni grad Walesa? <br>
+                3) Implicitno (nedeklarativno) <br>
+                Proceduralno pamćenje –  vještine <br>
+                Pamćenje mjesta, vremena, učestalosti <br>
+                Pamćenje klasičnim uvjetovanjem <br>
               </p>
-              <img src="Pamćenje_5.png">
-              <img src="Pamćenje_6.png">
-              <img src="Pamćenje_7.png">
-              <img src="Pamćenje_8.png">
             </div>
-            <!---->
-            <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Vrste dugoročnog pamćenja</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <img src="Pamćenje_9.png">
-              <p>
-                Vrste dugoročnog pamćenja
-                1) Epizodičko pamćenje  
-                (autobiografsko)
-                pamćenje događaja, pamtimo gdje i kada se nešto dogodilo
-              </p>
-              <img src="Pamćenje_10.png">
-              <p>
-                2) Semantičko pamćenje ili znanje 
-                stvari koje jednostavno znamo, ne znajući kada i gdje smo ih naučili.
-                Koji je glavni grad Walesa?
-              </p>
-              <img src="Pamćenje_11.png">
-              <p>
-                3) Implicitno (nedeklarativno) 
-                Proceduralno pamćenje –  vještine  
-                Pamćenje mjesta, vremena, učestalosti
-                Pamćenje klasičnim uvjetovanjem
-              </p>
-              <img src="Pamćenje_12.png">
+            <div class="right">
+              <div class="zoom-controls">
+                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+              <img src="Pamćenje_8.png" class="zoomable-image" data-row="2">
+              <img src="Pamćenje_9.png" class="zoomable-image" data-row="2">
+              <img src="Pamćenje_10.png" class="zoomable-image" data-row="2">
+              <img src="Pamćenje_11.png" class="zoomable-image" data-row="2">
+              <img src="Pamćenje_12.png" class="zoomable-image" data-row="2">
             </div>
+          </div>
             <!---->
             <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Predrasude pamćenja</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <p>
-                Lakše se sjećamo emocionalno obojenih događaja
-                Emocionalno stanje utječe na vjerojatnost zapamćivanja nekih elemenata situacije (onih opasnih i neugodnih)
-                Preuveličavanje/umanjivanje
-                Motivirano zaboravljanje 
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_21');lockA()">Predrasude pamćenja</button>
+            <div id="newWindow_21" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Pamćenje_13.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_21');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                &bull; Lakše se sjećamo emocionalno obojenih događaja<br>
+                &bull; Emocionalno stanje utječe na vjerojatnost zapamćivanja nekih elemenata situacije (onih opasnih i neugodnih)
+                &bull; Preuveličavanje/umanjivanje
+                &bull; Motivirano zaboravljanje 
               </p>
-              <img src="Pamćenje_13.png">
             </div>
+            <div class="right">
+              <div class="zoom-controls">
+                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+            </div>
+          </div>
             <!---->
             <!---->
           </div>
@@ -1140,29 +1197,155 @@ Tri kontrolna procesa pamćenja
         <div class="light x7"></div>
         <div class="light x8"></div>
         <div class="light x9"></div>
-        <h2>KAKO ORGANIZIRATI UČENJE</h2>
+        <h2>Kako organizirati učenje</h2>
         <div class="text-container">
           <div class="text-box">
             <!---->
             <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Zaboravljanje</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <p>
-                Kako si pomoći? 
-                Učenje treba rasporediti u vremenu (kako bi se izbjegla interferencija);
-                Sličnu građu koja dopušta pozitivan transfer treba grupirati;
-                Gradivo koje želimo zadržati dobro zapamćenim na duži rok, treba prenaučiti;
-                Ne učiti slično gradivo jedno za drugim
-                Organizirati gradivo i povezivati s onim što već znamo
-                Dobro je imati stalno mjesto za rad;
-                Važno je u početku učenja više puta ponoviti gradivo (npr. za vrijeme čekanja tramvaja, autobusa) – dobro je imati sažetke gradiva;
-                Koristiti se mnemotehnikama za pamćenje neobičnih, potpuno novih, ali važnih dijelova gradiva;
-                Stalno se treba samoispitivati (izbjeći razinu prepoznavanja: “dok čitam sve mi je poznato!” – važno je moći se dosjetiti)
-                Držati se pravila aktivnog učenja (prepričavanje gradiva vlastitim riječima, razgovor, razni izvori informacija)
-                Odvajati bitne od nebitnih informacija.
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_21');lockA()">Kako si pomoći</button>
+            <div id="newWindow_21" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Kako_organizirati_učenje_1.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_21');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                &bull; Učenje treba rasporediti u vremenu (kako bi se izbjegla interferencija);
+                &bull; Slične informacije (koje to dopuštaju) treba grupirati;
+                &bull; Gradivo koje želimo upamtiti treba prenaučiti;
+                &bull; Ne učiti slično gradivo jedno za drugim
+                &bull; Organizirati gradivo i povezivati s onim što već znamo
+                &bull; Dobro je imati stalno mjesto za rad;
+                &bull; U početku učenja više puta ponovi gradivo iz sažetaka gradiva;
+                &bull; Koristi se mnemotehnikama za pamćenje neobičnih, potpuno novih, ali važnih dijelova gradiva;
+                &bull; Stalno se samoispituj
+                &bull; Držati se pravila aktivnog učenja (prepričavanje gradiva vlastitim riječima, razgovor, razni izvori informacija)
+                &bull; Odvajati bitne od nebitnih informacija.
               </p>
-              <img src="Kako_organizirati_učenje_1.png">
+            </div>
+            <div class="right">
+              <div class="zoom-controls">
+                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+            </div>
+          </div>
+          <!---->
+          <!---->
+          <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_21');lockA()">Metode ispitivanja pamćenja</button>
+            <div id="newWindow_21" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_21');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                  1) Metoda dosjećanja: postavljanje pitanja o nečemu što bi trebalo biti pohranjeno u pamćenju (Glavni grad Walesa je ____________)<br>
+                2) Metoda prepoznavanja: ponuđeni odgovori među kojima treba odabrati točan (Glavni grad Walesa je ili Liverpool ili Brighton ili Cardiff ili Belfast)<br>
+                3) Metoda uštede: Ponovnom učenje sadržaja koje smo ranije učili (mnogo ih brže usvojimo).  (Učenje o gradovima u Velikoj Britaniji)<br>
+                </p>
+              </div>
+              <div class="right">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                </div>
+              </div>
+            </div>
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_21');lockA()">Mnemotehnike</button>
+            <div id="newWindow_21" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_21');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                  &bull; specifične mentalne strategije za poboljšanje pamćenja.<br>
+                  &bull; nastale u staroj Grčkoj, a potom su ih nastavili koristiti i nadograđivati Rimljani <br>
+                  &bull; Mogu biti Verbalne, vizualne i mješovite.
+                  &bull; Vrste mnemotehnika: <br>
+                &bull; 1) Akronim
+                &bull; Niz riječi možemo lakše zapamtiti ako uzmemo prva slova tih riječi i napravimo skraćenicu od njih 
+                &bull; (npr. HNK, HAK, SAD…).
+                &bull; tralirus – travanj, lipanj, rujan i studeni (mjeseci u godini koji imaju 30 dana)
+                &bull; čenas - čekić, nakovanj i stremen – tri sićušne kosti u uhu
+                &bull; vuk ne – voda u kiselinu ne, a obrnuto je dozvoljeno
+                &bull; 2) Dodavanje informacija
+                &bull; Za planete: Merkur, Venera, Zemlja, Mars, Jupiter, Saturn, Uran, Neptun, Pluton (MVZMJSUNP - Moja Vrlo Znatiželjna Majka Je Svima Uvijek Nabrajala Planete) (SLIKA 2)
+                &bull; 3) Slaganje nepovezanih riječi u smislenu rečenicu ili kratku priču (Npr.: mačka, kišobran, srce Mačka se kišobranom branila od srca.)<br>
+                &bull; 4) Bizarne predodžbe – lakše ćemo zapamtiti čudnu, bizarnu sliku (vizualna mnemotehnika) (Npr. Einstein miriše cvijeta dva – E=mc2 (slika))
+                &bull; 5) Metoda mjesta – vizualno predočimo neki dobro poznati prostor i u njemu stvari koje želimo zapamtiti (Npr. Ladice (Slika))
+                &bull; 6) Mentalne mape– zabilješke razmjestimo na papiru tako da dobijemo prostorni raspored prikladan za zapamćivanje, mentalna mapa (slika)
+                &bull; 7) Asocijacije - Nepoznatu riječ povežemo sa sličnom, ali poznatom riječju.
+                &bull; distraktori – podražaji koji ometaju pamćenje (distraktor asocira na traktor)
+                &bull; akrofobija – strah od visine (asocira na akrobata)
+                &bull; agorafobija – strah od otvorenog prostora (asocira na agronomiju)
+                &bull; Proaktivna interferencija – proaktivan je onaj koji ima inicijativu unaprijed – dakle staro učenje ometa učenje novih sadržaja
+                7) Asocijacije
+                Za nepoznatu riječ koju želimo naučiti utvrdi se asocijacija  po zvučnosti s nekom riječi u našem jeziku koju znamo, a koja joj slično zvuči (npr. Quiche-kiša)
+                Zatim se stvori predodžba koja povezuje ključnu riječ sa stranom riječi koju želimo naučiti. (slika)
+                8) Rima
+                Unošenje ritma i rime u materijal koji treba zapamtiti znatno olakšava učenje.
+                Mala moja dajem ti na znanje, sila kroz masa daje ubrzanje
+                Ako je ispred zagrade više, zagrada se briše, ako je ispred zagrade manje u zagradi se mijenja stanje
+                Ja znam, jer sam lumen, gustoća je masa kroz volumen
+                Kvadrat nad hipotenuzom, to zna svako dijete, jednak je zbroju kvadrata nad obje katete
+                Prvom krećem, drugom skrećem, trećom žurim, četvrtom jurim
+                9) Ritam
+                Brojeve često izgovaramo određenim ritmom npr. ako netko telefonski broj izgovori ovim ritmom 23 38 192, a netko drugi slijedećim ritmom 233 81 92 čini nam se da se radi o različitim brojevima
+                10) Povezivanje slova
+                Stalaktit visi u spilji (s krova); stalagmit – gmiže na tlu
+                11) Pamćenje imena
+                Povežemo ime neke osobe s njezinim izgledom ili nekom osobinom te osobe.
+                MAJA – znatiželjna kao pčelica Maja
+                NEVEN – ime zapamtimo po cvijetu Nevenu
+              </p>
+              </div>
+              <div class="right">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                </div>
+                <img src="Zaboravljanje i smetnje pamćenja_5.png" class="zoomable-image" data-row="2">
+                <img src="Zaboravljanje i smetnje pamćenja_6.png" class="zoomable-image" data-row="2">
+                <img src="Zaboravljanje i smetnje pamćenja_7.png" class="zoomable-image" data-row="2">
+                <img src="Zaboravljanje i smetnje pamćenja_8.png" class="zoomable-image" data-row="2">
+                <img src="Zaboravljanje i smetnje pamćenja_9.png" class="zoomable-image" data-row="2">
+                <img src="Zaboravljanje i smetnje pamćenja_10.png" class="zoomable-image" data-row="2">
+              </div>
             </div>
             <!---->
             <!---->
@@ -1190,158 +1373,81 @@ Tri kontrolna procesa pamćenja
           <div class="text-box">
             <!---->
             <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Zaboravljanje</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <p>Krivulja zaboravljanja</p>
-              <img src="Zaboravljanje i smetnje pamćenja_1.png">
-              <p>
-                Zbog čega zaboravljamo? 
-                Postupno gubljenje tragova pamćenja
-                Nemogućnost pronalaženja informacija 
-                Potiskivanje (represija)
-                Interferencija
-              </p>
-              <img src="Zaboravljanje i smetnje pamćenja_2.png">
-              <p>
-                Interferencija – ometanje usvajanja neke informacije zbog onoga što je usvojeno ranije ili kasnije
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_21');lockA()">Zaboravljanje</button>
+            <div id="newWindow_21" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Zaboravljanje i smetnje pamćenja_1.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_21');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                  Krivulja zaboravljanja (SLIKA 1)
+                Razlozi zaboravljanja
+                &bull; Postupno gubljenje tragova pamćenja
+                &bull; Nemogućnost pronalaženja informacija 
+                &bull; Potiskivanje (represija)
+                &bull; Interferencija (ometanje usvajanja neke informacije zbog onoga što je usvojeno ranije ili kasnije)
                 Proaktivna interferencija - ono što smo prije naučili ometa kasnije, novo učenje (postavke novog mobitela)
                 Retroaktivna interferencija - usvajanje novih informacija dovodi do zaboravljanja starih  (novi broj otežava sjećanje starog)
               </p>
             </div>
+            <div class="right">
+              <div class="zoom-controls">
+                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+              <img src="Zaboravljanje i smetnje pamćenja_2.png" class="zoomable-image" data-row="2">
+            </div>
+          </div>
             <!---->
             <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Smetnje pamćenja</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <p>
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_21');lockA()">Smetnje pamćenja</button>
+            <div id="newWindow_21" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Zaboravljanje i smetnje pamćenja_3.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_21');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
                 1) RETROGRADNA AMNEZIJA – nemogućnost dosjećanja događaja prije ozljede mozga.
-                2) ANTEROGRADNA AMNEZIJA – nemogućnost stvaranja novog dugoročnog pamćenja.
-              </p>
-              <img src="Zaboravljanje i smetnje pamćenja_3.png">
-              <p>
-                3) HIPOMNEZIJA – je općenito smanjena mogućnost pamćenja (najčešće organski uvjetovana).
-                4) HIPERMNEZIJA – poremećaj koji se očituje u pamćenju svih informacija koje se percipiraju (ovaj poremećaj ima izrazito malen broj ljudi)
-                5) PARAMNEZIJE 
-                nastaju tako da se „praznine“ u sjećanju popunjavaju izmišljenim podatcima. Drugi naziv za paramnezije su lažna sjećanja.  
-                Nije namjerno
-                “Mandela efekt” 
-                6) FUGA – gubitak identiteta, spada u disocijativni poremećaj 
-              </p>
-              <img src="Zaboravljanje i smetnje pamćenja_4.png">
-            </div>
-            <!---->
-            <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Kako poboljšati pamćenje</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <p>
-                Učenje treba rasporediti u vremenu (kako bi se izbjegla interferencija);
-                Sličnu građu koja dopušta pozitivan transfer treba grupirati;
-                Gradivo koje želimo zadržati dobro zapamćenim na duži rok, treba prenaučiti;
-                Ne učiti slično gradivo jedno za drugim
-                Organizirati gradivo i povezivati s onim što već znamo
-                Dobro je imati stalno mjesto za rad;
-                Važno je u početku učenja više puta ponoviti gradivo (npr. za vrijeme čekanja tramvaja, autobusa) – dobro je imati sažetke gradiva;
-                Koristiti se mnemotehnikama za pamćenje neobičnih, potpuno novih, ali važnih dijelova gradiva;
-                Stalno se treba samoispitivati (izbjeći razinu prepoznavanja: “dok čitam sve mi je poznato!” – važno je moći se dosjetiti)
-                Držati se pravila aktivnog učenja (prepričavanje gradiva vlastitim riječima, razgovor, razni izvori informacija)
-                Odvajati bitne od nebitnih informacija.
+                2) ANTEROGRADNA AMNEZIJA – nemogućnost stvaranja novog dugoročnog pamćenja. (SLIKA 3)
+                3) HIPOMNEZIJA – smanjena mogućnost pamćenja (najčešće organski uvjetovana).
+                4) HIPERMNEZIJA – poremećaj koji se očituje u pamćenju svih informacija koje se percipiraju
+                5) PARAMNEZIJE (lažna sječanja) - osobe „praznine“ u sjećanju nenamjerno popunjavaju izmišljenim podatcima
+                &bull; “Mandela efekt” 
+                6) FUGA – disocijativni poremećaj u kojem osoba gubi sjećanje svoga identiteta (SLIKA 4)
               </p>
             </div>
-            <!---->
-            <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Metode ispitavanja pamćenja</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <p>
-                Metoda dosjećanja:
-                - Glavni grad Walesa je ____________
-                2) Metoda prepoznavanja:
-                Glavni grad Walesa je: 
-                Liverpool
-                Brighton
-                Cardiff
-                Belfast
-                3) Metoda uštede: Učenje o gradovima u Velikoj Britaniji
-                1) Metoda dosjećanja 
-                postavljanje pitanja o nečemu što bi trebalo biti pohranjeno u pamćenju
-                2) Metoda prepoznavanja 
-                ponuđeni odgovori među kojima treba odabrati točan
-                3) Metoda uštede 
-                Ponovnom učenje sadržaja koje smo ranije učili. Iako te sadržaje ne možemo prepoznati ni reproducirati, kada ih ponovno učimo potrebno nam je manje vremena da ih usvojimo.  
-              </p>
+            <div class="right">
+              <div class="zoom-controls">
+                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+              <img src="Zaboravljanje i smetnje pamćenja_4.png" class="zoomable-image" data-row="2">
             </div>
-            <!---->
-            <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Mnemotehnike</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <p>
-                To su specifične mentalne strategije za poboljšanje pamćenja.
-                Verbalne, vizualne i mješovite.
-                Mnemotehnike su nastale u staroj Grčkoj, a potom su ih nastavili koristiti i nadograđivati Rimljani 
-                1) Akronim
-                Niz riječi možemo lakše zapamtiti ako uzmemo prva slova tih riječi i napravimo skraćenicu od njih (npr. HNK, HAK, SAD…).
-                tralirus – travanj, lipanj, rujan i studeni (mjeseci u godini koji imaju 30 dana)
-                čenas - čekić, nakovanj i stremen – tri sićušne kosti u uhu
-                vuk ne – voda u kiselinu ne, a obrnuto je dozvoljeno
-                2) Dodavanje informacija
-                Za planete: Merkur, Venera, Zemlja, Mars, Jupiter, Saturn, Uran, Neptun, Pluton 
-                MVZMJSUNP - Moja Vrlo Znatiželjna Majka Je Svima Uvijek Nabrajala Planete
-              </p>
-              <img src="Zaboravljanje i smetnje pamćenja_5.png">
-              <p>
-                3) Slaganje nepovezanih riječi u smislenu rečenicu– nepovezane riječi koje treba upamtiti slažemo u logičnu rečenicu ili kraću priču.
-                Npr.: mačka, kišobran, srce
-                Mačka se kišobranom 
-                branila od srca...
-              </p>
-              <img src="Zaboravljanje i smetnje pamćenja_6.png">
-              <p>
-                4) Bizarne predodžbe– lakše ćemo zapamtiti čudnu, bizarnu sliku (vizualna mnemotehnika)
-                Npr. Einstein miriše cvijeta dva – E=mc2
-              </p>
-              <img src="Zaboravljanje i smetnje pamćenja_7.png">
-              <p>
-                5) Metoda mjesta – vizualno predočimo neki dobro poznati prostor i u njemu stvari koje želimo zapamtiti 
-                Npr. Ladice 
-              </p>
-              <img src="Zaboravljanje i smetnje pamćenja_8.png">
-              <p>
-                6) Mentalne mape– zabilješke razmjestimo na papiru tako da dobijemo prostorni raspored prikladan za zapamćivanje, mentalna mapa 
-              </p>
-              <img src="Zaboravljanje i smetnje pamćenja_9.png">
-              <p>
-                7) Asocijacije
-                Nepoznatu riječ povežemo sa sličnom, ali poznatom riječju.
-                distraktori – podražaji koji ometaju pamćenje (distraktor asocira na traktor)
-                akrofobija – strah od visine (asocira na akrobata)
-                agorafobija – strah od otvorenog prostora (asocira na agronomiju)
-                Proaktivna interferencija – proaktivan je onaj koji ima inicijativu unaprijed – dakle staro učenje ometa učenje novih sadržaja
-                7) Asocijacije
-                Za nepoznatu riječ koju želimo naučiti utvrdi se asocijacija  po zvučnosti s nekom riječi u našem jeziku koju znamo, a koja joj slično zvuči (npr. Quiche-kiša)
-                Zatim se stvori predodžba koja povezuje ključnu riječ sa stranom riječi koju želimo naučiti.
-              </p>
-              <img src="Zaboravljanje i smetnje pamćenja_10.png">
-              <p>
-                8) Rima
-                Unošenje ritma i rime u materijal koji treba zapamtiti znatno olakšava učenje.
-                Mala moja dajem ti na znanje, sila kroz masa daje ubrzanje
-                Ako je ispred zagrade više, zagrada se briše, ako je ispred zagrade manje u zagradi se mijenja stanje
-                Ja znam, jer sam lumen, gustoća je masa kroz volumen
-                Kvadrat nad hipotenuzom, to zna svako dijete, jednak je zbroju kvadrata nad obje katete
-                Prvom krećem, drugom skrećem, trećom žurim, četvrtom jurim
-                9) Ritam
-                Brojeve često izgovaramo određenim ritmom npr. ako netko telefonski broj izgovori ovim ritmom 23 38 192, a netko drugi slijedećim ritmom 233 81 92 čini nam se da se radi o različitim brojevima
-                10) Povezivanje slova
-                Stalaktit visi u spilji (s krova); stalagmit – gmiže na tlu
-                11) Pamćenje imena
-                Povežemo ime neke osobe s njezinim izgledom ili nekom osobinom te osobe.
-                MAJA – znatiželjna kao pčelica Maja
-                NEVEN – ime zapamtimo po cvijetu Nevenu
-              </p>
-            </div>
+          </div>
             <!---->
             <!---->
           </div>
@@ -1368,76 +1474,121 @@ Tri kontrolna procesa pamćenja
           <div class="text-box">
             <!---->
             <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Učenje</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <p>
-                Učenje je relativno trajna promjena u ponašanju koja nastaje kao posljedica vježbe ili iskustva.
-                Sve ono što nije određeno biološkim nasljeđem, stečeno je učenjem
-                Cjeloživotni proces
-                Događa se namjerno i nenamjerno, aktivno i pasivno
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_21');lockA()">Učenje</button>
+            <div id="newWindow_21" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Klasično uvjetovanje_1.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_21');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                &bull; relativno trajna promjena u ponašanju koja nastaje kao posljedica vježbe ili iskustva.<br>
+                Sve ono što nije određeno biološkim nasljeđem, stečeno je učenjem<br>
+                Cjeloživotni se proces može događati namjerno i nenamjerno, aktivno i pasivno
               </p>
-              <img src="Klasično uvjetovanje_1.png">
-              <img src="Klasično uvjetovanje_2.png">
             </div>
+            <div class="right">
+              <div class="zoom-controls">
+                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+              <img src="Klasično uvjetovanje_2.png" class="zoomable-image" data-row="2">
+            </div>
+          </div>
             <!---->
             <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Klasično uvjetovanje</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <img src="Klasično uvjetovanje_3.png">
-              <img src="Klasično uvjetovanje_4.png">
-              <img src="Klasično uvjetovanje_5.png">
-              <p>
-                Važno:
-                Uvjetovani podražaj treba biti prepoznatljiv i dovoljno jak (zvono, a ne lagani dodir)
-                Kratki rok treba proći između podražaja  
-                Veći broj uparivanja znači veću vjerojatnost stvaranja uvjetovane reakcije
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_21');lockA()">Klasično uvjetovanje</button>
+            <div id="newWindow_21" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Klasično uvjetovanje_3.png" class="zoomable-image" data-row="1">
+                <img src="Klasično uvjetovanje_4.png" class="zoomable-image" data-row="1">
+                <img src="Klasično uvjetovanje_5.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_21');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                Odredio Ivan Pavlov<br>
+                Uvjetovani podražaj treba biti prepoznatljiv i dovoljno jak (zvono, a ne lagani dodir)<br>
+                Kratki rok treba proći između podražaja  <br>
+                Veći broj uparivanja znači veću vjerojatnost stvaranja uvjetovane reakcije<br>
                 Ako se uvjetovani podražaj zada sam nekoliko puta prije neuvjetovanog – manja vjerojatnost povezivanja (djeca i priprema za zubara – susret sa zubarom, pregled prije potrebe za liječenjem pokvarenog zuba)
-                Generalizacija podražaja – podražaji slični uvjetovanom podražaju također uzrokuju reakciju:
-                Npr. Bojimo se zubara, pa generaliziramo strah na sve ljude koji nose bijele kute 
-                Ugrize nas jedan pas, počnemo se bojati svih pasa čak i ako su sasvim druge pasmine
-                Muka nam je nakon što smo pojeli hrenovku pa prestanemo jesti svo meso
-                Diskriminacija podražaja – učenje razlika među sličnim podražajima. 
-                Npr. Mačka dolazi na zveckanje konzerve hrane, ali ne kad zveckate vilicom u drugu podlogu.
-                Bojite se velikih pasmina pasa, ali ne i malih
-                Mačka dođe na zvuk vašeg auta, ali ne i na zvuk drugih automobila 
-                Gašenje – ako zadajemo uvjetovani podražaj bez neuvjetovanog nakon nekog vremena izgubi se njihova veza. 
-                Npr. Mačka prestane dolaziti zato jer neko vrijeme lupkate da je dozovete na mažnju, a ne dajete joj hranu.
-                Prestanete se bojati neke pojave, jer se ne javlja nikakvo loše iskustvo zajedno s njom  - npr. vozite se liftom, i ne zapnete u njemu ili se družite s psom i ne ugrize vas, već vam bude ugodno s njim...
-                Gašenje – posebno bitno za fobije
-                Kako se riješiti straha? 
-                Sustavnim izlaganjem onome čega se bojimo, u malim koracima i postupno, bez bijega iz situacije
-                Navikavamo se na osjećaj nelagode koji onda nakon nekog vremena prolazi 
-                Teže je s emocijom gađenja, nego s emocijom straha 
+                Generalizacija podražaja – podražaji slični uvjetovanom podražaju također uzrokuju reakciju:<br>
+                Npr. Bojimo se zubara, pa generaliziramo strah na sve ljude koji nose bijele kute<br> 
+                Ugrize nas jedan pas, počnemo se bojati svih pasa čak i ako su sasvim druge pasmine<br>
+                Muka nam je nakon što smo pojeli hrenovku pa prestanemo jesti svo meso<br>
+                Diskriminacija podražaja – učenje razlika među sličnim podražajima. <br>
+                Npr. Mačka dolazi na zveckanje konzerve hrane, ali ne kad zveckate vilicom u drugu podlogu.<br>
+                Bojite se velikih pasmina pasa, ali ne i malih<br>
+                Mačka dođe na zvuk vašeg auta, ali ne i na zvuk drugih automobila <br>
+                Gašenje – ako zadajemo uvjetovani podražaj bez neuvjetovanog nakon nekog vremena izgubi se njihova veza.<br> 
+                Npr. Mačka prestane dolaziti zato jer neko vrijeme lupkate da je dozovete na mažnju, a ne dajete joj hranu.<br>
+                Prestanete se bojati neke pojave, jer se ne javlja nikakvo loše iskustvo zajedno s njom  - npr. vozite se liftom, i ne zapnete u njemu ili se družite s psom i ne ugrize vas, već vam bude ugodno s njim...<br>
               </p>
             </div>
-            <!---->
-            <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Primjeri</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <p>
-                Nacrtajte i objasnite kako je izgledao proces uvjetovanja i označite što je bio neuvjetovani podražaj, neuvjetovana reakcija, neutralni podražaj, uvjetovani podražaj i uvjetovana reakcija za navedeni primjer:
-                Rano buđenje za školu izaziva nelagodu, a prije ustajanja svako jutro zvoni alarm mobitela.
-              </p>
-              <img src="Klasično uvjetovanje_6.png">
-              <p>
-                Nacrtajte i objasnite kako je izgledao proces uvjetovanja i označite što je bio neuvjetovani podražaj, neuvjetovana reakcija, neutralni podražaj, uvjetovani podražaj i uvjetovana reakcija
-                Jeste li nekad pojeli nešto (npr. pokvarena hrana) pa vam je izazvalo mučninu ili povraćanje? Kako biste se osjećali kad bi vam netko ponovno ponudio takvu hranu?
-              </p>
-              <img src="Klasično uvjetovanje_7.png">
-              <p>
-                Nacrtajte i objasnite kako je izgledao proces uvjetovanja i označite što je bio neuvjetovani podražaj, neuvjetovana reakcija, neutralni podražaj, uvjetovani podražaj i uvjetovana reakcija:
-                Kako se osjećate kad se družite s dragom osobom? Ako uvijek slušate istu pjesmu, kako biste se osjećali kad biste kasnije sami slušali istu pjesmu?
-              </p>
-              <img src="Klasično uvjetovanje_8.png">
-              <p>
-                Nacrtajte i objasnite kako je izgledao proces uvjetovanja i označite što je bio neuvjetovani podražaj, neuvjetovana reakcija, neutralni podražaj, uvjetovani podražaj i uvjetovana reakcija:
-                Kako se osjećate kad vas boli zub? Kako bi izgledao proces uvjetovanja ako svaki put kad nas boli zub odemo kod zubara?
-              </p>
-              <img src="Klasično uvjetovanje_9.png">
+            <div class="right">
+              <div class="zoom-controls">
+                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+              <img src="Klasično uvjetovanje_2.png" class="zoomable-image" data-row="2">
             </div>
+          </div>
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_21');lockA()">Primjeri</button>
+            <div id="newWindow_21" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Klasično uvjetovanje_6.png" class="zoomable-image" data-row="1">
+                <img src="Klasično uvjetovanje_7.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_21');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
+                Nacrtajte i objasnite kako je izgledao proces uvjetovanja i označite što je bio neuvjetovani podražaj, neuvjetovana reakcija, neutralni podražaj, uvjetovani podražaj i uvjetovana reakcija za navedeni primjer: <br>
+              </p>
+            </div>
+            <div class="right">
+              <div class="zoom-controls">
+                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+              <img src="Klasično uvjetovanje_8.png" class="zoomable-image" data-row="2">
+              <img src="Klasično uvjetovanje_9.png" class="zoomable-image" data-row="2">
+            </div>
+          </div>
             <!---->
             <!---->
           </div>
@@ -1464,10 +1615,25 @@ Tri kontrolna procesa pamćenja
           <div class="text-box">
             <!---->
             <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Instrumentalno/operativno uvjetovanje</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <p>
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_21');lockA()">Instrumentalno/operativno uvjetovanje</button>
+            <div id="newWindow_21" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Klasično uvjetovanje_6.png" class="zoomable-image" data-row="1">
+                <img src="Klasično uvjetovanje_7.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_21');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
                 Operantno uvjetovanje – proces kojim učimo povezivati ponašanje s posljedicama koje ga prate i mijenjati ga s obzirom na njih 
                 Burrhus. F. Skinner – tvorac teorije operantnog uvjetovanja - naučio golubove igrati stolni tenis i sl.
               </p>
@@ -1497,6 +1663,16 @@ Tri kontrolna procesa pamćenja
               </p>
               <img src="Instrumentalno operativno uvjetovanje_4.png">
             </div>
+            <div class="right">
+              <div class="zoom-controls">
+                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+              <img src="Klasično uvjetovanje_8.png" class="zoomable-image" data-row="2">
+              <img src="Klasično uvjetovanje_9.png" class="zoomable-image" data-row="2">
+            </div>
+          </div>
             <!---->
             <!---->
             <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Razlika potkrepljenja i kazne</button>
@@ -1532,11 +1708,24 @@ Tri kontrolna procesa pamćenja
           <div class="text-box">
             <!---->
             <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Teorije socijalnog učenja</button>
-            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
-              <img src="Teorije socijalnog učenja_1.png">
-              <p>
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_21');lockA()">Teorije socijalnog učenja</button>
+            <div id="newWindow_21" class="newWindow">
+              <div class="left">
+                <div class="zoom-controls">
+                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                </div>
+                <img src="Teorije socijalnog učenja_1.png" class="zoomable-image" data-row="1">
+              </div>
+              <div class="center">
+                <button class="close" onclick="toggleWindow('newWindow_21');unlock()">X</button>
+                <div class="zoom-controls">
+                  <button onclick="zoomInText()">+</button>
+                  <button onclick="zoomOutText()">-</button>
+                  <button onclick="resetZoomText()">Reset </button>
+                </div>
+                <p class="zoomable-text">
                 Učenje po modelu:
                 Modeliranje
                 Imitacija

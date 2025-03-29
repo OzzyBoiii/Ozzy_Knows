@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>English</title>
+    <meta name="author" content="Anna" />
+    <style>
+      /*BASE OF WEBSITE*/
+      body {
+      background-image: url(Background.png);
+      background-size: cover;
+      background-repeat: repeat;
+        background-attachment: fixed;
+        font-weight: bold;
+        background-blend-mode:multiply;
+        text-shadow: 2px 2px 4px #000;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+      /*BUTTON*/
+            .button-87 {
+              margin: 10px;
+              padding: 15px 30px;
+              text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.button-87:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.button-87:active {
+  transform: scale(0.95);
+}
+/**/
+/**/
+/**/
+/**/
+      /*NEW WINDOW*/
+      .newWindow {
+        position: fixed;
+        top: 5%;
+        left: 5%;
+        height: 90%;
+        width: 90%;
+        background-color: white;
+        border: 1px solid black;
+        overflow-x: scroll;
+      }
+      .hidden {
+        display: none;
+      }
+      /**/
+      /**/
+      /**/
+      /**/
+      /*TABLE*/
+      .table {
+        width: 400px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #000;
+      }
+      th,
+      td {
+        padding: 5px;
+      }
+      /**/
+      /**/
+      /**/
+      /**/
+      /*SCROLL ANIMATION*/
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Asap", sans-serif;
+      }
+      body {
+      }
+      section {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      section .container {
+        margin: 100px;
+      }
+      section h1 {
+        font-size: 3rem;
+        margin: 20px;
+      }
+      section h2 {
+        font-size: 40px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      section .text-container {
+        display: flex;
+      }
+      section .text-container .text-box {
+        margin: 20px;
+        padding: 20px;
+        background: #00c2cb;
+      }
+      section .text-container .text-box h3 {
+        font-size: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      @media (max-width: 900px) {
+        section h1 {
+          font-size: 2rem;
+          text-align: center;
+        }
+        section .text-container {
+          flex-direction: column;
+        }
+      }
+
+      .reveal {
+        position: relative;
+        opacity: 0;
+      }
+
+      .reveal.active {
+        opacity: 1;
+      }
+      .active.fade-bottom {
+      animation: fade-bottom 1s ease-in;
+      }
+      @keyframes fade-bottom {
+        0% {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="text-container">
+        <a href="http://127.0.0.1:5500/OZZY_knows.html"><button class="button-87" role="button">X</button></a>
+        <H2>ENGLESKI JEZIK</H2>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <h2>UNIT 21</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_64');lockA()">Grammar</button>
+            <div id="newWindow_64" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_64');unlock()">X</button>
+              <p>
+                <!---->
+                &bull; Reported Speech<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; In Reported Speech we change the following: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; time expressions and words referring to places (depending on the context)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; demonstrative pronouns, personal pronouns, object pronouns and possessive adjectives (depending on the context) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; tenses in affirmative sentences and questions (only if the reporting verb is in the past tense (e.g. he said, she told me, he asked)).<br> 
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; If the reporting verb is in the present tense (e.g. Present Simple or Present Perfect), we do not change the tense in the reported statement: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ‘I’m not satisfied with your performance.’ ➙ The teacher has said she is not satisfied with my performance.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ‘How do you handle stress?’ ➙ She wants to know how I handle stress. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; If the reporting verb is in the past tense, we do not change the following in the reported statement:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; verbs in the Past Perfect Simple and Past Perfect Continuous:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;‘Before my resignation I had been working on an environmental project.’ ➙ The candidate said that before his resignation he had been working on an environmental project.<br> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;‘Had you ever been to a job interview before that last one?’ ➙ I asked my neighbour if she had ever been to a job interview before that last one.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; modal verbs would, should, could, might, must:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ‘During the interview you should try to make eye contact.’ ➙ The advisor told me that during the interview I should try to make eye contact. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ‘We must all try harder.’ ➙ The manager said that we must all try harder.<br>
+                <!---->
+                &bull; Reporting verbs (besides say and tell)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Verbs without a direct object<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull;verb + (that) (e.g.: add, admit, agree, claim, complain, deny, explain, insist, promise, propose, recommend, regret, suggest):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ‘I wasted a lot of money.’ ➙ Sue complained (that) she had wasted a lot of money.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; verb + (not) to + infinitive (e.g.: agree, claim, decide, offer, promise, refuse, threaten):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ‘I’ll hire two new employees.’ ➙ The manager decided to hire two new employees.<br> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; verb + (not) -ing (e.g.: admit, deny, propose, recommend, regret, suggest):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ‘I didn’t take the money.’ ➙ The cashier denied taking the money.<br> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; verb + preposition + (not) -ing (e.g.: apologise for, insist on, object to):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;‘I’m sorry I was rude.’ ➙ I apologised for being rude.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Verbs with a direct object<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; verb + object + (that) (e.g.: advise, assure, convince, inform, persuade, promise, remind, tell, warn):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ‘The meeting will start in an hour.’ ➞ The secretary reminded them (that) the meeting would start in an hour.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; verb + object + (not) to + infinitive (e.g.: advise, ask, beg, convince, encourage, invite, order, persuade, recommend, remind, tell, warn, urge):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ‘You really should apply for this job.’ ➞ Everybody encouraged me to apply for that job.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; verb + object + preposition + (not) -ing (e.g.: accuse sb of, blame sb for, criticise sb for, congratulate sb on, praise sb for, suspect sb of, thank sb for: )<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ‘It’s your fault that the car was damaged.’ ➞ Joe’s boss blames him for damaging the car.<br>
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_2');lockA()">Language</button>
+            <div id="newWindow_2" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_2');unlock()">X</button>
+              <p>
+                &bull; Phrasal verbs (advanced points)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Three-part phrasal verbs <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; verbs formed with a common verb and a variety of adverbial and propositional particles:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tom dropped out of school after failing his exams. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You should stand up for what you believe in. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kate couldn't keep up with other students. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; They are inseparable (the object (a noun or pronoun) follows the whole phrasal verb): <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We are sure to come up against a lot of opposition. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We are sure to come up a lot of opposition against <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Word building with phrasal verbs <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Nouns (the stress falls on the 'particle' part)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; verb + adverbial/prepositional particle (clear out- a clear-out, let sb down- a letdown, warm sth up- a warm-up)<br> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I had a clear-out because I needed more space for some new equipment. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A friend of mine took a year out to avoid burnout. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In such words, the stress falls on the verb part. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; adverbial and prepositional particle + verb (bring up→ upbringing, pour down→ downpour, set out → outset, put in→ input) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please, allow me to say a few words at the outset. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; They had the greatest input into our company <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Adjectives<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; adverbial/prepositional particle + verb + -ing (put off→ off-putting, lift up→ uplifting, stand out → outstanding) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Our teacher told us an uplifting story. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For such outstanding work, you deserve a pay rise.<br> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; verb (Past Participle) + adverbial/prepositional particle (run down→ run-down, build up→ built-up, wear out→→ worn-out)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You are driving through a built-up area. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The boys grow up in this run-down building you see.<br> 
+                Note: remember to check the spelling of such nouns and adjectives in a dictionary before you use them."<br>
+              <!---->
+              &bull; Expressing certainty and describing consequences (formal way)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp; &bull; Expressing certainty <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; Undeniably/Undoubtedly,... (It's undeniable that/There is no doubt that ...) <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; Without (a) doubt,... <br>
+              &nbsp;&nbsp;&nbsp;&nbsp; &bull; Describing consequences <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; The result/consequence/outcome of (such a decision/ choice) could be that... <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; As a result/consequence,... <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; This could lead to/result in..."<br>
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_3');lockA()">Writting</button>
+            <div id="newWindow_3" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_3');unlock()">X</button>
+              <p>
+                &bull; An opinion essay <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Introduction <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Introduce the topic and state your main opinion. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Say which two (or more) points of view or aspects will be discussed <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To explain the reasons for my view, I will examine the issue in terms of... <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; It is my intention to explore this issue from the viewpoint of... <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This essay will look at this question from the perspective of... <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Paragraphs 2 and 3 <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Discuss different aspects of the issue and support the main opinion you stated in the introduction. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Expand the discussion by giving examples. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; When it comes to...<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; It is also important to consider this issue with regards to... <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Another important angle on/aspect of this issue is...<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Paragraph 4 <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Acknowledge an opposing opinion and say why you disagree with it. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; It is true that..., however, I am of the opinion that...<br> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; While some people say....I.... <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Some people do not agree and feel that... <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; &bull; Conclusion <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Use a linking phrase to introduce a conclusion. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In conclusion/To sum up/All things considered/all in all" <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Restate your main opinion. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Include a final comment. to that..."<br>
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Speaking</button>
+            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_4');unlock()">X</button>
+              <p>
+                &bull; Talking about a problem <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; What's wrong/the matter? <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; What's 'up/on (with it)? <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; I seem/appear to have lost/forgotten/broken... <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; I haven't (got) a due./I've no thought/idea./I wish I know. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; Every time I try to ..., it... <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; Perhaps there's something wrong/a problem with the... <br>
+                &bull; Talking about a solution <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; Have you tried...+ -ing? <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; It's worth a try/a go, I suppose. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; I'doubt/know it'll/that'll work/help, but let's see. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; Problem solved! <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; No, that doesn't/didn't make any solution/difference. <br>
+                &bull; Expressing annoyance <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; What are we 'about/ supposed to do now? <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; Why on earth did/didn't you ...? <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; How should I know/think? <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; You should have chocked/asked first. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; You should have thought about that earlier."<br>
+              </p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-right">
+        <h2>UNIT 2</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_5');lockA()">Grammar</button>
+            <div id="newWindow_5" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_5');unlock()">X</button>
+              <p>
+                &bull; Past Continuous <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; used to describe a longer background scene in a story, during which other main events (described in the Past Simple) took place <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Someone was sitting at desk when the lights went out." <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; used to talk about a longer action (Past Continuous) that was interrupted by the shorter action (Past Simple) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"While Meg was texting a message to her friend, she dropped her phone." <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; used to talk about actions in progress at the same time <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"While Ann was doing some experiments, Terry was taking some measurments." <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; formation 
+                <table>
+                  <tr>
+                    <th>Affirmative<br>
+                    <br>
+                    </th>
+                    <td>I/he/she/it</td>
+                    <td>was</td>
+                    <td>watching TV</td>
+                  </tr>
+                  <tr>
+                    <th>Negative</th>
+                    <td>I/he/she/it .</td>
+                    <td>was not/wasn't</td>
+                    <td>watching TV</td>
+                  </tr>
+                  <tr>
+                    <td>you/we/they were watching TV.</td>
+                    <td>you/we/they were not watching TV.</td>
+                    <td>Were you/we/they watching TV?</td>
+                  </tr>
+                </table>- Affirmative sentence - I/he/she/it + was + watching TV. -you/we/they + were + watching TV. - Negative sentence - I/he/she/it + was not + watching TV. - you/we/they + were not + watching TV. - Yes/No questions - Was + I/he/she/it + watching TV? Yes, I/he/she/it was/No, I/he/she/it was not - Were + you/we/they + watching TV? Yes, you/we/they were/No, you/we/they were not - Wh- questions - What + was + I/he/she/it + watching? - What + were + you/we/they + watching? - Subject questions - Who + was + watching TV? Used to - the usage of used to - past states or actions that are no longer true - "I used to play tennis a lot. (I do not play either very often or anymore) - When we talk about single actions that happened once, we use Past Simple (not used to) - Kim bought a new mobile phone yesterday. - formation - Affirmative sentence - I/you/he/she/it/we/they + used to + swim. - Negative sentence - I/you/he/she/it/we/they + did not use to + swim. - Yes/No questions - Did + I/you/he/she/it/we/they + use to + swim? Yes, I/you/he/she/it/we/they did/No, I/you/he/she/it/we/they did not - Wh- questions - Where + did + I/you/he/she/it/we/they + use to + swim? - Subject questions - Who + used to + swim?
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_6');lockA()">Language</button>
+            <div id="newWindow_6" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_6');unlock()">X</button>
+              <p>
+                &bull; Linkers and time expressions 
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Conjuctions 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; you use when/while to link things that happen at the same time (conjuction + subject + verb) 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "While they were working for NASA, they earned less than their white collegues 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; you use after/as soon as/before/when to link things that happen in order (conjuction + subject + verb) 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "When the film came out, Johnson met the actress who played her." 
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Prepositions 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; you use during to say when something happens (during + noun) ("during the 1950s and 1960.") 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; you use until (till) to talk about a state that continues up to a point in time (until (till) + noun) ("Segregation continued until the mid-1960s.")
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; you use by to talk about an action that happens at or before a point in time  ("Segregation stopped by the late 1960s.")
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Informal linkers 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; they are used in narrative stories
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... to emphasise the next piece of information (I have to say or I must admit)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... to change the subject or move the story on (Anyhow or anyway) 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... to show that the next piece of information is surprising (Actually or In fact )
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... to join parts of sentences (And, but, because, so)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... to make the order of events clear (Then, when, while, during)
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_7');lockA()">Writting</button>
+            <div id="newWindow_7" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_7');unlock()">X</button>
+              <p>
+                &bull; A story <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; set the scene <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I was twelve years old when ... <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; It was late in the evening when ... <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I was in the classroom when ... <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Use questions, short dramatic sentences and occasional exclamation marks to show surprise or excitement <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; What was going on? <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; What a surprise! <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; It was awesome! <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We were in trouble <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Use adverbs to add interest <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All of a sudden/suddenly/Luckily/Unfortunately <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... really (good) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... completely (lost) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ... incredibly (smart) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Use a summarising statement to begin or end your story <br> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I will never forget the day i first saw .../the time I decided to .../when I first went .../... was an event I will never forget <br>
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_8');lockA()">Speaking</button>
+            <div id="newWindow_8" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_8');unlock()">X</button>
+              <p>
+                &bull; Telling a story <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Use the right tenses <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; Past Continuous for the "background" <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "The sun was shining and I was enjoying myself." <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; Past Simple for the "problem" and the "main events" <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "The weather changed and I could not see the path." <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Use linkers <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; Beginning: To start with/At first <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; middle: Suddenly/All of a sudden/Luckily/Fortunately/Unfortunately <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; End: In the end/Finnaly/Eventually <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Say how you felt <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I was excited/frightened/surprised/shocked/worried, etc. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Make a "final comment" <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "It was the best/worst day of my life!" <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "I will never do it again." <br>
+                <!---->
+                &bull; Listening to a story <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Neutral response: Really?/Oh dear./Oh no <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Strong response: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; That sounds amazing/funny/frightening. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; What a great story/a nightmare! <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Respond with questions <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; What happened? <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; What did you do?<br>
+              </p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-right">
+        <h2>UNIT 22</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_64');lockA()">Grammar</button>
+            <div id="newWindow_64" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_64');unlock()">X</button>
+              <p>
+                &bull; Conditional clauses (alternatives to if) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; To form Zero, First, Second and Third Conditionals, we can use the following words and structures. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; conjunction unless: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I won't tell you what happened if you don't promise to keep it secret.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I won't tell you what happened unless you promise to keep it secret. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; conjunction provided (that)/providing (that). <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You can go with us if you pay for your own meals. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You can go with us, provided that you pay for your own meals. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &bull; expressions Imagine... or Suppose/Supposing... used in questions: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If someone published a private email from you on Facebook, would you be angry? <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Imagine/Suppose/ Supposing someone published a private email from you on Facebook, would you be angry? <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Inversion <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; used in formal language (mostly in writing) to emphasise the rhetorical effect of the sentence. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; It can be used in sentences with the auxiliary verbs were (first and third person singular) and had,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Formation: to transform a conditional clause using inversion, we do not use if, but start the sentence with the auxiliary verb <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If it were my photograph, I wouldn't let anyone publish it. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Were it my photograph, I would not let anyone publish it. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If I had considered all the aspects more carefully, I would probably have made the right decision. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Had considered all the aspects more carefully, I would probably have made the right decision. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Formation: to say that the condition is rather improbable we use should if (In such case the conditional cause must first be transformed into a more formal sentence using should + infinitive, which replaces the verb in the Present Simple. At the next stop we use inversion, starting the sentence with should and omitting it. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If you are dissatisfied with the product, you are entitled to a refund. (the least formal) → <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If you should be dissatisfied with the product, you are entitled to a refund. (more formal) → <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Should you be dissatisfied with the product, you are entitled to a refund. (the most formal) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; When using inversion, we do not use contractions with negatives in the dependent clauses: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If I hadn't told the police the truth, an innocent person would have been arrested → <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Had I not told the police the truth, an innocent person would have been arrested.<br>
+                &bull; Mixed conditionals <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; We can mix Second and Third Conditional forms, creating mixed conditional sentences of Type I or Type II. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; As with all types of conditionals, we can use could, might or should instead of would<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Mixed conditionals Type I <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; If + Past Simple, would/wouldn't have + Past Participle <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; used to speculate about permanent states or situations which had a result in the past<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; the verb form were can be used with the first and third person singular: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If Sergio didn't speak English with an Italian accent, he wouldn't have been recognised and arrested last month (But because he speaks with an accent, he was arrested) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If I was/wore taller, I would have got the main role in the school play a year ago. (But I didn't get the role because I'm not taller.) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Mixed conditionals Type II <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; If + Past Perfect, would/wouldn't + infinitive <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; used to speculate about past situations which didn't happen, and this has certain effects or consequences in the present: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If she hadn't changed her job two years ago, Gina wouldn't be so unhappy now. (But she did and now she is unhappy.) <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; He would be a free man now if the police had stopped looking for him then. (But the police didn't stop looking and he isn't free.) <br>
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_64');lockA()">Language</button>
+            <div id="newWindow_64" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_64');unlock()">X</button>
+              <p>
+                6.7 Compound nouns and adjectives Compound nouns Compound nouns are usually made up of two words. The first word describes or modifies the second word, e.g. time travel (-travel in time) and travel time (-travel duration). Compound nouns structures include: ⚫ noun + noun: We always watch a news bulletin first thing in the morning. • adjective+nounc Everybody should be interested at least a little bit in foreign affairs. ⚫ verb-ing + noun: Have you seen my reading glasses? • proposition + noun: Our local radio station is located on the outskirts of town. • nouns derived from phrasal verbs: Don't forget to ring me if you need any backup. Compound nouns are written as one word, two separate words or two words with a hyphen. Compound adjectives Compound adjective structures include: • numeral + noun: We were extremely tired after the twenty-hour flight to Australia. • adjective + noun: The setting of the film is present-day London. ⚫ noun + adjective: The evening blood-red sun promises good weather the next day. ⚫ noun/adjective/adverb + -ed/-ing participle: It was such a heart-warming message. I got tongue-tied when I saw that so many people came to hear me speak • verb + proposition/adverb: Nowadays, there are a lot of made-up stories on social media. Compound adjectives are usually hyphenated. Some compound adjectives are made from more than two words, e.g. fifteen-year-old, state-of-the-art. Note: the noun in a compound adjective is usually singular. two-minute conversation NOT two-minutes-conversation flat-footed NOT flat-fected
+                <!---->
+                &bull; Adjectives for reviews <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; very funny - hilarious <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; impossible to forget - unforgettable <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; extremely frightening – terrifying <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; exciting- gripping <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; emotional about the past- nostalgic <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; hard to believe – far-fetched <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; liked by critics - well-reviewed <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; easy to guess- predictable <br>
+                </p>
+                </div>
+                <!---->
+                <!---->
+                <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_64');lockA()">Speaking</button>
+            <div id="newWindow_64" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_64');unlock()">X</button>
+              <p>
+                Beginning your answer <br>
+                I'_firmly believe/I'm not convinced they do, because... _/clear advantage/disadvantage is that ... /explain that/how... <br>
+                One 2 I think I'd It's absolutely vital/quite important I think, because... As well as (avoiding fur products), other (things that can help) include... <br>
+                I think the main/one/a significant reason is that... <br>
+                Expressing opinions <br>
+                It could be <br>
+                I don't fool that... strongly about... <br>
+                I don't have a strong opinion about... <br>
+                I suppose you could say that...<br>
+              </p>
+                </div>
+                <!---->
+                <!---->
+                <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_64');lockA()">Writting</button>
+            <div id="newWindow_64" class="newWindow hidden" aria-hidden="true">
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_64');unlock()">X</button>
+              <p>
+                &bull; A review <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; used to give your personal opinion about something <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; The opinion should be supported with examples and recommendations (at the end). <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Reviews often have a fairly informal style. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&bull; Writting<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Introduction <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Attract the reader's attention with an interesting opening sentence. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Mention the type of show, the stars/director/writer, the setting, obvious influences, etc. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Main paragraphs <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Use present tenses to give more details about the plot and the main characters. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Use present or past tenses to say what you liked/didn't like about the TV series. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Use a variety of adjectives and modifiers when presenting your opinions. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Conclusion <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Summarise your review. <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Make recommendations.<br>
+                </p>
+                </div>
+                <!---->
+                <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <script>
+      /*SCROLL LOCK AND UNLOCK*/
+      function lockA() {
+        var xPos = window.scrollX;
+        var yPos = window.scrollY;
+        window.onscroll = () => window.scroll(xPos, yPos);
+      }
+      function lockB() {
+        var target = document.getElementById("demoB");
+        target.scrollIntoView();
+        window.onscroll = () => target.scrollIntoView();
+      }
+      function unlock() {
+        window.onscroll = "";
+      }
+      //
+      //
+      //
+      //
+      /*MODAL WINDOW*/
+      function toggleWindow(windowId) {
+        const windowToToggle = document.getElementById(windowId);
+        windowToToggle.classList.toggle("hidden");
+        windowToToggle.setAttribute(
+          "aria-hidden",
+          windowToToggle.classList.contains("hidden")
+        );
+      }
+      //
+      function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 150;
+
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+          } else {
+            reveals[i].classList.remove("active");
+          }
+        }
+      }
+
+      window.addEventListener("scroll", reveal, { passive: true });
+    </script>
+  </body>
+</html>
