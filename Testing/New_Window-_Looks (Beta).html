@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New_Window_Look_Beta 1.2</title>
+    <meta name="author" content="Anna">
+    <style>
+        /*SCIENTIFIC FORMULAS*/
+        .radical {
+            position: relative;
+            font-size: 1.6em;
+            vertical-align: middle;
+        }
+        .n-root {
+            position: absolute;
+            top: -0.333em;
+            left: 0.333em;
+            font-size: 45%;
+        }
+        .radicand {
+            padding: 0.25em 0.25em;
+            border-top: thin black solid;
+        }
+        /*FRACTIONS*/
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0.2em 0.4ex;
+            text-align: center;
+        }
+        .fraction > span {
+            display: block;
+            padding-top: 0.15em;
+        }
+        .fraction span.fdn {
+            border-top: thin solid black;
+        }
+        .fraction span.bar {
+            display: none;
+        }
+        #overline {
+            text-decoration: overline;
+        }
+        .sy {
+            position: relative;
+            text-align: center;
+        }
+        .oncapital, .onsmall {
+            position: absolute;
+            top: -1em;
+            left: 0px;
+            width: 100%;
+            font-size: 70%;
+            text-align: center;
+        }
+        .onsmall {
+            top: -0.7em;
+        }
+
+        /*FLEXIBLE WEBSITE*/
+        .container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 0.5rem;
+            padding-right: 8.5rem;
+        }
+        @media (min-width: 475px) {
+            .container {
+                max-width: 475px;
+            }
+        }
+        @media (min-width: 640px) {
+            .container {
+                max-width: 640px;
+            }
+        }
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+            }
+        }
+        @media (min-width: 1824px) {
+            .container {
+                max-width: 1824px;
+            }
+        }
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1288px;
+            }
+        }
+        @media (min-width: 1536px) {
+            .container {
+                max-width: 1536px;
+            }
+        }
+
+        /*BUTTON*/
+        .button-87 {
+            margin: 10px;
+            padding: 15px 30px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            border-radius: 10px;
+            display: block;
+            border: 0px;
+            font-weight: 700;
+            box-shadow: 0px 0px 14px -7px #f09819;
+            background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+        .button-87:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+        }
+        .button-87:active {
+            transform: scale(0.95);
+        }
+
+        /*SCROLLING ANIMATION*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Asap", sans-serif;
+        }
+        body {
+            background-image: url(Untitled.png);
+            background-size: contain;
+            background-repeat: repeat;
+            background-attachment: fixed;
+            font-weight: bold;
+            background-blend-mode: multiply;
+            text-shadow: 2px 2px 4px #000;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        section .container {
+            margin: 100px;
+        }
+        section h1 {
+            font-size: 3rem;
+            margin: 20px;
+        }
+        section h2 {
+            font-size: 40px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        section .text-container {
+            display: flex;
+        }
+        section .text-container .text-box {
+            margin: 20px;
+            padding: 20px;
+            background: #00c2cb;
+        }
+        section .text-container .text-box h3 {
+            font-size: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 900px) {
+            section h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
+            section .text-container {
+                flex-direction: column;
+            }
+        }
+        .reveal {
+            position: relative;
+            opacity: 0;
+        }
+        .reveal.active {
+            opacity: 1;
+        }
+        .active.fade-bottom {
+            animation: fade-bottom 1s ease-in;
+        }
+        .active.fade-left {
+            animation: fade-left 1s ease-in;
+        }
+        .active.fade-right {
+            animation: fade-right 1s ease-in;
+        }
+        @keyframes fade-bottom {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fade-left {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fade-right {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* UPDATED WINDOW STYLES */
+        .newWindow {
+            position: fixed;
+            top: 5%;
+            left: 5%;
+            height: 90%;
+            width: 90%;
+            background-color: white;
+            border: 1px solid black;
+            display: none;
+            grid-template-columns: 35% 65%;
+            padding: 15px;
+            box-sizing: border-box;
+            gap: 20px;
+        }
+        
+        .newWindow.no-images {
+            grid-template-columns: 100%;
+        }
+        
+        .newWindow.swapped {
+            grid-template-columns: 65% 35%;
+        }
+        
+        .newWindow.active {
+            display: grid;
+        }
+
+        .window-main-grid {
+            display: grid;
+            grid-template-rows: 1fr auto;
+            height: 100%;
+        }
+
+        .image-container {
+            display: grid;
+            grid-template-rows: auto auto;
+            gap: 30px;
+            overflow: auto;
+        }
+
+        .image-square {
+            display: grid;
+            grid-template-rows: 10% 80% 10%;
+            height: 400px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+        .image-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            padding: 5px;
+        }
+
+        .image-controls .button-87 {
+            padding: 8px 15px;
+            margin: 0;
+            font-size: 0.8em;
+        }
+
+        .image-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .image-display img {
+            max-width: 100%;
+            max-height: 100%;
+            transition: transform 0.3s ease;
+            object-fit: contain;
+        }
+
+        .image-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .content-container {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .text-zoom-controls {
+            display: flex;
+            gap: 8px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            justify-content: center;
+        }
+        
+        .text-content {
+            padding: 15px;
+            overflow: auto;
+        }
+
+        .window-controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .close-button-container {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Math<br></h1>
+        <div class="text-container">
+            <a href="http://127.0.0.1:5500/OZZY_knows.html"><button class="button-87" role="button">X</button></a>
+        </div>
+    </section>
+
+    <section>
+        <div class="container reveal fade-bottom">
+            <h3>Osnovni pojmovi o vektorima</h3>
+            <div class="text-container">
+                <div class="text-box">
+                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Definicija vektora</button>
+                    <div id="newWindow_1" class="newWindow">
+                        <div class="window-controls">
+                            <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
+                        </div>
+                        
+                        <div class="window-main-grid">
+                            <div class="image-container">
+                                <div class="image-square">
+                                    <div class="image-controls">
+                                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                                    </div>
+                                    <div class="image-display">
+                                        <img id="image1" src="settings-logo-clipart-2.png" class="zoomable-image">
+                                    </div>
+                                    <div class="image-info">
+                                        <h3>Image 1 Title</h3>
+                                    </div>
+                                </div>
+                                
+                                <div class="image-square">
+                                    <div class="image-controls">
+                                        <button class="button-87" onclick="zoomIn('image2')">+</button>
+                                        <button class="button-87" onclick="zoomOut('image2')">-</button>
+                                        <button class="button-87" onclick="resetZoom('image2')">Reset</button>
+                                    </div>
+                                    <div class="image-display">
+                                        <img id="image2" src="settings-logo-clipart-2.png" class="zoomable-image">
+                                    </div>
+                                    <div class="image-info">
+                                        <h3>Image 2 Title</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="content-container">
+                                <div class="text-zoom-controls">
+                                    <button class="button-87" onclick="zoomInText('newWindow_1')">+</button>
+                                    <button class="button-87" onclick="zoomOutText('newWindow_1')">-</button>
+                                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
+                                </div>
+                                <div class="text-content">
+                                    <p class="zoomable-text">
+                                        &bull; Vektor (lat. vector - nositelj)<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp; &bull; usmjerena dužina...<br>
+                                    </p>
+                                </div>
+                                <div class="close-button-container">
+                                    <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Window toggle functions
+        function toggleWindow(windowId) {
+            const windowToToggle = document.getElementById(windowId);
+            windowToToggle.classList.toggle('active');
+            document.body.style.overflow = windowToToggle.classList.contains('active') ? 'hidden' : '';
+            if(windowToToggle.classList.contains('active')) {
+                resetAllZooms();
+            }
+        }
+
+        // Cycle through layout options
+        function cycleLayout(windowId) {
+            const window = document.getElementById(windowId);
+            if (window.classList.contains('no-images')) {
+                window.classList.remove('no-images');
+                window.classList.remove('swapped');
+            } else if (window.classList.contains('swapped')) {
+                window.classList.add('no-images');
+            } else {
+                window.classList.add('swapped');
+            }
+        }
+
+        // Zoom functions
+        let imageScales = {};
+        let textScales = {};
+
+        function resetAllZooms() {
+            const images = document.querySelectorAll('.zoomable-image');
+            images.forEach(img => {
+                img.style.transform = 'scale(1)';
+                imageScales[img.id] = 1;
+            });
+            
+            const textElements = document.querySelectorAll('.zoomable-text');
+            textElements.forEach(text => {
+                text.style.fontSize = '1em';
+                textScales[text.closest('.newWindow').id] = 1;
+            });
+        }
+
+        function zoomIn(imageId) {
+            if (!imageScales[imageId]) imageScales[imageId] = 1;
+            imageScales[imageId] += 0.1;
+            const image = document.getElementById(imageId);
+            image.style.transform = `scale(${imageScales[imageId]})`;
+        }
+
+        function zoomOut(imageId) {
+            if (!imageScales[imageId]) imageScales[imageId] = 1;
+            imageScales[imageId] = Math.max(0.5, imageScales[imageId] - 0.1);
+            const image = document.getElementById(imageId);
+            image.style.transform = `scale(${imageScales[imageId]})`;
+        }
+
+        function resetZoom(imageId) {
+            imageScales[imageId] = 1;
+            const image = document.getElementById(imageId);
+            image.style.transform = 'scale(1)';
+        }
+
+        function zoomInText(windowId) {
+            if (!textScales[windowId]) textScales[windowId] = 1;
+            textScales[windowId] += 0.1;
+            document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
+                text.style.fontSize = `${textScales[windowId]}em`;
+            });
+        }
+
+        function zoomOutText(windowId) {
+            if (!textScales[windowId]) textScales[windowId] = 1;
+            textScales[windowId] = Math.max(0.5, textScales[windowId] - 0.1);
+            document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
+                text.style.fontSize = `${textScales[windowId]}em`;
+            });
+        }
+
+        function resetZoomText(windowId) {
+            textScales[windowId] = 1;
+            document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
+                text.style.fontSize = '1em';
+            });
+        }
+
+        // Scroll lock functions
+        function lockA() {
+            var xPos = window.scrollX;
+            var yPos = window.scrollY;
+            window.onscroll = () => window.scroll(xPos, yPos);
+        }
+
+        function unlock() {
+            window.onscroll = "";
+        }
+
+        // Scroll reveal animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal, { passive: true });
+        reveal(); // Initialize
+    </script>
+</body>
+</html>

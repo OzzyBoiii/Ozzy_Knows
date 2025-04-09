@@ -1124,6 +1124,257 @@
             </div>
             </div>
             </section>
+            <!---->
+            <!---->
+            <!---->
+            <section>
+              <div class="container reveal fade-bottom">
+                <h3>Eksplicitni i implicitni oblik jednadžbe pravca</h3>
+                <div class="text-container">
+                  <div class="text-box">
+                    <!---->
+                    <!---->
+                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_10');lockA()">Pravac</button>
+              <div id="newWindow_10" class="newWindow">
+                <div class="left">
+                  <div class="zoom-controls">
+                    <button class="button-87" id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                    <button class="button-87" id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                    <button class="button-87" id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                  </div>
+                  <img src="" class="zoomable-image" data-row="1">
+                </div>
+                <div class="center">
+                  <button class="close; button-87" onclick="toggleWindow('newWindow_10');unlock()">X</button>
+                  <div class="zoom-controls">
+                    <button class="button-87" onclick="zoomInText()">+</button>
+                    <button class="button-87" onclick="zoomOutText()">-</button>
+                    <button class="button-87" onclick="resetZoomText()">Reset </button>
+                  </div>
+                  <p class="zoomable-text">
+                    &bull; Pravac (u koordinatnom sustavu)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&bull; skup svih točaka (x,y) u ravnini čije koordinate zadovoljavaju jednadžbu Ax+By+C=0, pri čemu je barem jedan od koeficijenata A, B različit od nule<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&bull; jednadžba oblika Ax+By+C=0 nazivamo implicitni oblik jednadžbe pravca.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&bull; Pravac crtamo tako da odredimo barem dvije točke koje leže na tom pravcu, uzimajući po volji dvije vrijednosti za nepoznanicu x ili nepoznanicu y.<br>
+                    <!--PRIMJER 1-->
+                    <div class="CONTAINER" id="CONTAINER_1">
+                      <div class="slider" id="slider">
+                        <!-- Window 1 -->
+                        <div class="window">
+                          <li>Nacrtajmo u istom koordinatnom sustavu pravce određene jednadžbama 1) 2x+y−3=0; 2) x−3y+6=0
+                        </div>
+                        <!-- Window 2 -->
+                        <div class="window">
+                          <li>
+                            <img src="Eksplicitni_i_implicitni_oblik_jednadžbe_pravca_PRIMJER_1.png">
+                          </li><br>
+                          </div>
+                        <!-- Window 3 -->
+                        <div class="window">
+                          <li>
+                            1) x=0, dobivamo y=3. Za x=1 dobivamo y=1. Točke (0,3) i (1,1) leže na pravcu.<br>
+                            2) Stavimo li  y=2, dobivamo x=0. Za y=3 dobivamo x=3. Pravac prolazi točkama (0,2) i (3,3). <br>
+                          </li><br>
+                          </div>
+                      </div>
+                    </div>
+                      </p>
+                    </div>
+                    <div class="right">
+                      <div class="zoom-controls">
+                        <button class="button-87" id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                        <button class="button-87" id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                        <button class="button-87" id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                      </div>
+                      <img src="" class="zoomable-image" data-row="2">
+                    </div>
+                  </div>
+                    <!---->
+                    <!---->
+                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_10');lockA()">Pravci paralelni s koordinatnim osima</button>
+                    <div id="newWindow_10" class="newWindow">
+                      <div class="left">
+                        <div class="zoom-controls">
+                          <button class="button-87" id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                          <button class="button-87" id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                          <button class="button-87" id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                        </div>
+                        <img src="Eksplicitni_i_implicitni_oblik_jednadžbe_pravca_1.png" class="zoomable-image" data-row="1">
+                      </div>
+                      <div class="center">
+                        <button class="close; button-87" onclick="toggleWindow('newWindow_10');unlock()">X</button>
+                        <div class="zoom-controls">
+                          <button class="button-87" onclick="zoomInText()">+</button>
+                          <button class="button-87" onclick="zoomOutText()">-</button>
+                          <button class="button-87" onclick="resetZoomText()">Reset </button>
+                        </div>
+                        <p class="zoomable-text">
+                          &bull; Slučajevi (SLIKA 1)<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&bull; Ako je u općoj jednadžbi pravca A=0, onda proizlazi: By+C=0.<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; jednadžbu zadovoljavaju točke (x,y) ravnine za koje vrijedi y=−CB. <br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Te se točke nalaze na pravcu koji prolazi točkom (0,−CB) i paralelan je s osi apscisa (x).<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&bull; Ako je u općoj jednadžbi B=0, onda proizlazi: Ax+C=0.<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jednadžbu zadovoljavaju točke (x,y) ravnine za koje vrijedi x=−CA. <br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Te se točke nalaze na pravcu koji prolazi točkom (−CA,0) i paralelan je s osi ordinata.<br>
+                          <!--PRIMEJR 2-->
+                          <div class="CONTAINER" id="CONTAINER_1">
+                            <div class="slider" id="slider">
+                              <!-- Window 1 -->
+                              <div class="window">
+                                <li>Nacrtajmo u istom koordinatnom sustavu pravce određene jednadžbama 1) 2x−3=0; 2) y−3=0.</li>
+                              </div>
+                              <!-- Window 2 -->
+                              <div class="window">
+                                <li>
+                                  <img src="Eksplicitni_i_implicitni_oblik_jednadžbe_pravca_PRIMJER_2.png">
+                                </li><br>
+                              </div>
+                            </div>
+                          </div>
+                        </p>
+                        </div>
+                        <div class="right">
+                          <div class="zoom-controls">
+                            <button class="button-87" id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                            <button class="button-87" id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                            <button class="button-87" id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                          </div>
+                          <img src="" class="zoomable-image" data-row="2">
+                        </div>
+                      </div>
+                        <!---->
+                        <!---->
+                        <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_10');lockA()">Eksplicitni oblik jednadžbe pravca</button>
+                    <div id="newWindow_10" class="newWindow">
+                      <div class="left">
+                        <div class="zoom-controls">
+                          <button class="button-87" id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                          <button class="button-87" id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                          <button class="button-87" id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                        </div>
+                        <img src="" class="zoomable-image" data-row="1">
+                      </div>
+                      <div class="center">
+                        <button class="close; button-87" onclick="toggleWindow('newWindow_10');unlock()">X</button>
+                        <div class="zoom-controls">
+                          <button class="button-87" onclick="zoomInText()">+</button>
+                          <button class="button-87" onclick="zoomOutText()">-</button>
+                          <button class="button-87" onclick="resetZoomText()">Reset </button>
+                        </div>
+                        <p class="zoomable-text">
+                          &bull; Eksplicitni oblik jednadžbe pravca <br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&bull; Postiže se ukoliko pravac nije paralelan s osi ordinata,<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&bull; Ako je B≠0, jednadžbu Ax+By+C=0 dijeljenjem s koeficijentom B prevodimo u jednadžbu oblika <br>
+                          <div class="eq-c">
+                            y=−
+                            <div class="fraction">
+                              <span class="fup">A</span>
+                              <span class="bar">/</span>
+                              <span class="fdn">B</span>
+                            </div>
+                            x+
+                          </div>
+                          <div class="eq-c">
+                            -
+                            <div class="fraction">
+                              <span class="fup">C</span>
+                              <span class="bar">/</span>
+                              <span class="fdn">B</span>
+                            </div>
+                          </div>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&bull; odredimo nove varijable zatim <br>
+                          <div class="eq-c">
+                            k=-
+                            <div class="fraction">
+                              <span class="fup">A</span>
+                              <span class="bar">/</span>
+                              <span class="fdn">B</span>
+                            </div>
+                            i
+                          </div>
+                          <div class="eq-c">
+                            l=−
+                            <div class="fraction">
+                              <span class="fup">C</span>
+                              <span class="bar">/</span>
+                              <span class="fdn">B</span>
+                            </div>
+                            =nezz
+                          </div>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&bull; Naposljetku,jednadžbu zapisujemo u obliku y=kx+l.<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Koeficijent k zovemo nagib/koeficijent smjera i može biti bilo koji realni broj.<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; ako je k=0, jednadžba (y=l) je paralelna s osi apscisa<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Koeficijent l nazivamo odsječak na osi ordinata.<br>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; ako je x=0, pravac jednadžbe (y=k*0+l=l) prolazi točkom (0,l), a ako je l=0, prolazi ishodištem<br>
+                          <!--PRIMEJR 3-->
+                          <div class="CONTAINER" id="CONTAINER_1">
+                            <div class="slider" id="slider">
+                              <!-- Window 1 -->
+                              <div class="window">
+                                <li>Dan je pravac 2x−3y+6=0. Odredi nagib tog pravca i njegov odsječak na osi y.</li>
+                              </div>
+                              <!-- Window 2 -->
+                              <div class="window">
+                                <li>
+                                  <img src="Eksplicitni_i_implicitni_oblik_jednadžbe_pravca_PRIMJER_3.png">
+                                </li><br>
+                              </div>
+                              <!-- Window 3 -->
+                              <div class="window">
+                                <li>
+                                  Jednadžba danog pravca u eksplicitnom obliku glasi y=23x+2. Odatle odmah čitamo nagib k=23, a odsječak pravca na osi y je l=2.<br>
+                                </li><br>
+                              </div>
+                            </div>
+                          </div>
+                        </p>
+                        </div>
+                        <div class="right">
+                          <div class="zoom-controls">
+                            <button class="button-87" id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                            <button class="button-87" id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                            <button class="button-87" id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                          </div>
+                          <img src="" class="zoomable-image" data-row="2">
+                        </div>
+                      </div>
+                        <!---->
+                        <!---->
+                        <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_10');lockA()">Koeficijent smjera i jednadžbe pravca</button>
+                    <div id="newWindow_10" class="newWindow">
+                      <div class="left">
+                        <div class="zoom-controls">
+                          <button class="button-87" id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                          <button class="button-87" id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                          <button class="button-87" id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                        </div>
+                        <img src="" class="zoomable-image" data-row="1">
+                      </div>
+                      <div class="center">
+                        <button class="close; button-87" onclick="toggleWindow('newWindow_10');unlock()">X</button>
+                        <div class="zoom-controls">
+                          <button class="button-87" onclick="zoomInText()">+</button>
+                          <button class="button-87" onclick="zoomOutText()">-</button>
+                          <button class="button-87" onclick="resetZoomText()">Reset </button>
+                        </div>
+                        <p class="zoomable-text">
+                        </p>
+                        </div>
+                        <div class="right">
+                          <div class="zoom-controls">
+                            <button class="button-87" id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                            <button class="button-87" id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                            <button class="button-87" id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                          </div>
+                          <img src="" class="zoomable-image" data-row="2">
+                        </div>
+                      </div>
+                        <!---->
+                        <!---->
+                  </div>
+                </div>
+              </div>
+            </section>
     <!---->
     <!---->
     <!---->
