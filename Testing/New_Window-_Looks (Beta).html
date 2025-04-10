@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>New_Window_Look_Beta 1.2</title>
+    <title>New_Window_Look_v.2</title>
     <meta name="author" content="Anna">
     <style>
         /*SCIENTIFIC FORMULAS*/
@@ -240,42 +240,132 @@
             border: 1px solid black;
             display: none;
             grid-template-columns: 35% 65%;
+            grid-template-areas: "images content";
             padding: 15px;
             box-sizing: border-box;
-            gap: 20px;
+            overflow: hidden;
         }
         
         .newWindow.no-images {
             grid-template-columns: 100%;
+            grid-template-areas: "content";
         }
         
         .newWindow.swapped {
             grid-template-columns: 65% 35%;
+            grid-template-areas: "content images";
         }
         
         .newWindow.active {
             display: grid;
         }
 
-        .window-main-grid {
-            display: grid;
-            grid-template-rows: 1fr auto;
+        .window-column {
+            display: flex;
+            flex-direction: column;
             height: 100%;
+            overflow: hidden;
+            grid-area: images;
+            justify-content: center;
+            align-items: center;
         }
 
         .image-container {
-            display: grid;
-            grid-template-rows: auto auto;
-            gap: 30px;
+            flex: 1;
             overflow: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            padding: 0 15px;
+            grid-area: content;
+        }
+
+        .text-controls-container {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .newWindow:not(.no-images) .text-controls-container {
+            grid-template-columns: 1fr;
+        }
+
+        .newWindow:not(.no-images) .close-button-container {
+            display: none;
+        }
+
+        .text-zoom-controls {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .layout-controls {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .text-content {
+            padding: 15px;
+            overflow: auto;
+            white-space: nowrap;
+        }
+
+        .zoomable-text {
+            display: inline-block;
+            white-space: nowrap;
+            min-width: 100%;
+        }
+
+        .close-button-container {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            transition: all 0.3s ease;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .newWindow:not(.no-images) .close-button-container {
+            height: 0;
+            padding: 0;
+            overflow: hidden;
         }
 
         .image-square {
             display: grid;
             grid-template-rows: 10% 80% 10%;
             height: 400px;
+            width: 100%;
             border: 1px solid #ccc;
             overflow: hidden;
+            box-shadow: 0 0 0 1px #ddd;
+        }
+
+        .image-square > div {
+            border-bottom: 1px solid #aaa;
+        }
+
+        .image-square > div:last-child {
+            border-bottom: none;
         }
 
         .image-controls {
@@ -284,6 +374,7 @@
             align-items: center;
             gap: 5px;
             padding: 5px;
+            background-color: #f5f5f5;
         }
 
         .image-controls .button-87 {
@@ -296,7 +387,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            overflow: scroll;
+            cursor: grab;
         }
         
         .image-display img {
@@ -314,41 +406,136 @@
             padding: 5px;
             text-align: center;
         }
-
-        .content-container {
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        .text-zoom-controls {
-            display: flex;
-            gap: 8px;
-            padding: 8px;
-            background: rgba(255, 255, 255, 0.9);
-            justify-content: center;
-        }
-        
-        .text-content {
-            padding: 15px;
-            overflow: auto;
-        }
-
-        .window-controls {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 1000;
-            display: flex;
-            gap: 10px;
-        }
-        
-        .close-button-container {
-            display: flex;
-            justify-content: flex-end;
-            padding: 10px;
-        }
+        /*MINDMAP*/
+      /*MINDMAP*/
+      /*MINDMAP*/
+      /*MINDMAP*/
+      :root {
+        --primary-color: red;
+        --secondary-color: silver;
+        --node-max-width: 100px;
+        --node-spacing: 0.5em;
+        --stroke-width: 2;
+        --border-radius: 0.5em;
+        --background-color: #f3f3f3;
+        --font-family: system-ui, sans-serif;
+        --container-min-width: 600px;
+      }
+      /**/
+      /**/
+      .f-col {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+      }
+      /**/
+      /**/
+      #container {
+        display: flex;
+        justify-content: space-between;
+        padding: var(--node-spacing);
+        min-width: var(--container-min-width);
+      }
+      /**/
+      /**/
+      #container p {
+        padding: 0.25em 0.5em;
+        background: var(--background-color);
+        border: 3px solid var(--primary-color);
+        border-radius: var(--border-radius);
+        text-align: center;
+        max-width: var(--node-max-width);
+      }
+      /**/
+      /**/
+      svg {
+        position: absolute;
+        z-index: -1;
+      }
+      /**/
+      /**/
+      .path {
+        stroke: var(--secondary-color);
+        fill: none;
+        stroke-width: var(--stroke-width);
+      }
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      .CONTAINER {
+        width: 500px;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+        margin: 20px auto;
+        border: 2px solid #333;
+        overflow-y: scroll;
+      }
+      /**/
+      /**/
+      .slider {
+        display: flex;
+        width: 100%; /* Width adjusts dynamically based on number of windows */
+        height: 100%;
+        transition: transform 0.5s ease-in-out;
+      }
+      /**/
+      /**/
+      .window {
+        flex: 0 0 100%; /* Each window takes full width of the container */
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      /**/
+      /**/
+      .window img {
+        max-width: 100%;
+        max-height: 150px;
+        margin-bottom: 10px;
+      }
+      /**/
+      /**/
+      .window p {
+        font-size: 16px;
+        text-align: center;
+        margin: 5px 0;
+      }
+      /**/
+      /**/
+      .button-CONTAINER {
+        text-align: center;
+        margin-top: 20px;
+      }
+      /**/
+      /**/
+      .slide-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 0 10px;
+      }
+      /**/
+      /**/
+      .slide-button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+      /*UREĐIVANJE SLIKA*/
+      /*UREĐIVANJE SLIKA*/
+      /*UREĐIVANJE SLIKA*/
+      /*UREĐIVANJE SLIKA*/
+      .Ravnotežne_reakcije{
+        position: relative;
+        width: 10px;
+        height: 50px;
+      }
     </style>
 </head>
 <body>
@@ -365,63 +552,69 @@
             <div class="text-container">
                 <div class="text-box">
                     <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Definicija vektora</button>
-                    <div id="newWindow_1" class="newWindow">
-                        <div class="window-controls">
-                            <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
-                        </div>
-                        
-                        <div class="window-main-grid">
-                            <div class="image-container">
-                                <div class="image-square">
-                                    <div class="image-controls">
-                                        <button class="button-87" onclick="zoomIn('image1')">+</button>
-                                        <button class="button-87" onclick="zoomOut('image1')">-</button>
-                                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
-                                    </div>
-                                    <div class="image-display">
-                                        <img id="image1" src="settings-logo-clipart-2.png" class="zoomable-image">
-                                    </div>
-                                    <div class="image-info">
-                                        <h3>Image 1 Title</h3>
-                                    </div>
-                                </div>
-                                
-                                <div class="image-square">
-                                    <div class="image-controls">
-                                        <button class="button-87" onclick="zoomIn('image2')">+</button>
-                                        <button class="button-87" onclick="zoomOut('image2')">-</button>
-                                        <button class="button-87" onclick="resetZoom('image2')">Reset</button>
-                                    </div>
-                                    <div class="image-display">
-                                        <img id="image2" src="settings-logo-clipart-2.png" class="zoomable-image">
-                                    </div>
-                                    <div class="image-info">
-                                        <h3>Image 2 Title</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="content-container">
-                                <div class="text-zoom-controls">
-                                    <button class="button-87" onclick="zoomInText('newWindow_1')">+</button>
-                                    <button class="button-87" onclick="zoomOutText('newWindow_1')">-</button>
-                                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
-                                </div>
-                                <div class="text-content">
-                                    <p class="zoomable-text">
-                                        &bull; Vektor (lat. vector - nositelj)<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp; &bull; usmjerena dužina...<br>
-                                    </p>
-                                </div>
-                                <div class="close-button-container">
-                                    <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close</button>
-                                </div>
-                            </div>
-                        </div>
+    
+    <div id="newWindow_1" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="settings-logo-clipart-2.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image2')">+</button>
+                        <button class="button-87" onclick="zoomOut('image2')">-</button>
+                        <button class="button-87" onclick="resetZoom('image2')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image2" src="settings-logo-clipart-2.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 2 Title</h3>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_1')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_1')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                    &bull; Vektor (lat. vector - nositelj)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp; &bull; usmjerena dužina...<br>
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </section>
 
     <script>
@@ -435,34 +628,48 @@
             }
         }
 
-        // Cycle through layout options
+        // Updated layout cycling function
         function cycleLayout(windowId) {
             const window = document.getElementById(windowId);
-            if (window.classList.contains('no-images')) {
-                window.classList.remove('no-images');
-                window.classList.remove('swapped');
-            } else if (window.classList.contains('swapped')) {
-                window.classList.add('no-images');
-            } else {
+            const currentLayout = window.classList.contains('no-images') ? 'no-images' : 
+                                 window.classList.contains('swapped') ? 'swapped' : 'default';
+            
+            // Reset all classes first
+            window.classList.remove('no-images', 'swapped');
+            
+            // Cycle through layouts
+            if (currentLayout === 'default') {
                 window.classList.add('swapped');
+            } 
+            else if (currentLayout === 'swapped') {
+                window.classList.add('no-images');
+            } 
+            else {
+                // Goes back to default
             }
         }
 
-        // Zoom functions
+        // Zoom and pan functionality
         let imageScales = {};
         let textScales = {};
+        let isDragging = false;
+        let startPos = { x: 0, y: 0 };
+        let scrollPos = { x: 0, y: 0 };
+        let currentImageId = null;
 
         function resetAllZooms() {
             const images = document.querySelectorAll('.zoomable-image');
             images.forEach(img => {
                 img.style.transform = 'scale(1)';
                 imageScales[img.id] = 1;
+                img.parentElement.scrollTo(0, 0);
             });
             
             const textElements = document.querySelectorAll('.zoomable-text');
             textElements.forEach(text => {
                 text.style.fontSize = '1em';
                 textScales[text.closest('.newWindow').id] = 1;
+                text.parentElement.scrollTo(0, 0);
             });
         }
 
@@ -484,6 +691,7 @@
             imageScales[imageId] = 1;
             const image = document.getElementById(imageId);
             image.style.transform = 'scale(1)';
+            image.parentElement.scrollTo(0, 0);
         }
 
         function zoomInText(windowId) {
@@ -506,8 +714,50 @@
             textScales[windowId] = 1;
             document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
                 text.style.fontSize = '1em';
+                text.parentElement.scrollTo(0, 0);
             });
         }
+
+        // Image panning functionality
+        document.addEventListener('mousedown', (e) => {
+            if (e.target.closest('.image-display')) {
+                isDragging = true;
+                startPos = {
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                const container = e.target.closest('.image-display');
+                scrollPos = {
+                    x: container.scrollLeft,
+                    y: container.scrollTop
+                };
+                container.style.cursor = 'grabbing';
+                currentImageId = container.querySelector('img').id;
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            const dx = e.clientX - startPos.x;
+            const dy = e.clientY - startPos.y;
+            
+            const container = document.querySelector(`#${currentImageId}`).parentElement;
+            container.scrollLeft = scrollPos.x - dx;
+            container.scrollTop = scrollPos.y - dy;
+            
+            e.preventDefault();
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            const containers = document.querySelectorAll('.image-display');
+            containers.forEach(container => {
+                container.style.cursor = 'grab';
+            });
+            currentImageId = null;
+        });
 
         // Scroll lock functions
         function lockA() {
@@ -536,6 +786,224 @@
         }
         window.addEventListener("scroll", reveal, { passive: true });
         reveal(); // Initialize
+         /*MINDMAP SETTINGS*/
+      /*MINDMAP SETTINGS*/
+      /*MINDMAP SETTINGS*/
+      /*MINDMAP SETTINGS*/
+      "use strict";
+      /* Configuration object*/
+      const config = {
+        containerId: 'container',
+        svgId: 'mindmap-svg',
+        nodeClasses: 'mindmap-node',
+        curveIntensity: 0.5,
+        layoutDirection: 'horizontal',
+        initialMinWidth: 600
+      };
+      /**/
+      /**/
+      /* Debounce function*/
+      const debounce = (func, wait) => {
+        let timeout;
+        return (...args) => {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+      };
+      /**/
+      /**/
+      /* Helper function*/
+      const $ = function(t = null) {
+        return new class {
+          constructor(t) {
+            if (t) {
+              this.nodes = t.nodeType ? [t] 
+              : NodeList.prototype.isPrototypeOf(t) ? t 
+              : document.querySelectorAll(t);
+              this.n = this.nodes[0];
+            }
+          }
+          each = t => (this.nodes.forEach(s => t(s)), this);
+          addClass = t => this.each(s => s.classList.add(...t.split(",").map(c => c.trim())));
+          html = t => this.each(s => s.innerHTML = t);
+          create = t => $(document.createElement(t));
+          append = t => {
+            let s = this.create(t);
+            this.n.appendChild(s.n);
+            return s;
+          };
+          remove = () => this.each(node => node.remove());
+          insertAfter = t => (t.n.after(this.n), this);
+          setAttr = (t, s = "") => this.each(e => e.setAttribute(t, s));
+          sCreate = t => {
+            let s = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            s.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
+            s.setAttribute("viewBox", t);
+            return $(s);
+          };
+          sAppend = t => (this.n.appendChild(t.n), this);
+          sC = t => document.createElementNS("http://www.w3.org/2000/svg", t);
+          id = t => (this.setAttr("id", t), this);
+          d = t => (this.setAttr("d", t), this);
+          stroke = t => (this.setAttr("stroke", t), this);
+          strokeWidth = t => (this.setAttr("stroke-width", t), this);
+          sBezier = (x1, y1, x2, y2) => {
+            const path = this.sC("path");
+            const midX = (x1 + x2) / 2;
+            return $(path).d(`M${x1},${y1} C ${midX},${y1} ${midX},${y2} ${x2},${y2}`);
+          };
+        }(t);
+      };
+      /**/
+      /**/
+      /* Resize observer*/
+      const resizeObserver = new ResizeObserver(debounce(() => {
+        $(`#${config.svgId}`).remove();
+        drawLines(data);
+      }, 100));
+      /**/
+      /**/
+      /* Create mind map structure*/
+      function createMap(data) {
+        function calculateDepth(id, depth = 0) {
+          let current = data.find(x => x.id === id);
+          while (current?.parentId !== undefined) {
+            depth++;
+            current = data.find(x => x.id === current.parentId);
+          }
+          return depth;
+        }
+        let direction = -1;
+        data.filter(x => x.parentId === null).forEach(x => {
+          x.div = direction; 
+          direction *= -1;
+        });
+        const root = data.find(x => x.id === null);
+        if (root) root.div = 0;
+        data.filter(x => x.parentId !== null).forEach(x => {
+          x.div = calculateDepth(x.id) * (x.div || 1);
+        });
+        const divs = [...new Set(data.map(x => x.div))].sort((a, b) => a - b);
+        divs.forEach(div => {
+          $(`#${config.containerId}`).append('div').id(`div${div}`).addClass('f-col');
+        });
+        data.forEach(node => {
+          const parentDiv = $(`#div${node.div}`);
+          if (parentDiv.n) {
+            parentDiv.append('p')
+            .html(node.text)
+            .id(`p${node.id}`)
+            .addClass(config.nodeClasses);
+          }
+        });
+      }
+      /**/
+      /**/
+      /* Draw connecting lines*/
+      function drawLines(data) {
+        const container = $(`#${config.containerId}`).n;
+        if (!container) return;
+        const rect = container.getBoundingClientRect();
+        const svg = $().sCreate(`0 0 ${rect.width} ${rect.height}`)
+        .id(config.svgId)
+        .insertAfter($('h1'));
+        svg.n.style = `top:${rect.top}px;left:${rect.left}px; width:${rect.width}px;height:${rect.height}px;`;
+        /* Updated filter to include nodes with parentId: null*/
+        data.filter(x => x.parentId !== undefined).forEach(node => {
+          const nodeEl = $(`#p${node.id}`).n;
+          const parentEl = $(`#p${node.parentId}`).n;
+          if (!nodeEl || !parentEl) return;
+          const parentRect = parentEl.getBoundingClientRect(); // Parent is the start point
+          const nodeRect = nodeEl.getBoundingClientRect(); // Child is the end point
+          const startX = parentRect.left - rect.left + (parentRect.width / 2);
+          const startY = parentRect.top - rect.top + parentRect.height;
+          const endX = nodeRect.left - rect.left + (nodeRect.width / 2);
+          const endY = nodeRect.top - rect.top;
+          svg.sAppend(
+            $().sBezier(startX, startY, endX, endY)
+            .addClass('path')
+            .stroke('var(--secondary-color)')
+            .strokeWidth('var(--stroke-width)')
+          );
+        });
+      }
+      /**/
+      /**/
+      /* Sample data*/
+      const data = [
+        { id: null, text: "<b>Test<br>Mind Map</b>" },
+        { id: 1, parentId: null, text: "Idea - 1" },
+        { id: 2, parentId: null, text: "Dr. Helmut Zimmermann" },
+        { id: 3, parentId: null, text: "Idea - 3" },
+        { id: 4, parentId: 1, text: "order Cake and <b>Coffee</b>" },
+        { id: 5, parentId: 1, text: "Idea - 1 - 2 " },
+        { id: 6, parentId: 3, text: "Idea - 3 - 1 " },
+        { id: 7, parentId: 3, text: "Idea- 3 - 2" },
+        { id: 10, parentId: 2, text: "Idea - 2 - 1" },
+        { id: 12, parentId: 2, text: "Idea - 2 - 2" },
+        { id: 13, parentId: 3, text: "Idea- 3 - 5"},
+      ];
+      /**/
+      /**/
+      /* Initialize*/
+      createMap(data);
+      drawLines(data);
+      resizeObserver.observe($(`#${config.containerId}`).n);
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      /* Function to slide to the next window*/
+      function slideNext(containerId) {
+        const container = document.getElementById(containerId);
+        const slider = container.querySelector('.slider');
+        const totalWindows = slider.children.length;
+        let currentWindow = parseInt(container.dataset.currentWindow || 0);
+        if (currentWindow < totalWindows - 1) {
+          currentWindow++;
+          updateSlider(container, slider, currentWindow);
+          updateButtons(container, currentWindow, totalWindows);
+        }
+      }
+      /**/
+      /**/
+      /* Function to slide to the previous window*/
+      function slidePrevious(containerId) {
+        const container = document.getElementById(containerId);
+        const slider = container.querySelector('.slider');
+        const totalWindows = slider.children.length;
+        let currentWindow = parseInt(container.dataset.currentWindow || 0);
+        if (currentWindow > 0) {
+          currentWindow--;
+          updateSlider(container, slider, currentWindow);
+          updateButtons(container, currentWindow, totalWindows);
+        }
+      }
+      /**/
+      /**/
+      /* Function to update the slider's position*/
+      function updateSlider(container, slider, currentWindow) {
+        const translateX = -(currentWindow * 100);
+        slider.style.transform = `translateX(${translateX}%)`;
+        ontainer.dataset.currentWindow = currentWindow; // Store current window index
+      }
+      /**/
+      /**/
+      /* Function to update button states*/
+      function updateButtons(container, currentWindow, totalWindows) {
+        const prevButton = container.nextElementSibling.querySelector('.slide-button:first-of-type');
+        const nextButton = container.nextElementSibling.querySelector('.slide-button:last-of-type');
+        prevButton.disabled = currentWindow === 0; // Disable "Previous" on first window
+        nextButton.disabled = currentWindow === totalWindows - 1; // Disable "Next" on last window
+      }
+      /**/
+      /**/
+      // Initialize button states for all containers
+      document.querySelectorAll('.container').forEach(container => {
+        const slider = container.querySelector('.slider');
+        const totalWindows = slider.children.length;
+        updateButtons(container, 0, totalWindows); /* Start at the first window*/
+      });
     </script>
 </body>
 </html>
