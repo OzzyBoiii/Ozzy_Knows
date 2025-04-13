@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>New_Window_Look_v.2</title>
+    <title>Kemija</title>
     <meta name="author" content="Anna">
     <style>
-        /*SCIENTIFIC FORMULAS*/
-        .radical {
+         /*SCIENTIFIC FORMULAS*/
+         .radical {
             position: relative;
             font-size: 1.6em;
             vertical-align: middle;
@@ -132,14 +132,14 @@
             font-family: "Asap", sans-serif;
         }
         body {
-            background-image: url(Untitled.png);
-            background-size: contain;
-            background-repeat: repeat;
-            background-attachment: fixed;
-            font-weight: bold;
-            background-blend-mode: multiply;
-            text-shadow: 2px 2px 4px #000;
-            background-color: rgba(0, 0, 0, 0.5);
+          background-image: url(Background_Chem.webp);
+        background-size: contain;
+        background-repeat: repeat;
+        background-attachment: fixed;
+        font-weight: bold;
+        background-blend-mode:multiply;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #555;
         }
         section {
             min-height: 100vh;
@@ -228,7 +228,7 @@
                 opacity: 1;
             }
         }
-
+        
         /* UPDATED WINDOW STYLES */
         .newWindow {
             position: fixed;
@@ -269,18 +269,18 @@
             justify-content: center;
             align-items: center;
         }
-
+        /* ADDED FIXED IMAGE CONTAINER STYLES */
         .image-container {
             flex: 1;
-            overflow: auto;
+            overflow-y: auto;
             padding: 10px;
             display: flex;
             flex-direction: column;
             gap: 30px;
             width: 100%;
             max-width: 800px;
+            height: calc(100vh - 200px); /* Fixed container height */
         }
-
         .content-container {
             display: flex;
             flex-direction: column;
@@ -349,17 +349,22 @@
             padding: 0;
             overflow: hidden;
         }
-
+        
         .image-square {
-            display: grid;
-            grid-template-rows: 10% 80% 10%;
-            height: 400px;
-            width: 100%;
+            height: 400px !important; /* Fixed height */
+            width: 100% !important;
+            min-width: 400px; /* Minimum size */
+            flex-shrink: 0; /* Prevent squeezing */
             border: 1px solid #ccc;
             overflow: hidden;
             box-shadow: 0 0 0 1px #ddd;
         }
 
+        /* ADDED CONTINUOUS ZOOM HANDLING */
+        .zoom-button-active {
+            background-position: right center;
+            transform: scale(0.95);
+        }
         .image-square > div {
             border-bottom: 1px solid #aaa;
         }
@@ -397,7 +402,6 @@
             transition: transform 0.3s ease;
             object-fit: contain;
         }
-
         .image-info {
             display: flex;
             flex-direction: column;
@@ -405,6 +409,28 @@
             justify-content: center;
             padding: 5px;
             text-align: center;
+        }
+
+        /* FIXED TEXT IN IMAGE SQUARES */
+        .image-info h3 {
+            font-size: 1.2rem !important;
+            padding: 5px;
+            margin: 0;
+            line-height: 1.2;
+            max-height: 40px;
+            overflow: hidden;
+        }
+
+        /* FIXED SCROLLBAR POSITIONING */
+        .text-content::-webkit-scrollbar {
+            height: 8px;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .text-content {
+            scrollbar-gutter: stable;
+            padding-bottom: 15px !important;
         }
         /*MINDMAP*/
       /*MINDMAP*/
@@ -536,11 +562,19 @@
         width: 10px;
         height: 50px;
       }
+      .image-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <section>
-        <h1>Math<br></h1>
+        <h1>Kemija<br></h1>
         <div class="text-container">
             <a href="http://127.0.0.1:5500/OZZY_knows.html"><button class="button-87" role="button">X</button></a>
         </div>
@@ -548,11 +582,10 @@
 
     <section>
         <div class="container reveal fade-bottom">
-            <h3>Osnovni pojmovi o vektorima</h3>
+            <h3>Alkoholi</h3>
             <div class="text-container">
                 <div class="text-box">
-                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Definicija vektora</button>
-    
+                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Dobivanje alkohola</button>
     <div id="newWindow_1" class="newWindow">
         <div class="window-column">
             <div class="image-header">
@@ -606,30 +639,162 @@
             </div>
             <div class="text-content">
                 <p class="zoomable-text">
-                    &bull; Vektor (lat. vector - nositelj)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp; &bull; usmjerena dužina...<br>
+                  Etanol nastaje prirodnim procesom, fermentacijom ili alkoholnim vrenjem djelovanjem enzima kvaščevih gljivica pri čemu šećeri, ugljikohidrati iz voća, prelaze u etanol. <br>
+                  enzimi C8H12O6 2 C2H2OH + 2 CO2 Alkoholnim vrenjem dobivaju se alkoholna pića u kojima je volumni udio etanola do 16 %. <br>
+                  Pića s većim udjelom etanola dobivaju se destilacijom, primjerice, fermentiranoga voćnog soka. <br>
+                  Prekomjerna konzumacija alkohola uzrokuje brojne zdravstvene i društvene probleme. <br>
+                  Najčešći način priprave alkohola jest adicija molekula vode na alkene u kiselim uvjetima.<br> 
+                  Primjerice, etanol se industrijski dobiva adicijom vode na eten pri povišenoj temperaturi i tlaku uz fosfornu kiselinu kao katalizator. =+H2O H3PO4 300 °C, 70 bar <br>
+                  OH Prema Markovnikovljevom pravilu adicijom vode, primjerice na propen, nastat će sekundarni alkohol propan-2-ol.<br>
+                  Primarne alkohole možemo prirediti reakcijama supstitucije primarnih halogenalkana s hidroksidom metala. <br>
+                  Br+ NaOH Δ OH + NaBr 1-brompropan propan-1-ol Oksidacijom alkena s jakim oksidacijskim sredstvima, primjerice kalijevim permanganatom, u lužnatoj sredini nastaju dvovalentni alkoholi, dioli. <br>
+                  он 3+2 KMnO4 + 4 H2O зно 0°C ljubičasta otopina OH + 2 MnO2+2 KOH smeđa otopina<br>
                 </p>
             </div>
         </div>
     </div>
+    <!---->
+    <!---->
+    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_2');lockA()">Kemijska svojstva alkohola</button>
+    <div id="newWindow_2" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_2');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="Alkoholi_1.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>SLIKA 1</h3>
+                    </div>
+                </div>
+                
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image2')">+</button>
+                        <button class="button-87" onclick="zoomOut('image2')">-</button>
+                        <button class="button-87" onclick="resetZoom('image2')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image2" src="Alkoholi_2.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>SLIKA 2</h3>
+                    </div>
+                </div>
+
+                <div class="image-square">
+                  <div class="image-controls">
+                      <button class="button-87" onclick="zoomIn('image3')">+</button>
+                      <button class="button-87" onclick="zoomOut('image3')">-</button>
+                      <button class="button-87" onclick="resetZoom('image3')">Reset</button>
+                  </div>
+                  <div class="image-display">
+                      <img id="image3" src="Alkoholi_3.png" class="zoomable-image">
+                  </div>
+                  <div class="image-info">
+                      <h3>SLIKA 3</h3>
+                  </div>
+              </div>
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_2')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_2')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_2')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_2')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_2');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                  Alkoholi su kemijski reaktivni te od njih možemo pripremiti različite organske spojeve, primjerice alkokside, halogenalkane, alkene, aldehide, ketone i druge. <br>
+                  Reakcije alkohola s metalima Zbog polarnosti hidroksilne skupine alkoholi reagiraju kao slabe kiseline. <br>
+                  U tim reakcijama proton hidroksilne skupine može se supstituirati (zamijeniti) ionom alkalijskoga metala (natrijem ili kalijem). <br>
+                  Produkti tih reakcija ionski su spojevi -alkoksidi (SLIKA 1)<br>
+                  Reakcijom etanola i natrija nastaju natrijev etoksid i vodik. <br>
+                  2 CH2CH2OH + 2 Na - 2 CH,CH,O Na + H natrijev etoksid vodik <br>
+                  Zbog reakcije hidrolize vodena je otopina natrijeva etoksida lužnata. <br>
+                  CHỊCH,ONa + HẠO CH,CH2OH+Na+ OH Mentol je alkohol molekulske formule CH20. <br>
+                  Ima karakterističan miris i rashlađujući okus. Može se pripremiti sintetičkim putom ili ekstrakcijom iz metvice. <br>
+                  Upotrebljava se u prehrambenoj industriji za proizvodnju bombona i čaja te u kozmetičkoj industriji za proizvodnju parfema, sapuna i pasti za zube. <br>
+                  Mentol ima brojna ljekovita svojstva te poboljšava koncentraciju. <br>
+                  SLIKA 2<br>
+                  Postoje brojna istraživanja koja potvrđuju da miris mentola ima pozitivan učinak na brzinu i točnost prilikom rješavanja zadataka na ispitima. <br>
+                  Kreme na bazi mentola upotrebljavaju se protiv migrene i prehlade. Istražite učinak mentola na receptore u koži zbog kojega se javlja osjećaj hlađenja. <br>
+                  Reakcije alkohola s halogenovodikom <br>
+                  Reakcije alkohola s halogenovodikom jesu reakcije supstitucije u kojima su produkti halogenalkani i voda. <br>
+                  Hidroksilna skupina alkohola zamjenjuje se atomom halogenoga elementa. <br>
+                  Najbrže se zbivaju reakcije s tercijarnim alkoholima, a od halogenovodika najčešće su reakcije s klorovodikom i bromovodikom. <br>
+                  Reakcije primarnih i sekundarnih alkohola s HCI i HBr spore su, ali se mogu ubrzati zagrijavanjem. (SLIKA 3)<br>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
     </div>
     </div>
     </div>
     </section>
 
     <script>
-        // Window toggle functions
+        // ADDED CONTINUOUS ZOOM HANDLING
+        let zoomInterval;
+        const ZOOM_SPEED = 0.1;
+        
+        function startZoom(action, imageId) {
+            const zoomFn = action === 'in' ? zoomIn : zoomOut;
+            zoomFn(imageId);
+            zoomInterval = setInterval(() => zoomFn(imageId), 100);
+        }
+
+        function stopZoom() {
+            clearInterval(zoomInterval);
+        }
+
+        // Update zoom button event handlers
+        function addZoomHandlers() {
+            document.querySelectorAll('.image-controls .button-87').forEach(btn => {
+                btn.addEventListener('mousedown', function(e) {
+                    const action = this.textContent.trim() === '+' ? 'in' : 'out';
+                    const imageId = this.closest('.image-square').querySelector('img').id;
+                    startZoom(action, imageId);
+                    this.classList.add('zoom-button-active');
+                });
+                
+                btn.addEventListener('mouseup', stopZoom);
+                btn.addEventListener('mouseleave', stopZoom);
+            });
+        }
+
+        // Initialize when window opens
         function toggleWindow(windowId) {
             const windowToToggle = document.getElementById(windowId);
             windowToToggle.classList.toggle('active');
-            document.body.style.overflow = windowToToggle.classList.contains('active') ? 'hidden' : '';
             if(windowToToggle.classList.contains('active')) {
                 resetAllZooms();
+                setTimeout(addZoomHandlers, 100); // Allow DOM update
             }
         }
 
-        // Updated layout cycling function
-        function cycleLayout(windowId) {
+         // Updated layout cycling function
+         function cycleLayout(windowId) {
             const window = document.getElementById(windowId);
             const currentLayout = window.classList.contains('no-images') ? 'no-images' : 
                                  window.classList.contains('swapped') ? 'swapped' : 'default';

@@ -1,112 +1,139 @@
-<!DOCTYPE html>>
+<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Logika</title>
+    <meta name="author" content="Anna">
     <style>
-      /* New Window */
-      /* New Window */
-      /* New Window */
-      /* New Window */
-      .newWindow {
-        position: fixed;
-        top: 5%;
-        left: 5%;
-        height: 90%;
-        width: 90%;
-        background-color: white;
-        border: 1px solid black;
-        display: none;
-        flex-direction: row;
-        padding: 15px;
-        box-sizing: border-box;
-      }
-      /**/
-      /**/
-      .newWindow.active { display: flex; }
-      /**/
-      /**/
-      .newWindow .left, .newWindow .right {
-        width: 15%;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        overflow: auto;
-        scrollbar-width: thin;
-        overflow-y: scroll;
-      }
-      /**/
-      /**/
-      .newWindow .center {
-        width: 70%;
-        padding: 0 15px;
-        overflow-y: scroll;
-        scrollbar-width: thin;
-      }
-      /**/
-      /**/
-      .newWindow img {
-        max-width: 100%;
-        height: auto;
-        transition: transform 0.3s ease;
-        object-fit: contain;
-        margin-bottom: 15px;
-      }
-      /**/
-      /**/
-      .zoom-controls {
-        position: sticky;
-        bottom: 0;
-        display: flex;
-        gap: 8px;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 8px;
+         /*SCIENTIFIC FORMULAS*/
+         .radical {
+            position: relative;
+            font-size: 1.6em;
+            vertical-align: middle;
+        }
+        .n-root {
+            position: absolute;
+            top: -0.333em;
+            left: 0.333em;
+            font-size: 45%;
+        }
+        .radicand {
+            padding: 0.25em 0.25em;
+            border-top: thin black solid;
+        }
+        /*FRACTIONS*/
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0.2em 0.4ex;
+            text-align: center;
+        }
+        .fraction > span {
+            display: block;
+            padding-top: 0.15em;
+        }
+        .fraction span.fdn {
+            border-top: thin solid black;
+        }
+        .fraction span.bar {
+            display: none;
+        }
+        #overline {
+            text-decoration: overline;
+        }
+        .sy {
+            position: relative;
+            text-align: center;
+        }
+        .oncapital, .onsmall {
+            position: absolute;
+            top: -1em;
+            left: 0px;
+            width: 100%;
+            font-size: 70%;
+            text-align: center;
+        }
+        .onsmall {
+            top: -0.7em;
+        }
+
+        /*FLEXIBLE WEBSITE*/
+        .container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 0.5rem;
+            padding-right: 8.5rem;
+        }
+        @media (min-width: 475px) {
+            .container {
+                max-width: 475px;
+            }
+        }
+        @media (min-width: 640px) {
+            .container {
+                max-width: 640px;
+            }
+        }
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+            }
+        }
+        @media (min-width: 1824px) {
+            .container {
+                max-width: 1824px;
+            }
+        }
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1288px;
+            }
+        }
+        @media (min-width: 1536px) {
+            .container {
+                max-width: 1536px;
+            }
+        }
+
+        /* Button */
+      /* Button */
+      /* Button */
+      /* Button */
+      button {
+        animation: shimmer 1.5s ease infinite alternate;
+        background: linear-gradient(90deg, #ffe27d 0%, #64e3ff 30%, #9192ff 85%);
+        background-size: 200% 100%;
+        border: none;
         border-radius: 6px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        z-index: 1;
-        flex-wrap: wrap;
+        box-shadow: -2px -2px 10px rgba(255, 227, 126, 0.5), 2px 2px 10px rgba(144, 148, 255, 0.5);
+        color: #170f1e;
+        cursor: pointer;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 670;
+        line-height: 1.2;
+        padding: 8px 12px;
+        text-decoration: none;
+        transition: 0.2s;
+        white-space: nowrap;
       }
       /**/
       /**/
-      .zoom-controls button {
-        flex: 1 1 auto;
-        min-width: 100px;
+      button:hover { transform: rotate(-3deg); }
+      button:active { transform: scale(0.95) rotate(-3deg); }
+      /**/
+      /**/
+      @keyframes shimmer {
+        to { background-size: 100% 100%; box-shadow: -2px -2px 6px rgba(255, 227, 126, 0.5), 2px 2px 6px rgba(144, 148, 255, 0.5); }
       }
-      /**/
-      /**/
-      /* Scrollbar styling */
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-      }
-      /**/
-      /**/
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-      /**/
-      /**/
-      ::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 4px;
-      }
-      /**/
-      /**/
-      ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-      }
-      /**/
-      /**/
-      #Img_Zoom{
-        min-width: 10px;
-        min-height: 10px;
-      }
-      /**/
-      /**/
-      .close{
-        text-align: center;
-      }
-      /* Background */
+        /*SCROLLING ANIMATION*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Asap", sans-serif;
+        }
+        /* Background */
       /* Background */
       /* Background */
       /* Background */
@@ -116,6 +143,9 @@
         font-weight: 100;
         background: radial-gradient(#a23982, #1f1013);
         animation: fadeIn 1s ease-out;
+        background-blend-mode:multiply;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #555;
       }
       /**/
       /**/
@@ -158,166 +188,299 @@
         from { opacity: 0; }
         to { opacity: 1; }
       }
-      /*SCROLLING ANIMATION*/
-      /*SCROLLING ANIMATION*/
-      /*SCROLLING ANIMATION*/
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Asap", sans-serif;
-      }
-      /**/
-      /**/
-      section {
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      /**/
-      /**/
-      section .container {
-        margin: 100px;
-      }
-      /**/
-      /**/
-      section h1 {
-        font-size: 3rem;
-        margin: 20px;
-      }
-      /**/
-      /**/
-      section h2 {
-        font-size: 40px;
-        text-align: center;
-        text-transform: uppercase;
-      }
-      /**/
-      /**/
-      section .text-container {
-        display: flex;
-      }
-      /**/
-      /**/
-      section .text-container .text-box {
-        margin: 20px;
-        padding: 20px;
-        background: #00c2cb;
-      }
-      /**/
-      /**/
-      section .text-container .text-box h3 {
-        font-size: 30px;
-        text-align: center;
-        text-transform: uppercase;
-        margin-bottom: 10px;
-      }
-      /**/
-      /**/
-      @media (max-width: 900px) {
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        section .container {
+            margin: 100px;
+        }
         section h1 {
-          font-size: 2rem;
-          text-align: center;
+            font-size: 3rem;
+            margin: 20px;
+        }
+        section h2 {
+            font-size: 40px;
+            text-align: center;
+            text-transform: uppercase;
         }
         section .text-container {
-          flex-direction: column;
+            display: flex;
         }
-      }
-      /**/
-      /**/
-      .reveal {
-        position: relative;
-        opacity: 0;
-      }
-      /**/
-      /**/
-      .reveal.active {
-        opacity: 1;
-      }
-      /**/
-      /**/
-      .active.fade-bottom {
-        animation: fade-bottom 1s ease-in;
-      }
-      /**/
-      /**/
-      .active.fade-left {
-        animation: fade-left 1s ease-in;
-      }
-      /**/
-      /**/
-      .active.fade-right {
-        animation: fade-right 1s ease-in;
-      }
-      /**/
-      /**/
-      @keyframes fade-bottom {
-        0% {
-          transform: translateY(50px);
-          opacity: 0;
+        section .text-container .text-box {
+            margin: 20px;
+            padding: 20px;
+            background: #00c2cb;
         }
-        100% {
-          transform: translateY(0);
-          opacity: 1;
+        section .text-container .text-box h3 {
+            font-size: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 10px;
         }
-      }
-      /**/
-      /**/
-      @keyframes fade-left {
-        0% {
-          transform: translateX(-100px);
-          opacity: 0;
+        @media (max-width: 900px) {
+            section h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
+            section .text-container {
+                flex-direction: column;
+            }
         }
-        100% {
-          transform: translateX(0);
-          opacity: 1;
+        .reveal {
+            position: relative;
+            opacity: 0;
         }
-      }
-      /**/
-      /**/
-      @keyframes fade-right {
-        0% {
-          transform: translateX(100px);
-          opacity: 0;
+        .reveal.active {
+            opacity: 1;
         }
-        100% {
-          transform: translateX(0);
-          opacity: 1;
+        .active.fade-bottom {
+            animation: fade-bottom 1s ease-in;
         }
-      }
-      /* Button */
-      /* Button */
-      /* Button */
-      /* Button */
-      button {
-        animation: shimmer 1.5s ease infinite alternate;
-        background: linear-gradient(90deg, #ffe27d 0%, #64e3ff 30%, #9192ff 85%);
-        background-size: 200% 100%;
-        border: none;
-        border-radius: 6px;
-        box-shadow: -2px -2px 10px rgba(255, 227, 126, 0.5), 2px 2px 10px rgba(144, 148, 255, 0.5);
-        color: #170f1e;
-        cursor: pointer;
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        font-weight: 670;
-        line-height: 1.2;
-        padding: 8px 12px;
-        text-decoration: none;
-        transition: 0.2s;
-        white-space: nowrap;
-      }
-      /**/
-      /**/
-      button:hover { transform: rotate(-3deg); }
-      button:active { transform: scale(0.95) rotate(-3deg); }
-      /**/
-      /**/
-      @keyframes shimmer {
-        to { background-size: 100% 100%; box-shadow: -2px -2px 6px rgba(255, 227, 126, 0.5), 2px 2px 6px rgba(144, 148, 255, 0.5); }
-      }
-      /*MINDMAP*/
+        .active.fade-left {
+            animation: fade-left 1s ease-in;
+        }
+        .active.fade-right {
+            animation: fade-right 1s ease-in;
+        }
+        @keyframes fade-bottom {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fade-left {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fade-right {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* UPDATED WINDOW STYLES */
+        .newWindow {
+            position: fixed;
+            top: 5%;
+            left: 5%;
+            height: 90%;
+            width: 90%;
+            background-color: white;
+            border: 1px solid black;
+            display: none;
+            grid-template-columns: 35% 65%;
+            grid-template-areas: "images content";
+            padding: 15px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        
+        .newWindow.no-images {
+            grid-template-columns: 100%;
+            grid-template-areas: "content";
+        }
+        
+        .newWindow.swapped {
+            grid-template-columns: 65% 35%;
+            grid-template-areas: "content images";
+        }
+        
+        .newWindow.active {
+            display: grid;
+        }
+
+        .window-column {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            grid-area: images;
+            justify-content: center;
+            align-items: center;
+        }
+        /* ADDED FIXED IMAGE CONTAINER STYLES */
+        .image-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            max-width: 800px;
+            height: calc(100vh - 200px); /* Fixed container height */
+        }
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            padding: 0 15px;
+            grid-area: content;
+        }
+
+        .text-controls-container {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .newWindow:not(.no-images) .text-controls-container {
+            grid-template-columns: 1fr;
+        }
+
+        .newWindow:not(.no-images) .close-button-container {
+            display: none;
+        }
+
+        .text-zoom-controls {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .layout-controls {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .text-content {
+            padding: 15px;
+            overflow: auto;
+            white-space: nowrap;
+        }
+
+        .zoomable-text {
+            display: inline-block;
+            white-space: nowrap;
+            min-width: 100%;
+        }
+
+        .close-button-container {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            transition: all 0.3s ease;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .newWindow:not(.no-images) .close-button-container {
+            height: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .image-square {
+            height: 400px !important; /* Fixed height */
+            width: 100% !important;
+            min-width: 400px; /* Minimum size */
+            flex-shrink: 0; /* Prevent squeezing */
+            border: 1px solid #ccc;
+            overflow: hidden;
+            box-shadow: 0 0 0 1px #ddd;
+        }
+
+        /* ADDED CONTINUOUS ZOOM HANDLING */
+        .zoom-button-active {
+            background-position: right center;
+            transform: scale(0.95);
+        }
+        .image-square > div {
+            border-bottom: 1px solid #aaa;
+        }
+
+        .image-square > div:last-child {
+            border-bottom: none;
+        }
+
+        .image-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            padding: 5px;
+            background-color: #f5f5f5;
+        }
+
+        .image-controls .button-87 {
+            padding: 8px 15px;
+            margin: 0;
+            font-size: 0.8em;
+        }
+
+        .image-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: scroll;
+            cursor: grab;
+        }
+        
+        .image-display img {
+            max-width: 100%;
+            max-height: 100%;
+            transition: transform 0.3s ease;
+            object-fit: contain;
+        }
+        .image-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            text-align: center;
+        }
+
+        /* FIXED TEXT IN IMAGE SQUARES */
+        .image-info h3 {
+            font-size: 1.2rem !important;
+            padding: 5px;
+            margin: 0;
+            line-height: 1.2;
+            max-height: 40px;
+            overflow: hidden;
+        }
+
+        /* FIXED SCROLLBAR POSITIONING */
+        .text-content::-webkit-scrollbar {
+            height: 8px;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .text-content {
+            scrollbar-gutter: stable;
+            padding-bottom: 15px !important;
+        }
+        /*MINDMAP*/
       /*MINDMAP*/
       /*MINDMAP*/
       /*MINDMAP*/
@@ -371,280 +534,494 @@
         fill: none;
         stroke-width: var(--stroke-width);
       }
-      /*RAZLOMAK*/
-      /*RAZLOMAK*/
-      /*RAZLOMAK*/
-      /*RAZLOMAK*/
-      .fraction {
-        display: inline-block;
-        vertical-align: middle;
-        margin: 0 0.2em 0.4ex;
-        text-align: center;
-      }
-      /**/
-      /**/
-      .fraction > span {
-        display: block;
-        padding-top: 0.15em;
-      }
-      /**/
-      /**/
-      .fraction span.fdn {
-        border-top: thin solid black;
-      }
-      /**/
-      /**/
-      .fraction span.bar {
-        display: none;
-      }
-      /**/
-      /**/
-      #overline{
-        text-decoration: overline;
-      }
-      /**/
-      /**/
-      .sy {
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      .CONTAINER {
+        width: 500px;
+        height: 300px;
+        overflow: hidden;
         position: relative;
+        margin: 20px auto;
+        border: 2px solid #333;
+        overflow-y: scroll;
+      }
+      /**/
+      /**/
+      .slider {
+        display: flex;
+        width: 100%; /* Width adjusts dynamically based on number of windows */
+        height: 100%;
+        transition: transform 0.5s ease-in-out;
+      }
+      /**/
+      /**/
+      .window {
+        flex: 0 0 100%; /* Each window takes full width of the container */
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      /**/
+      /**/
+      .window img {
+        max-width: 100%;
+        max-height: 150px;
+        margin-bottom: 10px;
+      }
+      /**/
+      /**/
+      .window p {
+        font-size: 16px;
         text-align: center;
+        margin: 5px 0;
       }
       /**/
       /**/
-      .oncapital, .onsmall {
-        position: absolute;
-        top: -1em;
-        left: 0px;
-        width: 100%;
-        font-size: 70%;
+      .button-CONTAINER {
         text-align: center;
+        margin-top: 20px;
       }
       /**/
       /**/
-      .onsmall {
-        top: -0.7em;
+      .slide-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 0 10px;
       }
       /**/
       /**/
-      .radical {
+      .slide-button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+      /*UREĐIVANJE SLIKA*/
+      /*UREĐIVANJE SLIKA*/
+      /*UREĐIVANJE SLIKA*/
+      /*UREĐIVANJE SLIKA*/
+      .Ravnotežne_reakcije{
         position: relative;
-        font-size: 1.6em;
-        vertical-align: middle;
+        width: 10px;
+        height: 50px;
       }
-    </style>
-  </head>
-  <body>
-    <section>
-      <h1>LOGIKA<br></h1>
-      <div class="text-container">
-        <!--Background modeling-->
-        <div class="light x1"></div>
-        <div class="light x2"></div>
-        <div class="light x3"></div>
-        <div class="light x4"></div>
-        <div class="light x5"></div>
-        <div class="light x6"></div>
-        <div class="light x7"></div>
-        <div class="light x8"></div>
-        <div class="light x9"></div>
-        <!--Background modeling-->
-        <a href="http://127.0.0.1:5500/OZZY_knows.html"><button role="button">X</button></a>
-      </div>
-    </section>
-    <!---->
-    <!---->
-    <!---->
-    <section>
-      <div class="container reveal fade-bottom">
-        <!--Background modeling-->
-        <div class="light x1"></div>
-        <div class="light x2"></div>
-        <div class="light x3"></div>
-        <div class="light x4"></div>
-        <div class="light x5"></div>
-        <div class="light x6"></div>
-        <div class="light x7"></div>
-        <div class="light x8"></div>
-        <div class="light x9"></div>
-        <!--Background modeling-->
-        <h2>Rečenica i sud</h2>
-        <div class="text-container">
-          <div class="text-box">
-            <!---->
-            <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Boje</button>
-            <div id="newWindow_1" class="newWindow">
-              <div class="left">
-                <div class="zoom-controls">
-                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
-                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
-                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
-                </div>
-                <img src="Glazbene_sastavnice_1.png" class="zoomable-image" data-row="1">
-                <img src="Glazbene_sastavnice_2.png" class="zoomable-image" data-row="1">
-              </div>
-              <div class="center">
-                <button class="close" onclick="toggleWindow('newWindow_1');unlock()">X</button>
-                <div class="zoom-controls">
-                  <button onclick="zoomInText()">+</button>
-                  <button onclick="zoomOutText()">-</button>
-                  <button onclick="resetZoomText()">Reset </button>
-                </div>
-                <p class="zoomable-text">
-                - Sud je istinita ili neistinita veza pojmova kojom se misli (tvrdi ili ustanovljava) neko stanje stvari.<br>
-                - Osnovni se sudovi sastoje od pojmova i imaju svoju nedjeljivu strukturu. <br>
-                - svako povezivanje pojmova ne čini sud (povezujemo ih tako da sud može biti istinit ili neistinit)
-              </p>
-            </div>
-            <div class="right">
-              <div class="zoom-controls">
-                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
-                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
-                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
-              </div>
-              <img src="Glazbene_sastavnice_3.png" class="zoomable-image" data-row="2">
-              <img src="Glazbene_sastavnice_4.png" class="zoomable-image" data-row="2">
-            </div>
-          </div>
-            <!---->
-            <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_2');lockA()"> Sud i rečenica</button>
-            <div id="newWindow_2" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_2');unlock()"> X</button>
-              <p>
-                - Veza pojmova izražava se izjavnim rečenicama <br>
-                - <i>„Zagreb je glavni grad Hrvatske.“</i> (ima navedeno svojstvo i može biti istinite ili neistinite) <br>
-                - isključne rečenice kojima se ne izriču zapovijedi također je sud <br>
-                - <i>„Počela je škola!“</i> (izražava uvjerenje o početku školske godine (ima svojstvo istinitosti ili neistinitosti (ovisno o činjeničnom stanju)))
-              </p>
-            </div>
-            <!---->
-            <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_3');lockA()"> Istinitost izjavnih rečenica</button>
-            <div id="newWindow_3" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_3');unlock()"> X</button>
-              <p>
-                - Istinitost nekih izjavnih rečenica ovisi o kontekstu izrečenoga. <br>
-                <i>- „Svima želim dobar dan.“</i>(može se tumačiti kao rečenica koja ima svojstvo istinitosne provjerljivosti ili može biti istinita ili neistinita ovisno o iskrenosti ili neiskrenosti onoga tko ju je izjavio ili ne mora biti uopće sud)<br>
-                - Međusobno, Rečenice <i>„Knjige se često posuđuju.“</i> i <i>„Knjige su često posuđivane.“</i> ili rečenice <i>„Pada kiša.“</i>/<i>„It’s raining.“</i> i <i>„Es regnet.“</i> tvrde isto stanje stvari iako se razlikuju.<br>
-                - Rečenica „Svaki pas voli kada mu netko baca lopticu.“ može značiti da svaki pas voli kada se netko igra s njim tako da njemu dobacuje lopticu ili svaki pas voli da netko negdje naprosto baca njegovu lopticu neovisno igra li se s njim ili ne.<br>
-                - Sudovi nisu istovjetni izjavnim rečenicama.
-              </p>
-            </div>
-            <!---->
-            <!---->
-          </div>
-        </div>
-      </div>
-    </section>
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <script>
-      /*NEW WINDOW*/
-      /*NEW WINDOW*/
-      /*NEW WINDOW*/
-      /*NEW WINDOW*/
-      function toggleWindow(windowId) {
-        const windowToToggle = document.getElementById(windowId);
-        windowToToggle.classList.toggle('active');
-        document.body.style.overflow = windowToToggle.classList.contains('active') ? 'hidden' : '';
-      }
-      /*SCROOLL REVEAL*/
-      /*SCROOLL REVEAL*/
-      /*SCROOLL REVEAL*/
-      /*SCROOLL REVEAL*/
-      function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-          var windowHeight = window.innerHeight;
-          var elementTop = reveals[i].getBoundingClientRect().top;
-          var elementVisible = 150;
-          if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("active");
-          } 
-          else {
-            reveals[i].classList.remove("active");
-          }
+      .image-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            text-align: center;
         }
-      }
-      /**/
-      /**/
-      window.addEventListener("scroll", reveal, { passive: true });
-      /*LOCK AND UNLOCK SCROLL*/
-      /*LOCK AND UNLOCK SCROLL*/
-      /*LOCK AND UNLOCK SCROLL*/
-      /*LOCK AND UNLOCK SCROLL*/
-      function lockA() {
-        var xPos = window.scrollX;
-        var yPos = window.scrollY;
-        window.onscroll = () => window.scroll(xPos, yPos);
-      }
-      /**/
-      /**/
-      function lockB() {
-        var target = document.getElementById("demoB");
-        target.scrollIntoView();
-        window.onscroll = () => target.scrollIntoView();
-      }
-      /**/
-      /**/
-      function unlock() {
-        window.onscroll = "";
-      }
-      /*ZOOMING ABILITY*/
-      /*ZOOMING ABILITY*/
-      /*ZOOMING ABILITY*/
-      /*ZOOMING ABILITY*/
-      /* Zoom Functions for Images*/
-      function zoomIn(row) {
-        const images = document.querySelectorAll(`.zoomable-image[data-row="${row}"]`);
-        images.forEach(img => {
-          let currentScale = parseFloat(img.style.transform.replace('scale(', '').replace(')', '')) || 1;
-          img.style.transform = `scale(${currentScale + 0.1})`;
+    </style>
+</head>
+<body>
+    <section>
+      <!--Background modeling-->
+      <div class="light x1"></div>
+      <div class="light x2"></div>
+      <div class="light x3"></div>
+      <div class="light x4"></div>
+      <div class="light x5"></div>
+      <div class="light x6"></div>
+      <div class="light x7"></div>
+      <div class="light x8"></div>
+      <div class="light x9"></div>
+      <!--Background modeling-->
+        <h1>Logika<br></h1>
+        <div class="text-container">
+            <a href="http://127.0.0.1:5500/Course/Internet/Virtual%20Component%20for%20Testing%20(HQ).html"><button class="button-87" role="button">X</button></a>
+        </div>
+    </section>
+
+    <section>
+        <div class="container reveal fade-bottom">
+          <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+            <h3>Alkoholi</h3>
+            <div class="text-container">
+                <div class="text-box">
+                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Dobivanje alkohola</button>
+    <div id="newWindow_1" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="settings-logo-clipart-2.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image2')">+</button>
+                        <button class="button-87" onclick="zoomOut('image2')">-</button>
+                        <button class="button-87" onclick="resetZoom('image2')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image2" src="settings-logo-clipart-2.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 2 Title</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_1')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_1')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                  Etanol nastaje prirodnim procesom, fermentacijom ili alkoholnim vrenjem djelovanjem enzima kvaščevih gljivica pri čemu šećeri, ugljikohidrati iz voća, prelaze u etanol. <br>
+                  enzimi C8H12O6 2 C2H2OH + 2 CO2 Alkoholnim vrenjem dobivaju se alkoholna pića u kojima je volumni udio etanola do 16 %. <br>
+                  Pića s većim udjelom etanola dobivaju se destilacijom, primjerice, fermentiranoga voćnog soka. <br>
+                  Prekomjerna konzumacija alkohola uzrokuje brojne zdravstvene i društvene probleme. <br>
+                  Najčešći način priprave alkohola jest adicija molekula vode na alkene u kiselim uvjetima.<br> 
+                  Primjerice, etanol se industrijski dobiva adicijom vode na eten pri povišenoj temperaturi i tlaku uz fosfornu kiselinu kao katalizator. =+H2O H3PO4 300 °C, 70 bar <br>
+                  OH Prema Markovnikovljevom pravilu adicijom vode, primjerice na propen, nastat će sekundarni alkohol propan-2-ol.<br>
+                  Primarne alkohole možemo prirediti reakcijama supstitucije primarnih halogenalkana s hidroksidom metala. <br>
+                  Br+ NaOH Δ OH + NaBr 1-brompropan propan-1-ol Oksidacijom alkena s jakim oksidacijskim sredstvima, primjerice kalijevim permanganatom, u lužnatoj sredini nastaju dvovalentni alkoholi, dioli. <br>
+                  он 3+2 KMnO4 + 4 H2O зно 0°C ljubičasta otopina OH + 2 MnO2+2 KOH smeđa otopina<br>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_2');lockA()">Kemijska svojstva alkohola</button>
+    <div id="newWindow_2" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_2');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="Alkoholi_1.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>SLIKA 1</h3>
+                    </div>
+                </div>
+                
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image2')">+</button>
+                        <button class="button-87" onclick="zoomOut('image2')">-</button>
+                        <button class="button-87" onclick="resetZoom('image2')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image2" src="Alkoholi_2.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>SLIKA 2</h3>
+                    </div>
+                </div>
+
+                <div class="image-square">
+                  <div class="image-controls">
+                      <button class="button-87" onclick="zoomIn('image3')">+</button>
+                      <button class="button-87" onclick="zoomOut('image3')">-</button>
+                      <button class="button-87" onclick="resetZoom('image3')">Reset</button>
+                  </div>
+                  <div class="image-display">
+                      <img id="image3" src="Alkoholi_3.png" class="zoomable-image">
+                  </div>
+                  <div class="image-info">
+                      <h3>SLIKA 3</h3>
+                  </div>
+              </div>
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_2')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_2')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_2')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_2')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_2');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                  Alkoholi su kemijski reaktivni te od njih možemo pripremiti različite organske spojeve, primjerice alkokside, halogenalkane, alkene, aldehide, ketone i druge. <br>
+                  Reakcije alkohola s metalima Zbog polarnosti hidroksilne skupine alkoholi reagiraju kao slabe kiseline. <br>
+                  U tim reakcijama proton hidroksilne skupine može se supstituirati (zamijeniti) ionom alkalijskoga metala (natrijem ili kalijem). <br>
+                  Produkti tih reakcija ionski su spojevi -alkoksidi (SLIKA 1)<br>
+                  Reakcijom etanola i natrija nastaju natrijev etoksid i vodik. <br>
+                  2 CH2CH2OH + 2 Na - 2 CH,CH,O Na + H natrijev etoksid vodik <br>
+                  Zbog reakcije hidrolize vodena je otopina natrijeva etoksida lužnata. <br>
+                  CHỊCH,ONa + HẠO CH,CH2OH+Na+ OH Mentol je alkohol molekulske formule CH20. <br>
+                  Ima karakterističan miris i rashlađujući okus. Može se pripremiti sintetičkim putom ili ekstrakcijom iz metvice. <br>
+                  Upotrebljava se u prehrambenoj industriji za proizvodnju bombona i čaja te u kozmetičkoj industriji za proizvodnju parfema, sapuna i pasti za zube. <br>
+                  Mentol ima brojna ljekovita svojstva te poboljšava koncentraciju. <br>
+                  SLIKA 2<br>
+                  Postoje brojna istraživanja koja potvrđuju da miris mentola ima pozitivan učinak na brzinu i točnost prilikom rješavanja zadataka na ispitima. <br>
+                  Kreme na bazi mentola upotrebljavaju se protiv migrene i prehlade. Istražite učinak mentola na receptore u koži zbog kojega se javlja osjećaj hlađenja. <br>
+                  Reakcije alkohola s halogenovodikom <br>
+                  Reakcije alkohola s halogenovodikom jesu reakcije supstitucije u kojima su produkti halogenalkani i voda. <br>
+                  Hidroksilna skupina alkohola zamjenjuje se atomom halogenoga elementa. <br>
+                  Najbrže se zbivaju reakcije s tercijarnim alkoholima, a od halogenovodika najčešće su reakcije s klorovodikom i bromovodikom. <br>
+                  Reakcije primarnih i sekundarnih alkohola s HCI i HBr spore su, ali se mogu ubrzati zagrijavanjem. (SLIKA 3)<br>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    </div>
+    </div>
+    </div>
+    </section>
+
+    <script>
+        // ADDED CONTINUOUS ZOOM HANDLING
+        let zoomInterval;
+        const ZOOM_SPEED = 0.1;
+        
+        function startZoom(action, imageId) {
+            const zoomFn = action === 'in' ? zoomIn : zoomOut;
+            zoomFn(imageId);
+            zoomInterval = setInterval(() => zoomFn(imageId), 100);
+        }
+
+        function stopZoom() {
+            clearInterval(zoomInterval);
+        }
+
+        // Update zoom button event handlers
+        function addZoomHandlers() {
+            document.querySelectorAll('.image-controls .button-87').forEach(btn => {
+                btn.addEventListener('mousedown', function(e) {
+                    const action = this.textContent.trim() === '+' ? 'in' : 'out';
+                    const imageId = this.closest('.image-square').querySelector('img').id;
+                    startZoom(action, imageId);
+                    this.classList.add('zoom-button-active');
+                });
+                
+                btn.addEventListener('mouseup', stopZoom);
+                btn.addEventListener('mouseleave', stopZoom);
+            });
+        }
+
+        // Initialize when window opens
+        function toggleWindow(windowId) {
+            const windowToToggle = document.getElementById(windowId);
+            windowToToggle.classList.toggle('active');
+            if(windowToToggle.classList.contains('active')) {
+                resetAllZooms();
+                setTimeout(addZoomHandlers, 100); // Allow DOM update
+            }
+        }
+
+         // Updated layout cycling function
+         function cycleLayout(windowId) {
+            const window = document.getElementById(windowId);
+            const currentLayout = window.classList.contains('no-images') ? 'no-images' : 
+                                 window.classList.contains('swapped') ? 'swapped' : 'default';
+            
+            // Reset all classes first
+            window.classList.remove('no-images', 'swapped');
+            
+            // Cycle through layouts
+            if (currentLayout === 'default') {
+                window.classList.add('swapped');
+            } 
+            else if (currentLayout === 'swapped') {
+                window.classList.add('no-images');
+            } 
+            else {
+                // Goes back to default
+            }
+        }
+
+        // Zoom and pan functionality
+        let imageScales = {};
+        let textScales = {};
+        let isDragging = false;
+        let startPos = { x: 0, y: 0 };
+        let scrollPos = { x: 0, y: 0 };
+        let currentImageId = null;
+
+        function resetAllZooms() {
+            const images = document.querySelectorAll('.zoomable-image');
+            images.forEach(img => {
+                img.style.transform = 'scale(1)';
+                imageScales[img.id] = 1;
+                img.parentElement.scrollTo(0, 0);
+            });
+            
+            const textElements = document.querySelectorAll('.zoomable-text');
+            textElements.forEach(text => {
+                text.style.fontSize = '1em';
+                textScales[text.closest('.newWindow').id] = 1;
+                text.parentElement.scrollTo(0, 0);
+            });
+        }
+
+        function zoomIn(imageId) {
+            if (!imageScales[imageId]) imageScales[imageId] = 1;
+            imageScales[imageId] += 0.1;
+            const image = document.getElementById(imageId);
+            image.style.transform = `scale(${imageScales[imageId]})`;
+        }
+
+        function zoomOut(imageId) {
+            if (!imageScales[imageId]) imageScales[imageId] = 1;
+            imageScales[imageId] = Math.max(0.5, imageScales[imageId] - 0.1);
+            const image = document.getElementById(imageId);
+            image.style.transform = `scale(${imageScales[imageId]})`;
+        }
+
+        function resetZoom(imageId) {
+            imageScales[imageId] = 1;
+            const image = document.getElementById(imageId);
+            image.style.transform = 'scale(1)';
+            image.parentElement.scrollTo(0, 0);
+        }
+
+        function zoomInText(windowId) {
+            if (!textScales[windowId]) textScales[windowId] = 1;
+            textScales[windowId] += 0.1;
+            document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
+                text.style.fontSize = `${textScales[windowId]}em`;
+            });
+        }
+
+        function zoomOutText(windowId) {
+            if (!textScales[windowId]) textScales[windowId] = 1;
+            textScales[windowId] = Math.max(0.5, textScales[windowId] - 0.1);
+            document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
+                text.style.fontSize = `${textScales[windowId]}em`;
+            });
+        }
+
+        function resetZoomText(windowId) {
+            textScales[windowId] = 1;
+            document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
+                text.style.fontSize = '1em';
+                text.parentElement.scrollTo(0, 0);
+            });
+        }
+
+        // Image panning functionality
+        document.addEventListener('mousedown', (e) => {
+            if (e.target.closest('.image-display')) {
+                isDragging = true;
+                startPos = {
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                const container = e.target.closest('.image-display');
+                scrollPos = {
+                    x: container.scrollLeft,
+                    y: container.scrollTop
+                };
+                container.style.cursor = 'grabbing';
+                currentImageId = container.querySelector('img').id;
+                e.preventDefault();
+            }
         });
-      }
-      /**/
-      /**/
-      function zoomOut(row) {
-        const images = document.querySelectorAll(`.zoomable-image[data-row="${row}"]`);
-        images.forEach(img => {
-          let currentScale = parseFloat(img.style.transform.replace('scale(', '').replace(')', '')) || 1;
-          img.style.transform = `scale(${Math.max(currentScale - 0.1, 0.5)})`;
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            const dx = e.clientX - startPos.x;
+            const dy = e.clientY - startPos.y;
+            
+            const container = document.querySelector(`#${currentImageId}`).parentElement;
+            container.scrollLeft = scrollPos.x - dx;
+            container.scrollTop = scrollPos.y - dy;
+            
+            e.preventDefault();
         });
-      }
-      /**/
-      /**/
-      function resetZoom(row) {
-        const images = document.querySelectorAll(`.zoomable-image[data-row="${row}"]`);
-        images.forEach(img => {
-          img.style.transform = 'scale(1)';
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            const containers = document.querySelectorAll('.image-display');
+            containers.forEach(container => {
+                container.style.cursor = 'grab';
+            });
+            currentImageId = null;
         });
-      }
-      /**/
-      /**/
-      // Zoom Functions for Text
-      function zoomInText() {
-        const text = document.querySelector('.zoomable-text');
-        let currentSize = parseFloat(window.getComputedStyle(text).fontSize);
-        text.style.fontSize = `${currentSize + 2}px`;
-      }
-      /**/
-      /**/
-      function zoomOutText() {
-        const text = document.querySelector('.zoomable-text');
-        let currentSize = parseFloat(window.getComputedStyle(text).fontSize);
-        text.style.fontSize = `${Math.max(currentSize - 2, 12)}px`;
-      }
-      /**/
-      /**/
-      function resetZoomText() {
-        const text = document.querySelector('.zoomable-text');
-        text.style.fontSize = '16px';
-      }
-      /*MINDMAP SETTINGS*/
+
+        // Scroll lock functions
+        function lockA() {
+            var xPos = window.scrollX;
+            var yPos = window.scrollY;
+            window.onscroll = () => window.scroll(xPos, yPos);
+        }
+
+        function unlock() {
+            window.onscroll = "";
+        }
+
+        // Scroll reveal animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal, { passive: true });
+        reveal(); // Initialize
+         /*MINDMAP SETTINGS*/
       /*MINDMAP SETTINGS*/
       /*MINDMAP SETTINGS*/
       /*MINDMAP SETTINGS*/
@@ -807,6 +1184,61 @@
       createMap(data);
       drawLines(data);
       resizeObserver.observe($(`#${config.containerId}`).n);
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      /* Function to slide to the next window*/
+      function slideNext(containerId) {
+        const container = document.getElementById(containerId);
+        const slider = container.querySelector('.slider');
+        const totalWindows = slider.children.length;
+        let currentWindow = parseInt(container.dataset.currentWindow || 0);
+        if (currentWindow < totalWindows - 1) {
+          currentWindow++;
+          updateSlider(container, slider, currentWindow);
+          updateButtons(container, currentWindow, totalWindows);
+        }
+      }
+      /**/
+      /**/
+      /* Function to slide to the previous window*/
+      function slidePrevious(containerId) {
+        const container = document.getElementById(containerId);
+        const slider = container.querySelector('.slider');
+        const totalWindows = slider.children.length;
+        let currentWindow = parseInt(container.dataset.currentWindow || 0);
+        if (currentWindow > 0) {
+          currentWindow--;
+          updateSlider(container, slider, currentWindow);
+          updateButtons(container, currentWindow, totalWindows);
+        }
+      }
+      /**/
+      /**/
+      /* Function to update the slider's position*/
+      function updateSlider(container, slider, currentWindow) {
+        const translateX = -(currentWindow * 100);
+        slider.style.transform = `translateX(${translateX}%)`;
+        ontainer.dataset.currentWindow = currentWindow; // Store current window index
+      }
+      /**/
+      /**/
+      /* Function to update button states*/
+      function updateButtons(container, currentWindow, totalWindows) {
+        const prevButton = container.nextElementSibling.querySelector('.slide-button:first-of-type');
+        const nextButton = container.nextElementSibling.querySelector('.slide-button:last-of-type');
+        prevButton.disabled = currentWindow === 0; // Disable "Previous" on first window
+        nextButton.disabled = currentWindow === totalWindows - 1; // Disable "Next" on last window
+      }
+      /**/
+      /**/
+      // Initialize button states for all containers
+      document.querySelectorAll('.container').forEach(container => {
+        const slider = container.querySelector('.slider');
+        const totalWindows = slider.children.length;
+        updateButtons(container, 0, totalWindows); /* Start at the first window*/
+      });
     </script>
-  </body>
+</body>
 </html>

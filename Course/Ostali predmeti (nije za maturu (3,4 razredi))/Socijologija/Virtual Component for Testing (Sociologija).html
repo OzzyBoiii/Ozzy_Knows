@@ -1,112 +1,139 @@
-<!DOCTYPE html>>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Socijologija</title>
+<head>
+    <title>Sociologija</title>
+    <meta name="author" content="Anna">
     <style>
-      /* New Window */
-      /* New Window */
-      /* New Window */
-      /* New Window */
-      .newWindow {
-        position: fixed;
-        top: 5%;
-        left: 5%;
-        height: 90%;
-        width: 90%;
-        background-color: white;
-        border: 1px solid black;
-        display: none;
-        flex-direction: row;
-        padding: 15px;
-        box-sizing: border-box;
-      }
-      /**/
-      /**/
-      .newWindow.active { display: flex; }
-      /**/
-      /**/
-      .newWindow .left, .newWindow .right {
-        width: 15%;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        overflow: auto;
-        scrollbar-width: thin;
-        overflow-y: scroll;
-      }
-      /**/
-      /**/
-      .newWindow .center {
-        width: 70%;
-        padding: 0 15px;
-        overflow-y: scroll;
-        scrollbar-width: thin;
-      }
-      /**/
-      /**/
-      .newWindow img {
-        max-width: 100%;
-        height: auto;
-        transition: transform 0.3s ease;
-        object-fit: contain;
-        margin-bottom: 15px;
-      }
-      /**/
-      /**/
-      .zoom-controls {
-        position: sticky;
-        bottom: 0;
-        display: flex;
-        gap: 8px;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 8px;
+         /*SCIENTIFIC FORMULAS*/
+         .radical {
+            position: relative;
+            font-size: 1.6em;
+            vertical-align: middle;
+        }
+        .n-root {
+            position: absolute;
+            top: -0.333em;
+            left: 0.333em;
+            font-size: 45%;
+        }
+        .radicand {
+            padding: 0.25em 0.25em;
+            border-top: thin black solid;
+        }
+        /*FRACTIONS*/
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0.2em 0.4ex;
+            text-align: center;
+        }
+        .fraction > span {
+            display: block;
+            padding-top: 0.15em;
+        }
+        .fraction span.fdn {
+            border-top: thin solid black;
+        }
+        .fraction span.bar {
+            display: none;
+        }
+        #overline {
+            text-decoration: overline;
+        }
+        .sy {
+            position: relative;
+            text-align: center;
+        }
+        .oncapital, .onsmall {
+            position: absolute;
+            top: -1em;
+            left: 0px;
+            width: 100%;
+            font-size: 70%;
+            text-align: center;
+        }
+        .onsmall {
+            top: -0.7em;
+        }
+
+        /*FLEXIBLE WEBSITE*/
+        .container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 0.5rem;
+            padding-right: 8.5rem;
+        }
+        @media (min-width: 475px) {
+            .container {
+                max-width: 475px;
+            }
+        }
+        @media (min-width: 640px) {
+            .container {
+                max-width: 640px;
+            }
+        }
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+            }
+        }
+        @media (min-width: 1824px) {
+            .container {
+                max-width: 1824px;
+            }
+        }
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1288px;
+            }
+        }
+        @media (min-width: 1536px) {
+            .container {
+                max-width: 1536px;
+            }
+        }
+
+        /* Button */
+      /* Button */
+      /* Button */
+      /* Button */
+      button {
+        animation: shimmer 1.5s ease infinite alternate;
+        background: linear-gradient(90deg, #ffe27d 0%, #64e3ff 30%, #9192ff 85%);
+        background-size: 200% 100%;
+        border: none;
         border-radius: 6px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        z-index: 1;
-        flex-wrap: wrap;
+        box-shadow: -2px -2px 10px rgba(255, 227, 126, 0.5), 2px 2px 10px rgba(144, 148, 255, 0.5);
+        color: #170f1e;
+        cursor: pointer;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 670;
+        line-height: 1.2;
+        padding: 8px 12px;
+        text-decoration: none;
+        transition: 0.2s;
+        white-space: nowrap;
       }
       /**/
       /**/
-      .zoom-controls button {
-        flex: 1 1 auto;
-        min-width: 100px;
+      button:hover { transform: rotate(-3deg); }
+      button:active { transform: scale(0.95) rotate(-3deg); }
+      /**/
+      /**/
+      @keyframes shimmer {
+        to { background-size: 100% 100%; box-shadow: -2px -2px 6px rgba(255, 227, 126, 0.5), 2px 2px 6px rgba(144, 148, 255, 0.5); }
       }
-      /**/
-      /**/
-      /* Scrollbar styling */
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-      }
-      /**/
-      /**/
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-      /**/
-      /**/
-      ::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 4px;
-      }
-      /**/
-      /**/
-      ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-      }
-      /**/
-      /**/
-      #Img_Zoom{
-        min-width: 10px;
-        min-height: 10px;
-      }
-      /**/
-      /**/
-      .close{
-        text-align: center;
-      }
-      /* Background */
+        /*SCROLLING ANIMATION*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Asap", sans-serif;
+        }
+        /* Background */
       /* Background */
       /* Background */
       /* Background */
@@ -116,6 +143,9 @@
         font-weight: 100;
         background: radial-gradient(#a23982, #1f1013);
         animation: fadeIn 1s ease-out;
+        background-blend-mode:multiply;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #555;
       }
       /**/
       /**/
@@ -158,166 +188,299 @@
         from { opacity: 0; }
         to { opacity: 1; }
       }
-      /*SCROLLING ANIMATION*/
-      /*SCROLLING ANIMATION*/
-      /*SCROLLING ANIMATION*/
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Asap", sans-serif;
-      }
-      /**/
-      /**/
-      section {
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      /**/
-      /**/
-      section .container {
-        margin: 100px;
-      }
-      /**/
-      /**/
-      section h1 {
-        font-size: 3rem;
-        margin: 20px;
-      }
-      /**/
-      /**/
-      section h2 {
-        font-size: 40px;
-        text-align: center;
-        text-transform: uppercase;
-      }
-      /**/
-      /**/
-      section .text-container {
-        display: flex;
-      }
-      /**/
-      /**/
-      section .text-container .text-box {
-        margin: 20px;
-        padding: 20px;
-        background: #00c2cb;
-      }
-      /**/
-      /**/
-      section .text-container .text-box h3 {
-        font-size: 30px;
-        text-align: center;
-        text-transform: uppercase;
-        margin-bottom: 10px;
-      }
-      /**/
-      /**/
-      @media (max-width: 900px) {
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        section .container {
+            margin: 100px;
+        }
         section h1 {
-          font-size: 2rem;
-          text-align: center;
+            font-size: 3rem;
+            margin: 20px;
+        }
+        section h2 {
+            font-size: 40px;
+            text-align: center;
+            text-transform: uppercase;
         }
         section .text-container {
-          flex-direction: column;
+            display: flex;
         }
-      }
-      /**/
-      /**/
-      .reveal {
-        position: relative;
-        opacity: 0;
-      }
-      /**/
-      /**/
-      .reveal.active {
-        opacity: 1;
-      }
-      /**/
-      /**/
-      .active.fade-bottom {
-        animation: fade-bottom 1s ease-in;
-      }
-      /**/
-      /**/
-      .active.fade-left {
-        animation: fade-left 1s ease-in;
-      }
-      /**/
-      /**/
-      .active.fade-right {
-        animation: fade-right 1s ease-in;
-      }
-      /**/
-      /**/
-      @keyframes fade-bottom {
-        0% {
-          transform: translateY(50px);
-          opacity: 0;
+        section .text-container .text-box {
+            margin: 20px;
+            padding: 20px;
+            background: #00c2cb;
         }
-        100% {
-          transform: translateY(0);
-          opacity: 1;
+        section .text-container .text-box h3 {
+            font-size: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 10px;
         }
-      }
-      /**/
-      /**/
-      @keyframes fade-left {
-        0% {
-          transform: translateX(-100px);
-          opacity: 0;
+        @media (max-width: 900px) {
+            section h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
+            section .text-container {
+                flex-direction: column;
+            }
         }
-        100% {
-          transform: translateX(0);
-          opacity: 1;
+        .reveal {
+            position: relative;
+            opacity: 0;
         }
-      }
-      /**/
-      /**/
-      @keyframes fade-right {
-        0% {
-          transform: translateX(100px);
-          opacity: 0;
+        .reveal.active {
+            opacity: 1;
         }
-        100% {
-          transform: translateX(0);
-          opacity: 1;
+        .active.fade-bottom {
+            animation: fade-bottom 1s ease-in;
         }
-      }
-      /* Button */
-      /* Button */
-      /* Button */
-      /* Button */
-      button {
-        animation: shimmer 1.5s ease infinite alternate;
-        background: linear-gradient(90deg, #ffe27d 0%, #64e3ff 30%, #9192ff 85%);
-        background-size: 200% 100%;
-        border: none;
-        border-radius: 6px;
-        box-shadow: -2px -2px 10px rgba(255, 227, 126, 0.5), 2px 2px 10px rgba(144, 148, 255, 0.5);
-        color: #170f1e;
-        cursor: pointer;
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        font-weight: 670;
-        line-height: 1.2;
-        padding: 8px 12px;
-        text-decoration: none;
-        transition: 0.2s;
-        white-space: nowrap;
-      }
-      /**/
-      /**/
-      button:hover { transform: rotate(-3deg); }
-      button:active { transform: scale(0.95) rotate(-3deg); }
-      /**/
-      /**/
-      @keyframes shimmer {
-        to { background-size: 100% 100%; box-shadow: -2px -2px 6px rgba(255, 227, 126, 0.5), 2px 2px 6px rgba(144, 148, 255, 0.5); }
-      }
-      /*MINDMAP*/
+        .active.fade-left {
+            animation: fade-left 1s ease-in;
+        }
+        .active.fade-right {
+            animation: fade-right 1s ease-in;
+        }
+        @keyframes fade-bottom {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fade-left {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fade-right {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* UPDATED WINDOW STYLES */
+        .newWindow {
+            position: fixed;
+            top: 5%;
+            left: 5%;
+            height: 90%;
+            width: 90%;
+            background-color: white;
+            border: 1px solid black;
+            display: none;
+            grid-template-columns: 35% 65%;
+            grid-template-areas: "images content";
+            padding: 15px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        
+        .newWindow.no-images {
+            grid-template-columns: 100%;
+            grid-template-areas: "content";
+        }
+        
+        .newWindow.swapped {
+            grid-template-columns: 65% 35%;
+            grid-template-areas: "content images";
+        }
+        
+        .newWindow.active {
+            display: grid;
+        }
+
+        .window-column {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            grid-area: images;
+            justify-content: center;
+            align-items: center;
+        }
+        /* ADDED FIXED IMAGE CONTAINER STYLES */
+        .image-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            max-width: 800px;
+            height: calc(100vh - 200px); /* Fixed container height */
+        }
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            padding: 0 15px;
+            grid-area: content;
+        }
+
+        .text-controls-container {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .newWindow:not(.no-images) .text-controls-container {
+            grid-template-columns: 1fr;
+        }
+
+        .newWindow:not(.no-images) .close-button-container {
+            display: none;
+        }
+
+        .text-zoom-controls {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .layout-controls {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .text-content {
+            padding: 15px;
+            overflow: auto;
+            white-space: nowrap;
+        }
+
+        .zoomable-text {
+            display: inline-block;
+            white-space: nowrap;
+            min-width: 100%;
+        }
+
+        .close-button-container {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            transition: all 0.3s ease;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .newWindow:not(.no-images) .close-button-container {
+            height: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .image-square {
+            height: 400px !important; /* Fixed height */
+            width: 100% !important;
+            min-width: 400px; /* Minimum size */
+            flex-shrink: 0; /* Prevent squeezing */
+            border: 1px solid #ccc;
+            overflow: hidden;
+            box-shadow: 0 0 0 1px #ddd;
+        }
+
+        /* ADDED CONTINUOUS ZOOM HANDLING */
+        .zoom-button-active {
+            background-position: right center;
+            transform: scale(0.95);
+        }
+        .image-square > div {
+            border-bottom: 1px solid #aaa;
+        }
+
+        .image-square > div:last-child {
+            border-bottom: none;
+        }
+
+        .image-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            padding: 5px;
+            background-color: #f5f5f5;
+        }
+
+        .image-controls .button-87 {
+            padding: 8px 15px;
+            margin: 0;
+            font-size: 0.8em;
+        }
+
+        .image-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: scroll;
+            cursor: grab;
+        }
+        
+        .image-display img {
+            max-width: 100%;
+            max-height: 100%;
+            transition: transform 0.3s ease;
+            object-fit: contain;
+        }
+        .image-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            text-align: center;
+        }
+
+        /* FIXED TEXT IN IMAGE SQUARES */
+        .image-info h3 {
+            font-size: 1.2rem !important;
+            padding: 5px;
+            margin: 0;
+            line-height: 1.2;
+            max-height: 40px;
+            overflow: hidden;
+        }
+
+        /* FIXED SCROLLBAR POSITIONING */
+        .text-content::-webkit-scrollbar {
+            height: 8px;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .text-content {
+            scrollbar-gutter: stable;
+            padding-bottom: 15px !important;
+        }
+        /*MINDMAP*/
       /*MINDMAP*/
       /*MINDMAP*/
       /*MINDMAP*/
@@ -371,300 +534,1101 @@
         fill: none;
         stroke-width: var(--stroke-width);
       }
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      .CONTAINER {
+        width: 500px;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+        margin: 20px auto;
+        border: 2px solid #333;
+        overflow-y: scroll;
+      }
+      /**/
+      /**/
+      .slider {
+        display: flex;
+        width: 100%; /* Width adjusts dynamically based on number of windows */
+        height: 100%;
+        transition: transform 0.5s ease-in-out;
+      }
+      /**/
+      /**/
+      .window {
+        flex: 0 0 100%; /* Each window takes full width of the container */
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      /**/
+      /**/
+      .window img {
+        max-width: 100%;
+        max-height: 150px;
+        margin-bottom: 10px;
+      }
+      /**/
+      /**/
+      .window p {
+        font-size: 16px;
+        text-align: center;
+        margin: 5px 0;
+      }
+      /**/
+      /**/
+      .button-CONTAINER {
+        text-align: center;
+        margin-top: 20px;
+      }
+      /**/
+      /**/
+      .slide-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 0 10px;
+      }
+      /**/
+      /**/
+      .slide-button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+      /*UREĐIVANJE SLIKA*/
+      /*UREĐIVANJE SLIKA*/
+      /*UREĐIVANJE SLIKA*/
+      /*UREĐIVANJE SLIKA*/
+      .Ravnotežne_reakcije{
+        position: relative;
+        width: 10px;
+        height: 50px;
+      }
+      .image-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            text-align: center;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <section>
-      <div class="container reveal fade-bottom">
-        <!--Background modeling-->
-        <div class="light x1"></div>
-        <div class="light x2"></div>
-        <div class="light x3"></div>
-        <div class="light x4"></div>
-        <div class="light x5"></div>
-        <div class="light x6"></div>
-        <div class="light x7"></div>
-        <div class="light x8"></div>
-        <div class="light x9"></div>
-        <!--Background modeling-->
-        <h2>Sociologija</h2>
-      </div>
-    </section>
-    <!---->
-    <!---->
-    <!---->
-    <section>
-      <div class="container reveal fade-bottom">
-        <!--Background modeling-->
-        <div class="light x1"></div>
-        <div class="light x2"></div>
-        <div class="light x3"></div>
-        <div class="light x4"></div>
-        <div class="light x5"></div>
-        <div class="light x6"></div>
-        <div class="light x7"></div>
-        <div class="light x8"></div>
-        <div class="light x9"></div>
-        <!--Background modeling-->
-        <h2>DRUŠTVO I DRUŠTVENOST I DRUŠTVENA INTERKACIJA</h2>
+      <!--Background modeling-->
+      <div class="light x1"></div>
+      <div class="light x2"></div>
+      <div class="light x3"></div>
+      <div class="light x4"></div>
+      <div class="light x5"></div>
+      <div class="light x6"></div>
+      <div class="light x7"></div>
+      <div class="light x8"></div>
+      <div class="light x9"></div>
+      <!--Background modeling-->
+        <h1>Sociologija<br></h1>
         <div class="text-container">
-          <div class="text-box">
-            <!---->
-            <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Što je društvo i zajednica</button>
-            <div id="newWindow_1" class="newWindow">
-              <div class="left">
-                <div class="zoom-controls">
-                  <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
-                  <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
-                  <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
-                </div>
-                <img src="DRUŠTVO I DRUŠTVENOST I DRUŠTVENA INTERKACIJA_1.png" class="zoomable-image" data-row="1">
-                <img src="DRUŠTVO I DRUŠTVENOST I DRUŠTVENA INTERKACIJA_2.png" class="zoomable-image" data-row="1">
-              </div>
-              <div class="center">
-                <button class="close" onclick="toggleWindow('newWindow_1');unlock()">X</button>
-                <div class="zoom-controls">
-                  <button onclick="zoomInText()">+</button>
-                  <button onclick="zoomOutText()">-</button>
-                  <button onclick="resetZoomText()">Reset </button>
-                </div>
-                <p class="zoomable-text">
-                Sociologija je znanost o društvu
-                Znanost koja se bavi istraživanjem i tumačenjem društvenih
-                ponašanja ljudi, društvenih pojava i odnosa, odnosno društva
-                općenito
-                Što je društvo?
-                Sociologija definira društvo kao „skupinu ljudi s zajedničkim teritorijem, interakcijom i
-                kulturom“.
-                Što je zajednica
-                Zajednica je skupina ljudi koji žive na istom mjestu ili imaju zajedničko obilježje
-                August Comte – osnivač sociologije
-                „Opažanjima se mogu razvijati spoznaje o društvu i predvidjeti budući
-                društveni događaji”
-                SOCIJALNA FIZIKA
-                Pozitivizam – sociologija će objasniti zakonitosti društva
-                Nisu svi ljudi jednako poznavali pjesme, no svi se uključili
-                na refrenu
-                Uključivali mobitel
-                Ljudi su se slikali i fotografije dijelili na društvenim
-                mrežama
-                DRUŠTVENO PONAŠANJE
-                Odvija se pod utjecajem drugih ili sam pojedinac utječe na
-                druge oko sebe
-                Društveno ponašanje je svako
-                ponašanje pojedinca koje uzima u
-                obzir zajedničke norme i vrijednosti
-                neke grupe te osobna uvjerenja i
-                motive
-              </p>
-            </div>
-            <div class="right">
-              <div class="zoom-controls">
-                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
-                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
-                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
-              </div>
-              <img src="DRUŠTVO I DRUŠTVENOST I DRUŠTVENA INTERKACIJA_3.png" class="zoomable-image" data-row="2">
-            </div>
-          </div>
-            <!---->
-            <!---->
-            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Društveni pojmovi</button>
-            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
-              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
-              <p>
-                Većina naših aktivnosti društveno određena
-                DRUŠTVENI
-                ODNOSI
-                Društveni su odnosi skup veza i utjecaja koje pojedinci
-                ostvaruju s drugim ljudima.
-                DRUŠTVENA INTERAKCIJA
-                Skup složenih postupaka u kojima članovi neke zajednice ili
-                grupe sudjeluju, svjesno ili nesvjesno, kako bi prenijeli neku
-                poruku ili ostvarili određeni odnos
-                KOMUNIKACIJA
-                I današnja lekcija je interaktivna
-              </p>
-              <img src="DRUŠTVO I DRUŠTVENOST I DRUŠTVENA INTERKACIJA_4.png">
-              <p>
-                Društvene činjenice - načini djelovanja, mišljenja i osjećanja
-                izvanjski pojedincu, koji mu se nameću prinudnom snagom, htio on
-                to ili ne
-                Emile Durkheim
-                Samoubojstvo
-              </p>
-              <img src="DRUŠTVO I DRUŠTVENOST I DRUŠTVENA INTERKACIJA_5.png">
-              <p>
-                Stopa samoubojstva razlikuje se od jedne do druge društvene grupe.
-                Najvažnije su sljedeće:
-                Religija – među protestantima je veća stopa samoubojstava nego li među
-                katolicima
-                Obiteljski odnosi – oženjeni ili udani imali manju stopu od samaca
-                Rat i mir – stopa samoubojstava opadala je u doba rata, bez obzira je li
-                zemlja dobivala ili gubila
-                Ekonomska kriza - stopa se povećava za vrijeme ekonomske krize...
-                zašto? Jer bankrot, nazaposlenost i oskudica potiču sklonost samoubojstvu
-                DRUŠTVENA SOLIDARNOST - spone koje drže ljude zajedno
-                (moralne norme i osjećaji koji osiguravaju integraciju društva)
-                INTEGRACIJA I REGULACIJA
-                Integracija – snaga povezanosti pojedinca s društvenom grupom.
-                Regulacija – kontrola individualnih poriva i želja pomoću društvenih
-                normi, pravila ponašanja.
-                Ovisno o tome jesu li te spone prejake ili preslabe, Durkheim razlikuje
-                4 tipa samoubojstva:
-                Egoistično samoubojstvo – Naziva se tako jer niska integracija vodi izolaciji pojedinca
-                koji postaje pretjerano fokusiran na sebe.
-                Anomično samoubojstvo – proizlazi iz nedostatka regulacije. Pretjerane želje nisu ničim
-                regulirane.
-                Altruistično samoubojstvo – suprotno egoističnom. Pojedinac je previše integriran u
-                zajednicu, spone su prejake.
-                Fatalistično samoubojstvo – suprotno anomičnom. Rezultat je pretjerane regulacije
-                PRIMJERI
-                Vojnik poginuo bacivši se na granatu kako bi spasio ostale vojnike iz svoga
-                voda.
-                Zatvorenik počinio samoubojstvo vješanjem u ćeliji.
-                Čovjek počinio samoubojstvo iako je nedavno osvojio glavni zgoditak na
-                lutriji.
-                56godišnji neoženjeni muškarac počinio samoubostvo bacivši se sa vrha
-                zgrade.
-              </p>
-            </div>
-            <!---->
-            <!---->
-            <button role="button"  value="Lock Current" onclick="toggleWindow('newWindow_4');lockA()">Mikrosociologija i makrosociologija</button>
-            <div id="newWindow_4" class="newWindow hidden" aria-hidden="true">
-              <button  role="button"  value="Unlock"  onclick="toggleWindow('newWindow_4');unlock()">X</button>
-              <p>
-                MIKROSOCIOLOGIJA I MAKROSOCIOLOGIJA
-                Mikrosociologija izučava izbliza ljudsko ponašanje i promatra što
-                se događa u interakcijama licem-u-lice.
-                Makrosociologija je proučavanje većih grupa, institucija i
-                društvenih sustava – države, klase, ekonomije, demografske
-                promjene, utjecaj uvođenja novih tehnologija itd.
-                Primjeri makrosocioloških pitanja:
-                Što je uzrokovalo prijelaz iz feudalizma u kapitalizam?
-                Kako rasa utječe na obrazovna postignuća?
-                Primjeri mikrosocioloških pitanja:
-                Razgovaraju li doktori drukčije s pacijentima drugih rasa?
-                Kako se ponašaju posjetitelji na rock koncertu?
-              </p>
-            </div>
-            <!---->
-            <!---->
-          </div>
+            <a href="http://127.0.0.1:5500/Course/Internet/Virtual%20Component%20for%20Testing%20(HQ).html"><button class="button-87" role="button">X</button></a>
         </div>
-      </div>
+    </section>
+
+    <section>
+        <div class="container reveal fade-bottom">
+          <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+            <h3>IDENTITET – INDIVIDUALNI I KOLEKTIVNI</h3>
+            <div class="text-container">
+                <div class="text-box">
+                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Dobivanje alkohola</button>
+    <div id="newWindow_1" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="Identitet_1.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_1')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_1')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    </div>
+    </div>
+    </div>
     </section>
     <!---->
     <!---->
     <!---->
+    <section>
+        <div class="container reveal fade-bottom">
+          <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+            <h3>SUBKULTURE I KONTRAKULTURE</h3>
+            <div class="text-container">
+                <div class="text-box">
+                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Dobivanje alkohola</button>
+    <div id="newWindow_1" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="SUBKULTURE_I_KONTRAKULTURE_1.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="SUBKULTURE_I_KONTRAKULTURE_2.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="SUBKULTURE_I_KONTRAKULTURE_3.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="SUBKULTURE_I_KONTRAKULTURE_4.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="SUBKULTURE_I_KONTRAKULTURE_5.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_1')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_1')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                    Manje grupe unutar dominantne kulture koje dijele zajedničke norme i vrijednosti te obrasce ponašanja kojima se razlikuju od većine društva nazivamo SUBKULTURAMA.
+To su varijacije unutar dominantne kulture čije se norme, vrijednosti i ponašanja manje ili više razlikuju od normi, vrijednosti i ponašanja dominantne kulture 
+Pojam subkulture počeo se koristiti sredinom prošlog stoljeća za pripadnike različitih etničkih skupina u američkom društvu (npr. za Židove, Poljake, Talijane…)
+60ih godina prošlog stoljeća govorilo se o subkulturi mladih koji slušaju jazz ili hippie pokretu
+70ih godina pojam subkulture veže se uz mlade kao što su rockeri, punkeri ili nogometni navijači
+Danas možemo govoriti o subkulturi hipstera, youtubera, gamera, navijača… (rituali, norme, jezik, vrijednosti, simboli…)
+Subkulture čije se vrijednosti, norme i stil života u potpunosti suprotstavljaju dominantnoj kulturi, kritiziraju je i odbacuju zovu se KONTRAKULTURE
+Punkeri, hipiji, antiglobalistički pokreti (anonimusi)
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    </div>
+    </div>
+    </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+        <div class="container reveal fade-bottom">
+          <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+            <h3>Obitelj i funkcije obitelji; sastav i vrste obitelji</h3>
+            <div class="text-container">
+                <div class="text-box">
+                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Što je obitelj</button>
+    <div id="newWindow_1" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="Obitelj_i_funkcije_obitelji;_sastav_i_vrste_obitelji_1.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="SUBKULTURE_I_KONTRAKULTURE_2.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="SUBKULTURE_I_KONTRAKULTURE_3.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="SUBKULTURE_I_KONTRAKULTURE_4.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="SUBKULTURE_I_KONTRAKULTURE_5.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_1')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_1')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                    Neki tvrde da klasična obitelj nestaje, te da je zamjenjuju mnogobrojni različiti načini življenja u zajednicama.
+Zlatno doba obitelji je pred nama jer muškarac i žena su ravnopravni, pa mogu birati partnere i živjeti u slozi.
+OBITELJ postaje svjestan izbor!
+OBITELJ je primarna društvena grupa povezana brakom, srodstvom ili posvajanjem čiji članovi žive zajedno te emocionalno i ekonomski skrbe za potomstvo
+Najvažnija društvena institucija
+Univerzalna. Zajedničke karakteristike u različitim kulturama
+Obitelj ima mnogobrojne funkcije:
+1. REPRODUKCIJA
+Društvo da bi se održalo mora obnavljati svoje članove iz generacije u generaciju.
+2. REGULACIJA SPOLNOG PONAŠANJA
+Nigdje ne postoji potpuna sloboda u spolnome ponašanju već svako društvo ga nastoji urediti. U svim društvima postoje norme koje ograničavaju ili zabranjuju spolne aktivnosti izvan bračne zajednice i te norme onda doprinose stabilizaciji društva. Međutim, danas se mnoga djeca rađaju izvan bračne zajednice, pa se mnogi brakovi zasnivaju tek nakon rođenja djece.
+3. SOCIJALIZACIJA
+Obitelj je posrednik između pojedinca i zajednice jer roditelji unutar obitelji prenose vrijednosti i norme te jezik vlastite kulture. Tu se izravno utječe na psihički, emocionalni i socijalni razvoj djeteta.
+4. EMOCIONALNA PODRŠKA I SKRB
+Od svog rođenja dijete ovisi o odraslim članovima obitelji i zato obitelj treba biti mjesto koje pruža brigu, sigurnost, skrb i zaštitu. Bitna je i emocionalna podrška, to jest da se dijete osjeća prihvaćeno i voljeno.
+5. PRIDAVANJE SOCIJALNOG POLOŽAJA
+Svakom članu obitelji pripisan je određeni položaj. To može biti kći, sin, unuk ili unuka, brat ili sestra. Obitelj tako smješta svoje članove u mrežu određenih odnosa u kojoj se dijete uči odnosima unutar obitelji. Međutim, dijete razvija i osjećaj pripadnosti široj društvenoj grupi kao što su etnička grupa, religijska grupa, rasna ili nacionalna pripadnost. Obitelj može utjecati na buduće položaje svojih članova (izbor škole ili fakulteta)
+6. EKONOMSKA FUNKCIJA
+Služi tome da se kvalitetno ispune sve dosad navedene funkcije. Obitelj mora svojim radom i prihodima osigurati zadovoljenje egzistencijalnih potreba (hrana, odjeća, obuća, stambeni prostor...).
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Vrste obitelji</button>
+    <div id="newWindow_1" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="Obitelj_i_funkcije_obitelji;_sastav_i_vrste_obitelji_1.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_1')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_1')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                    NUKLEARNA OBITELJ - Čine ju roditelji i djeca. Prisutna je u modernim društvima. Članovi nuklearne obitelji žive zajedno, kao obiteljska jezgra i prostorno su odvojeni od ostalih srodnika, no s njima su i dalje povezani.
+
+
+Ako zaokružimo vas i osobe s desne strane, onda to čini PROŠIRENU OBITELJ.
+PROŠIRENA OBITELJ  - Čine ju roditelji, djeca i ostali srodnici. Takvu obitelj čini više naraštaja povezanih krvnim srodstvom i prisutnija je u tradicionalnim društvima
+Obitelji se razlikuju s obzirom na nasljeđivanje, s obzirom na obitavanje i s obzirom na odnos moći.
+
+MATRIJARHAT I PATRIJARHAT?
+
+Matrijarhat podrazumijeva oblik vladavine ili tradicije u kojoj je društvena moć u rukama najstarije žene u zajednici, dok patrijarhat podrazumijeva oblik društvene organizacije ili pak sustav u kojem muškarci imaju primarnu kontrolu nad društvenim, političko ekonomskim i kulturnim institucijama.
+Sve tri navedene vrste obitelji vežu se uz ta dva pojma. 
+OBITELJI S OBZIROM NA NASLJEĐIVANJE
+PATRILINERANA
+Podrijetlo i imovina se nasljeđuje prema očevoj strani. To podrazumijeva da žena preuzme suprugovo prezime, a time i djeca. Imovina se prenosi na mušku djecu jer se očekuje da muška djeca ostaju na obiteljskom imanju. Prisutno u većini tradicionalnih društava, pa i Hrvatskoj. Danas se to sve mijenja, pa i ženska djeca nasljeđuju imovinu.
+MATRILINERANA
+Podrijetlo i imovina se nasljeđuje prema majčinoj strani. Takav oblik nasljeđivanje prisutan je kod Židova.
+BILINERANA
+Priznaje se podrijetlo i imovina i po očevoj i po majčinoj strani, to jest obje su linije jednako važne. Ovaj oblik nasljeđvanja je prisutan u modernim društvima
+OBITELJI S OBZIROM NA OBITAVANJE
+PATRILOKALNE
+Život u suprugovu domaćinstvu.
+Ovaj tip prevladava u većini tradicionalnih društava, pa i u Hrvatskoj.
+MATRILOKALNE
+Život u supruginu domaćinstvu.
+Danas ovih varijanti ima i u Hrvatskoj.
+NEOLOKALNE
+Život neovisan o roditeljima.
+Karakteristično za moderna društva.
+OBITELJ S OBZIROM NA ODNOS MOĆI
+PATRIJARHALNA
+Naglašava ulogu najstarijeg muškarca, te on ima pravo donošenja bitnih odluka, a ako u obitelj nije bilo najstarijeg muškarca, onda tu odluku donosi najstariji dječak.
+Mnoge islamske zemlje, u povijesti kod Grka, Rimljana, Židova, tradicionalna društva.
+MATRIJARHALNA
+Žena donosi najvažnije odlike, no takve obitelji su specifične u onim situacijama ako su obitelji ostale bez supruga i oca, pa glavnu ulogu onda preuzima majka, to jest supruga. Danas takva vrsta obitelji postoje u zabačenijim dijelovima svijeta, neka afrička, azijska i indonezijska plemena.
+EGALITARNA
+Sve su češće danas, a za njih je specifično da sve odluke supružnici ili partneri donose zajedno, a najčešći je oblik odnos unutar modernih društava. Specifično za suvremena, demokratska društva.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    </div>
+    </div>
+    </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+        <div class="container reveal fade-bottom">
+          <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+            <h3>Brak i vrste braka</h3>
+            <div class="text-container">
+                <div class="text-box">
+                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Uvod</button>
+    <div id="newWindow_1" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="Obitelj_i_funkcije_obitelji;_sastav_i_vrste_obitelji_1.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_1')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_1')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                    Okosnicu obitelji čini bračna zajednica
+Obitelj uglavnom nastaje BRAKOM. 
+BRAK je društveno prihvaćena seksualna zajednica od dviju ili više osoba
+Ima li nešto sporno u ovakvoj definiciji?
+Kvantitativno obilježje koje govori o broju ljudi u bračnoj zajednici…
+“osobe” – radi li se o heteroseksualnoj ili homoseksualnoj zajednici
+U RH: “Brak je životna zajednica žene i muškarca”, Ustav RH, članak 62.
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Vrste braka</button>
+    <div id="newWindow_1" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="Brak_i_vrste_braka_1.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="Brak_i_vrste_braka_2.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="Brak_i_vrste_braka_3.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="Brak_i_vrste_braka_4.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_1')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_1')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                    Broj supružnika
+                    MONOGAMIJA
+                    (Jedna osoba ima jednog supružnika)
+                    UZASTOPNA MONOGAMIJA– kada osoba ima više supružnika tijekom života, no to je posljedica toga što je postala udovac/udovica ili nakon razvoda braka
+                    POLIGAMIJA
+                    (Jedna osoba ima više supružnika)
+                    POLIGINIJA
+                    Brak jednog muškarca i više žena. Muškarac stupa u brak s više žena postepeno tijekom života
+                    U Africi, islamskim zemljama, u zapadnom svijetu Mormoni…
+                    U Islamu je uvjet da muškarac mora ekonomski skrbiti o svakoj svojoj supruzi i o njihovoj zajedničkoj djeci. Zbog tog ekonomskog razloga ipak se većina muškaraca u islamskim državama odlučuje na monogamiju
+                    POLIANDRIJA
+                    Brak jedne žena s više muškaraca s kojima stupa u brak istovremeno u jednoj ceremoniji. Ti muškarci su najčešće braća ili rođaci iz iste obitelji.
+                    Izrazito rijetka. Tek manje od 1 %
+Na Tibetu i u Nepalu
+Vrlo često ljudi stupaju u brak s onima s kojima se osjećaju bliskima, s kojima se mogu više povezati i imaju slične interese.
+KULTURNA PRAVILA ZA SKLAPANJE BRAKA
+ENDOGAMIJA
+Uzima u obzir, kao bračnog partnera, osobu koja je iz iste regije kao i mi, koja pripada istoj vjerskoj skupini, koja je istog stupnja obrazovanja, koja je iste rase…
+EGZOGAMIJA
+Pravilo koje dozvoljava da možemo istupiti iz svoje zajednice u tako zvani MIJEŠANI BRAK i ne moramo nužno imati sva ova obilježja identična našem supružniku.
+U prošlosti su česti bili dogovoreni brakovi, stoga je i češća bila endogamija
+Otkad se počela masovno primijenjivati romantična ljubav kao motiv za ulazak u brak, vidi se porast egzogamnih brakova
+Incest podrazumijeva spolne odnose između bliskih srodnika.
+Incest je tabu, odnosno znači apsolutnu zabranu
+Zabrana incest je kulturna univerzalija (prisutna je u svim kulturama)
+Razlozi…
+Biološki razlozi – genetske mutacije koje nisu poželjne
+Sociološki razlozi – emocionalne prirode (mogu izazvati ljubomoru, i narušiti obiteljske odnose)
+
+Reakcija javnosti gunšanje i zgražanje
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    </div>
+    </div>
+    </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+        <div class="container reveal fade-bottom">
+          <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+            <h3>DRUŠTVENA STRATIFIKACIJA I STRATIFIKACIJSKI SUSTAVI</h3>
+            <div class="text-container">
+                <div class="text-box">
+                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Uvod</button>
+    <div id="newWindow_1" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="DRUŠTVENA_STRATIFIKACIJA_I_STRATIFIKACIJSKI_SUSTAVI_1.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_1')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_1')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                    Nejednakosti koje nastaju kao posljedica fizičkih karakteristika (visok – nizak, plav – crn…) ili koje nastaju kao posljedica osobina, tjelesne ljepote ili nadarenosti pojedinca ili nejednakosti koje nastaju kao posljedica obavljanja različitih funkcija koje imamo u društvu (frizer, stolar, menadžer…) nazivamo DRUŠTVENA DIFERENCIJACIJA
+
+Nejednakost koja se odnosi na obavljanje različitih funkcija i uloga koje imamo u društvu jer ne možemo imati svi iste uloge, funkcije i položaje u društvu.
+To je nejednakost koju ne vrednujemo.
+Ako pripadnike jedne rase segregiramo u odnosu na drugu rasnu skupine, takav tip nejednakosti zovemo DRUŠTVENA STRATIFIKACIJA
+Javlja kada postoji jedna skupina koja je iznad druge skupine
+Prisutna kroz dugi niz godina
+Ne postoji društvo koje nema društvenu stratifikaciju osim možda lovačko sakupljačkih društava
+DRUŠTVENA STRATIFIKACIJA trajni je oblik nejednakosti koji se odnosi na društvene skupine koje su hijerarhijske poredane
+Osnovna komponenta društvene stratifikacije je DRUŠTVENI SLOJ (socijalni stratum)Odnosi se na skupinu pojedinaca koji imaju slične životne šanse.Pripadnici određenog društvenog sloja su povezani odnosim i interakcijama koji ih čine ZBILJSKOM I KOHEZIVNOM društvenom grupom – određeni društveni sloj utječe na najvažnije aspekte života tih ljudi – očekivano trajanje života, obiteljski život, obrazovanje, religiju, politiku i njihove statove
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">SOCIOLOŠKE PERSPEKTIVE O STRATIFIKACIJI</button>
+    <div id="newWindow_1" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="DRUŠTVENA_STRATIFIKACIJA_I_STRATIFIKACIJSKI_SUSTAVI_2.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="DRUŠTVENA_STRATIFIKACIJA_I_STRATIFIKACIJSKI_SUSTAVI_3.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_1')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_1')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                    STRATIFIKACIJSKI SUSTAVI KROZ POVIJEST
+                    SOCIOLOŠKE PERSPEKTIVE O STRATIFIKACIJI
+                    FUNKCIONALISTIČKA PERSPEKTIVA                             
+                    Društvo je sistem
+Različiti dijelovi društva pridonose redu i stabilnosti
+Tako f. p. promatra i startifikaciju – kako startifikacija pridonosi dobrom funkcioniranju
+Društvo se sastoji od različitih društvenih položaja koji su različito rangirani (neki položaji su bitniji za dobro funkcioniranje društva – zahtjevaju više talenata, znanja...)
+Za motivaciju pojedinaca da razvijaju svoje vještine koriste se visoke plaće
+Oni koji se ne trude i ne ulažu i svoje znanje, obavljaju poslove koji nisu toliko bitni za funkcioniranje društva
+Po tome proizlazi stratifikacija u društvu – oni s visokim plaćama su na vrhu startifikacijske ljestivice i obrnuto  
+MERITOKRATSKO DRUŠTVO – društvo vrednuje pojedince na objektivan način, prema zalaganju, trudu... 
+KONFLIKTNA PERSPEKTIVA  
+Stratifikacija ne integrirara društvo,već ga dijeli
+Teoretičari smatraju da uvijek postoji vladajuća klasa i podređena klasa
+Vladajuća klasa se služi stratifikacijom kako bi držala u pokornosti ostale dijelove društva i provodila svoje interse i vrijednosne sustave
+U društvu će uvijek postojati zategnuti odnosi između poslodavaca i radnika
+Društveni resursi: moć, ugled, bogatstvo
+Neravnomjerno raspoređeni
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    </div>
+    </div>
+    </div>
+    </section>
     <!---->
     <!---->
     <!---->
     <script>
-/*NEW WINDOW*/
-      /*NEW WINDOW*/
-      /*NEW WINDOW*/
-      /*NEW WINDOW*/
-      function toggleWindow(windowId) {
-        const windowToToggle = document.getElementById(windowId);
-        windowToToggle.classList.toggle('active');
-        document.body.style.overflow = windowToToggle.classList.contains('active') ? 'hidden' : '';
-      }
-      /*SCROOLL REVEAL*/
-      /*SCROOLL REVEAL*/
-      /*SCROOLL REVEAL*/
-      /*SCROOLL REVEAL*/
-      function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-          var windowHeight = window.innerHeight;
-          var elementTop = reveals[i].getBoundingClientRect().top;
-          var elementVisible = 150;
-          if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("active");
-          } 
-          else {
-            reveals[i].classList.remove("active");
-          }
+        // ADDED CONTINUOUS ZOOM HANDLING
+        let zoomInterval;
+        const ZOOM_SPEED = 0.1;
+        
+        function startZoom(action, imageId) {
+            const zoomFn = action === 'in' ? zoomIn : zoomOut;
+            zoomFn(imageId);
+            zoomInterval = setInterval(() => zoomFn(imageId), 100);
         }
-      }
-      /**/
-      /**/
-      window.addEventListener("scroll", reveal, { passive: true });
-      /*LOCK AND UNLOCK SCROLL*/
-      /*LOCK AND UNLOCK SCROLL*/
-      /*LOCK AND UNLOCK SCROLL*/
-      /*LOCK AND UNLOCK SCROLL*/
-      function lockA() {
-        var xPos = window.scrollX;
-        var yPos = window.scrollY;
-        window.onscroll = () => window.scroll(xPos, yPos);
-      }
-      /**/
-      /**/
-      function lockB() {
-        var target = document.getElementById("demoB");
-        target.scrollIntoView();
-        window.onscroll = () => target.scrollIntoView();
-      }
-      /**/
-      /**/
-      function unlock() {
-        window.onscroll = "";
-      }
-      /*ZOOMING ABILITY*/
-      /*ZOOMING ABILITY*/
-      /*ZOOMING ABILITY*/
-      /*ZOOMING ABILITY*/
-      /* Zoom Functions for Images*/
-      function zoomIn(row) {
-        const images = document.querySelectorAll(`.zoomable-image[data-row="${row}"]`);
-        images.forEach(img => {
-          let currentScale = parseFloat(img.style.transform.replace('scale(', '').replace(')', '')) || 1;
-          img.style.transform = `scale(${currentScale + 0.1})`;
+
+        function stopZoom() {
+            clearInterval(zoomInterval);
+        }
+
+        // Update zoom button event handlers
+        function addZoomHandlers() {
+            document.querySelectorAll('.image-controls .button-87').forEach(btn => {
+                btn.addEventListener('mousedown', function(e) {
+                    const action = this.textContent.trim() === '+' ? 'in' : 'out';
+                    const imageId = this.closest('.image-square').querySelector('img').id;
+                    startZoom(action, imageId);
+                    this.classList.add('zoom-button-active');
+                });
+                
+                btn.addEventListener('mouseup', stopZoom);
+                btn.addEventListener('mouseleave', stopZoom);
+            });
+        }
+
+        // Initialize when window opens
+        function toggleWindow(windowId) {
+            const windowToToggle = document.getElementById(windowId);
+            windowToToggle.classList.toggle('active');
+            if(windowToToggle.classList.contains('active')) {
+                resetAllZooms();
+                setTimeout(addZoomHandlers, 100); // Allow DOM update
+            }
+        }
+
+         // Updated layout cycling function
+         function cycleLayout(windowId) {
+            const window = document.getElementById(windowId);
+            const currentLayout = window.classList.contains('no-images') ? 'no-images' : 
+                                 window.classList.contains('swapped') ? 'swapped' : 'default';
+            
+            // Reset all classes first
+            window.classList.remove('no-images', 'swapped');
+            
+            // Cycle through layouts
+            if (currentLayout === 'default') {
+                window.classList.add('swapped');
+            } 
+            else if (currentLayout === 'swapped') {
+                window.classList.add('no-images');
+            } 
+            else {
+                // Goes back to default
+            }
+        }
+
+        // Zoom and pan functionality
+        let imageScales = {};
+        let textScales = {};
+        let isDragging = false;
+        let startPos = { x: 0, y: 0 };
+        let scrollPos = { x: 0, y: 0 };
+        let currentImageId = null;
+
+        function resetAllZooms() {
+            const images = document.querySelectorAll('.zoomable-image');
+            images.forEach(img => {
+                img.style.transform = 'scale(1)';
+                imageScales[img.id] = 1;
+                img.parentElement.scrollTo(0, 0);
+            });
+            
+            const textElements = document.querySelectorAll('.zoomable-text');
+            textElements.forEach(text => {
+                text.style.fontSize = '1em';
+                textScales[text.closest('.newWindow').id] = 1;
+                text.parentElement.scrollTo(0, 0);
+            });
+        }
+
+        function zoomIn(imageId) {
+            if (!imageScales[imageId]) imageScales[imageId] = 1;
+            imageScales[imageId] += 0.1;
+            const image = document.getElementById(imageId);
+            image.style.transform = `scale(${imageScales[imageId]})`;
+        }
+
+        function zoomOut(imageId) {
+            if (!imageScales[imageId]) imageScales[imageId] = 1;
+            imageScales[imageId] = Math.max(0.5, imageScales[imageId] - 0.1);
+            const image = document.getElementById(imageId);
+            image.style.transform = `scale(${imageScales[imageId]})`;
+        }
+
+        function resetZoom(imageId) {
+            imageScales[imageId] = 1;
+            const image = document.getElementById(imageId);
+            image.style.transform = 'scale(1)';
+            image.parentElement.scrollTo(0, 0);
+        }
+
+        function zoomInText(windowId) {
+            if (!textScales[windowId]) textScales[windowId] = 1;
+            textScales[windowId] += 0.1;
+            document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
+                text.style.fontSize = `${textScales[windowId]}em`;
+            });
+        }
+
+        function zoomOutText(windowId) {
+            if (!textScales[windowId]) textScales[windowId] = 1;
+            textScales[windowId] = Math.max(0.5, textScales[windowId] - 0.1);
+            document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
+                text.style.fontSize = `${textScales[windowId]}em`;
+            });
+        }
+
+        function resetZoomText(windowId) {
+            textScales[windowId] = 1;
+            document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
+                text.style.fontSize = '1em';
+                text.parentElement.scrollTo(0, 0);
+            });
+        }
+
+        // Image panning functionality
+        document.addEventListener('mousedown', (e) => {
+            if (e.target.closest('.image-display')) {
+                isDragging = true;
+                startPos = {
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                const container = e.target.closest('.image-display');
+                scrollPos = {
+                    x: container.scrollLeft,
+                    y: container.scrollTop
+                };
+                container.style.cursor = 'grabbing';
+                currentImageId = container.querySelector('img').id;
+                e.preventDefault();
+            }
         });
-      }
-      /**/
-      /**/
-      function zoomOut(row) {
-        const images = document.querySelectorAll(`.zoomable-image[data-row="${row}"]`);
-        images.forEach(img => {
-          let currentScale = parseFloat(img.style.transform.replace('scale(', '').replace(')', '')) || 1;
-          img.style.transform = `scale(${Math.max(currentScale - 0.1, 0.5)})`;
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            const dx = e.clientX - startPos.x;
+            const dy = e.clientY - startPos.y;
+            
+            const container = document.querySelector(`#${currentImageId}`).parentElement;
+            container.scrollLeft = scrollPos.x - dx;
+            container.scrollTop = scrollPos.y - dy;
+            
+            e.preventDefault();
         });
-      }
-      /**/
-      /**/
-      function resetZoom(row) {
-        const images = document.querySelectorAll(`.zoomable-image[data-row="${row}"]`);
-        images.forEach(img => {
-          img.style.transform = 'scale(1)';
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            const containers = document.querySelectorAll('.image-display');
+            containers.forEach(container => {
+                container.style.cursor = 'grab';
+            });
+            currentImageId = null;
         });
-      }
-      /**/
-      /**/
-      // Zoom Functions for Text
-      function zoomInText() {
-        const text = document.querySelector('.zoomable-text');
-        let currentSize = parseFloat(window.getComputedStyle(text).fontSize);
-        text.style.fontSize = `${currentSize + 2}px`;
-      }
-      /**/
-      /**/
-      function zoomOutText() {
-        const text = document.querySelector('.zoomable-text');
-        let currentSize = parseFloat(window.getComputedStyle(text).fontSize);
-        text.style.fontSize = `${Math.max(currentSize - 2, 12)}px`;
-      }
-      /**/
-      /**/
-      function resetZoomText() {
-        const text = document.querySelector('.zoomable-text');
-        text.style.fontSize = '16px';
-      }
-      /*MINDMAP SETTINGS*/
+
+        // Scroll lock functions
+        function lockA() {
+            var xPos = window.scrollX;
+            var yPos = window.scrollY;
+            window.onscroll = () => window.scroll(xPos, yPos);
+        }
+
+        function unlock() {
+            window.onscroll = "";
+        }
+
+        // Scroll reveal animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal, { passive: true });
+        reveal(); // Initialize
+         /*MINDMAP SETTINGS*/
       /*MINDMAP SETTINGS*/
       /*MINDMAP SETTINGS*/
       /*MINDMAP SETTINGS*/
@@ -827,6 +1791,61 @@
       createMap(data);
       drawLines(data);
       resizeObserver.observe($(`#${config.containerId}`).n);
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      /*EXAMPLE WINDOW*/
+      /* Function to slide to the next window*/
+      function slideNext(containerId) {
+        const container = document.getElementById(containerId);
+        const slider = container.querySelector('.slider');
+        const totalWindows = slider.children.length;
+        let currentWindow = parseInt(container.dataset.currentWindow || 0);
+        if (currentWindow < totalWindows - 1) {
+          currentWindow++;
+          updateSlider(container, slider, currentWindow);
+          updateButtons(container, currentWindow, totalWindows);
+        }
+      }
+      /**/
+      /**/
+      /* Function to slide to the previous window*/
+      function slidePrevious(containerId) {
+        const container = document.getElementById(containerId);
+        const slider = container.querySelector('.slider');
+        const totalWindows = slider.children.length;
+        let currentWindow = parseInt(container.dataset.currentWindow || 0);
+        if (currentWindow > 0) {
+          currentWindow--;
+          updateSlider(container, slider, currentWindow);
+          updateButtons(container, currentWindow, totalWindows);
+        }
+      }
+      /**/
+      /**/
+      /* Function to update the slider's position*/
+      function updateSlider(container, slider, currentWindow) {
+        const translateX = -(currentWindow * 100);
+        slider.style.transform = `translateX(${translateX}%)`;
+        ontainer.dataset.currentWindow = currentWindow; // Store current window index
+      }
+      /**/
+      /**/
+      /* Function to update button states*/
+      function updateButtons(container, currentWindow, totalWindows) {
+        const prevButton = container.nextElementSibling.querySelector('.slide-button:first-of-type');
+        const nextButton = container.nextElementSibling.querySelector('.slide-button:last-of-type');
+        prevButton.disabled = currentWindow === 0; // Disable "Previous" on first window
+        nextButton.disabled = currentWindow === totalWindows - 1; // Disable "Next" on last window
+      }
+      /**/
+      /**/
+      // Initialize button states for all containers
+      document.querySelectorAll('.container').forEach(container => {
+        const slider = container.querySelector('.slider');
+        const totalWindows = slider.children.length;
+        updateButtons(container, 0, totalWindows); /* Start at the first window*/
+      });
     </script>
-  </body>
+</body>
 </html>

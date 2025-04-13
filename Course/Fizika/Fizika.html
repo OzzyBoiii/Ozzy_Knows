@@ -4075,83 +4075,240 @@
     <!---->
     <!---->
     <!---->
-    <section id="Gibanje_naboja_u_magnetskom_polju">
+    <section id="Matematičko njihalo">
       <div class="container reveal fade-bottom">
         <h2>Matematičko njihalo</h2>
         <div class="text-container">
           <div class="text-box">
             <!---->
             <!---->
-            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_76');lockA()">Teorija</button>
-            <div id="newWindow_76" class="newWindow hidden" aria-hidden="true">
-              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_76');unlock()">X</button>
-              <p>
-                - sitno tijelo mase m koje se njiše obješeno na nerastezljivu laganu nit duljine l, čiju masu zanemarujemo, zove se matematičko njihalo
-                - gibanje matematičkog njihala može promatrati kao titranje samo ako je pomak njihala iz položaja ravnoteže manji od 10°
-                <div class="eq-c">
-                  <div class="fraction">
-                    <span class="fup">-F<sub>t</sub></span>
-                    <span class="bar">/</span>
-                    <span class="fdn">mg</span>
+                <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Teorija</button>
+                <div id="newWindow_1" class="newWindow">
+                  <div class="left">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                    </div>
+                    <img src="Matematičko_njihalo_1.png"  url="" class="zoomable-image" data-row="1">
                   </div>
-                  =
-                </div>
-                <div class="eq-c">
-                  <div class="fraction">
-                    <span class="fup">s</span>
-                    <span class="bar">/</span>
-                    <span class="fdn">l</span>
-                  </div>
-                </div>
-                Iz čega proizlazi F<sub>t</sub>=
-                <div class="eq-c">
-                  -mg*
-                  <div class="fraction">
-                    <span class="fup">s</span>
-                    <span class="bar">/</span>
-                    <span class="fdn">l</span>
-                  </div>
-                  minus se koristi jer je smjer sile suprotan otklonu
-                </div>
-                2NZ: ma=-mg
-                <div class="eq-c">
-                  <div class="fraction">
-                    <span class="fup">s</span>
-                    <span class="bar">/</span>
-                    <span class="fdn">l</span>
-                  </div>
-                </div>
-                Iz čega slijedi da je 
-                <div class="eq-c">
-                  a=
-                  <div class="fraction">
-                    <span class="fup">-gs</span>
-                    <span class="bar">/</span>
-                    <span class="fdn">l</span>
-                  </div>
-                  =nezz
-                </div>
-              </p>
+                  <div class="center">
+                    <button class="close" onclick="toggleWindow('newWindow_1');unlock()">X</button>
+                    <div class="zoom-controls">
+                      <button onclick="zoomInText()">+</button>
+                      <button onclick="zoomOutText()">-</button>
+                      <button onclick="resetZoomText()">Reset </button>
+                    </div>
+                    <p class="zoomable-text">
+                      &bull; Matematičko njihalo <br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&bull; njihanje sitnoga tijela mase m na nerastezljivoj niti duljine l i zanemarive mase<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&bull; gibanje matematičkog njihala promatramo kao titranje (ukoliko je pomak njihala iz položaja ravnoteže manji od 10°)<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&bull; SLIKA 1: Ne odvija se njihanje<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&bull; SLIKA 2: Njihanje se odvija<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; <span class="sy"><i>F<sub>g</sub></i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>F<sub>N</sub></i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>F<sub>t</sub></i><span class="oncapital">&rarr;</span></span> <br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; <span class="sy"><i>F<sub>N</sub></i><span class="oncapital">&rarr;</span></span>= <span class="sy"><i>F<sub>n</sub></i><span class="oncapital">&rarr;</span></span>=m<span class="sy"><i>g</i><span class="onsmall">&rarr;</span></span>*cos(&phi;) <br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; iz sličnosti trokuta slijedi: <br>
+                      <div class="eq-c">
+                        <div class="fraction">
+                          <span class="fup">-F<sub>t</sub></span>
+                          <span class="bar">/</span>
+                          <span class="fdn">mg</span>
+                        </div>
+                        =
+                      </div>
+                      <div class="eq-c">
+                        <div class="fraction">
+                          <span class="fup">s</span>
+                          <span class="bar">/</span>
+                          <span class="fdn">l</span>
+                        </div>
+                      </div>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Iz čega proizlazi F<sub>t</sub>=
+                      <div class="eq-c">
+                        -mg*
+                        <div class="fraction">
+                          <span class="fup">s</span>
+                          <span class="bar">/</span>
+                          <span class="fdn">l</span>
+                        </div>
+                        minus se koristi jer je smjer sile suprotan otklonu
+                      </div>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; 2NZ: ma=-mg
+                      <div class="eq-c">
+                        <div class="fraction">
+                          <span class="fup">s</span>
+                          <span class="bar">/</span>
+                          <span class="fdn">l</span>
+                        </div>
+                      </div>
+                      Iz čega slijedi da je 
+                      <div class="eq-c">
+                        a=
+                        <div class="fraction">
+                          <span class="fup">-gs</span>
+                          <span class="bar">/</span>
+                          <span class="fdn">l</span>
+                        </div>
+                      </div>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Iz sličnosti s izrazom za harmoničko gibanje analogijom dobivamo: 
+                      <div class="eq-c">
+                        T=2&phi;*
+                        <div class="fraction">
+                          <span class="fup"><span class="radical"><span class="n-root">2</span>&radic;</span><span class="radicand">l</span></span>
+                          <span class="bar">/</span>
+                          <span class="fdn"><span class="radical"><span class="n-root">2</span>&radic;</span><span class="radicand">g</span></span>
+                        </div>
+                      </div>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; u ravnotežnom položaju vrijedi: <span class="sy"><i>F<sub>N</sub></i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>F<sub>g</sub></i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>F<sub>ef</sub></i><span class="oncapital">&rarr;</span></span> <br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; primjenimo Z.O.E za gibanje<br>
+                    </p>
             </div>
-          </div>
-          <div class="right">
-            <div class="zoom-controls">
-              <button class="button-87" id="Img_Zoom" onclick="zoomIn(2)">+</button>
-              <button class="button-87" id="Img_Zoom" onclick="zoomOut(2)">-</button>
-              <button class="button-87" id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+            <div class="right">
+              <div class="zoom-controls">
+                <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+              </div>
+              <img src="Matematičko_njihalo_2.png" class="zoomable-image" data-row="2">
             </div>
-            <img src="Harmonijsko titranje_2.png" class="zoomable-image" data-row="2">
+            </div>
+            <!---->
+            <!---->
           </div>
         </div>
-        <!---->
-        <!---->
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section id="Elektromagnetski titraji">
+      <div class="container reveal fade-bottom">
+        <h2>Elektromagnetski titraji</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Teorija</button>
+                <div id="newWindow_1" class="newWindow">
+                  <div class="left">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_1.png"  url="" class="zoomable-image" data-row="1">
+                  </div>
+                  <div class="center">
+                    <button class="close" onclick="toggleWindow('newWindow_1');unlock()">X</button>
+                    <div class="zoom-controls">
+                      <button onclick="zoomInText()">+</button>
+                      <button onclick="zoomOutText()">-</button>
+                      <button onclick="resetZoomText()">Reset </button>
+                    </div>
+                    <p class="zoomable-text">
+                      &bull; shema LC titrajnog kruga: (SLIKA 1)<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&bull; Razlog postojanja elektromagnetskih titraja<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;ako nabijemo kondenzator i zatvorimo prekidač, dolazi do slobodnih električnih titraja<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; u početnom trenutku nabijeni kondenzator sadržava električnu energiju<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; kondenzator potom izbijanjem stvara struju koja u zavojnici stvara magnetsku energiju<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; ta struja onda nabija kondenzator suprotnim nabojima od početnih, pretvarajući magnetsku energiju opet u električnu i cjelokupni se proces ponavlja (SLIKA 2)<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&bull; ako poznajemo kapacitet kondenzatora i induktivitet zavojnice, iz Thomsonove formule možemo odrediti rezonantnu frekvenciju električnog titrajnog kruga:<br>
+                      <div class="eq-c">
+                        f=
+                        <div class="fraction">
+                          <span class="fup">1</span>
+                          <span class="bar">/</span>
+                          <span class="fdn">2&phi;*<span class="radical"><span class="n-root">2</span>&radic;</span><span class="radicand">L*C</span></span>
+                        </div>
+                      </div>
+                    </p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                </div>
+                <!---->
+                <!---->
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
     <!---->
     <!---->
     <!---->
+    <section id="Prigušeno i prisilno titranje">
+      <div class="container reveal fade-bottom">
+        <h2>Prigušeno i prisilno titranje</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+                <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Teorija</button>
+                <div id="newWindow_1" class="newWindow">
+                  <div class="left">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(1)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(1)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(1)">Reset</button>
+                    </div>
+                    <img src="Prigušeno_i_prisilno_titranje_1.png"  url="" class="zoomable-image" data-row="1">
+                    <img src="Prigušeno_i_prisilno_titranje_3.png"  url="" class="zoomable-image" data-row="1">
+                  </div>
+                  <div class="center">
+                    <button class="close" onclick="toggleWindow('newWindow_1');unlock()">X</button>
+                    <div class="zoom-controls">
+                      <button onclick="zoomInText()">+</button>
+                      <button onclick="zoomOutText()">-</button>
+                      <button onclick="resetZoomText()">Reset </button>
+                    </div>
+                    <p class="zoomable-text">
+                      &bull; Prigušeno titranje
+                      kod prigušenog titranja postoje gubici energije te se amplituda titranja s vremenom smanjuje te na kraju i prestaje (SLIKA 1)
+                      prigušeno titranje možemo dobiti kad uteg koji titra na opruzi uronimo u neku viskoznu tekućinu (npr. motorno ulje)
+                      - prigušenje smanjuje frekvenciju titranja
+                      - ako je trenje preveliko, sustav se i ne zatitra – prigušenje je tada toliko veliko da se zatitrano tijelo, dosegnuvši određenu amplitudu, umjesto da titra, vraća u ravnotežni položaj to je aperiodično titranje (SLIKA 2)
+                      kritično gušenje je primjer aperiodičnog titranja kada se zatitrani sustav najbrže vraća u ravnotežni položaj bez da titra
+                      - kritični titrajni sustavi se upotrebljavaju kod ovjesa vozila kao amortizeri kojima se sprečava titranje vozila; prigušenjem nastojimo postići da gibanje kazaljki instrumenata bude kritički aperiodično
+                      - prisilno titranje nastaje kada vanjska periodična sila djeluje na sustav koji titra te se pomoću nje nadoknađuje energija izgubljena zbog trenja i otpora zraka
+                      - prisilni oscilator: (SLIKA 3)
+                      - sva tijela imaju svoje prirodne frekvencije titranja koje ovise o masi tijela, sastavu tijela i geometrijskim obilježjima tijela
+                      - tijelo vrlo brzo i jako počinje titrati ako na njega djeluje periodična vanjska sila bliske ili jednake vlastitoj frekvenciji tijela – tu pojavu nazivamo rezonancija
+                      - primjene rezonancije: električna rezonancija koristi se pri traženju stanica na radio uređaju i televizoru;
+                      akustičkom rezonancijom se ugađaju glazbeni instrumenti; rezonancija je štetna jer može u materijalima izazvati prevelika naprezanja te time oštećenja ili lom tog materijala
+                      - krivulja rezonancije: (SLIKA 4)
+                      DODATAK (neće biti na usmenom odgovaranju):
+                      - kod prigušenog titranja amplituda se eksponencijalno smanjuje u vremenu, ovisno o faktoru gušenja δ, pri čemu je omjer uzastopnih amplituda je najčešće stalan:
+                      <div class="eq-c">
+                        <div class="fraction">
+                          <span class="fup">A<sub>n</sub></span>
+                          <span class="bar">/</span>
+                          <span class="fdn">A<sub>n+1</sub></span>
+                        </div>
+                        =e<sup>−&phi;T</sup>
+                      </div>
+                    </p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Prigušeno_i_prisilno_titranje_2.png" class="zoomable-image" data-row="2">
+                    <img src="Prigušeno_i_prisilno_titranje_4.png" class="zoomable-image" data-row="2">
+                  </div>
+                  </div>
+                  <!---->
+                  <!---->
+                </div>
+              </div>
+            </div>
+          </section>
     <script>
       /*NEW WINDOW*/
       /*NEW WINDOW*/
