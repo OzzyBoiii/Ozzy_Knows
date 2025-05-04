@@ -963,6 +963,111 @@ biti jedna pedesetina onoga koji uzrokuje trajno oštećenje sluha?
     <!---->
     <!---->
     <!---->
+    <section>
+        <div class="container reveal fade-bottom">
+            <h3>Valovi zvuka</h3>
+            <div class="text-container">
+                <div class="text-box">
+                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Teorija</button>
+    <div id="newWindow_1" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                <!---->
+                <!---->
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_1')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_1')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_2');lockA()">Zadatci</button>
+    <div id="newWindow_2" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_2');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="Alkoholi_1.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>SLIKA 1</h3>
+                    </div>
+                </div>
+        </div>
+        </div>
+        <!---->
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_2')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_2')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_2')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_2')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_2');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                  <!---->
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    </div>
+    </div>
+    </div>
+    </section>
     <script>
         // ADDED CONTINUOUS ZOOM HANDLING
         let zoomInterval;

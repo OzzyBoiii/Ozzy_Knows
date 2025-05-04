@@ -903,11 +903,125 @@ Detaljnije upute o računanju dat ćemo nakon obrade sljedeće teme jer se koefi
     </div>
     <!---->
     <!---->
+    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_2');lockA()">Pravac regresije</button>
+    <div id="newWindow_2" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_2');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>SLIKA 1</h3>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_2')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_2')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_2')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_2')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_2');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                    Jednadžba pravca regresije glasi y=a+bx. Ovdje je b=σyσx r,a=¯¯¯y−b¯¯¯x.
+
+                    Da bi se ovi podatci dobili, dovoljno je unijeti podatke (x1,y1),…,(xn,yn)
+                    
+                    u džepno računalo. Tada se pritiskom na odgovarajuću tipku mogu dobiti svi spomenuti koeficijenti.
+                    
+                    Simbolička džepna računala posjeduju i programiranu tipku za ispis konačnog rezultata, pravca korelacije u obliku y=a+bx
+                    
+                    . To je svakako najjednostavniji način računanja pravca korelacije za uzorke umjerenih veličina.
+                    
+                    Postupak računanja pravca regresije sastoji se od sljedećih dvaju koraka
+                    
+                    1. Pritiskom tipke MENU odabere se (unosom odgovarajućeg broja) statistički mod, a zatim se odabere računanje pravca regresije označenog formulom y=a+bx
+                    
+                    . Time se na zaslonu pojavljuje prazna tablica s dva stupca u koje treba upisati podatke.
+                    
+                    2. Nakon unosa podataka pritisne se tipka OPTN i odabere 4: računanje pravca regresije. Rezultat se pokazuje na sljedećem zaslonu.
+                    <!--PRIMJER 4-->
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
     </div>
     </div>
     </div>
     </section>
-
+    <!---->
+    <!---->
+    <!---->
+    <section>
+        <div class="container reveal fade-bottom">
+            <h3>Jednadžba kružnice</h3>
+            <div class="text-container">
+                <div class="text-box">
+                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Jedadžba kružnice u općem obliku</button>
+    <div id="newWindow_1" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                </div>
+                </div>
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_1')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_1')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">              
+                    <!--PRIMEJR 1-->
+                    Odredimo sada jednadžbu kružnice u općem obliku. Neka je njezino središte točka S(p,q), a duljina polumjera kružnice neka je r. Za bilo koju točku T(x,y) te kružnice vrijedi |ST|=r, odnosno √(x−p)2+(y−q)2=r.
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    </div>
+    </div>
+    </div>
+    </section>
+<!---->
+    <!---->
+<!---->
     <script>
         // ADDED CONTINUOUS ZOOM HANDLING
         let zoomInterval;
