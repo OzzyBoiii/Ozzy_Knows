@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Summary Textbox</title>
+    <style>
+        /* GLOBAL STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Asap", sans-serif;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* FLEXIBLE WEBSITE */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Background */
+        body {
+            margin: 0;
+            height: 100vh;
+            font-weight: 100;
+            background: radial-gradient(#a23982, #1f1013);
+            animation: fadeIn 1s ease-out;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .light {
+            position: absolute;
+            width: 0px;
+            opacity: 0.75;
+            background-color: white;
+            box-shadow: #e9f1f1 0px 0px 20px 2px;
+            opacity: 0;
+            top: 100vh;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            margin: auto;
+            z-index: -1;
+        }
+        
+        .x1 { animation: floatUp 4s infinite linear; transform: scale(1); }
+        .x2 { animation: floatUp 7s infinite linear; transform: scale(1.6); left: 15%; }
+        .x3 { animation: floatUp 2.5s infinite linear; transform: scale(0.5); left: -15%; }
+        .x4 { animation: floatUp 4.5s infinite linear; transform: scale(1.2); left: -34%; }
+        .x5 { animation: floatUp 8s infinite linear; transform: scale(2.2); left: -57%; }
+        .x6 { animation: floatUp 3s infinite linear; transform: scale(0.8); left: -81%; }
+        .x7 { animation: floatUp 5.3s infinite linear; transform: scale(3.2); left: 37%; }
+        .x8 { animation: floatUp 4.7s infinite linear; transform: scale(1.7); left: 62%; }
+        .x9 { animation: floatUp 4.1s infinite linear; transform: scale(0.9); left: 85%; }
+        
+        @keyframes floatUp {
+            0% { top: 100vh; opacity: 0; }
+            25% { opacity: 1; }
+            50% { top: 0vh; opacity: 0.8; }
+            75% { opacity: 1; }
+            100% { top: -100vh; opacity: 0; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* SCROLLING ANIMATION */
+        section .container {
+            margin: 100px;
+        }
+        
+        section h1 {
+            font-size: 3rem;
+            margin: 20px;
+        }
+        
+        section h2 {
+            font-size: 40px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        
+        .text-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .text-box {
+            background: rgba(0, 194, 203, 0.85);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            max-width: 100%;
+        }
+        
+        .text-box:hover {
+            transform: translateY(-10px);
+        }
+        
+        @media (max-width: 900px) {
+            section h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
+            .text-container {
+                flex-direction: column;
+            }
+        }
+        
+        .reveal {
+            position: relative;
+            opacity: 0;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+        }
+        
+        .active.fade-bottom {
+            animation: fade-bottom 1s ease-in;
+        }
+        
+        .active.fade-left {
+            animation: fade-left 1s ease-in;
+        }
+        
+        .active.fade-right {
+            animation: fade-right 1s ease-in;
+        }
+        
+        @keyframes fade-bottom {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fade-left {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fade-right {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Button */
+        button {
+            animation: shimmer 1.5s ease infinite alternate;
+            background: linear-gradient(90deg, #ffe27d 0%, #64e3ff 30%, #9192ff 85%);
+            background-size: 200% 100%;
+            border: none;
+            border-radius: 6px;
+            box-shadow: -2px -2px 10px rgba(255, 227, 126, 0.5), 2px 2px 10px rgba(144, 148, 255, 0.5);
+            color: #170f1e;
+            cursor: pointer;
+            font-family: "Inter", sans-serif;
+            font-size: 14px;
+            font-weight: 670;
+            line-height: 1.2;
+            padding: 8px 12px;
+            text-decoration: none;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+        
+        button:hover { transform: rotate(-3deg); }
+        button:active { transform: scale(0.95) rotate(-3deg); }
+        
+        @keyframes shimmer {
+            to { background-size: 100% 100%; box-shadow: -2px -2px 6px rgba(255, 227, 126, 0.5), 2px 2px 6px rgba(144, 148, 255, 0.5); }
+        }
+
+        /* NEW: SUMMARY TEXTBOX STYLES */
+        .summary-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .summary-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            overflow-y: auto;
+            max-height: 400px;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            line-height: 2.2;
+            color: #333;
+            border: 2px solid #ff9800;
+        }
+        
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            min-height: 30px;
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        .summary-content {
+            flex-grow: 1;
+            position: relative;
+            padding-right: 10px;
+        }
+        
+        .summary-text {
+            position: relative;
+            z-index: 2;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-family: inherit;
+            font-size: inherit;
+            width: 95%;
+        }
+        
+        .summary-dots {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 95%;
+            color: #aaa;
+            z-index: 1;
+            pointer-events: none;
+            letter-spacing: 2px;
+        }
+        
+        .summary-number {
+            width: 5%;
+            min-width: 50px;
+            text-align: right;
+            background: rgba(255, 152, 0, 0.1);
+            border: none;
+            outline: none;
+            font-family: inherit;
+            font-size: inherit;
+            padding: 0 10px;
+            border-radius: 4px;
+            color: #e65100;
+            font-weight: bold;
+        }
+        
+        .summary-header {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #1a237e;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 3px rgba(0,0,0,0.1);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .summary-header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff9800, transparent);
+            border-radius: 3px;
+        }
+        
+        .summary-box::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        .summary-box::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        .summary-box::-webkit-scrollbar-thumb {
+            background: #ff9800;
+            border-radius: 10px;
+        }
+        
+        .summary-box::-webkit-scrollbar-thumb:hover {
+            background: #ff7d00;
+        }
+        
+        .summary-hint {
+            text-align: center;
+            margin-top: 15px;
+            color: #5d4037;
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 850px) {
+            .summary-box {
+                padding: 20px;
+                font-size: 16px;
+            }
+            
+            .summary-header {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background lights -->
+    <div class="light x1"></div>
+    <div class="light x2"></div>
+    <div class="light x3"></div>
+    <div class="light x4"></div>
+    <div class="light x5"></div>
+    <div class="light x6"></div>
+    <div class="light x7"></div>
+    <div class="light x8"></div>
+    <div class="light x9"></div>
+
+    <section>
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h1>Content summary</h1>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="summary-container">
+                        <div class="summary-box">
+                            <div class="summary-header">Subject Summary</div>
+                            
+                            <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="Ozzy_1">Mathematics Overview</a></span>
+                                </div>
+                                <input type="text" class="summary-number" value="15">
+                            </div>
+                            
+                            <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="Ozzy_2">Algebra Basics</a></span>
+                                </div>
+                                <input type="text" class="summary-number" value="28">
+                            </div>
+                            
+                            <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="Ozzy_3">Geometry Fundamentals</a></span>
+                                </div>
+                                <input type="text" class="summary-number" value="42">
+                            </div>
+                            
+                            <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="Ozzy_4">Trigonometry Concepts</a></span>
+                                </div>
+                                <input type="text" class="summary-number" value="19">
+                            </div>
+                            
+                            <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="Ozzy_5">Calculus Introduction</a></span>
+                                </div>
+                                <input type="text" class="summary-number" value="35">
+                            </div>
+                            
+                            <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="Ozzy_6">Statistics and Probability</a></span>
+                                </div>
+                                <input type="text" class="summary-number" value="27">
+                            </div>
+                            
+                            <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="Ozzy_7">Linear Algebra</a></span>
+                                </div>
+                                <input type="text" class="summary-number" value="33">
+                            </div>
+                            
+                            <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="Ozzy_8">Differential Equations</a></span>
+                                </div>
+                                <input type="text" class="summary-number" value="21">
+                            </div>
+                            
+                            <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="Ozzy_9">Discrete Mathematics</a></span>
+                                </div>
+                                <input type="text" class="summary-number" value="38">
+                            </div>
+                            
+                            <div class="summary-hint">Tip: Dots represent available space for text</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ozzy_1">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2>Matematika</h2>
+            </div>
+            <div class="text-container">
+                 <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+                <div class="text-box">
+                    Matematika is here :)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ozzy_2">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2>Hrvatski</h2>
+            </div>
+            <div class="text-container">
+                 <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+                <div class="text-box">
+                    Hrvatski is here :)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ozzy_3">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2>Biologija</h2>
+            </div>
+            <div class="text-container">
+                 <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+                <div class="text-box">
+                    Biologija is here :)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ozzy_4">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2>Kemija</h2>
+            </div>
+            <div class="text-container">
+                 <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+                <div class="text-box">
+                    Kemija is here :)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ozzy_5">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2>Fizika</h2>
+            </div>
+            <div class="text-container">
+                 <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+                <div class="text-box">
+                    Fizika is here :)
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id="Ozzy_6">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2>Matematika</h2>
+            </div>
+            <div class="text-container">
+                 <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+                <div class="text-box">
+                    Matematika is here :)
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id="Ozzy_7">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2>Matematika</h2>
+            </div>
+            <div class="text-container">
+                 <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+                <div class="text-box">
+                    Matematika is here :)
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id="Ozzy_8">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2>Matematika</h2>
+            </div>
+            <div class="text-container">
+                 <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+                <div class="text-box">
+                    Matematika is here :)
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id="Ozzy_9">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2>Matematika</h2>
+            </div>
+            <div class="text-container">
+                 <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+                <div class="text-box">
+                    Matematika is here :)
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+       // Scroll reveal animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal, { passive: true });
+        reveal(); // Initialize
+        
+        // ZOOM FUNCTIONALITY
+        let zoomInterval;
+        const ZOOM_SPEED = 0.1;
+        let imageScales = {};
+        let textScales = {};
+        let isDragging = false;
+        let startPos = { x: 0, y: 0 };
+        let scrollPos = { x: 0, y: 0 };
+        let currentImageId = null;
+
+        function startZoom(action, imageId) {
+            const zoomFn = action === 'in' ? zoomIn : zoomOut;
+            zoomFn(imageId);
+            zoomInterval = setInterval(() => zoomFn(imageId), 100);
+        }
+
+        function stopZoom() {
+            clearInterval(zoomInterval);
+        }
+
+        function resetAllZooms() {
+            const images = document.querySelectorAll('.zoomable-image');
+            images.forEach(img => {
+                img.style.transform = 'scale(1)';
+                imageScales[img.id] = 1;
+                img.parentElement.scrollTo(0, 0);
+            });
+            
+            const textElements = document.querySelectorAll('.zoomable-text');
+            textElements.forEach(text => {
+                text.style.fontSize = '1em';
+                textScales[text.closest('.newWindow').id] = 1;
+                text.parentElement.scrollTo(0, 0);
+            });
+        }
+
+        function zoomIn(imageId) {
+            if (!imageScales[imageId]) imageScales[imageId] = 1;
+            imageScales[imageId] += ZOOM_SPEED;
+            const image = document.getElementById(imageId);
+            image.style.transform = `scale(${imageScales[imageId]})`;
+        }
+
+        function zoomOut(imageId) {
+            if (!imageScales[imageId]) imageScales[imageId] = 1;
+            imageScales[imageId] = Math.max(0.5, imageScales[imageId] - ZOOM_SPEED);
+            const image = document.getElementById(imageId);
+            image.style.transform = `scale(${imageScales[imageId]})`;
+        }
+
+        function resetZoom(imageId) {
+            imageScales[imageId] = 1;
+            const image = document.getElementById(imageId);
+            image.style.transform = 'scale(1)';
+            image.parentElement.scrollTo(0, 0);
+        }
+
+        function zoomInText(windowId) {
+            if (!textScales[windowId]) textScales[windowId] = 1;
+            textScales[windowId] += 0.1;
+            document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
+                text.style.fontSize = `${textScales[windowId]}em`;
+            });
+        }
+
+        function zoomOutText(windowId) {
+            if (!textScales[windowId]) textScales[windowId] = 1;
+            textScales[windowId] = Math.max(0.5, textScales[windowId] - 0.1);
+            document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
+                text.style.fontSize = `${textScales[windowId]}em`;
+            });
+        }
+
+        function resetZoomText(windowId) {
+            textScales[windowId] = 1;
+            document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
+                text.style.fontSize = '1em';
+                text.parentElement.scrollTo(0, 0);
+            });
+        }
+
+        // WINDOW MANAGEMENT
+        function toggleWindow(windowId) {
+            const windowToToggle = document.getElementById(windowId);
+            windowToToggle.classList.toggle('active');
+            document.body.style.overflow = windowToToggle.classList.contains('active') ? 'hidden' : '';
+            
+            if(windowToToggle.classList.contains('active')) {
+                resetAllZooms();
+            }
+        }
+
+        // MODIFIED LAYOUT CYCLING FUNCTION
+        let layoutStates = ['default', 'swapped', 'no-images'];
+        let currentLayoutIndex = 0;
+        
+        function cycleLayout(windowId) {
+            const window = document.getElementById(windowId);
+            const imageContainer = window.querySelector('.image-container');
+            
+            // Remove all layout classes
+            window.classList.remove('swapped', 'no-images');
+            
+            // Get next layout state
+            currentLayoutIndex = (currentLayoutIndex + 1) % layoutStates.length;
+            const nextLayout = layoutStates[currentLayoutIndex];
+            
+            // Apply new layout only if images exist
+            if (imageContainer.children.length > 0) {
+                if (nextLayout !== 'default') {
+                    window.classList.add(nextLayout);
+                }
+            } 
+            // STRICT CONDITION: Only use no-images mode if no images
+            else {
+                window.classList.add('no-images');
+                currentLayoutIndex = layoutStates.indexOf('no-images');
+            }
+        }
+
+        // IMAGE DRAGGING
+        document.addEventListener('mousedown', (e) => {
+            if (e.target.closest('.image-display')) {
+                isDragging = true;
+                startPos = {
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                const container = e.target.closest('.image-display');
+                scrollPos = {
+                    x: container.scrollLeft,
+                    y: container.scrollTop
+                };
+                container.style.cursor = 'grabbing';
+                currentImageId = container.querySelector('img').id;
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            const dx = e.clientX - startPos.x;
+            const dy = e.clientY - startPos.y;
+            
+            const container = document.querySelector(`#${currentImageId}`).parentElement;
+            container.scrollLeft = scrollPos.x - dx;
+            container.scrollTop = scrollPos.y - dy;
+            
+            e.preventDefault();
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            const containers = document.querySelectorAll('.image-display');
+            containers.forEach(container => {
+                container.style.cursor = 'grab';
+            });
+            currentImageId = null;
+        });
+
+        // Close new windows when clicking outside
+        document.addEventListener('click', function(event) {
+            const newWindows = document.querySelectorAll('.newWindow');
+            newWindows.forEach(window => {
+                if (window.classList.contains('active') && 
+                    !window.contains(event.target) && 
+                    !event.target.matches('.button-87[onclick*="toggleWindow"]')) {
+                    toggleWindow(window.id);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

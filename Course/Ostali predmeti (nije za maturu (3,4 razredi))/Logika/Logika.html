@@ -2347,6 +2347,7 @@
             <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_10');lockA()">Dokaz Peirceova pravila</button>
             <div id="newWindow_10" class="newWindow hidden" aria-hidden="true">
               <button role="button" value="Unlock" onclick="toggleWindow('newWindow_10');unlock()"> X</button>
+
               <p>Prije nego što krenemo na logiku prvog reda, dajemo dva složenija dokaza. Prvi je dokaz Peirceova pravila:
                 ((P→Q)→P)→P
                 .
@@ -2422,27 +2423,6 @@
                 U prethodnom dokazu mogli smo ići i s pretpostavkom ¬A
                 s ciljem da dobijemo A. Uočite da uvođenje disjunkcije kod tautologija uvijek ima svog „skrivenog dvojnika“: ako je potrebno uvesti disjunkciju za dokaz tautologije, negdje će je trebati uvesti preko jednog disjunkta, a negdje, na nekom drugom mjestu u istom dokazu, preko drugog.
               </p>
-            </div>
-            <!---->
-            <!---->
-          </div>
-        </div>
-      </div>
-    </section>
-    <!---->
-    <!---->
-    <!---->
-    <section>
-      <div class="container reveal fade-bottom">
-        <h2>Prirodna dedukcija u logici prvoga reda</h2>
-        <div class="text-container">
-          <div class="text-box">
-            <!---->
-            <!---->
-            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_10');lockA()">Pravilo za isključivanje univerzalnog kvantifikatora</button>
-            <div id="newWindow_10" class="newWindow hidden" aria-hidden="true">
-              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_10');unlock()"> X</button> 
-              <p></p>
             </div>
             <!---->
             <!---->
@@ -2926,6 +2906,957 @@
           </div>
         </div>
       </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <h2>Logika i znanstvena metoda</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()"> Uvod</button>
+            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
+              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
+              <p>
+                U posljednjem dijelu udžbenika pokazat ćemo kako su znanja iz logike važna za bavljenje znanošću. Logika predstavlja temelj umjetne inteligencije, strojnog učenja i rada umjetnih neuronskih mreža pa ćemo se ukratko pozabaviti i tim zanimljivim temama. Dio vas sigurno će se susresti s njima u svom daljnjem fakultetskom obrazovanju. Čime god da se bavite i što god da učite, za razumijevanje je važno znati iz čega se nešto razvilo i što mu je prethodilo.
+
+Važnost logike za razvoj umjetne inteligencije potaknuo nas je da još neke teme u ovome poglavlju obradimo iz tog gledišta. Kako se poglavlje o indukciji nadovezuje na temu induktivnoga zaključka koja je obrađena u drugome poglavlju, upućujemo vas i na to poglavlje. Ovdje smo također obradili neke od najzanimljivijih i najznačajnijih logičkih pogrešaka koje su prisutne u svakodnevnom govoru, ali često i u znanstvenome radu.
+              </p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <h2>Logika i znanstvena metoda</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()"> Logika i umjetna inteligencija</button>
+            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
+              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
+              <p>
+                Logika i umjetna inteligencija imaju mnogo toga zajedničkog. Od samog su početka logika i deduktivni sustavi zauzimali središnje mjesto u povijesti razvoja umjetne inteligencije. Prvi program umjetne inteligencije bio je automatski dokazivač teorema i nosio je ime Logic Theorist.  Kasnije se na logiku gledalo kao na glavnu metodu s pomoću koje računala mogu „misliti“, ponajviše jer se mišljenje doživljavalo kao deduktivno. 
+                Sustavi prirodne dedukcije koji su predstavljeni u ovom udžbeniku zapravo su mali podsustavi i punopravna su „jezgra“ potencijalno velikog i moćnog sustava umjetne inteligencije. Potrebna im je nadogradnja kako bi se na razini senzora mogli primati brojni podatci koje sustav prevodi na logički jezik tako da bi uz pomoć njih mogao izvoditi logičke operacije i „donositi“ zaključke. Drugim riječima, „mozak“ jednog takvog sustava često je samo obična dedukcija logike prvoga reda.
+
+Posebno je zanimljivo što u sustavima umjetne inteligencije glavnu ulogu imaju logički sustavi koje su tradicionalno proučavali filozofi, a ne matematičari. Razlog tome je što su matematičari češće logiku proučavali kroz apstraktne strukture u njenoj pozadini, a filozofi su istraživali njen potencijal za formalizaciju raznih pojmova. Tako je temporalna logika trebala formalizirati pojam vremena, epistemička logika pojam znanja, neizrazita (fuzzy) logika trebala je moći zaključivati s nepreciznim podatcima itd. No, logika i umjetna inteligencija trebaju i jedne i druge. Bez filozofa ne bi bilo gotovih sustava za formalizaciju ovih pojmova, a bez matematičara oni ne bi bili dovoljno rigorozni i precizni da se mogu isprogramirati.
+
+Umjetna inteligencija danas izgleda drukčije nego u svojim početcima. Premda sve ove spomenute filozofijske logike (temporalne, epistemičke i neizrazite) i dalje imaju utjecaj u njezinu razvoju, suvremena umjetna inteligencija temelji se na indukciji i učenju. Područje koje danas dominira umjetnom inteligencijom zove se strojno učenje, a najpoznatije je tzv. duboko učenje. To je učenje uz pomoć dubokih umjetnih neuronskih mreža i taj ćemo pristup ukratko objasniti u poglavlju o indukciji
+To je veliko područje i ako vas detaljnije zanima, ono se danas proučava u sklopu primijenjene matematike ili računarstva.
+Umjetne neuronske mreže koje se danas koriste imaju puno slojeva pa se nazivaju duboke mreže, odnosno „duboko učenje“, a nastale su u filozofiji prvenstveno s humanističkim ciljem. One su bile pokušaj formalizacije ljudskog učenja prema modelu koji oponaša rad ljudskih neurona. Naravno, prve verzije umjetnih mreža bile su vrlo primitivne, ali nakon samih početka u filozofiji i logici, razvoj umjetnih neuronskih mreža preuzimaju psiholozi i kognitivni znanstvenici. Tek kasnih 1990-ih, a posebno nakon 2006. godine, one ulaze u računarstvo i postaju glavna tehnika u razvoju umjetne inteligencije. Danas s pomoću umjetnih neuronskih mreža radi gotovo sve, od ciljanih oglasa na Facebooku, preko samovozećih automobila pa sve do sustava trgovanja dionicama i detektora laži.
+
+Veza logike i umjetne inteligencije oduvijek je bila jako čvrsta i to se nastavlja i danas. Premda znanstvenici istražuju mogućnost umjetne inteligencije bazirane isključivo na strojnom učenju, najbolji gotovi sustavi su sustavi koji za rad s njima kombiniraju strojno učenje za klasifikaciju podataka i logiku. Tako postoje neizrazito-neuronski sustavi, sustavi podržanog učenja s politikom temeljenom na temporalnoj logici, baze znanja koje se uređuju uz pomoć epistemičke logike, ontologije koje koriste deskripcijske logike i univerzalni sustavi zaključivanja temeljeni na logici prvoga reda. Planirate li se baviti bilo kojim aspektom umjetne inteligencije, znanja iz logike u tome će vam uvelike koristiti.
+<img src="Logika_i_umjetna_inteligencija_1.png">
+              </p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <h2>Indukcija</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Induktivni zaključak</button>
+            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
+              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
+              <p>
+                U drugome smo poglavlju udžbenika naučili da je klasični oblik zaključivanja u logici i matematici dedukcija. No, ovo je malo više od fraze -- ono što je stvarno važno za dedukciju jest da ona ima logički slijed. Promotrimo primjer:
+
+Svi ljudi su smrtni. Sokrat je čovjek. Dakle, Sokrat je smrtan.
+
+Ponovimo kako ovdje nije moguće da premise budu istinite (bez obzira na značenje riječi), a da konkluzija ne bude istinita. To je logički slijed.
+
+Također ponovimo da uz deduktivne postoje i induktivni zaključci. Takav bi bio zaključak oblika:
+
+Sokrat je čovjek. Sokrat je smrtan. Dakle, svi ljudi su smrtni.
+
+U induktivnom zaključku premise, na neki način, pružaju jači ili slabiji oslonac izvedenoj konkluziji. U induktivnom se zaključku na temelju premisa koje govore o nečemu što nam je poznato izvodi konkluzija koja govori o nečem što je povezano, ali nam još nije poznato. Primjerice, svi su dosad viđeni labudovi bijeli, pa se na temelju toga indukcijom zaključuje da su svi labudovi bijeli.
+
+Primijetite da u induktivnome zaključivanju ne vrijedi očuvanje istinitosti koje je prisutno u deduktivnom, odnosno to što su premise istinite, ne znači nužno da je istinita i konkluzija.
+
+Odmah možemo uočiti da induktivno zaključivanje nije valjano zaključivanje, ali nam je korisno jer predstavlja osnovni način ljudskog učenja te se na njemu čak temelje mnoge znanstvene činjenice. Induktivno se zaključivanje koristi i u strojnom učenju koje se razvilo u okviru računarstva, a počiva na osnovama filozofijske logike.
+
+Indukcija
+Indukcija kreće od entiteta čija su nam neka svojstva poznata, poput Sokrata, i kaže nam da ako Sokrat ima neko svojstvo P
+, onda svi entiteti koji su po ostalim bitnim svojstvima isti kao Sokrat, trebaju također imati svojstvo P
+.
+
+U našem primjeru, svojstvo P
+
+je „biti smrtan“, a u ostala bitna svojstva ubraja se svojstvo „biti čovjek“. Zato zaključujemo da su svi koji imaju svojstvo bivanja ljudima također i smrtni.
+
+Ovo zvuči dobro i jednostavno, no postavlja se pitanje što je to bitno svojstvo. Do kraja ovog potpoglavlja definirat ćemo upravo to. Može li neko svojstvo biti u određenoj mjeri bitno za neki Px
+, a nebitno za neki P′x
+
+?
+
+Iako je metoda induktivnog zaključivanja vrlo korisna, s njom treba biti oprezan. Naime, pogrešno je raditi neopravdane generalizacije. Takva bi generalizacija bila u slučaju osobe koja je do sada kupila dva automobila japanske proizvodnje od kojih su se oba često kvarila pa je ona na temelju toga zaključila da su svi japanski automobili loši.
+
+Cijelo područje koje se danas bavi formalnim postupcima indukcije naziva se strojno učenje, a umjetne neuronske mreže tek su jedna od metoda, ali i najuspješniji algoritam strojnog učenja koji postoji.
+
+U tekstu koji slijedi, namijenjenom učenicima koji žele znati više, dat ćemo primjere indukcije i objasniti u grubim crtama kako funkcioniraju umjetne neuronske mreže i zašto toliko uspješno formaliziraju indukciju. Ipak, možda je najvažnije shvatiti koliko je indukcija, premda nije deduktivno valjana, korisna.
+Matematička indukcija
+
+Možda ste čuli za tehniku dokazivanja koja se koristi u matematici, a naziva se matematičkom indukcijom. Matematička indukcija, bez obzira na svoj naziv, zapravo udovoljava kriterijima deduktivnoga zaključka u smislu očuvanja istinitosti. Više informacija potražite u literaturi i na internetu.
+Izmijenjeni primjer o konstruktorici Anji
+
+Kako smo utvrdili, Anja je nakon sjajnog uspjeha i rada na fakultetu dobila priliku raditi kao inženjer u Međunarodnoj svemirskoj agenciji. Zadužena je za konstrukciju trupa nove svemirske letjelice koja bi trebala zamijeniti popularne Space Shuttleove koji opskrbljuju svemirske postaje i prevoze ljudske posade na postaje i natrag na Zemlju.
+
+I sada su se od svih dostupnih materijala karbonska vlakna pokazala kao najisplativija. Međutim, znanstvenici zaduženi za promatranje objekata koji velikim brzinama prolaze pravcima kojima lete i Space Shuttleovi ovoga su puta uvjerili Anju kako prema njihovim saznanjima na putanji probnog leta postoji nekoliko desetaka objekata od kojih su za njih otprilike polovicu sigurni da ne mogu oštetiti karbonska vlakna.
+
+Anja, međutim, zaključuje da nema potrebe mijenjati prvotni plan te odlučuje konstruirati svemirsku letjelicu čiji je trup sačinjen od karbonskih vlakana. 
+Razlika između klasične logike i strojnog učenja
+
+Odmah na početku treba naglasiti bitnu razliku između klasične logike i strojnog učenja, uvjetovanu razlikom između dedukcije i indukcije kao fenomena.
+
+Kada stvaramo sustav, tada sami stvaramo skup pravila, dajemo neke izjave (formule) kao input i po tim pravilima dobivamo neku izjavu kao output.
+
+Drugim riječima, rezultat našeg rada u klasičnim je logičkim sustavima skup pravila koja su dorađena tako da daju konkluzije kakve trebamo, tj. deduktivno valjane konkluzije. Tako je primjerice konkluzija u prethodnom deduktivnom primjeru istinita izjava „Sokrat je smrtan.“
+
+U induktivnom slučaju premise su izjave tipa „Sokrat je smrtan.“, a konkluzija je pravilo oblika ako-onda: „Svi ljudi su smrtni.“ Iz logičkog kvadrata znamo da konkluzija zapravo ima oblik „Za svaki x
+, ako je x čovjek, onda je x
+
+smrtan.“, gdje je očita ako-onda struktura.
+
+Kada radimo induktivan sustav strojnog učenja, skup pravila ne stvaramo sami. Sustavu dajemo input i dajemo mu izjave koje su očekivani rezultat ili očekivani output, a sustav onda sam stvara skup pravila. Taj se postupak naziva treniranje, a jedan tako utrenirani algoritam naziva se modelom. Model predstavlja samo jedan dio općeg algoritma koji je na temelju našeg treniranja specijaliziran za neki zadatak.
+
+Dakle, rezultat našeg rada u strojnom učenju gotovi su modeli koji u sebi imaju pravila za koja ne znamo kako izgledaju, ali će nam za slične inpute dati odgovore slične onima kakve smo sustavu „rekli“ da očekujemo.
+Strojno učenje
+
+Algoritam strojnog učenja
+Svaki algoritam strojnog učenja ima dvije faze:
+
+(1) treniranje −
+sustavu dajemo inpute i željene outpute u nadi da će on razviti dobra pravila tako da može za nove primjere reći jesu li isti kao stari i
+(2) predikciju −
+  utrenirani algoritam (model) koristimo na novim, nepoznatim inputima, a on onda generira nove outpute.
+
+Sustav koji predviđa što će se dogoditi nazivamo prediktorom i bilo koji model strojnog učenja zapravo je prediktor.
+
+Navest ćemo jedan jednostavni primjer.
+
+Zamislimo sustav koji predviđa spol osobe na temelju zadnjeg slova njenog imena. Ženska imena u hrvatskom jeziku uglavnom završavaju na „a“. Stoga bi jedan prediktor za spol mogao biti sljedeći sustav:
+
+Uzmi ime osobe, izoliraj zadnje slovo koje označi sa z
+. Ako je z=„a“
+
+, onda vrati odgovor „žensko“.
+
+Uočimo da ovo nije savršen prediktor jer imamo i ženska imena „Ines“, „Doris“, kao i muška imena „Luka“ i „Matija“. No, kao „brzo rješenje“ ovaj je prediktor relativno dobar jer će u većini slučajeva dobro razlikovati spol osobe.
+
+Neki novi entitet isti je kao stari entitet prema nekome ciljanom svojstvu Px
+, upravo zato što je po bitnome isti. U strojnom učenju, dakle, želimo stvoriti sustav koji na temelju „bitnih svojstava“ ima pravo tvrditi da i novi entitet ima svojstvo Px
+
+.
+
+To je naš induktivni zaključak, naše predviđanje. Kasnije mjerenjem ili eksperimentom možemo vidjeti je li sustav bio u pravu ili nije te koliko je često u pravu ili je možda bolji neki drugi prediktor.
+Domenska tablica
+
+Na samom početku trebamo definirati domensku tablicu koja se naziva još i skupom podataka. To je jednostavna tablica koja u sebi ima sve članove domene s kojima se želimo baviti i neka njihova svojstva. Jedno od tih svojstava bit će i ciljano svojstvo Px
+
+. Ciljano svojstvo je ono svojstvo koje želimo moći predvidjeti na temelju ostalih svojstava. Dakle, domenska tablica je tablica svojstava i niti jedno svojstvo u toj tablici nije „ciljano“ samo po sebi. Pojasnimo to na primjeru.
+
+Zamislimo da su entiteti osobe na regrutaciji za vojsku, ali da smo zabunom ispustili njihova imena. Regrute treba razvrstati u muške ili ženske spavaonice, a pri regrutaciji su zapisana neka njihova svojstva pa imamo sljedeću domensku tablicu:
+<img src="Indukcija_2.png">
+U domenskoj su tablici entiteti pobrojeni i svaki redak predstavlja jedan entitet, odnosno jednu osobu. Sve osobe imaju svojstva koja smo utvrdili mjerenjem. Ono što želimo jest predvidjeti spol, dakle to je naše ciljano svojstvo. Stoga to svojstvo ne možemo uzeti kao prediktor jer ga za neke buduće uzorke nećemo znati (primjerice, možemo zamisliti da će stupiti na snagu zakon po kojem regrute ne smijemo upitati za spol).
+
+Prije nego što idemo dalje, napravimo malu analizu. Uočimo da u domenskoj tablici ima više žena nego muškaraca. To samo po sebi nije problem, ali bi mogao biti problem da je u tablici primjerice samo jedan muškarac jer tada ne bismo imali dovoljno dobar uzorak. Zamislimo da imamo samo jednog muškarca visokog 181 cm u 1. retku i još 200 žena od kojih čistom slučajnošću nijedna nije visoka 181 cm. Na temelju čega bismo mogli očekivati da će algoritam shvatiti da za biti muškarac nije bitno svojstvo da je netko visok točno 181 cm? Iz podataka djeluje kao da to jest bitno, ali mi znamo da nije i ne želimo da algoritam uči uzimati u obzir svojstva za koja znamo da nisu bitna. Ako možemo, to ćemo nastojati izbjeći pa domenska tablica treba biti koliko-toliko ujednačena. Naravno, nad domenskom tablicom možemo evaluirati i formule. Na primjer, možemo tražiti sve članove domene za koje vrijedi
+Visina>170∨BojaOciju=plava.
+
+
+Ovo bismo mogli lako izraziti jezikom logike prvoga reda i s pomoću formula stvarati podtablice domenske tablice.
+
+Vratimo se domenskoj tablici. Uočimo da boja očiju savršeno „predviđa“ spol na ovom (malom) uzorku. No, je li tako i u stvarnosti? Naravno da nije. To je samo čudna anomalija u ovom uzorku. Zbog toga svojstvo „boja očiju“ izbacujemo jer bi inače ono sasvim slučajno dominiralo nad drugim svojstvima. Ne želimo da naš model, koji treba izvesti ispravno induktivno zaključivanje, zaključi kako ne postoje žene s plavim očima.
+
+No, ovdje treba biti oprezan jer ne želimo unaprijed zaključivati što je bitno, a što nebitno za ciljano svojstvo −
+
+to ćemo ostaviti algoritmu. Želimo odstraniti anomalije za koje smo sigurni da su se slučajno poklopile kao jako dobar ili savršen prediktor za ciljano svojstvo. Zašto? Zato što ako bismo ih ostavili, tada bi ta svojstva dominirala nad ostalima.
+
+Algoritam bi se previše oslanjao na njih i ne bi učio druge pravilnosti. Na pitanje koja svojstva treba odbaciti, ne postoji znanstveno jednoznačni odgovor, no dobra je ideja za početak izbaciti svako svojstvo koje samostalno radi predobru predikciju (bez obzira mislimo li da ima veze ili nema veze s ciljanim svojstvom).
+
+Dakle, boju očiju izbacujemo pa je čista domenska tablica prikazana u nastavku.
+<img src="Indukcija_3.png">
+Grafički prikaz domenske tablice
+
+Ni jedan prediktor ne može reći je li neki entitet M ili Ž, već samo ima li on neko svojstvo ili ne. Stoga svojstvo „spol“ koje ima dvije moguće vrijednosti, M i Ž, pretvaramo u svojstvo „x
+jest žena“ koje će imati vrijednosti 0 ili 1, odnosno istinu ili neistinu 
+Prisjetite se da smo ranije istinu i neistinu označavali I i N. Kako se u računarstvu one uvriježeno označavaju kao 1 i 0, u ovom ćemo poglavlju koristiti te oznake.
+Stoga domenska tablica poprima sljedeći oblik:
+<img src="Indukcija_4.png">
+Uočimo da smo sada dobili sve numeričke vrijednosti pa domensku tablicu možemo prikazati u koordinatnom sustavu kao na donjoj slici.
+
+Međutim, na slici su ucrtani i mali obojeni kvadrati. Oni predstavljaju neke nove entitete kojima ne znamo spol, ali znamo njihovu visinu i težinu pa smo ih mogli ucrtati u koordinatni sustav.  
+<img src="Indukcija_5.png">
+Odabir modela
+
+Vratimo se na žuti i ljubičasti kvadrat. Očito je da nam za odluku ovdje treba precizna granica, odnosno nacrtana hiperravnina. Pogledajmo dvije moguće hipperravnine na slici ispod. 
+<img src="Indukcija_6.png">
+Zamislimo da imamo dva modela, jedan koji možemo nazvati „plavi“ jer je nacrtao plavu hiperravninu i jedan koji možemo nazvati „crveni“ jer je nacrtao crvenu hiperravninu.
+
+Koji je od njih u pravu? Crveni kaže da su ljubičasti i žuti kvadrati zapravo crni krugovi (žene), a plavi kaže da su bijeli krugovi (muškarci).
+
+Naravno, eksperimentalno će se utvrditi koji je model u pravu. Ali zamislimo da je ljubičasti kvadrat u stvarnosti žena, a žuti je u stvarnosti muškarac. U tom su slučaju i crveni i plavi model jednog pogodili, a drugog nisu. Po tome su jednako dobri. Ali jesu li oni do kraja jednako dobri?
+
+Uočimo dvije stvari. Crveni model stvara hiperravninu koja je ravna linija, a plavi je nepravilniji. Pri odabiru modela može nam pomoći filozofijsko načelo koje se zove Occamova britva.
+
+Occamova britva
+Prema načelu Occamove britve vrijedi: ako su dva sustava po svemu drugom jednaka, bolji je onaj sustav koji je jednostavniji.
+
+U našem bi primjeru to značilo da je bolji crveni model. Ali jesu li crveni i plavi modeli po svemu drugom jednaki? Uočimo bijeli krug s brojem 1. Njega je crveni model pogrešno proglasio ženom. Plavi model je sve krugove točno klasificirao. Stoga bismo jedini pravi odgovor mogli dobiti uvrstivši jako puno novih podataka i tada bismo vidjeli koji je bolji. Indukcija je u svojoj srži empirijska i eksperimentalna.
+Jednostavna umjetna neuronska mreža
+
+Preostaje nam još pokazati kako se „crta“ hiperravnina. Za to nam treba neki algoritam strojnog učenja. Objasnit ćemo kako funkcionira jednostavna umjetna neuronska mreža. Ponovimo prethodnu domensku tablicu, ali tako da sada visinu izrazimo u metrima (tablica ispod).
+<img src="Indukcija_7.png">
+Neuronska mreža mora dobiti onoliko inputa koliko ima bitnih svojstava, a u našem su slučaju to visina i težina. Mreža će pokušati predvidjeti ciljano svojstvo i, ako bude loša, malo ćemo popraviti parametre i pokušati ponovno.
+
+Mreža dakle ima dva ulazna neurona (po jedan za svako svojstvo) i jedan izlazni neuron (za rezultat koji odgovara ciljanom svojstvu). No, uz svako input svojstvo, kao parametar se pojavljuje još i težina w
+
+koja kazuje sustavu u kojoj mjeri to svojstvo treba uzeti u obzir.
+
+Naša mala umjetna neuronska mreža sada je sljedeća formula:
+
+σ(x1w1+x2w2)
+
+.
+
+Sigma funkcija zove se logistička funkcija i ona je matematički definirana ovako: σ(x)=11+e−x
+
+, a njena jedina uloga je garantirati da će rezultat računanja (ciljano svojstvo) biti između 0 i 1. Sve vrijednosti iznad 0.5 zaokružuju se na 1, a sve ispod 0.5 zaokružuju se na 0.
+
+Težine se u prvom koraku uzimaju nasumično, kao vrijednosti između 0 i 1. Uzmemo li nasumično da je w1=0.61
+i w2=0.01, prvi korak učenja izgledao bi ovako: Redak 1: σ(x1w1+x2w2)=σ(1.95⋅0.61+89⋅0.01)=0.88(u stvarnosti je 1. redak 0)Redak 2: σ(x1w1+x2w2)=σ(1.85⋅0.61+82⋅0.01)=0.87(u stvarnosti je 2. redak 1.)⋮I tako dalje za sve retke. 
+
+Vidimo da je 2. redak dobro klasificiran, a 1. redak nije. To znači da trebamo izmjeriti kolika je pogreška (u 1. retku pogreška je 0.88, a u 2. retku je 0.13) pa na temelju toga trebamo modificirati težine w1
+i w2
+
+i ponavljati postupak sve dok naša mreža dobro ne klasificira sve entitete.
+
+Ovime smo opisali cijelu proceduru strojnog učenja i indukcije. Nalaženje težina jest srž indukcije i učenja. Sve što smo do sada opisali svodi se na to da neuronska mreža može naučiti koje su težine dobre (uočite da smo rekli „dobre“, a ne „prave“).
+
+Kako se točno namještaju težine ne može se jednostavno pokazati jer se izračun temelji na parcijalnim derivacijama s pomoću kojih se računa koliko je pojedina težina „kriva“ za lošu klasifikaciju pa se ona onda više ili manje poveća ili smanji. U praksi se to radi s pomoću računala i ponavlja se jako puno puta −
+mjereno u tisućama ili čak u milijunima koraka.
+Efikasnost strojnog učenja
+
+Za kraj pogledajmo kako se računa efikasnost klasifikacije, odnosno strojnog učenja, odnosno izračuna hiperravnine, odnosno indukcije.
+
+Nadopunimo domensku tablicu imenima entiteta i uzmimo dva različita prediktora. Jedan će biti crveni model strojnog učenja koji smo ranije spominjali (koji predstavlja ravna crta na slici sa 162. stranice), a drugi će biti jednostavan klasifikator na temelju zadnjeg slova imena koji smo nešto ranije spominjali. Prisjetimo se, crveni model je klasificirao ispravno sve osim 1.\ retka koji je klasificirao kao ženu. A kako radi jednostavni prediktor na temelju zadnjeg slova imena?
+<img src="Indukcija_8.png">
+Vidimo da bi ovaj prediktor pogrešno klasificirao 1. redak kao ženu te 3. redak kao muškarca. Dakle, lošiji je od crvenog prediktora. Ali da se osoba u 1.\ retku na primjer zvala Tin, bi li postojala ikakva razlika? Tada bi crveni model tog muškarca pogrešno klasificirao kao ženu, a prediktor s imenima bi ženu u 3. retku (Doris) pogrešno klasificirao kao muškarca. Svaki bi imao jednu pogrešku, no jesu li one iste? Odgovor glasi − nisu. Ciljano svojstvo koje smo tražili glasi „x
+
+je žena“, što znači da je crveni klasifikator u skup žena stavio nekoga tko tamo ne pripada, a prediktor s imenima u skup žena nije stavio nekog tko tamo pripada.
+
+Postavimo malo drukčiji scenarij da bismo vidjeli kako ova asimetrija može biti jako opasna. Zamislimo da smo napravili prediktor koji kaže kada će neka nuklearna elektrana zakazati. Nisu jednako važne pogreške u slučaju da neki prediktor oglasi lažnu uzbunu (pa sve provjerimo i ustanovimo da je sve u redu) i kada prediktor prešuti, a trebao je oglasiti uzbunu.
+
+Zato za svaki prediktor postoje tri osnovne mjere uspješnosti:
+
+1. točnost
+2. preciznost
+
+3. obuhvat
+
+Točnost kaže koliko je entiteta neki prediktor točno, a koliko pogrešno klasificirao. Preciznost kaže koliko od onih koji su pogrešno klasificirani su zapravo bili točno klasificirani (to su takozvani lažno pozitivni). Obuhvat kaže koliko od onih koje nismo klasificirali smo trebali klasificirati (to su takozvani lažno negativni).
+
+Sljedeća slika grafički prikazuje ideju:
+<img src="Indukcija_9.png">
+              </p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+     <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <h2>Analogija</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()"> Uvod</button>
+            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
+              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
+              <p>
+                 Pariz je Francuskoj ono što je Madrid Španjolskoj.
+
+Takav je oblik zaključivanja vrlo čest u svakodnevnom životu. Dva se entiteta smatraju sličnima jer dijele jedno ili više svojstava. U ovom slučaju je to svojstvo „biti glavni grad“. Ipak, s analogijom treba biti oprezan jer jedno dijeljeno svojstvo ne znači da su i ostala svojstva dijeljena. 
+<img src="Analogija_1.png">
+Zaključak po analogiji
+Zaključak po analogiji jest oblik zaključivanja u kojem se iz premise koja govori o svojstvu s
+predmeta x te (prešutne) premise koja govori o sličnosti predmeta x i predmeta y izvodi konkluzija u kojom se tvrdi da predmet y također ima svojstvo s
+.
+
+Upozorenje
+Zaključivanje po analogiji nije valjan oblik zaključivanja, ali ima svoje važne primjene.
+Jan je prije nekoliko godina imao djevojku Irenu koja je imala plavu kosu, bila vegetarijanka te je stalno kasnila na spojeve. Nedavno je Jan upoznao Leu koja ima plavu kosu i vegetarijanka je. S obzirom na to da kod nje Jan prepoznaje neka svojstva koja je imala njegova bivša djevojka, izvodi pogrešnu analogiju da će i Lea kasniti na spojeve, a da je nije ni pozvao na spoj.
+
+U dodatnom tekstu možete pročitati o jednoj primjeni analogije u strojnom prevođenju.
+Word2vec
+S pomoću umjetnih neuronskih mreža stvoren je način na koji se zaključivanje analogijom može pretvoriti u pravo deduktivno zaključivanje.
+No, najprije trebamo riječi pretvoriti u neke drukčije, numeričke reprezentacije koje se dobivaju relativno složenim algoritmima, temeljenim na umjetnim neuronskim mrežama. Napominjemo da je nalaženje dobrih reprezentacija koje mogu „hvatati“ značenje riječi poprilično veliki problem.
+Jedan takav algoritam koji danas uspješno rješava spomenuti problem naziva se Word2vec jer za pojedine riječi stvara i pridružuje im vektore, odnosno uređene n
+-torke decimalnih brojeva. Izrada tog algoritma bila je velika prekretnica u razvoju znanstvenog područja koje se naziva računalnom lingvistikom i koje je danas interdisciplinarno područje računarstva i lingvistike.
+Premda je Word2vec algoritam novijeg datuma, on se temelji na ideji da je značenje neke riječi određeno njezinim kontekstom, odnosno njezinom upotrebom u jeziku, što je stara filozofska ideja koju je detaljno razradio Ludwig Wittgenstein. Word2vec je algoritamska implementacija te ideje.
+Ova umjetna neuronska mreža uči predviđati značenje neke riječi iz njezinih dvaju „svojstava“: riječi ispred nje i riječi iza nje, i to ako je kontekst 1. Ako je kontekst 2, onda se uzimaju dvije riječi ispred i dvije riječi iza. Tako će primjerice riječi „pravnik“ i „odvjetnik“ dobiti slično značenje jer se često javljaju u sličnim kontekstima.
+Te reprezentacije su uređene n
+-torke (odnosno vektori) običnih decimalnih brojeva. Na primjer, reprezentaciju riječi „Madrid“ koju ćemo za naše potrebe zapisati kao repr(Madrid), Word2vec bi dao samo kao vektor, recimo (4.5,−0.7): repr(Madrid)=(4.5,−0.7). Isto tako možemo zamisliti da je primjerice repr(Pariz)=(3.3,2.1), repr(Francuska)=(1.1,0.9) i repr(Spanjolska)=(2.3,−1.8)
+.
+Tek kada imamo dobre reprezentacije pojmova, možemo formalno pristupiti analogiji. Ako vrijedi
+Pariz je Francuskoj ono što je Madrid Španjolskoj. ,
+onda možemo zaključiti da nakon što Parizu oduzmemo Francusku, trebamo dobiti isti rezultat kao da smo Madridu oduzeli Španjolsku. Intuitivno, rečenica „Pariz je glavni grad Francuske.“ može se smisleno shvatiti kao
+Pariz = (Glavni grad, Francuska) ,
+ili čak u nekom prenesenom značenju kao
+Pariz = Glavni grad + Francuska .
+Ovo „preneseno značenje“ je ono što trebamo −
+to je reprezentacija koju će nam dati Word2vec. Kada imamo vektorsku reprezentaciju riječi, rečenica „Pariz = Glavni grad + Francuska“ će postati pravo zbrajanje vektora i mogli bismo zapisati:
+repr(Pariz)=repr(GlavniGrad)+repr(Francuska)
+.
+Tu postoji mali problem. Ne znamo vrijednost repr(GlavniGrad)
+. No sada kada imamo vektore, možemo je izračunati: repr(GlavniGrad)=repr(Pariz)−repr(Francuska)=(3.3,2.1)−(1.1,0.9)=(2.2,1.2) Osim toga, dodamo li reprezentaciji repr(GlavniGrad) reprezentaciju repr(Spanjolska), dobit ćemo vrijednosti blizu reprezentacije repr(Madrid), tj. vrijedi sljedeće: repr(Pariz)−repr(Francuska)+repr(Spanjolska)≈repr(Madrid)
+Ponovno napominjemo da sve ovo ovisi o našoj sposobnosti da nađemo dobre reprezentacije riječi kao što ih daje Word2vec. Ključni dio je da te reprezentacije moraju biti takve da u sebi imaju značenje riječi. Kao što je podjednaka razlika između reprezentacija za Madrid i Španjolsku s jedne strane te Pariz i Francusku s druge strane, tako u tim reprezentacijama (zamislimo ih u koordinatnom sustavu), riječi poput „pravnik“ i „odvjetnik“ trebaju biti blizu. Zapravo u cijelom tom koordinatnom sustavu značenjski slične riječi trebaju biti blizu. To radi Word2vec kad se dobro utrenira.
+Tek kada imamo pravo značenje riječi pretvoreno u numeričke vrijednosti, možemo formalno pristupiti analogijskom zaključivanju jer se kod analogija, za razliku od klasičnog zaključivanja, sve svodi na sadržaj. Sjetimo se kako u primjeru „Svi ljudi su smrtni.“, „Sokrat je čovjek.“ dakle „Sokrat je smrtan.“ logički slijed ne ovisi o značenju riječi. Za razliku od dedukcije, analogija je u potpunosti ovisna o ispravnoj reprezentaciji značenja.
+U deduktivnom slijedu smo cijelim formulama oblika ∀xPxc
+(sudovima) pridruživali istinitosne vrijednosti. Kod indukcije smo gledali je li Px ili ¬Px za neki novi objekt c s obzirom na druga svojstva koja objekt dijeli s poznatim objektima. Kod analogija taj c dobiva vektor kao reprezentaciju pa možemo reći da je c sličan d ili nije. Na taj smo način sve dublje prodirali u strukturu i otkrivali vrlo kompleksne jezične i logičke fenomene.
+              </p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <h2>Hipoteza i činjenica</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()"> Činjenica</button>
+            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
+              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
+              <p>
+                Činjenica
+Činjenica je tvrdnja u znanosti koja je potvrđena mnogo puta, za koju postoje određene evidencije te se na temelju toga smatra istinitom.
+
+Sve u znanosti ima određenu dozu sumnje pa iako je na različite načine dokazano da je Zemlja okrugla, i dalje postoje „skeptici“ koji tvrde da je Zemlja ravna ploča, odnosno disk. Nekada davno, prije no što je bilo moguće snimiti Zemlju iz svemira ili je oploviti, smatralo se ne samo da je ravna ploča nego da je na leđima nose veliki slonovi koje na svojim leđima nosi još veća kornjača.
+
+Takve su hipoteze, koje su u određenim razdobljima smatrane i činjenicama, opovrgnute različitim dokazima (primjerice, postojanje plime i oseke, promjena duljine sjene predmeta u različita doba dana, snimke iz svemira...).
+
+Iako neki ni danas ne vjeruju da je Zemlja okrugla, radi se o nečemu što je potvrđeno toliko mnogo puta i na različite načine, te −
+što je također važno − nikada nije opovrgnuto. Iako to, doduše, ne možemo smatrati apsolutnim dokazom, ipak se to u znanosti smatra činjenicom. Naime, iako s logičke točke gledišta može izgledati sporno da se nešto za što ne postoji jedan jedinstveni dokaz koji se ne može osporiti smatra činjenicom, u stvarnom je svijetu situacija često takva da ne možemo propitati sve situacije, da ne možemo obuhvatiti sve moguće slučajeve i da ne možemo dobiti takav dokaz. Zato ga i ne zahtijevamo jer ako bismo to zahtijevali, ne bismo imali gotovo nijednu znanstvenu činjenicu.
+<img src="Hipoteza_i_činjenica_1.png">v
+<img src="Hipoteza_i_činjenica_2.png">
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()"> Hipoteza</button>
+            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
+              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
+              <p>
+                Uzmimo još jedan primjer. Dosad su sve viđene trobojne mačke ženke te su znanstvenici otkrili da je boja mačjeg krzna povezana s x-kromosomima. Ženske životinje imaju dva x kromosoma (xx), dok mužjaci imaju jedan x kromosom i jedan y kromosom (xy). Genetičko kodiranje crne ili narančaste boje nalazi se u x kromosomu. Kodiranje za bijelu boju potpuno je odvojeni gen. Budući da ženke imaju dva x kromosoma, mogu imati dvije različite boje i bijelu. S druge strane, kako mužjaci imaju samo jedan x kromosom, oni mogu imati samo jednu boju uz bijelu. Naravno, ne možemo biti sigurni da se neće pojaviti trobojni mačak. To bi trebalo biti moguće u slučaju kromosomske aberacije (kombinacija xxy kromosoma). Ali ako je to jedina mogućnost, tada bi naša činjenica mogla glasiti: Ako je mačka trobojna, onda je ženka ili se radi o kromosomskoj aberaciji.
+
+Hipoteza
+Hipoteza ili pretpostavka jest moguće objašnjenje neke pojave koje je tek potrebno ispitati. Ona je samo početna točka za buduća istraživanja.
+
+Primjerice, ako u nekom laboratoriju ugledate bijelog miša koji ima crne točke, možete pretpostaviti da su te crne točke dobivene nekom genskom mutacijom, da su dobivene transplantacijom ili bojenjem miša crnim flomasterom 4
+
+.
+
+Zatim možete istražiti sve te hipoteze i krenuti istraživati onu koja je najviše potkrijepljena dokazima.
+U posljednjem se slučaju radi o jednoj od velikih znanstvenih prijevara gdje je grupa znanstvenika iz New Yorka 1974. godine tvrdila da je uspješno obavila transplantaciju kože genetski nepovezanih životinja, ali se ispostavilo da su dijelove krzna bijelih miševa bojili crnim flomasterom.
+<img src="Hipoteza_i_činjenica_3.png">
+              </p>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <h2> Logičke pogreške</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()"> Pogreška ad hominem</button>
+            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
+              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
+              <p>
+                Pogreška ad hominem odnosi se na pozivanje ili nalaženje razloga za neki postupak u osobnim obilježjima neke osobe, kao što je podrijetlo, nacionalnost, fizički izgled i sl., što nema uporišta u racionalnim argumentima.
+
+Ad hominem se često koristi u političkim raspravama, pri čemu se usmjerava na pitanja stila, govora, odjeće (što je pogotovo prisutno u slučaju političarki), a ne na njihove sposobnosti.Pogreška ad hominem vjerojatno je najpoznatija logička pogreška, a o njoj je govorio još Aristotel u svom djelu Sofistička pobijanja. Iako je ta pogreška vrlo česta, radi se o načinu razgovora koji je neuljudan te ne dovodi do konstruktivne atmosfere koja je važna za raspravu.
+
+Primjeri:
+∙ Ona je dotjerana plavuša, dakle nije dobra političarka.
+∙ Iako imate sve kvalifikacije za ovo radno mjesto, niste dobar kandidat za rad u gradskoj upravi jer dolazite iz ruralne sredine.
+∙ Naravno da je napravio to što jest, ipak je on...(Slavonac, Dalmatinac, Zagorac...).
+∙  N. N. ne može biti dobar sveučilišni profesor jer je član LGBT zajednice.
+
+Ipak, trebamo pripaziti i dobro procijeniti relevantnost iznesenih argumenata. Primjerice,
+N. N. je političar kojem je dokazana pronevjera novca, stoga nije dobar političar.
+
+Političar obavlja javnu dužnost i jedna je od njegovih zadaća rad za opće dobro. Ako je toj osobi dokazana pronevjera novca, bez obzira na konkretni slučaj o kojem se radi, opravdano je sumnjati da takva osoba radi za opće dobro, odnosno da je stoga dobar političar.
+<img src="Logičke_pogreške_1.png">
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Slamnati čovjek</button>
+            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
+              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
+              <p>
+                Osnovna struktura argumenta u ovom se primjeru sastoji u tome da prvi sugovornik iznosi svoj argument, a drugi ga sugovornik pojednostavljuje ili iskrivljava.
+
+Umjesto da se obračuna sa stvarnim sugovornikom, drugi sugovornik obračunava se s njegovom lošom kopijom, odnosno slamnatim čovjekom ili strašilom. On napada tu iskrivljenu inačicu jer ju je lakše napasti i time „pobija“ originalnu tvrdnju prvog sugovornika. 
+Primjeri:
+Osoba A: Trebalo bi dopustiti učenicima da na božićnom koncertu pjevaju i druge pjesme koje su uvježbali, a ne samo božićne.
+Osoba B: Ti želiš zabraniti božićne pjesme!
+
+Majka: Možeš igrati igrice tek kad pročitaš lektiru.
+Sin: Ti me ne voliš. Samo ti je važno da imam dobre ocjene. Da me voliš, bilo bi ti u redu da radim ono što me čini sretnim. 
+<img src="Logičke_pogreške_2.png">
+Ad populum
+
+Pogreškaad populum uzima kao dokaz istinitosti to što neka skupina ljudi ili općenito puno ljudi vjeruje u nešto.
+
+Broj ljudi koji vjeruju u neku tvrdnju nevažan je za njezinu istinitost. Tijekom povijesti se pokazalo da uvjerenja milijuna ljudi mogu biti pogrešna, primjerice da je Zemlja ravna ploča ili da je Zemlja u središtu svemira.
+
+Pogreška ad populum često se (i namjerno) koristi u reklamnim kampanjama s obzirom na to da ljudi imaju težnju za pripadnošću.
+
+Primjeri:
+∙ Reklama prodavaonice odjećom: Ove jeseni sve modno osviještene dame nose naše žute sakoe.
+∙ Reklama teleoperatera: Ako i ti želiš dobiti pogodnosti koje su već prepoznali milijuni korisnika, prijeđi na našu mrežu.
+∙ Milijuni ljudi vjeruju da cjepivo uzrokuje autizam pa onda sigurno uzrokuje. 
+<img src="Logičke_pogreške_3.png">
+                </p>
+                </div>
+                <!---->
+                <!---->
+                 <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Pogreška lažne dvojbe</button>
+            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
+              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
+              <p>
+                Lažna dvojba jest pogreška pri kojoj se uzimaju u obzir samo dvije opcije kao moguće alternative. Tu se najčešće radi o dvije krajnosti, a zapravo se zanemaruju sve opcije koje se nalaze između tih dviju krajnjih opcija.
+
+Primjeri:
+
+∙
+Ili ste za nas ili ste protiv nas.
+∙ (Dijete govori roditeljima:) Ili ćete mi kupiti ovu novu knjigu ili smatrate da čitanje uopće nije važno.
+∙ Ili podržavate aktualnu predsjednicu ili ste ženomrzac. 
+<img src="Logičke_pogreške_4.png">
+                </p>
+                </div>
+                <!---->
+                <!---->
+                <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Pogreška autorieta</button>
+            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
+              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
+              <p>
+
+Primjeri:
+
+∙                Pogreška autoriteta nastupa kada se sve što neka osoba kaže smatra istinitim samo zato što ona predstavlja autoritet.
+
+Iako zasad nitko nije pristao uložiti u moj projekt, jedan mi je poznati političar rekao da je projekt vrlo isplativ pa ću stoga nastaviti raditi na njemu.
+∙ Treba uzimati puno C vitamina jer je liječnik tako rekao. 
+<img src="Logičke_pogreške_5.png">
+Argumentum ad baculum
+
+Pogreška argumentum ad baculum nastupa kada se koga želi u nešto uvjeriti zastrašivanjem, ucjenom, prijetnjom ili prisilom, a ne na temelju valjanog argumenta.
+
+Primjeri:
+
+∙
+Preporučio bih Vam da više ne parkirate automobil ispod moga prozora. Naime, susjed koji ga je prije Vas tu parkirao iznenada je preminuo. Isto bi se moglo dogoditi i Vama, a to nitko od nas ne želi, zar ne?
+∙ (Učenik govori profesoru:) Zaslužujem odličnu ocjenu, učio sam cijelu godinu. Usto, znate da poznajem Vašu ženu. Sigurno ne želite da sazna da se družite s profesoricom matematike. 
+<img src="Logičke_pogreške_6.png">
+Post hoc, ergo propter hoc
+
+Post hoc, ergo propter hoc (poslije toga, dakle zbog toga) logička je pogreška u kojoj se tvrdi da je jedan događaj uzrok drugom samo zato što mu je prethodio. To što je događaj prethodio drugom događaju, nije dovoljan razlog za zaključak da ga je i uzrokovao. Ta je pogreška u temelju različitih rituala.
+
+Primjeri:
+
+∙
+Nogometaš je na nekoliko utakmica zaredom nosio čarape koje mu je poklonila djevojka te je svaki put zabio gol. Od tada nogometaš na svakoj utakmici nosi te čarape jer misli da su one uzrokovale njegovu dobru igru.
+∙ Dijete je primijetilo da je majka loše volje svaki put nakon što opere kosu, pa je zaključilo da pranje kose uzrokuje njezino loše raspoloženje. 
+<img src="Logičke_pogreške_7.png">
+Ad ignorantium
+
+Ako osoba tvrdi da je neka tvrdnja istinita, odgovorna je za pružanje dokaza u prilog toj tvrdnji. Nevaljano je tvrditi da je neka tvrdnja istinita samo zato što nema dokaza da je lažna. Drugim riječima, samo zbog toga što nema dokaza protiv neke tvrdnje, to automatski ne čini tu tvrdnju istinitom.
+
+Primjeri:
+∙ Nastavnik je uvjeren da ga učenici vole jer nije čuo da se žale na njega.
+∙ Mnoge religije vjeruju u postojanje više sile, ali malo je onih koje iznose argumente o njihovu postojanju. Umjesto toga, mnogi tvrde da se ne može dokazati da viša sila ne postoji. 
+Pogreška skliskog terena
+
+Pogreška skliskog terena tvrdi da ako se dopusti neki događaj, to će rezultirati i nekim drugim (puno ekstremnijim) događajem iako između ta dva događaja ne postoji sigurna i jasna kauzalna veza, odnosno najčešće nema nikakva dokaza za to da bi jedan događaj povlačio drugi. Ova logička pogreška često ima namjeru zastrašivanja.
+
+Primjeri:
+
+∙
+Zakon ne treba dopustiti promjenu spola jer ako se to dopusti, onda će se morati dopustiti i to da čovjek postane majmun, mačka, krokodil...
+∙ Ako se legalizira eutanazija bolesnika u terminalnim fazama bolesti, uskoro će se zatražiti i legalizacija eutanazije u slučaju bilo koje bolesti. 
+<img src="Logičke_pogreške_8.png">
+Argumentum ad misericordiam
+
+Pogreška argumentum ad misericordiam kao svoje argumente iznosi činjenice koje pozivaju na sažaljenje te se iz tog razloga tvrdi da bi nešto trebalo uvažiti ili dopustiti.
+
+Primjeri:
+
+∙
+Mislim da zaslužujem potpis iako nisam bio na dovoljnom broju predavanja. Naime, ovaj sam semestar prekinuo s djevojkom, umrla mi je baka, uginuo pas, a i sam s^am se ozlijedio na nogometu. Stoga zaista nisam mogao dolaziti.
+∙
+
+Molim vas, nemojte me kazniti. Dovoljno je što će mi žena prigovarati da kasnim kući.
+
+Ovime popis logičkih pogrešaka nije dovršen, nego smo nastojali prikazati neke od najčešćih i najzanimljivijih logičkih pogrešaka. Ako vas zanimaju logičke pogreške, dodatne informacije možete pronaći na internetu.
+<img src="Logičke_pogreške_9.png">
+                </p>
+                </div>
+                <!---->
+                <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+     <section>
+      <div class="container reveal fade-bottom">
+        <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <h2> Logika i kritičko razmišljanje</h2>
+        <div class="text-container">
+          <div class="text-box">
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Kritičko razmišljanje</button>
+            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
+              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
+              <p>
+                Kritičko je mišljenje sposobnost jasnog i racionalnog mišljenja, razumijevajući logičku povezanost ideja.
+              </p>
+            </div>
+            <!---->
+            <!---->
+            <button role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Ostalo</button>
+            <div id="newWindow_1" class="newWindow hidden" aria-hidden="true">
+              <button role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()"> X</button>
+              <p>
+                4.7.2. Jezična pragmatika
+
+Iz različitih običnih jezika koje smo učili poznat nam je pojam jezične pragmatike, odnosno discipline unutar lingvistike koja izlazi iz okvira samoga jezika te se bavi odnosom jezika i konteksta u kojem se koristi, a naglasak se stavlja i na pozadinsko znanje govornika. Dakle, jezične pojave koje ćemo ovdje susresti pripadaju pragmatici, a bavit ćemo se presupozicijama i implikaturama.
+Presupozicija
+
+Uzmimo kao primjer rečenicu
+
+Mark je opet zakasnio.
+
+Pretpostavit ćemo da je Marko:
+
+    već ranije kasnio
+    trebao doći na neko dogovoreno mjesto ili online sastanak u dogovoreno vrijeme itd.
+
+Dakle, sve su to pretpostavke koje prešutno podrazumijevamo smatrajući danu rečenicu istinitom. Dakako, ona to ne mora biti, pa Marko može odgovoriti: „Nisam zakasnio, dogovorili smo se da ćemo se naći kasnije.“, ali vodimo se trenutačno time da je dana rečenica istinita. Navedena se jezična pojava naziva presupozicijom (prema engleskome izrazu za pretpostavku).
+
+Presupozicije
+Presupozicije iskaza jesu podatci koje govornik pretpostavlja kako bi dana rečenica imala značenje u trenutnom kontekstu.
+
+Iako o tome tada nismo govorili, prepoznavanje presupozicija bilo nam je važno i u logici prvoga reda jer nam je pomoglo ispravno i jednoznačno zapisati sudove s kojima smo se susretali.
+
+Slijedi još nekoliko primjera rečenica i njihovih presupozicija. Uočite da jedna rečenica može imati više presupozicija, kao i da jedna presupozicija može biti presupozicijom većega broja rečenica.
+Sadašnji kralj Francuske je ćelav.
+Presupozicija: Postoji sadašnji kralj Francuske.
+
+ 
+Marin je požalio što nije učio.
+Presupozicija: Marin nije učio.
+
+ 
+Ana je prestala svirati gitaru.
+Presupozicija: Ana je svirala gitaru.
+
+ 
+Da sam došao ranije, stigao bih na trajekt.
+Presupozicija: Nisam stigao na trajekt.
+
+ 
+Moj mlađi sin rođen je u rujnu.
+Presupozicija: Imam dva sina.
+
+ 
+
+Je li nešto presupozicija određene rečenice ili nije može se lako provjeriti negiranjem rečenice. Primjerice, ako negiramo rečenicu „Ana je prestala svirati gitaru.“ dobivamo „Nije istina da je Ana prestala svirati gitaru.“ ili „Ana nije prestala svirati gitaru.“, a presupozicija je i dalje ista, odnosno da je Ana svirala gitaru (ali možda i da Ana svira gitaru). Ako za negiranu rečenicu i dalje vrijedi ista presupozicija, tada je ona točno određena.
+<img src="Logika_i_kritičko_razmišljanje_1.png">
+Implikatura
+
+Kod presupozicija u rečenici je prešutno bila sadržana neka informacija relevantna za njezino razumijevanje. No, postoje i jezične pojave kod kojih govornici daju manje informacija no što bi bilo očekivano, odnosno iz raznih razloga (primjerice iz pristojnosti) ne kažu eksplicitno ono što misle. Stoga u razgovorima ponekad zaključujemo što je govornik mislio reći ne samo na temelju onoga što je rečeno, već i na temelju onoga što nam se čini da govornik pokušava postići.
+
+Na primjer, ako nekoga pitate: Možeš li mi dodati sol?
+zapravo ne pitate za njegovu sposobnost može li uzeti slanik u ruku i dodati vam ga, nego je to pristojan način da zatražite da vam doda slanik. Takve zaključke nazivamo implikaturama 5
+
+. U njima sugovornik zaključuje što slijedi iz govornikove rečenice ili što implicira govornikova rečenica, vodeći računa o okolnostima u kojima je izgovorena.
+
+Slijedi još nekoliko primjera implikatura.
+Jasna ima trideset godina.
+Implikatura: Jasna ima točno trideset godina.
+
+ 
+Majka govori sinu: "Idem susjedi, vaćam se brzo. Ti promiješaj juhu svakih pola sata."
+Implikatura: Majka se neće brzo vratiti (brzo je relativan pojam).
+
+ 
+Ako si žedan, limunada je u hladnjaku.
+Implikatura: Možeš se poslužiti limunadom.
+
+ 
+Zaboravio sam da danas imamo nadoknadu nastave, a htio sam ići u kino. Mojoj sreći nema kraja.
+Implikatura: Nisam sretan zbog nadoknade nastave.
+
+ 
+Grčka zastava je plavo-bijela.
+Implikatura: Grčka zastava je isključivo plava i bijela (ne sadrži druge boje). 
+<img src="Logika_i_kritičko_razmišljanje_2.png">
+4.7.3. Logička struktura teksta
+
+U svom ste se dosadašnjem obrazovanju, ali i slobodnom vremenu, susretali s različitim vrstama tekstova. Možda vam je ponekad, dok ste čitali članke na internetskim portalima, zasmetalo što je članak „nelogičan“, „očito loše preveden s nekog drugog jezika“ i slično. Možda vam se i pri čitanju beletristike nekad činilo da nešto nema smisla.
+Premise i konkluzija
+
+U ovom ćemo se dijelu baviti logičkom strukturom tekstova različitih vrsta te ćemo vas potaknuti da u tekstovima s kojima se susrećete provjerite koliko „imaju logike“. Isto možete raditi i gledajući filmove.
+
+S pojmovima premisa i konkluzija susretali smo se ranije u ovom udžbeniku, a ovdje ćemo samo naglasiti što je za te pojmove važno kako bismo ih mogli prepoznati u različitim tekstovima s kojima ćemo se susretati.
+
+Premisa
+Premisa je tvrdnja kojom se pretpostavlja da je nešto istinito te se koristi kao potpora za neku drugu tvrdnju (konkluziju).
+
+Na primjer:
+∙ Logika je lagana.
+∙ Ova je kemijska struktura nestabilna.
+∙ Ljudi će do 2039. godine posjetiti Mars.
+
+Premise mogu sadržavati neke od sljedećih izraza (ali nije nužno da sadržavaju ijedan od njih):
+zbog toga što 	kako 	s obzirom na to da
+budući da 	pretpostavljajući da 	jer
+Konkluzija je tvrdnja do koje je moguće doći na temelju premisa, odnosno koju premise podržavaju. Ona je rezultat povezanosti među premisama.
+
+Konkluzijama često prethodi neki od sljedećih izraza:
+stoga 	zato 	dakle
+kao rezultat 	to pokazuje da 	iz toga slijedi da
+naime 	posljedično 	prema tomev
+Dijagramiranje teksta
+
+U nastavku ćemo pogledati nekoliko primjera tekstova u kojima ćemo pronaći premise i konkluziju, te ćemo vidjeti na koji je način iz premisa izvedena konkluzija, pri čemu ćemo se poslužiti metodom dijagramiranja teksta.
+
+Za početak, u sljedećem tekstu odredimo premise i konkluziju, tako da svaku premisu stavimo u uglate zagrade i izvan zagrada napišemo oznaku (P1), (P2), (P3) itd. Konkluziju također stavimo u uglate zagrade te stavimo oznaku (K).
+[Životinje koje se koriste za jelo često se ne drže u humanim uvjetima.] (P1)
+[Životinje boli kada ih se ubija.] (P2)
+[Dokazano je da pretjerana konzumacija životinjskog mesa može uzrokovati različite bolesti, poput kardiovaskularnih.] (P3)
+[Stoga, ljudi bi se trebali što manje konzumirati hranu životinjskog porijekla.] (K)
+<img src="Logika_i_kritičko_razmišljanje_3.png">
+
+Imamo tri premise iz kojih je izvedena konkluzija. To možemo grafički (dijagramom) prikazati na sljedeći način:
+Možemo imati i slučaj kada se radi o međusobno ovisnim premisama, pri čemu više njih daje povezanu argumentaciju. Pogledajmo sljedeći primjer:
+[Učenici ne vole kada im nastavnici ispravljaju testove crvenom kemijskom olovkom.] (P1) [Znanstveno je dokazano da crvena boja na testovima potiče anksioznost kod učenika.] (P2) [Konačno, korištenjem crvene boje smanjuje se povezanost između učenika i nastavnika.] (P3) [Stoga, nastavnici ne bi trebali ispravljati testove crvenom bojom.] (K)
+
+Međusobnu ovisnost premisa prikazujemo vitičastom zagradom:
+<img src="Logika_i_kritičko_razmišljanje_4.png">
+Pogledajmo i slučaj kada su određene premise potkrijepljene drugim premisama, kao u sljedećem tekstu:
+[Globalizacija omogućuje slobodnu trgovinu.] (P1) [Slobodna trgovina omogućuje globalni gospodarski rast.] (P2) [Također, slobodna je trgovina jedina prilika siromašnim zemljama da se ekonomski razvijaju.] (P3) [S druge strane, globalizacija poboljšava otvorenost i toleranciju prema ljudima u ostalim dijelovima svijeta.](P4) [Stoga je globalizacija pozitivna i treba je poticati.] (K)
+
+Dijagram je sljedeći:
+<img src="Logika_i_kritičko_razmišljanje_5.png">
+                </p>
+                </div>
+                <!---->
+                <!---->
+          </div>
+        </div>
+      </div>
+    </section>
+     <section>
+        <div class="container reveal fade-bottom">
+          <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
+            <h3>Alkoholi</h3>
+            <div class="text-container">
+                <div class="text-box">
+                    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Dobivanje alkohola</button>
+    <div id="newWindow_1" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="settings-logo-clipart-2.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 1 Title</h3>
+                    </div>
+                </div>
+                
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image2')">+</button>
+                        <button class="button-87" onclick="zoomOut('image2')">-</button>
+                        <button class="button-87" onclick="resetZoom('image2')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image2" src="settings-logo-clipart-2.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Image 2 Title</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_1')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_1')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_1');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                  Etanol nastaje prirodnim procesom, fermentacijom ili alkoholnim vrenjem djelovanjem enzima kvaščevih gljivica pri čemu šećeri, ugljikohidrati iz voća, prelaze u etanol. <br>
+                  enzimi C8H12O6 2 C2H2OH + 2 CO2 Alkoholnim vrenjem dobivaju se alkoholna pića u kojima je volumni udio etanola do 16 %. <br>
+                  Pića s većim udjelom etanola dobivaju se destilacijom, primjerice, fermentiranoga voćnog soka. <br>
+                  Prekomjerna konzumacija alkohola uzrokuje brojne zdravstvene i društvene probleme. <br>
+                  Najčešći način priprave alkohola jest adicija molekula vode na alkene u kiselim uvjetima.<br> 
+                  Primjerice, etanol se industrijski dobiva adicijom vode na eten pri povišenoj temperaturi i tlaku uz fosfornu kiselinu kao katalizator. =+H2O H3PO4 300 °C, 70 bar <br>
+                  OH Prema Markovnikovljevom pravilu adicijom vode, primjerice na propen, nastat će sekundarni alkohol propan-2-ol.<br>
+                  Primarne alkohole možemo prirediti reakcijama supstitucije primarnih halogenalkana s hidroksidom metala. <br>
+                  Br+ NaOH Δ OH + NaBr 1-brompropan propan-1-ol Oksidacijom alkena s jakim oksidacijskim sredstvima, primjerice kalijevim permanganatom, u lužnatoj sredini nastaju dvovalentni alkoholi, dioli. <br>
+                  он 3+2 KMnO4 + 4 H2O зно 0°C ljubičasta otopina OH + 2 MnO2+2 KOH smeđa otopina<br>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_2');lockA()">Kemijska svojstva alkohola</button>
+    <div id="newWindow_2" class="newWindow">
+        <div class="window-column">
+            <div class="image-header">
+                <h3>Images</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_2');unlock()">Close Window</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image1')">+</button>
+                        <button class="button-87" onclick="zoomOut('image1')">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="Alkoholi_1.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>SLIKA 1</h3>
+                    </div>
+                </div>
+                
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onclick="zoomIn('image2')">+</button>
+                        <button class="button-87" onclick="zoomOut('image2')">-</button>
+                        <button class="button-87" onclick="resetZoom('image2')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image2" src="Alkoholi_2.png" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>SLIKA 2</h3>
+                    </div>
+                </div>
+
+                <div class="image-square">
+                  <div class="image-controls">
+                      <button class="button-87" onclick="zoomIn('image3')">+</button>
+                      <button class="button-87" onclick="zoomOut('image3')">-</button>
+                      <button class="button-87" onclick="resetZoom('image3')">Reset</button>
+                  </div>
+                  <div class="image-display">
+                      <img id="image3" src="Alkoholi_3.png" class="zoomable-image">
+                  </div>
+                  <div class="image-info">
+                      <h3>SLIKA 3</h3>
+                  </div>
+              </div>
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_2')">+</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_2')">-</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_2')">Reset</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_2')">🖼️ ↔</button>
+                </div>
+                <div class="close-button-container">
+                    <button class="button-87" onclick="toggleWindow('newWindow_2');unlock()">Close</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <p class="zoomable-text">
+                  Alkoholi su kemijski reaktivni te od njih možemo pripremiti različite organske spojeve, primjerice alkokside, halogenalkane, alkene, aldehide, ketone i druge. <br>
+                  Reakcije alkohola s metalima Zbog polarnosti hidroksilne skupine alkoholi reagiraju kao slabe kiseline. <br>
+                  U tim reakcijama proton hidroksilne skupine može se supstituirati (zamijeniti) ionom alkalijskoga metala (natrijem ili kalijem). <br>
+                  Produkti tih reakcija ionski su spojevi -alkoksidi (SLIKA 1)<br>
+                  Reakcijom etanola i natrija nastaju natrijev etoksid i vodik. <br>
+                  2 CH2CH2OH + 2 Na - 2 CH,CH,O Na + H natrijev etoksid vodik <br>
+                  Zbog reakcije hidrolize vodena je otopina natrijeva etoksida lužnata. <br>
+                  CHỊCH,ONa + HẠO CH,CH2OH+Na+ OH Mentol je alkohol molekulske formule CH20. <br>
+                  Ima karakterističan miris i rashlađujući okus. Može se pripremiti sintetičkim putom ili ekstrakcijom iz metvice. <br>
+                  Upotrebljava se u prehrambenoj industriji za proizvodnju bombona i čaja te u kozmetičkoj industriji za proizvodnju parfema, sapuna i pasti za zube. <br>
+                  Mentol ima brojna ljekovita svojstva te poboljšava koncentraciju. <br>
+                  SLIKA 2<br>
+                  Postoje brojna istraživanja koja potvrđuju da miris mentola ima pozitivan učinak na brzinu i točnost prilikom rješavanja zadataka na ispitima. <br>
+                  Kreme na bazi mentola upotrebljavaju se protiv migrene i prehlade. Istražite učinak mentola na receptore u koži zbog kojega se javlja osjećaj hlađenja. <br>
+                  Reakcije alkohola s halogenovodikom <br>
+                  Reakcije alkohola s halogenovodikom jesu reakcije supstitucije u kojima su produkti halogenalkani i voda. <br>
+                  Hidroksilna skupina alkohola zamjenjuje se atomom halogenoga elementa. <br>
+                  Najbrže se zbivaju reakcije s tercijarnim alkoholima, a od halogenovodika najčešće su reakcije s klorovodikom i bromovodikom. <br>
+                  Reakcije primarnih i sekundarnih alkohola s HCI i HBr spore su, ali se mogu ubrzati zagrijavanjem. (SLIKA 3)<br>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!---->
+    </div>
+    </div>
+    </div>
     </section>
     <!---->
     <!---->

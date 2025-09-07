@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Page Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: #f0f0f0;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: rgba(10, 15, 35, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(100, 200, 255, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            background: linear-gradient(to right, #64e3ff, #9192ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 700px;
+            position: relative;
+        }
+
+        #search {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            border-radius: 50px;
+            border: none;
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        #search:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 20px rgba(100, 200, 255, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #64e3ff;
+        }
+
+        .search-results {
+            margin-top: 20px;
+            background: rgba(10, 15, 35, 0.6);
+            border-radius: 15px;
+            padding: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+
+        .result-item {
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: rgba(30, 40, 80, 0.4);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .result-item:hover {
+            background: rgba(100, 200, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .result-icon {
+            font-size: 1.2rem;
+            color: #64e3ff;
+        }
+
+        .result-type {
+            font-size: 0.8rem;
+            background: rgba(100, 200, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: auto;
+        }
+
+        .content-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .content-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .content-section {
+            background: rgba(10, 15, 35, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(100, 200, 255, 0.2);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #64e3ff;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(100, 200, 255, 0.3);
+        }
+
+        .content-item {
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(20, 30, 60, 0.4);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .content-item:hover {
+            background: rgba(30, 45, 90, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .item-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #ffb84d;
+        }
+
+        b, strong {
+            color: #ffb84d;
+            background: rgba(255, 184, 77, 0.1);
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .action-btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #00c2cb, #64e3ff);
+            border: none;
+            border-radius: 50px;
+            color: #0f172a;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(0, 194, 203, 0.4);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 194, 203, 0.6);
+        }
+
+        .highlight {
+            animation: highlight 2s ease;
+            background: rgba(255, 255, 0, 0.3);
+            border-radius: 4px;
+        }
+
+        @keyframes highlight {
+            0% { background: rgba(255, 255, 0, 0.8); }
+            70% { background: rgba(255, 255, 0, 0.8); }
+            100% { background: rgba(255, 255, 0, 0.3); }
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: #ff7e5f;
+            font-style: italic;
+        }
+
+        .search-stats {
+            text-align: center;
+            padding: 10px;
+            color: #64e3ff;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(100, 200, 255, 0.2);
+        }
+
+        /* Scrollbar styling */
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: rgba(10, 15, 35, 0.3);
+            border-radius: 4px;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: #64e3ff;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Enhanced Page Search</h1>
+                <p>Search for bold text and element IDs, then navigate directly to them</p>
+                
+                <div class="search-bar">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="search" placeholder="Search for bold text or element IDs...">
+                    <div class="search-results" id="search-results"></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-container">
+            <div class="content-section">
+                <h2 class="section-title">Important Concepts</h2>
+                
+                <div class="content-item">
+                    <h3 class="item-title">Web Development</h3>
+                    <p><b>HTML5</b> provides the structure of our pages, <b>CSS3</b> controls the presentation, and <b>JavaScript</b> adds interactivity. Together they form the foundation of modern web applications.</p>
+                </div>
+                
+                <div class="content-item">
+                    <h3 class="item-title">Responsive Design</h3>
+                    <p>With the variety of devices today, <b>responsive web design</b> is essential. Using <b>flexbox</b> and <b>grid</b> layouts ensures your content looks great on any screen size.</p>
+                </div>
+                
+                <div class="content-item">
+                    <h3 class="item-title">Performance Optimization</h3>
+                    <p>Website <b>performance</b> directly impacts user experience and SEO. Techniques like <b>lazy loading</b>, <b>image optimization</b>, and <b>code splitting</b> can dramatically improve load times.</p>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2 class="section-title">Action Center</h2>
+                
+                <div class="content-item">
+                    <h3 class="item-title">Page Actions</h3>
+                    <p>Use these buttons to perform various actions on the page. Each button has a unique ID that can be searched for.</p>
+                    
+                    <div class="buttons-container">
+                        <button id="printBtn" class="action-btn">
+                            <i class="fas fa-print"></i> Print Page
+                        </button>
+                        <button id="themeBtn" class="action-btn">
+                            <i class="fas fa-moon"></i> Toggle Theme
+                        </button>
+                        <button id="refreshBtn" class="action-btn">
+                            <i class="fas fa-sync-alt"></i> Refresh Content
+                        </button>
+                        <button id="helpBtn" class="action-btn">
+                            <i class="fas fa-question-circle"></i> Get Help
+                        </button>
+                        <button id="shareBtn" class="action-btn">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                        <button id="downloadBtn" class="action-btn">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <h3 class="item-title">JavaScript Concepts</h3>
+                    <p>Modern JavaScript includes powerful features like <b>async/await</b> for handling asynchronous operations, <b>arrow functions</b> for concise syntax, and <b>destructuring</b> for working with objects and arrays.</p>
+                </div>
+                
+                <div class="content-item">
+                    <h3 class="item-title">Security Practices</h3>
+                    <p>Always implement <b>HTTPS</b> to secure data in transit. For authentication, use <b>OAuth 2.0</b> or <b>JWT</b> tokens. Protect against <b>XSS</b> and <b>CSRF</b> attacks by validating and sanitizing all user input.</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Enhanced Page Search | Search for bold text and element IDs</p>
+            <p>Try searching for: "HTML5", "flexbox", "printBtn", or "security"</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search');
+            const searchResults = document.getElementById('search-results');
+            
+            // Sample data for demonstration
+            const elementsWithIds = [
+                { id: 'printBtn', text: 'Print Page Button', type: 'button' },
+                { id: 'themeBtn', text: 'Toggle Theme Button', type: 'button' },
+                { id: 'refreshBtn', text: 'Refresh Content Button', type: 'button' },
+                { id: 'helpBtn', text: 'Get Help Button', type: 'button' },
+                { id: 'shareBtn', text: 'Share Button', type: 'button' },
+                { id: 'downloadBtn', text: 'Download Button', type: 'button' }
+            ];
+            
+            // Function to find bold text on the page
+            function findBoldText() {
+                const boldElements = Array.from(document.querySelectorAll('b, strong'));
+                return boldElements.map(el => ({
+                    element: el,
+                    text: el.textContent,
+                    type: 'bold text'
+                }));
+            }
+            
+            // Function to search for matching items
+            function searchItems(query) {
+                const results = [];
+                const lowerQuery = query.toLowerCase().trim();
+                
+                if (!lowerQuery) return [];
+                
+                // Search bold text
+                const boldItems = findBoldText();
+                for (const item of boldItems) {
+                    if (item.text.toLowerCase().includes(lowerQuery)) {
+                        results.push({
+                            element: item.element,
+                            text: item.text,
+                            type: 'bold text'
+                        });
+                    }
+                }
+                
+                // Search elements with IDs
+                for (const item of elementsWithIds) {
+                    if (item.id.toLowerCase().includes(lowerQuery) || 
+                        item.text.toLowerCase().includes(lowerQuery)) {
+                        const element = document.getElementById(item.id);
+                        if (element) {
+                            results.push({
+                                element: element,
+                                text: item.text,
+                                type: 'element ID'
+                            });
+                        }
+                    }
+                }
+                
+                return results;
+            }
+            
+            // Function to display search results
+            function displayResults(results, query) {
+                searchResults.innerHTML = '';
+                
+                if (results.length === 0) {
+                    searchResults.innerHTML = '<div class="no-results">No results found for "' + query + '"</div>';
+                    searchResults.style.display = 'block';
+                    return;
+                }
+                
+                // Show search stats
+                const stats = document.createElement('div');
+                stats.className = 'search-stats';
+                stats.textContent = results.length + ' result' + (results.length !== 1 ? 's' : '') + ' for "' + query + '"';
+                searchResults.appendChild(stats);
+                
+                // Add results
+                results.forEach(result => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'result-item';
+                    
+                    const icon = document.createElement('i');
+                    icon.className = result.type === 'bold text' ? 
+                        'fas fa-bold result-icon' : 'fas fa-hashtag result-icon';
+                    
+                    const text = document.createElement('span');
+                    text.textContent = result.text;
+                    
+                    const type = document.createElement('span');
+                    type.className = 'result-type';
+                    type.textContent = result.type;
+                    
+                    resultItem.appendChild(icon);
+                    resultItem.appendChild(text);
+                    resultItem.appendChild(type);
+                    
+                    resultItem.addEventListener('click', () => {
+                        // Highlight the target element
+                        result.element.classList.add('highlight');
+                        
+                        // Scroll to the element
+                        result.element.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                        
+                        // Remove highlight after animation completes
+                        setTimeout(() => {
+                            result.element.classList.remove('highlight');
+                        }, 2000);
+                        
+                        // Clear search
+                        searchInput.value = '';
+                        searchResults.style.display = 'none';
+                    });
+                    
+                    searchResults.appendChild(resultItem);
+                });
+                
+                searchResults.style.display = 'block';
+            }
+            
+            // Event listeners
+            searchInput.addEventListener('input', function() {
+                const query = this.value.trim();
+                
+                if (query.length < 2) {
+                    searchResults.style.display = 'none';
+                    return;
+                }
+                
+                const results = searchItems(query);
+                displayResults(results, query);
+            });
+            
+            searchInput.addEventListener('focus', function() {
+                const query = this.value.trim();
+                if (query.length >= 2) {
+                    const results = searchItems(query);
+                    displayResults(results, query);
+                }
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (!searchResults.contains(e.target)) {
+                    searchResults.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

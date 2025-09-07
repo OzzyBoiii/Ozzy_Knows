@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osnovni zigled Stranice (GLAVNI PREDMET)</title>
+    <style>
+        /* GLOBAL STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Asap", sans-serif;
+        }
+
+        body {
+            background-image: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            background-attachment: fixed;
+            font-weight: bold;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* FLEXIBLE WEBSITE */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* BUTTON STYLES */
+        .button-87 {
+            margin: 10px;
+            padding: 15px 30px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            border-radius: 10px;
+            display: inline-block;
+            border: 0px;
+            font-weight: 700;
+            box-shadow: 0px 0px 14px -7px #f09819;
+            background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .button-87:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .button-87:active {
+            transform: scale(0.95);
+        }
+
+        /* SCROLLING ANIMATION */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Asap", sans-serif;
+        }
+        body {
+          background-image: url(Background_Image.png);
+        background-size: contain;
+        background-repeat: repeat;
+        background-attachment: fixed;
+        font-weight: bold;
+        background-blend-mode:multiply;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #555;
+        }
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        section .container {
+            margin: 100px;
+        }
+        section h1 {
+            font-size: 3rem;
+            margin: 20px;
+        }
+        section h2 {
+            font-size: 40px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        section .text-container {
+            display: flex;
+        }
+        section .text-container .text-box {
+            margin: 20px;
+            padding: 20px;
+            background: #00c2cb;
+        }
+        section .text-container .text-box h3 {
+            font-size: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 900px) {
+            section h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
+            section .text-container {
+                flex-direction: column;
+            }
+        }
+        .reveal {
+            position: relative;
+            opacity: 0;
+        }
+        .reveal.active {
+            opacity: 1;
+        }
+        .active.fade-bottom {
+            animation: fade-bottom 1s ease-in;
+        }
+        .active.fade-left {
+            animation: fade-left 1s ease-in;
+        }
+        .active.fade-right {
+            animation: fade-right 1s ease-in;
+        }
+        @keyframes fade-bottom {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fade-left {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fade-right {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* TEXT CONTAINER STYLES */
+        .text-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .text-box {
+            background: rgba(0, 194, 203, 0.85);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            max-width: 100%;
+        }
+
+        .text-box:hover {
+            transform: translateY(-10px);
+        }
+
+        @media (max-width: 900px) {
+            section h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
+            .text-container {
+                flex-direction: column;
+            }
+        }
+
+        /* NEW WINDOW STYLES */
+        .newWindow {
+            position: fixed;
+            top: 5%;
+            left: 5%;
+            height: 90%;
+            width: 90%;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border: 2px solid #ff9800;
+            display: none;
+            grid-template-columns: 35% 65%;
+            grid-template-areas: "images content";
+            padding: 15px;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        
+        .newWindow.active {
+            display: grid;
+            animation: popIn 0.5s ease-out;
+        }
+        
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .newWindow.swapped {
+            grid-template-columns: 65% 35%;
+            grid-template-areas: "content images";
+        }
+        
+        /* MODIFIED: Full window for no-images mode */
+        .newWindow.no-images {
+            grid-template-columns: 100%;
+            grid-template-areas: "content";
+        }
+        
+        .newWindow.no-images .window-column {
+            display: none;
+        }
+        
+        .window-column {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            grid-area: images;
+            justify-content: flex-start;
+            align-items: center;
+            border-right: 2px solid rgba(255,255,255,0.1);
+            padding: 0 15px;
+        }
+        
+        .title-grid-container {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 10px;
+            background: rgba(0, 0, 0, 0.3);
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .title-grid-container h3 {
+            text-align: center;
+            margin: 0;
+            color: #ffeb3b;
+            font-size: 1.4rem;
+        }
+        
+        .image-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            max-width: 800px;
+            height: calc(100vh - 200px);
+        }
+        
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            padding: 0 15px;
+            grid-area: content;
+        }
+        
+        /* MODIFIED: Full height for content in no-images mode */
+        .newWindow.no-images .content-container {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+        }
+
+        .text-controls-container {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .text-zoom-controls {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .layout-controls {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .text-content {
+            padding: 30px;
+            overflow: auto;
+            background: rgba(0,0,0,0.2);
+            border-radius: 15px;
+            height: 100%;
+            text-align: center;
+        }
+        
+        /* MODIFIED: Full height for text content in no-images mode */
+        .newWindow.no-images .text-content {
+            height: calc(100% - 60px);
+        }
+
+        .zoomable-text {
+            display: inline-block;
+            max-width: 90%;
+            margin: 0 auto;
+            font-size: 1.2em;
+            color: #fff;
+            line-height: 1.8;
+            text-align: left;
+            padding: 0 20px;
+        }
+
+        .close-button-container {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+        
+        .image-square {
+            height: 400px;
+            width: 100%;
+            min-width: 400px;
+            flex-shrink: 0;
+            border: 2px solid #ff9800;
+            overflow: hidden;
+            border-radius: 15px;
+            background: rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .image-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            padding: 10px;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .image-controls .button-87 {
+            padding: 8px 12px;
+            margin: 0;
+            font-size: 0.8em;
+        }
+
+        .image-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: scroll;
+            cursor: grab;
+            height: 300px;
+            padding: 15px;
+        }
+        
+        .image-display img {
+            max-width: 100%;
+            max-height: 100%;
+            transition: transform 0.3s ease;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .image-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            text-align: center;
+            background: rgba(0,0,0,0.4);
+        }
+
+        .image-info h3 {
+            font-size: 1.3rem;
+            padding: 5px;
+            margin: 0;
+            line-height: 1.2;
+            color: #ffeb3b;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* HEADER STYLES */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            border-bottom: 3px solid #ff9800;
+        }
+
+        h1, h2, h3 {
+            text-shadow: 0 3px 6px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-top: 20px;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: #ffeb3b;
+        }
+
+        /* SECTION STYLES */
+        .section-header {
+            text-align: center;
+            padding: 30px;
+            margin: 40px 0;
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            border: 2px solid #ff9800;
+        }
+
+        /* FORMULA STYLES */
+        .formula {
+            font-size: 1.8rem;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            display: inline-block;
+        }
+        
+        .example-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+        }
+        
+        .example-step {
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 3px solid #ff9800;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        /* RESPONSIVE ADJUSTMENTS */
+        @media (max-width: 768px) {
+            .newWindow {
+                width: 95%;
+                left: 2.5%;
+                grid-template-columns: 100%;
+                grid-template-areas: "content";
+            }
+            
+            .window-column {
+                display: none;
+            }
+            
+            .text-controls-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .image-square {
+                height: 300px;
+                min-width: 300px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .zoomable-text {
+                padding: 0;
+                max-width: 100%;
+            }
+        }
+        
+        /* Close button in text controls for no-image mode */
+        .text-close-button {
+            display: none;
+        }
+        
+        .newWindow.no-images .text-close-button {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+            <h1>Osnovni izgled Stranice (GLAVNI PREDMET)</h1>
+            <div class="text-container">
+                <button class="button-87" role="button">Close Page</button>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <section>
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2>Point to Line Distance Calculator</h2>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <button class="button-87" role="button" onclick="toggleWindow('newWindow_1')">Open Visualization</button>
+                    <p>The distance from a point to a line is the shortest distance between the point and any point on the line.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2>Point to Line Distance Calculator</h2>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <button class="button-87" role="button" onclick="toggleWindow('newWindow_1')">Open Visualization</button>
+                    <p>The distance from a point to a line is the shortest distance between the point and any point on the line.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visualization Window -->
+    <div id="newWindow_1" class="newWindow">
+        <div class="window-column">
+            <div class="title-grid-container">
+                <h3>Distance Formula Visualizations</h3>
+                <button class="button-87" onclick="toggleWindow('newWindow_1')">Close</button>
+            </div>
+            <div class="image-container">
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onmousedown="startZoom('in', 'image1')" onmouseup="stopZoom()" onmouseleave="stopZoom()">+</button>
+                        <button class="button-87" onmousedown="startZoom('out', 'image1')" onmouseup="stopZoom()" onmouseleave="stopZoom()">-</button>
+                        <button class="button-87" onclick="resetZoom('image1')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image1" src="https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Geometric+Representation" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Geometric Representation</h3>
+                    </div>
+                </div>
+                
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" onmousedown="startZoom('in', 'image2')" onmouseup="stopZoom()" onmouseleave="stopZoom()">+</button>
+                        <button class="button-87" onmousedown="startZoom('out', 'image2')" onmouseup="stopZoom()" onmouseleave="stopZoom()">-</button>
+                        <button class="button-87" onclick="resetZoom('image2')">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img id="image2" src="https://via.placeholder.com/600x400/2a5298/ffffff?text=Perpendicular+Construction" class="zoomable-image">
+                    </div>
+                    <div class="image-info">
+                        <h3>Perpendicular Construction</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="text-controls-container">
+                <div class="text-zoom-controls">
+                    <button class="button-87" onclick="zoomInText('newWindow_1')">Text +</button>
+                    <button class="button-87" onclick="zoomOutText('newWindow_1')">Text -</button>
+                    <button class="button-87" onclick="resetZoomText('newWindow_1')">Reset</button>
+                    <button class="button-87 text-close-button" onclick="toggleWindow('newWindow_1')">Close</button>
+                </div>
+                <div class="layout-controls">
+                    <button class="button-87" onclick="cycleLayout('newWindow_1')">🖼️ ↔</button>
+                </div>
+            </div>
+            <div class="text-content">
+                <div class="zoomable-text">
+                    <h3>Distance from a Point to a Line</h3>
+                    <p>The distance from a point to a line is the shortest distance between the point and any point on the line. To find this distance:</p>
+                    
+                    <ol>
+                        <li>Drop a perpendicular from the point to the line</li>
+                        <li>Find the intersection point P of this perpendicular with the line</li>
+                        <li>The distance is the length of the segment TP</li>
+                    </ol>
+                    
+                    <p>Given a point T(x₀,y₀) and a line Ax + By + C = 0, the distance d is calculated by:</p>
+                    
+                    <div class="formula">
+                        d = |Ax₀ + By₀ + C| / √(A² + B²)
+                    </div>
+                    
+                    <p>This formula can be verified by considering the area of the triangle formed by the line and the coordinate axes, or through vector projection methods.</p>
+                    
+                    <div class="example-box">
+                        <h3>Example Calculation</h3>
+                        <p>Given point T(2,3) and line 3x + 4y - 5 = 0:</p>
+                        <div class="example-step">
+                            d = |3×2 + 4×3 - 5| / √(3² + 4²)
+                        </div>
+                        <div class="example-step">
+                            d = |6 + 12 - 5| / √(9 + 16)
+                        </div>
+                        <div class="example-step">
+                            d = |13| / √25
+                        </div>
+                        <div class="example-step">
+                            d = 13 / 5 = 2.6
+                        </div>
+                    </div>
+                    
+                    <h3>Geometric Derivation</h3>
+                    <p>This formula can be verified by considering the area of the triangle formed by the line and the coordinate axes. The line Ax + By + C = 0 intersects the x-axis at M(-C/A, 0) and the y-axis at N(0, -C/B).</p>
+                    
+                    <p>The area of triangle MTN can be calculated in two ways:</p>
+                    
+                    <div class="example-step">
+                        Area = 1/2 |(-C/A)(-C/B - y₀) + x₀·(C/B)| = 1/2 |(C/AB)(Ax₀ + By₀ + C)|
+                    </div>
+                    
+                    <p>Alternatively, using the distance formula:</p>
+                    
+                    <div class="example-step">
+                        Area = 1/2 × |MN| × d = 1/2 × √(C²/A² + C²/B²) × d
+                    </div>
+                    
+                    <p>Setting these equal gives:</p>
+                    
+                    <div class="example-step">
+                        1/2 × |C/AB| × |Ax₀ + By₀ + C| = 1/2 × |C/AB| × √(A² + B²) × d
+                    </div>
+                    
+                    <p>Which simplifies to the distance formula.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       // Scroll reveal animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal, { passive: true });
+        reveal(); // Initialize
+        
+        // ZOOM FUNCTIONALITY
+        let zoomInterval;
+        const ZOOM_SPEED = 0.1;
+        let imageScales = {};
+        let textScales = {};
+        let isDragging = false;
+        let startPos = { x: 0, y: 0 };
+        let scrollPos = { x: 0, y: 0 };
+        let currentImageId = null;
+
+        function startZoom(action, imageId) {
+            const zoomFn = action === 'in' ? zoomIn : zoomOut;
+            zoomFn(imageId);
+            zoomInterval = setInterval(() => zoomFn(imageId), 100);
+        }
+
+        function stopZoom() {
+            clearInterval(zoomInterval);
+        }
+
+        function resetAllZooms() {
+            const images = document.querySelectorAll('.zoomable-image');
+            images.forEach(img => {
+                img.style.transform = 'scale(1)';
+                imageScales[img.id] = 1;
+                img.parentElement.scrollTo(0, 0);
+            });
+            
+            const textElements = document.querySelectorAll('.zoomable-text');
+            textElements.forEach(text => {
+                text.style.fontSize = '1em';
+                textScales[text.closest('.newWindow').id] = 1;
+                text.parentElement.scrollTo(0, 0);
+            });
+        }
+
+        function zoomIn(imageId) {
+            if (!imageScales[imageId]) imageScales[imageId] = 1;
+            imageScales[imageId] += ZOOM_SPEED;
+            const image = document.getElementById(imageId);
+            image.style.transform = `scale(${imageScales[imageId]})`;
+        }
+
+        function zoomOut(imageId) {
+            if (!imageScales[imageId]) imageScales[imageId] = 1;
+            imageScales[imageId] = Math.max(0.5, imageScales[imageId] - ZOOM_SPEED);
+            const image = document.getElementById(imageId);
+            image.style.transform = `scale(${imageScales[imageId]})`;
+        }
+
+        function resetZoom(imageId) {
+            imageScales[imageId] = 1;
+            const image = document.getElementById(imageId);
+            image.style.transform = 'scale(1)';
+            image.parentElement.scrollTo(0, 0);
+        }
+
+        function zoomInText(windowId) {
+            if (!textScales[windowId]) textScales[windowId] = 1;
+            textScales[windowId] += 0.1;
+            document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
+                text.style.fontSize = `${textScales[windowId]}em`;
+            });
+        }
+
+        function zoomOutText(windowId) {
+            if (!textScales[windowId]) textScales[windowId] = 1;
+            textScales[windowId] = Math.max(0.5, textScales[windowId] - 0.1);
+            document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
+                text.style.fontSize = `${textScales[windowId]}em`;
+            });
+        }
+
+        function resetZoomText(windowId) {
+            textScales[windowId] = 1;
+            document.querySelectorAll(`#${windowId} .zoomable-text`).forEach(text => {
+                text.style.fontSize = '1em';
+                text.parentElement.scrollTo(0, 0);
+            });
+        }
+
+        // WINDOW MANAGEMENT
+        function toggleWindow(windowId) {
+            const windowToToggle = document.getElementById(windowId);
+            windowToToggle.classList.toggle('active');
+            document.body.style.overflow = windowToToggle.classList.contains('active') ? 'hidden' : '';
+            
+            if(windowToToggle.classList.contains('active')) {
+                resetAllZooms();
+            }
+        }
+
+        // MODIFIED LAYOUT CYCLING FUNCTION
+        let layoutStates = ['default', 'swapped', 'no-images'];
+        let currentLayoutIndex = 0;
+        
+        function cycleLayout(windowId) {
+            const window = document.getElementById(windowId);
+            const imageContainer = window.querySelector('.image-container');
+            
+            // Remove all layout classes
+            window.classList.remove('swapped', 'no-images');
+            
+            // Get next layout state
+            currentLayoutIndex = (currentLayoutIndex + 1) % layoutStates.length;
+            const nextLayout = layoutStates[currentLayoutIndex];
+            
+            // Apply new layout only if images exist
+            if (imageContainer.children.length > 0) {
+                if (nextLayout !== 'default') {
+                    window.classList.add(nextLayout);
+                }
+            } 
+            // STRICT CONDITION: Only use no-images mode if no images
+            else {
+                window.classList.add('no-images');
+                currentLayoutIndex = layoutStates.indexOf('no-images');
+            }
+        }
+
+        // IMAGE DRAGGING
+        document.addEventListener('mousedown', (e) => {
+            if (e.target.closest('.image-display')) {
+                isDragging = true;
+                startPos = {
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                const container = e.target.closest('.image-display');
+                scrollPos = {
+                    x: container.scrollLeft,
+                    y: container.scrollTop
+                };
+                container.style.cursor = 'grabbing';
+                currentImageId = container.querySelector('img').id;
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            const dx = e.clientX - startPos.x;
+            const dy = e.clientY - startPos.y;
+            
+            const container = document.querySelector(`#${currentImageId}`).parentElement;
+            container.scrollLeft = scrollPos.x - dx;
+            container.scrollTop = scrollPos.y - dy;
+            
+            e.preventDefault();
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            const containers = document.querySelectorAll('.image-display');
+            containers.forEach(container => {
+                container.style.cursor = 'grab';
+            });
+            currentImageId = null;
+        });
+
+        // Close new windows when clicking outside
+        document.addEventListener('click', function(event) {
+            const newWindows = document.querySelectorAll('.newWindow');
+            newWindows.forEach(window => {
+                if (window.classList.contains('active') && 
+                    !window.contains(event.target) && 
+                    !event.target.matches('.button-87[onclick*="toggleWindow"]')) {
+                    toggleWindow(window.id);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

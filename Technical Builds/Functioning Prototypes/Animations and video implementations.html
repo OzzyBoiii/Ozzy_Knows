@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloaded Media Showcase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #e6e6e6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            background: rgba(30, 30, 50, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #ff7e5f;
+        }
+        
+        .section-header i {
+            font-size: 2rem;
+            margin-right: 15px;
+            color: #ff7e5f;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            color: #ffb997;
+        }
+        
+        .embed-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+        
+        .embed-item {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .embed-item:hover {
+            box-shadow: 0 12px 25px rgba(255, 126, 95, 0.3);
+        }
+        
+        .embed-title {
+            padding: 15px 20px;
+            background: rgba(40, 40, 70, 0.9);
+            font-size: 1.3rem;
+            color: #feb47b;
+            text-align: center;
+        }
+        
+        .embed-content {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .responsive-iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
+            border-radius: 8px;
+        }
+        
+        .gif-container, .video-container, .lottie-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .gif-container img, .video-container video {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .lottie-container lottie-player {
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        .download-section {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid #ff7e5f;
+        }
+        
+        .download-instructions {
+            margin-bottom: 15px;
+        }
+        
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 126, 95, 0.4);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .tip {
+            background: rgba(255, 126, 95, 0.2);
+            border-left: 4px solid #ff7e5f;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.7rem;
+            }
+            
+            .embed-item {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Downloaded Media Showcase</h1>
+        <p class="subtitle">How to download and implement animations and videos on your website</p>
+    </header>
+    
+    <div class="container">
+        <!-- GIFs Section -->
+        <div class="section">
+            <div class="section-header">
+                <i class="fas fa-film"></i>
+                <h2>Animated GIFs</h2>
+            </div>
+            
+            <div class="tip">
+                <p>To use GIFs: Right-click → "Save Image As" → Place in your project folder → Reference with an <code>&lt;img&gt;</code> tag</p>
+            </div>
+            
+            <div class="embed-container">
+                <div class="embed-item">
+                    <div class="embed-title">Space Animation</div>
+                    <div class="embed-content">
+                        <div class="gif-container">
+                            <img src="https://media.giphy.com/media/l0HlG8vJXW0gO6vC0/giphy.gif" alt="Space GIF">
+                        </div>
+                        <div class="download-section">
+                            <div class="download-instructions">
+                                <p><i class="fas fa-download"></i> Save this GIF to your computer:</p>
+                            </div>
+                            <a href="https://media.giphy.com/media/l0HlG8vJXW0gO6vC0/giphy.gif" download class="download-button">
+                                Download GIF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="embed-item">
+                    <div class="embed-title">Abstract Art</div>
+                    <div class="embed-content">
+                        <div class="gif-container">
+                            <img src="https://media.giphy.com/media/3o7TKsQ8UQ4l4LhGz6/giphy.gif" alt="Abstract GIF">
+                        </div>
+                        <div class="download-section">
+                            <div class="download-instructions">
+                                <p><i class="fas fa-download"></i> Save this GIF to your computer:</p>
+                            </div>
+                            <a href="https://media.giphy.com/media/3o7TKsQ8UQ4l4LhGz6/giphy.gif" download class="download-button">
+                                Download GIF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Lottie Animations Section -->
+        <div class="section">
+            <div class="section-header">
+                <i class="fas fa-magic"></i>
+                <h2>Lottie Animations</h2>
+            </div>
+            
+            <div class="tip">
+                <p>Download the JSON file → Place in your project → Reference with <code>&lt;lottie-player&gt;</code></p>
+            </div>
+            
+            <div class="embed-container">
+                <div class="embed-item">
+                    <div class="embed-title">Confetti Celebration</div>
+                    <div class="embed-content">
+                        <div class="lottie-container">
+                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_obhph3sh.json" background="transparent" speed="1" style="width: 100%; height: 300px;" loop autoplay></lottie-player>
+                        </div>
+                        <div class="download-section">
+                            <div class="download-instructions">
+                                <p><i class="fas fa-download"></i> Save this Lottie JSON file:</p>
+                            </div>
+                            <a href="https://assets1.lottiefiles.com/packages/lf20_obhph3sh.json" download="confetti.json" class="download-button">
+                                Download JSON
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="embed-item">
+                    <div class="embed-title">Astronaut in Space</div>
+                    <div class="embed-content">
+                        <div class="lottie-container">
+                            <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_9LQ2Dc.json" background="transparent" speed="1" style="width: 100%; height: 300px;" loop autoplay></lottie-player>
+                        </div>
+                        <div class="download-section">
+                            <div class="download-instructions">
+                                <p><i class="fas fa-download"></i> Save this Lottie JSON file:</p>
+                            </div>
+                            <a href="https://assets5.lottiefiles.com/packages/lf20_9LQ2Dc.json" download="astronaut.json" class="download-button">
+                                Download JSON
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- HTML5 Video Section -->
+        <div class="section">
+            <div class="section-header">
+                <i class="fas fa-video"></i>
+                <h2>HTML5 Video</h2>
+            </div>
+            
+            <div class="tip">
+                <p>Download MP4 files → Place in your project → Reference with <code>&lt;video&gt;</code> tag</p>
+            </div>
+            
+            <div class="embed-container">
+                <div class="embed-item">
+                    <div class="embed-title">Nature Video</div>
+                    <div class="embed-content">
+                        <div class="video-container">
+                            <video class="responsive-iframe" controls>
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-shot-of-a-river-in-a-forest-4151-large.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="download-section">
+                            <div class="download-instructions">
+                                <p><i class="fas fa-download"></i> Save this MP4 video:</p>
+                            </div>
+                            <a href="https://assets.mixkit.co/videos/preview/mixkit-aerial-shot-of-a-river-in-a-forest-4151-large.mp4" download="nature.mp4" class="download-button">
+                                Download MP4
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="embed-item">
+                    <div class="embed-title">Abstract Animation</div>
+                    <div class="embed-content">
+                        <div class="video-container">
+                            <video class="responsive-iframe" controls>
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-geometric-pattern-rotating-in-colors-34605-large.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="download-section">
+                            <div class="download-instructions">
+                                <p><i class="fas fa-download"></i> Save this MP4 video:</p>
+                            </div>
+                            <a href="https://assets.mixkit.co/videos/preview/mixkit-geometric-pattern-rotating-in-colors-34605-large.mp4" download="abstract.mp4" class="download-button">
+                                Download MP4
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Implementation Guide -->
+        <div class="section">
+            <div class="section-header">
+                <i class="fas fa-code"></i>
+                <h2>Implementation Guide</h2>
+            </div>
+            
+            <div class="tip">
+                <p>After downloading files, place them in your project folder and reference them locally</p>
+            </div>
+            
+            <div class="embed-container">
+                <div class="embed-item">
+                    <div class="embed-title">HTML Implementation</div>
+                    <div class="embed-content">
+                        <pre style="background: #1e1e2d; padding: 20px; border-radius: 8px; overflow: auto; width: 100%;">
+&lt;!-- GIF Example --&gt;
+&lt;img src="assets/gifs/space.gif" alt="Space animation"&gt;
+
+&lt;!-- Lottie Animation --&gt;
+&lt;lottie-player src="assets/lottie/confetti.json" 
+               background="transparent" 
+               speed="1" 
+               style="width: 300px; height: 300px;" 
+               loop autoplay&gt;
+&lt;/lottie-player&gt;
+
+&lt;!-- HTML5 Video --&gt;
+&lt;video width="640" height="360" controls&gt;
+  &lt;source src="assets/videos/nature.mp4" type="video/mp4"&gt;
+  Your browser does not support the video tag.
+&lt;/video&gt;
+                        </pre>
+                    </div>
+                </div>
+                
+                <div class="embed-item">
+                    <div class="embed-title">Folder Structure</div>
+                    <div class="embed-content">
+                        <pre style="background: #1e1e2d; padding: 20px; border-radius: 8px; overflow: auto; width: 100%;">
+project/
+├── index.html
+├── styles/
+│   └── main.css
+├── assets/
+│   ├── gifs/
+│   │   ├── space.gif
+│   │   └── abstract.gif
+│   ├── lottie/
+│   │   ├── confetti.json
+│   │   └── astronaut.json
+│   └── videos/
+│       ├── nature.mp4
+│       └── abstract.mp4
+└── scripts/
+    └── main.js
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Created with ❤️ | Downloaded Media Implementation Example</p>
+        <p>Always respect copyright and licensing when using media from the internet</p>
+    </footer>
+</body>
+</html>

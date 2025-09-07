@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulas and Signs</title>
+    <style>
+      .dblarrow {
+        font-size: 125%;
+        top: -0.4ex;
+        margin: 0 2px;
+      }
+      .dblarrow:after {
+        content: "\2190";
+        position: absolute;
+        left: 0;
+        top: 0.5ex;
+      }
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      .fraction {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 0.2em 0.4ex;
+        text-align: center;
+      }
+      .fraction > span {
+        display: block;
+        padding-top: 0.15em;
+      }
+      .fraction span.fdn {
+        border-top: thin solid black;
+      }
+      .fraction span.bar {
+        display: none;
+      }
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      .sy {
+        position: relative;
+        text-align: center;
+      }
+      .oncapital,
+      .onsmall {
+        position: absolute;
+        top: -1em;
+        left: 0px;
+        width: 100%;
+        font-size: 70%;
+        text-align: center;
+      }
+      .onsmall {
+        top: -0.7em;
+      }
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      .sy,
+      .sy-r,
+      .sy-g,
+      .sy-b {
+        position: relative;
+        text-align: center;
+      }
+      .sy-r {
+        color: #f00;
+      }
+      .sy-g {
+        color: #4f8c4f;
+      }
+      .sy-b {
+        color: #00f;
+      }
+      .oxbr,
+      .oncapital,
+      .onsmall {
+        position: absolute;
+        top: -1em;
+        left: 0px;
+        width: 100%;
+        font-size: 70%;
+        text-align: center;
+      }
+      .onsmall {
+        top: -0.7em;
+      }
+         /* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      .limes {
+    position: relative;
+    display: inline-block;
+    margin: 0 0.2em;
+    vertical-align: middle; 
+    text-align: center;
+}
+.limes > span { 
+    display: block;
+    margin:-0.5ex auto;
+}
+.limes span.numup,
+.limes span.overdn {
+    font-size: 70%;
+}
+ /* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+   .intsuma {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+.intsuma > span {
+    display: block;
+    font-size: 70%;
+}
+.intsuma .lim-up {
+    margin-bottom: -1.0ex;
+}
+.intsuma .lim {
+    margin-top: -0.5ex;}
+     /* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+.intsuma .sum {
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+.intsuma .sum-frac {
+    font-size: 1.5em;
+    font-weight: 100;
+}
+/* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      .radical {
+    position: relative;
+    font-size: 1.6em;
+    vertical-align: middle;
+}
+.n-root {
+    position: absolute;
+    top: -0.333em;
+    left: 0.333em;
+    font-size: 45%;
+}
+.radicand { 
+    padding: 0.25em 0.25em;
+    border-top: thin black solid;
+}
+/* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      /* This is a single-line comment */
+      @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400&display=swap&text=∑');
+
+body {
+  background: #1f1d2b;
+  color: #FFF;
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+}
+
+.showcase {
+  padding: 15px;
+  text-align: center;
+  position: relative;
+}
+
+.math .frac {
+  display: inline-flex;
+  vertical-align: middle;
+  flex-direction: column;
+  text-align: center;
+  margin-top: -1px;
+}
+
+.math .frac > *:first-child {
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 5px;
+}
+
+.math .frac > *:last-child {
+  padding-top: 5px;
+}
+
+.math .frac > * {
+  padding: 0 0.5em;
+}
+
+.math .sqrt {
+  border-top: 2px solid currentColor;
+  margin-left: 10px;
+  padding-left: 5px;
+  position: relative;
+  display: inline-block;
+}
+
+.math .sqrt::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -10px;
+  bottom: 0px;
+  width: 10px;
+  background: currentColor;
+  clip-path: polygon(
+    0 50%,
+    2px 50%,
+    50% calc(100% - 2px),
+    calc(100% - 2px) 0,
+    100% 0,
+    100% 2px,
+    calc(50% + 2px) 100%,
+    calc(50% - 2px) 100%,
+    0 calc(50% + 2px)
+  );
+}
+
+.surround {
+  padding: 0 10px;
+  position: relative;
+  display: inline-block;
+  --round: 5px;
+  --off: 0;
+}
+
+.surround::before {
+  content: '';
+  width: 5px;
+  position: absolute;
+  top: 0px;
+  left: var(--off);
+  bottom: 0px;
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  border-top-left-radius: var(--round);
+  border-bottom-left-radius: var(--round);
+}
+
+.surround::after {
+  content: '';
+  width: 5px;
+  position: absolute;
+  top: 0px;
+  right: var(--off);
+  bottom: 0px;
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  border-top-right-radius: var(--round);
+  border-bottom-right-radius: var(--round);
+}
+
+.surround.round {
+  --round: 10px 30px;
+}
+
+.surround.square {
+  --round: 0;
+}
+
+.surround.curly {
+  --round: 10px;
+  --off: 5px;
+  padding: 0 15px;
+  background-image:
+    linear-gradient(0deg, currentColor 25%, currentColor 25%),
+    linear-gradient(0deg, currentColor 25%, currentColor 25%);
+  background-repeat: no-repeat;
+  background-size: 5px 2px;
+  background-position: 0 center, 100% center;
+}
+
+.surround.sys {
+  --round: 10px;
+  --off: 5px;
+  padding: 0 15px;
+  background-image:
+    linear-gradient(0deg, currentColor 25%, currentColor 25%);
+  background-repeat: no-repeat;
+  background-size: 5px 2px;
+  background-position: 0 center;
+}
+
+.surround.sys::after {
+  content: unset;
+}
+
+.cs {
+  position: relative;
+  display: inline-block;
+}
+
+.cs > sup {
+  position: absolute;
+  bottom: calc(100% - 10px);
+  left: 50%;
+  transform: translate(-50%);
+  width: max-content;
+}
+
+.cs > sub {
+  position: absolute;
+  top: calc(100% - 5px);
+  left: 50%;
+  transform: translate(-50%);
+  width: max-content;
+}
+
+.big {
+  font-size: 2em;
+  font-weight: 200;
+}
+
+.arrow {
+  position: relative;
+}
+
+.arrow::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: currentColor;
+}
+
+.arrow::after {
+  content: '';
+  position: absolute;
+  bottom: calc(100% - 1px);
+  right: -1px;
+  height: 5px;
+  width: 5px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform-origin: top right;
+  transform: rotate(45deg);
+}
+
+.surround.vec {
+  display: inline-flex;
+  flex-direction: column;
+  vertical-align: middle;
+}
+
+.matrix {
+  display: inline-grid;
+  grid-template-columns: repeat(var(--c), 1fr);
+  grid-gap: 5px;
+  padding: 5px 15px;
+  vertical-align: middle;
+}
+    </style>
+
+  </head>
+  <body>
+    <h1>Dvostruka strelica u ravnotežnim reakcijama (U RADU)</h1>
+    <div class="eq-c">
+      C + O<sub>2</sub> <span class="dblarrow">&rarr;</span> CO<sub>2</sub>
+    </div>
+    <!---->
+    <!---->
+    <!---->
+    <h1>razlomci</h1>
+    <sup>2</sup>&frasl;<sub>11</sub>
+    <h2>ILI</h2>
+    <div class="eq-c">
+      <div class="fraction">
+        <span class="fup">20</span>
+        <span class="bar">/</span>
+        <span class="fdn">7</span>
+      </div>
+      =nezz
+    </div>
+    <!---->
+    <!---->
+    <h1>eksponent</h1>
+    <p>1.2345 mol dm<sup>-3</sup></p>
+    <!---->
+    <!---->
+    <h1>Vektori</h1>
+    <div class="eq-c">
+      <span class="sy"><i>A</i><span class="oncapital">&rarr;</span></span> =
+      <div class="fraction">
+        <span class="fup"
+          >&Delta;<span class="sy"
+            ><i>v</i><span class="onsmall">&rarr;</span></span>
+          </span>
+        
+        <span class="bar">/</span>
+        <span class="fdn">&Delta; <i>t</i></span>
+      </div>
+    </div>
+    <!---->
+    <!---->
+    <!---->
+    <h1>oksidacijski i reducijski broj iznad elemenata u reakciji</h1>
+    <div class="eq-c">
+      <b>O: </b>
+      <span class="sy-r">Te<span class="oxbr">+4</span></span
+      ><span class="sy">O<span class="oxbr">-2</span></span
+      ><sub>2</sub>
+
+      <span class="rarrow">&rarr;<span class="larrow">&larr;</span></span>
+
+      <span class="sy">H<span class="oxbr">+1</span></span
+      ><sub>6</sub><span class="sy-r">Te<span class="oxbr">+6</span></span
+      ><span class="sy">O<span class="oxbr">-2</span></span
+      ><sub>6</sub> +
+      <span class="sy-g">2e<sup>-</sup></span>
+    </div>
+
+    <div class="eq-c">
+      <b>R: </b>
+      <span class="sy-b">Cr<span class="oxbr">+6</span></span
+      ><sub>2</sub><span class="sy">O<span class="oxbr">-2</span></span
+      ><sub>7</sub><sup>2-</sup> +
+      <span class="sy-g">6e<sup>-</sup></span>
+
+      <span class="rarrow">&rarr;<span class="larrow">&larr;</span></span>
+
+      2<span class="sy-b">Cr<span class="oxbr">+3</span></span
+      ><sup>3+</sup>
+    </div>
+    <!---->
+    <!---->
+    <!---->
+    <h1>Limesi (U RADU)</h1>
+<div class="eq-c">
+<i>a</i> =
+<div class="limes">
+<span class="overup">lim</span>
+<span class="overdn">&Delta; <i>t</i>&rarr;0</span>
+<div class="fraction">
+<span class="fup">&Delta;<i>v</i></span>
+<span class="bar">/</span>
+<span class="fdn">&Delta; <i>t</i></span>
+</div>
+</div>
+</div>
+<!---->
+<!---->
+<!---->
+<h1>MASENI BROJ</h1>
+<div class="eq-c">
+<span class="limes"><span class="numup">14</span><span class="overdn">6</span></span>C &rarr;
+<span class="limes"><span class="numup">14</span><span class="overdn">7</span>
+</span>N + <span class="sy">&nu;<span class="onsmall">&ndash;</span></span>
+</div>
+<!---->
+<!---->
+<!---->
+<h1>Suma</h1>
+<div class="eq-c">
+<i>S</i> =
+<span class="intsuma">
+<span class="lim">5</span>
+<span class="sum-frac">&sum;</span>
+<span class="lim"><i>n</i>=0</span>
+</span>
+<div class="fraction">
+<span class="fup">(<i>x</i> + 1)<sup><i>n</i></sup></span>
+<span class="bar">/</span>
+<span class="fdn"><i>n</i></span>
+</div>
+</div>
+<!---->
+<!---->
+<!---->
+<div class="eq-c">
+<span class="intsuma">
+<span class="lim-up">2&pi;</span>
+<span class="sum">&int;</span>
+<span class="lim">0</span>
+</span>
+sin<i>x</i> d<i>x</i> = 0
+</div>
+<!---->
+<!---->
+<!---->
+<h1>Korijeni</h1>
+<div class="eq-c">
+<span class="radical"><span class="n-root">3</span>&radic;</span><span class="radicand">81</span>
+</div>
+<div class="eq-c">
+<i>y</i> =
+<span class="radical">&radic;</span><span class="radicand"><i>x</i><sup>2</sup> + 6</span>
+</div>
+   <!---->
+    <!---->
+    <!---->
+    <h1>razlomak+korijen+plus-minus znak</h1>
+    <div class="math showcase">
+  x = <span class="frac">
+    <span> - b ± <span class="sqrt">b<sup>2</sup> - 4ac</span></span>
+    <span>2a</span>
+  </span>
+</div>
+   <!---->
+    <!---->
+    <!---->
+<h1>zagrade sa razlomcima</h1>
+<div class="math showcase">
+  braces =
+  <span class="surround round"><span class="frac"><span>round</span><span>is usual</span></span></span> +
+  <span class="surround square"><span class="frac"><span>square</span><span>matrix?</span></span></span> +
+  <span class="surround curly"><span class="frac"><span>curly</span><span>much better</span></span></span>
+</div>
+   <!---->
+    <!---->
+    <!---->
+<h1>suma sa drugim stvarima</h1>
+<div class="math showcase">
+  <span class="cs">
+    <sup>n</sup>
+    <span class="big">∑</span>
+    <sub>i = 0</sub>
+  </span>
+  i<sup>3</sup>
+  = <span class="surround round"><span class="frac"><span>n(n+1)</span><span>2</span></span></span>
+</div>
+   <!---->
+    <!---->
+    <!---->
+
+<div class="math showcase">
+  <span class="arrow">vector</span> = <span class="surround round vec"><span>1</span><span>2</span><span>-3</span></span>
+</div>
+<!---->
+    <!---->
+    <!---->
+    <h1>matrica</h1>
+<div class="math showcase">
+  matrix = <span class="surround square matrix" style="--c: 3">
+    <span>1</span><span>2</span><span>3</span>
+    <span>4</span><span>5</span><span>6</span>
+    <span>7</span><span>8</span><span>9</span>
+  </span>
+</div>
+<!---->
+    <!---->
+    <!---->
+<div class="math showcase">
+  <span class="surround sys matrix" style="--c: 5">
+    <span>3x</span><span>+</span><span>5y</span><span>=</span><span>3</span>
+    <span>7z</span><span>-</span><span>42x</span><span>=</span><span>6</span>
+    <span>33y</span><span>-</span><span>z</span><span>=</span><span>9</span>
+  </span>
+</div>
+<!---->
+    <!---->
+    <!---->
+    <h1>not equal to</h1>
+<p>1 + 1 &#8800; 11</p>
+<!---->
+<!---->
+<!---->
+<h1>UNICODE Table symbol</h1>
+<a target="_blank" href="https://symbl.cc/en/unicode-table/#latin-extended-b" title="Click me :)">Table Link</a>
+<a target="_blank" href="www.fileformat.info/info/unicode/char/search.htm?q=<&han=Y" title="Search UniCode">Search bar</a>
+<!---->
+    <!---->
+    <!---->
+    <h1>cube Root</h1>
+    <p>&#8731; 27 = 3</p>
+    <script></script>
+  </body>
+</html>
+
+        
