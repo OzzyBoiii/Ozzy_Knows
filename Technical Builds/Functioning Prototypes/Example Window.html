@@ -1,0 +1,219 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Window</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+ /* EXAMPLE WINDOW STYLE */
+        /* EXAMPLE WINDOW STYLE */
+        /* EXAMPLE WINDOW STYLE */
+        .example-container {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            margin: 20px auto;
+            border: 2px solid #ff9800;
+            border-radius: 15px;
+            background: rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .example-slider {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .example-window {
+            flex: 0 0 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            color: white;
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+        
+        .example-window img {
+            max-width: 100%;
+            max-height: 150px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .example-window ul {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .example-window li {
+            padding: 8px 15px;
+            margin: 6px 0;
+            background: rgba(255, 152, 0, 0.15);
+            border-radius: 6px;
+            border-left: 3px solid #ff9800;
+        }
+        
+        .example-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .example-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 8px;
+        }
+        
+        .example-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .example-dot.active {
+            background-color: #ff9800;
+            transform: scale(1.2);
+            box-shadow: 0 0 8px rgba(255, 152, 0, 0.8);
+        }
+        </style>
+        </head>
+        <body>
+             <!-- UPDATED EXAMPLE WINDOW -->
+                    <div class="example-container" id="exampleContainer">
+                        <div class="example-slider" id="exampleSlider">
+                            <!-- Window 1 -->
+                            <div class="example-window">
+                                <h3>Algebra Basics</h3>
+                                <ul>
+                                    <li>Linear equations</li>
+                                    <li>Quadratic formulas</li>
+                                    <li>Polynomial expressions</li>
+                                </ul>
+                            </div>
+                
+                            <!-- Window 2 -->
+                            <div class="example-window">
+                                <h3>Geometry Concepts</h3>
+                                <ul>
+                                    <li>Pythagorean theorem</li>
+                                    <li>Circle properties</li>
+                                    <li>Trigonometric ratios</li>
+                                </ul>
+                            </div>
+                
+                            <!-- Window 3 -->
+                            <div class="example-window">
+                                <h3>Calculus Fundamentals</h3>
+                                <ul>
+                                    <li>Limits and continuity</li>
+                                    <li>Derivatives</li>
+                                    <li>Integrals</li>
+                                </ul>
+                            </div>
+                
+                            <!-- Window 4 -->
+                            <div class="example-window">
+                                <img src="https://via.placeholder.com/400x200/2a5298/ffffff?text=Math+Visualization" alt="Math Visualization">
+                                <h3>Visual Learning</h3>
+                                <ul>
+                                    <li>Graphical representations</li>
+                                    <li>Geometric proofs</li>
+                                    <li>3D modeling</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="example-controls">
+                        <button class="button-87" onclick="slideExample(-1)">Previous</button>
+                        
+                        <div class="example-dots" id="exampleDots">
+                            <!-- Dots will be generated here -->
+                        </div>
+                        
+                        <button class="button-87" onclick="slideExample(1)">Next</button>
+                    </div>              
+        <script>
+            // UPDATED: EXAMPLE WINDOW FUNCTIONALITY
+        let currentExampleSlide = 0;
+        const exampleSlideCount = 4;
+        
+        // Initialize example slider
+        function initExampleSlider() {
+            const dotsContainer = document.getElementById('exampleDots');
+            dotsContainer.innerHTML = '';
+            
+            for (let i = 0; i < exampleSlideCount; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'example-dot';
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToExampleSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+            
+            updateExampleSlider();
+        }
+        
+        // Navigate to specific slide
+        function goToExampleSlide(index) {
+            currentExampleSlide = index;
+            updateExampleSlider();
+        }
+        
+        // Slide navigation
+        function slideExample(direction) {
+            currentExampleSlide += direction;
+            
+            // Handle boundaries
+            if (currentExampleSlide < 0) currentExampleSlide = exampleSlideCount - 1;
+            if (currentExampleSlide >= exampleSlideCount) currentExampleSlide = 0;
+            
+            updateExampleSlider();
+        }
+        
+        // Update slider position and active dot
+        function updateExampleSlider() {
+            const slider = document.getElementById('exampleSlider');
+            slider.style.transform = `translateX(-${currentExampleSlide * 100}%)`;
+            
+            // Update active dot
+            const dots = document.querySelectorAll('.example-dot');
+            dots.forEach((dot, index) => {
+                if (index === currentExampleSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        // Initialize the example slider when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // ... existing initialization code ...
+            
+            // Initialize the example slider
+            initExampleSlider();
+        });
+        </script>
+        </body>
+        </html>

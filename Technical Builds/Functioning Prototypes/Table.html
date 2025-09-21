@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table :)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+         /*TABLE STYLE*/
+        /*TABLE STYLE*/
+        /*TABLE STYLE*/
+        .table-container {
+            background: rgba(10, 15, 35, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(100, 200, 255, 0.2);
+            overflow: hidden;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .table-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(100, 200, 255, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .enhanced-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(20, 30, 60, 0.6);
+            backdrop-filter: blur(5px);
+            position: relative;
+        }
+
+        .enhanced-table th {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            font-weight: 600;
+            padding: 18px 15px;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+            position: relative;
+            border-bottom: 2px solid rgba(100, 200, 255, 0.3);
+        }
+
+        .enhanced-table th:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 15%;
+            height: 70%;
+            width: 1px;
+            background: rgba(100, 200, 255, 0.3);
+        }
+
+        .enhanced-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(100, 200, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .enhanced-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .enhanced-table tr:nth-child(even) {
+            background: rgba(30, 40, 80, 0.3);
+        }
+
+        .enhanced-table tr:hover td {
+            background: rgba(100, 200, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .enhanced-table tr:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight {
+            background: rgba(255, 184, 77, 0.2) !important;
+            font-weight: bold;
+            color: #ffb84d;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .table-container {
+                padding: 20px;
+            }
+            
+            .enhanced-table {
+                font-size: 0.9rem;
+            }
+            
+            .enhanced-table th, 
+            .enhanced-table td {
+                padding: 12px 10px;
+            }
+            
+            .table-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .control-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .enhanced-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        /* Animation for table rows */
+        @keyframes fadeInRow {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .enhanced-table tr {
+            animation: fadeInRow 0.5s ease forwards;
+        }
+
+        /* Delay each row animation */
+        .enhanced-table tr:nth-child(1) { animation-delay: 0.1s; }
+        .enhanced-table tr:nth-child(2) { animation-delay: 0.2s; }
+        .enhanced-table tr:nth-child(3) { animation-delay: 0.3s; }
+        .enhanced-table tr:nth-child(4) { animation-delay: 0.4s; }
+        .enhanced-table tr:nth-child(5) { animation-delay: 0.5s; }
+        .enhanced-table tr:nth-child(6) { animation-delay: 0.6s; }
+        .enhanced-table tr:nth-child(7) { animation-delay: 0.7s; }
+        .enhanced-table tr:nth-child(8) { animation-delay: 0.8s; }
+    </style>
+    </head>
+        <body>
+<table class="enhanced-table">
+                <thead>
+                    <tr>
+                        <th>Question Type</th>
+                        <th>Structure</th>
+                        <th>Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight">Yes/No Questions</td>
+                        <td>Am + I + verb-ing?</td>
+                        <td>Am I working now?</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Are + you/we/they + verb-ing?</td>
+                        <td>Are you working now?</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Wh- Questions</td>
+                        <td>Wh-word + do + I/you/we/they + verb?</td>
+                        <td>What languages do you speak?</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Wh-word + does + he/she/it + verb?</td>
+                        <td>What languages does she speak?</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Subject Questions</td>
+                        <td>Who + verb + ...?</td>
+                        <td>Who speaks English?</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Negative Form</td>
+                        <td>Subject + am/is/are + not + verb-ing</td>
+                        <td>I am not working now.</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Time Expressions</td>
+                        <td colspan="2">now, at the moment, currently, today, this week</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Special Cases</td>
+                        <td colspan="2">Stative verbs (know, believe) don't use continuous form</td>
+                    </tr>
+                </tbody>
+            </table>
+            </body>
+            <script>
+                 // Initialize particles and animations
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            
+            // Add hover effect to table rows
+            const tableRows = document.querySelectorAll('.enhanced-table tr');
+            tableRows.forEach(row => {
+                row.addEventListener('mouseenter', () => {
+                    row.style.transition = 'all 0.3s ease';
+                });
+            });
+        });
+            </script>
+            </html>
