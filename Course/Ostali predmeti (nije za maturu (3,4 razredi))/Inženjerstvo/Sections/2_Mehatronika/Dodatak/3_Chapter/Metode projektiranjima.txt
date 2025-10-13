@@ -1,0 +1,2233 @@
+<h3>THEORETICAL BASIS OF THE DESIGN METHOD</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Formal model of hierarchical mechatronic system<
+<p class="zoomable-text">
+                    Theoretical means of the both conceptual and detailed design method, as was stat-
+ed in Chapter 1, must present the mathematical apparatus for formal description
+of the designed mechatronic system (MS) structure, its aggregated dynamic repre-
+sentation as a unit in its environment and the environment model. All the descrip-
+tions should be connected by the coordinator which performs the design&control
+tasks on its selection, learning and self-organization strata. Furthermore, theoreti-
+cal means of the proposed mechatronic design method should allow presentation
+of the numerical and geometrical information in its formal basis and be coordinat-
+ed with the main requirements to design systems which must:
+– carry out the main design and control task for the systems of any level
+under the conditions of any initial knowledge uncertainty, i.e. to create or to
+change the system construction and technology, to make its activity in a higher
+level system (environment) most coordinated with the desired environment states
+on all its levels (selection task);
+– change the ways (strategies) of fulfilment of the main design and control
+when designed constructions and technologies are multiplied and knowledge
+uncertainty is removed (learning task);
+– change the selection and learning strata when new (higher level) knowledge
+constructions and technologies have been created (self-organisation task).
+Traditional one-level mathematic, artificial intelligence and cybernetic models
+and methods used in conceptual and detailed design do not meet all the above men-
+tioned requirements, because it is impossible to express interleave relations in their
+terms.
+Therefore, the construction of hierarchical system (HS) with its standard block
+aed (formal analog of two-level system) has been chosen as the theoretical basis
+for conceptual and detailed mechatronic design performing. Aed – ancient Greek
+29
+word – is a standard element of design systems [3-7, 33, 49], which realizes the
+general laws of systems organization on each level and the inter-level connections.
+The first version of aed model was described in [3-5, 33], and later in [6-8].
+Aed contains all the characteristic features of two-level system [2] and also the
+following ones:
+1) for inter-level connections modeling aed contains more levels, the block of
+environment , in particular;
+2) two-level system in [2] is not sufficiently formalized for measuring quanti-
+tative characteristics and for investigating dynamic laws of hierarchical systems;
+aed formal model is based mainly on the two particular cases – dynamic
+systems [9, 10] and numerical positional systems by H. Lebesque [48].
+3) structural connections in two-level system were explored only for the meth-
+od of the general systems synthesis [9, 10], but the nature and the dynamics of the
+connections were not revealed;
+connections in are hierarchical systems and can be described by aed
+formal model; for structural connections and for the connections of system
+with environment the laws of their coordinated dynamics, i.e. the dy-
+namics of inter-level transition are defined;
+4) the coordinator of two-level system does not change its own state; it is con-
+nected only with the subsystems being coordinated and cannot construct or change
+the formal model of two-level system;
+coordinator 
+0S of aed is constructed from the interactions of lower level sys-
+tems coordinated and directly connected with the coordinator 1
+0 
+S of higher level.
+The dynamics of 
+0S states was explored for four periods of time: , ,
+and ( , , , , – time of level ). The initial moment
+for each concrete system and its coordinator 
+0S is the moment 
+
+ Tt  0 .
+Moment 
+t is fixed when the elements 
+S of level )(  
+
+ of system
+have arisen. For time the formal model  TS | allows the experimental check-
+ing of its coherence only with the systems of lower levels
+ 
+~ )0( 
+
+and cannot be coordinated with the synthesis laws of level systems. It causes
+improvement of the model. During the process of system synthesis its coordi-
+
+S
+
+S
+
+
+S
+ 
+, S
+
+
+S 
+S
+
+S
+
+S 
+S
+
+
+T 
+T
+
+T 
+T 
+T 
+T 
+T 
+T 
+T 
+T 
+
+S
+
+S
+
+T
+
+
+S
+30
+nator 
+0S begins to form and contain new system law  TS | . Control of system
+coherence with its model  TS | and  TS | improvement are the tasks of
+the self-organization layer of coordinator 
+0S .
+In addition, aed has some less important differences in comparison with
+two-level system. For instance, formal models of objects and their processes in
+are not coincide, entities of coordinating signals and feedback signals were re-
+vealed, etc.
+Graphical image of any level mechatronic system as aed is presented in
+Figure 3.1, where:
+ s
+L , s
+L – numerical positional system, defined on the multitude
+{ : ( , )}L I 
+
+  , L, L – multitude of levels indices, 
+I – finite multitude
+of indices on level
+
+So is mechatronic object, 
+X is input, 
+Y is output of object 
+So ;
+– interactions of mechatronic system with
+other systems from its environment , and ↔ are indexes
+of mechatronic object , its process , process performer by MS environ-
+ment , and environment itself respectively.
+are processes, and is the mechatronic process which ob-
+ject 
+So performs in its environment , are actions, which environment
+executes with object 
+So ;
+}:{ 11  IiSS i   and – families of subsys-
+tems, connected in by interconnections and
+correspondent sub-processes;
+}:{ 11  IiCCC i   – control signals from 1
+So to ;
+}:{ 11  IiZZ i   – feedback from to 1
+So ; ;1  XZZ 
+
+0S – coordinator;
+ 
+ – coordinating signals from 
+0S to subsystems 1
+S ;
+}:{  IiWW i  – feedback from subsystems 1
+S to coordinator 
+0S ;
+
+S
+
+S
+
+S
+ 
+S
+);,,( 
+ Ii 
+
+
+
+  
+}:},,{{ LkYCX kk  
+S
+
+S
+ Lk k },,,{
+
+
+oo
+)(o )(
+o
+)(
+ )(
+
+},{  SSo
+
+ 
+So
+
+
+S
+ 
+S
+
+
+S
+
+1
+S
+ }:{ 1  IiSi  
+
+
+S }:{ 11  Iii  
+
+
+
+
+
+
+1
+So
+
+1
+So
+
+31
+– coordinating signals for system 
+S ;
+– feedback from 
+0S to coordinator 1
+0 
+S of higher level.
+Aed 
+S is a system which has the following characteristic features:
+– environment contains a set of systems of level ;
+– it is possible to present 
+S as object 
+So , its interactions with cre-
+ate a higher level system;
+– process contains both the actions which the object 
+So per-
+forms in environment and actions of environment system
+with object 
+So ;
+– dynamic realization of 
+S in is defined by aggregated model
+, , where and
+are aggregated dynamic models of object 
+So , environment
+and their processes , respectively;
+– structure contains the lower level systems 1
+S with their interac-
+tions which create coordinator 
+0S and in this way connect 
+ with 
+ :
+ }~,{ 0
+
+ S ,  ;
+– the task of coordinator 
+0S is to create not only systems 
+S but also
+(partly) higher levels systems; for solving this task coordinator 
+0S constructs
+the informational models of concrete systems )( LS  ; the models are con-
+structed from the elements of interconnections of 
+S with other systems 
+S of
+level ℓ and must be coordinated both with 
+S and higher levels systems;
+– incoherence of the models with concrete systems causes a change of the
+abstract informational model of 
+S by coordinator 
+0S .
+Definition 3.1. Mechatronic system 
+S is expressed by the next aed formal
+system:
+, (3.1)
+ X 1
+
+ YWw  1
+
+
+S
+ L
+
+S
+
+
+S
+ 
+So
+
+
+S
+ 
+S
+ 
+S
+
+
+S
+
+ },~{ 0S
+
+   }},,{},,{{~
+
+
+
+
+
+
+
+
+
+oo ,
+o
+
+
+
+ 
+ ,o 
+S
+
+
+So
+ 
+S
+
+
+
+
+
+
+
+~  }},:}:{{{
+
+
+
+
+ s
+i LIi  
+
+S   
+},{ 0
+
+ S
+32
+where is an aggregated dynamic realization of any level mechatronic
+system in its environment S
+ , is a model of the system 
+S structure, is
+coordinator, – index of level, , see Fig.3.1.
+Fig. 3.1. Structure diagram of aed – standard block of HS. S0 is the coordinator, εS is the environment,
+Si are subsystems, πSi are subprocesses, πSl is the process of level , Xl and Yl are the input and output
+of mechatronic system Sl; ci, zi,
+ , wi , ui, yi are interactions
+3.1.1. Aggregated dynamic realization
+Taking into account the necessity of creation of the external functional representa-
+tion of any mechatronic object being designed, the aggregated dynamic realizations
+for the elements of aed construction are built in this Section. Reaction
+and dynamic realization of mechatronic object
+(MO) which is described by the ratio are constructed by the
+method proposed in [9]:
+, (3.2)
+,
+
+ L
+
+ 
+0S
+ s
+L
+(SLIKA 13)
+Taking into account the necessity of creation of the external functional representa- tion of any mechatronic object being designed, the aggregated dynamic realizations for the elements of aed construction are built in this Section. Reaction R:CxX'Y' and dynamic realization (P,) of mechatronic object (MO), which is described by the ratio,S'X'xy' are constructed by the method proposed in [9]:
+(P): p= {PC, XX,→Y, &t=T},
+={C, XC, &t,t' =T&t'>1},
+(3.2)
+32
+where is the time of level (, reaction p, state transition function, and time interval II'.
+Model of actions, i.e. processes or which object S performs in envi- ronment, changing its own state c'EC differs from the model (P.) of the object:
+object of initial states of process S coincides with the object of inputs X';
+input X of process or is defined by states c'C', their altera- tions are control signals to processor S
+Taking into account the differences, dynamic realization (P.) of mecha- tronic process or S connected with (P.) is presented in the following way:
+oz (PP): op1 = {ox P; : X, XC, →Y, &t=T}',
+a={or PX, CX, &1,1' T &1'>1}.
+(3.3)
+The expression for (.) shows that the input of objectS is defined
+от
+not only by the environment S but also (partially) by system 5' in process Sie. S' can form its inputs by itself.
+Actions of environment system with the object S are also formalized by dynamic system (P.):
+where
+(P) ap1={1 : Y, X, C, → X, &1 = T},
+a={aPY,x,C →Y, &1,1'=T&1'>1},
+(3.4)
+is both the state of environment, S and inputs of processor S': Y is the state of environment process S', 'is a time interval.
+ST
+Aggregated dynamic models of actions
+S and S are defined as (5.9):
+or SS') of systems
+(P.) or (PP)
+ол
+'ST
+(PP)').
+The model of environments of system S is presented as follows:
+(PP): P = {Priz C12X,→Y, &1=T}",
+(3.5)
+(3.6)
+¿9' = {z9wzCj×zXx→C, &t,t' =T&t'>t}'.
+The coherence condition of constructed models with concrete mechatronic family
+systems were regarded. As stated in [9], for reaction p={p, C, xX, →Y, &t ET} coherence with the time system ScXxYit
+(3.7)
+is necessary and enough the execution of the following conditions [9]:
+(I) (VG)(x)(Vx)c, )[p(c,,x ) = %,x = x,)T]
+(2) (c)(x)(c)(x')[P, (c,,x,) = P(Cox' ox,)T,].
+Time system is called a dynamic system only when it is possible to find both the reaction family p and the family of the state transitions
+the system, and all functions
+coordinated with
+satisfy the conditions (i)-(iii) [9]:
+(3.8)
+(i) p,(c,,x)T, = P(O (C1, X), X;), x1 = xy © Xq;
+(ii)
+(iii)
+(CX)=Qtr (Pu (C ̧‚ X2 ), Xpe), Xy=Xq°Xqc+
+(c,,x)=c,.
+The coherence conditions similar to (1) and (2) (3.7) for the object reac- tion are presented in the following way:
+(¥1) (vc)(\x*)\x{}\c{}[p{{c}‚x{)=。P{{c}‚x“ ox′)T,′ 1.(3.9)
+(¥2) (vc)\x{)Ec)Ex*)[p}{c}{‚x{})=。P{{C{‚x“ •x)T;]·
+The conditions for xp', ap' EP' P
+от
+are constructed similarly taking into
+account the meanings of states, inputs and outputs in the dynamic representations
+of processes S S and environment S (3.3-3.6). The meanings are
+OR
+எ
+TE
+presented in Table 3.1, where X and Y are parts of X and Y im- mediately not dependant on S.
+Reaction families P', opp, p' are coordinated with S.
+&T
+ол
+S and S only when corresponding conditions (1,2), (1,2), (1, 2) and (1, 2), which are called coherence conditions of @ and S', are realized.
+Conditions (i)-(iii) (3.8) for function of states transition are presented as
+follows:
+(i) P(c,x)T=P (9 (c,x),x),
+x = x2; •x;
+(ii) (cx)=((c,x),x),
+(iii) (c,x)=c.
+(3.10)
+(SLIKA 13)
+OR
+The conditions for are constructed similarly taking into account the meanings of states, inputs and outputs (Tab. 3.1) in the dynamic repre- sentations of or SS and S (3.3-3.6).
+So, the following qualities of the model being created and correspondent defi- nition were formulated. If the coherence conditions of with S and conditions
+35
+((i)-(iii)) ((i)-(iii)) are realized, systems (P‚9)', «z(P‚9), «(P‚9) and (P,) are dynamic.
+Definition 3.2. Set of dynamic systems (p.), (5,0), (p,)) con-
+nected by connections
+dynamic realization
+and the creating system S (coordinator) are called
+of hierarchical system of any level (EL:
+(3.11)
+Where is presented in the following form:
+E+0
+土で
+(3.12)
+and is as follows: ¿'↔¿(P‚Ø)', ke̟ L↔ (0,0л,π,ε).
+Thanks to the strong connections of components through their inputs, outputs and states, the ability of reconstructing from its parts as well as calcu- lating unknown parts from its known ones was obtained.
+The following relations are revealed. ProcessS {SS} bonds the systems S and S. Dynamic
+ST
+(P) as well as
+in . The difference of
+and
+realization
+(P.) = (P.),
+ол
+are the relations of models (P.) and (p.)
+0
+(P,) and (P.) models (similar to (p.)
+(0,0)) is caused by the fact that the processes, i.e. actions, have their own sense in the coordination tasks described below.
+With regard to the constructed dynamic realization of the system being de- signed, the main three tasks, which coordinator S performs in @ are singled
+out:
+l+1
+on selection layer S receives the coordination signals 7+ from higher lev-
+el and forms feedback signals w by the way which takes into account the run- ning level of information uncertainty in ' model;
+and is as follows:
+ỡ'>{{{i=1}:TEĽ }, }} {{σ : TE L'}, },(3.14)
+where:
+So is coordinator,
+@
+are aggregated dynamic models of subsystems, 5(Si), TEL.
+are connections of the subsystems,
++
+is the connection of dynamic systems
+and their interactions
+7 coordinated with 7=ys. The dynamics of structural intercon- nections illustrates the dynamics of system S organization from moment
+0 € T
+Aggregated dynamic models
+are formed both by coordinators 56 of
+are the interlevel
+systems 5-1 and coordinator S of a higher level, i.e.
+connections of coordinators S6 and S6
+3.1.3. Coordinator
+For the description of the design system and its functions in the design process the model of coordinator is constructed in this section. The first version of the model was initially described in [3] and later improved and presented in [4-8,49].
+Coordinator S is the main element of hierarchical systems which realizes the processes of mechatronic systems design and control. It is defined in the following form in accordance with aed representation (3.1).
+and is as follows:
+ỡ'>{{{i=1}:TEĽ }, }} {{σ : TE L'}, },(3.14)
+where:
+So is coordinator,
+@
+are aggregated dynamic models of subsystems, 5(Si), TEL.
+are connections of the subsystems,
++
+is the connection of dynamic systems
+and their interactions
+7 coordinated with 7=ys. The dynamics of structural intercon- nections illustrates the dynamics of system S organization from moment
+0 € T
+Aggregated dynamic models
+are formed both by coordinators 56 of
+are the interlevel
+systems 5-1 and coordinator S of a higher level, i.e.
+connections of coordinators S6 and S6
+3.1.3. Coordinator
+For the description of the design system and its functions in the design process the model of coordinator is constructed in this section. The first version of the model was initially described in [3] and later improved and presented in [4-8,49].
+Coordinator S is the main element of hierarchical systems which realizes the processes of mechatronic systems design and control. It is defined in the following form in accordance with aed representation (3.1).
+Definition 3.4. The following system So is called a coordinator: S→ (0,80,0%
+where: c is aggregated dynamic realization of S,
+is the structure of S.
+Soo is coordinator control element.
+That is S has own aggregated dynamical realization
+(3.15)
+and structure o
+Så is defined recursively. Coordinator constructs its aggregated dynamic realiza- tion of and structure σ by itself. The development of coordinator formal model on each level (EL goes from its initial state ST from moment 0 ETT CT simultaneously with aed formal model ST develop- ment for level .
+Dynamic realization
+mation about its interactions
+of coordinator S is constructed from the infor- with coordinator environment So
+(3.16)
+where X is input of S. Y is output of So. 7% are structural connec- tions of So.
+With this aim, the inputs, outputs, both structural and external connections of coordinator were defined on the sets of its coordination signals G and feedbacks Was follows:
+X= Gw), Y-(G', w+),
+7% = W',o', G2 = 7, G+, of, wl+1)=d+
+(3.17)
+where: G - coordination signals for systems 5-1, W-feedback from 51-1,
+l+1
++1
+-feedback from S to coordinator S1 of higher level, G1+ -coordi-
+nation signals from Sto So
+The meanings of y' and we were revealed. For each moment tЄT' coor- EG contain the forecast of meanings of structure
+dination signals rameters for period T:
+ol
+pa-
+y={o' T').
+(3.18)
+Feedback signal w W transfers to coordinator So the actual values of
+all the parameters of structure o as well as predictions of σ the coordinators of systems 5-1 of lower level:
+T
+made by
+(3.19)
+It is shown, that feedback w contains the analogue of coordination signals
+y, i.e. each coordinator S of lower level -1, being the part of coordinator
+so
+can fulfil its functions, as stated above.
+Signals + and w(+1) of higher level (+1 were presented just as in
+(3.16-3.17):
+l+1
++1 = {ol+IT+1ze+1, w&+D¢= {ol+IȚ@+I¢‚ol++. (3.20)
+The availability of coordinator control element So allows evaluation and changing of coordinator S by itself. Let:
+BL (2.9.x.V,?...).
+(3.21)
+Then SS & BEL; S is contraction of system $ on the
+S':PSS/S' and
+*S → {@, S., σ).
+(3.22)
+S1 → { "@"S,σ....
+Systems S are strata of coordinator S and B is the outlook in the level space. Structure of coordinator Só is presented as a multi-strata hierarchical sys- tem in agreement with [2]. Functions of each stratum are formulated as presented
+below.
+The main design task is performed on the selection stratum S when the
+2
+strategies of S (processes) connect the structure dynamics
+σ
+l-
+and
+with using. Coordinator S produces actual values of coordination signals G+, G and receives feedback signals W, W+1 on its selection stratum. The ways of generation and receptions of signals (coordination strategies) depend on coordinator state Co and state Co of its environment S. For each way there are several levels of information uncertainty and system S organiza-
+tion.
+The information uncertainty of So increases with the distance from . Every level of uncertainty on every strata S has its own coordination strategy. The change of strategies AS is executed by learning layer S. (the moment it can do it) and it is controlled by the following (self-organization) S stratum. At the same time the outlook in the level space extends from l±2 to
+οπ
+→λ±7. Uncertainty removal in S outlook is equivalent of system or- ganization increasing (the increasing of interactions level), when S realizations are united and multiplied by "S (B>), which realize the level increasing pro- cess in hierarchic space s'.
+On the learning stratum coordinator S changes the coordination strategies removing in this way uncertainty and improving the organization level of system S*. In case when the formal model of aed ST for level is known, the task
+of uncertainty removing is reduced to the task of selection of a concrete variant of the formal model which is used for generating signals G, W+ and receiving information G+, w
+Formal model ST is constructed on self-organization stratum S of the coordinator, i.e. this stratum can change the state of both learning and selection strata.
+Therefore, the coordination strategies on selection stratum correspond to the coordinator S reactions for different states, and the functions of learning and self-organization strata correspond to the functions of states transition.
+Aggregated dynamic representation of coordinator So is presented by analogy with (3.11) as follows:
+Where is presented in the following form:
+(3.23)
+(3.24)
+k
+13
+&
+and is as follows: (P), ke̟ L↔ (0,07‚Æ‚ε}. Here (PP), (PP) = x (PP). (PP)) and (P,) are dynamic real- izations of coordinating elements, coordination process Solo So S} which is decomposed into actions
+EN
+in its environments and actions
+oft
+which element. So performs
+of
+So with coordinating element
+S, and the coordinator environment So respectively. Each component of the dynamic representation (3.24) are described just as in (3.2-3.6):
+(P, ): P = {Por: Cor Xor → Yor &1=T},
+x
+(3.25)
+P={o Por: Cor
+Xor→ Cor &t,t'=T&t'>1}.
+The connections of states, inputs and outputs of coordinating element S. processes,
+and coordinator environments are shown in Table 3.2.
+(SLIKA 14)
+Dynamic realization
+of coordinator is defined on its structure of which
+contains a set of coordination strategies (P) and their connections (). i.e. coordination subsystems (p.) in S
+Coordination strategies are realized through the elements of coordinator sub- systems S,TEĽ,70 of lower levels which are connected by 76. In other words each strategy has its own structure which is improved in accordance with the changes of the organization level of system S and of the level of infor- mation uncertainty of its coordinator So
+Dynamic model
+is the initial stage of future investigation of coordinator
+S and is still not concrete enough.
+The next step is the introduction of the states space structure on the objects of initial states of model components and the transition to the canonical model of the coordinator.
+Canonical model :
+of ↔{{ „§‚Ã‰‚‚©‚Ãœ‰‚ ̧§‚Ã){ }‚§{ } ↔ { õó, só).
+R
+(3.26)
+43
+is constructed on the basis of multi-layer system conception [2], where functions [96] correspond to learning and self-organization strata and functions [16] correspond to coordination strategies on selection stratum. The run of the process of canonical model constructing is described below in Section 3.2.
+3.2. Canonical model of coordinator
+To describe the dynamics of both mechatronic object being designed and its design system, the different states of system 5 and its coordinator Så canonical model are defined in this Section. The descriptions of the states are presented for different moments of time, which correspond to the consequent stages of mechatronic sys- tem creation and elimination of information uncertainty of its coordinator. For each state of the system the most rational design and control strategies of coordinator are formulated as presented below.
+The initial moment of both system S of level and its coordinator So arising is t=0=ET (Tis time of level (), when at least one system S of level Ly (ly € L, <£) appeared. Index y corresponds to the low- est organization of systems of level.
+The initial period of S and S is the period of time T-T, CT. where is the moment, when the set of elements 5 are united in system 5'7 of level ly, lz=ly +1.
+For the moment of time IT cr':
+formal model of and is defined by contraction S'T=4 and its con-
+formity with concrete systems is approved experimentally for levels ≤ only. concrete bearers of formal model
+are systems 3'z
+44
+synthesis laws of level system are unknown but can be defined by the ex- trapolation 55:
+the form of representation of coordination signals yet and feedback sig- nals w W is systems":
+system ST is in the state of the weakest organization (the difference
+-- between system level and level of its elements runs up to maximum): coordinator S is in the state of the highest uncertainty of information; signals 7++ and we
+cause system + is unknown.
+should be regarded as undefined be-
+The most rational coordination strategy for such conditions is the coordination
+of interactions when coordinator Sallows the systems 'v to make a free
+v
+5lv
+choice of concrete parameters of interactions 7 and, consequently, any dy- namic realizations and its any allowed combinations o'z From moment to (TTT) system 5' achieves
+of systems
+the state of partial organization. Moment t can be fixed when at least one system
+s' of level
+(2--- (+1),) reaches the state of complete organization. r is the moment when system $ ( 4, = £− 5, = (+1), ) has been formed.
+=1-
+For this period of time T coordination strategy in σ is evaluation of in- teractions. While realizing this strategy coordinator S defines the coordination signals y' for each new system of level by bounds of concrete values and standards with the evaluation of belonging to this standard state. Coordination sig-
+nals y+1 and feedback signals we are formed in T by the coordination of interactions on level (+1.
+For the moment (T2 = TCT. ETT T struc-
+ture of system S becomes sufficiently organized and S is regarded as system $ of level ( l2 = l = (l + 1) 。 = (l + 2) y = (l +3)μ).
+For moment of time Tcr':
+formal model S goes to state of full certainty with laws of level of synthesis of structures σ';
+concrete bearers of 5 are systems S';
+the synthesis laws of level systems become known, and the laws of their
+functioning in $+ are known with the accuracy of parameters concrete value;
+the form of coordination signals 7 and feedback signals w representation
+is determined system $47,S';
+it is possible to find the range of systems 5 sufficiently organized by σ"; coordination systems 5 are in the state of minimal information uncertainty. formal models of systems Sand Sare realized in states
++2
+Star and S: models of systems $2 and $62 are in states+2 and +2 accordingly; systemsS and So have been formed.
+Coordination strategy in structure in this case is interconnections prediction.
+For the period of time T=T, which begins from moment, the task of
+Sr changing is the task of higher levels.
+Summarizing, it should be pointed out that on each level EL the formal model S is consecutively changed from state5 to states. and the following quality, is true:
+46
+(4)
+|\sr2 = {3" =+=+4+ (j==y#!+2€,T(+2)ƒ"=y#4+3Ey4+3)+(3.27) ⇒ (s |r¢+ =„S11 & s° r¢+2 =,8€+2) & ($*|r€+3 =„«s«+3]],
+where symbol y means the lowest certainty (highest information uncertainty) of the corresponding value, and symbol means the highest certainty.
+Abstract system Y=S, S', pS, ¿S) of states of formal model $ codes the multitude of ways of information representation on each level EL and is the basis for canonical model of coordinator S
+3.2.1. Presentation of coordinating element
+Similar to and dynamic realization (3.11), which was constructed for mechatronic object, its process and object's environment, the coordinator dynamic realization is constructed for coordinating element - design system analogues, coordination pro- cess and environment of coordinator. The process of the creating of canonic presentation of coordinating element is described below.
+The canonic representation is constructed on the external interactions 7% of of coordinator S depend on the or
+coordinator. The external connections
+ganization level of mechatronic system $ and information uncertainty of its
+coordinator S
+First, the following mapping is marked by symbol R as follows:
+P
+After that, the introduced equivalence relations Ető× atő:
+(7172) E, R(761)= R(762).
+make it possible to construct the following multitudes:
+(3.28)
+(3.29)
+47
+(3.30)
+where p7%. yo7% po7% and 7% are equivalence classes of coordinator S connections by uncertainty levels of information.
+Equivalence classes for coordinator states co, EC, are introduced to con- struct the state space of the coordinator.
+Set CUC and equivalence ratio are defined by the following expres
+sion ECC
+(c12)0 € E2 →
+>[(t€T1)(xg)⇒y RP1%);
+φ
+&[(+1'>1)(x&c)⇒(Phe (Can), Pur (Ca2+ You)) € E ̧]·
+(3.31)
+are
+Factor multitude Cá =Có E = cái cổ. Có. Cố) is called the states space of coordinating elements, where C... ¿Có the classes of states equivalence of S by information uncertainty levels. The state transition function in the introduced state space C is defined by the next expression:
+х
+(3.32)
+where (r) = Lo Pre (1, (c), or )], and I, :CE → C, such
+38:
+E
+Le C&C=0,
+where C is an arbitrary element from state space C. I is mapping.
+(3.33)
+The composition conditions (i)-(iii) for function Pow are presented similar- ly as for conditions (3.10) for function
+The output function for states space Co is presented in the following form:
+where: is input alphabet; is output alphabet of S, and the following quality is true:
+_ a (cá). a)= Loa ((cá), Xu)].
+(3.34)
+(3.35)
+(SLIKA 15)
+From the execution of the last equation (3.35) and conditions (i)-(iii) for func-
+0
+tion it is presumed that the diagram in Figure 3.2 is commutative, and the following system:
+Per: Cox Xour → Co.
+(3.36)
+x
+→
+49
+is the canonical presentation of the dynamic system in the states space [9, 10]. In this particular case (,) is the canonic representation of coordinating element So in the space of its states C
+After that, there appeared a possibility to consider the coordination ways [2,3] as coordinator reaction family P or output functions defined on the con- structed states space. Coordination strategies are realized on selection strata. Therefore, the formal model of selection strata is defined by family of reactions and output functions as follows:
+X
+→
+(3.37)
+0
+: X →
+The family of output functions is decomposed by coordination strate- gies in the following way:
+X
+X
+X
+(3.38)
+where, corresponds to the strategy of interactions coordination, or -to
+the evaluation of interactions, go-to the prediction of interactions in struc- ture σ, and corresponds to the prediction of interactions in co1.
+λα
+The change of coordinator states is executed on the learning and self- organization strata which are described by functions of states transition
+accordingly:
+olo Por: CXár → C &t,t'T' &t'>1),
+X
+and
+(3.39)
+Ξε
+Function is decomposed into two functions- P%
+20
+go and where po performs states transition on the learning stratum, and on the self- organization stratum. So, only changes of coordination strategies are possible on the learning stratum. The form of their representation is fixed. On the self- organization stratum the forms of information representation and processing ways can be changed.
+3.2.2. Process of coordination
+Dynamic realization (P,% of coordination processor S is decomposed into the model of process(.) which the coordinating element performs in envi- ronments and model of process by which constructs:
+=(0,0)%1-
+от
+oz (P1ē)%: oxÃó = {oz Pur: Xa Ca→ Yo&t=T},
+от
+olor PX
+(3.40)
+Cou→Xor &1,t' =T&t'>1}.
+(P= {Pas Xoror→You &t=T}'.
+=
+where XYX) and „Y =( X“, „X% )- Xổ and „Yo
+ponents of inputs and outputs of coordinator environment
+trolled by coordinator S only in part.
+are com-
+which are con
+Each of the above models is also decomposed into two ones. Dynamic realiza-
+tion (P.) is decomposed into the processes in σ and of and (P.9%
+into the processes of coordinator S construction from lower (from
+and from higher (from fr >0) levels:
+AT
+20)
+51
+(3.41)
+(P. (Pal
+.
+The states of processor S are inputs X of the coordinator and the process inputs are coordinator states C. For the coordinator environment process S the inputs are states, and the states are outputs Yo of the coordinator.
+To construct the canonic presentation of the coordination processes, the clas ses of equivalence - similarly as for the levels of information uncertainty - are obtained by the restriction of interactions 76/Ey on X and Y respectively:
+=1
+Y/E, =( „76/E, NY = XXX, Y)
+(3.42)
+It was found out, that from quality, (3.27) follows, that the states of pro- cesses of levels £/£+ and l/l-r for 7=1 are changed with respect to one another and as the result corresponding coordination strategies are also changed. Canonic model for coordination processor S is described as follows:
+F
+-for
+· {!!~ : (W1 1E7) × Chr→ (WIE)).(3.43)
+Canonic models for processes
+So
+8-
+and
+are present-
+ed in the same form (3.43). The meanings of states, inputs and outputs of the coor- dination processes are presented in Table 3.3.
+(SLIAK 16)
+It was pointed out, that models (,) are controlled by coordinator S only in part, because they contain components not fully defined.
+For the description of coordination processes on different strata, the states transition functions of S and S on the learning stratum, which change coor-
+dination strategies, were marked by index
+:
+(3.44)
+The functions of states transition of process
+caused by self-organization
+of coordinating element 5 were marked by index, functions, caused by self- organization of coordinator environment S-by index pr
+Po 20 Po
+wer Power 90
+Elle+
+(3.45)
+Formal models of the processes on selection (LoÃÃ}), learn-
+ing (pr) and self-organization (9) strata are constructed in the way similar to the corresponding models of the coordinating element (3.37-3.39).
+3.2.3. Description of coordinator environment
+The development of the model of coordinator environment is conducted in a similar way as that of the coordinating element, bearing in mind the following facts. Coordinator S of each concrete systems being designed is the connecting unit of lower 4-5,520 and higher (+5,50 levels. For r=1, the both coordina toes and coordinator S 3-1 are in direct contact with coordinator S of level
+(rough σ and 2=01+5 respectively) and form its environment, S
+Coordinator S connections with other coordinates Sale of level also go through its structural elements of and of, in other words, trough higher and lower levels:
+7.
+(3.46)
+Therefore, canonic representation of coordinator environment.is decomposed into two classes of models:
+and their states spaces were marked as and respectively:
+"'-'
+States space of coordinator environment
+(347)
+(3.48)
+is constructed just as the
+(3.49)
+states space of the coordinating element (3.31) in the following form (3.49):
+ECC
+The elements of the abstract systems given in (3.48) form represent the following states. Co represents the states of system
+structure of €5 and
+ااالي
+represents the state of aggregated dynamic real-
+54
+ization ES1 of the system being coordinated-designed and controlled. Their connection is defined as follows by the law which arose from (3.27):
+Law
+⇒("|T-,')}&
+(3.50)
+& {[(oʻT{=,0')=(3x=d*)&&i=¿ ̈?)&@=i¢ ̈3»]⇒
+⇒r"-"))
+represents the connection of structural elements and co1 of coordinator So, in other words means that that level of in- formation uncertainty in co is higher than the one in o'; ' becomes suffi- ciently defined only when system of level +1 becomes sufficiently de- fined.
+As a result, coordination signal + EG+ and feedback w/W!+ become determined for when the system of a higher level has been formed. This definition is relative because of the synthesis and functioning laws of systems of level & can change the higher levels.
+Canonical representation of coordinator environment is spec- ified as follows:
+(3.51)
+Decomposition of states space into and resulted in
+Co 8
+the corresponding decomposition of canonical representation (Ã). For 7=1, the decomposition is presented in the following form:
+dāvāja
+Functions
+-
+and
+55
+(3.52)
+are decomposed in the same way as for co-
+ordination strategies (3.38) and define the formation ways of feedback W and coordination signals G+ under conditions of different information uncertainty indexed by L→ (2,9,7.). The states transition function, similar to functions, contain two strata - learning (e) and self-
+and organization()
+The task of the self-organization stratum for coordinator environment S is to change the level of system S1 from £y to l2 = {. The task of self- is to install the struc-
+organization stratum of coordinating element
+tural connections
+(=o' (S)) of formal model
+other words to change state 57 from to 5.
+$7 for levell £, in
+The structural elements of and formal model S are its basic terms s1, S. 111. l. c., which are at the same time connections in $. For ex- ample, system S' comects Sh, a' and '; coordinator S connects and
+in 5 dynamic realization a connects SS and S; process connects systems, and S. for which S1 plays the role of their interconnections and 8 are the environment for S, and processes S are structural elements of S
+56
+„S' and '
+Each structural element of system Sr must be defined on self-organization stratum of coordinator S by its formal model, i.e. by and Sr. In and model the following components must be indicated: and structural elements (with their dynamics) and their connections, i.e. structure of of and, its connections with other elements of 84 in general model Sr. i.e. dynamic realization as of and, and the restriction on and coordinator S which defines the ways of concreti zation of both σ and as1.
+In other words, on self-organization stratum cocedinator S performs the sys- temic analysis of each element of formal model S in terms of this model and synthesizes the abstract system 5'r'. In this way S controls the conformity of the system model to the laws of synthesis and functioning of an traditional concrete system of level, which is created by both coordinator S and environment „S1.
+3.2.4. Performance of the design task of mechatronic systems
+Design tasks of mechatronic systems and control process are distributed on coordi nator S strata: selection, learning and self-organization (self-coordination). The task is partially described in [49] as well.
+On the selection stratum at 17 moment of time, predicting the environment systems states for moment >, coordinator defines correspondent inputs and outputs of the system being designed and creates (P.) models of the system and its process using the obtained predictions. After that, coordinator selects such states of subsystems and their interactions which correspond to the standard state of system s required for, ie. performs the task of structure of synthesis of the object being designed.
+The synthesis task is formalized by introducing interlevel relations on infor- mation resources of abstract and model = % % [3, 49-50], where Pu is a relations net on the multitude of dynamic systems (3,5), of relations with the types of structures o.
+is an analogous net contains, in particular,
+57
+equivalence relations on structure of types by the connection defects, construc- tive dimension and way of subprocesses organizations (continuous, parallel con- nections and feedbacks). Adaptation of structural model of to the concrete appli- cation area, i.e. mechatronic system design, is executed by the indication of con- crete external model @E %, and class of structures which contains extemal models of elements (subsystems ) of system Sunder consideration being designed.
+Structure classes-space of mechatronic system constructions for the de- fined elements basis correspond to a certain way of designed system functioning. Technical constructions for each way of functioning are selected by changing pa rameters of the designed object subsystems and their interactions. The change of the parameters causes the change of external model of the mechatronic object. It allows finding out if the required state of designed object is obtained (analysis task). We return to the synthesis task if there is incoherence of the ob- tained and standard states of the object being designed.
+The choice of parameters of the designed object structure depends on the un- certainty level of the coordinator & information about the environments. For each level of information uncertainty the equivalence classes of the coordinator states in the design process are introduced. Each class of states of the coordinator has its own coordination strategy: coordination of interconnections, evaluation of interconnections and the prediction of interconnections (most exact) described in Section 3.2.1. Coordination strategies (3.38) are realized on the selection stratum.
+On the learning stratum the coordinator fixes the level of information uncer tainty. It compares the data about the environment systems received by the feed- back and the same data contained it its informational resources (data bases). In this way the required area of informational resources is defined. In the frames of this area the selection of required technical construction of mechatronic object will be done. Corresponding state of the design process (cocedination strategy) at the se- lection stratum is also defined.
+Information resources of the coordinator are changed in the design process on its self-organization (self-coordination) stratum. The reason of the change could be the absence of coherence with the real mechatronic systems model in infor- mation resources . The criteria for including a new model into ♬ is the exactness of the solutions obtained with the help of the model.
+(59. STRAICA; 3LEKCIJA 3.3)
+3.3. Metrical characteristics of hierarchical
+mechatronic systems
+Structural-dynamic connections of 
+S , 
+0S , 
+ , 
+ , 
+0
+ˆ
+ , s , 
+  elements of
+formal model 
+S of aed – the standard formal element of design and control sys-
+tems – realize the main laws of hierarchical systems. Numerical characteristics
+necessary for further investigation of the laws and quantitative measurement of
+particular mechatronic systems being designed are introduced in this Chapter. All
+numerical characteristics of hierarchical mechatronic systems are determined be-
+low by the means of positional numeric system s
+L .
+3.3.1. Levels of mechatronic systems
+The most general numerical characteristic of hierarchical mechatronic systems is level
+L , where: s
+LL  , s
+L is numeric positional system (generally with an unfixed
+base), specified on multitude }&&),(:{ LILILs   
+
+
+ , L is
+the multitude of indices of levels, 
+I is the finite set of indexes on level  , the base
+on each level is marked by symbol 
+ , 
+ NN ,
+ is the set of natural numbers.
+L is determined as ,}{ 
+ ELL s
+ 
+E are relations of equivalence on
+ss LL
+
+  :
+]."'),)[(,)(,( "'"'"'    ELs
+
+
+
+
+
+
+ (3.53)
+Abstractive mapping is marked with symbol R :
+,: LSR 
+ ,},,{: 0 LSR 
+
+
+ (3.54)
+which sets correspondence of mechatronic system 
+S and the index of its level.
+For dynamic  
+ and structural  
+ representations, the reflections are
+defined as follows:
+,: LR 
+
+ .: LR 
+To determine dynamic 
+t and structural 
+t presentations as the restrictions
+of 
+0 and 
+0 at time 
+tT :  
+Tt
+t
+
+
+~ ,  
+Tt
+t
+
+
+~ , the following definition
+was made.
+Definition 3.5. (i) Space of dynamic realizations 
+ of hierarchical mecha-
+tronic system on levels L is called a factor set of system 
+
+E ~ , where
+
+E are the relations of equivalence on   ~~ :
+)].()(),)[(
+~
+,)(,( 21212121 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ RRE  (3.56)
+(ii) The space of structures of hierarchical mechatronic system on levels
+L is called factor set 
+
+E ~ , where:
+)].()(),)[(
+~
+,)(,( 21212121 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ RRE  (3.57)
+Systems 
+iS and 
+S are considered as equivalent by their level independently
+of the equality of their bases 
+i
+ and 
+ . In other words, the might be systems
+with different bases on one level. Equivalence
+
+E is determined on ss LL
+
+ 
+for their classification:
+)].(),)[(,)(,( "'"'"'"'
+
+
+
+
+
+
+
+
+
+    ELs (3.58)
+Spaces 
+
+ and 
+
+ are constructed as factor sets
+
+
+ 
+ E ~ and
+
+
+
+ E ~ by analogy with 
+ and 
+ as follows:
+)]()(),)[(
+~
+,)(,( 21212121 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ RR  ,(3.59)
+)]()(),)[(
+~
+,)(,( 21212121 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ RR  , ....
+.:,: 
+
+
+
+
+
+
+ LRLR 
+Validity of property  for state space 
+C follows from s and R :
+(  ) &))(( 
+  
+& &?)&)(( 0
+ 
+ 
+
+
+ tCcSR
+& &?)&)(( 0
+ 
+ 
+
+
+ tCcSR
+& ?).&)(( 0
+ 
+ 
+
+
+ tCcSR
+Property  connects the values of the level of mechatronic system 
+S with
+values },,,{
+
+ L of the levels of system organization and coordinator’s
+
+0S information uncertainty.  means that each mechatronic system 
+S
+spreads at least over three levels up and down in L . The levels’ indices in interfac-
+es with natural languages may be replaced by words (machine part, module, ma-
+chine, etc). Levels on which the reference models introduced are adjustable (by the
+change of parameters) to any system of this level are called strata.
+Levels },,,{
+
+
+ in 
+0ˆ
+ are called:
+– the levels of information uncertainty – for signals 
+ , 1
+ , 
+w , 1
+w ;
+– the levels of system organization – for coordinator’s environment 
+0S
+ .
+Levels },,,{
+
+
+ also encode output functions 
+0
+ˆ
+ as coordination strate-
+gies on the selection stratum of coordinator.
+3.3.2. Numeric positional system
+Formal models of aed and coordinator, as a theoretical basis for the design method
+proposed in the book, are constructed with the help of their most important particu-
+lar cases – dynamic system ),(
+
+ and numeric positional system s
+L . s
+L allows
+determinations of level to be easily introduced.
+The dynamic systems are algoristic and sufficiently investigated. But for nu-
+meric positional systems there is no formal model in spite of its big importance in
+numeric information processing.
+Numbers in a positional code are usually presented as polynomials, which are
+not in coordination with most characteristic features of s
+L , i.e. with the realization
+of interlevel transitions in aggregated presentation of numbers. So, addition of
+numbers in a positional code usually leads to the degree of the result being higher
+than that of the items. This is impossible for the group of polynomials of degree n
+which are closed with respect to the addition operation. Furthermore, system s
+L
+can’t be formalized by the means of any other one-level mathematical model ei-
+ther. Being hierarchical by nature s
+L is formalized only in terms of hierarchical
+systems theory.
+It is sufficient to examine model s
+L for one standard block which is repeata-
+ble on each of its level. This block is constructed on the following basic system
+
+T
+~
+ :
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+ ~~,~~,~~,~~~ T , (3.61)
+     ),,,(,~,),,,(,
+~
+,
+~~ 0
+
+
+
+
+
+
+
+   ,
+    ),,(,~,),,(~,~,~~~ 00
+
+
+
+
+
+
+
+
+
+   ,
+    )(?,,?
+~
+,?),(~,~,~~~ 00
+
+
+
+
+
+
+   ,
+   
+
+
+
+
+
+
+
+ ~,~,~~,~,~~~ 000   ,
+ ),,,(),,,(
+
+
+
+
+
+ 
+ ,
+ ),,,(),,,(
+
+
+
+
+
+ 
+ .
+The meaning of symbols },,,{
+
+ in 
+T
+~
+ is coordinated with the mean-
+ing which they have in canonic model 
+0ˆ
+ of coordinator, where λ is the index of
+the most organized system, φ and χ are partly organized ones, ψ is an unorganized
+system. Property 
+ (Fig. 3.3) sets connections between systems
+
+T
+~
+ ,
+
+T
+~
+ ,
+
+T
+~
+ and
+
+T
+~
+ (  
+ , 1 
+ , 2 
+ , 3 
+ ). The whole
+system 
+T
+~
+ turns into the neutral element 10 ~
+ 1~ 
+ 
+T of the higher level.
+Element 
+ ~0 , which is the connection of positively and negatively oriented ele-
+ments 
+ ~ and 
+ ~ is decomposed into elements of level 1 in 
+T
+~
+ .
+Bilateral symmetry of elements 
+~
+i and 
+~
+i (where },,,{
+
+
+
+ Li )
+corresponds to the direct and reverse states transitions of system 
+S in self-
+organization cycle.
+Diagram 
+ (Fig.3.3) is in coordination with 
+  and  . When struc-
+ture 
+ is in state λ, i.e. the system has level
+ , aggregated dynamic representa-
+tion 
+ (for ?01 
+t ) is in state φ (level
+ ). When the state index of 
+ is
+equal to φ (level
+ ) and ?01 
+t , the index of 
+ is χ, etc
+(SLIKA 18)
+It is shown that Figure 3.3 is analogous to aed 
+S model in its canonical
+presentation. The arrows illustrate the elements’ inter-level connections which go
+through coordinator 
+0S . System dynamics on each level is specified by the se-
+quence of transitions from 
+~ to 
+~ , 
+~ , 
+
+~ and vice versa, which is for-
+malized by canonic model 
+0
+ˆ
+ of coordinator.
+The change of states 
+},,,{
+
+ of level  of system s
+L from the state of
+absolute information uncertainty and the weakest organization 
+ to relative de-
+terministic state 
+ is accompanied by alteration of s
+L characteristics of its
+higher and lower levels. The relations between the values of numeric characteris-
+tics of s
+L for different levels are determined in the following (3.62) form.
+Here 1 is a unit of level ; diverse levels have their own bases 1
+ , 
+ ,
+1
+ , 2
+ , 3
+ are not necessarily equal. Unit of level  is regarded as 1
+0,1 
+on level  and unites 
+ =10 units of level -1. Each system 
+S is connected
+through interactions 
+
+ with the other systems of level  which create environ-
+ment 
+S
+ of system 
+S . 
+
+ is called a prolongation of system 
+S in its envi-
+ronment 
+S
+ and marked as 
+S
+~ : 
+S
+~ = 
+
+ .
+(SIKA 19)
+Theoretical construction of aed-processor which is oriented at the processing
+of numeric and geometric information of mechatronic system being designed is
+defined as a structure of three connected levels of system s
+L . Construction of
+aed-processor is presented in Figure 3.6.
+For system s
+L in Figure 3.4, 
+ elements of the lower level are determined
+on multitude 1~ 
+ 
+T , the base of system s
+L
+~ is equal to 
+~ and sometimes may
+not coincide with 
+ ( 
+~ characterizes the quantity of s
+L connections in
+ s
+LS
+ ). Elements of s
+L
+~ are transferred by system s
+L to the other systems of
+its level. In particular, the whole system s
+L
+~ can be transferred to only one system
+1
+, 
+  IiLs
+i . The relation of s
+L and s
+L
+~ systems goes through element )1( s
+L
+
+= )1(
+0
+~ s
+L . Number 
+ defines the address of interactions
+~ ( s
+L , s
+L
+~ ) in s
+L ,
+which is coordination signal s
+L
+ for system s
+L .
+(SLIKA 21)
+System { s
+L , s
+L
+~ } in its initial state contains non-oriented elements only. The
+uniting of elements with different orientation which come to the input of s
+L gives
+a non-oriented element again. When the quantity of elements with the same orien-
+tation is equal to 
+ , signal s
+Lw 1 (unit 1 of level  , i.e. 0.1 of level 1 )
+goes to higher level 1 informing that system s
+L has passed into its organiza-
+tion state λ, see (3.61).
+The further process in s
+L is illustrated in Figure 3.5 and described as follows.
+Being in its organization state λ (3.61), each system s
+iL gives its prolongation
+s
+iL
+~ to system s
+iL 1 and after that s
+iL 1 begins to receive the inputs of level  (in
+the moment of prolongation transfer it may occur that s
+iL
+~ contains a certain num-
+ber of elements with the same orientation). In this way, discrete systems s
+iL and
+),( 1
+  IiLs
+
+ become continuously connected.
+(SLIKA 22)
+t is necessary to point out that information for higher levels is aggregated and
+the sizes of units of different levels with equal bases are equal.
+Each level in s
+L has its own inputs and outputs  s
+L
+
+ . Interconnections
+ s
+L
+
+ of system s
+L of level  go through structural connections  s
+L
+
+
+which connects elements )1( s
+L of system s
+L . The connections in s
+L have all
+the features of the process of addition in column. When one unit of the higher level
+goes to the left, part of the sum stays in its position in s
+L
+~ for the following addi-
+tion operation.
+The change of states 
+),,,(
+
+ of system s
+L is executed by its coordinator
+ s
+LS0 through states transition function s
+L
+0ˆ
+ s
+L
+0ˆ
+ (Fig. 3.5). For the con-
+nection of s
+L with the fields of real (ℝ  ), complex (ℂ  ) and with hyper-complex
+(ℤ  ) numbers the multiplying operations on corresponding contractions of 
+T
+~
+
+are considered below.
+The multiplication in the field of real numbers is determined by states transition
+function )()ˆ( R0R S
+L
+ (Tab. 3.4) on contraction 
+T
+~
+R
+ of system 
+T
+~
+ :
+
+T
+~
+R
+ 
+}
+~
+,~,
+~
+{
+
+
+  & 
+
+ ~~ 
+ (3.63)
+where 
+~ plays the role of zero, and 
+
+~ are the units.
+Table 3.5 of function of states transition 
+ )ˆ()( 0CC S
+L
+ defines the mul-
+tiplication of complex numbers on the contraction 
+T
+~
+C
+  
+}
+~
+,~,~,~,
+~
+{
+
+
+
+ 
+68
+of system 
+T
+~
+ , where Re( 
+ )= 
+
+~ is real and Im( 
+ )= 
+~ is imaginary
+part of the complex number,  0~ 
+ is zero, and  C
+ .
+(SLIKA 24)
+Table )(Z  of hypercomplex number multiplication (Table 3.6) is plotted for
+the example of quaternions (their contraction on the positive area). The table is
+defined on multitude 
+T
+~
+Z
+ 
+}
+~
+,~~,~?,,~,~,~,
+~
+{
+
+
+
+
+
+
+
+  , where
+ 0?
+~  is zero; 
+
+~ are positive and negative real units, and 
+~ , 
+~ , 
+~
+are imaginary units.
+(SLIKA 25)
+Tables of any numbers multiplication are particular cases of 
+ diagram. Its
+fragment is reflected in Figure 3.3.
+69
+The multiplication law of any elements of system 
+T
+~
+Z
+ (Table 3.6) is im-
+plemented as follows:
+– index },,,{
+
+
+ci of state element 
+ci
+~ defines 
+ci
+~ in the initial state
+of system 
+0
+~
+T
+ , where (conditional) the origin of coordinates is 
+
+ ~ ;
+– index xi of input element 
+xi
+~ (coordinating signal) identifies level
+},,,{
+
+
+xi from which system tT will be considered, i.e. identifies a new
+origin of coordinates;
+– 
+ci
+~ elements in new coordinates are transformed into other elements T ,
+i.e. their indices change, which is illustrated by 
+ diagram and multiplication
+tables )(R  )(C  , )(Z  ; the process of indices transformation runs in such a
+way that the results of any table line cannot be the same for any other line.
+For instance, when system R T }~,~,~{}~,~,~{ 0 
+
+
+
+
+
+
+
+
+
+
+
+  
+is multiplied by 
+ ~ , its state does not change and both elements 
+ ~ (unit) and
+
+
+ ~ (zero) stay in their places. When R T is multiplied by 
+
+ ~ , index λ of the
+origin of coordinates goes into φ, i.e. φ is replaced by λ, and vice versa λ is
+changed by φ (element 
+
+ ~ on level
+ comes into 
+ ~ and 
+
+ ~ comes into
+
+
+ ~ ).
+It should be pointed out that for the multitude of real numbers in s
+L code,
+)(R  table is insufficient and a diagram similar to )(Z  is required. The diagram
+is also a particular case of 
+ . For instance, the real and complex numbers multi-
+plication in s
+L positional code (which may be also reduced to addition in s
+L ) is
+obtained from 
+ by the following way. The addition of )10( 
+
+ real units
+1~  
+
+ of level 1 is equivalent to multiplication 
+
+ *~ 1 , i.e. 0.1*10 or
+multiplication 1~  
+
+ 1~*  
+
+ of units of levels 1 and 1 .
+Both indices 1 and 1 of units of level λ are equal to φ and these units
+for
+ can be recognized as imaginary ones, i.e. 
+
+ 
+ ~~ 1   , 
+
+ 
+ ~~ 1  
+and imaginary numbers 
+
+ 
+ ~*~  are multiplied
+The result of multiplication in both cases is unit 
+ ~ of level  . Its sign – the
+symbol of direction in 
+T
+~
+ – is plus for the case of real numbers, and minus for
+imaginary ones. The connections between the real numbers and imaginary units ψ
+and χ are explained by analogy.
+Therefore, in numerical positional system s
+L the fundamental difference not
+only between integer and real numbers but also between the real and imaginary
+ones disappears. The difference between adding and multiplication is also lost.
+A real number could be obtained by the addition of imaginary numbers if levels in
+
+T
+~
+ are taken into account.
+The example of arithmetical operations in s
+L is reflected in Figure 3.4. When
+on level 1 there are elements with the opposite orientation with respect to the
+unit of level  , the unit is decomposed into 
+ units of level 1 , which are
+later united with the oppositely oriented elements, as a result of which the neutral
+ones are obtained. That number of units of level 1 for which there are no oppo-
+sitely oriented units on level 1 and lower levels becomes a numerical charac-
+teristic of level 1 with its sign.
+To summarize the presented description of numeric positional system s
+L , the
+following characteristic features of the system were underlined and it was pointed
+out that properties 
+ , 
+ which reflect both the structure and dynamics of s
+L
+on its different levels and interlevel relations do not have analogies in the known
+mathematical models used for mechatronic system design. For instance:
+– discrete systems of each level  in s
+L are connected in such a way, that the
+system of level 1 becomes continuous;
+– the interlevel transitions are also continuous;
+– information for higher levels is aggregated;
+– systems of any level  in s
+L can be divided;
+– relations of real and imaginary numbers in s
+L were assigned not only by
+multiplication but also by structural and dynamic uniting of canonic states;
+– block of coordinator s
+LS 
+0 sets values 
+ of the basis on each level of s
+L
+in the process of its adjustment to concrete systems with a natural basis, e.g. meas-
+uring systems of time, length, etc.
+Therefore, the formal model of standard block s
+L of system s
+L can be con-
+structed as aed formal model contraction s
+LS  s
+L only. Models of numerical
+systems in terms of algebra and automata theory are particular cases of s
+L , which
+is caused by the ways of its formalization [3,8-10]. The system for geometrical and
+physical objects measuring in H. Lebesque theory [48] is also a particular case of
+s
+L .
+The possibility of physical realization of s
+L arises from its coordination with
+natural processes of calculation performed in positional codes. That possibility is
+partly illustrated by Figures 3.4-3.6 in which s
+L is reflected by analogues of mod-
+ern calculating machines.
+3.3.3. Measuring units of mechatronic objects
+To introduce the measuring units of hierarchical mechatronic objects, the following
+definitions are formulated. Previously, it was pointed out, that states of mechatron-
+ic system 
+S are indicated by symbols of s
+L , i.e. they could be of different levels,
+orientation or neutral on each level. Their interlevel dynamics is defined by scheme
+
+ (Fig. 3.3).
+Definition 3.6 (i). Any neutral state  Cc iti i  , where  ii Tt  is the minimal
+element of 
+iT , is called initial state 
+i (the unit from 
+i for measuring 
+S )
+for any period of time },,,{ 
+
+
+
+
+ TTTTTTi  of system 
+S . Multitude
+ CH iii  }{
+~
+ is called the object of initial states for 
+iT .
+(ii) For any period of time  TTi
+ any neutral state  Cc iti i  is called the
+standard state, or measuring unit 
+ , where 
+it~ is the maximal element of 
+iT .
+Multitude  CH iii  }{
+~
+ is called the object of standard states for 
+iT , .Li
+
+It follows from s (3.27) that the standard state of each period  TTi
+ is
+the initial state for period  TTi
+1 : 1
+1
+~ 
+  
+iii H .
+Definition 3.7. Set }~),,~({ 
+ss S
+
+
+
+ is called metrical characteristic  
+s
+ ~ ,
+
+S ),~(  Ss
+
+ of mechatronic system 
+S in relation to standard 
+s
+~ , where
+),~(  Ss
+
+
+ is the measure of 
+S in units 
+s
+~ .
+Metrical characteristic concerning the initial state is identified by analogy
+The representation of metrical characteristics:
+),~( 
+
+
+
+ 
+  , ),~( 
+
+
+
+ 
+  , (3.64)
+),~(  ccc
+
+
+  , ),~(  xxx
+
+
+  , ),~(  yyy
+
+
+  ,
+),~(  cxc
+
+
+
+
+
+  ,
+for 
+ or 
+ , states of object 
+So , processes 
+So
+ , 
+S
+ and for environment
+
+S
+ , respectively, allows a range of state spaces to be constructed in addition.
+Metrical characteristics  
+ are dimensional qualities and are con-
+structed from two elements, one of which – measure – is the number in s
+L code
+and the other one is any unit of measurement.
+It should be pointed out, that the metrical characteristics of object 
+So , pro-
+cess 
+S
+ and environment 
+S
+ are connected with one another by relations
+determined by aggregated dynamic realization 
+ . Metrical characteristics 
+
+
+and 
+
+ are connected by interlevel relations realized by coordinator 
+0S . The
+connections for each particular mechatronic system are defined by its formal model
+
+S .
+Preliminary conclusions
+In Chapter 3, the element of theoretical basis of HS design method – the aed for-
+mal model of coordinator – was constructed with the help of the dynamic system.
+Coordinator’s state spaces concerning the level of its information uncertainty were
+introduced. Canonical presentation of the coordinating element, the process of
+coordination and the environment of coordinator were built in the state spaces ob-
+tained.
+The design task of mechatronic systems is performed by coordinator on its
+strata by one of its coordination strategies. Strategies of selection strata were de-
+scribed by the output functions of canonical model. Change of states of coordinator
+was described by states transition functions, which correspond to the functions of
+leaning strata (change of coordinator’s strategies) and functions of self-
+organization strata (change of the state of the formal model). Coordinator actions
+73
+while performing the main design tasks of mechatronic objects – synthesis and
+analysis – were described.
+So, the model developed meets the requirements of the design systems formu-
+lated in Introduction and Section 3.1 of this Chapter.
+With the help of numeric positional system, connections of levels and metrical
+characteristics of the hierarchical mechatronic objects being designed were intro-
+duced. The known numeric systems were subsequently described with the help of
+hierarchical systems. All this allows quantitative calculation on the space of levels
+of the designed mechatronic objects to be executed. Such a description causes real-
+ization of coordinator in the form of the theoretical construction of aed-processor,
+i.e. cybernetic system oriented to numeric and geometric information processing.
+Theoretical basis of the conceptual HS design method, i.e. aed formal model
+presented in this Chapter 3, was improved in comparison with its previous version
+described in [140], and has got the following additional characteristic features:
+general scheme of aed (Fig. 3.1) has improved so that system 
+S block became
+included in its environment 
+S
+ ; all elements of aed model were presented in the
+form of systems with correspondent indexes from the set },,,{
+
+
+ooLk  ,
+which indicate object ),(o environment )(
+ , and their processes )(
+o and )(
+ ;
+symbol presentation of systems connections was changed from 
+U
+ to 
+
+ what
+made it agreed with presentation of coordination signals 
+0
+ generated by coordi-
+nator while performing systems structures synthesis in design process by arranging
+subsystems structural connection; fundamental aed law of systems levels grows
+was modified by the law of systems outlook increasing in the levels space, i.e. in-
+creasing of number
+ of system levels
+ being coordinated ‘up’ and ‘down’ in
+regard with current level  of system under consideration; symbols set of levels of
+system organization L and correspondent basic system 
+T
+~
+ were changed to
+},,,{
+
+ L and improved in such a way, that they become coordinated
+with coordinator canonic model )ˆ,ˆ(
+ and its reactions
+ and functions
+ per-
+formed on selection and learning strata respectively. Furthermore, modified aed
+model presented in this Chapter was further improved. New aed formal model for
+systems design and control was presented and described by Novikava and Miatluk
+in [8], and used after that by Miatluk and Kim in [80].
+                </p>
+<h3>Testing heading</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<p class="zoomable-text">
+                    Conceptual model creation of an engineering, e.g. mechatronic system being de-
+signed is the actual task for automotive control, robotics and industrial production
+systems which usually operate with modern CAD/CIM systems [1, 12-15]. Nowa-
+days, there are a lot of definitions of Conceptual Design (CD) and corresponding
+methods and models which are used at the conceptual design phase. The following
+definitions: “conceptual design or what some call ‘ideation’ defines the general
+description of the product” given by Paul Brown, “the early part of any design
+process, which can occur at any point in the product development cycle” given by
+Bob McNeel, and “conceptual design is about possibilities” given by Fielder Hiss
+are analyzed by Hudspeth [16]. Hudspeth considers conceptual design to be more
+about what a product might be or do, how it would meet the expectations of the
+manufacturer and the customer. M.J. French defines the conceptual design as the
+phase of the design process where the statement of the problem and generation of
+broad solution to it in the form of schemes is performed [17]. In any case before
+giving a definition to Conceptual Design and Conceptual Model of an engineering
+(e.g. mechatronic) object being designed it seems to be reasonable to define the
+place of Conceptual Design in general design process and object’s life cycle. To
+make such a definition, the general design scheme is presented by French [17] in
+the form of a block diagram given in Figure 1.1.
+(SLIKA 1)
+(SLIKA 2)
+Here circles represent phases and rectangles represent work which is not com-
+pleted. In this diagram things that are important but outside of the scope of the
+work, have been omitted by French. For examples, interactions with such activities
+as research and development, inputs of information, etc., were not under considera-
+tion. The ‘evaluation’ box was also omitted in the scheme because French believes
+it should be going on continuously in all the rectangles of the diagram [17]. Ac-
+cording to Ullman [1], in the object life cycle (Fig. 1.2) the Conceptual Design
+phase is just before the phase of the Detailed Design (DD) where the object’s con-
+crete mathematical model is created and numeric calculations are performed. An-
+other similar scheme which contains both conceptual and detailed design phases
+in the total design core is presented by P. Childs in [13], see Figure 1.3.
+(SLIKA 3)
+The main design tasks performed at both CD and DD phases (Fig. 1.3) are
+synthesis and analysis tasks. The places of these tasks in the general design process
+are presented by the scheme in Figure 1.4 given in [13]. Synthesis is defined by
+Childs as the process of combining the ideas developed into a form or concept,
+which offers a potential solution to the design requirement. Analysis task is recog-
+nized as involvement of the application of engineering science. In this case, sub-
+jects are explored extensively in traditional engineering courses, such as statics and
+dynamics, mechanics of materials, fluid flow and heat transfer. These engineering
+'tools' and techniques are used in analysis tasks to examine the design to give quan-
+titative information such as whether it is strong enough or will operate at an ac-
+ceptable temperature [13]. Analysis and synthesis invariably go together.
+In the frames of the conceptual design model presented in this book and de-
+scribed below in aed formal basis of HS (see Chapters 3-4), the synthesis and anal-
+ysis tasks are also performed together and defined as coordinator tasks of creating
+(synthesis) and changing (after analysis) mechatronic system construction and
+technology by selecting units of lower levels and settling their interactions to make
+12
+the state and activity of the system on higher levels (environment) best coordinated
+with environmental aims.
+(SLIKA 4)
+Another definition of the conceptual design process was given in the Over-
+view section of the work titled “Analyzing Requirements and Defining Mi-
+crosoft.net Solution Architectures” [18] where MSF (Microsoft Solutions Frame-
+work) process model was presented. It was pointed out here that the planning phase
+of the Model involves three design processes: conceptual, logical, and physical.
+The conceptual design starts during the envisioning phase of the MSF process
+model and continues throughout the planning phase. Because the MSF design pro-
+cess is evolutionary as well as iterative, conceptual design serves as the foundation
+for both logical and physical design. The following three steps of conceptual de-
+sign and associated baselines are formulated. Conceptual design is an iterative
+process and the steps are repeated as required: 1) research, 2) analysis, 3) optimiza-
+13
+tion. The optimization baseline leads to the baseline of the conceptual design. Cor-
+respondent Figure 1.5 illustrates these steps in the conceptual design.
+During the research step of conceptual design, the team gathers more infor-
+mation to refine and validate data collected during the envisioning phase. Typical-
+ly, the information gathered during the envisioning phase is high level and lacking
+in detail. During the first step of the conceptual design, the design team needs
+to collect detailed information. For example, the team first identifies questions
+raised by the first iteration of information gathering; the team then continues
+to clarify the tasks, business processes, and workflow. As greater detail is discov-
+ered, the results are incorporated in the use cases and draft requirements.
+(SLIKA 5)
+US Department of Transportation [19] formulated that conceptual studies (CS)
+are typically initiated as needed to support the design planning and programming
+process. CS phase identifies, defines and considers sufficient courses of action (i.e.,
+engineering concepts) to address the design needs and deficiencies initially identi-
+fied during the planning process. This phase advances a project proposed in the
+program to a point where it is sufficiently described, defined and scoped to enable
+the preliminary design and technical engineering activities to begin. The CS and
+preliminary design phases are performed in conjunction and concurrently with the
+environmental process which evaluates environmental impacts of the engineering
+proposals resulting from the conceptual studies and preliminary design phases.
+Environmental systems and processes are also taken into account in
+knowledge based engineering (KBE) approach proposed by Pokojski and
+Szustakiewicz in [20]. The main structures for extended KBE application are de-
+sign process and design models. The models contain specific aspects such as prod-
+uct structure as a whole and its fragments, engineering calculations and analysis
+with ability of integration with external systems, design requirements and decision
+making processes. This object-oriented approach makes it possible to speed up the
+14
+process of generating the source code of design models from the extended KBE
+application. KBE approach is also used in [132] to support multidisciplinary design
+optimization. Another approach where the decision support tools in the domain of
+conceptual design are sufficiently developed is model-driven engineering (MDE)
+described in [21]. Here, a prototype software is presented that allows the user to
+specify functional requirements for the designed buildings, and hierarchical graphs
+and graph grammars serve as knowledge representation tool.
+In systematic respect, designing is defined in [22] as the optimization of given
+objectives within partly conflicting constraints. Requirements can be changed with
+time, so that a particular solutions can be optimized for a particular circumstances
+set. In organizational respect, design is recognized as a part of the product life
+cycle. This cycle is trigged by a market need or a new idea. Life cycle starts with
+product planning and ends with recycling or environmentally safe disposal. The
+activity on engineering design is placed at the center of two interacting technical
+and cultural streams (Fig. 1.6) in [22]
+(SLIKA 6)
+From the point of view of Hierarchical Systems (HS) method proposed in this
+manuscript, both streams belong to the general process of level increasing of the
+object being designed in its life cycle. This process and the life cycle for the case
+of Tractor and Automobile Industry (TAI) were described in [23, 24] and are pre-
+sented in Fig. 1.7 below.
+(SLIKA 7)
+Figure 1.7 presents the main phases of product life cycle for the case of
+articles of Tractor and Automobile Industry (TAI) and their places in State levels.
+States levels are (Nat) natural (physical, chemical, biological), (Demog)
+demographical (social), (En) engineering, (Kn) knowledge and the level of the
+State power (St.Power). The phases of TAI product life cycle are: (1)
+manufacturing of articles and equipment for TAI; (2) transport networks, the
+delivering of raw materials, details, equipment; (3) trade; (4) field of activity and
+technical service of TAI articles; (5) design of new things (innovations) in TAI,
+financial and juridical service, scientific maintenance. The place of the conceptual
+design phase where HS design technology and correspondent conceptual model
+(presented and described below in this book) are implemented is in the fifth block
+– design of new things, financial and juridical service, scientific maintenance – of
+the scheme (Fig. 1.7).
+The connection of the Life Cycle phases (Fig. 1.7) as well as State levels –
+natural, demographic, engineering, knowledge, State power – is realized by aed
+technology of hierarchical system partially described by Aλ scheme given in [8].
+The scheme connects elements of symbol construction of hierarchical system pre-
+sented in Aλ form of aed and reflects both the design mechanism and the law of
+object’s level increasing in its life cycle.
+To represent concept design knowledge, the technology of functional
+modelling was researched and applied by Bryant et al. [25]. Gero and
+Kannengiesser [26] presented an function–behavior–structure (FBS) ontology
+representation process for concept design in different domains, and emphasized the
+reasoning mechanism with the FBS ontology for knowledge representation. Borgo
+et al. [27] suggested an ontological characterization of artefact behavior and
+function to capture the informal meanings of these concepts in the engineering
+practice and to characterize them as part of a foundational ontology. As for
+Nat
+Demog
+En
+Kn
+St. Power
+1
+2 3 4
+5
+16
+a mechatronic design process, Yan and Zante stated that "mechatronic system de-
+sign is normally considered to be a sequential process in which a design solution to
+a given design problem is generated, explored and evaluated following a series of
+prescribed steps" [28]. A mechatronic approach towards designing inspection
+robots using rapid prototyping and real-time simulation is also described by
+Giergiel et al. in [29].
+The design methods based on the abstract modelling of PALMERA and the
+DMC model, Design Flow for Reconfigurable Architectures (INDRA) has been
+developed to guide the designer through different implementation steps to create
+a concrete dynamic reconfigurable system architecture. These design methods and
+the design flow are described in [133, 134].
+A formal definition of the concept design and a conceptual model linking con-
+cepts related to design projects are presented by Ralph P. and Wand Y. [30]. Their
+definition of design incorporates seven elements: agent, object, environment, goals,
+primitives, requirements and constraints. The design project conceptual model
+is based here on the view that projects are temporal trajectories of work systems
+that include human agents who work to design systems for stakeholders, and use
+resources and tools to accomplish this task. Ralph and Wand demonstrate how
+these two conceptualizations can be useful by showing that 1) the definition of
+design can be used to classify design knowledge, and 2) the conceptual model can
+be used to classify design approaches. The analysis performed by Ralph and Wand
+[30] led to defining the design as follows in Fig. 1.8.
+(SLIKA 8)
+Here the conceptual model of Design presented as a noun in Fig. 1.8 is recog-
+nized as a specification of an object, manifested by an agent, intended to accom-
+plish goals in a particular environment using a set of primitive components, satisfy-
+ing a set of requirements, subject to constraints. The Design recognized as a verb is
+presented to create a design in an environment where the designer operates.
+17
+Both noun and verb design definitions correspond to the object and its process
+respectively as the elements of aed model of HS conceptual design method sug-
+gested in this book, see aed scheme in Fig. 3.1, Chapter 3.
+A systematic approach for the competency-oriented development of learning
+factories integrating the conceptual design levels ‘learning factory’, ‘teaching
+module’ and ‘learning situation’ is given by Tisch et al. in [129]. The presented
+approach enables “an effective competency development in learning factories by
+addressing problems of intuitively designed learning systems. As a result learning
+factories, teaching modules and single teaching–learning situations meeting indus-
+tries’ requirements can be realized with less effort and an increased success in ap-
+plied competencies in real situations”. A systematic analysis of mechatronic ob-
+jects is also presented by Gawrysiak in [104].
+The function–cell–behaviour–structure (FCBS) model for better comprehend-
+ing representation and reuse of design knowledge in conceptual design was pre-
+sented by Gu et al. [31]. Hierarchical two-layer concept is given here, i.e. two
+knowledge representing layers – the principle layer and the physical layer – are
+presented in the FCBS model. The principle layer is utilized here to represent the
+principle knowledge. Case modelling is employed in the physical layer to integrate
+the structural information and behavioural performances of the existing devices,
+which applies the design principles represented by the functional knowledge cells
+(FKCs).
+FCBS model presented by Gu et al. [31] and a formal definition of the concept
+design and a conceptual model given by Ralph P. and Wand Y. [30] are close to
+Hierarchical Systems design technology which is described below in this book and
+was chosen in this work as the formal basis of the conceptual model creation.
+In the presented book the Conceptual Design (CD) is recognized as a process
+of creation of a systemic model of the object being designed on the early phase of
+its life cycle. To define the conceptual model of a mechatronic system in systemic
+bases it is necessary to describe: mechatronic system structure; its dynamic
+representation as a unit in its environment; the system environment, its process
+and system-environment interactions; the system coordinator and its coordination
+(design&control) processes; processes executed by mechatronic subsystems and a
+general process. Besides, the conceptual model should take into account the con-
+nected descriptions of mechatronic subsystems of different nature, i.e. mechanical,
+electromechanical, electronic and computer.
+Furthermore, conceptual model of the mechatronic system being designed and
+its coordination (deisgn&control) technology should meet the requirements of the
+general design system which must allow performing the design – synthesis and
+analysis – and control tasks under condition of any information uncertainty, i.e. (1)
+to create and change mechatronic system construction and technology by selecting
+units of lower levels and settling their interactions to make the state and activity of
+18
+the system in higher levels (environment) best coordinated with environmental
+aims (selection stratum); (2) to change the ways (strategies) of the design task
+performing when the designed unit is multiplied and the knowledge uncertainty is
+removed (learning stratum); (3) to change the above mentioned strata when new
+knowledge is created (self-organization stratum).
+The coordination technology must also cohere with traditional forms of infor-
+mation representation in mechatronics, i.e. numerical and geometrical systems. The
+theoretical basis of the design process in agreement with these requirements must
+be a hierarchical construction connecting any level unit with its lower and higher
+levels.
+The above mentioned methods used in the conceptual design and well as mod-
+els of mathematics based on set theory and methods of artificial intelligence do not
+meet the above formulated requirement. They do not allow the description of
+mechatronic subsystems with their specific characteristic features in common
+formal basis. At the same time they do not describe the mechanism of interlevel
+dynamics of the mechatronic object (MO) being designed since the set theory de-
+scribes one-level world outlook only.
+To solve the problem, the symbol construction and coordination technology of
+Hierarchical Systems (HSs) [2-8] was chosen in the work as the formal basis of the
+conceptual model creation. HS formal model was constructed with the help of aed
+(Fig. 3.1) – formal analogue of two-level system [3-8], and general dynamic sys-
+tems by Mesarovic and Takahara [9,10], numeric positional system codes, geome-
+try and cybernetics methods [32].
+Among the first attempts of HS technology and aed model application in de-
+sign are the results presented in [3-4, 33]. The current version of the conceptual
+model and design technology of mechatronic objects based on the Hierarchical
+Systems approach is partially described in [49] and presented below in this book.
+(SLIKA 9)
+                </p>

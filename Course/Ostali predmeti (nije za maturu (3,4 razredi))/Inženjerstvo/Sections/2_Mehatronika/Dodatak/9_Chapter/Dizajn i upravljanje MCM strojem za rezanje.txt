@@ -1,0 +1,1021 @@
+<h3>9. DESIGN AND CONTROL OF MCM CUTTING MACHINE</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<p class="zoomable-text">
+                    In this Chapter, the conceptual model, design (synthesis and analysis) and motion
+planning tasks of MCM machine are described. MCM – Manhole Cutting Machine
+– is used in production environment to perform technological operations of pipes cut-
+ting and welding [92-94]. At the Conceptual Design (CD) phase of MCM life cycle,
+the systemic formal models of MCM elements and coordination (design and con-
+trol) processes were presented in HS theoretical basis (see Chapters 3,4). At the
+Detailed Design (DD) phase, much attention is paid to the MCM analysis – kinemat-
+ics tasks, and synthesis – the task of MCM construction creation. Different concrete
+elements which potentially could be used in MCM structure were analyzed to per-
+form the synthesis task. Construction and technologies of the control subsystems, i.e.
+Mobile Panel of 5MP050.0653-03 type, ARNCO soft CNC system, Automation
+Studio program environment [95], as well as actuators, e.g. ACOPOS servo drivers
+of B&R [96] were analyzed. Systemic formal models of these systems were also
+given at the CD phase before realizing synthesis task at the DD phase.
+According to the definition of the conceptual model given in Chapters 3 and 4,
+the developed conceptual model of MCM machine presented below contains for-
+mal descriptions of MCM structure and its environment, dynamic models of struc-
+tural elements and their connections, functional model of MCM machine and its
+coordinator. The coordinator is presented as a system which realizes the design and
+control processes and connects in this way structure and functions of MCM ma-
+chine. The suggested conceptual model of MCM machine is also partially de-
+scribed in [94].
+163
+9.1. MCM conceptual model
+Conceptual model of MCM machine (Manhole Cutting Machine) is given in the
+formal basis of HS using its standard block aed (3.1), see Chapter 3, and is pre-
+sented as follows:
+
+S { 
+ , 
+0S , 
+ }, (9.1)
+where 
+ is functional dynamic description of MCM machine in its technological
+environment 
+S
+ , 
+ is MCM structure, 
+0S is coordinator,  is index of level,
+Ls, Ls is numeric positional system. According to aed scheme (see Fig. 3.1),
+formal description 
+S contains the object (MCM) model 
+So and models of
+MCM sub-systems 
+io S , production environment 
+S
+ model, models of coordina-
+tor 
+0S (design and control system of MCM) and technological process 
+S
+ per-
+formed by MCM, i.e. cutting and welding.
+Functional descriptions of MCM system 
+So is presented according to (3.2)
+in the following form of dynamic system  
+ , :
+    TtYXC ttttooo  &::,
+
+
+ , (9.2)
+  ttTttCXC ttttttoo   &,&:
+
+ ,
+whre 
+T is time of  level; 
+C , 
+X , 
+Y are state, input and output of MCM 
+So
+system respectively;
+ is state transition function,
+ is the reaction.
+Structure 
+ of MCM is defined according to (3.13) as the following formal
+system:
+
+ { 
+0S ,{ 1
+ , 
+
+ }} { 
+0S , 
+~ }, (9.3)
+where 
+0S is coordinator of MCM, 1
+ are dynamic models (
+
+ , ) of MCM
+subsystems }:{ 11  IiSS i   , 
+
+ are structural connections.
+Structure of MCM is created while performing synthesis task at both CD and
+DD phases. In our case, structure of MCM was created within the frames of
+SolidWorks system environment [74], see Fig. 9.1. After that, MCM model was
+placed into RobWork program system environment [97, 98] to perform analysis
+tasks – forward and inverse kinematics tasks (Fig. 9.3). The process of analysis
+tasks performance is observed on a computer screen thanks to RobWork system
+interface which illustrates the simulation process – technological process of pipe
+cutting – running within the frameworks of RobWork system environment (Fig. 9.3).
+(SLIKA 78)
+Being the elements of MCM structure 
+ (see Fig. 9.2) the following subsys-
+tems 1
+iS presented in 1
+i
+ aggregated dynamic form are:
+1
+1
+
+ : machine base;
+1
+2
+
+ : MCM arm X with servo-motor which realizes left/right motion;
+1
+3
+
+ : machine arm Z with servo-motor which realizes up/down motion;
+1
+4
+
+ : arm of the cutting torch which makes possible 360o rotation;
+1
+5
+
+ : torch holder which allows its inclination;
+1
+6
+
+ : bracket connecting the machine base with arm X.
+Structural connections 
+
+ (9.3) of MCM subsystems 1
+i
+ are as follows:
+:6,1
+
+
+ bearing and the drive mechanism which allow the rotation of the en-
+tire support;
+165
+:2,1
+
+
+ rack begin the connection which allows the displacement of X arm
+relative to MCM base;
+rack begin the connection which allows the displacement of Z arm
+relative to X arm;
+bearing which makes possible 360o rotation of torch arm;
+bevel gear used for the cutting torch inclination.
+Fig. 9.2. Axis and structure of MCM machine
+Fig. 9.3. MCM design model placed into RobWork simulation system environment to perform analysis
+– forward and inverse kinematics – tasks while simulating technological process of pipe cutting;
+the MCM environment elements – pipe (grey color) with hole being cut and support (red color) –
+are elements of the technological module
+:3,2
+
+
+
+:4,3
+
+
+
+:5,4
+
+
+((SLIKA 79))
+(SČLIKA 80 )
+Environment of MCM machine contains the other technological units and
+a man-operator. Elements of environment structure which are in direct
+contact with MCM machine are a pipe being cut and support . The
+support allows the piper rotation in the technological cutting process (see Fig. 9.3).
+Pipe being cut is colored grey in Figure 9.3 and the support is colored red.
+Fig. 9.4. General process 
+So
+ and sub-processes 
+io S
+ performed by MCM; 
+1S
+ and 
+2S
+
+are sub-processes executed in MCM environment
+
+S
+
+
+S
+ 
+
+
+
+1So
+ 
+2So
+
+
+1So
+ 
+2So
+
+(SLIKA 81)
+General process and sub-processes which are executed by MCM
+while performing pipe cutting operations are presented in Figure 9.4. Each of the
+sub-processes is described by dynamic model at CD phase. The
+descriptions are concretized at DD phase.
+Within the frameworks of the suggested MCM conceptual model the coordina-
+tor is presented in the form of the design and control system of MCM machine.
+MCM coordinator is formally described by (3.15) equation. performs the
+design and control tasks on its selection, learning and self-organization strata.
+Dynamic realizations of coordinator strata are presented by canonic models
+
+0ˆ
+ ↔{ 
+0)ˆ,ˆ(
+
+ , 
+0S } (see Chapter 3) in the following form:
+}'&',&:ˆ{ˆ 0'00'00 ttTttCXC tttt  
+
+ , (9.4)
+}&
+ˆ~ˆ~
+:ˆ{ˆ 00000
+ TtYXCtt 
+
+ .
+Canonic model [94] is constructed using the concept of the multilayer (multi-
+strata) system, where states transition functions { 
+0ˆ
+ } correspond to learning and
+self-organization strata, and output functions { 
+0
+ˆ
+ } correspond to the strategies of
+the selection strata.
+The developed block-scheme of elements 2 
+0S ,2 1
+0
+
+S of coordinator 
+0S being the
+control system of servomotor 
+S2 of MCM arm is presented in Figure 9.5, where:
+
+G is control signal u_set[v]=e(t) which is realized with the help of B&R
+technology [96] and goes from ACOPOS controller 2
+
+0S to servomotor 
+S2 ;
+
+W is the feedback from controller 2 
+0S , realized in the form of impulses
+s_act[inc];
+1
+G is the control signal from PC panel 2 1
+0
+
+S to controller 2 
+0S presented in
+the format {position (s), velocity (v), acceleration (d2s/ dt2), delay (- d2s/ dt2)};
+1
+W feedback to PC panel 1
+0
+
+S presented in the format {status (ena-
+ble/disable), position (s), velocity (v), error (error)};
+
+2X is the servomotor input – electromotive force E(t) (Fig.9.5);
+
+2Y is the servomotor output – torque )(tm
+
+Canonic model of the controller 2 in the form of (9.4) is built using objects
+of inputs ={ , }, outputs ={ , } and states of coordinator
+2 , where is state of Acopos 2 controller.
+Fig. 9.5. Conceptual scheme of control system of MCM arm servomotor presented in coordinator
+form
+Canonic model of the controller 2 in the form of (9.4) is built using objects
+of inputs ={ , }, outputs ={ , } and states of coordinator
+2 , where is state of Acopos 2 controller.
+At the detailed design phase, control system is created by the selection of con-
+crete elements and realization of their structural connections. In this way the syn-
+thesis design task is performed. Formal description of this task (9.8) is given be-
+low. Concrete system based on ACOPOS servo-motors control and synthesized at
+DD phase for MCM arms motion control is presented in Figure 9.6. Here the ele-
+ments, i.e. ACOPOS servo drives, X67 input-output units, X20 control and remote
+I/O systems, visualization and operation system, are connected by the network
+using CAN bus.
+The following stuctural elements are presented In Figure 9.6. ACOPOS 1045
+is an intelligent servodrive [99] with very short scan times and communication
+cycles of 400 μs, which equal to 50 μs in the control loop. Intelligent ACOPOS
+
+0S
+
+0X 1
+G 
+W 
+0Y 
+G 1
+W 
+0C
+
+0S 
+0C 
+0
+(SLIKA 82)
+servodrives work with AC three-phase synchronous motors 8JS, 8LS from B&R.
+X67 system is a safe digital and analog I/O module [100] with IP67 protection. In
+addition to its normal I/O tasks, it monitors the signal line as well as the connected
+sensors and actuators. Because X67 systems are integrated within the entire sys-
+tem, they initially function in the standard application as normal modules. They
+deliver input signals and process output commands. System X20 is a segments
+based remote I/O system. It is a complete control solution. Depending on the appli-
+cation requirements, the X20 system makes it possible to combine the exact com-
+ponents necessary. Visualization and operation system – Power Panel 65 – pro-
+vides maximum flexibility. It is equipped with 2 USB interface and a Fast Ethernet
+port for exchanging data with higher-level systems.
+(SLIKA 83)
+The developed conceptual model of MCM in the formal basis of Hierarchical
+Systems allows easy transfer form Conceptual Design phase to Detailed Design
+phase in the life cycle of MCM machine [94] .
+While transferring from conceptual to detailed design [94], the systemic mod-
+els of MCM subsystems are concretized. For example,  
+ , model of AC servo
+Host line
+communication
+Power Panel 65 ACOPOS
+CAN bus
+Control system,
+drive technology
+X20 system
+Remote I/O system
+ACOPOSACOPOS ACOPOS
+Visualization
+and operation
+X67 X67
+Motion control
+Sensors, actuators
+170
+motor 
+S2 (Fig. 9.7) being the element of the machine arm is presented in the
+following form (9.5) of DE:
+uaya
+dt
+dy
+a  210 (9.5)
+which is concretized and presented at the DD phase as follows [101]:
+))2(32(
+3
+1 ''' cbamasbcab
+s
+a piRvv
+L
+i
+dt
+d 
+
+
+))2(3(
+3
+1 ''' cbambsbcab
+s
+b piRvv
+L
+i
+dt
+d 
+
+
+)( bab i
+dt
+d
+i
+dt
+d
+i
+dt
+d  (9.6)
+)( ''' ccbbaae iiipT 
+
+)(
+1 mmfem TFTT
+Jdt
+d 
+
+
+m
+dt
+d
+
+ 
+where equations (9.6) correspond to the states transition functions
+ of the con-
+ceptual model ( 
+ , ), (see Fig. 9.8). DEs (9.6) are further transformed at the DD
+phase to the transfer function (9.7):
+(SLIKA 984)
+In Figure 9.8 and equations (9.6) and (9.7), the variables are as follows: Ls is
+the inductance of the stator; Rs is a resistance of the stator; ia, ib, ic are currents of
+a, b and c phases respectively; Φa', Φb', Φc' are electromotive forces of a, b and c
+phases respectively; vab, vbc are ab and bc phase to phase voltages respectively; ωm
+is angular velocity of the rotor; λ is the amplitude of the flux induced by the per-
+manent magnets of the rotor in the stator phases; p is number of pole pairs; Tem
+is electromagnetic torque; J is combined inertia of rotor and load; F is combined
+viscous friction of rotor and load; θ is rotor angular position; Tm is shaft mechani-
+cal torque; Tf is shaft static friction torque; ωm is angular velocity of the rotor –
+mechanical speed.
+(SLIKA 85)
+9.2. Design tasks
+The main design tasks – synthesis & analysis – are performed at both conceptual
+and detailed design phases. The first basic design task which is performed by
+MCM coordinator is the synthesis task. In the basis of the conceptual model de-
+scribed above and the general formulation of the synthesis task within the frame-
+works of HS technology, the structure of the MCM machine being synthesized is
+presented in form (9.8), and the synthesis operations are described by ),(
+ mod-
+els of coordinator processes 
+0S
+ . In the process of performing a synthesis task in
+SolidWorks system environment the robot structure σl is synthesized from its ele-
+ments ωl-1 by realizing structural connections σγl. The task is described at CD phase
+within the frameworks of HS conceptual model as coordinator 
+0S task as follows:
+
+
+
+   },{: 1
+0S . (9.8)
+I
+Conceptual
+model
+),(
+
+
+DETAILED DESIGN phase 3
+II
+IIICONCEPTUAL DESIGN phase 2
+Ordinary DE
+uaya
+dt
+dy
+a  210
+Concrete DE
+)( ''' ccbbaae iiipT 
+
+)(
+1 mmfem TFTT
+Jdt
+d 
+
+
+Transfer
+function
+)(
+)(
+)( sT
+s
+sG
+e
+m
+
+
+IV
+172
+Geometric parameters of the MCM structure itself are changeable in the syn-
+thesis process. At CD phase the parameters are described by constructive dimen-
+sion and connections defect, introduced in Section 4.2 by numerical positional
+system. At DD phase the concrete sizes as well as physical characteristics of
+MCM parts are defined.
+In the synthesis process, MCM structure dynamics is described by reaction ρ
+of (ρ,φ) model:
+ }&:{ TtYXC tttt 
+
+ (9.9)
+where: Ci is the initial MCM part at t=i moment of time (or composition of previ-
+ously connected parts in the synthesis process), Xi is a part to be added, Yi is the
+union (composition) of Ci and Xi parts, t=i – moment of time T. The exemplary
+MCM machine construction synthesized within the frameworks of SolidWorks
+system and placed in RobWork system environment is presented in Figs. 9.3 and
+9.11.
+At the detailed design (DD) phase the concrete MCM machine parts were cho-
+sen, e.g. the ACOPOS servo drivers of B&R [99], Mobile Panel of 5MP050.0653-
+03 type, ARNCO soft CNC system, Automation Studio program system [95], etc.
+Parts of the MCM mechanical arm were produced in Promotech enterprise (Bi-
+alystok, Poland). MCM arm parameters were defined after stress and materials
+analysis performing. The results of the synthesis for the cases of MCM mechanical
+construction and MCM arms motors control system are given in Figs. 9.2-9.3, and
+Fig. 9.6 respectively.
+(SLIKA 86)
+The analysis design tasks are kinematics and dynamics tasks. To perform the
+kinematics task, kinematic scheme of MCM is developed (see Fig. 9.10c ) at the
+CD phase, kinematic model of MCM is presented in ),(
+ form and transformed
+to the form of reaction to
+ model. At the DD phase, a mathematical model of
+I
+Conceptual
+model
+),(
+
+DETAILED DESIGN phase 3
+II III
+CONCEPTUAL DESIGN phase 2
+Object’s reaction
+ 
+TtYXC tttto  &:
+
+Forward kinematics equations
+arlxxg sinsin0 
+xarlyyg  sincos0
+zalzzg  cos0
+173
+MCM kinematics is created as concretization of the conceptual model and present-
+ed in the form of forward kinematics equations [46,93], see Figure 9.9.
+The scheme presented in Figure 9.9 shows the dynamics of the object’s kine-
+matic model – MCM machine – in its design process. Transformation of the model
+of MCM dynamics is realized in the similar way. The construction and kinematic
+scheme of the MCM machine are given in Figure 9.10, where the pipe being cut,
+MCM axis and both global “G,O” and detail “D” coordinate systems are presented
+as well.
+The aim of the kinematics task performed at the DD phase is the definition of
+the locations and orientations of MCM tool – operating point of the cutting torch.
+The equations created at DD phase (Fig. 9.9) which define the MCM end effecter
+(TCP – tool center point) position in global “G,O” coordinates are as follows:
+arlxxg sinsin0 
+xarlyyg  sincos0 (9.10)
+zalzzg  cos0 ,
+where
+0 0, 03068x 
+0 2, 40975y   (9.11)
+0 1, 45775z 
+0,113 offsetl   ,
+x0, y0, z0 are parameters connected with the machine geometry (m); l is the ef-
+fective tool length (m); x, z, r, a, d are the locations of each machine axis (m).
+Position of the end effecter in detail coordinate system „D” is described by the
+following equations:
+dzdxx ggd sincos 
+dzdxy ggd cossin  (9.12)
+gd yz 
+where xd, yd, zd are coordinates of the end effecter (TCP) in the detail coordinate
+system „D”; xg, yg, zg are coordinates of the end effecter in the global coordinate
+system „ O”.
+To perform the forward kinematics task the following algorithm was developed [93].
+(slika 87)
+Simulation models were also implemented in program environment of Rob-
+Work system [93, 98].
+9.3. MCM motion design and simulation
+– Robwork Studio integration
+MCM 3D design model was created at DD phase to simulate and control the posi-
+tioning process during pipe cutting technological operations performed by MCM
+machine. Correspondent virtual technological module was synthesized at DD phase
+in the form of a workcell for the use with RobWork Studio software [98]. Figure
+9.11 presents the mutual interconnections of simulation program files of MCM
+workcell within the framework of RobWork system environment. At CD phase the
+construction of the MCM workcell and its files interconnections are presented ac-
+cording to aed diagram (Fig. 3.1) described in Section 3.1, where the whole system
+Sl is realized by MCM.model.wc.xml unit, subsystems Si are presented by
+MCMarm.model.wc.xml and Tool.xml files, subprocesses πSi and general process
+πSl are simulation processes, coordinator So contains ProximitySetup.xml,
+EasyBotCollisionSetup.xml and Device.xml files, environment εS is presented by
+Environment.wc.xml program unit. All the files are described below and connected
+at DD phase by scheme given in Figure 9.11.
+In Figure 9.11 the blue line shows that the given file is contained in the given
+folder. The black line shows the direct dependence of the connected blocks, i.e.
+files. File MCM.model.wc.xml is the main file which describes the given techno-
+logical environment, i.e. the scene in which simulation takes place. Workcell file
+MCMarm.model.wc.xml describes the MCM mechanical arm program model
+which is inserted in simulation scene. Device.xml file contains the descriptions of
+interconnections, movements and reference frames for MCM arm. Tool.xml file
+contains the descriptions of interconnections, movements and reference frames for
+MCM end-effector – tool. Workcell file Environment.wc.xml contains the descrip-
+tion of MCM technological environment. ProximitySetup.xml and EasyBotColli-
+sionSetup.xml files contain the descriptions which allow the collision avoidance of
+the MCM mechanical arm and other parts of MCM including MCM technological
+environment.
+(SLIKA 88)
+Furthermore, to test the obtained kinematics solutions a plugin implemented in
+C++ language was developed. The plugin allows visualization of linear interpola-
+tion with the use of the Jacobean inverse method as well as forward and inverse
+kinematics calculations [46,93,102]. The developed MCM design model synthe-
+sized within the framework of CAD SolidWorks system [74] with correspondent
+technological module placed into RobWork simulation environment and the plugin
+being in action are shown in Figure 9.3. Two states of hole cutting process simulat-
+ed in RobWork system and meanings of correspondent parameters are given in
+Figure 9.12.
+Positioning process of MCM machine contains the motion of the tool – cutting
+torch – along the specified linear edge with predetermined angles r and a. The in-
+put parameters are predefined goal position of tool and velocity of the tool motion.
+Velocities of each MCM joint are calculated while performing interpolation ac-
+cording to equation (9.13). It allows obtaining smooth linear cutting path.
+To calculate the joint rates necessary to perform a linear interpolation with
+constant translational and rotational velocities the following equation (9.13) is
+used:
+dzx  
+'
+'
+aa
+rr
+
+
+
+ (9.13)
+
+
+
+
+
+
+
+
+
+
+
+ 
+d
+d
+y
+x
+J
+d
+z
+
+
+
+ 1
+where )()/(' 12max rrr 
+
+ and )()/(' 12max aaa 
+
+ are presented in “D”
+reference frame, and the Jacobian is invertible.
+Jacobean from (9.13) is presented in the following form (9.14):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ dzdxd
+dzdxd
+d
+y
+z
+y d
+x
+z
+x
+J gg
+gg
+dd
+dd
+sincoscos
+cossinsin . (9.14)
+Algorithm of linear interpolation is presented for MCM tool motion along the
+edge. As an example, the edge between positions p1 = [ρ = 1 φ = 0 z = 0 r=0 a = 0]
+and p2 = [ρ = 0,9 φ = 45o z = 1 r = 25o a = 45o] was taken under consideration.
+Simulation result is presented in Figure 9.13. The figure shows the variations of
+cylindrical coordinates during the tool motion along (p1, p2) edge.
+(SLIKA 89)
+Variations of velocities and coordinates of MCM machine axes while perform-
+ing linear displacement of tool along (p1, p2) edge calculated during Jacobian inter-
+polation process are presented in Figure 9.14
+(SLIKA 91S0)
+(SLIKA 91)
+In our case, due to the presented MCM machine design, i.e. the choice of
+joints axes, the joint velocities calculation is simplified in a marked degree. Tool
+orientation is directly correlated to axes motions, and also the motion along z axis
+in ‘D’ coordinate system is governed by the x axis translation. According to these
+considerations, it is only necessary to calculate Jacobian relating (xd, yd) coordi-
+nates to z and d joint positions.
+Preliminary conclusions
+The use of Hierarchical Systems (HS) method in design and control of MCM
+(Manhole Cutting Machine) is presented in this Chapter. Being mechatronic by
+nature, MCM system contains human – man-operator, computer control, visual
+informatics, electronic – sensors, electromechanical – servo drives, and executive
+mechanical (MCM tool, arm and its joints) subsystems. The presented conceptual
+model of the MCM system being designed contains connected systemic models of
+the above mentioned subsystems presented in the general formal basis. Aed (stand-
+ard block of HS) model, see Chapter 3, was chosen as the formal basis of MCM
+conceptual model. The MCM system structure, its dynamic presentation as the unit
+in its technological environment, MCM environment – other objects and techno-
+logical units of the production process, and MCM control unit – ACOPOS control-
+ler – were also described in this basis. MCM design and control functions are taken
+into account owing to HS coordinator availability. Coordinator performs coordina-
+tion (design and control) tasks on its selection, learning and self-organization strata.
+The presented conceptual formal model of MCM machine is coordinated with
+traditional systems of information presentation in mechatronics [103-112]: numeri-
+cal, graphic and natural language forms [8, 127]. Being the formal basis of MCM
+conceptual model, aed technology and HS method are coordinated with general
+requirements of design and control systems and allow easy transfer from Concep-
+tual Design to Detailed Design phase in MCM life cycle. It brings new possibilities
+to creating a formal language for MCM and similar technological machines con-
+ceptual design. The process of MCM conceptual model creation as well as MCM
+design and control processes were executed within the framework of the R&D
+project maintained by the agreements RO-210.0610/25/2013 – U/WM/7/2013 and
+U/WM/7/2014 – between Bialystok University of Technology and Promotech en-
+terprise (Bialystok, Poland).
+180
+CONCLUSION
+The new hierarchical systems (HS) method – theoretical and practical computer
+means – of conceptual design of mechatronic systems based on HS theory and
+oriented towards usage in automation systems including CAD, automatic control,
+robotics and mechatronics is described in the given book. The presented process of
+the method development contains the following phases.
+First, the theoretical basis for the design method, i.e. aed theoretical construc-
+tion of HS and formal model of its coordinator, was constructed.
+Second, after creating the mathematical model, the HS coordinator was pre-
+sented in this book in the form of theoretical construction of aed-processor – the
+cybernetic system oriented to numerical and geometric information presentation
+and processing while performing design tasks. It was shown that the processor is
+able to execute operations with real, natural, complex and hyper-complex numbers
+in the frames of one common formal construction. This processor is oriented to-
+wards the geometric information processing presented in numerical code.
+The theoretical construction of the core element of design systems, i.e. aed
+model created, and its coordinator symbol construction have the following charac-
+teristic features:
+aed includes the dynamic structure and aggregated models of any system be-
+ing coordinated – designed and controlled – and its environment, and allows the
+main design task to be carried out with the help of coordination strategies for the
+different levels of knowledge uncertainty;
+coordination strategies are the states of a design and control system, their dy-
+namics (like the process of uncertainty removal) reflects the dynamics of that sys-
+tem;
+the ability of aed for self-organization (with the following alteration of any de-
+signed system model and coordination strategies) is ensured thanks to the availabil-
+ity of higher strata of the coordinator;
+the basic informational constructions, i.e. numerical and geometric systems,
+are presented in formal basis of aed symbol construction; computer program reali-
+zations of aed-processor effectively work with number codes and changeable
+181
+graphic images and allow design and control tasks, which are complicated or irre-
+sistible for one-level theoretical construction, to be performed.
+Theoretical basis of the conceptual HS design method, i.e. aed formal model,
+presented in this book in Sections 3 and 4, was improved in comparison with its
+previous version described in [140], and has got the following characteristic fea-
+tures:
+1) general scheme of aed (two-level system) has improved so that system 
+S
+block became included in its environment 
+S
+ ;
+2) all elements of aed model were presented in the form of systems with
+correspondent indexes from the set },,,{
+
+
+ooLk  , which indicate object ),(o
+environment )(
+ , and their processes )(
+o and )(
+ ;
+3) symbol presentation of systems connections was changed from 
+U
+ to
+
+
+ what made it agreed with presentation of coordination signals 
+0
+ generated by
+coordinator while performing systems structures synthesis in design process by
+arranging subsystems structural connection.
+4) fundamental aed law of systems levels grows was modified by the law of
+systems outlook increasing in the levels space, i.e. increasing of number
+ of
+system levels
+ being coordinated ‘up’ and ‘down’ in regard with current level
+ of system under consideration.
+5) symbols set of levels of system organization L and correspondent basic
+system 
+T
+~
+ (which indicate levels of system organization and coordinator strata)
+were changed to },,,{
+
+ L and improved in such a way, that they
+become coordinated with coordinator canonic model )ˆ,ˆ(
+ and its reactions
+ and
+functions
+ performed on selection and learning strata respectively.
+Furthermore, modified aed model presented in Chapters 3 and 4 was further
+improved. New aed formal model for systems design and control was presented
+and described by Novikava and Miatluk in [8], and used after that by Miatluk and
+Kim in [80].
+Therefore, HS method and the aed formal construction of coordinator (and its
+realization as aed-processor) are coherent with the above-defined requirements to
+conceptual model of mechatronic systems being designed as well as the require-
+ments of the general design and control systems (see Chapter 1).
+Third, the conceptual design method of hierarchical mechatronic objects has
+been worked out basing on the theoretical means developed and presented above
+(Chapters 3, 4). The main phases of the design method realization – while
+performing both the conceptual and detail design tasks – were defined and
+182
+described. After that, the basic geometric elements of mechatronic objects (MO)
+were presented in the hierarchical form as conditional geometric objects.
+Furthermore, the geometrical and numeric characteristics of MO were introduced
+in the numeric positional code. The main numeric characteristics of MO are
+constructive dimension and connections defect.
+Later, coordinator procedures of systems design were defined and algorithms
+of hierarchical MO synthesis and analysis were presented. Finally, the exemplary
+computer realizations of the method for performing the basic design tasks were
+described for the synthesis of 3D objects, and analysis – design of caterpillar and
+snake like robots movements (see Chapter 4).
+The HS design method presented meets the requirements of conceptual model
+of mechatronic systems, and all the requirements of the CAD systems (Chapter 1)
+are satisfied concerning the strata of selection, learning and self-organization of
+aed coordinator. Requirements of optimal execution of the geometric design tasks,
+i.e. GO synthesis and analysis, object transference in the space, the change of its
+metrical characteristics etc., are met by the actions of coordinator strategies with
+geometric elements of MO which are described in Section 4.4.
+Fourth, implementations and assessments of the conceptual design method
+developed in the exemplary design tasks in mechatronics, robotics and automation
+systems were performed. Practical examples of the method realization are
+presented in Chapters 5-9 of this book.
+The conceptual design process of the surgical robot biomechatronic system
+(SRS) was described in Chapter 5. Conceptual models of SRS subsystems of dif-
+ferent nature – mechanical, electromechanical, electronic, human-computer, and
+biological, i.e. robot manipulator, navigation, computer-control and pre-operating
+planning systems, surgeon-operator and bone being operated – were described in
+the common aed formal basis of HS. All the descriptions are connected by SRS
+coordinator presented in the form of the design and computer control system
+(CCS). Exemplary control loop of coordinator is presented in this chapter in the
+form of Multi Motion Controller (MMC), which realizes coordination of AS3 robot
+motion. Model of SRS human-computer design system is described in the form of
+a higher level coordinator which performs the design tasks on its strata: selection,
+learning and self-organization.
+Hierarchical systems technology was applied in Chapter 6 in the exemplary
+tasks of conceptual model creation of biologically inspired robot (Bioloid Dino-
+saur robot) in aed theoretical basis, design of Bioloid robot’s assembly operations
+and robot motion coordination. Formal construction of the conceptual model sug-
+gested contains connected descriptions of the Bioloid robot structure, its aggregat-
+ed dynamic representation as a unit in its environment, and part of the environment
+model. All the descriptions are connected by the coordinator which performs the
+design and control tasks on its selection, learning and self-organization strata. Nu-
+183
+meric and geometric characteristics of Bioloid robot designed were presented in
+the frames of the developed conceptual model in the form of numeric positional
+system. Mechanical, electromechanical and program computer subsystems of gen-
+eral robot mechatronic system were partially described in common aed formal
+basis of the model proposed as well. It allows the conceptual model to fulfill the
+general requirements of design and control systems and mechatronic systems in
+particular (see Chapter 1).
+The robot model dynamics while transferring from the conceptual to detailed
+design phases was shown for the case of the robot mechatronic subsystem of
+electromechanical nature, i.e. servo-motor. The examples of computer realizations
+of Bioloid robot design tasks in the frames of SolidWorks program system were
+also presented in Chapter 6.
+The dependence between the systemic characteristics and physical parameters
+of motion, i.e. displacement, velocity, acceleration, was established for the case of
+the human motion design (Chapter 7). The main purpose of the task described in
+this Chapter was the application of the developed HS design method in human
+motion design. As a result, new conceptual formal model and HS design
+technology of human motion coordination – design and control – have been
+created. The method has the following characteristics:
+1) describes a human bio-kinetic apparatus as a hierarchical system, i.e. takes
+into account the connected levels of human body structure (lower level), human
+body dynamic representation as a unit in its environment, and the environment
+structure (higher level); it allows the design and control task of human motion to be
+performed as interconnections coordination of cohered structural and dynamical
+representation of man in its environment;
+2) makes possible the design (synthesis) of different kinds of human move-
+ments, predicts the motion and obtains correspondent motion data using only geo-
+metric or anatomic data such as limbs length and weight; consecutive interactive
+performing of the analysis design task, i.e. changing of the human structural inter-
+actions (joint angles) and subsystems characteristics (length, mass) and observation
+of the change of process being designed (motion) executed by system (man) in its
+environment (higher level systems), allows obtaining the desired characteristics of
+this process (trajectories coordinates, displacements, velocities, etc.);
+3) performs the connected tasks of human body deformations and human mo-
+tion in its environment cased by these deformations in the frames of one common
+HS aed model not using traditional approaches, i.e. Finite Elements method and
+Integral Differential Equations; allows solving of human motion synthesis and
+analysis tasks in the frames of one common computer model;
+4) allows presentation and processing of information about systems of various
+nature – engineering, computer, social, biological, physical – in the frames of one
+common HS aed formal model, which is very important in the case of bio-
+184
+mechanical, medical, rehabilitation and other biomechatronic systems coordination
+and allows avoiding modelling conflicts between various subsystems of different
+nature;
+5) makes possible the modification of the model developed using controlled
+experimental data on the self-organization layer of coordinator and prediction of a
+motion;
+6) presents parts of human body in computer design process as connected 3D
+geometric objects due to the conditional geometric objects representation (see
+Chapter 4);
+7) allows performing – at CD and DD phases – both the geometrical design
+and forward kinematics tasks as the common computational task owing to the
+description of geometric construction, coordination (design and control)
+procedures and kinematic characteristics in the frames of one common computer
+model.
+Computer program modules created for human motion design have been
+constructed according to HS aed structure and the modules functioning correspond
+to the actions of aed coordinator of HS. The design tasks are realized using
+commercial software Delphi (Embarcadero Technologies Inc., CA, USA) and
+Matlab (The MathWorks Inc., MA, USA) systems. All calculations are effectively
+executed on a computer as operations with systems quantitative characteristics
+presented in numeric positional code. It allows increasing the computational
+efficiency of the design procedures. During the motion design, the dependences of
+functional parameters (kinds of motions) on the structural ones (sizes, angles) of
+the human body segments were determined.
+The worked out HS design method, hierarchical geometry and coordination
+technology of geometric elements of MO (Chapter 4) were implemented in the
+tasks of electronic Printed Circuit Boards (PCB) design and testing described in
+Chapter 8. The introduced HS design and testing method implemented in this task
+yields the following results and is characterized by the following qualities:
+– a graphic image of PCB standard is a result of formation of geometric repre-
+sentation of PCB in the process of its conductive pathways construction synthesis;
+– availability of geometric representation allows easy correction of PCB con-
+ductive pathways, i.e. interconnections topology, at each phase of plate construc-
+tion including CD and DD phases;
+– the mechanism of information aggregation permits to avoid the growth of
+computer memory volumes in the transition process to a higher level of the PCB
+geometric structure during its synthesis;
+– the ability of scales and orientation of geometric construction to change
+(during PCB standard matching to the obtained PCB graphic image) allows the
+identification of PCB as defective one to be avoided in a technological process,
+185
+when the PCB orientation and the distance in relation to the video camera are
+changed;
+– in the process of pathways quality testing the standard and obtained PCB
+images are compared not by continuous scanning of PCB image lines as in the
+technologies already known, but only by scanning along the interconnection lines –
+conductive pathways – with regard to their geometric representations; it allows the
+reduction of both the comparison time and computer memory volumes.
+Aed symbol construction of HS gave a formal basis for the descriptions of the
+PCB geometric structure and the processes of its design and testing presented in
+Chapter 8, and allowed creating the PCB conceptual model. Availability of coordi-
+nator allowed performing the decision making tasks on its strata at both PCB con-
+ceptual and detailed design phases. Algorithms of the given HS design technology
+was applied in PCB production process of Horizont enterprise (Minsk, Belarus).
+The use of Hierarchical Systems (HS) technology in conceptual design and
+control of MCM (Manhole Cutting Machine) is presented in Chapter 9. Developed
+conceptual model of the MCM system contains connected systemic models of
+mechatronic subsystems, i.e. human – man-operator, computer control, visual
+informatics, electronic – sensors, electromechanical – servo drives, and executive
+mechanical (MCM tool, arm and its joints), presented in general aed formal basis
+of HS. The MCM system structure, its dynamic presentation as the unit in its
+technological environment, MCM environment – other objects and technological
+units of the production process, and MCM control unit – ACOPOS controller –
+were also described in this basis. MCM design and control functions were taken
+into account owing to HS coordinator availability. MCM coordinator performs
+coordination – design and control – tasks on its selection, learning and self-
+organization strata.
+The conceptual formal model of MCM machine presented in Chapter 9 is
+coordinated with traditional systems of information presentation in mechatronics –
+numeric, graphic and natural language forms. It was shown, that MCM conceptual
+model presented in aed formal basis of HS is coordinated with general
+requirements of design and control systems and allows easy transfer from
+Conceptual Design phase to Detailed Design phase in MCM life cycle. It brings
+new possibilities in creating a formal language for MCM and similar technological
+machines conceptual design. Both MCM conceptual model creation and design
+processes described in Chapter 9 were executed in the frames of the R&D project
+maintained by the agreements between Bialystok University of Technology and
+Promotech enterprise (Bialystok, Poland).
+Therefore, the conceptual model of mechatronic objects being designed, the
+design system and coordination – design and control – process are presented in aed
+formal basis of HS in this book. In comparison with traditional models of mathe-
+matics, artificial intelligence and widespread design methods (see Chapter 1) the
+186
+developed conceptual formal model contains connected descriptions of the de-
+signed mechatronic object structure, its aggregated dynamic representation as a
+unit in its environment, the environment model and the design&control system. All
+the descriptions are connected by the coordinator which performs the design and
+control tasks on its strata. Besides, the suggested aed technology of HS coheres
+with traditional systems of information presentation in mechatronics: numeric,
+graphic and natural language forms. Aed technology and HS design method are
+also coordinated with general requirements of the design and control systems and
+consider mechatronic subsystems of different nature – mechanical, electromechan-
+ical, electronic, computer – in common theoretical basis.
+Besides, aed technology and HS design method are an effective means of
+mechatronic objects design and conceptual models creation. These models allow
+an easy transfer from the conceptual design phase to a detailed design phase in the
+mechatronic object’s life cycle and allow description of the design procedures in
+the form of coordination strategies of HS. At the conceptual design phase, the
+mechatronic subsystems of MS being designed are presented in the form of dynam-
+ic system (ρ,φ) which is generalization of DE, automata and algebra systems. So,
+the transition from the conceptual to the detailed design phase in the frames of the
+HS design method suggested is convenient and requires concretization of the ab-
+stract dynamic system only.
+All the qualities mentioned above make the suggested HS design technology
+more efficient in design tasks performing in comparison with widespread design
+methods (see Chapter 1). The presented HS design method brings new informa-
+tional means for the conceptual and detailed design of mechatronic systems.
+The conceptual design method presented in this book has been also applied
+to the design and control of other engineering objects [53, 113-117], in robotics [50,
+54-58, 119-125, 141-142], biomechanics [55, 118] and mechatronics [49-51, 58,
+126], in design tasks of industrial knowledge networks [23, 24], written text [127]
+and natural language processing [8], and other tasks.
+Some theoretical foundations and application results of the method presented
+in this book were discussed with one of the authors of the theory of hierarchical
+and dynamic systems Prof. Yasuhiko Takahara [2, 10], and one of the authors of
+mathematical and computer aided systems theory Prof. Franz R. Pichler [138, 139].
+The described HS conceptual design method was also implemented in R&D
+projects with PROMOTECH enterprise (Bialystok, Poland), MTZ and HORI-
+ZONT enterprises (Minsk, Belarus), EU projects ICIMS-NoE, AMETMAS-NoE,
+DYCOMANS, ACAT Horizont 2020 project, grants and projects maintained by
+KOSEF and NSF (South Korea), and others.
+                </p>

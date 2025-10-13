@@ -1,0 +1,316 @@
+<h3>. DESIGN AND TESTING OF ELECTRONIC CIRCUIT BOARDS</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+ <p class="zoomable-text">
+                    The conceptual model for design of an electronic Printed Circuit Boards (PCBs)
+and HS technology of PCB quality testing is presented in this Chapter. The pro-
+cesses of the PCB conceptual model creation and PCB quality testing take place at
+the design and production phases of the general technological process of PCB life
+cycle (see Fig. 1.2, Chapter 1). PCB conceptual design is realized in the industrial
+PCB production process by human-computer CAD system coordinated by design
+engineer. The quality of circuit boards is usually tested by a visual system – the
+system of machine vision. To perform the PCB design and testing tasks, various
+methods of PCBs synthesis and analysis are used nowadays for each particular case
+[81-87].
+The processes of synthesis and visual testing (analysis) of geometric construc-
+tions of PCBs conductive pathways is described in this book using the proposed
+conceptual design method using aed formal model and HS technology (see Chap-
+ters 3 and 4). The task is also partially described in [88].
+In the technological process of PCB production it is a usual situation for PCB
+surface to have topological damages, such as conductive pathways breaks or joints.
+So, the final stage of the technological process is the analysis of the PCBs quality.
+Usually, the testing is realized as a video analysis, which contains the following
+stages:
+1) PCB graphic (standard) image creation,
+2) obtaining a video-pattern of a tested PCB in one of graphic formats,
+3) comparison of the obtained pattern with the standard image,
+4) identification of PCB quality in the case of correspondence of a graphic
+image of PCB to its standard and vice versa.
+This approach, being based on standard methods of presentation and pro-
+cessing of video-information (graphic images), has several drawbacks. The main of
+them is the lack of coincidence between a graphic image of the board and the PCB
+standard, which can occur during the third stage and is not caused by the quality of
+a produced PCB. The reason is the changes of coordinates and the scale of the
+153
+graphic image of PCB obtained at the second stage, which is sometimes accidental-
+ly caused by:
+– the change of product’s (PCB) orientation in relation to the video camera;
+– the change of the scale, i.e. distance between the video camera and the tested
+PCB.
+In each of these two cases the images of the standard and PCB being tested do
+not coincides. As a result, a lot of PCBs of a good quality are recognized (at the
+fourth stage) as defective goods.
+The proposed conceptual design method is implemented in the form of a com-
+puter program and allows the mentioned drawbacks to be avoided. It has the fol-
+lowing steps:
+1) geometric synthesis of standard of PCB – using HS conceptual design
+method – with the formation of its graphic image (this stage is the part of the PCB
+design phase as well),
+2) obtaining a video-pattern – graphic image of the PCB being tested – in one
+of graphic formats,
+3) matching of the standard to the obtained image of PCB – coordination of
+the PCBs orientation and scale,
+4) comparison of the obtained image with PCB standard and pathways quality
+testing,
+5) PCB quality assessment.
+Each of the above steps differs from the steps of a wide-spread technologies
+of the task performing. For example, the task of geometric synthesis of the PCB
+standard (1st step) is a part of the general PCB design task and corresponds to the
+phase of geometric design of circuit boards.
+Computer program realization of the PCB conceptual design method was used
+in tasks of circuit boards design and testing at Horizont enterprise (Minsk, Bela-
+rus). The scheme of the mechatronic unit – technological stand with machine vi-
+sion system – for quality testing of conductive pathways of PCBs is presented in
+Figure 8.1.
+8.1. Geometric construction of circuit board
+Geometric synthesis of the construction of PCB standard is the PCD design task
+which is performed at both the conceptual design (CD) and detailed design (DD)
+phases of the PCB life cycle (see Fig.1.2, Chapter 1). At the same time, it (geomet-
+ric synthesis of PCB standard) is the first stage of the HS design method realiza-
+154
+tion for visual analysis – quality testing – of conductive pathways of electronic
+printed circuit boards (PCBs).
+(SLIKA 69)
+Geometric construction of conductive pathways of PCBs is presented in ac-
+cordance with (4.1) in the following (8.1) form:
+},,{ 0 
+
+ SS gg  , (8.1)
+where: 
+ – aggregated description of the construction as a unit in its environment,
+
+ – structure of interconnections,
+
+0S – coordinator, which connects
+ and
+ , and therefore the higher and
+lower levels of the PCB construction,
+g – index, which shows the geometrical nature of the mechatronic system un-
+der consideration.
+Structure 
+ is defined according to (4.3) as follows:
+}},{,{ 1
+0 
+
+
+
+
+
+ S , (8.2)
+1
+155
+and contains aggregated representations 1
+ of PCB geometric elements of the
+lower level, their interconnections 
+
+ and coordinator 
+0S which sets relations
+between the elements.
+Coordinator is presented according to (3.15) in the following (8.3) form:
+000 },,{ 
+
+ SS  , (8.3)
+and in this case is implemented by a computer program as a law of interlevel con-
+nections and as rules in accordance with which the geometric elements were con-
+nected in geometric constructions of PCBs on different levels.
+Quantitative and metrical characteristics of elements 1
+ , i.e. conductive
+pathways, and the addresses of their connections 
+
+ are defined in codes of the
+numeric positional system (4.9-4.14).
+Geometric construction of PCB conductive pathways is created by 
+0S using
+one of its coordination strategies (see Chapters 3 and 4). According to (4.4), coor-
+dinator synthesizes the structure of pathways from subsystems 1
+ of three lev-
+els:
+
+
+
+   },{: 1
+0S , (8.4)
+where  =  -2,  -1,  .
+On level  -2 the parts of conductive pathways are constructed from condi-
+tional points 3
+ presented in the form of quadrates (Fig. 8.2). Number n and
+sizes w0
+1
+ of  -3 level elements define width w1
+1
+ and length 1
+2
+ =l=wn of
+ -2 level segment of pathway.
+(SLIKA 70)
+This process is described at conceptual design (CD) phase as follows:
+= -2, . (8.5)  2232
+0 },{:   
+
+
+ S
+156
+Structure of each conductive pathway of the PCB standard is construct-
+ed from conditional lines – bands of different length = l = wn (Fig. 8.3)
+(SLIKA 71)
+The process is presented in the form of coordinator 1
+0 
+S mapping as follows:
+ =  –1, 1121
+0 },{:   
+
+
+ S . (8.6)
+Mapping R is carried out by coordinator of level  –1, 111
+0 :   
+
+S ,
+and realized as a transition from structure 1
+ to aggregated pattern 1
+ . Simi-
+lar transitions take place on each level during the synthesis of the PCB pathways
+structure. On level  general structure 
+ (Fig. 8.4) is formed from set of PCB
+conductive pathways 1
+ :
+ =  , 
+
+
+   },{: 1
+0S
+(SLIKA 72)
+While performing the synthesis task at the detailed design (DD) phase, the ge-
+ometric characteristics of each conductive pathway are interactively defined in
+1
+ 2
+ 1
+2
+
+R
+1
+
+
+2
+i
+
+157
+program realization and written in typical computer files. The pathways are also
+defined as a set of parameters which are presented in typical files in the form of
+corresponding numeric codes. While any of the pathway elements is changed, the
+others are automatically reconstructed by coordinator – presented in the form of
+computer control program – with simultaneous change of corresponding pro-
+gram codes. That is possible thanks to the availability of the connections between
+the pathways elements – conditional geometric objects (see Figs. 8.2 and 8.3). It
+allows easy correction of the geometric structure of PCB conductive pathways at
+any stage of its synthesis and reconstruction processes.
+The availability of mechanism of information aggregation 
+  
+ allows
+the reduction of computer memory volumes in the process of transition to a higher
+level of the PCB geometric structure during its formation. The basic result in com-
+parison with well known PCB design and testing approaches is that the graphic
+image of PCB is obtained in the process of construction of PCB geometric repre-
+sentation. The availability of transition from the graphic image to geometric repre-
+sentation and vice versa allows effective adaptation of the PCB geometric structure
+at testing stages 2-5, in particular at the stage of adaptation of the standard to the
+received graphic image, when coordinates and scales are in process of changing.
+8.2. Stages of PCB interconnections quality testing
+Structure of information in the process of PCB testing is also presented in aed form
+(3.1). But in this case we have a system for which the construction of geometric
+representation 
+Sg (stage 1) is structural element 
+ , and 
+ is the graphic image
+of interconnections. PCB image 
+ is presented as follows:
+ },,{ vs
+
+
+
+  , (8.8)
+where: s
+ is graphic representation of standard; v
+ is received video-image of
+PCB, – connections of and (for instance, three points of the images,
+by which the coordination of images is determined).
+PCB testing process corresponds to 2-5 stages described above, which are ex-
+ecuted in a technological process of PCB production. In comparison with the
+known approaches, stage 2 of the proposed method is almost the same as for
+known technologies and realized by using standard video cameras, e.g. Chameleon
+[89] or Grasshopper [90] cameras. The exemplary PCB image obtained while task
+performing is presented in Fig. 8.5
+(SLIKA 73)
+(sSLIKA 74)
+The obtained PCB image is preprocessed to be fit for the next steps of the PCB
+quality testing. The results of the image processing – the fragment acquisition and
+edges extracting of conductive pathways are presented in Fig. 8.6 a), and Fig. 8.6
+b) accordingly.
+For the PCB fragment acquisition the Matlab imcrop function is used. To ex-
+tract the edges of the conductive pathways the edge function of the Matlab Image
+Processing Toolbox is applied.
+The matching process of the PCB standard (stage 3) is usually not presented in
+widespread testing technologies. At this stage in frames of the proposed method,
+159
+the PCB standard is built on to PCB image by its three basic points, which allow to
+coordinate the orientation and sizes of the standard and the received graphic image
+of PCB thanks to the availability of its HS geometric representation
+(SLIKA 75)
+It permits to avoid disparity between the standard and the image which is
+caused not by damages of PCB but by changes of PCB scale, i.e. camera distance
+from it, and orientation (Fig. 8.7). The matching process of graphic images is real-
+ized after definition of matching control points using Matlab functions of Image
+Processing Toolbox and Computer Vision System Toolbox [91]. The results of the
+matching process of the obtained PCB fragment and PCB standard images is pre-
+sented in Fig. 8.8.
+(SLIKA 76)
+Standard Matlab procedures allow realization of images fitting by using of im-
+rotate() and imresize() functions, detecting features applying in both images to be
+matched detectSURFFeatures() function, and extract feature descriptors using ex-
+tractFeatures() function. Matching features by using their descriptors is realized
+with help of matchFeatures() function. This function also allows computing the
+transformation from the obtained PCB fragment image to the original PCB stand-
+ard image. The matching process of the two PCB images, i.e. original (o) image –
+red, and distorted one (+) – blue, is presented in Fig. 8.8.
+PCB image obtaining is performed using standard digital cameras to match the
+image of PCB standard. Exemplary fragment of pathways structure of PCB stand-
+ard (Fig. 8.7) was synthesized using Pascal programming language. The images of
+PCB conductive pathways of different orientation and scales presented in Fig. 8.7
+are the screenshots obtained from a computer monitor.
+At the fourth stage of PCB quality testing, comparison and detection of PCB
+defects is carried out with regard to the geometric representation of PCB standard
+by checking the conductive pathways for the gaps (Fig. 8.9a) – not by continuous
+scanning of image lines, as in usual technologies, but by scanning along the con-
+ductive pathways structures. It allows the time of comparison process and volumes
+of processed information to be reduced.
+In the process of pathways soldered joints test, the aperture moves along the
+imaginary construction (Fig. 8.9b) which corresponds to the construction of i inter-
+connection (і, і+1 – the neighbouring pathways).
+(SLIKA 77)
+The fifth stage of the PCB quality assessment is a simple logic operation over
+the results of the fourth stage.
+Preliminary conclusions and results
+The introduced PCB conceptual design method and HS technology of PCBs con-
+ductive pathways quality testing yields the following main results:
+– a graphic image of PCB standard is a result of formation of geometric repre-
+sentation of PCB in the process of synthesis of PCB pathways construction;
+– availability of geometric representation allows easy correction of pathways
+topology at each phase of PCB constructing, including conceptual design (CD) and
+detailed design (DD) phases;
+– the mechanism of information aggregation permits to avoid the growth of
+computer memory volumes during the growth of the PCB construction level in the
+design and production processes;
+– the PCB testing technology gained new qualities: the possibility of scales
+and orientation of PCB pathways geometric construction to change (during PCB
+standard rebuilding on to the obtained graphic image of PCB) allows to avoid the
+identification of PCB quality as defective in a technological process, when the
+PCB orientation and the distance in relation to the video camera are changed;
+– the standard and obtained PCB images are compared not by continuous
+scanning of image lines as in usual technologies, but only by scanning along the
+conductive pathways with regard to the pathways geometric representation, which
+allows the reduction of the time of comparison and computer memory volumes.
+i+1
+joint
+gap
+window
+window i
+
+                </p>

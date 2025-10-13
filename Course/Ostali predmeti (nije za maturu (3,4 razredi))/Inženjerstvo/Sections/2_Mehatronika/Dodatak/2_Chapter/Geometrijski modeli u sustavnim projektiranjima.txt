@@ -1,0 +1,340 @@
+<h3>GEOMETRIC MODELS IN DESIGN SYSTEMS</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<p class="zoomable-text">
+                    Geometric models of modern CAD systems which are used for solving the prob-
+lems of mechatronics, robotics and automation are overviewed and analyzed in this
+Chapter. The overview covers recent decades, when almost all theoretical geomet-
+ric models were realized in design systems and some new ideas were formulated.
+The main attention is paid to the models implemented in the systems which have
+their commercial realization.
+There are two main classes of geometric representations in computer aided de-
+sign (CAD) systems and other automated systems – Boundary Representation, B-R
+[34] and Constructive Solid Geometry, CSG [35].
+An object being constructed is presented by expressions of CSG type in the
+form of a group of connected elementary objects (primitives) – cylinders, prisms,
+spheres, cones etc. The connection can be formally described by algebraic sum, i.e.
+some objects take part in this group with negative signs. CSG expression is graph-
+ically presented as a tree, whose root is the whole object. The object unites the
+details at each level, where the terminal tops (leaves) are primitives (Fig. 2.1).
+Objects in B-R are represented by the set of parts of surfaces (sides) and the con-
+nections between the sides by their boundaries (edges) may be indicated (Fig. 2.1).
+It is easy to see that B-R in this case contains the set of boundary elements of
+primitives which are used for uniting in CSG representation. At the same time, B-R
+contains only such boundary elements which are connected with the environment
+directly, and are not connected with each other in the whole object construction.
+Therefore, after defining each primitive in CSG model by its boundary representa-
+tion and erasing common parts of their boundaries we obtain B-R of the whole
+object. It means that there is a simple transition from CSG to B-R but the reverse
+process is not so simple.
+Primitives and more complex objects can be presented in algebraic form, which
+include patent, parametric [36], polynomial representations [37] and different types of
+splines [37, 38], and also in the form of sequences of Euler operators [39]. Geometric
+representation and parametric model of the object were proposed in the mid 80s of the
+20th century. For geometric representation [40] the set of notions is introduced:
+{surface, point, vectors, scalars} .
+20
+Each of the notions can have a set of meanings in accordance with Table 2.1.
+It is easy to see that the meaning of variable “surface” in Table 2.1 plays the role of
+key and to each meaning of key there corresponds a strictly defined set of other
+variables in the same line in the table.
+(SLIKA 9)
+(SLIKA 10)
+There is a certain mutual concordance between the representation of primitive
+in the space of geometric characteristics and its algebraic definition in form:
+Ax2 +By2 +Cz2 +Dxy+Eyz+Fxz+Gx+Hy+Jy+K=0, (2.1)
+where: x, y, z are coordinates in 3-dimension Euclidean space. That means that
+there are algorithms for transformation of geometric representation to algebraic one
+and vice versa. Calculations presented in [40] show that geometric representations
+require the minimal computer memory in comparison with other forms of represen-
+tation. Besides, it is well connected with the natural language, convenient for en-
+quiring about searching for elements of the object and forming directives for its
+change. It is sometimes useful to calculate some metrical characteristics, such as
+volumes and squares of surfaces using geometric representation directly. But it is
+necessary to convert the geometric representation to other forms to calculate physi-
+cal characteristics, to form graphic images and to determine the technological pro-
+cess.
+Objects and their primitives can be presented by the sequences of Euler opera-
+tors [39]. Therefore, objects are described by the sequence of constructing opera-
+tors and inverse sets of destructing operators of geometric objects of a higher (in
+the case of destruction – lower) dimension. For instance, if we have an image of
+polyhedron we can erase one of its apexes (vertex) and save this operation on com-
+puter. After that we can erase another top which is located on the same edge. These
+two operations correspond to the operation of the edge erasing. The sequence of
+operations of erasing of all edges which form one polyhedron side corresponds to
+the operation of removal of the whole side and finally, the erasing of all the sides
+destroys the object.
+The repetition of the chain of all the operations in the inverse sequence when
+destructing operations are changed by constructing ones allows the object to be
+rebuilt. Such direct and inverse chains are called Euler operators. Their name arose
+from Euler’s formula:
+22
+v–e+f=2, (2.2)
+where: v – number of apexes, e – number of edges, f – number of sides.
+Euler’s formula allows correctness of the object construction to be controlled.
+General formula which corresponds to the object of any connectivity is presented
+in the form of the expression:
+v–e+f=2(s–h)+r, (2.3)
+where: s – general number of untied components, h – number of through holes in
+object, r – general number of cavities in sides.
+For the formation of graphic images Euler operators are one of the best ex-
+pressions. At the same time their most effective application to computer raster ter-
+minal units is achieved by the hybrid connection of Euler operators with Octrees
+[41]. Such trees finally include the white and black leaves only (i.e. empty and
+filled elements of the object corresponding to cube primitives) but initially and in
+the middle state they have the grey leaves as well. Grey leaf corresponds to the
+case when one primitive simultaneously contains empty and filled areas. It is de-
+composed according to the general rule for each level till only black and white
+leaves remain.
+Octrees is the most acceptable geometric model for raster graphics. The transi-
+tion from Euler operators to Octrees is one of the way of transition from vector
+(which is most useful for the output of boundary expressions) to raster representa-
+tion [42]. It is necessary to convert Euler operators to other forms in order to calcu-
+late functional characteristics of objects and to define technological processes.
+The algebraic representations of geometric objects are well investigated
+[40, 43].
+They are not practically used in requests to search the objects and are hard for
+their formation with participation of the user. There are some possibilities of con-
+nection of created in this way primitives in CAD systems with CSG representation.
+But connection algorithms of objects of various forms are very complex and re-
+quire a lot of computer memory and time for calculation.
+At the same time such representations are suitable for computer graphics tasks
+(in vector forms), for generation of some programs for automated production and
+are the most effective for calculation of many functional characteristics in many
+tasks of engineering analysis.
+The most convenient way of forming an algebraic expression is the case when
+one of the input units of a computer is scanning a physically realized (or simply
+graphically written) object. In this case the unit forms a range of observations dur-
+ing a definite period of time which is changed later by corresponding mathematical
+definitions. It allows the information to be compressed and the initial range of ob-
+servations to be restored when necessary.
+23
+Rational parametrical B-spline [38, 44, 45] gives the general form of any ob-
+ject’s surface representation in homogeneous, i.e. descriptive, coordinates.
+The spline is obtained from common parametric B-spline in the following
+way. C(t) is polynomial B-spline curve in 3D Euclidian space, i.e.
+
+
+
+n
+i
+iki PtBtC 1
+, )()( , (2.4)
+where: Pi – 3-dimention control points, t – parameter, such as a
+ t
+ b & a, b are
+fixed and 0
+ a
+ b; B(t) – polynomial of variable t of k order (power k-1). Bi,n(t) –
+basic functions defined by node vector   kn
+jjt 
+1 and a = t1 = t2 = ... = tk < +tk1
+ tk+2
+
+ ...
+ tn
+ tn+1 = ... = tn+k = b.
+The representation of C(t) in homogeneous (descriptive) space with fourth co-
+ordinate hi has the following form:
+
+
+
+
+ n
+i
+iki
+n
+i
+iiki
+htB
+PhtB
+tC
+1
+,
+1
+,
+)(
+)(
+)( , (2.5)
+or 
+
+
+n
+i
+h
+iki
+h PtBtC 1
+, )()( , (2.6)
+where h
+iP is a control point in 4D space.
+The corresponding spline representation for surface is defined by the expression:
+
+
+ 
+ 
+ n
+i
+jilj
+m
+j
+ki
+n
+i
+ijilj
+m
+j
+ki
+htBsB
+PhtBsB
+tsS
+1
+,,
+1
+,
+1
+,,
+1
+,
+)()(
+)()(
+),( . (2.7)
+This approach allows good representation of both the objects which are usual-
+ly described by manifest definition (cycles, cones, primitive cubes) and the objects
+which are defined with the help of the parametrical polynomial forms (sculptural
+surfaces) [45]. The exemplary 2D path generated based on p(x, y) points using
+Spline interpolation algorithm is presented in Fig. 2.2. Spline interpolation is used
+in this case to create the 3 degree polynomials for the set of measurement points of
+the cutting path. Technological process of the pipe cutting along the predefined
+path is realized by robot cutter or CNC machine in production environment [46].
+24
+First, 1D spline for x and y point is created independently. Then the 2D path is
+generated as the composition of 1D x and 1D y splines. The set of measurement
+points in this case is as follows:  0 0,4 0,5 0 0,4 0,5 0,4 0x =   and
+ 0,5 0,4 0 0,4 0,5 0,4 0 0,5y =   , see Fig. 2.2
+(SLIKA 11)
+The manifest functions require more elementary actions and less computer memory
+for representation of primitive surfaces and lines. But the use of one general expression
+improves the characteristics of the system in general and allows the memory volumes
+for programs location to be reduced, the speed of operations to be increased and the
+dialogue with the engineer to be unified. At the same time the expenses of system
+development, exploitation and the amount of documentation are reduced.
+(SLIKA 12)
+For the case of wireframe modeling [46], the model consists entirely of points,
+lines, arcs and circles, conics, and curves. In 3D wireframe model, an object is not
+recorded as a solid. Instead the vertices that define the boundary of the object, or
+the intersections of the edges of the object boundary are recorded as a collection of
+points and their connectivity (Fig. 2.3).
+Wireframe models are most economical in term of time and memory require-
+ments, easy to construct, used to model solid object and often used for previewing
+objects in an interactive scenario. At the same time the models have the following
+disadvantages. They do not allow for use of photo realistic rendering tools, have no
+ability to determine computationally information on mass properties (e.g. volume,
+mass, moment, etc.) and line of intersect between two faces of intersecting models
+and do not guarantee that the model definition is correct, complete or manufactura-
+ble.
+To expand the potential possibilities of traditional boundary representation, the
+connections of dimensions (length, squares, volumes, angles) are added to algebra-
+ic expression in the process of forming the representation. It permits the process of
+parametric construction with the use of geometry of variations to be realized.
+Parametric model, or which is often used for the representation of objects in
+data bases of design systems, is defined by set {T, D, O, V, R, C}, where: T – set of
+topologies, D – set of possible dimensions, O – set of operations, V – set of varia-
+bles, R – set of relations between V and T/O/D, C – set of restrictions of the mean-
+ings of variables.
+Any class of objects PS can be presented in these terms in the following form:
+PS ={t, d, o, v, r, c}, (2.8)
+ti
+T, di
+D, oi
+O, vi
+V, ri
+R, ci
+C.
+It is possible to create B-R defining T and D only. To create CSG it is neces-
+sary to define O.
+Therefore, parametric model of the object contains not only traditional repre-
+sentations (B-R in its most developed form based on geometry of variations) but
+also the relations between different forms of representations. Declarative definition
+of all the elements of set {T, D, O, V, R, C} ensure flexibility of the system, possi-
+bility of its adaptation to different classes of objects and optimization of system
+parameters in its functioning process (for instance, finding more effective opera-
+tions, defining new relations, etc.).
+Having many characteristic features of systems of artificial intelligence, para-
+metric model has a drawback – its relatively weak formalization. Six elements
+presented above are not strictly defined. That makes the creation of such models
+very complicated for the user. In other words, sets of possible meanings (states)
+of objects T, D, O, V, R, C are not defined. Possible connections of these states, i.e.
+26
+states of the whole system, and transition operations from one possible state to
+another are not defined either.
+A more theoretically grounded from the point of view of realization simplicity
+is the approach (independent from technical realisation) of graphical standard de-
+velopment proposed by CGS Associates [47].
+This approach is based on the application of mathematical means of formal
+system theory and algebra for the development of data bases. GSC Associates has
+adapted its technology in its commercial software products. Some of these products
+are Computer Graphics Metafile (CGM) generator used by Apple, and CGM inter-
+preter used by Microsoft, Apple and Symantec [47].
+Geometrical objects are considered in [47] as formal systems which have their
+inputs, outputs, states and actions of state transitions. A set of the actions also con-
+tains the ways of obtaining information about the object’s state (states recognition).
+Definite data structure of a data base corresponds to the formal system – ab-
+stract data type, which can be adapted to any concrete state (any data of this type)
+and the set of state transition functions, i.e. operations which do not take the ele-
+ments out the frames of the abstract type being considered. For instance, the struc-
+ture of group of integer numbers is defined on computer by a cell organised for
+representation of integer number as a positional number with a definite base and
+actions of adding and subtraction.
+The cell can be in any of its states (can contain one of integer numbers pre-
+sented in the computer numeric format). Each of the mentioned operations with the
+present number and some other number which goes to the cell input are performed
+with the help of sequence of elementary operations (with bits) and forms the output
+which is also an integer number, i.e. has the same abstract type.
+Division operation does not belong to the group of integer numbers because it
+can take the elements out of the frames of this abstract type (it is necessary to have
+one additional cell for the division remainder). The fields of real and complex
+numbers, logical data are also realized in computers in the form of abstract data
+types.
+With respect to geometric expressions, this approach means the representation
+of a geometric object in the form of abstract data type with a set of operations of
+states transition which do not take the elements out of the frames of this abstract
+type. For instance, the data structure “segment” can be defined by a set of axioms,
+limits and by the operations of motion on a straight line, rotation and change of
+length. The operation of arbitrary uniting of two segments is not included in the
+data structure “segment” because it can take elements out of the frames of this
+abstract type. For instance, it is possible to obtain the broken line or “+”-like object
+as a result of uniting two segments, i.e. lines.
+27
+Data structure of “segment” also contains the operations with it. The descrip-
+tion of several connected data structures for vector computer graphics with similar
+organization is presented in [47].
+In this case the analogy of parametric model set T, D, O, V, R, C is a set of no-
+tions of formal system theory which corresponds to the language of abstract data
+types. That means that the notions and their relations from this set are not only
+strictly defined and easy for programming but are realized in many cases as hard-
+ware.
+So, concluding the overview of traditional ways of geometric information rep-
+resentations, it can be pointed out that the possibility of formal system theory and
+abstract data types application for the construction of expressions of geometric
+objects (models) opens new perspectives in CIM systems including robotics and
+CAD.
+Both the CSG and B-R have their own advantages and drawbacks. So, the
+CSG models are simply constructed with the participation of a user. CSG model
+also requires less computer memory, is better adapted for definition of technologi-
+cal processes (for inst. assembling type) and for imitation of movements of object’s
+details.
+On the other hand, B-R models can actually be built without human participa-
+tion, allow the sculptural surfaces to be constructed, allow variations methods to be
+used, and are better adapted for calculation of technological processes of continu-
+ous deformation and for aerodynamic and hydrodynamic calculations.
+The connection of these two approaches is possible, but sub-process of geo-
+metric constructions creating and changing for CSG differs in marked degree from
+this sub-process for B-R.
+In the existing CAD-systems these are principally different design technolo-
+gies. Integration of these approaches in one system can be possible in the case of
+existence of the general formal language which can contain both representations
+and transition operations from one to another. It looks like the hierarchical and
+general systems theory can give an opportunity to create such a formal language. In
+this book, the hierarchical geometry model given in Chapter 4 is used in design
+tasks of mechatronic objects. The exemplary design tasks where HS (aed) geomet-
+ric model is used are presented is Sections 4.4.2 and 4.4.3, and Chapters 6-8.
+                </p>

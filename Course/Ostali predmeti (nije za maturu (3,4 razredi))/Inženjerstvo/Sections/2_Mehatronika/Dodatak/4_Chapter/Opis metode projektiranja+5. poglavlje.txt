@@ -1,0 +1,2380 @@
+<h3>4. DESCRIPTION OF THE DESIGN METHOD</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+ <p class="zoomable-text">
+                    The formal models of hierarchical mechatronic objects and coordinator given
+above in Chapter 3 are used in this Chapter for the description of both mechtronic
+system (MS) being designed and the design process itself. Each mechatronic sys-
+tem can be presented at the conceptual design phase according to (3.1) in the fol-
+lowing aed form (4.1) of HS:
+ },,{ 0
+
+ SS mm  , (4.1)
+where: 
+m is the dynamic representation of mechatronic system 
+Sm as a unit in
+its environment 
+Sm
+ , 
+m is the structure of the system 
+Sm , 
+0Sm is coordina-
+tor, which connects 
+m with 
+m , m is the index which indicates the mechatronic
+nature of the object being designed.
+The states of a mechatronic system in its 
+ and 
+ forms are detected by its
+metrical characteristics. Aggregated dynamic (functional) representation of mecha-
+tronic system (MS) is described in accordance with (3.11):
+m 
+ =m{  
+ ,o ,  
+
+ , ,  
+
+ , }, (4.2)
+where:  
+ ,o – dynamic description of mechatronic object (MO) itself,
+ 
+
+ , – description of the mechatronic process (see Subsection 4.4.2),
+ 
+
+ , – dynamics of the MO environment (external representation).
+An examples of the description of MO dynamics by  
+ ,o is presented be-
+low in Subsection 4.4.2.
+Structure 
+m of mechatronic object is presented according to (3.14) in the
+following form (4.3):
+}},{,{ 1
+0 
+
+
+ 
+ Smm , (4.3)
+75
+where 1
+ is a set of mechatronic subsystems of lower level  -1 and their struc-
+tural connections 
+ .
+Coordinator 
+0Sm is the system which sets the characteristics of mechatronic
+object elements and coordinates their connections by the sequence of operations
+and the decision-making actions, such as a choice of the decision and the construct-
+ing of semantic net on the MO elements set. These actions include the operations
+of MO metric characteristics changing, operations with MO geometric elements
+structures and their connection.
+So, to construct an mechatronic object it is necessary to define its structure, its
+function – aggregated dynamic representation as the unit in its environment, its
+environment construction and technology, MO coordinator (design and control
+unit), and their metrical characteristics.
+The main design tasks – analysis and synthesis – of mechatronic objects are
+performed by coordinator 
+0Sm on its strata (see Chapter 3) under conditions of
+different information uncertainty. 
+0Sm creates the desired construction of mecha-
+tronic object in accordance with its required dynamic functional representation in
+the environment (synthesis task). In its turn, it partly changes the structure parame-
+ters of the resultant mechatronic object and analyses its behavior in the environ-
+ment (analysis task). All the tasks are performed at both Conceptual Design (CD)
+and Detailed Design (DD) phases of mechatronic object life cycle using HS design
+method, i.e. coordination technology of HS.
+So, the main steps of the HS design method realization are the following.
+1) Conceptual model creation – description of the mechatronic object being
+designed in aed form of HS; aed is a standard block of hierarchical systems – for-
+mal analogue of two-level system with dynamic units.
+2) Representation of basic geometric elements (point, line, surface, 3D ob-
+ject) of the mechatronic object being designed in the hierarchical form – condition-
+al point, line, surface, 3D object.
+3) Definition of metric and constructive characteristics – constructive dimen-
+sion and connections defect – of the mechatronic object being designed in the
+codes of numeric positional system.
+4) Realization of the design process of mechatronic objects – synthesis and
+analysis tasks performing – as the coordination process of aed.
+At the first step of the method realization – conceptual model creation – the
+connected formal models of the mechatronic object structure, its dynamic func-
+tional representation as a unit in its environment, the object environment and the
+environment processes are developed (see Chapter 3). Formal descriptions of ob-
+ject-environment interactions, mechatronic object coordinator and its coordination
+76
+(design and control) processes, processes executed by subsystems and general pro-
+cess are presented as well.
+At the second step, the representation task of basic geometric elements of the
+mechatronic object being designed in the hierarchical form is performed. The rep-
+resentations of MO geometric elements in HS forms of conditional point, line,
+surface and 3D object are described in details below in Subsection 4.3.
+At the third step, definition of metric and constructive characteristics of the
+mechatronic object being designed is performed with the help of numeric position-
+al system Ls. Main numeric characteristics of MO – constructive dimension and
+connections defect – are introduced in Ls basis. Formal definitions of these charac-
+teristics are presented below in Section 4.2.
+At the fourth step – synthesis and analysis tasks performing – the conceptual
+descriptions of the tasks are presented first. The task of MO structure synthesis is
+given in the following form of the coordinator mapping:
+
+
+
+   },{: 1
+0S (4.4)
+where MO structure
+  which is synthesized from set of sub-subsystems 1
+S
+presented in aggregated dynamic forms
+ 1 by establishing of the structural con-
+nections 
+
+ of these elements 1
+S .
+The steps of the synthesis process 
+1S
+ are formally described by reaction of
+dynamic system :),( 
+
+
+
+}&:{ TiYXC iiii 
+ , (4.5)
+where i is a time moment of the synthesis process, initial element (or composition
+of elements previously connected in the synthesis process) is recognized as state
+Ci, at the step i, element to be added to initial one is recognized as input Xi, and the
+composition of the both connected initial and input elements is recognized as out-
+put Yi. The output Yi becomes the state Ci+1 at the next step of the synthesis pro-
+cess.
+The analysis task of MO is performed by coordinator and presented at CD
+phase in the following form of the coordinator mapping:
+
+
+
+   },{: 1
+0S (4.6)
+In this task, coordinator partially changes the structural connections 
+
+ of
+MO by sending its coordination signals to MO structure and observe the variations
+77
+of MO behavior – change of MO functioning in its environment caused by MO
+structural variations.
+While performing analysis tasks, e.g. kinematics and dynamics tasks, concep-
+tual models 
+ of MO are presented at CD phase in 
+),(
+ form. At the DD
+phase the conceptual models are concretized and presented in forms of DE, State
+Space Equations or algebraic form. The exemplary scheme of MO conceptual mod-
+el concretization at the design phase of the object life cycle (Fig. 1.2, Chapter I)
+is presented in Fig. 4.1
+(SLIKA 26)
+Synthesis and analysis tasks of geometric constructions of mechatronic objects
+being designed are partially described in Chapters 6-8 as well. The steps of the
+above HS design method are described below in Chapters 5-9 for the cases of the
+exemplary mechatronic objects design tasks. The method is also partially regarded
+in [49, 51-54].
+4.1. General geometric characteristics of mechatronic objects
+For the description of geometric elements of mechatronic object construction at the
+second step of the HS design method realization the geometric information is pre-
+sented according to (4.1) as a set of variables of three classes:
+    ,,,, 321 , (4.7)
+I
+Conceptual
+model
+),(
+
+DETAILED DESIGN phase 3
+III
+CONCEPTUAL DESIGN phase 2
+Concrete DE
+)()(
+)(
+)( tTtB
+dt
+td
+jtT Lm
+m
+m 
+
+
+II
+Ordinary DE
+uaya
+dt
+dy
+a  210
+78
+where:   1:  Iii
+ is the description of the state of geometric object
+(with the help of metrical characteristics 
+i
+ which are the coordinates, length,
+squares, volumes, angles) presented in aggregated dynamic form 
+ ,
+  2:  Iii
+ – is the description of geometric object interconnections
+
+
+ with other objects (boundary of the object defined by the coordinator),
+  3:  Iii
+ – is the description of object structure 
+ .
+Then, any geometric representation of mechatronic object is presented in form
+of relations S on the Cartesian product of variables  ,, . Each
+class of variables has its own structure, i.e. there are the sets:
+},,{1
+
+
+
+  , (4.8)
+where:
+ is the structure of class  ,
+ is structure of  class, and
+ is
+structure of class  .
+Besides, there are gluing relations 2
+ between  ,, . The multitude of all
+the relations on  is marked as
+ :  21,
+
+
+  .
+One of the relations from 2
+ is  . That means that the boundary  of
+each geometric object 
+Sg is included in its structure  . The boundary is the area
+of geometric construction 
+Sgm of mechatronic object 
+Sm interconnections with
+its environment 
+S
+ (i.e.  defines the location of 
+Sgm in 
+S
+ ). Each 
+
+corresponds to the coordination signal from coordinator 
+0Sgm to the object 
+Sgm .
+
+ is defined through the interactions of the geometric mechatronic object
+
+Sgm with the higher and lower levels, i.e. measured with the help of its structural
+units to be evaluated in its environment, and, inversely, being a unit of the envi-
+ronment, it is measured with the help of the other environment units. So, the higher
+and the lower level units for the object are its measuring units.
+To construct geometric construction of mechatronic object 
+Sgm it is
+necessary to define all its variables
+,
+,
+. In design task any subset of parameters
+from S must be initially defined. Other parameters are defined in the
+synthesis process (Tab. 4.1).
+79
+The unknown variable (which is not presented in Z ) is marked in Table 4.1
+by symbol ?. Definition of ? symbol is a task of self-organization strata of the co-
+ordinator.
+Taking into account the type of the design task and the knowledge level of the
+coordinator, 
+0Sgm chooses the strategy of knowledge settlement, i.e. the algorithm
+of the synthesis process.
+Therefore, the structure of the design process is defined by:
+– the dividing of set Z into known and unknown parameters (inputs and
+outputs), i.e. the type of constructing task,
+– by the geometric representation 
+Sgm of the mechatronic object being de-
+signed (concrete meanings of variables),
+– by the uncertainty level of semantic net relations
+ (former design expe-
+rience).
+Coordinator 
+0Sgm in this case plays the role of a system which defines the
+characteristics of the elements set and coordinates their interactions with the help
+of a sequence of actions and procedures of decision making.
+These action classes include the procedures of the changing of metrical character-
+istics as well as actions with boundaries and structures of geometric elements of MO
+(SLIKA 27)
+4.2. Numerical characteristics of mechatronic objects
+To realize the third step of proposed method, all numerical characteristics of geo-
+metric elements of MO (mechatronic object) 
+S are described in the work and
+connected with the help of numeric positional system S
+L presented in Section 3.3.
+So, metrical characteristic  M
+ (measure of length, squares, volumes,
+angles) is obtained in units },,,{
+
+
+
+
+
+
+
+
+
+   H , presented in Subsec-
+tion 3.3.3, with the coefficients from S
+L :
+ 
+
+
+
+ 
+ ~,~,~~ 0 
+ ,   11101
+0 ~~,~,~~   
+
+
+
+
+
+
+ , (4.9)
+where: L
+ ,  ~
+  – negative, 
+~0 – neutral, 
+~ – positive parts of 
+~ ; unit
+
+~0 is at the same time a unit of lower level -1, etc. Numerical characteristics of
+system 
+S organisation – connection defect 
+
+~ and constructive dimension ~
+ 
+were defined in the following way.
+Let the object 
+ and the reflection  U
+
+ R: be as follows:
+ }0{N&&&),(:),( +  NNnLNLnn
+
+
+
+
+
+
+  ,
+   ˆ,),()R(
+
+
+
+
+
+ n (4.10)
+
+
+
+  nnii )(R&}ˆ)R(:{)(( ˆˆˆˆˆ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+ ,
+Li 
+
+ˆ
+R:
+
+ , Nn ˆ
+R:
+
+ , n – cardinality of ˆ
+
+ , ˆ
+i
+
+ – intercon-
+nections of 1
+iS in 
+ ; +
+N – natural numbers multitude, S
+LL  .
+Then 
+ is called a connection defect of 
+ of order
+ and cardinality n, and
+})3,2,1,0{,()( 
+
+
+ IIL . (4.11)
+The locations of the defects in MO structure 
+ are defined by parameter
+
+ , :
+
+
+ ii (4.12)
+        
+
+
+
+
+
+
+
+
+
+  ˆR(&&,:,,)0( ,iiIIiii .
+For each system 
+S of level L the connection defect 
+ in environment
+
+S
+ is called the contraction of connection defect
+
+  , of system t
+S  of higher
+level  +τ , s
+L
+ on 
+
+ .
+In the code of numeric positional system S
+L the connection defect is defined
+as follows:
+  }.,{
+~
+,...
+~ 03 
+
+
+
+
+
+
+  nn (4.13)
+The formal definition of constructive dimension and the ways of its calculation
+are obtained from the definition of connection defect 
+
+~ .
+Constructive dimension  
+ of system 
+S is called its numeric character-
+istic, which is presented in S
+L code:
+ 
+
+
+
+
+
+
+
+
+ )()(},,{
+~
+,...
+~ 303 ii nnnn   , (4.14)
+where: ( )n Ni
+  , i=0,1,2,3; 
+ and 
+ are constructive dimensions of 
+ and
+
+ , respectively. The instance of constructive dimension 
+
+~ connection with
+Euclidean dimension is presented by Table 4.2
+(SLIKA 28)
+Therefore, the described representation of geometric information allows all
+operations with graphic images in aed-processor (subsection 3.3.2) to be executed
+82
+in the design process of MO as operations with numeric codes. It allows increasing
+the efficiency of computational processes while performing the design procedures.
+s
+L may be recognized as new coordinate space (hierarchic coordinates) which
+has not only habitual transformations of coordinates, but also dimension changes
+(in line with interlevel connections of real, complex and hyper complex numbers).
+The records of 
+
+~ and 
+
+~ in s
+L code allow carry out all s
+L tasks with 
+
+~
+and 
+
+~ , and change the dimensions and connections of the units with changing
+their scales in 
+
+~ . The actions with 
+ , and 
+ , are executed in the space of
+s
+L laws.
+All geometric characteristics in hierarchical space are changeable. The chang-
+es of construction connections in
+
+  (changes in
+
+  and
+
+  ) cause altera-
+tion of coordinates 
+ (the movements of 
+ in structure 
+ ) and thereby chang-
+es in the construction
+
+  . Thanks to that a possibility appeared to design the
+connected motions and deformations of mechatronic systems on their different
+levels.
+4.3. Hierarchical geometric representation
+of mechatronic objects
+In accordance with the second step of HS design method, the following geometric
+elements of mechatronic objects (MOs) are presented in hierarchical form:
+– points 0
+S ,
+– parts of lines 1
+S ,
+– surface 2
+S patches,
+– 3D objects 3
+S .
+The structure of hierarchical systems is introduced on the multitude of the
+structures of these elements  3210 ,,,
+
+
+
+ . Thus, it became possible to op-
+erate in design process not with ideal mathematical objects but with their equiva-
+lents – conditional 0
+S , 1
+S , 2
+S objects, which have all metrical characteristics of
+3D objects of 3
+S type.
+83
+4.3.1. Conditional point
+The conditional point is described as follows. Conditional point 
+S , where level 
+=0, is a minimal element of geometric representation. In comparison with the usual
+point it has all the characteristics of hierarchical systems:
+0
+S ={
+ ,
+ ,
+ } 0 . (4.15)
+Conditional point 0
+S can be graphically presented by a cube, a sphere, a pyr-
+amid, etc.
+Metrical characteristics of 0
+ (in case of cube) are: 0
+0
+ – tops coordinates,
+0
+1
+ – length of edges, 0
+2
+ – square of sides, 0
+3
+ – cube volume.
+The conditional point has the following qualities.
+It may be constructed from lower level units (also points):
+ },,...,,{ 1
+21
+
+ InSSSS n , (4.16)
+but graphically its structure can’t be observed. Points 1
+iS of lower level  -1 have
+the same type of structure but their metrical characteristics are smaller.
+Each conditional point 1
+iS can be in its turn decomposed into 2
+S . The
+sequence of such decomposition operations leads to the ideal point with metrical
+characteristics 0
+1
+ = 0
+2
+ = 0
+3
+ =0.
+In comparison with the ideal point, the conditional one has more operations of
+coordinator: scaling (which does not take conditional points beyond their class)
+and level lowering. In addition, the points can be united into a higher level system.
+Thanks to that, it is easy to introduce the definitions of conditional line and surface,
+which have all the characteristic features of ideal ones, and in addition, have their
+own qualities.
+As in the case of numbers, the point representation contains its positive (+),
+negative (-), i.e. prolongation, and neutral (0) parts. In the coordinates it was pre-
+sented as shown in Figure 4.2. In the case of conditional point interconnections in
+the structure of higher level objects, the coordinates (directions of interconnections
+in Fig. 4.2b) are defined by the structural addresses of the other elements of the
+objects.
+(SLIKA 29)
+4.3.2. Conditional line
+The part of continuous conditional line 1
+S is defined in hierarchical form as a two-
+level system (aed) which contains the finite number of conditional points
+000
+1 },...,{ SSS n  . The points are ordered in a linear sequence in the structure of
+line 1
+S , i.e. each point 0
+iS , i=1, ..., n has one preceding and one following points.
+The main elements of aed definition for conditional lines 1
+S = 1
+},,{
+ are:
+– structure 1
+ as the finite set of conditional points;
+– connections 1
+ ={
+
+ 
+ , }1 which contain structural connections 1
+
+ – the
+sides and angles between conditional points, and external interactions 1
+
+ – any
+point (or some points) from line structure, and/or boundary points 100
+1 },{ SSS n 
+included into 1
+
+ ;
+– aggregated representation 1
+ – the description of line as a unit with its met-
+rical characteristics (for example, 1
+0
+ are the coordinates of the points of the left
+and right ends of the line, 1
+1
+ is the length, etc.).
+Coordinator 1
+0S of line 1
+S can execute all operations with conditional points
+which allow the points interactions to be coordinated in order to meet the require-
+––
+–
++
++
+++ 0
+1
+–
+0
+,S
+0,
+
+0
+S
+85
+ments to system 1
+S , i.e. the line equation. So, coordinator 1
+0S can define all ele-
+ments in accordance with the requirements to the system. When the boundary
+points },{ 00
+1 nSS coordinates 1
+0
+ , line length 1
+1
+ and the distance between the
+centres of two neighbouring points 0
+1
+ are given, then the number n of elements
+0
+iS is precisely defined by the coordinator 1
+0S .
+The subset of the line structural points is called the basis of the line points.
+The following quality is formulated as follows: in comparison with the ideal
+line, the coordinator of conditional one realises operations of decomposition and
+level rise.
+The part of conditional line 1
+S in its 1
+ form is described by the same equa-
+tion as the ideal one. So, the coordinator can execute the same operations with the
+conditional line as with the ideal one:
+– parallel transfer;
+– rotation;
+– continuous deformation (the elements 0
+iS and their number n are constant,
+but elements interconnections l
+
+ and locations are changed);
+– the division into lines of smaller length (in comparison with the similar op-
+eration with the ideal line, this operation, after the execution of finite n number of
+steps, leads out of 1
+S class to class of points 0
+S );
+– the continuous connecting of line 1
+iS with systems of the same class of lines
+(this action leaves a line in class l
+S in case of saving linear order in the whole
+system structure).
+The set of relations
+ on  contracted on 1
+S , ( 1
+S
+ ) is a set of
+two-level systems (aed) relations. Thanks to that, the standard way of constructing
+any system 1
+iS from class 1
+S was defined and it made possible to introduce new
+variables in   ,, .
+The part of conditional line 1
+S , which is constructed from conditional points
+0
+S (cubes) is shown in Figure 4.3. The figure is a screen-shot of the computer
+where geometric construction of the conditional line was synthesised form condi-
+tional points, i.e. cubes.
+(SLIKA 30)
+One of the important manifestations of conditional line is its part. The part of
+conditional line, as in the case of the ideal one, contains all point 0
+iS . The coordi-
+nates of the points are defined by the following equation:
+00
+1
+0 )1( ni SSS 
+
+ ,
+0,
+1, (4.17)
+where 0
+1S and 0
+nS are the boundary points of 1
+S . Since the number of points 0
+iS
+of line part 1
+S is finite, parameter
+ has a discrete set of values (0, 1/n, 2/n, ..., 1).
+Coefficients
+ and (1-
+) are called a bury-centric coordinates or weight coef-
+ficients of the points in },{ 00
+1 nSS basis.
+4.3.3. Conditional surface
+Conditional surface 2
+S , or patch, is a two-level system which is composed of the
+finite number of conditional lines which have a strictly linear order, i.e. each line
+has only one preceding and one following relative line.
+Conditional patch is also presented in form (4.1) as object 2
+S . Its characteris-
+tics in general basis   ,, ,
+ are defined as follows:
+2
+ – is a two-level system’s (aed) structure defined above (which is
+composed from the finite number of parts of connected conditional lines) and crite-
+ria of lines selection;
+0
+1S
+0
+nS
+0
+iS
+87
+2
+ – a closed segment of conditional line and elements, i.e. conditional
+points, which create the segment;
+ 2
+i
+ with their metrical characteristics 2
+i
+ , i=1, ..., n connected by the
+interlevel relations with the metrical characteristics 1
+i
+ of the set of conditional
+lines 1
+S which create surface 2
+S .
+Coordinator 2
+0S of system 2
+S can execute all possible actions with condition-
+al patches. These actions allow lines 1
+S to be coordinated in the way meeting the
+requirements to the whole system 2
+S .
+The following qualities of the part of conditional surface 2
+S are defined as
+follows.
+1. Since each conditional line from 1
+S has a strictly linear order T, it is neces-
+sary to have two parameters for the ordering of conditional points 0
+S of patch 2
+S ,
+i.e.
+ and t, t for points 0
+S of lines 1
+S ordering and
+ for the ordering of
+conditional lines of the patch 2
+S .
+2. Any subset of conditional lines from 1
+S containing initial 1
+1S and final 1
+nS
+lines is called a linear framework of the patch 2
+S . Interconnection points of any
+two linear frameworks are called the framework of the points. Any framework is
+simply defined by the boundaries and choice criteria of conditional points and
+lines.
+3. The contraction 2
+S
+ of the relations set
+ defined on  for 2
+S
+class is the set of two-level system relations. Thanks to that the standard way of
+any system constructing from 2
+S class is defined.
+4. Boundary 2
+ of conditional patch 2
+S contains not only conditional lines
+but also elements 1
+S of conditional points which do not take part in these points
+interconections.
+5. The interconnections of two patches, or a patch and line, or a patch and
+point and defined similar to the case of line in accordance with the general laws of
+hierachical systems
+(SLIKA 31)
+The exemplary image of conditional surface patch of s-similar form construct-
+ed from three conditional lines 1
+nS , n=3, was obtained from computer monitor
+(Fig. 4.4). It is the result of the MO geometric element, i.e. surface synthesis using
+computer program implementation of HS design method proposed in the book.
+4.3.4. 3D Object
+3D object 3
+S is a real construction (in comparison with mathematical notions of
+ideal point and surface) and therefore it is not necessary to introduce the term
+“conditional” for it.
+At the same time the boundary 3
+ of object 3
+S can be ideal ( 3i
+ ) or
+conditional ( 3
+ ) surface. For instance, when 3
+S is a polyhedron it can have both
+the ideal and conditional sides, edges and tops (objects from 2
+S , 1
+S , 0
+S classes).
+Each conditional top 0
+S is defined by interconnections of a finite number of
+conditional sides 2
+S and edges 1
+S . Each edge 1
+S is defined by the
+interconnections of two sides 2
+S .
+2
+S
+
+ 1
+1S 1
+iS 1
+3S
+
+
+1
+iS
+1
+1S
+1
+nS
+89
+3D object 3
+S is defined on the basis of geometric variables   ,, and
+their relations
+ in the following way:
+3
+ is a two-level system (aed) composed of the finite number of con-
+nected surface patches 2
+S and containing the criteria of patches selection;
+3
+ is a closed conditional surface;
+}{ 3
+i
+ with their metrical characteristics 3
+i
+ which are connected by in-
+terlevel relations with characteristics 2
+i
+ , i=1,...,n of conditional patches 2
+S ; the
+patches create object 3
+S .
+Coordinator 3
+0S of system 3
+S can execute all the actions necessary for coor-
+dinating the interconnections of conditional patches 2
+S so as to meet the require-
+ments to the whole system 3
+S . 3
+0S also executes all the actions necessary to con-
+struct 3
+S from the elements of class 3
+S but of smaller sizes, e.g. from conditional
+points 0
+S which are in reality primitives from the same class 3
+S but of smaller
+sizes
+(SLIKA 32)
+The following qualities of object were defined.
+1. For ordering conditional patches of object it is sufficient to have
+one parameter t; for conditional points ordering it is necessary to have 3 pa-
+rameters (t,
+,
+).
+2. The construction of the relations set of object parameters
+is defined by standard relations of aed – two-level system.
+Exemplary 3D objects synthesized in computer are presented in Figs. 4.5 and 4.7.
+4.3.5. Interconnections coordination of geometric elements
+of mechatronic objects
+The interconnections γ of geometric elements of MO were defined by:
+– indication of numbers or signs of interconnected element – geometric objects
+(first interaction);
+– indication of quantity and set of numbers or signs of connected systems of a
+lower level (second interaction), etc.
+The accuracy of interconnections γ grows with the consecutive, step by step
+indication of interacting lower level systems.
+If the measure of conditional point is defined as equal to 1, and if n equals
+to 10, then measure of is equal to 0.1=10-1, measure of is equal
+0.01=10-2 , etc. Measure of ideal point ( ) is equal to =0.
+When a part of line contains n (10) elements , then its measure
+equals to 101=10. If the quantity of the elements on each level is the same, then
+after the decomposition of the systems into lower level subsystems, the sizes of the
+subsystems are defined by the number of the level – by log with n base.
+Metrical characteristics of MO geometric element of Sgm of level  (object
+
+Sgm ) are defined by metrical characteristics of its elements 1
+Sgm of level -1
+taking into account the number of the elements and the metrical characteristics of
+their interconnections
+ , as presented in Figure 4.6 (subsection 4.4.2).
+An example of interconnections of geometric elements of MO is presented in
+Figure 4.5. Constructive dimensions for object 
+ 1_1_1_0, and its structural
+connections :
+
+ 
+ 0_0_1_1.
+4.4. Procedures of geometric design of mechatronic objects
+Actions with geometric elements of mechatronic objects (MO) in the design pro-
+cess executed by the coordinator, its synthesis and analysis algorithms are defined
+in this book to realise the final, fourth step of proposed HS design method.
+4.4.1. Coordinator actions with geometric elements
+of mechatronic objects
+The following classes of coordinator actions in design process for each type of
+above introduced structures   3210 ,,,
+
+
+
+ {point, line, surface, 3D ob-
+ject} are defined as follows.
+1) Actions which change the object but do not lead it out of the present struc-
+ture type. Due to these actions each type of structures may be regarded as a dynam-
+ic system. Operations of linear movement, rotation, changing of size 1
+ and some
+kinds of deformations belong to this class of operations.
+2) Actions which cause limited changes of the structure. All the elements of
+the object are changed in this process.
+This class of actions includes the above-mentioned (in 1) operations and, in
+addition the following ones:
+– adding, erasing, changing of elements (such operations have not to change
+the structure type, i.e. constructive dimension and connections of elements, for
+instance the uniting of several linear elements into a long one);
+– decomposition of structural elements into elements of lower levels;
+– changing of elements connections.
+3) Actions which cause a change of object level.
+Such actions contain all the above-mentioned procedures (1 and 2) and also
+the following ones:
+– size changing which causes changes of the present structure type of object:
+020130 ;;
+
+
+
+
+
+  ;
+– erasing and decomposition of elements into the elements of a lower level:
+0123
+
+
+
+  ;
+– synthesis of higher level system from lower level elements:
+.
+,,
+,,,
+32
+3121
+302010
+SS
+SSSS
+SSSSSS
+
+
+
+These operations are performed by coordinator 3
+0S of the most complex geo-
+metric object 3
+S , which contains a set of systems from every level. Coordinators
+of systems 2
+S , 1
+S and 0
+S have less abilities in executing the above-mentioned
+actions.
+For instance, the coordinator 0
+0S of conditional point 0
+S performs the opera-
+tions of linear motion only, which are limited by the changes of size and decompo-
+sition into points from lower levels 1
+S , 2
+S , etc.
+Geometric elements of mechatronic objects defined on   ,, and
+ go to
+the input of the given operations. Object parameters  ,, may be changed at the
+output of operations with the changes of relations
+ (where the transition be-
+tween the structures classes takes place) or without it. The scheme of the action R
+of changing point 0
+S coordinates '0
+1
+ by adding coordinates "0
+1
+ of another
+point 0 
+S is presented in Table 4.3.
+General representation of any action is similar to that in Table 4.3 but the in-
+puts, outputs and states have more complicated descriptions. The description (4.15)
+of coordinator process of exemplary synthesis of simple GO is presented if the
+following subsection 4.4.2.
+4.4.2. Geometric synthesis
+Synthesis is the basic design task performed at both conceptual and detailed design
+phases. The actions realized by coordinator in the process of geometric synthesis of
+mechatronic object are as follows:
+93
+1. defines the constructive dimension of the resultant geometric structure of
+mechatronic object (chooses the required structure class 3210 ,,,
+
+
+
+ from );
+2. defines kinds of changes of initial standard element of the defined structure
+which are necessary to perform the constructing of the required object gmS;
+3. sets the sequence of the changing actions from the above determined classes
+(subsection 4.4.1);
+4. performs these actions (this process corresponds to the calculations of the
+resultant object gmS characteristics   ,, ).
+Relations between the basic geometrical structures are presented in the form of
+procedures from the given classes. So, it became possible to choose a class of pro-
+cedures for the synthesis of a required output object from the given input object.
+The dynamics of states of input object 
+Sgm is described with the help of dynamic
+system  
+ ,o .
+An example of the dynamics of the object states in the synthesis process is
+given in the following Scheme 4.1. Both the structure and form of GO are continu-
+ously changed. The dynamics of the process (two steps) is described by the follow-
+ing reactions:
+ 
+TYXCo  1&: 1111
+ , (4.18)
+ 
+TYXCo  2&: 2222
+
+(SLIKA 34)
+That is, at the moment of time t=1 the basic GO is the conditional line (C1),
+the input (X1) is the conditional point and the output (Y1) is a composition of these
+objects. Reaction
+1 corresponds to the coordinator action of type 2 (subsection
+4.4.1). At the next moment t=2, the basic element C2=Y1 is the conditional line
+94
+constructed in the previous moment t=1, input object (X2) is another conditional
+line, and the output object (Y2) is a composition of two conditional lines which is
+the initial state of a conditional surface. Reaction
+2 corresponds to the coordinator
+action of type 3 (subsection 4.4.1).
+The set of primitives, which are used in the synthesis process is presented in
+Table 4.4.
+(SLIKA 35)
+For instance, coordinator actions R0:C
+X
+Y (where  00
+1 ,..., nSSС  ,
+ 
+
+ ,1
+X , 1
+SY  ) make it possible to synthesise the part of line 1
+S from
+frame C of points (cubes 00
+1 ,..., nSS ), when the structure type and additional infor-
+mation are received from designer (Fig. 4.6). All the parameters   ,, of the
+part of line 1
+S are defined in this process as follows:
+ GO being synthesised 
+S is the conditional line 1
+S ;
+ structure type 
+ ↔ line; structural connections 
+
+ – sides of cubes;
+ structural elements are conditional point 1
+ = 0
+1S – cubes;
+ metrical characteristic of the elements 0
+1
+ = w;
+ another metrical characteristic of the line l = 1
+1
+ = n ,0
+1
+ is defined by the
+number n of structural elements and their sizes w = 0
+1
+ ;
+ constructive dimension of the line in its aggregated 
+ form is
+
+ = 0 0 1 0; constructive dimension of the line in its structural 
+ form is
+
+ = 0 0 0 n, etc.
+(SLIKA 36)
+The result of the computer synthesis of the exemplary 3D geometric objects
+realized using HS design method is presented in Fig. 4.7.
+(slika 37)
+The constructive dimension of 3D object – the chair – in its initial state (Fig.
+4,7b) is:
+
+ 0_1_7_0, (4.19)
+and for its structural connections 
+
+ is:
+
+ 0_0_0_0, (4.20)
+i.e. there are 1 conditional surface and 7 lines which are not connected.
+1
+ = 0
+1S
+ 
+96
+In the final state of the chair synthesis (Fig. 4.7a) there are 1 conditional sur-
+face and 4 lines connected by conditional 6 points, and constructive dimensions are
+as follows:
+
+ 0_1_4_0 and 
+ 0_0_0_6. (4.21)
+One conditional line is constructed form three initial ones. Therefore the 7
+turns into 4 in the second position of 
+ numeric code which is the position of
+lines in the constructive dimension 
+ code. All constructive elements of the chair
+in its final state are connected by conditional points. Figs. 4.7a and 4.7b are com-
+puter screenshots.
+4.4.3. Motion design and deformation as analysis tasks
+The tasks of mechatronic object (MO) motion design and deformations - analysis
+tasks - are defined as the coordination tasks of hierarchical system standard block
+
+S (aed).
+Object 
+Sm movement in its environment 
+S
+ is called a change of its inter-
+connections 
+
+ with the elements 
+iS ( 1
+ 
+Ii ) of environment system 
+S
+ .
+The change of interconnections 
+
+ of the elements of MO structure 
+ is
+identified as deformation.
+Adding of negative and positive units 
+ (elements) to the connections 
+
+
+with structure 
+ remaining it in the same structures class causes the effect of
+structure 
+ deformation. The change of 
+
+ causes the external interconnec-
+tions 
+
+ changes which are equivalent to object 
+So movement in its environ-
+ment. The accordingly organized deformations - for instance running waves of
+deformations [55] - correspond to the classes of ways of object motion coordina-
+tion.
+The objects mass measure is defined as the metrical characteristics  
+~
+of system 
+Sm state 
+Cc  , its inputs 
+X and outputs 
+Y .
+Neutral element   111010 ~~,~,~~   
+
+
+
+
+ is the length, square or
+volume measure – depending on which object state (i.e. which constructive dimen-
+sion 
+
+ , and connection defect 
+
+ , ) is considered as 
+C
+ or 
+
+ , L
+ .
+Movement measures (velocity, impulse, etc.) are presented as the measures of
+state changing of dynamic systems during the time unit 
+T
+
+ ,
+},,,{  TTTTTT
+
+
+
+
+
+   in spaces 
+ , 
+ , 
+ . Movement measures
+have their directions in accordance with environment 
+S
+ element addresses with
+regard to which the movement is considered. The general law of movement and
+deformation was also presented in form of aed .
+Geometric and physical values were defined in state spaces 
+ , 
+ , 
+ , 
+T .
+All calculations are carried out in these spaces with the help of numeric positional
+system S
+L . The ways of motion design and deformation calculations depend on
+the units 
+~ , 
+
+~ , 
+
+~ of both structure 
+ and aggregated dynamic realization 
+ .
+The ways correspond to coordination strategies  
+oooooo
+
+
+
+
+
+
+
+
+
+ ,,,
+for different levels of information uncertainty of coordinator.
+It is possible to define different kinds of movements and deformations by in-
+troducing corresponding conditions. For instance, the following relation corre-
+sponds to MO physical movement (object’s coordinates changing) at time interval
+
+ttT  :
+constT tt 
+
+
+ , (4.22)
+where structural connections 
+
+ are not changed (at this time period) and in this
+way structure 
+ remains in its current state. This movement is conditioned by
+environment process 
+S
+ , which was presented in the following way:
+ 
+
+ , :   TtYCX tttt  &:
+
+
+
+
+
+
+ , (4.23)
+ ttTttXCX tttttt   &,&: 
+
+
+
+
+
+
+ ,
+ YXX 
+
+ ,  XYY 
+
+ .
+The following relation corresponds to the bio-mechanical type of movements:
+constTTYX tttt  
+
+
+
+
+
+in other words the connections 
+
+ at time interval 
+ttT  depend on the structural
+interconnection changes 
+ttT 
+
+ only. This movement is conditioned by process
+
+So
+ , which was described in form (3.3) as follows:
+ 
+
+ ,o :   TtYCX ttttoo  &:
+
+ 
+ , (4.25)
+ ttTttXCX ttttttoo   &,&: 
+
+ 
+ .
+The other classes of movements occupy the positions between the above men-
+tioned ones and presented in the basis of 
+S symbol construction.
+The examples of bio-mechanical movements coordination – analysis tasks –
+are given below for snake and caterpillar like robots motion design, as well as for
+other biologically inspired robots [56,57] and human motion design (Chapter 7).
+The following analysis algorithm is defined and realised in these and other
+tasks of the work. The coordinator performs the following steps:
+1. synthesis of geometrical structure of mechatronic object being designed;
+2. definition of the way of interconnection changing of object’s elements;
+3. realization of the interconnections changing process at the definite time in-
+terval by one of the coordinator operations described in subsection 4.4.1.
+4. checking and evaluation of MO position (address) in its environment, or
+MO external representation improved, i.e. geometric form of the mechatronic ob-
+ject being designed.
+The analysis tasks performing for caterpillar and snake like robots bio-
+mechanical movements coordination (motion design) by the suggested method are
+partially described in [55] and presented below. The tasks are performed in accord-
+ance with the analysis algorithm presented above.
+For the case of caterpillar-like robot at the first step, the geometric construc-
+tion 
+ of the caterpillar 
+Sgm which is the conditional line, and structural repre-
+sentations
+
+  0, 
+
+ s
+L for the environment 
+S
+ ↔
+
+S , which is the
+pathway of robot are synthesized. Structural interconnections 
+
+  are defined as
+the common points and angles between the structural elements (primitives) of
+caterpillar robot.
+At the second step, definition of the way of the structural interconnections
+
+
+ changing to perform the required robot motion 
+So
+ is its environment 
+S
+
+was done. The caterpillar motion mode was selected as linear with constant veloci-
+ty. The direction M of robot motion in its environment was also defined. Another
+motion modes can be defined and selected as well
+(SLIKA 38)
+At the third step, the consecutive change of structural interconnections (an-
+gles) in the way defined by coordinator at the second algorithm step leads to the
+whole robot movements in its environment 
+S
+ ↔
+
+S (Fig. 4.8). The change of
+angles 
+
+  ,i , s
+Li 
+, from their maximum value to 0 during one motion circle
+causes displacement equal to S of the robot body.
+At the fourth step, the checking and evaluation of the changes of the both posi-
+tion and form, i.e. external representation of caterpillar robot 
+Sgm in its envi-
+ronent 
+S
+ are executed in parallel with the actions of the third algorithm step
+(SLIKA 39)
+(SLIKA 40)
+process as all the others. To initiate the motion process the head of the snake
+makes one step – moves forward – obtaining in this way its new position . In
+this case, connection between the first structural element (the head) and
+the second structural element of snake body becomes weaker. To remove the
+weakness of the connection, the second element is built on to the head (recon-
+structed in a new position) taking the place of the previous head position. In this
+way the interconnection is changed by robot coordinator from state to
+the new state . The third element is built on to the second one
+taking its previous position, the fourth is built on to the third one, etc. One step of
+the process was finished when the last n element was built to the last but one
+n-1 element being in its new position.
+Formally, the coordination task of robot motion is presented as reaction of
+coordinator, see (4.5), and as function of states transition for the system, i.e.
+robot:
+, (4.26)
+,
+where and are the states of the snake-like robot structures at moments of
+time t and t’ respectively, t’>t; is the change of structural connections
+during the period of time tt’; is coordinator state (the state of control pro-
+gram).
+At the fourth step, the evaluation of the position and form changes – external
+representation of snake robot in its environment – is executed in paral-
+lel with the actions of the third algorithm step.
+1
+1
+
+S
+1
+'1
+
+tS
+
+2,1
+
+
+1
+1
+
+S
+1
+2
+
+S
+
+0S 
+t2,1
+
+
+
+t'2,1
+
+
+1
+3
+
+S 1
+2
+
+S
+1
+nS
+1
+1
+
+
+
+nS
+
+0
+
+
+'tt
+
+00''00 ,&: XYC tttt  
+
+
+
+
+
+ ''' : tttttt
+
+
+
+  
+
+t
+ 
+'t
+
+'tt
+
+
+
+0C
+
+Sgm
+
+S
+
+(SLIKA 41)
+In the program realization of snake robot motion design, the coordinator ,
+which is realized as the main control program, controls the interconnections
+change of the body elements and reconstructs the elements consecutively in
+their new positions. The wave of the interconnections change runs from the head
+to the last structural element . This process of change causes the
+shake robot motion in the opposite direction M. Two states of the body construc-
+tion of the snake robot being in motion are given in Fig. 4.11.
+So, in the case of motion design of caterpillar and snake like robots we deal
+with two kinds of geometric design (analysis) processes – deformation (in the low-
+er level structure of the biomechatronic object) and motion, i.e. its dynamics in the
+structure of the environment.
+The results obtained in performing the given tasks have a general character
+and may be used in an abstract motion design of hierarchical systems. The con-
+ducted researches show that the HS design method proposed in this book can be
+used both in the conceptual and detailed design tasks of mechatronic objects mo-
+tion, i.e. coordination of biomechanical movements, and deformation analysis of
+the objects constructed.
+
+0S
+
+ji,
+
+
+1
+S
+1
+1
+
+S 1
+nS 
+ji,
+
+
+x y
+z
+x y
+z
+103
+Preliminary conclusions
+The HS design method of mechatronic objects (MO) has been described in this
+Chapter 4.
+First, the steps of the method realization were defined.
+After that, in accordance with the method steps, the basic geometric elements
+of MO were presented in the hierarchical form. The results of this presentation
+are conditional point, line, surface and 3D object.
+Later, the geometrical and numeric characteristics of MO were introduced.
+The main numeric characteristics, i.e. constructive dimension and connections
+defect, are presented in the numeric positional code.
+Next, coordinator procedures of mechatronic systems design were defined.
+Algorithms of hierarchical objects synthesis and analysis were presented.
+Finally, the exemplary computer realizations of the method for solving the
+basic design tasks were described: synthesis of 3D objects and analysis – design of
+caterpillar and snake like robots movements. Program modules have been written
+in Pascal language and work in the frames of standard operation systems. The role
+of coordinator is performed by the main control program unit, which realizes the
+functions of coordinator selection stratum, i.e. solves synthesis and analysis design
+tasks.
+The computer realization shows, that the method has the main advantages of
+the wide spread technologies of geometric design. At the same time hierarchical
+representation of geometric elements of MO is free from certain drawbacks of the
+known methods.
+Therefore, the conceptual model of biomechatronic surgical robot system (SRS)
+presented in aed formal basis of HS is given first in this Chapter. The exemplary
+tasks performed by SRS subsystems are described after that in frames of HS tech-
+nology as well.
+5.1. Conceptual formal model of surgical robot system
+SR systems, such as commercial ROBODOC system [59] (Integrated Surgical
+Systems, CA, USA), have been widely used recently in TKA (Total Knee Artho-
+plasty) surgery [60]. Total knee arthroplasty is one of the major type of surgery for
+people with severe knee damage to relieve the pain and disability of cartilage inju-
+ry, osteoarthritis, rheumatoid arthritis, or psoriatic arthritis [61, 62]. Due to the
+increasing aging population recently, the TKA surgery has been grown rapidly in
+the world. The main surgical procedure of the TKA is removing damaged cartilage
+and bones from the surface of the knee joint and replacing them with femoral and
+tibia components of TKA implant (Fig. 5.4). In order for the surgery to be success-
+ful and the longevity of the implant to be achieved, the accurate bone cutting and
+implant alignment along the preoperative planning are required. Conventional sur-
+gical planning is performed basing on 2D plane x-rays and bone cutting is per-
+formed manually using electric saw, which strongly relies on a surgeon’s experi-
+ence. Even for a skilled surgeon, the implant alignment with respect to the bone in
+frontal plane is a very complicated task. So it is necessary to achieve excellent
+implant alignment and bone cutting by utilizing Computer Tomography (CT) based
+3D planning and robot assisted accurate bone cutting. The minimal invasive sur-
+gery (MIS) in the knee arthroplasty has been increased since MIS can improve the
+surgical outcomes such as the recovery time and hospital stay by reducing the inci-
+sion in surgery.
+Recently, commercially available computer-aided surgical robot systems have
+been introduced to enable surgeons to improve the accuracy of cutting and align-
+ment in knee and hip arthroplasty. The surgical robot systems could be classified
+into semi-active type and active type. The semi-active robot systems such as the
+MAKOPLASTY® system (MAKO Surgical Co, Fort Luderdale, FL, USA [63]) or
+ACROBOT Sculptor (The Acrobot Co., Elstree, UK [64]) provide a surgeon active
+control over the robot by hands.
+These robot systems also protect the cutting tool from moving out of the
+planned cutting space by actively blocking the robot arm attached to the cutting
+tool when the surgeon executes the bone cutting process. The active robot systems
+106
+such as ROBODOC® system (Curexo Tech. Co., Anyang, Korea [65]) and CAS-
+PAR (URS Ortho GmbH, Rastatt, Germany [60]) move the cutting tool autono-
+mously to cut the patient’s bone basing on the results of the pre-operative planning.
+(SLIKA 42)
+In this Chapter the main attention is paid to laboratory-level SRS with indus-
+trial robot and navigation system for TKA (Fig. 5.1) developed in BioMech Lab.,
+School of Engineering, Kyung Hee University, South Korea [58, 61]. Conceptual
+systemic model of the SR system is presented in aed formal form as follows:
+(5.1)
+where is an aggregated dynamic representation of SR system , is the
+SR system structure, is SRS coordinator, i.e. design and control system, is
+the index of level.
+The SR system structure contains the set of sub-systems and their
+structural connections . Thus, according to aed model described in Chapter 3,
+SRS structure is presented in the following form:
+
+S   
+
+  0, S
+
+ 
+S 
+
+
+0S 
+
+ 1
+
+
+
+
+107
+(5.2)
+where the SRS subsystems presented in aggregated dynamic form are
+: robot system (RS);
+: pre-operative planning system (PP);
+: navigation system (NS);
+: computer control system (CCS).
+CCS is presented in the form of SRS coordinator (Fig. 5.7) and contains con-
+trol PC of robot, control units of pre-operative planning and navigation subsys-
+tems, and communication program developed to integrate the SRS subsystems.
+Therefore, CCS 1
+4
+
+ partially plays the role of SRS coordinator 
+0S which per-
+forms design and control functions of SRS.
+In their turn, each subsystem has its own structural elements – lower level
+1 subsystems. For the robot mechatronic subsystem RS 1
+1
+
+ they are manipu-
+lator 2
+1,1
+
+ (mechanical), servomotors 2
+2,1
+
+ (electromechanical), cutting machine
+2
+3,1
+
+ (pneumatic) and its own control system 2
+4,1
+
+ (computer). All the subsys-
+tems are connected by their structural connections 2
+
+ . For instance, cutting
+machine 2
+3,1
+
+ and manipulator 2
+1,1
+
+ are connected by end effector 2
+3,1 
+
+ of
+robot. By analogy, the higher level subsystems 1
+ are connected by their com-
+mon parts – structural connections 1
+
+ – that are the elements of lower levels.
+For instance, navigation system 1
+3
+
+ and robot 1
+1
+
+ are connected by their com-
+mon element – communication program of computer control system 1
+3,1 
+
+ =
+2
+4,1
+
+ = 2
+4,3
+
+ , where 2
+4,1
+
+ is dynamic representation of the control program being
+the subsystem of robot 1
+1
+
+ , and 2
+4,3
+
+ the one of the control program being the
+subsystem of the navigation system 1
+3
+
+ .
+Aggregated dynamic realizations 1
+ , i.e. dynamic models 1
+),( 
+i of
+SRS subsystems 1
+S , are formed after the definition of subsystems’ inputs-
+outputs concerning each particular sub-process they execute. Thus, for the naviga-
+tion system 1
+3
+
+ concerning its registration process of bone and robot, the input
+1
+
+1
+1
+
+
+1
+2
+
+
+1
+3
+
+
+1
+4
+
+X is optic signal received by Optotrak 3020 cameras system (Northern Digital
+Inc., Canada) and the output 1
+3
+
+Y is the robot instrument and real bone coordinates
+written on control PC. State 1
+3 
+C in this case is the stage of registration process
+completeness. This process is of informational nature. As for the robot subsystem
+1
+1
+
+ , concerning its mechanical process of cutting instrument motion, the aggre-
+gated realization 2
+1,1
+
+ presented in 
+),(
+
+ form at the conceptual design (CD)
+phase (Fig. 1.2, Chapter 1) can be transformed to differential equations [58] of
+inverse kinematics at the detailed design (DD) phase:
+xqJq  )(
+ (5.3)
+Equation (5.3) connects robot joints velocities q as the output parameter 1
+1
+
+Y
+with velocities x of robot cutting instrument as input 1
+1
+
+X , where 
+J is the pseu-
+do inverse of the Jacobian matrix.
+Object 
+So (SR system), its environment 
+S
+ , their processes 
+So
+ and
+
+S
+ (TKA and SRS control) and coordinator 
+0S (design and control system)
+create a general biomechatronic SR system for TKA.
+Environment 
+S
+ of the SR system has its own structure and contains:
+
+1
+ : bone (biological system),
+
+2
+ : surgeon, who communicates with SRS via video information,
+registration and cutting motion planning system (human-computer system),
+
+3
+ : other biomechatronic systems being in interaction with SRS (e.g. com-
+puter tomography (CT) system, which supply PP subsystem of SRS with the CT
+images of bone),
+
+4
+ : implant producing system (bioengineering system),
+
+5
+ : higher level coordinator (higher level design and control system).
+Thus the control interactions between surgeon (operator) 
+2
+ and SR system
+are realized through obtaining video information of bone, checking the cutting path
+and robot cutting motion planning. In their turn, the interactions between robot
+cutting instrument and bone 
+1
+ are the executive interactions between SR system
+and its environment.
+The immediate input 
+X for the SR system (which is at the same time the
+output 
+Y
+ 
+X of the environment of SR system) are control actions produced
+by surgeon and the inputs generated by other environment systems, e.g. inserted
+implant presented by 
+4
+ . The output 
+Y of the SR system is the cutting bone. The
+output of the SR system 
+S is at the same time the input 
+X
+ 
+Y of the envi-
+ronment. According to the relations established for the elements of ),(
+
+ model –
+see Table 3.1, Chapter 3 – the states 
+iC of SR system 
+S are the inputs of TKA
+surgical process.
+Dynamic representation 
+ of SR system and its subsystems are constructed
+in ),(
+
+ form (3.2) by the inputs 
+X , states 
+C and outputs 
+Y mentioned above.
+For example, in the case of description of robot end effector motion, the dynamic
+representation which is given in ),(
+
+ form at CD phase can be transformed at
+DD phase to the states space equations as follows:
+BuAxx  (5.4)
+Cxy  .
+First state equation in system (5.4) corresponds to the state transition function
+ in (3.2) and the second output equation corresponds to the reaction
+ . Vectors
+x, y, u and matrices A, B, C must be predefined. In the case of robot end effecter
+motion the elements of states vector x=[x1 x2 x3]T are the displacement x1, velocity
+x2 and acceleration x3.
+SR TKA system process 
+So
+ is part of higher-level process 1
+S
+ in SRS
+environment 
+S
+ which contains biomechatronic system of higher level – general
+design&control system including surgeon, person being operated, other biomecha-
+tronic systems being in interaction with SRS (e.g. CT system and implant produc-
+tion system).
+This process contains:
+
+1S
+ : VM of bone and implant graphic image forming (by PP system),
+
+2S
+ : real bone image and robot instrument location registration (by NS),
+
+3S
+ : VM matching to real bone model – bone image,
+
+4S
+ : cutting path forming in PP and transforming to coordinates system of RS
+ : allocation of robot instrument in the registration points by surgeon using
+control haptic device, and definition of robot joints angels control law by solving
+inverse kinematics problem,
+
+6S
+ : sending control signal to AS3 robot system,
+
+7S
+ : AS3 robot motion and end effector (pneumatic milling instrument) dis-
+placement,
+
+8S
+ : bone cutting (or milling) and implant inserting
+(SKLIKA 43)
+For instance, 
+1S
+ process of the bone virtual model – bone image – creation
+is described at conceptual design (CD) phase as follows. The model of a bone bio-
+logical subsystem of general biomechatronic SR system is constructed in virtual
+space from computer tomography (CT) images, i.e. bone slices (Fig. 5.2). The
+process of the bone model creation is called stacking.
+The stacking process 
+1S
+ (Fig. 5.2) is formally described at the phase of CD
+in the form of reaction of dynamic system :),( 
+
+(5.5)
+where initial slice (or composition of previously connected slices) is recognized as
+state C1, at step 1, slice to be added to the initial one is recognized as input X1, and
+the composition of both the connected initial and input slices is recognized as out-
+put Y1. Output Y1 becomes state C2 at the next step of stacking process.
+Virtual bone structure is presented at CD phase according to aed model in the
+form:
+(5.6)},{ 1 
+
+
+
+
+
+
+
+}1&:{ 1111 TYXC 
+    where is a set of bone CT slices, and are their structural interconnec-
+tions, i.e. common surface of neighboring slices.
+The general synthesis process of the virtual bone construction is formally de-
+scribed as coordinator task according to the HS design method step 4 (See Chapter
+4) in form of (4.4) as follows:
+(5.7)
+a) b)
+Fig. 5.3. a) top view of tibia bone in matching 
+3S
+ process, where red and yellow triangles represent
+three corresponding points from PP and robot coordinate systems respectively, b) AS3 Samsung robot
+system, man-operator and fixed bone being operated
+Because of the fact that pre-operative planning (PP) system and the robot sys-
+tem (RS) have their own coordinate systems, registration process 
+2S
+ is required
+to transfer information to RS coordinates about bone cutting trajectory represented
+in coordinates of PP system. A transformation matrix between two coordinate sys-
+tems is calculated with three corresponding points – represented by red and yellow
+triangles – from each coordinate system where each point has the same location in
+both coordinates (see Fig. 5.3). After that, the cutting trajectory calculated in the
+pre-operative planning system is transformed into the cutting trajectory in the co-
+ordinates of the robot system. This process 
+3S
+ is called matching.
+1
+ 
+
+
+
+
+
+   },{: 1
+0S
+(SLIKA 44)
+(SLIKA 45)
+After performing a matching process a bone cutting and implant inserting pro-
+cesses … are realized (see Fig. 5.4). To move the milling tool along the
+cutting trajectory, the values of the robot joint angles at each time step are calculat-
+ed for AS3 robot system (Rockwell Samsung Automation Inc., Korea) by per-
+forming the inverse kinematics task. For the accuracy of the inverse kinematics
+analysis, first, each length of the robot link from the manufacture specification is
+analyzed and calibrated to match the pre-defined known positions and orientations
+of the end effecter of the robot system by trial-end errors. Then, the exact trans-
+formation of the robot links from the origin coordinate to the robot end effecter is
+reconstructed for the calculation of the joint angle profiles for given bone cutting
+trajectory input.
+Pre-operative planning (PP) system has to reconstruct the 3D model of a bone,
+choose an implant model, align the bone and the implant models, and calculate the
+cutting trajectory of the tools to allow the appropriate location and orientation of
+the implant with respect to the tibia bone. PP system connects the robot and virtual
+bone spaces to calculate a bone cutting trajectory. Processes 
+1S
+ and 
+3S
+ are
+associated with PP human-computer system, 
+2S
+ and 
+5S
+ – with navigation sys-
+tem (NS), and 
+6S
+ … 
+8S
+ processes are associated with robot system (RS) (Figs.
+5.1, 5.3b and 5.4). NS registers 3D positions of real bone and AS3 robot instrument
+by Optotrak 3020 cameras system (Northern Digital Inc., Canada) to transfer the
+cutting trajectory being planned to robot system. NS also transforms the bone co-
+ordinates system in real space to the coordinate system in virtual space in PP sys-
+tem. The trajectory calculated in PP is transformed into coordinates of robot sys-
+tem. The control signals to robot joints are generated by Robot Control System
+and Multi Motion Controller (Rockwell Samsung Automation Inc., Korea) [58]
+to realize the cutting trajectory. The inverse kinematic task is performed before it.
+NS and RS are coordinated by different control PC computers connected by LAN
+network (Fig. 5.1) with correspondent communication program [61] developed to
+integrate the systems.
+
+7S
+ is realized by electromechanical subsystems (AS3 robot servomotors) of
+the general biomechatronics SR system, 
+1S
+ – 
+4S
+ are realized by video-
+information and computer subsystems, and 
+8S
+ is realized by pneumatic and me-
+chanical ones. The general process is composed by sub-processes 
+S
+ , executed
+by the general biomechatronic system, which includes the SR system 
+So and its
+environment 
+S
+ . All the sub-processes 
+iS
+ are realized by different nature sub-
+systems of the general SR biomechatronic system.
+So, all the subsystems of general biomechatronic SR system, i.e. mechanical
+(AS3 manipulator 2
+11
+
+S , haptic system), electromechanical (servomotor 2
+12
+
+S ),
+pneumatic (cutting-milling instrument 2
+13
+
+S ), computer-electronic (navigation 1
+3
+
+S
+and control system 1
+4
+
+S ), human-computer (surgeon and preregistration system)
+have their aggregated dynamic 
+ and structural 
+ descriptions. The sub-
+processes 
+iS
+ are also presented at CD phase in  
+
+ , form (3.5), see Chapter 3.
+All the connected descriptions of the subsystems 
+S and processes 
+S
+ are pre-
+sented in the informational resources (data bases) of the coordinator which per-
+forms the design and control processes, connecting in this way structure 
+ and
+the functional dynamic realization 
+ of the SRS being coordinated.
+Coordinator 
+0S in our case is realized in the form of human-computer de-
+sign&control system of the SRS, which maintains its functional modes by surgeon
+and control system and realizes the design process by higher level computer aided
+design (CAD) system if necessary. All metrical characteristics of SR subsystems
+and processes are presented at CD phase in the form of numeric positional systems
+Ls (see Chapters 3,4)
+5.2. Realization of coordination – design and control – tasks
+Coordinator 
+0S tasks in control process 
+0S
+ of SRS are performed by human-
+computer system, i.e. surgeon communicating with servers and robot. The main
+control tasks, i.e. functions, are indicated in the graphic user interface (GUI) win-
+dow of control program (Fig. 5.5) developed in Biomechanics Lab., School of En-
+gineering, Kyung Hee University, Yongin, Korea [61]. The main control processes
+are: 1) bone fixation and its position checking 
+01 S
+ , 2) registration of robot posi-
+tion 
+02 S
+ , 3) registration of real-virtual bone relations 
+03 S
+ , 4) calculation of the
+cutting path and realization of a bone cutting 
+04 S
+ .
+(SLIKA 46)
+All the control processes have their sub-processes indicated by correspondent
+buttons on the GUI control panel.
+
+01 S
+ control process of bone fixation and its position checking contains the
+sub-processes performed by surgeon:
+115
+1.1. bone fixation and allocation according to the device position;
+1.2. moving robot to the working area and checking the position of the robot
+end effecter;
+
+02 S
+ process of robot position registration contains the sub-processes of:
+2.1. robot displacements using haptic device and getting 3 registration points
+coordinates and joint angles by Multi Motion Controller (MMC) – data collecting,
+2.2. registration of 3 registration points by Optotrak – collecting coordinates in
+another coordinate system,
+2.3. loading of the data collected to SRS control program,
+2.4. calculating the coordinates matrix transform – setting the relation of coor-
+dinate systems of Optotrak and AS3 robot,
+2.5. checking the matrix transform – choosing any control point and compari-
+son of the coordinates values;
+
+03 S
+ control process of registration of real-virtual bone relations contains the
+sub-processes of:
+3.1. loading data of 3 registration points of virtual bone from GUI to program,
+3.2. collecting and loading data of real bone using Optotrak cameras,
+3.3. performing matching algorithm by calculating matrix transformation and
+setting relation between real and virtual bones,
+3.4. checking of matrix transformation;
+
+04 S
+ control process of calculation of cutting path and bone cutting realiza-
+tion contains the sub-processes of:
+4.1 cutting path loading from PP system – planning program,
+4.2. calculation of robot end effecter cutting path by performing matrix trans-
+formations and inverse kinematics task,
+4.3. realization of cutting – loading of manipulator angular change data to con-
+trol MMC unit and execution of the event.
+Formally, SRS control processes are described at CD phase in 
+0),(
+ form
+of coordinator functions (see Chapter 3) after definition of the states 
+tC0 , inputs
+
+tX0 and outputs 
+tY0 of control subsystems:
+    TtYXC tttt  &::, 000000
+
+
+ , (5.8)
+  ttTttCXC tttttto   &,&: 00000
+
+
+(SLIKA 47)
+As for the control system of robot itself (Fig. 5.6), it is presented by Multi Mo-
+tion Control (MMC) system and control PC in the form of coordinator according to
+the scheme presented in Fig. 3.1 (Chapter 3). The inputs and outputs of coordinator
+are defined on the sets of its coordination signals and feedbacks as follows:
+={ , }, ={ , }, (5.9)
+where: 
+G are coordination signals for systems 1
+S , 
+W is feedback from 1
+S ,
+1
+W is feedback from 
+0S to coordinator 1
+0
+
+S of higher level, 1
+G are coordina-
+tion signals from 1
+0
+
+S to 
+0S [58].
+Concerning Multi Motion Control (MMC) system [58] of AS3 robot the input
+is the preplanning cutting trajectory of robot’s arm (end effecter) and the output is
+the electronic control signals (manipulator joints angular values) which go to ma-
+nipulator servomotors to realize predefined motion of its joints after solving the
+inverse kinematic problem. State of general control system is the state of control
+process in the current moment of time.
+For MMC control system 1
+01 
+S (see Fig. 5.6) input tX 0 are 1
+G coordi-
+nates of cutting trajectory [x(t), y(t), z(t)] and feedback signals 
+W . 
+W signals
+bring the actual values of robot joints current positions from servomotors. Output
+tY0 contains both electronic signals 
+G which define manipulator joint angular
+values i
+ , i=6 (new position), and feedback signals 1
+W to PP system, i.e. posi-
+
+G 
+W
+
+0X
+tion of robot and cutting instrument, registered by Optotrak system at step 2 of
+surgical control process (button 2 – register robot and robot point data, Fig. 5.5).
+tC0 are the actual positions of the manipulator joints and cutting instrument at t
+moment of time. Concerning positioning and bone cutting process controlled by
+MMC system the input 1
+1 
+X of AS3 robot (Rockwell Samsung Automation Inc.,
+Korea) are input loads of servomotors. The robot output 1
+1 
+Y are the positioning
+and cutting operations performed, which are the immediate input of the environ-
+ment 
+S
+ element 
+iS
+ , i.e. bone being operated.
+(SLIKA 48)
+The bone cutting process is executed by surgeon using the control program by
+activating step 4 “Calculate cutting path” of GUI (see Fig. 5.5). The processes of
+PP system are activated at steps 4.1-4.3 by pressing the correspondent GUI but-
+tons. The control processes of robot MMC system are activated by steps 4.4 and
+4.5 (Fig. 5.5). Internal control loop flowchart of MMC while executing the motion
+
+0SPreoperative Planning (PP)
+control system 1
+02
+
+S
+Navigation System
+(NS) control unit 1
+03
+
+S
+Integration program
+control unit 1
+04
+
+S
+1
+1 
+S
+
+G 
+W
+1
+01
+
+S : control PC and
+MMC system
+1
+1 
+So : AS3 robot (RS)
+system (manipulator)
+1
+G 1
+W
+1
+1
+
+X 1
+1
+
+Y
+
+S
+ : system (SRS)
+environment
+118
+process of robot end effecter along the cutting trajectory is given in Fig.5.8.
+The control loop flowchart is presented in the form of coordination process 1
+01 
+S
+
+of coordinator 1
+01 
+S (MMC connected with control PC, see. Figs. 5.6 and 5.7) and
+contains the sub-processes 1
+01 iS
+ (Fig. 5.8).
+(SLIKA 49)
+Control signals of AS3 robot manipulator (Figs. 5.7 and 5.8) are formed as a
+result of inverse kinematic task performing and calculation of robot’s joints angu-
+lar change after consequent placing of end effecter of robot to the positions of 3
+registration points. The placement is realizes by operator (surgeon) using haptic
+device connected with manipulator via robot’s control system – man-machine
+mechatronic subsystem.
+One of the functions of control PCs of coordination system is the commands
+forming and control of each subsystem while executing general surgical process,
+e.g. for Navigation System (NS), it is control of bone registration process, for Ro-
+bot System (RS) – control of manipulator motion along the predefined cutting path
+while executing cutting-milling process. Other functions include creation of virtual
+bone and real bone images, obtaining registration points coordinates, matching,
+cutting path forming according to the shape of implant, etc.
+119
+Coordinator 
+0S tasks in the design process, realized by higher level SRS de-
+sign system, are distributed on the coordinator’s strata: selection, learning and self-
+organization. The design process realized by SRS coordinator correspond to the
+general HS design method performance described in Chapter 4 and Section 3.2 of
+Chapter 3.
+On the selection stratum at Tt  moment of time, predicting the environment
+systems states for moment tt ' , coordinator defines correspondent inputs and
+outputs of SRS system being designed and creates  
+ , models of SRS and its
+process using the obtained predictions. After that, coordinator selects such states of
+subsystems and their interactions which correspond to the standard state (required
+for 't moment of time) of SRS system 
+S , i.e. performs the task of structure 
+
+synthesis of the SRS being designed. Synthesis task – described in Chapter 4 – is
+performed by SRS coordinator realizing its coordination strategies at both concep-
+tual (CD) and detailed (DD) design phases. Coordination strategies realized on the
+selection stratum of SRS coordinator are described in aed general form (3.38) in
+Section 3.2.1.
+The change of coordination strategies and SRS coordinator states is executed
+on the learning and self-organization strata which are described by functions of
+states transition 
+0
+o and 
+0ˆ
+o given in (3.39) form in Section 3.2.1. All metric
+characteristics
+ of SRS sub-systems being coordinated – designed and controlled
+– and the most significant geometrical signs are defined in the frames of aed for-
+mal model of HS in codes of numeric positional system S
+L , and presented in
+(3.64) and (4.9-4.14) forms in Sections 3.2 and 4.2 respectively.
+Preliminary conclusion
+The conceptual model of SRS biomechatronic system presented in aed theoretical
+basis of hierarchical systems for the design and control technology realization is
+briefly presented in the Chapter. In comparison with models of mathematics and
+artificial intelligence the proposed SRS formal model contains connected descrip-
+tions of the biomechtronic system structure, its aggregated dynamic representation
+as a unit in its environment and SRS environment model. All the descriptions are
+connected by the coordinator which performs the design and control tasks on its
+strata. Exemplary control loop of robot system (RS) coordinator is presented in the
+Chapter in the form of Multi Motion Controller (MMC) which realizes coordina-
+tion of AS3 robot notion. Computer control system (CCS) is presented in the form
+of SRS coordinator, and CCS subsystems interaction in control process is revealed.
+Model of SRS design system is given in the form of coordinator of higher level
+which performs the design tasks on its strata: selection, learning and self- organiza-
+tion. The conceptual SRS model presented in this chapter is coordinated with tradi-
+tional systems of information presentation in biomechatronics – numeric and geo-
+metrical forms (see Chapter 4). Aed technology of HS is also coordinated with
+general requirements of design and control systems (see Chapter 1), considers the
+elements of SRS conceptual model as well as connected SRS subsystems of differ-
+ent nature – mechanical, electromechanical, electronic, human-computer, biologi-
+cal – in common aed theoretical basis. It brings new possibilities in creating of a
+formal language for conceptual design of surgical robots and other biomechatronic
+systems.
+Besides, the proposed conceptual model facilitates considerably the transfer
+from the conceptual design phase to the detailed design phase in the mechatronic
+object’s life cycle. The presentation of the conceptual model elements in the form
+of the dynamic systems 
+),(
+ – which are the generalization of mathematical
+models (DE, automata, algebra systems [9.10]) – turns the transfer algorithm to the
+detailed design phase into the concretization process of the conceptual 
+),(
+
+models. It allows the efficiency of the design processes of the biomechatronic sys-
+tems to be enhanced.
+(STRANICA 110)
+                </p>

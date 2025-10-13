@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicode Text Display</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Asap", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            background-attachment: fixed;
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            padding: 30px;
+            margin: 20px 0;
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            border: 2px solid #ff9800;
+            width: 100%;
+        }
+
+        h1, h2 {
+            text-shadow: 0 3px 6px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        h2:hover {
+            color: #ff9800;
+            transform: scale(1.05);
+        }
+
+        .text-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .text-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+            max-width: 100%;
+            width: 100%;
+            color: #333;
+            border: 2px solid #ff9800;
+        }
+
+        .text-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .content-display {
+            font-size: 1.2em;
+            line-height: 1.8;
+            text-align: left;
+            min-height: 200px;
+        }
+
+        .unicode-demo {
+            font-size: 2em;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        .unicode-info {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .button-87 {
+            margin: 10px;
+            padding: 15px 30px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            border-radius: 10px;
+            display: inline-block;
+            border: 0px;
+            font-weight: 700;
+            box-shadow: 0px 0px 14px -7px #f09819;
+            background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .button-87:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .status-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 10px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+
+        .status-green {
+            background-color: #2ecc71;
+            animation: pulse-green 2s infinite;
+        }
+
+        .status-red {
+            background-color: #e74c3c;
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .loading {
+            color: #666;
+            font-style: italic;
+        }
+
+        .error {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            .text-box {
+                padding: 20px;
+            }
+            .content-display {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <section>
+            <div class="section-header reveal">
+                <h1>Unicode Text Display Demo</h1>
+                <p style="color: #fff; font-size: 1.2em; margin-bottom: 20px;">This page demonstrates Unicode symbol display from a text file</p>
+                <button class="button-87" onclick="loadAllPages()">
+                    <i class="fas fa-sync-alt"></i> Load All Pages
+                </button>
+                <div style="margin-top: 15px; color: #fff;">
+                    <small>Make sure you have a 'data.txt' file in the same folder</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 1 -->
+        <section id="Page1">
+            <div class="section-header reveal">
+                <h2 onclick="setActiveSection('Page1')">Page 1 - Basic Symbols</h2>
+                <div class="status-indicator status-red" id="status-Page1"></div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="content-display" id="content1">
+                        <div class="loading">Content will load here...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 2 -->
+        <section id="Page2">
+            <div class="section-header reveal">
+                <h2 onclick="setActiveSection('Page2')">Page 2 - Mathematical Symbols</h2>
+                <div class="status-indicator status-red" id="status-Page2"></div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="content-display" id="content2">
+                        <div class="loading">Content will load here...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 3 -->
+        <section id="Page3">
+            <div class="section-header reveal">
+                <h2 onclick="setActiveSection('Page3')">Page 3 - Emoji & Special</h2>
+                <div class="status-indicator status-red" id="status-Page3"></div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="content-display" id="content3">
+                        <div class="loading">Content will load here...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 4 -->
+        <section id="Page4">
+            <div class="section-header reveal">
+                <h2 onclick="setActiveSection('Page4')">Page 4 - Currency Symbols</h2>
+                <div class="status-indicator status-red" id="status-Page4"></div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="content-display" id="content4">
+                        <div class="loading">Content will load here...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 5 -->
+        <section id="Page5">
+            <div class="section-header reveal">
+                <h2 onclick="setActiveSection('Page5')">Page 5 - Arrows & Shapes</h2>
+                <div class="status-indicator status-red" id="status-Page5"></div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="content-display" id="content5">
+                        <div class="loading">Content will load here...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 6 -->
+        <section id="Page6">
+            <div class="section-header reveal">
+                <h2 onclick="setActiveSection('Page6')">Page 6 - Greek Letters</h2>
+                <div class="status-indicator status-red" id="status-Page6"></div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="content-display" id="content6">
+                        <div class="loading">Content will load here...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 7 -->
+        <section id="Page7">
+            <div class="section-header reveal">
+                <h2 onclick="setActiveSection('Page7')">Page 7 - Musical Symbols</h2>
+                <div class="status-indicator status-red" id="status-Page7"></div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="content-display" id="content7">
+                        <div class="loading">Content will load here...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 8 -->
+        <section id="Page8">
+            <div class="section-header reveal">
+                <h2 onclick="setActiveSection('Page8')">Page 8 - Chess Symbols</h2>
+                <div class="status-indicator status-red" id="status-Page8"></div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="content-display" id="content8">
+                        <div class="loading">Content will load here...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 9 -->
+        <section id="Page9">
+            <div class="section-header reveal">
+                <h2 onclick="setActiveSection('Page9')">Page 9 - Weather & Nature</h2>
+                <div class="status-indicator status-red" id="status-Page9"></div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="content-display" id="content9">
+                        <div class="loading">Content will load here...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 10 -->
+        <section id="Page10">
+            <div class="section-header reveal">
+                <h2 onclick="setActiveSection('Page10')">Page 10 - Mixed Collection</h2>
+                <div class="status-indicator status-red" id="status-Page10"></div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="content-display" id="content10">
+                        <div class="loading">Content will load here...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Track which sections have been visited
+        const visitedSections = new Set();
+
+        // Set active section
+        function setActiveSection(sectionId) {
+            visitedSections.add(sectionId);
+            const indicator = document.getElementById(`status-${sectionId}`);
+            if (indicator) {
+                indicator.className = 'status-indicator status-green';
+            }
+
+            // Scroll to section smoothly
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+
+        // Load all pages from the text file
+        async function loadAllPages() {
+            try {
+                console.log('Starting to load pages...');
+
+                const response = await fetch('data.txt');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.text();
+                console.log('File loaded successfully, length:', data.length);
+
+                if (!data.trim()) {
+                    throw new Error('File is empty');
+                }
+
+                // Parse the text file
+                const pages = parseTextFile(data);
+                console.log('Parsed pages:', Object.keys(pages).length);
+
+                // Display the pages
+                displayPages(pages);
+
+            } catch (error) {
+                console.error('Error loading pages:', error);
+                displayErrorOnAllPages(`Failed to load content: ${error.message}`);
+            }
+        }
+
+        // Parse the text file into pages
+        function parseTextFile(data) {
+            const pages = {};
+            const pageRegex = /###PAGE(\d+)###/g;
+            let lastIndex = 0;
+            let match;
+
+            // Find all PAGE markers
+            const markers = [];
+            while ((match = pageRegex.exec(data)) !== null) {
+                markers.push({
+                    page: parseInt(match[1]),
+                    index: match.index,
+                    content: match[0]
+                });
+            }
+
+            // Extract content between markers
+            for (let i = 0; i < markers.length; i++) {
+                const currentMarker = markers[i];
+                const nextMarker = markers[i + 1];
+
+                const startIndex = currentMarker.index + currentMarker.content.length;
+                const endIndex = nextMarker ? nextMarker.index : data.length;
+
+                let content = data.substring(startIndex, endIndex).trim();
+
+                // Clean up the content - remove leading/trailing whitespace
+                content = content.replace(/^\n+|\n+$/g, '');
+
+                pages[currentMarker.page] = content;
+            }
+
+            return pages;
+        }
+
+        // Display pages in their respective sections
+        function displayPages(pages) {
+            console.log('Displaying pages:', pages);
+
+            for (let i = 1; i <= 10; i++) {
+                const contentElement = document.getElementById(`content${i}`);
+                if (!contentElement) {
+                    console.warn(`Content element for page ${i} not found`);
+                    continue;
+                }
+
+                if (pages[i]) {
+                    // Format the content with proper line breaks
+                    const formattedContent = formatContent(pages[i]);
+                    contentElement.innerHTML = formattedContent;
+                    console.log(`Page ${i} displayed successfully`);
+                } else {
+                    contentElement.innerHTML = `
+                        <div class="error">
+                            <p>No content found for this page.</p>
+                            <p>Make sure your data.txt file has ###PAGE${i}### section.</p>
+                        </div>
+                    `;
+                    console.warn(`No content for page ${i}`);
+                }
+            }
+        }
+
+        // Format content with proper HTML
+        function formatContent(text) {
+            if (!text) return '<p>No content</p>';
+
+            return text
+                .split('\n')
+                .filter(line => line.trim()) // Remove empty lines
+                .map(line => {
+                    line = line.trim();
+                    if (line.startsWith('## ')) {
+                        // Header
+                        return `<h3 style="color: #2c3e50; margin: 20px 0 10px 0;">${line.substring(3)}</h3>`;
+                    } else if (line.startsWith('- ') || line.startsWith('• ')) {
+                        // List item
+                        return `<div style="margin: 8px 0; padding-left: 20px;">${line}</div>`;
+                    } else if (line.includes(':')) {
+                        // Key-value style
+                        const parts = line.split(':');
+                        if (parts.length >= 2) {
+                            return `<div style="margin: 10px 0;"><strong>${parts[0]}:</strong> ${parts.slice(1).join(':')}</div>`;
+                        }
+                    }
+                    // Regular paragraph
+                    return `<p style="margin: 12px 0;">${line}</p>`;
+                })
+                .join('');
+        }
+
+        // Display error on all pages
+        function displayErrorOnAllPages(errorMessage) {
+            for (let i = 1; i <= 10; i++) {
+                const contentElement = document.getElementById(`content${i}`);
+                if (contentElement) {
+                    contentElement.innerHTML = `
+                        <div class="error">
+                            <p>${errorMessage}</p>
+                            <p>Check the browser console for more details.</p>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        // Scroll reveal animation
+        function reveal() {
+            const reveals = document.querySelectorAll(".reveal");
+            const windowHeight = window.innerHeight;
+            const elementVisible = 150;
+
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add("active");
+                }
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, initializing...');
+
+            // Set up scroll listener for reveal animations
+            window.addEventListener("scroll", reveal);
+
+            // Initial check for elements in view
+            reveal();
+
+            // Auto-load pages after a short delay
+            setTimeout(() => {
+                loadAllPages();
+            }, 1000);
+
+            // Set up click listeners for section headers
+            const headers = document.querySelectorAll('h2');
+            headers.forEach(header => {
+                header.style.cursor = 'pointer';
+                header.addEventListener('click', function() {
+                    const sectionId = this.closest('section').id;
+                    setActiveSection(sectionId);
+                });
+            });
+        });
+
+        // Add manual reload button to console for debugging
+        console.log('You can manually reload pages by calling: loadAllPages()');
+    </script>
+</body>
+</html>

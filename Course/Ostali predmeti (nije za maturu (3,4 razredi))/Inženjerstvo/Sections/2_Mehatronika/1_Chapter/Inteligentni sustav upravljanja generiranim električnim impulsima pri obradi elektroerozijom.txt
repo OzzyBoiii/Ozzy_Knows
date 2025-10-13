@@ -1,0 +1,843 @@
+Preface
+ <p class="zoomable-text">
+                    Mechatronics is the combination of mechanical, electrical and electronics, control
+and automation, and computer engineering. The main research task of mecha-
+tronics is the design, control, and optimization of advanced devices, products,
+and hybrid systems utilizing the concepts found in all these fields. In general, the
+purpose of this special issue is to help better understand how mechatronics will
+impact on the practice and research of developing advanced techniques to model,
+control, and optimize complex systems. The special issue presents recent advances
+in mechatronics and related technologies, including: automatic control, robotics,
+agent-based systems, smart manufacturing, and Industry 4.0. The selected top-
+ics give an overview of the state of the art and present new research results and
+prospects for the future development of the interdisciplinary field of mechatronic
+systems. This special issue provides up-to-date and useful knowledge for research-
+ers and engineers involved in mechatronics and related fields.
+A
+                </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Intelligent Control System of Generated Electrical Pulses at Discharge Machining</h3>
+<p class="zoomable-text">
+                    Abstract
+The book chapter provides a comprehensive set of knowledge in the field of
+intelligent control of generated electrical impulses for wire electrical discharge
+machining. With the designed intelligent electrical pulse control system, the stability
+of the electroerosion process, as well as the increased surface quality after wire elec-
+trical discharge machining (WEDM), can be significantly enhanced compared to
+standard impulse control systems. The aim of the book chapter is also to point out the
+importance of monitoring in addition to the established power characteristics of
+generated electrical pulses, such as voltage and current, as well as other performance
+parameters. The research was mainly focused on those parameters that have a signif-
+icant impact on the quality of the machined surface. The own’s theoretical and knowl-
+edge base was designed to enrich the new approach in increasing the geometric
+accuracy of the machined surface, as well as the overall efficiency of the electroerosion
+process for WEDM through intelligent control of generated electrical pulses.
+Keywords: adaptive system, acoustic emission, automation, control system,
+discharge machining, pulse generator, spark, quality
+1. Introduction
+The current trend in the development of mechanical engineering carries signs of
+complexity and dynamism. At the same time, it is increasingly influenced by new
+scientific and technical knowledge and requirements for their rapid deployment.
+For the production of high-precision components of state-of-the-art and highly-
+sophisticated technical equipment, fully automated production systems and pro-
+gressive manufacturing technologies are often used. In most cases, an integral part
+of them is a management system that manages demanding technological processes.
+Application of the given system provides a suitable precondition for ensuring the
+required high quality of manufactured products.
+Another, not less significant trend at present is the focus on the development of
+scientific and technical principles of modern engineering production. At the same
+time, links with classical teachings are being sought, with emphasis on their direct
+use in technical practice. This trend is also aided by statistical, optimization and
+simulation methods. These have been used only in the past in the field of mechan-
+ical engineering for the solution of partial technological tasks. For example, they
+allowed a basic selection of technological process variants.
+1
+The current rapid development of computer technology creates wide scope for
+the use of mathematical methods in both theoretical and practical technological
+tasks. Cybernetic methods, probabilistic logic, mathematical modeling and simula-
+tion of production processes are used in connection with the development of com-
+puter technologies. All of this increases the demands on the degree of exactness of
+the formulation of knowledge, as well as the efficiency and quality of technological
+solutions, which aim to save the work of engineers, technicians and workers.
+In addition, the continuous development of modern mechanical engineering
+places increased demands on the introduction of advanced production methods,
+advanced production facilities and their control systems. Particular attention is paid
+to machining processes in which, in particular, the mechanical properties of the
+workpiece and the tool do not impose almost any limits. These are, in particular,
+machining methods in which the degree of machinability of a material is dependent
+only on physical properties such as e.g. thermal and electrical conductivity, melting
+temperature, atomic valence and the like. As already mentioned, their essential part
+is computer support. A computer-aided production process has a huge advantage in
+that the human factor of poor product quality is almost excluded. In this case, the
+quality of the machined surface depends directly on the design of the machine, its
+software management and the setting of technological and process parameters.
+Undoubtedly these processes include WEDM, where the decisive link with the
+primary impact on the quality of the machined surface is the electrical pulse gener-
+ator. Nowadays, various types of electrical pulse generators are used for WEDM,
+the vast majority of which control performance parameters to maximize perfor-
+mance. It is exactly the new type of generator of electrical impulses applicable in the
+conditions of the electroerosion process which is described by Qudeiri et al. [1]. In
+the control algorithm of a given type of electric pulse generator, there is absolutely
+no criterion relating to the geometric accuracy of the machined surface. Researchers
+Yan and Lin [2] in turn dealt with the development of a new type of pulse generator
+which, unlike the previous type, is not oriented to maximize performance, but
+minimize the surface roughness of the machined surface. A similar type of pulse
+generator is also described by Świercz and Świercz [3]. However, even in this case,
+there is no qualitative criterion for the geometric accuracy of the machined surface.
+Researchers Barik and Rao [4] participated in the development of a special type of
+electrical pulse generator designed for electrical discharge machining in laboratory
+conditions. Although their newly developed generator allows to set the operating
+parameters of the electric pulse generator according to the specific quality require-
+ments of the machined surface, the criterion of geometric accuracy of the machined
+surface is missing again.
+Thus, it is clear from the above overview that insufficient attention is paid to the
+development of electrical pulse generators with a focus on the geometric accuracy of
+the machined surface. Therefore, the aim of this chapter of the book is to contribute
+to the database of existing knowledge in the field of intelligent system design for
+precise control of generated electrical pulses for WEDM with the focus on maximiz-
+ing the geometric accuracy of the machined surface. These findings are intended to
+help improve the quality of components produced by the progressive WEDM tech-
+nology, the practical application of which is described in detail in Chapter 2. This is
+based on the physical nature of the material removal described in detail in Chapter 3.
+Chapter 4 deals with the current state of electrical discharge parameter control during
+WEDM, which highlights the current deficiencies of current approaches in the con-
+trol of generated electrical pulses. Chapter 5 describes possible approaches to elimi-
+nate tool electrode vibration during WEDM, by applying measures regarding
+technological and process parameters. It also points to the application of one of the
+acceptable options that concerns the innovation of an intelligent control system for
+2
+Emerging Trends in Mechatronics
+generated electrical pulses during the electroerosion process. Further, based on an
+analysis of current modern approaches in the construction of electrical pulse genera-
+tors used for WEDM, detailed in Chapter 6, an adaptive control system for generated
+electrical pulses was designed during WEDM. This innovated control system for
+generated electrical pulses, designed to increase the geometric accuracy of the
+machined surface for WEDM, is described in detail in the Chapter 7.
+2. Application of progressive technologies in technical practice
+As already mentioned in the introduction, modern engineering production cur-
+rently places high demands on the mechanical properties of the materials used. The
+emphasis is mainly on their high strength, hardness and toughness. Therefore,
+materials such as various types of high-strength and heat-resistant alloys, carbides,
+fiber-reinforced composite materials, stelites, ceramic materials and advanced
+composite tooling materials, etc., are at the forefront. At the same time, with the use
+of these high-strength materials, the demands on accuracy and also on the perfor-
+mance of machine tools and equipment increase. These facts necessitate the devel-
+opment and deployment of machining methods that allow high material removal
+while achieving high quality machined surfaces. In this respect, there are some
+advantages to those machining methods in which there is no mechanical separation
+of the material particles. The application of these progressive machining methods to
+technical practice is particularly accentuated by the fact that not only the mechan-
+ical properties of the material, but also other properties such as thermal and elec-
+trical conductivity, melting temperature, atomic valency, density and the like,
+determine the machinability limits. Another not less important reason for
+implementing progressive machining methods is the complicated geometrical
+shapes of the workpiece, which often require demanding manufacturing processes.
+This results in long machining times, the use of special tools, special fixtures and the
+like. These are usually very expensive. A perfect control system is needed to meet all
+the above requirements. Standard processes for managing production processes are
+already inadequate today. Especially those who can adequately adapt to the current
+situation and the needs of the machining process are entering the forefront.
+One of the progressively developing technologies in the field of machining
+process management is electrical discharge machining (EDM). Moreover, the
+essence of the production of components with the application of this progressive
+technology is based on the fact that the mechanical properties of the machined
+material do not impose almost any limits on its machining. The only limiting factor
+for the machinability of these materials is their appropriate chemical and physical
+properties. This technology is principally based on the use of thermal energy to
+which the electrical discharge generated between the two electrodes is transformed,
+of which the first electrode represents the tool and the second workpiece. It is a
+machining process in which material removal occurs through cyclically repeated
+electrical discharges. Through these, the microscopic particles in the form of beads
+are removed from the material by melting and subsequent evaporation in conjunc-
+tion with high local temperature. It moves at a level 10,000°C. However, the
+electroerosion process must be precisely controlled by a reliable control system.
+3. Physical nature of material removal for WEDM
+To ensure precise management of the electroerosion process during WEDM, it is
+essential to base it on its physical principle. The physical principle of material
+3
+Intelligent Control System of Generated Electrical Pulses at Discharge Machining
+DOI: http://dx.doi.org/10.5772/intechopen.88454
+removal for WEDM can be regarded as a relatively challenging and complicated
+process. Its essence lies in the formation of a discharge between two electrodes (tool
+—workpiece) either in very thin gas, in air, or in gas at normal temperature and
+pressure, or in a dielectric fluid, i. e. in a fluid with high electrical resistance.
+However, the classical electrical discharges that occur between the two electrodes
+(tool—workpiece) in the gas dielectric have relatively little effect. Therefore, such
+an environment is not quite ideal for the needs of precision and high-performance
+machining. In this regard, the application of fluid dielectric media is much more
+advantageous. These dielectrics significantly increase the effect of electrical dis-
+charges between the electrodes (tool—workpiece). Electrically charged particles,
+electrons and ions are the active agents in the erosion of material particles from the
+surface of both electrodes. They are formed as a product in the ionization process.
+Subsequently, in the electric field, they acquire the kinetic energy that, along with
+the output work, is passed on the surface of both electrodes. The shape and size of
+the eroded metal particles from the material being machined, as well as the size and
+shape of the resulting crater (Figure 1) depend not only on the polarity of the
+electrodes, but also on the particular application of the technological parameters.
+By default, 10 3 až 10 5 mm 3 of material is removed by WEDM during a single
+discharge cycle by electroerosion. Its size can be empirically determined by the
+relationship (1):
+V i ¼ K   W i (1)
+where, V i (mm 3
+) is the volume of material taken, K (mm 3
+.J 1 ) is the propor-
+tionality factor for cathode and anode, Wi (J) is the discharge energy.
+As mentioned above, the shape and size of the crater formed in both electrodes
+during one discharge cycle depends mainly on the magnitude of the applied dis-
+charge energy. This is given by the specific setting of technological parameters. The
+time course of individual discharges is characterized by several indicators. These are
+indicators relating to the discharge current I (A), the discharge voltage U (V) and
+the duration of the individual discharges ton (μs), as well as the breaks toff (μs)
+between discharges. The events that take place between the two electrodes during
+the electroerosion process are comprehensively described the volt-ampere charac-
+teristic. This is shown in Figure 2.
+The total volume of V T, material taken from both electrodes during the
+electroerosion process is directly dependent on the magnitude of the transmitted
+(SLIKA 1)
+(SLIKA 2)
+energy We . This in turn results in a series of cyclically repeating electrical discharges
+between the electrodes (tool—workpiece) over time t. The total discharge energy
+We transmitted during a series of discharge cycles can be empirically determined by
+the relationship (2):
+We ¼
+ðT
+0
+U tð Þ   I tð Þdt (2)
+where, We (J) is the total discharge energy, U(t) (V) is the electrode discharge
+voltage at time t, I(t) (A) is the maximum discharge current at time t, T (μs) is the
+duration of one period of electrical discharge.
+By deriving the relation (2), the amount of energy transmitted during one
+discharge cycle can then be empirically determined (3):
+We ¼ Ie   Ue   ton (3)
+where, Ie (A) is the average discharge current, Ue (V) is the average discharge
+voltage on the electrodes, ton (μs) is the duration of discharge during one discharge
+cycle (delayed generator operation).
+In order to complete all the parameters of the electroerosion process related to
+one discharge cycle, it is also necessary to empirically determine the magnitude of
+the average discharge current Ie and the discharge voltage Ue between the elec-
+trodes. These values can be determined based on the relationship (4) for Ie and the
+relation (5) for Ue :
+Ie ¼ 1
+te
+ð
+0te
+I tð Þdt (4)
+Ue ¼ 1
+te
+ð
+0te
+U tð Þdt (5)
+where, I(t) (A) is the maximum discharge current (A), te (μs) is the current
+discharge time (generator operation).
+Based on these and other parameters of the electroerosion process, the total amount
+of material taken per time unit t can then be empirically determined by relation (6):
+Q T ¼ k   r   f   μ   We ¼ k   r   f   μ  
+ðT
+0
+U tð Þ   I tð Þdt 
+where, Q T (mm 3 s 1 ) is the total amount of material withdrawn per time unit t,
+k is the factor of proportionality for cathode and anode, r is the efficiency of
+electrical discharge, f (s 1 ) is the frequency of electrical discharges, μ is the effi-
+ciency of the discharge generator.
+Another not less important parameter in specifying electroerosion process
+parameters is the discharge period td. This characterizes the overall efficiency of one
+discharge cycle between the electrodes. It is empirically determined as a proportion
+of the duration of the electrical discharge ton during one discharge cycle, that is, the
+time between the generator on and off and the period of time T, that is, the time
+interval between two consecutive generator starts. Its value can be determined by
+relation (7):
+td ¼ ton
+T ¼ ton
+ton þ toff
+(7)
+where, td is the discharge period, ton (μs) is the duration of the discharge during
+one discharge cycle (delayed generator operation), toff (μs) is the break time
+between two consecutive discharges, T (μs) is the electric discharge period time.
+Figure 3 describes the effect of the discharge period td on the machined surface
+quality for WEDM in terms of the roughness parameters Ra and Rz.
+In addition, by using the discharge period td, we can empirically express the
+overall efficiency of one discharge cycle between the electrodes during
+electroerosion, we can also quantify individual types of electrical discharges. Its
+(SLIKA 3)
+(SLIKA 4)
+value makes it easier to identify the type of electric arc, i.e. whether it is stationary
+electric spark or nonstationary short term electric arc. At the same time, its value is
+to some extent influenced by the total amount of Q T of the withdrawn material per
+time unit t, as well as the resulting quality of the machined surface.
+It can be seen from Table 1 that precise control of the individual electrical
+discharge parameters between the two electrodes during a single discharge cycle has
+a significant impact on the quality of the machined surface for WEDM as well as the
+overall efficiency of the electroerosion process.
+4. Current state in the field of electric discharge parameter control for
+WEDM
+From the point of view of achieving the high quality of the machined surface for
+WEDM as well as the high overall efficiency of the electroerosion process, the
+discharge process must be precisely software controlled. The current trend in the
+development of electrical pulse generators is mainly focused on control systems that
+do not measure effective voltage, but separately the duration of each discharge.
+These times are summed and the intensity of the electric discharge is regulated
+accordingly. This data is then used to control the actuator, while the response time
+and magnitude of the servo motion correspond to that in the working gap
+(Figure 4).
+Recently, mainly used so-called alternating electric pulse generators. There are
+also generators of electrical impulses in which is voltage with the same polarity
+supplied between tool electrode and workpiece. This causes the ions to pass in one
+direction, causing increased corrosion of the eroded material. However, if the elec-
+trical voltage polarity is alternated with a certain frequency, this effect is suppressed
+and corrosion does not occur. Moreover, the practical advantage of applying these
+types of pulse generators is a narrower working gap. This type of generator finds its
+application especially in the erosion of carbide alloys.
+As mentioned above, the process of controlling electrical impulses during
+WEDM is in some cases based on predetermined mathematical models. Important
+pioneers in this area were Scott et al. [5]. In particular, they focused their research
+on modeling performance parameters for electroerosion machining in various con-
+ditions and modes. In their research, they also found that there is no single combi-
+nation of levels of important factors that can be optimal at all times. Research in the
+field was also addressed by Tarng et al. [6, 7]. They then formulated mathematical
+models that allow predicting the achieved quality of the machined surface
+depending on the setting of the electric discharge parameters using simulation and
+optimization elements. Researchers Sarkar et al. [8] have devoted a substantial part
+(SLIKA 5)
+of their research to the mathematical modeling of the achieved surface quality at
+WEDM depending on the current electrical discharge parameters using neural
+networks. A detailed study of the electrical discharge performance parameters
+during WEDM based on their mathematical modeling was done by Puri and
+Bhattacharyya [9]. The areas of modeling of electrical discharge parameters, con-
+sidering the polarity change of electrodes during WEDM, have been researched by
+Liao and Yub [10]. At the same Mahapatra and Patnaik [11] they described in detail
+the possibilities of using the nonlinear modeling method to optimize these parame-
+ters. A specific area of electroerosion process control has been studied by Jin et al.
+[12]. In their research, they have developed a combined structural model that
+describes the use of thermal energy, including a balance of the effects of vibration
+on the stability of the electric arc. In addition, the model also included high tem-
+perature effects due to high-power electrical discharges. Yan et al. [13, 14]
+described a new approach in electrical discharge parameters optimization during
+electrical discharge machining based on selected performance characteristics such
+as maximum discharge current I (A), maximum electrical discharge voltage U (V),
+discharge duration during one discharge cycle ton (μs) and the duration of the break
+between discharges toff (μs). All these parameters have been optimized with regard
+to the quality and efficiency of the electroerosion process, as well as to minimize
+wear on the tool electrode. The physical aspect of the electroerosion process was
+addressed by Kopac [15]. In his experimental research, he tested various power
+parameters of the electric arc with respect to the content of electrically conductive
+parts in the discharge channel during the electroerosion process. He found that with
+the increasing share of electrically conductive parts in the discharge channel during
+the electroerosion process, its performance and productivity increased. At the same
+time, it points out that the main electrical parameters of the electric arc during the
+electroerosion process have the smallest influence on the crater size after the elec-
+tric discharge of the maximum discharge voltage U. Only its crater shape changes
+with its size. The study of vibration of the tool electrode due to electrical discharges
+during the electroerosion process was investigated by Shahruz [16]. They found
+that tool electrode vibration has a significant contribution to the geometric inaccu-
+racy of the machined surface after WEDM. They also argue in their study that the
+high tool electrode tension forces near critical values have a positive effect on
+reducing the amplitude of the wire electrode vibration during the electroerosion
+process, but cannot completely eliminate them. The vibration of the tool electrode
+was also investigated by Altpeter and Roberto [17]. In particular, their research was
+substantiated by the fact that the issue of damping tool electrode vibration during
+WEDM has been poorly addressed in the past. The shape and size of the craters
+after the individual electrical discharges during the WEDM were dealt with by
+Hewidy and Gokler [18, 19]. They tried to describe mathematically the influence of
+the magnitude of the discharge energy during the electroerosion process on the size
+and shape of the craters. They found that higher values of maximum discharge
+current I (A) and duration of discharge during one discharge cycle ton (μs) contrib-
+ute to increase in crater size.
+From the above overview, it is clear that several experimental investigations
+have been conducted in the field of electrical discharge between the two electrodes
+during one discharge cycle. Despite the increasing emphasis on the complexity of
+learning about the set of electrical discharge characteristics during WEDM, there is
+still a lack of comprehensive identification of their interconnections. At the same
+time, there are no suggestions for minimizing the adverse effect of electrical dis-
+charges on the quality of the machined surface after WEDM in terms of geometric
+accuracy.
+8
+Emerging Trends in Mechatronics
+5. Elimination of tool electrode vibration for WEDM
+During the duration of the individual electrical discharges, due to the precise
+guiding of the tool electrode, it is necessary to adequately tension it with the force
+Fw (N). It is normally selected in the range of 5–25 N. Furthermore, it is necessary
+to charge the tool electrode with electrical impulses, enwrap it with a dielectric fluid
+and because of its wear and tear it is constantly renewed. To be able to move with
+such a delicate and labile tool as a few tenths of a millimeter of a thin wire electrode,
+very precise and sensitive guide are needed. In Figure 5, a part of the electroerosion
+CNC machine can be seen, which provides accurate guidance of the wire electrode.
+The tool electrode tensioning and guiding system in the CNC electroerosive
+equipment consists of a supply section that grips, clamps, feeds, and controls the
+wire Furthermore, from the working part that guides the tool electrode through the
+working zone, where it is washed with dielectric fluid, supplied with electric cur-
+rent and subsequently eroded. The lead electrode guidance system is terminated by
+a drain portion, which retracts the electrode, rechecks it, and wraps it onto the coil.
+As already mentioned, in addition to the inaccuracy in the wiring of the wire
+electrode, its deflection from a straight position causes forces that arise due to the
+cyclic action of the electrical discharges between the two electrodes [20]. The rules
+applies that the greater the thickness of machined material, the greater the deflec-
+tion. Partial compensation for this adverse event is carried out by special measures.
+In particular, the inclusion of counter force in conjunction with a system that
+ensures optimum tension of the tool electrode. However, neither of these measures
+has a sufficient effect.
+In addition to the thickness of the material being machined, the choice of the
+optimum tensioning force also adapts to the intensity of the electrical discharge, the
+type of material of the workpiece, the type of tool electrode material and its diam-
+eter, the properties of the dielectric fluid, and the like. In particular, wire electrode
+tension compensation serves to minimize its sag in the middle due to the cyclic
+action of electrical discharges with varying intensity [21]. In Figure 6, an extreme
+deflection of the tool electrode during the elektroerosion process can be observed as
+(SLIKA 6)
+a result of the inappropriate selection of the compensation force size in its
+stretching.
+As a general rule, the higher the value of the tool electrode compensation force
+when it is tensioned reduces the vibration amplitude. This also leads to a reduction of
+the working gap, thus achieving a higher accuracy of the machined surface for
+WEDM. Ideally, the value of the tool electrode compensation force should be chosen
+to approach the material tensile strength limit [22]. However, the limit value must not
+be exceeded during the electroerosion process. Otherwise, the tool electrode will
+break. Tool electrodes with a strength in the range of 400–2000 N.mm2 are used as
+standard. Tool electrodes with a strength of up to 490 N.mm2 are called soft, tool
+electrodes with a strength of between 490 and 900 N.mm2 are called semi-hard and
+tool electrodes with a strength above 900 N.mm2 are called hard. Figure 7 shows the
+impact strength (hardness) of the wire tool electrode on its deflection in the
+electroerosion machining process when applying a constant tension force.
+With increasing material thickness, it is necessary to increase the value of the
+tensioning force Fw of the tool electrode in order to eliminate vibrations. This
+allows, as already mentioned, a higher tensile strength value of the tool electrode
+material used or its increasing diameter. However, too high values of the tool
+electrode tension force have an adverse effect on the performance and productivity
+of the electroerosion process. This can be seen from the following graphical depen-
+dence on Figure 8.
+From this graphical dependence, it can be seen that increasing the magnitude of
+the compensating force Fw when tensioning the tool electrode is in terms of pro-
+ductivity it has meaning only to a certain extent. When it is exceeded, there is a
+significant drop in the electroerosion process productivity.
+(SLIKA 7)
+(SLIKA 8)
+(SLIKA 9)
+Thus, it is clear from the foregoing that when applying the critical values of the
+compensating force Fw when the wire tool electrode is being tensioned, the pro-
+ductivity of the electroerosion process will be even lower. On the other hand, as the
+value increases, the vibration amplitude of the tool electrode is substantially
+reduced, resulting in greater geometric accuracy of the machined surface after
+WEDM [23]. Since the tensile strength of the wire tool electrode material is a
+limiting factor in the tension force selection, the choice of material type is also
+important [24]. By default, a single-component compact tool electrode is selected
+for WEDM. Materials such as Cu, Ms., Mo and the like are used. In the past, pure
+copper was used quite often as a tool electrode material, mainly because of its high
+electrical conductivity, but also in its relatively simple production. However, a
+significant drawback of the application of pure copper to the production of wire
+tool electrodes is its very low tensile strength [25]. Therefore, the Cu tool electrodes
+were later replaced with brass. Practical application results have shown that the
+presence of Zn in the tool electrode material significantly reduces the risk of
+Figure 7.
+Effect of hardness of wire tool electrode material on its deflection during electrical discharge machining.
+Figure 8.
+The dependence of the electroerosion process productivity on the value of the compensation force Fw when the
+tool electrode is stretched.
+11
+Intelligent Control System of Generated Electrical Pulses at Discharge Machining
+DOI: http://dx.doi.org/10.5772/intechopen.88454
+breakage. This allows the application of higher values of compensation force Fw.
+Also suitable for producing tool wire electrodes is aluminum brass. This material is
+characterized by a tensile strength of 1200 N.mm2
+, without any adverse effect on
+its elongation. Although these types of tool electrode materials are less prone to
+damage, their usefulness in practice is relatively limited. The tooling electrodes,
+which are based on Mo, are used where very high tensile strength and very small
+wire diameter are required. In addition to the high tensile strength, this material
+also has a high melting point. A significant disadvantage of the application of this
+material is its high cost. The tungsten tool electrodes have an even greater tensile
+strength and a higher melting point than molybdenum. From an economic point of
+view, this type of material is applicable only to very small diameters (≤0.05 mm) of
+tool electrodes [26].
+As mentioned, the presence of Zn in the tool electrode material has a positive
+impact on its mechanical properties. However, the practical use of single-
+component tool electrodes with a Zn content above 40% is inefficient for economic
+reasons. Therefore, multi-component, for example coated electrodes have been
+developed for the application of higher tool electrode tensioning forces, allowing
+higher zinc content on the electrode surface while maintaining a homogeneous core.
+These tool electrodes are particularly useful when specific material requirements
+are required because of the high geometric accuracy of the machined surface after
+WEDM. In this respect, the high tensile strength of the material as well as its good
+electrical conductivity are decisive.
+For this purpose, multi-component tool electrodes are used, the core of which is
+Cu, Ms. or steel and coated with pure Zn or Ms. with a zinc content of 50%.
+Figure 9 shows selected combinations of multi-component tool electrodes that are
+used in practice for special operations. This is particularly the case when increased
+demands are placed on the quality of the machined surface after WEDM in terms of
+geometric accuracy.
+These composite wires make it possible to combine traditional materials that are
+relatively inexpensive with expensive materials to achieve the unique properties of
+wire tool electrodes [27]. However, the efficiency of these coated tool electrodes is
+limited by the thickness of the coating which is relatively thin. The standard ranges
+from 5 to 10 μm. A special case consists of three-component tool electrodes, whose
+core is a steel wire. It is coated with a layer of copper and brass with 50% zinc
+content. The coated tool electrodes allow the application of relatively high tension
+forces Fw while maintaining an acceptable electroerosion process productivity.
+(SLIKA 10)
+(SLIKA 11)
+Their significant disadvantage, compared to single-component compact tool elec-
+trodes, is again too high a price. Table 2 provides an overview of the properties of
+composite multi-component tool electrodes, including their practical application for
+specific purposes.
+Based on this review, it is evident that composite multi-component tool elec-
+trodes provide a number of advantages over conventional single-component com-
+pact electrodes. The decisive advantage, however, is their higher tensile strength,
+which allows the application of higher tension forces Fw. In this way, the amplitude
+of the vibration of the tool electrode can be substantially reduced, thereby achieving
+a significantly higher quality of the machined surface in terms of its geometric
+accuracy. All this can be achieved while maintaining the acceptable productivity of
+the electroerosion process [28]. But the problem is their high price. Therefore, from
+the point of view of economic efficiency for WEDM in practice, the standard
+compact single-component tool electrodes continue to be used. However, their
+limiting factor is the relatively low tensile strength. Therefore, no further significant
+improvements can be expected in this respect while maintaining an acceptable price
+of the applied material. It is therefore necessary to draw attention to other possibil-
+ities of increasing the geometric accuracy of the machined surface after WEDM.
+One of the acceptable options is to apply an innovative intelligent control system for
+generated electrical pulses during the electroerosion process.
+6. Analysis of current approaches in the construction of electrical pulse
+generators used for WEDM
+In the past, dependent generators were often used as a source of impulses In the
+past, dependent generators were often used as a source of impulses. Their running
+consists in repeated recharging and discharging the capacitor. With this control
+system discharges the capacitor is normally powered from a DC voltage source,
+which is connected in parallel to the circuit. Discharging the capacitor occurs when
+the voltage reaches a breakover value. The size of the breakover voltage depends
+mainly on the contamination of the dielectric and on the electrode distance. Subse-
+quently, the control system instructs the servo drive to maintain the required
+working gap size based on the evaluation of the voltage conditions at the discharge
+Type of specific application Recommended wire
+electrode composition
+The advantage of
+practical application
+Power machining (high MRR) • Steel wire coated Ms
+and Cu
+• Cu wire with Ms coating
+• Galvanized brass wire
+• Better rinsability
+• A higher wire electrode
+feed rate
+Very small workpiece thickness • Steel wire coated with Ms
+and Cu
+• Graphite coated wire
+• Higher resistance to
+breaking the wire
+• Better rinsability
+Carbide machining and hardly
+machinable alloys
+• Steel wire coated with Ms
+and Cu
+• Cu wire with Ms coating
+• Higher resistance to
+breaking the wire
+• Higher output energy
+Machining under different angles so-
+called conical machining
+• Steel wire coated with Ms
+and Cu
+• Ms alloy
+• Higher resistance to
+breaking the wire
+• Increased wire elasticity
+Table 2.
+Basic properties of composite multi-component tool electrodes and their practical application in specific cases of
+WEDM.
+13
+Intelligent Control System of Generated Electrical Pulses at Discharge Machining
+DOI: http://dx.doi.org/10.5772/intechopen.88454
+location. Changing the time ratios within each discharge also changes their fre-
+quency and total discharge energy. From this comes the term “dependent pulse
+generators.”
+Thus, it is clear from the above principle that these types of pulse generators
+allow very short discharges to be produced, while the discharge duration t i is 104–
+107 . These are relatively simple construction equipment. For these types of pulse
+generators, it is required to connect the workpiece as an anode and a tool electrode
+as a cathode. This type of connection is used because of the need for less material
+loss from the tool electrode during the electroerosion process. By using a DC power
+source in a given circuit, the ions are only moved in one direction. This provides a
+suitable precondition for the formation of corrosion of the eroded particles, which is
+considered an undesirable phenomenon. In addition, a significant disadvantage of
+the above-mentioned types of electrical pulse generators is the limited control of the
+shape and frequency of the discharges, low machining productivity, but also a
+relatively high wear of the tool electrode [29]. Therefore, these types of electrical
+pulse generators are no longer used in modern electroerosive equipment.
+New types of electrical pulse generators are constantly being developed to con-
+tinually improve production quality and productivity. These allow, for example, a
+variable selection of individual electrical discharge parameters, regardless of the
+actual ratios in the working gap. In addition, the new types of electrical pulse
+generators have a much longer discharge time than the dependent generators, while
+lowering the operating voltage. Some types even allow changing the polarity of the
+discharges during the electroerosion process. In these types of electrical pulse gen-
+erators, ion conductivity predominates, with the workpiece being normally engaged
+as a cathode and a tool such as an anode. They are also referred to as independent
+generators because they allow variable variations in the electrical discharge pulse
+amplitudes, their polarity, frequency, and so on, regardless of the current situation
+in the working gap. In technical practice, there are several types of independent
+generators. For example, a rotary generator. It represents a dynamo that is powered
+by an asynchronous motor. An essential part of this type of generator is also a
+semiconductor diode. Its task is to prevent the breakove in the opposite direction. In
+this type of generator, the tool electrode in the circuit engages as an anode and the
+workpiece as a cathode. Figure 10 shows a schematic diagram of an independent
+electrical pulse generator of a rotating member electroerosive equipment including
+its volt-ampere characteristic.
+These types of independent generators allow relatively high performance, i. j.
+high values of material removal rate (MRR up to 5000 mm 3
+.min1
+) at constant
+frequency of electrical discharges. Therefore, in practice, they are mainly used for
+roughing operations. However, for the finishing operations, an additional RL gen-
+erator is required, which is essentially their main disadvantage.
+(SLIKA 12)
+Higher levels are represented by semiconductor generators. Thanks to the use of
+semiconductor elements, their main advantage is high reliability, but in particular
+the possibility to change the parameters of electric discharge in a wide range of
+values. They allow changing frequencies in the range of 50–500 Hz. Their basic
+structural element is the semiconductor pulse generator, the so-called multivibrator
+(MV), which supplies pulses to the amplifier Z. This then drives the amplified
+pulses power transistors T1, T2. Their number determines the amount of current
+required to be delivered to the discharge location. The frequency of the electrical
+pulses and their power parameters is determined by the multivibrator. Figure 11
+shows a schematic of an independent generator of electrical impulses electroerosive
+equipment with semiconductor devices.
+Microcomputer controlled generators are currently the most widely used type of
+independent electrical pulse generator used in state of the art electroerosion
+machines. These independent semiconductor generators are considered second
+generation generators. Their main advantage is the application of alternating elec-
+tric voltage to the discharge, resulting in a reduction of the working gap and the
+associated reduction in the volume of material withdrawn. They allow a wide range
+of electrical discharge parameters to be set, with the frequency range of the electri-
+cal discharges varying from 0.5 to 50 kHz. The main advantage of the practical
+application of this type of independent electric pulse generator is the demonstrably
+less heat affected zone of the eroded area. At the same time, its application can
+significantly reduce the extent of corrosive effects occurring during the
+electroerosion process. Figure 12 shows a diagram of an electroerosion equipment
+electrical pulse generator that is controlled by a microcomputer.
+(SLIKA 13)
+7. Adaptive control system of generated electrical pulses for WEDM
+In practice, there are several cases where all of the above possibilities have been
+used to increase the geometric accuracy of the machined surface in terms of the
+application of the specific properties of the wire tool electrodes for WEDM. How-
+ever, despite the application of modern control systems of generated electrical
+pulses, not all of the expected requirements for the achieved surface finish in terms
+of geometric accuracy are always met. In this case, one option is to modify the
+control system of generated electrical pulses. However, it should be pointed out that
+this is a substantial intervention in the traditionally used system of generated
+electrical impulses during the electroerosion process.
+Another of the requirements for WEDM is, in addition to achieving high quality
+machined surface in terms of geometric accuracy, also increasing the performance
+of the electroerosion process. These goals can only be met with the help of highly
+sophisticated online monitoring systems. At present, information that is derived
+from the actual value of the electrical discharge parameters is used to control the
+electroerosion process. In particular, the size of the voltage, current and working
+gap are monitored. However, setting the current value of these parameters does not
+take into account all the phenomena that occur in the working gap. They result in
+the formation of wire electrode vibrations [30]. However, the direct measurement
+of the amplitude size of the vibration of the wire tool electrode in real life conditions
+of the electroerosive machine is a problem. One solution is to measure it through
+one of the indirect methods. Subsequent inclusion of a given parameter as one of the
+monitored parameters during the WEDM in the form of an input parameter into the
+process control of generated electric pulses will allow for a new dimension in the
+field of increasing the productivity of the electroerosion process and the achieved
+surface quality. At the same time, by monitoring the parameter, a substantial
+increase in the level of intelligent adaptive control WEDM can be achieved [31].
+With its help, it is also possible to detect and then by appropriately adjusting the
+generated electrical pulses to eliminate the occurrence of unwanted electrical dis-
+charges that increase the amplitude of the wire electrode vibration. These informa-
+tions are very valuable because it allows the use the strategy of an adaptive electrical
+discharge control to eliminate the adverse impact of inappropriate electrical dis-
+charge parameter settings. Improper setting of electrical discharge parameters
+results in a loss of electroerosion process stability, a decrease in productivity for
+WEDM, but also a deterioration in the quality of the machined surface. Since a
+stable electroerosion process is characterized by a constant and uniform vibration of
+the wire tool electrode with very low amplitude, it is necessary that this deviation at
+the point of contact of the electrode with the workpiece is regarded as one of the
+regulatory parameters that ensures the stability of the electroerosion process.
+As mentioned above, due to the generation of electrical discharges with inap-
+propriate parameter settings, wire tool electrode vibrations occur. During the
+electroerosion process, the thin wire electrode primarily vibrates in the X and Y
+directions. The magnitude of its vibration amplitude is directly subordinated to the
+frequency and intensity of the generated electrical pulses. Figure 13 shows the
+amplitude and direction of vibration of the wire tool electrode during the
+electroerosion process.
+The individual parameters of the generated electrical pulses are currently set
+with respect to achieving the highest possible efficiency and productivity of the
+electroerosion process. However, these parameters do not take into account the
+vibration of the wire tool electrode, which has a significant contribution to the
+geometric inaccuracy of the machined surface.
+(SLIKA 14)
+As mentioned above, the magnitude of the vibration amplitude of the wire tool
+electrode is dependent on the size of the wire tensioning force and the current
+electrical discharge parameters. Of these, priority is given to the frequency of
+generated electrical discharges. However, based on the results of several investiga-
+tions, it has been shown that the vibration of the wire electrode in the X axis
+direction becomes slightly higher than the Y axis vibration [32]. However, in terms
+of consequences, the vibration of the wire electrode in the X axis direction has a
+significantly lower effect on the geometric inaccuracy of the machined surface
+because they are generated in the feed direction. However, the problem is the
+vibrations that are generated transversely to the wire electrode feed, i. j. in the Y
+axis direction. Based on the experimental investigations carried out, it has also been
+shown that the magnitude of the vibration amplitude of the tool electrode is not
+directly proportional to the discharge frequency. As can be seen from the graph in
+Figure 14, its maximum value is reached when applying the critical frequency of
+generated electrical discharges.
+However, the critical frequency of the generated electrical discharges, in addi-
+tion to the electrical discharge parameters, also depends on other parameters, such
+as the thickness of the material being machined, the diameter of the wire electrode
+(SLIKA 15)
+(SLKA 16)
+its tension force, and many other parameters. Therefore, the critical frequency of
+generated electrical discharges during WEDM cannot be implicitly determined.
+Since the critical frequency of vibration of the wire tool electrode during the
+electroerosion process cannot be implicitly determined, the only way to identify it is
+to monitor the magnitude of the vibration amplitude of the tool electrode It is
+possible to apply a number of methods to continuously measure the magnitude of
+the vibration amplitude of a wire electrode during the electroerosion process. Each
+of these methods has a number of advantages, but also disadvantages. One suitable
+indirect method for measuring the vibration amplitude of a wire electrode during
+an electroerosion process that is also applicable to electroerosion machines is the
+method of acoustic emission signals. Its value can be accurately determined in
+practice using suitable sensors (Figure 15).
+An indirect measurement of the vibration amplitude of the tool electrode during
+WEDM requires a separate approach, since a thin wire is used as a tool in this
+machining method. The decisive factor in the indirect measurement of the vibration
+amplitude of the tool electrode is the appropriate positioning of the sensors. Barot
+et al. [33] research has been conducted in this area who presented a contactless
+indirect method of measuring the amplitude of the tool electrode vibration by
+acoustic emission (AE). This is based on comparing the relative intensities of the
+electromagnetic discharge signals measured by the Hall sensors. However, this
+method has its limitations because of the need for a magnetic field concentrator to
+compensate for exponential signal attenuation. At the same time, it requires com-
+plicated processing of high frequency electromagnetic signals, which is additionally
+to be obtained at speeds of up to 30 MHz. Another type of indirect measurement of
+vibration amplitude of the tool electrode was applied by Okada et al. [34]. The high
+accuracy of the measurement of the given parameter was achieved by distributing
+the discharge energy in the wire electrode during WEDM together with direct high-
+speed digital monitoring of the working gap size. However, this measurement
+method is only applicable in laboratory conditions. Its application in real
+electroerosion machine conditions during production is very complicated and
+therefore impractical.
+A special concept of indirect measurement of the vibration amplitude of the tool
+electrode was performed by Kozochkin et al. [35], and Mahardika et al. [36].
+Measurement of the vibration amplitude of the tool electrode was performed by
+induced discharge with respect to the velocity of the acoustic wave propagated in
+the machined material (Figure 16)
+(SLIKA 17)
+Smith and Koshy [37] in this indirect method of measuring the amplitude of the
+tool electrode vibration, they used sensors with a resonance frequency of 20 MHz.
+However, the measurements performed have shown that this method is only suit-
+able for individual isolated electrical discharges. However, for cyclically repeated
+discharges, the acoustic waves overlap each other. This results in an unreliable
+estimate of time delays, which is again impractical for real operation under
+electroerosion machine conditions.
+Another suitable method for indirectly measuring the vibration amplitude of a
+tool electrode during WEDM appears to be a method of measuring acoustic emis-
+sion propagating in a tool wire electrode. Figure 17 demonstrates the appropriate
+location of the sensors to measure the AE propagated in the tool during WEDM.
+The sensors AE may be disposed at one of the ends of the wire tool electrode
+near the guide rollers or on both at the same time. Since there are cases during
+(SLIKA 18)
+electrical discharge machining, where the amplitude of the vibration of the wire
+electrode at one of its ends is slightly increased due to the high thickness of the
+material being machined or the specific values of the electric discharge parameter
+settings, it is preferable to install sensors at both the top and bottom of the lead
+electrode. In a case of only one sensor is applied either at the top or bottom of the
+wire lead, we could observe distorted values. In this indirect measurement method,
+electromagnetic interference (EMI) overlap may occur in some cases with the AE
+signals being sensed. However, this is not a disturbing element in this case, since in
+both cases it is essentially a noise.
+As the decisive criterion for the validity of the recorded data is the location of
+the sensors, it is necessary to consider the alternative of the AE combination of
+sensors for the complexity of the solution. In addition, if some research points to
+some of the advantages of locating the sensors on the wire electrode guide, other on
+the machined material. In Figure 18, a combined way of positioning sensors for AE
+measurement can be seen. Sensor no. 1 is located on an electroerosion machine in
+the region of the upper guide of the tool electrode. Sensor no. 2 is located on the
+workpiece.
+However, based on the results of several researches, it was shown that sensor no.
+1 placed in the upper guide electrode guide area, indicated more reliable results, as
+sensor no. 2 placed on the workpiece. At the same time, it is preferable to install AE
+sensors in the area of the wire tool electrode in terms of practical application. If the
+AE sensor is located on the workpiece, it must always be re-installed after each
+workpiece positioning.
+However, based on the results of several researches, it was shown that sensor no.
+1 placed in the upper conduction of electrode area, indicated more reliable results,
+as sensor no. 2 placed on the workpiece. These systems allow relatively effective
+determination of the optimal parameters of the electroerosion process with respect
+to the required quality of the machined surface. The design of the adaptive control
+system is implemented based on the principle of self-organization using methods
+and elements of artificial intelligence. Figure 19 shows a schematic diagram of the
+connection of AE sensors to an adaptive electroerosion machine that will eliminate
+unwanted tool electrode vibrations during WEDM
+(SLIKA 19)
+The signals received from the AE sensors will be transmitted to the ACD con-
+verter. Subsequently, the modified information will be imported into the control
+system of the electroerosion machine. Based on this input information, it adjusts the
+electrical discharge parameters by increasing or decreasing their frequency and
+intensity to minimize unwanted tool electrode vibration.
+At the same time, the characteristic feature of the adaptive system for control-
+ling the frequency and intensity of electric discharge during WEDM is the possibil-
+ity of using optimization techniques based on process algorithms. It is appropriate
+to apply algorithms that guarantee high convergence in the process of identifying
+the optimum. To ensure the ideal functionality of the control system of generated
+electrical pulses, there is a need for a mechanism to be implemented in the system to
+enable the desired selection of the optimization criterion. This means that in real
+operation would be possible to choose a priority optimization criteria focused on
+achieving high quality machined surface, high productivity electroerosion process,
+high efficiency electroerosion process, eventually their combination. To do this, an
+expert system based on a large information database is needed. Its suitable connec-
+tion with the CNC control system of the electroerosion machine would enable
+efficient operation not only in serial but also piece production.
+8. Conclusion
+The aim of the book chapter “Intelligent control system of generated electrical
+pulses at discharge machining” is to provide a comprehensive set of knowledge in
+the field of intelligent control of generated electrical impulses for WEDM. As is
+generally known, generated electrical impulses with inappropriate parameters have
+a negative impact not only on the quality of the machined surface but also on the
+overall efficiency of the electroerosion process. In addition, since many input
+parameters change during WEDM, the electroerosion process may become unstable
+at any time. However, by integrating state-of-the-art monitoring and adaptive
+control technologies in the field of electroerosion process, not only process stability
+Figure 19.
+Principal block diagram of the proposed adaptive system to eliminate unwanted vibrations of the wire tool
+electrode during WEDM.
+21
+Intelligent Control System of Generated Electrical Pulses at Discharge Machining
+DOI: http://dx.doi.org/10.5772/intechopen.88454
+and performance, but also the quality of the machined surface can be substantially
+increased. The application of an intelligent control system for generated electrical
+pulses during WEDM based on electrical discharge input information can effec-
+tively prevent the occurrence of an unstable condition or stop the electroerosion
+process. Although a large number of input factors enter the electroerosion process,
+the implementation of an intelligent control system for generated electrical pulses is
+possible through electronic signals. In the case of electroerosion equipment nor-
+mally produced, the electric discharges generated are controlled on the basis of
+actual conditions in the working gap. The control system of a traditional CNC
+electroerosion machine adjusts the performance characteristics of the pulse genera-
+tor by measuring the average values of electrical voltage and current in the working
+gap according to predetermined reference values. However, in order to meet the
+demanding criteria imposed on the quality of the machined surface in terms of
+achieved geometric accuracy, monitoring of only the mentioned parameters is
+insufficient. Therefore, the book chapter highlights the importance of monitoring in
+addition to the established process characteristics such as voltage and current, or the
+size of the working gap, and the importance of monitoring other process character-
+istics. Due to the existence of deficiencies reflecting the lack of geometric accuracy
+of the machined surface, a phenomenon has been identified that causes the poor
+quality. It is a tool electrode vibration. Although modern electroerosion machines
+are equipped with algorithms that can to some extent eliminate this unwanted
+phenomenon, but not at a level that completely eliminates it. Since it has been
+shown, based on the results of several studies, that the maximum variation in
+flatness of the machined surface is largely due to the maximum amplitude of
+vibration of the tool electrode, it is necessary to look for ways to eliminate it. Based
+on the results of experimental research, it has also been demonstrated that the
+maximum vibration amplitude of the wire tool electrode is achieved with a specific
+combination of several factors. However, these cannot be precisely determined. The
+only solution for identifying its size is to apply one of the measurement methods.
+The book chapter describes in detail the indirect method of measuring the ampli-
+tude of the tool electrode vibration through AE. At the same time it describes
+possible ways of installing sensors, as well as structure of interconnection of indi-
+vidual components of proposed system. A characteristic feature of the proposed
+intelligent control system performance parameters of electric discharge during
+WEDM is its flexibility and openness to the real conditions of practice. Based on an
+extensive database of information, as well as a rapid and precise exchange of
+information with an external environment, the system will enable the
+electroerosion process to be managed with respect to the optimum operation of the
+electroerosive device according to the individually selected optimization criteria
+                </p>

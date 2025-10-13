@@ -1,0 +1,1064 @@
+<h3>Research on Key Quality Characteristics of Electromechanical Product Based on Meta-Action Unit</h3>
+<p class="zoomable-text">
+                    Abstract
+Electromechanical products have many quality characteristics, representing
+their quality. In addition, there are long-existed quality problems of electrome-
+chanical products, such as poor accuracy, short precision life, large fluctuations in
+performance, frequently failing, and so on. Based on meta-action unit (MU) for
+electromechanical products, this book chapter proposes a key quality characteristic
+control method, which provides theoretical and technical support for essentially
+guaranteeing the complete machine’s quality. The formation mechanisms of MU’s
+four key quality characteristics (precision, precision life, performance stability,
+and reliability) are studied. Moreover, we introduce an overview of key quality
+characteristic control methods based on MU. The complex large system research
+method of “decomposition-analysis-synthesis” is adopted to study these key science
+problems.
+Keywords: key quality characteristics, electromechanical product, meta-action unit
+1. Introduction
+The construction of industrial modernization cannot be separated from the
+electromechanical integration [1]. Electromechanical products play an extremely
+important role in the current society. The technical level of electromechanical
+products determines the development level of the national economy and also
+directly reflects the country’s manufacturing capacity, scientific and technological
+strength, economic strength, international competitiveness, and other comprehen-
+sive national strengths [2]. Poor quality of electromechanical products will not only
+bring economic losses to enterprises but also seriously affect the international
+market competitiveness of products and, more seriously, the overall image and
+economic strength of the country. Therefore, accelerating the development of elec-
+tromechanical products and improving the quality of products are of vital signifi-
+cance for the national economic construction, national defense security, and social
+stability.
+There are many quality indexes of electromechanical products. Among them,
+the four indexes (precision, precision life, performance stability, and reliability) are
+the most concerned by users, which together constitute the key quality
+191
+characteristics of electromechanical products and decisively affect the market com-
+petitiveness of electromechanical products. Therefore, in order to occupy a place in
+the competitive high-end market, we must first improve the level of these key
+quality characteristics [3]. Therefore, carrying out a research into the electrome-
+chanical product quality control technology, especially, the quality of its key fea-
+tures, is extremely important. However, it is very difficult to control the quality of
+complex electromechanical products, not only for its complex structure but also for
+its working process, a dynamic process composed of many motions. The commonly
+used structural decomposition methods are mostly the static research based on the
+quality characteristics of parts in the design process. At the same time, there is a lot
+of uncertainty and coupling in the process of motion, which makes the dynamic
+quality characteristics greatly different from the static ones. In view of these prob-
+lems, this paper puts forward the research idea of quality characteristic control
+technology of electromechanical product based on MU [4].
+2. Literature review
+There are many quality characteristics of electromechanical products, but its key
+characteristics mainly include precision, precision life, performance stability, and
+reliability, which comprehensively reflect the availability of the product. At pre-
+sent, the analysis of precision is quite common for the stages of design, manufac-
+ture, and operation of electromechanical products, but the research of precision life,
+performance stability, and reliability is few.
+The precision of electromechanical products includes geometric accuracy,
+motion accuracy, transmission accuracy, position accuracy, etc., among which geo-
+metric accuracy is the basis and guarantee of other precisions. There are many
+studies on the precision of electromechanical products. Enterprises pay more atten-
+tion to the precision of electromechanical products, especially for machine tools.
+Sata et al. put forward a method to improve machining accuracy of machining
+center through computer control compensation earlier [5]. Ceglarek et al. used the
+state space model to model the stream of variation (SOV) of the multi-stage
+manufacturing system, described the errors of process parameters and product
+quality characteristics with the vector tolerance, and applied it in automobile body-
+in-white assembly and automobile engine cylinder head machining [6]. Zeyuan
+et al. carried out simulation and experimental research on geometric error detec-
+tion, identification, and compensation of translational axis of NC machine tools by
+two geometric error-modeling methods [7]. Li et al. summarized the characteristics
+of the existing error compensation methods and discussed the future development
+direction of improving the spatial positioning accuracy of five-axis CNC machine
+tools [8]. Yongwei et al. proposed a method for predicting the motion accuracy of
+CNC machine tools based on the time-series deep learning network [9].
+The research on precision life mainly focuses on the working stage of electro-
+mechanical products, and the research object mainly focuses on the precision life of
+servo feed system (such as screw pair, etc.). Min et al. carried out a simulation test
+of the precision retaining ability degradation of the ball screw pair to achieve a fast
+prediction of the life of the ball screw pair [10]. Liping et al. conducted a gray
+prediction of the rotary precision life of the spindle of CNC lathe [11]. Linlin studied
+the precision retaining ability of servo feed system of CNC machine tool and its test
+method [12]. Hu et al. proposed a vibration aging process parameter selection
+method based on modal analysis and harmonious response analysis to improve the
+precision life of large basic parts of CNC machine tools in view of the nonstandard
+phenomenon of vibration aging process in domestic manufacturing enterprises [13].
+192
+Emerging Trends in Mechatronics
+Shijun et al. analyzed the influence of axial load on friction torque of ball screw pair
+through experiments and pointed out that the pre-tightening force plays a leading
+role in the fluctuation of friction torque of ball screw pair [14].
+The research on performance stability mainly focuses on the research of perfor-
+mance index and parameter design. Saitou et al. summarized the development
+history of structural design and optimization of mechanical products and optimized
+the parameters to achieve the purpose of improving the stability of its performance
+[15]. Ta et al. studied the influence of friction on sliding stability of multibody
+systems [16]. Caro et al. improved the robust design method based on the sensitive
+area and proposed the comprehensive robust design method of mechanism devia-
+tion [17]. The size of the mechanism was calculated according to the performance
+robustness index, and the optimal deviation of the mechanism was calculated using
+the comprehensive deviation method. Gao et al. analyzed the robustness and
+robustness estimation of the product quality features [18]. They established a
+mathematical model based on minimum sensitivity region estimation (MSRE) for
+the robust optimization of the product quality features. Hui et al. constructed a
+dual-inertia feed system model based on the sensitivity of the closed-loop transfer
+function and analyzed the influence of the change of feed system stiffness on the
+stability of motion accuracy [19].
+The research on reliability mainly focuses on reliability design, assembly reli-
+ability control, and fault diagnosis technology. Based on the shortcomings of tradi-
+tional stress-strength interference model, Zhang et al. modeled the reliability from a
+dynamic perspective [20]. Pinghua et al. studied the assembly reliability control
+technology of electromechanical products based on fault modeling of motion unit to
+improve the reliability of assembly process [21]. Genbao et al. proposed the assem-
+bly process and technology driven by reliability and used the dynamic Bayesian
+method to model and control the assembly process [22]. Assaf and Dugan proposed
+a diagnostic method for large systems using monitors and sensors for reliability
+analysis by optimizing the diagnostic decision tree (DDTs) [23]. Yu et al. proposed a
+fault maintenance strategy for field equipment of assembly system [24]. And
+according to the differences in reliability design of different types of equipment, a
+comprehensive maintenance mode was introduced to ensure the reliability of auto-
+matic docking assembly of large aircraft parts. Qinghu et al. carried out a systematic
+analysis and prediction modeling research on the main failure mechanism and
+failure evolution rule of key components of the power transmission system [25].
+Quality characteristic control is a comprehensive technical control activity based
+on decoupling or prediction of quality characteristic, including analysis of quality
+characteristic at each granularity and adjustment of influencing factors. Moreover,
+according to quality fluctuation, quality characteristic is under control. Haifeng
+studied the coupling mapping relation of quality characteristics of complex electro-
+mechanical products [26]. Then, combined with axiomatic design principle, they
+proposed the idea of decoupling design of quality characteristics of complex elec-
+tromechanical products and presented the decoupling control model in the process
+of quality characteristic mapping of complex electromechanical products. Xianghua
+proposed a multiscale collaborative and intelligent quality control method for key
+parts of air separation equipment including the air compressor, the turbine
+expander, and the whole machine and conducted an in-depth research on coupling
+mapping and collaborative control of quality characteristics of large-scale air sepa-
+ration equipment from the whole machine to each part at all scales [27]. Nada
+studied the quality prediction in the design process of manufacturing system,
+constructed a basic framework on the basis of the manufacturing system configu-
+ration parameters to evaluate the quality of the products, and constructed a com-
+prehensive evaluation model of system configuration based on quality by analytic
+193
+Research on Key Quality Characteristics of Electromechanical Product Based on Meta-Action Unit
+DOI: http://dx.doi.org/10.5772/intechopen.89481
+hierarchy process (AHP), which can transform the structural parameters of
+manufacturing system into configuration capability indexes and then predict and
+control them [28]. Xianlin conducted an in-depth research on the quality charac-
+teristic prevention and control key technologies such as the quality characteristic
+evolution mechanism, coupling and decoupling control, timing data prediction,
+immune diagnosis, and control in the manufacturing process of electromechanical
+products [29]. In order to solve the coupling problem in quality characteristic
+predictive control, Zhentao established a quality characteristic predictive
+decoupling model based on predictive control theory [30]. Yang et al. established
+and solved the predictive control model based on particle swarm optimization
+algorithm and support vector machine on the basis of analyzing the characteristics
+of multiprocess and multistage product quality prediction control and realized the
+global optimization of multistage product quality prediction and related process
+parameters [31].
+3. Findings
+Through the analysis of the above research status, it can be seen that the follow-
+ing main problems exist in the quality characteristic control of electromechanical
+products at present.
+Traditional quality control is mainly based on the quality control of parts, pre-
+cisely, the precision, However, the combination with the function of parts is far
+from the expectance. Particularly, general electromechanical products exist for the
+realization of a certain motion function, and the overall functional failure of the
+product is caused by the inability to realize the basic motion function. Therefore,
+quality control should be placed in the basic level of motion, as long as the basic
+motion function is normal and the overall function of the product is guaranteed.
+Starting from the quality control of MUs, the quality control of the whole machine
+is realized through the quality control of the unit level. This control mode is more
+simple and effective, which does not need to simplify the model and is conducive to
+the accomplishment of refined quality control.
+In terms of the key quality characteristic control technology, there are many
+researches on the pure precision but few achievements on the precision life, per-
+formance stability, reliability, and their coupling control. In fact, the quality gap of
+electromechanical products at present mainly lies in the aspects of precision life,
+performance stability, and reliability, among which reliability is the biggest bottle-
+neck of electromechanical products. How to improve the precision life, perfor-
+mance stability, and reliability of electromechanical products as soon as possible is
+an urgent problem to be solved in the manufacturing industry.
+4. Formation mechanisms of MU’s four key quality characteristics
+Meta-action unit (MU) is a kind of basic action unit of electromechanical
+products decomposed in accordance with failure model analysis (FMA) structural
+decomposition method. It has the specific function of independently completing
+the specified movement or operation. Compared with other decomposition units,
+MU is more suitable for quality and reliability analysis. However, the complex
+quality characteristics are reflected not only in the MU’s motion accuracy but also in
+its precision life, performance stability, reliability, and other aspects. So it is neces-
+sary to conduct an in-depth study on the formation mechanism of each quality
+characteristic.
+194
+Emerging Trends in Mechatronics
+The quality characteristics of electromechanical products are very numerous,
+generally including 12 aspects, i.e., functional compliance, performance stability,
+application reliability, precision retaining ability, technology primacy, cost econ-
+omy, esthetic appearance, maintenance convenience, and service timeliness, char-
+acter uniqueness, security assurance, perception satisfaction, etc., which lead to the
+resultant diversity of MU’s quality characteristics. During the research process, the
+key quality characteristics need to be extracted from the perspective of the user’s
+requirements and the fault distribution. At the same time, as the smallest motion
+unit decomposed from electromechanical products, most of MUs’ quality charac-
+teristics are dynamic; therefore, it is necessary to conduct an in-depth study on their
+formation mechanism and extract the characteristic indicators of each key quality
+characteristic from the perspective of motion. Moreover, to expand the amount of
+the sample data, the corresponding models are established and applied to the simi-
+larity determination of MUs.
+4.1 Formation mechanism of the MU motion accuracy
+Accuracy is the degree to which actual geometric parameters conform to ideal
+ones, and their deviation values are often defined as errors. The accuracy of elec-
+tromechanical products generally includes geometric accuracy, motion accuracy,
+transmission accuracy, and positioning accuracy [32]. For MUs, the accuracy refers
+to the motion accuracy of the output part that implements the meta-action. More-
+over, the movement accuracy of the unit actuator is also affected by the manufac-
+ture and assembly errors of other parts in the unit (support, transmission, and
+fasteners). For example, as the actuator of the rack moves the MU, the translation
+accuracy of the rack is the only measure indicator. In the actual situation, there are
+many kinds of error sources that affect the motion accuracy of the MU actuators.
+Actually, the formation process of the accuracy is also the transmission process of
+the errors.
+4.1.1 The MU motion accuracy
+For translation and rotation MU, the motion accuracy of the actuator also
+includes translation and rotation accuracy. The corresponding translation accuracy
+indicators of the actuator mainly include positioning accuracy, repeat positioning
+accuracy, reverse error, moving straightness (trajectory), moving parallelism (tra-
+jectory), and resolution (minimum translation increment). The rotation accuracy
+indicators include positioning accuracy, repeat positioning accuracy, indexing
+accuracy, reverse error, rotation face fluctuation (radial and end faces), and rota-
+tion fluctuation (axial).
+The motion accuracy of the unit actuator is also affected by the geometric and
+assembly accuracy of the various parts in the unit. The geometric accuracy of the
+part includes the geometric position and shape accuracy, expressed as static errors
+such as size, position, and shape. According to ISO230-1:1996 and GB/
+T1800.1-2009 “Limit and fit Part 1: The basis of tolerance, deviation and fit,” the
+size and position error of the MU actuator refers to the defects in the design,
+manufacture, and assembly process, which cause the MU actuator (output mem-
+ber) deviating from the ideal size and position. It mainly includes distance dimen-
+sion error, diameter dimension error, angular dimension error, parallelism,
+coaxiality, verticality, position, symmetry, and round and full runout. The geomet-
+ric shape error of the MU actuator refers to the deviation between the actual and
+ideal shape after machining, which is set as a machining range of the normal
+195
+Research on Key Quality Characteristics of Electromechanical Product Based on Meta-Action Unit
+DOI: http://dx.doi.org/10.5772/intechopen.89481
+distribution and mainly includes straightness, flatness, roundness, cylindricity, line
+profile, and surface profile.
+4.1.2 Error model of the MU motion accuracy
+4.1.2.1 Topology structure description of electromechanical product
+The electromechanical product is a kind of multibody system, a complete
+abstract and effective description of general complicated mechanical system, which
+is the optimal mode of analyzing and researching complicated mechanical system
+[33–35]. The multibody kinematic theory is used to establish the synthetic space
+motion error model of the MU actuator in this chapter.
+An MU is regarded as a body, and there is only a single degree-of-freedom
+relative motion with the constraint type of translation or rotation. The motion of
+electromechanical products, open or closed loop, aims to accomplish a
+corresponding function. Because closed-loop motion can be converted as open with
+specific constraint, the topological structure for general electromechanical products
+is expressed as follows (Figure 1). The inertial reference system and MU are
+regarded as different bodies. Then the bodies are numbered in turn along the
+direction away, according to the natural growth sequence, from one branch to
+another (each branch accomplishing its corresponding function).
+The low-order body array is used to describe the topological structure of the
+multibody system [36], which can be obtained by the following calculation formula (1).
+The optional body B k is any typical body in the system, and the sequence number of
+its n-th lower-order body is defined as
+Ln kð Þ ¼ j (1)
+where L is the low-order body operator and body Bk is the n-th high-order body
+of body B j (Table 1). Ln kð Þ ¼ L Ln 1 kð Þ
+ , L0 kð Þ ¼ k, and L n kð Þ ¼ 0. Moreover,
+when body B j is the adjacent lower-order body of body Bk, L kð Þ ¼ j.
+4.1.2.2 Motion error characteristic matrix of adjacent MUs
+According to the MU motion of the electromechanical product in the actual
+working process, the description method of multibody system error is used to study
+(SLIKA 138)
+(SLIKA 139)
+he motion error of the MU actuator (Figure 2). P k, P I
+k, and PE
+k are the actual
+position vector, the ideal position vector, and the position error vector of the origin
+Q k of the body Bk motion reference coordinate system in its low-order body B j,
+respectively; and D k, D I
+k, and D E
+k are the actual displacement vector, the ideal
+displacement vector, and the displacement error vector of the origin O k of body Bk
+reference coordinate system.
+From the kinematic point of view, the errors of MU actuators are divided into
+two categories. One is the errors that happened in the motion reference coordinate
+of MU (body B k), described with the position (static) error vector PE
+k and the
+position error feature (transformation) matrix T PE
+jk . Another is the motion process
+error (translation or rotation) of the MU (body Bk) relative to the actual motion
+reference coordinate, described with the translation (motion) error vector DE
+k
+(linear or angular displacement) and the motion error feature (transformation)
+matrix T DE
+jk .
+4.1.2.2.1 Motion error characteristic matrix from translation MU to translation MU
+When the MU (body Bk) translates xD
+jk, y D
+jk, and z D
+jk along the X-axis, Y-axis, and
+Z-axis relative to its adjacent MU (lower-order body B j), its actuator’s translation
+(SLIKA 140)
+Motion error characteristic matrix of synthetic motion at the MU (body Bk)
+translates first and then rotates relative to its adjacent MU (low-order body B j).
+The specific motion order is translating xD
+jk, y D
+jk, and z D
+jk along the X-axis, Y-axis, and
+198
+Emerging Trends in Mechatronics
+Z-axis and rotating αD
+jk along the X-axis, βD
+jk along the Y-axis, and γD
+jk along the Z-axis,
+and the ideal motion feature matrix of the unit actuator can be expressed as
+T D
+jk ¼ T D
+jk xð ÞT D
+jk yð ÞT D
+jk zð ÞT D
+jk αð ÞT D
+jk βð ÞT D
+jk γð Þ (2)
+The motion error feature matrix of the unit actuator is expressed as
+T DE
+jk ¼ T DE
+jk Δxð ÞT DE
+jk Δyð ÞT DE
+jk Δzð ÞT DE
+jk Δαð ÞT DE
+jk Δβð ÞT DE
+jk Δγð Þ (3)
+The position and position error feature matrix are expressed as
+T P
+jk ¼ T P
+jk xð ÞT P
+jk yð ÞT P
+jk zð ÞT P
+jk αð ÞT P
+jk βð ÞT P
+jk γð Þ (4)
+T PE
+jk ¼ T PE
+jk Δxð ÞT PE
+jk Δyð ÞT PE
+jk Δzð ÞT PE
+jk Δαð ÞT PE
+jk Δβð ÞT PE
+jk Δγð Þ (5)
+4.1.2.3 Actual characteristic matrix of MUs
+According to the geometric description method above, the actual feature (trans-
+formation) matrix of the MU actuator in the multibody system is obtained as
+T jk ¼ T P
+jk T PE
+jk T D
+jk T DE
+jk (6)
+where T jk, T P
+jk, T PE
+jk , T D
+jk, and T DE
+jk are the actual position, the ideal position, the
+static error, the ideal motion, and the motion error feature matrix of the MU
+actuator, respectively.
+4.1.2.4 Integrated space motion errors of MUs
+Set the homogeneous coordinates of the MU (body B j) on any point W in sub-
+coordinate system O j   X j Y j Z j as
+W j ¼ w xj w yj w zj 1
+   T (7)
+Thus, the ideal homogeneous coordinates of the point W in subcoordinate sys-
+tem O j   X j Y j Z j is obtained as
+W I
+k ¼ Yu¼1
+u¼n,L n kð Þ¼0
+T P
+L u kð ÞL u 1 kð ÞT D
+L u kð ÞL u 1 kð Þ
+2
+4
+3
+5
+ 1
+Yt¼1
+t¼n,L n jð Þ¼0
+T P
+L t jð ÞL t 1 jð ÞT D
+L t jð ÞL t 1 jð Þ
+2
+4
+3
+5W j
+(8)
+The actual homogeneous coordinates of the point W in subcoordinate system
+O j   X j Y j Z j is
+W k ¼ w xk w yk w zk1
+   T Yu¼1
+u¼n,L n kð Þ¼0
+T L u kð ÞL u 1 kð Þ
+2
+4
+3
+5
+ 1
+Yt¼1
+t¼n,L n jð Þ¼0
+T L t jð ÞL t 1 jð Þ
+2
+4
+3
+5 (9)
+In the process of MU working (actuator moving), the error between ideal and
+actual motion position of point W is expressed as
+199
+Research on Key Quality Characteristics of Electromechanical Product Based on Meta-Action Unit
+DOI: http://dx.doi.org/10.5772/intechopen.89481
+E ¼ e P
+x eP
+y eP
+z 0
+   T
+¼ W I
+k   W k
+¼ Yu¼1
+u¼n,L n kð Þ¼0
+T P
+L u kð ÞLu 1 kð ÞT D
+L u kð ÞLu 1 kð Þ
+2
+4
+3
+5
+ 1
+Yt¼1
+t¼n,Ln jð Þ¼0
+T P
+Lu jð ÞLu 1 jð ÞT D
+Lu jð ÞLu 1 jð Þ
+2
+4
+3
+5W j
+  Yu¼1
+u¼n,Ln kð Þ¼0
+T Lu kð ÞL u 1 kð Þ
+2
+4
+3
+5
+ 1
+Yt¼1
+t¼n,L n jð Þ¼0
+T L u jð ÞL u 1 jð Þ
+2
+4
+3
+5W j
+(10)
+Equation (10) is the comprehensive spatial motion error model of MU actuators
+for general electromechanical products.
+4.2 Formation mechanism of the MU precision life
+In the process of electromechanical product working, MUs are influenced by
+various changing indicators, e.g., increase in ambient temperature, wear on part
+surface, and change of load or force. These indicators cause the variation of the MU
+accuracy [37, 38].
+The general formation process of MU accuracy faults is shown in Figure 3. After
+MU moving for a period of time, its accuracy variation reaches the designed accu-
+racy variation limit (Y max or Y min). Its specific variation law f(t) is as follows.
+4.2.1 Initial stage
+MU is working at an expectation accuracy a0 (producing accuracy). For a
+specific MU, because of the influence of its initial state and working condition,
+a 0 has a certain dispersion, following the distribution law f að Þ.
+4.2.2 Stable stage
+After MU working stably for a period of time T a, the influence reaches enough
+degree to cause the variation of MU accuracy. Because of the considerable degree of
+(SLIKA 142)
+randomness of the uncertainty influencing factors, the stable operating time T a
+obeys a random distribution f T að Þ.
+4.2.3 Degradation stage
+MU accuracy reaches Y lim at a speed v, and faults happen, where v is a random
+factor obeying distribution law F(v), so operating time without faults T is also a
+random factor obeying f(t).
+During the moving process, MU is affected by various factors, e.g., friction,
+environment, and changing working conditions. Its accuracy variation rate v can be
+regarded as a normal distribution:
+f vð Þ ¼ 1
+σv
+ffiffiffiffiffi
+2π
+p e  v vð Þ2
+2σ2
+v (11)
+where f(v) is the probability density function of accuracy variation, v represents
+the average rate of accuracy variation process, and σv is the mean square error of
+rate accuracy variation.
+For a specific MU, if its initial accuracy is a known value a0, obeying a random
+distribution and its stable accuracy stage is finished, that is, T a = 0, and then its
+accuracy variation is obtained as (e.g., linear correlation)
+Y ¼ a0 þ vt (12)
+As is shown in Figure 3, before accuracy reaching the limitation, Y=Y lim, its
+operating time without failure is the precision life (accuracy retention time), which
+is the function of speed v:
+T ¼ Y0lim
+v (13)
+Finally, its accuracy reliability is expressed as
+R ¼ P t ≤ Tð Þ ¼ Pðv ≤ Y0lim
+t k Y0lim
+t k
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Þ¼ Φð Y0lim
+t   σv
+k v
+σv
+v
+σv
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  (14)
+4.3 Formation mechanism of the MU performance stability
+The performance stability of MUs refers to the ability of maintaining the per-
+formance of the MU or the variation range of output quality characteristic (dynamic
+characteristic) minimal with the uncertainty factor while satisfying various con-
+straints. It means that the output value Y fluctuates around the input-output linear
+relationship and the smaller the fluctuation, the better the stability.
+4.3.1 Performance stability evaluation of MUs
+4.3.1.1 The dynamic tracking errors and steady errors
+The performances of MUs are real-time and dynamic, and its output quality
+characteristic fluctuates with input parameters. That is, there is a corresponding
+objective value for each input signal. At the same time, the fluctuation needs to be
+as small as possible. This characteristic is defined as a dynamic characteristic.
+201
+Research on Key Quality Characteristics of Electromechanical Product Based on Meta-Action Unit
+DOI: http://dx.doi.org/10.5772/intechopen.89481
+The dynamic state in the process of MU motion is divided into transient and
+stead. Dynamic tracking errors mean the deviation between the actual value y(t)
+and expected value y Ideal of the MU quality characteristic indicator of each transient
+state. Steady errors refer to the fluctuation amplitude Δ of the deviation between
+the actual value y(t > T) and expected value y Ideal of the MU quality characteristic
+under steady state after moving for a time T. To guarantee enough high-
+performance stability, there are two premises for them:
+δmax ¼ y tð Þ   y Ideal
+ 
+   
+ max ≤ δIdeal
+Δmax ¼ y t>Tð Þ   y Ideal
+ 
+   
+ max   y t>Tð Þ   y Ideal
+ 
+   
+ min ≤ δIdeal
+(
+(15)
+4.3.1.2 The signal/noise ratio
+The indicator of signal/noise ratio (SNR) [39] (Eq. 16) proposed by Prof.
+Taguchi is applied to evaluate the MU dynamic performance stability in this section.
+Generally, the greater the SNR value, the better the stability, which indicates that
+the noise is low even if the signal is strong:
+η ¼ PS
+P N
+(16)
+where P S and P N represent the power of signal and noise, respectively.
+For the dynamic characteristic, the objective value m is not a constant but a
+variable determined according to the variation of signal M output characteristic
+y = α + Mβ + ε (Figure 4), where ε reflects the degree of interference. Moreover, the
+variation of output characteristic is set as a normal distribution N(0,δ2).
+As is shown in Figure 4, the SNR of dynamic characteristic y is defined as
+η ¼ β2
+σ2 (17)
+where β2 is the measure of signal sensitivity, and δ2 is the fluctuation rate
+(deviation) of amplitude, which is used to evaluate the stability of MU.
+For a specific MU quality indicator q 1, the greater the signal/noise ratio η1, the
+more stable the quality indicator. Its weight (the contribution rate of this quality
+indicator to quality instability) is expressed as
+λl ¼ 1
+ηl ∗ Pm
+j¼1 1
+η j
+(18)
+4.3.2 Clearance formation mechanism of MUs
+The clearance is one of the main factors causing noise of MU and influencing the
+performance stability of complete machine [40]. However, in real engineering
+(SLIKA 143)
+application, the MU clearance is inevitable. It happens in the inner composition
+parts of MUs, e.g., the clearance between the large piston and the inner wall of the
+mandrel in the piston moving unit and the meshing clearance between the rack
+translating unit and the gear rotating unit (Figure 5).
+The clearance between MUs includes the static clearance of geometric size and
+the dynamic clearance under a moving state. As is shown in Figure 5, they are
+mainly caused by three aspects:
+1.A regular clearance reserved due to the motion fit design of the MU.
+2. The uncertainty factors in the MU design and manufacturing process.
+The error will be caused to form clearance.
+3. The uncertainty factors in the process of operating, e.g., vibration, friction,
+wear, etc., cause the irregular clearance.
+4.4 Formation mechanism of the MU reliability
+The MU reliability refers to the ability to accomplish specific machine motion
+precisely, timely, and coordinately under a specified time and condition and main-
+tain all quality characteristics within the allowable range. Its quantification indica-
+tor, the probability, is known as reliability.
+4.4.1 Reliability indicators of MUs
+4.4.1.1 The MU reliability
+The MU reliability refers to the probability of output quality characteristic
+parameters being in the allowable range at a specified time (period). Suppose that
+output characteristic parameter, e.g., accuracy, precision life, performance stability,
+etc., is random variable Y(t). According to the design requirement, output quality
+characteristic parameter is controlled within the range of [Y min , Ymax]. The MU
+reliability is defined as the probability P that happens:
+R ¼ P Ymax min½   
+(SLIKA 144)
+Its corresponding failure probability F is expressed as
+F ¼ 1   R ¼ 1   P Ymax min½   (20)
+Taking the motion accuracy (motion error) of the MU as an example, its motion
+accuracy reliability is the probability of its motion output error within the maxi-
+mum allowable error range:
+R ¼ P emax min½   (21)
+For a specific MU, its error obeys a normal distribution, and its reliability is
+derived as
+R ¼ P emin ≤ E ≤ emaxð Þ
+¼ P E ≤ e maxð Þ   P E ≤ e minð Þ
+¼ Φ e max   μ
+σ
+   
+  Φ emin   μ
+σ
+    (22)
+4.4.1.2 The mission reliability of complete machine system
+Because multiple different missions of the upper motion units are accomplished
+by the input and output of multiple MUs, from the perspective of the mission
+reliability, the mission reliability of the complete machine system of electrome-
+chanical products is an organic combination of the MU motion reliability
+(Figure 6), which is expressed as follows:
+R W ¼ Xn
+i¼1
+αi R A i (23)
+4.4.2 Failure mechanism of MUs
+The MU failure analysis mainly includes three aspects: the failure stress, the
+failure mechanism, and the failure mode. To highlight the key points, we mainly
+analyze them from the perspective of the motion function.
+4.4.2.1 The failure stress
+The failure stress is the physical condition causing the MU failure, mainly
+including the working and environment stress. The working stress refers to the
+(SLIKA 145)
+necessary stress to motivate MU to achieve a basic motion function, e.g., pressure,
+thrust, bending torque, etc.; the environment stress refers to MU’s external working
+environment conditions and its interaction between the internal parts, e.g., tem-
+perature, humidity, dust, noise, vibration, friction, impact force, etc.
+Taking the end-toothed disk indexing turntable function unit as an example, we
+analyzed the failure stress of each decomposition MU (Table 2).
+4.4.2.2 The failure mechanism
+The MU quality uncertainty includes gradual and emergent uncertainty; fur-
+thermore, corresponding failures are gradual and emergent. When they happen,
+their certain performance parameter reaches or exceeds the threshold, caused by
+the MU uncertainty. If an MU performance parameter changes at the beginning of
+working process without a stable stage, the failure that happened is defined as a
+gradual failure. If the MU performance parameter suddenly reaches or exceeds the
+threshold in an instant with an infinite speed, the failure that happened is defined as
+an emergent failure. The gradual failure is also called as wear failure, mainly
+including:
+A. Functional abnormality due to the MU wear deformation, e.g., worm gear
+MU rotation difficulty, loose, vibration, large clearance, etc.; B. function
+(SLIKA 146)
+(SLLIKA 147)
+abnormality due to the deformation or fracture caused by fatigue, e.g., gear tooth
+fracture of gear rotation MU; C. deformation and fracture due to corrosion; D.
+deformation due to yielding; E. deformation, cracking, and fracture due to deterio-
+ration of the polymer; F. obstacles caused by wear-induced debris; G. abnormal
+rotation and heat caused by deterioration of oil; H. abnormal movement due to the
+incorporation of rust, peeling paint, and peeling plating.
+The formation mechanisms of the typical MU failures are shown in Table 3.
+5. Key quality characteristic control methods based on the MU
+On the basis of studying the key quality characteristics of MUs and the coupling
+relationship of the complete machine quality characteristics, it is necessary to unit-
+ize and aggregate the MUs’ quality characteristic according to the “decomposition-
+analysis-synthesis” analysis method of the large system control theory [41]. The
+whole machine quality prediction method is studied from bottom to top, the quality
+characteristic state space model is constructed, and the predictive control algorithm
+is derived to achieve the comprehensive prediction and control of the complete
+machine quality characteristics.
+5.1 Multiple generalized operator model of complex large systems
+The whole working process of electromechanical products is achieved and
+accomplished via various orderly units. Therefore, the whole control process of the
+complete machine quality characteristic system can be decomposed into several
+quality control sub-processes of units and regarded as a linear system. To better
+(SLIKA 148)
+understand the decomposition and aggregation relationship between the quality
+characteristics of the upper and lower units, corresponding to the quality charac-
+teristic coupling relationship model based on the FMA tree, the multiple generalized
+operator model of the complete machine large system [42] is established combining
+generalized operator model of complete machine system and the generalized oper-
+ator relationship model of units (Figure 7).
+The power input of the complete machine system is decomposed into the units’
+output, which is transmitted through the same layer and then aggregated to the
+complete system.
+5.1.1 Generalized operator model of units
+1.The first-layer generalized operator model of the complete machine system
+can be expressed as
+Y W ≐ K W  ð ÞU W (24)
+Figure 7.
+The multilayer generalized operator model of complete machine.
+207
+Research on Key Quality Characteristics of Electromechanical Product Based on Meta-Action Unit
+DOI: http://dx.doi.org/10.5772/intechopen.89481
+where U W and Y W are the total input and output of the complete machine system,
+respectively, and K W  ð Þ is the macro generalized operator of coarse granularity.
+2. The second-layer generalized operator model of the function units can be
+expressed as
+Y F i ≐ K F i  ð ÞU F i , Y F j ≐ K F j  ð ÞU F j , i, j ¼ 1, 2, ⋯, n (25)
+where U F i and Y F i are the input and output of function unit F i, respectively, and
+K F i  ð Þ is its generalized operator.
+3. The third-layer generalized operator model of the motion units can be
+expressed as
+Y Mi ≐ K Mi  ð ÞU Mi , Y M j ≐ K M j  ð ÞU M j , i, j ¼ 1, 2, ⋯, n (26)
+where U Mi and Y Mi are the input and output of motion unit M i respectively, and
+K Mi  ð Þis its generalized operator.
+4. The fourth generalized operator model of the MUs can be expressed as
+Y Ai ≐ K A i  ð ÞU Ai , Y A j ≐ K A j  ð ÞU A j , i, j ¼ 1, 2, ⋯, n (27)
+where U A i and Y Ai are the input and output of MU A i and K Ai  ð Þ is its
+generalized operator.
+5.1.2 Relationship model of generalized operators
+5.1.2.1 Relationship model of vertical generalized operators
+a. According to the function and mission of the unit, the total input of the
+complete machine system is distributed down to the corresponding unit of
+the next layer to form its input. Therefore, the input between units from
+different layers is the effective allocation of the complete machine system
+input, and the downward vertical relationship model can be expressed as
+U F i ≐ RF i ↓  ð ÞU W , i ¼ 1, 2, ⋯, n
+U Mi ≐ R Mi↓  ð ÞU F i , i ¼ 1, 2, ⋯, n
+U Ai ≐ R Ai ↓  ð ÞU Mi , i ¼ 1, 2, ⋯, n
+8
+><
+>: (28)
+where R↓  ð Þ is the downward vertical relationship operator.
+b. The output (quality characteristics) of the unit is aggregated to the complete
+machine system to form its total output (quality characteristics). Therefore,
+Y W is the order integration of the unit output, and the upward vertical
+relationship model can be expressed as
+Y W ≐ R F j↑  ð ÞY F j , j ¼ 1, 2, ⋯, n
+Y F i ≐ R M j↑  ð ÞY M j , j ¼ 1, 2, ⋯, n
+Y Mi ≐ R A j ↑  ð ÞY A j , j ¼ 1, 2, ⋯, n
+8
+>><
+>>:
+(29)
+where R↑  ð Þ is the upward vertical relationship operator.
+208
+Emerging Trends in Mechatronics
+5.1.2.2 Relationship model of horizontal generalized operators
+U F j ≐ rF i ,F j  ð ÞY F i , i, j ¼ 1, 2, ⋯, n
+U M j ≐ rMi ,M j  ð ÞY Mi , i, j ¼ 1, 2, ⋯, n
+U A j ≐ r Ai,A j  ð ÞY A i , i, j ¼ 1, 2, ⋯, n
+8
+>><
+>>:
+(30)
+where r Ai ,A j  ð Þ is the horizontal relationship operator of MU Ai and A j.
+5.2 Multilayer state space model of quality characteristics
+According to the quality characteristic mapping model based on the FMA tree,
+the large system of the complete electromechanical product is decomposed into
+several units. To predict and control the quality characteristics of different hierar-
+chical units, the corresponding granularity required is different. The structural
+features of the multilayer state space model system, decomposition-analysis-syn-
+thesis, can combine the microscopic quality characteristics of each unit and the
+macroscopic large system to control the quality characteristics more accurately.
+Therefore, referring to the multigeneralized operator model of the large-scale
+system, the multilayer state space model of the quality characteristic of the
+complete machine is established step by step as follows [43, 44].
+5.2.1 Decomposition
+According to the qualitative model, the quantitative equations of multilayer state
+space model of the complete machine quality characteristics are set as follows:
+M I :
+xW
+I ¼ A W
+I xW
+I þ BW
+I uW
+I
+y W
+I ¼ C W
+I xW
+I þ D W
+I uW
+I
+8
+<
+: M F i
+II : _x F i
+II ¼ AF i
+II xF i
+II þ BF i
+II uF i
+II
+y F i
+II ¼ CF i
+II xF i
+II þ DF i
+II uF i
+II
+(
+M F j
+II : _x F j
+II ¼ A
+F j
+II x F j
+II þ B
+F j
+II u
+F j
+II
+y F j
+II ¼ C F j
+II x F j
+II þ D
+F j
+II u F j
+II
+8
+<
+: M Mi
+III : _xMi
+III ¼ A Mi
+III xMi
+III þ BMi
+III u Mi
+III
+y Mi
+III ¼ C Mi
+III xMi
+III þ D Mi
+III uMi
+III
+(
+,
+M M j
+III : _x
+M j
+III ¼ A
+M j
+III x
+M j
+III þ B
+M j
+III u
+M j
+III
+y
+M j
+III ¼ C
+M j
+III x
+M j
+III þ D
+M j
+III u
+M j
+III
+8
+<
+: M A i
+IV : _xA i
+IV ¼ AAi
+IVxAi
+IV þ BAi
+IVuAi
+IV
+y Ai
+IV ¼ C Ai
+IVxAi
+IV þ D Ai
+IVuA i
+IV
+8
+<
+:
+M A j
+IV : _x
+A j
+IV ¼ A
+A j
+IV x A j
+IV þ B
+A j
+IV u
+A j
+IV
+y
+A j
+IV ¼ C A j
+IV x
+A j
+IV þ D A j
+IV u
+A j
+IV
+8
+<
+:
+where y tð Þ is the output variable, y ¼ y1 , y2 , ⋯, ym
+   T ; x tð Þ is the state variable,
+x ¼ x1 , x2 , ⋯, x nð ÞT ; and u tð Þ is the input variable, u ¼ u1 , u2 , ⋯, urð ÞT . A is the
+object (system) matrix describing the characteristics of the controlled object:
+A ¼ aij
+   
+n n ¼
+a11 a12 ⋯ a1n
+a21 a22 ⋯ a2n
+⋮ ⋮ ⋱ ⋮
+an1 an2 ⋯ a nn
+2
+6
+6
+6
+4
+3
+7
+7
+7
+5 (31)
+B is the control matrix describing the characteristics of the control mechanism:
+209
+Research on Key Quality Characteristics of Electromechanical Product Based on Meta-Action Unit
+DOI: http://dx.doi.org/10.5772/intechopen.89481
+B ¼ bij
+   
+n r ¼
+b11 b12 ⋯ b1r
+b21 b22 ⋯ b2r
+⋮ ⋮ ⋱ ⋮
+bn1 bn2 ⋯ b nr
+2
+6
+6
+6
+4
+3
+7
+7
+7
+5 (32)
+C is the observing matrix describing the characteristics of the observing device:
+C ¼ c ij
+   
+m n ¼
+c11 c12 ⋯ c1n
+c21 c22 ⋯ c2n
+⋮ ⋮ ⋱ ⋮
+c m1 c m2 ⋯ cmn
+2
+6
+6
+6
+4
+3
+7
+7
+7
+5 (33)
+D is the observing matrix describing the characteristics of the observing device:
+D ¼ d ij
+   
+m r ¼
+d11 d12 ⋯ d1r
+d21 d22 ⋯ d2r
+⋮ ⋮ ⋱ ⋮
+dm1 d m2 ⋯ dmr
+2
+6
+6
+6
+4
+3
+7
+7
+7
+5 (34)
+5.2.2 Synthesis
+Because the complete electromechanical products are composed of a series of
+units, according to the research on coupling and decoupling technology based on
+MUs, the spatial state variables of the complete product can be expressed as the
+weighted sum of that of some function units. Furthermore, the spatial state vari-
+ables of function units can be expressed as the weighted sum of that of some motion
+units. Finally, the spatial state variables of motion units can be expressed as the
+weighted sum of that of some MUs. The specific model can be expressed as
+x W
+I ¼ w i xF i
+II þ w j x F j
+II
+x F i
+II ¼ w i x Mi
+III þ w j x
+M j
+III
+x Mi
+III ¼ w i x Ai
+IV þ w j x A j
+IV
+8
+>><
+>>:
+(35)
+6. Discussion
+With the increase of structure complexity of electromechanical products, the
+quality control of electromechanical products by parts is too complicated, and its
+quality control becomes significantly difficult. The control method based on MUs
+provides a good idea properly analyzing the formation mechanism of the key
+quality characteristics (precision, precision life, performance stability, and reliabil-
+ity) of electromechanical products is studied based on MUs. On the one hand, due
+to the appropriate granularity, it is more convenient for quality control; on the other
+hand, because the meta-action decomposition method is a dynamic decomposition
+process of electromechanical products, the quality characteristics of electrome-
+chanical products can be controlled by the four key quality characteristics (the
+precision, the precision life, the stability, the reliability) of the quality of the control
+MUs. It makes up for the deficiency of traditional control methods.
+210
+Emerging Trends in Mechatronics
+7. Conclusions and prospects
+The research shows that it is adaptive and feasible to study the formation
+mechanism of key quality characteristics and quality control through the proposed
+analysis method based on the meta-action theory. MU has specific functions and
+can independently complete the specified motion or operation, which is more
+suitable for quality and reliability analysis. In this paper, the forming mechanism of
+MU’s four key quality characteristics (the accuracy, the precision life, the perfor-
+mance stability, the reliability) is deeply studied, and its parameter expression
+model is obtained. The model of quality characteristic state space of unit is
+established; based on that, the basic principle of predictive control and the forming
+mechanism of the quality characteristics of MUs are analyzed and clarified. Starting
+from the quality control of MUs, the quality control of the whole machine is
+accomplished through the quality control of the unit level. This control mode is
+more simple, effective, and conducive to the accomplishment of refined quality
+control.
+Due to a variety of electromechanical products, different functions and their
+implementation processes are complex. On the one hand, the data acquisition of
+MU quality index is very difficult. On the other hand, the factors influencing the
+quality uncertainty are various. Moreover, the meta-action theory also has certain
+limitations up to now, and some deficiencies exist here. Thus, we plan to further
+improve the following research work in the future:
+1.In the follow-up study, the quality characteristic database of meta-action units
+should be continuously increased through various channels such as collecting
+process data or conducting meta-action unit tests so as to better verify the
+theoretical methods.
+2. This paper only studies the four key quality characteristics (the reliability, the
+precision, the precision life, the performance stability). In order to make the
+later quality prediction and control more accurate, it can be considered to
+increase the research of quality characteristics such as usability.
+                </p>

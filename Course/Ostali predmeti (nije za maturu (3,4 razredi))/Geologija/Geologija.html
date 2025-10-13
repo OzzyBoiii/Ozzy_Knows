@@ -44,7 +44,7 @@
             background: radial-gradient(#a23982, #1f1013);
             animation: fadeIn 1s ease-out;
         }
-        
+
         .light {
             position: absolute;
             width: 0px;
@@ -58,7 +58,7 @@
             right: 0px;
             margin: auto;
         }
-        
+
         .x1 { animation: floatUp 4s infinite linear; transform: scale(1); }
         .x2 { animation: floatUp 7s infinite linear; transform: scale(1.6); left: 15%; }
         .x3 { animation: floatUp 2.5s infinite linear; transform: scale(0.5); left: -15%; }
@@ -68,7 +68,7 @@
         .x7 { animation: floatUp 5.3s infinite linear; transform: scale(3.2); left: 37%; }
         .x8 { animation: floatUp 4.7s infinite linear; transform: scale(1.7); left: 62%; }
         .x9 { animation: floatUp 4.1s infinite linear; transform: scale(0.9); left: 85%; }
-        
+
         @keyframes floatUp {
             0% { top: 100vh; opacity: 0; }
             25% { opacity: 1; }
@@ -76,12 +76,12 @@
             75% { opacity: 1; }
             100% { top: -100vh; opacity: 0; }
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        
+
         /*  */
         button {
           display:grid;
@@ -103,10 +103,10 @@
             white-space: nowrap;
             margin: 10px;
         }
-        
+
         button:hover { transform: rotate(-3deg); }
         button:active { transform: scale(0.95) rotate(-3deg); }
-        
+
         @keyframes shimmer {
             to { background-size: 100% 100%; box-shadow: -2px -2px 6px rgba(255, 227, 126, 0.5), 2px 2px 6px rgba(144, 148, 255, 0.5); }
         }
@@ -118,23 +118,23 @@
             position: relative;
             opacity: 0;
         }
-        
+
         .reveal.active {
             opacity: 1;
         }
-        
+
         .active.fade-bottom {
             animation: fade-bottom 1s ease-in;
         }
-        
+
         .active.fade-left {
             animation: fade-left 1s ease-in;
         }
-        
+
         .active.fade-right {
             animation: fade-right 1s ease-in;
         }
-        
+
         @keyframes fade-bottom {
             0% {
                 transform: translateY(50px);
@@ -145,7 +145,7 @@
                 opacity: 1;
             }
         }
-        
+
         @keyframes fade-left {
             0% {
                 transform: translateX(-100px);
@@ -156,7 +156,7 @@
                 opacity: 1;
             }
         }
-        
+
         @keyframes fade-right {
             0% {
                 transform: translateX(100px);
@@ -222,17 +222,17 @@
             box-shadow: 0 15px 50px rgba(0,0,0,0.5);
             z-index: 1000;
         }
-        
+
         .newWindow.active {
             display: grid;
             animation: popIn 0.5s ease-out;
         }
-        
+
         @keyframes popIn {
             0% { transform: scale(0.8); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
-        
+
         .newWindow.swapped {
             grid-template-columns: 65% 35%;
             grid-template-areas: "content images";
@@ -242,11 +242,11 @@
             grid-template-columns: 100%;
             grid-template-areas: "content";
         }
-        
+
         .newWindow.no-images .window-column {
             display: none;
         }
-        
+
         .window-column {
             display: flex;
             flex-direction: column;
@@ -258,7 +258,7 @@
             border-right: 2px solid rgba(255,255,255,0.1);
             padding: 0 15px;
         }
-        
+
         .title-grid-container {
             display: grid;
             grid-template-columns: 1fr auto;
@@ -270,14 +270,14 @@
             border-radius: 10px;
             margin-bottom: 15px;
         }
-        
+
         .title-grid-container h3 {
             text-align: center;
             margin: 0;
             color: #ffeb3b;
             font-size: 1.4rem;
         }
-        
+
         .image-container {
             flex: 1;
             overflow-y: auto;
@@ -289,7 +289,7 @@
             max-width: 800px;
             height: calc(100vh - 200px);
         }
-        
+
         .content-container {
             display: flex;
             flex-direction: column;
@@ -368,7 +368,7 @@
             justify-content: center;
             padding: 10px;
         }
-        
+
         .image-square {
             height: 400px;
             width: 100%;
@@ -408,7 +408,7 @@
             scrollbar-width: none; /* Firefox */
             -ms-overflow-style: none; /* IE 10+ */
         }
-        
+
         .image-display img {
             max-width: 100%;
             max-height: 100%;
@@ -417,7 +417,7 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        
+
         .image-info {
             display: flex;
             flex-direction: column;
@@ -492,7 +492,7 @@
             border-radius: 10px;
             display: inline-block;
         }
-        
+
         .example-box {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
@@ -501,7 +501,7 @@
             max-width: 600px;
             text-align: left;
         }
-        
+
         .example-step {
             margin: 10px 0;
             padding: 10px;
@@ -517,39 +517,39 @@
                 grid-template-columns: 100%;
                 grid-template-areas: "content";
             }
-            
+
             .window-column {
                 display: none;
             }
-            
+
             .text-controls-container {
                 grid-template-columns: 1fr;
             }
-            
+
             .image-square {
                 height: 300px;
                 min-width: 300px;
             }
-            
+
             h1 {
                 font-size: 2.5rem;
             }
-            
+
             h2 {
                 font-size: 2rem;
             }
-            
+
             .zoomable-text {
                 padding: 0;
                 max-width: 100%;
             }
         }
-        
+
         /* Close button in text controls for no-image mode */
         .text-close-button {
             display: none;
         }
-        
+
         .newWindow.no-images .text-close-button {
             display: block;
         }
@@ -577,7 +577,7 @@
             color: #333;
             border: 2px solid #ff9800;
         }
-        
+
         .summary-line {
             display: flex;
             justify-content: space-between;
@@ -586,13 +586,13 @@
             margin-bottom: 8px;
             position: relative;
         }
-        
+
         .summary-content {
             flex-grow: 1;
             position: relative;
             padding-right: 30px; /* Space for status dot */
         }
-        
+
         .summary-text {
             position: relative;
             z-index: 2;
@@ -603,7 +603,7 @@
             font-size: inherit;
             width: 95%;
         }
-        
+
         .summary-dots {
             position: absolute;
             top: 0;
@@ -614,7 +614,7 @@
             pointer-events: none;
             letter-spacing: 2px;
         }
-        
+
         .summary-number {
             width: 5%;
             min-width: 50px;
@@ -629,7 +629,7 @@
             color: #e65100;
             font-weight: bold;
         }
-        
+
         .summary-header {
             text-align: center;
             margin-bottom: 25px;
@@ -641,7 +641,7 @@
             position: relative;
             padding-bottom: 15px;
         }
-        
+
         .summary-header::after {
             content: "";
             position: absolute;
@@ -652,25 +652,25 @@
             background: linear-gradient(90deg, transparent, #ff9800, transparent);
             border-radius: 3px;
         }
-        
+
         .summary-box::-webkit-scrollbar {
             width: 10px;
         }
-        
+
         .summary-box::-webkit-scrollbar-track {
             background: rgba(0,0,0,0.1);
             border-radius: 10px;
         }
-        
+
         .summary-box::-webkit-scrollbar-thumb {
             background: #ff9800;
             border-radius: 10px;
         }
-        
+
         .summary-box::-webkit-scrollbar-thumb:hover {
             background: #ff7d00;
         }
-        
+
         .summary-hint {
             text-align: center;
             margin-top: 15px;
@@ -685,7 +685,7 @@
                 padding: 20px;
                 font-size: 16px;
             }
-            
+
             .summary-header {
                 font-size: 20px;
             }
@@ -793,12 +793,12 @@
             box-shadow: 0 15px 50px rgba(0,0,0,0.5);
             z-index: 1000;
         }
-        
+
         .NEWWindow.active {
             display: block;
             animation: popIn 0.5s ease-out;
         }
-        
+
         .window-header {
             display: flex;
             justify-content: space-between;
@@ -1002,29 +1002,29 @@
             h1 {
                 font-size: 2.5rem;
             }
-            
+
             h2 {
                 font-size: 2rem;
             }
-            
+
             .table-container {
                 padding: 20px;
             }
-            
+
             .enhanced-table {
                 font-size: 0.9rem;
             }
-            
-            .enhanced-table th, 
+
+            .enhanced-table th,
             .enhanced-table td {
                 padding: 12px 10px;
             }
-            
+
             .table-controls {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .control-btn {
                 width: 100%;
                 max-width: 300px;
@@ -1036,11 +1036,11 @@
             h1 {
                 font-size: 2rem;
             }
-            
+
             h2 {
                 font-size: 1.6rem;
             }
-            
+
             .enhanced-table {
                 display: block;
                 overflow-x: auto;
@@ -1283,14 +1283,14 @@
             background: rgba(0,0,0,0.3);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-        
+
         .example-slider {
             display: flex;
             width: 100%;
             height: 100%;
             transition: transform 0.5s ease-in-out;
         }
-        
+
         .example-window {
             flex: 0 0 100%;
             height: 100%;
@@ -1305,7 +1305,7 @@
             background: rgba(0,0,0,0.2);
             border-radius: 10px;
         }
-        
+
         .example-window img {
             max-width: 100%;
             max-height: 150px;
@@ -1313,14 +1313,14 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
-        
+
         .example-window ul {
             list-style-type: none;
             padding: 0;
             width: 100%;
             max-width: 300px;
         }
-        
+
         .example-window li {
             padding: 8px 15px;
             margin: 6px 0;
@@ -1328,7 +1328,7 @@
             border-radius: 6px;
             border-left: 3px solid #ff9800;
         }
-        
+
         .example-controls {
             display: flex;
             justify-content: center;
@@ -1336,14 +1336,14 @@
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .example-dots {
             display: flex;
             justify-content: center;
             margin-top: 15px;
             gap: 8px;
         }
-        
+
         .example-dot {
             width: 12px;
             height: 12px;
@@ -1352,7 +1352,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .example-dot.active {
             background-color: #ff9800;
             transform: scale(1.2);
@@ -1493,7 +1493,7 @@
                         <h3>Geometric Representation</h3>
                     </div>
                 </div>
-                
+
                 <div class="image-square">
                     <div class="image-controls">
                         <button class="button-87" onmousedown="startZoom('in', 'image2')" onmouseup="stopZoom()" onmouseleave="stopZoom()">+</button>
@@ -1509,7 +1509,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="content-container">
             <div class="text-controls-container">
                 <div class="text-controls-grid">
@@ -1601,7 +1601,7 @@
                         <h3>Geometric Representation</h3>
                     </div>
                 </div>
-                
+
                 <div class="image-square">
                     <div class="image-controls">
                         <button class="button-87" onmousedown="startZoom('in', 'image2')" onmouseup="stopZoom()" onmouseleave="stopZoom()">+</button>
@@ -1617,7 +1617,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="content-container">
             <div class="text-controls-container">
                 <div class="text-controls-grid">
@@ -1638,7 +1638,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Visualization Window -->
     <div id="newWindow_3" class="newWindow">
         <div class="window-column">
@@ -1660,7 +1660,7 @@
                         <h3>Geometric Representation</h3>
                     </div>
                 </div>
-                
+
                 <div class="image-square">
                     <div class="image-controls">
                         <button class="button-87" onmousedown="startZoom('in', 'image2')" onmouseup="stopZoom()" onmouseleave="stopZoom()">+</button>
@@ -1676,7 +1676,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="content-container">
             <div class="text-controls-container">
                 <div class="text-controls-grid">
@@ -1705,7 +1705,7 @@
                                     <li>Polynomial expressions</li>
                                 </ul>
                             </div>
-                
+
                             <!-- Window 2 -->
                             <div class="example-window">
                                 <h3>Geometry Concepts</h3>
@@ -1715,7 +1715,7 @@
                                     <li>Trigonometric ratios</li>
                                 </ul>
                             </div>
-                
+
                             <!-- Window 3 -->
                             <div class="example-window">
                                 <h3>Calculus Fundamentals</h3>
@@ -1725,7 +1725,7 @@
                                     <li>Integrals</li>
                                 </ul>
                             </div>
-                
+
                             <!-- Window 4 -->
                             <div class="example-window">
                                 <img src="https://via.placeholder.com/400x200/2a5298/ffffff?text=Math+Visualization" alt="Math Visualization">
@@ -1738,16 +1738,16 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="example-controls">
                         <button class="button-87" onclick="slideExample(-1)">Previous</button>
-                        
+
                         <div class="example-dots" id="exampleDots">
                             <!-- Dots will be generated here -->
                         </div>
-                        
+
                         <button class="button-87" onclick="slideExample(1)">Next</button>
-                    </div>               
+                    </div>
                 </div>
             </div>
         </div>
@@ -2339,6 +2339,338 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
         <!---->
         <!---->
         <!---->
+        <section>
+          <div>
+            <h3>Fosili i procesi fosilizacije</h3>
+            <div>
+              <div>
+                <div>
+              </div>
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Što su fosili</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+                    Fosili (okamine) su ostatci živih bića koja su živjela u geološkoj prošlosti. Fosili mogu biti neposredni (sami skeleti ili dijelovi skeleta) i posredni (ostatci koji ukazuju na postojanje pojedinih skeletnih ostataka, ali sami skeletni dijelovi više nisu primarno prisutni).
+Fosile proučava znanost koja se zove paleontologija (grč. palaios - star; on (ontos) - biće; logos - riječ; odnosno lat. fossus - nešto iskopano), koja je usko pove- zana s geologijom. S obzirom na to da su ostatci najčešće dijelovi skeleta pojedinih organizama, paleontolozi na temelju morfologije određuju kojim su skupinama pri- padali, ali i kakav je bio njihov način života. Na temelju očuvanih zajednica fosilnih organizama pokušavaju shvatiti međusobne odnose, ali i zahtjeve organizama pre- ma okolišu u kojem su živjeli. U paleontologiji se primjenjuje aktualistički princip te se na temelju spoznaja o današnjim organizmima i okolišu pokušava protumačiti način života organizama u geološkoj prošlosti.
+je plastič a posudi tnoga pr a uzorak oskopski
+Fosilizacija uključuje niz različitih pojava i procesa kojima dolazi do očuva- nja organizma ili njegovih dijelova, odnosno postanka fosila (sl. 1.).
+Procese koji se zbivaju na određenom organizmu od trenutka njegove smrti pa sve do postanka fosila proučavamo tafonomijom (sl. 1.). Ona uključuje razli- čite faze, a započinje nekrolizom, kojom se pokušavaju objasniti način uginuća i raspadanje dijelova organizma nakon njegove smrti. Napadi predatora kao uzrok uginuća često se mogu jasno iščitati i u fosilnom zapisu. Završi li uginuli organizam u vodenoj sredini, veća je mogućnost očuvanja.
+Slijedi uklapanje ostataka organizma u sediment, što je vrlo važna faza za oču- vanje ostataka. Ove procese opisuje biostratonomija. Bitno je prepoznati i je li riječ o ostatcima koji su sačuvani na mjestu uginuća - autohtoni fosili, ili ostat- cima koji su alohtoni. Kod alohtonih ostataka razlikujemo one koji su premje- šteni (unutar naslaga iste starosti) i pretaloženi (naknadnim procesima erodirane su starije naslage i fosilni ostatci te istaloženi unutar kasnije nastalih (mladih) naslaga). Ključna je posljednja faza, fosilna dijageneza, kada započinju kemijski procesi koji će pridonijeti očuvanju ostataka, ili pak njihovu otapanju, ovisno o veličini čestica i poroznosti sedimenta u kojem je ostatak. U sitnozrnastom sedi- mentu skeleti se mogu bolje očuvati, a njihovo je očuvanje u krupnozrnastom sedimentu otežano ili gotovo nemoguće.
+(SLIKA 1)
+        	</p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                </div>
+                <!---->
+                <!---->
+                <button class="button-87" role="button" value="Lock Current"
+                  onclick="toggleWindow('newWindow_1');lockA()">Načini fosilizacije</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+(SLIKA 2)
+U ovom je procesu posrijedi zamjena organske tvari anorganskom i ispuna šup- ljina skeleta. Petrifikacija se detaljnije može objasniti permineralizacijom - procesom kojim se mineralnim tvarima ispunjavaju šupljine određenog skelet- nog ostatka, rekristalizacijom procesom kojim se minerali poput aragonita (manje stabilna modifikacija kalcijeva karbonata, CaCO,) zamjenjuju stabilnijim kalcitom. Ovaj proces nije vidljiv golim okom, nego mikroskopskim pregledom skeleta. Ispunjen i rekristaliziran ostatak skeleta neposredan je ostatak. Kao dio procesa petrifikacije, uz prisutnost i drugih minerala (poput dolomita, kreme- na, željezovitih minerala) u određenoj vodenoj sredini, može nastati i zamjena originalnog skeleta, čime će ostatak poprimiti i boju minerala koji zamjenjuje originalan skelet (sl. 3.). S obzirom na to da više nema izvornog skeleta, ovakav će ostatak postati posredan.
+Drugi učestali proces fosilizacije i očuvanja neposrednih ostataka jest kar- bonizacija, kojim se iz ostatka gube volatilne komponente, a preostaju spojevi ugljika. Ovaj je proces čest u močvarnim područjima, u kojima zbog velike količine organske tvari, i povećanja tlaka i temperature tijekom dugotrajnog taloženja, na- staje treset i u kasnijim fazama ugljen. Do karbonizacije može doći i brzo pri požaru ili vulkanskim erupcijama.
+Proces u kojem se stvara mineralna korica, najčešće na biljnim ostatcima u prezasićenim vodenim sredinama, nazivamo inkrustacija. Sama mineralna kori- ca potpomaže očuvanje ostataka, ali s vremenom često nestaje i korica i ostatak
+poput lišća, pa se očuvanje često pretvara u posredan ostatak, najčešće otisak u sedimentu.
+Ako ostatak organizma završi u mediju koji sprječava njegovo daljnje ras- padanje, može se sačuvati gotovo neizmijenjen, odnosno može se konzervirati. Takav tip očuvanja uključuje organizme u jantaru (fosilnoj smoli bora), katranu ili ledu. Poznata su tako očuvanja različitih člankonožaca (posebice kukaca) u jantaru (sl. 4.), nalazi skeletnih dijelova različitih kralježnjaka u asfaltnim jamama (npr. La Brea u Kaliforniji, sl. 5.) te nalazi mamuta u ledu, gdje biva očuvan ne samo skelet već i ostala tkiva, katkad i dlaka, čak i sadržaj želudca.
+Neki ostatci organizama mogu se sačuvati gotovo neizmijenjeni u odnosu prema originalnom skeletu. To se obično događa u ostataka čiji je mineralni skelet građen od stabilnijih minerala poput kalcita.
+(SLIKA 3)
+(SLIKA 4)
+(SLIKA 5)
+U krupnijezrnastim i poroznijim sedimentima češće je otapanje manje otpornih mineralnih skeleta (najčešće od minerala aragonita) čime mogu ostati sačuvani posredni ostatci poput otisaka, kamenih jezgara i skulpturiranih kamenih jez- gara (sl. 6). Otisak je utisnut oblik skeleta u sedimentu koji okružuje vanjski dio skeleta. Kamenu jezgru čini sediment koji je ispunio unutarnji prostor skeleta. Skulpturirana je kamena jezgra kao skulptura, gdje sediment posve prikazuje izgled nekadašnjeg skeleta izvana, s time da je ispunio šupljine unutar skeleta i prostor skeleta. Prema navedenome, svi su ovi ostatci posredni, odnosno ukazuju na prisutnost određenih organizama, često prikazujući i detalje njihove građe, no skeletni su dijelovi tijekom dijagenetskih promjena posve nestali.
+Vrlo su važni fosilni ostatci ihnofosili - tragovi životnih aktivnosti organizama, poput kretanja, hranjenja, ubušivanja, stanovanja, odmaranja i slično. Takvi nam ostatci daju dodatne informacije o načinu života i međusobnom odnosu organiza- ma u geološkoj prošlosti. Poznati nalazi ihnofosila uključuju otiske stopala dino- saura koji upućuju na način kretanja i životnu aktivnost ovih velikih gmazova, a Hrvatskoj se mogu naći na više od 20 lokaliteta. Najpoznatiji su nalazi s područja Nacionalnog parka Brijuni (sl. 7.).
+Važni ostatci koji nas upućuju na način života organizama jesu i koproliti. Riječ je o fosilnim produktima probave iz kojih možemo proučavati hranidbene navike organizama, a time i njihovu interakciju s okolišem.
+Vrste fosilnih ostataka i njihova primjena
+Fosile klasificiramo na različite načine, no s obzirom na njihovu primjenu i sazna- nja vezano za okoliš u kojem su živjeli ili vrijeme kada su se pojavljivali, dijelimo ih na provodne (engl. Index Fossil) i facijesne fosile.
+Provodni su fosili ostaci onih organizama koji su se kratko pojavljivali u geo- loškoj prošlosti, ali su bili rasprostranjeni na širokom prostoru. Njihovim nalaskom može se određivati relativna starost naslaga, ali i uspoređivati naslage na različitim dijelovima Zemlje. Dobri su provodni fosili npr. trilobiti, konodonti, amoniti, belem- niti, rudisti, neke planktonske foraminifere i dr.
+Facijesni su fosili ostatci organizama koji su osjetljivi na promjene uvjeta u okolišu. Nalaskom takvih ostataka može se pretpostaviti u kakvu su okolišu živjeli. Dobar su primjer facijesnih fosila mamuti koji su živjeli u ledeno doba ili pak koralji koji zahtijevaju specifične uvjete u okolišu kako bi opstali.
+S obzirom na veličinu skeleta ili fragmenata koje proučavamo, fosile možemo po- dijeliti i na makrofosile i mikrofosile. Mikrofosilima se smatraju ostatci manji od 2 mm, jer za proučavanje dijelova manjih od 2 mm trebamo pomagalo poput povećala ili mikroskopa. Najdetaljniju sliku mikroostataka (fotomikrografiju, sl. 8.) možemo dobiti pomoću skenirajućega elektronskog mikroskopa (engl. Scanning Electron Microscope, SEM).
+Mikrofosile proučava mikropaleontologija, a jedna od najpoznatijih mikro- paleontologinja u Hrvatskoj i svijetu bila je Vanda Kochansky-Devidé (1915. - 1990.).
+U prirodi se katkad nailazi na tvorevine koje nisu organskog podrijetla, ali nalikuju na fosilne ostatke biljaka. Tada govorimo o pseudofosilima ili lažnim fosilima. Primjer su takvih tvorbi spojevi mangana koje nazivamo dendriti (sl. 9.).
+(SLIKA 6)
+(SLIAK 7)
+(SLIKA 8)
+        </p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                <!---->
+                <!---->
+                <button class="button-87" role="button" value="Lock Current"
+                  onclick="toggleWindow('newWindow_1');lockA()">Fosilna ležišta</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+Najbolje primjere očuvanja pojedinih organizama, bilo da je riječ o većoj količini (koncentraciji) skeleta ili malobrojnim dobro očuvanim („konzerviranim") primjer- cima nalazimo u tzv. fosilnim ležištima (njem. Fossillagerstätten ili Lagerstätten). Stoga ležišta dijelimo u dvije velike skupine, koncentracijska i konzervacijska, a u svakoj nalazimo po tri tipa ležišta.
+Tipovi su koncentracijskih ležišta:
+a) kondenzacijska ležišta ili kokine - gdje nalazimo mnogobrojne primjerke, če- sto male raznolikosti, koji su uglavnom loše očuvani. Primjer su takvih ležišta litiotidni vapnenci (naziv prema školjkašima roda Lithiotis) iz starije jure koje možemo naći na brojnim mjestima u Dinaridima, ali i u različitim dijelovima svijeta. Ovaj se kamen zbog svoje ljepote često upotrebljava kao arhitekton- sko-građevni kamen (sl. 10.).
+b) aluvijalna ležišta - nastaju na mjestima smanjene brzine toka u vodama teku- ćicama (sl. 11.). U ovakvim ležištima, osim ostataka organizama koji su živjeli u rijekama, često nalazimo i dijelove skeleta kopnenih kralježnjaka, koji su stradali pri dolasku na pojilo.
+c) koncentracijske zamke - nakupine raznovrsnog skeletnog materijala unutar nekog prostora, poput špilja ili jama. Nalazi skeleta poznati su i u špiljama poput Veternice, Cerovačkih špilja i sl.
+Konzervacijska ležišta dijelimo na:
+1. stagnacijska ležišta - gdje u dijelovima okoliša sa smanjenom koncentracijom kisika ili povećanim salinitetom nalazimo dobro očuvane ostatke organizama, koji su najčešće zalutali u ovakva nepovoljna područja ili su u njima završili nakon uginuća. Dobre primjere ovakvih ležišta nalazimo u Njemačkoj, poput jurskih Solnhofen vapnenaca bogatih različitim ostatcima organizama. Ovdje su nađeni primjerci praptica roda Archaeopteryx (sl. 12.), ali i mnogobrojni pri- mjerci riba i različitih beskralježnjaka. Drugi je primjer ležište Holzmaden sa šejlovima, također jurske starosti, u kojem su nađeni dobro očuvani ostatci morskih gmazova (npr. Ichthyosaurus (sl. 13.), Plesiosaurus), amonita, krinoida (morskih ljiljana), školjkaša i dr.
+2. urušena ležišta - nastaju naglim zatrpavanjem zajednica organizama u du-
+bljim dijelovima morskih okoliša zbog mutnih struja kojima se naglo obru- šavaju mulj i pijesak iz plićih dijelova. Ovakva ležišta mogu nastati i pri vul- kanskim erupcijama taloženjem velikih količina vulkanskog pepela. Primjer je urušena ležišta Burgess Shale iz zapadne Kanade, gdje je očuvana raznolika zajednica vrlo neobičnih organizama iz perioda kambrija (starosti oko 510 mi- lijuna godina).
+3. konzervacijske zamke - sadržavaju iznimno dobro očuvane ostatke, a riječ je o očuvanju organizama poput kukaca u jantaru (sl. 4.), mamuta u ledu ili asfal- tu (sl. 5.) i sl. Primjer su ovakva ležišta već spomenute asfaltne jame La Brea iz Kalifornije, u kojima su ostatci organizama stari oko 38 000 godina.
+(SLIKA 9)
+(SLIKA 10)
+(SLIKA 11)
+        </p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                <!---->
+                <!---->
+              </div>
+            </div>
+        </section>
+        <!---->
+        <!---->
+        <!---->
+        <section>
+          <div>
+            <h3>Pojava i razvoj života na Zemlji</h3>
+            <div>
+              <div>
+                <div>
+              </div>
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Geološka vremenska ljestvica</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+Kako je već spomenuto u dijelu o nastanku i gradi Zemlje, postoje različite klasifikacije i ljestvice pomoću kojih stijenama na Zemlji nastojimo odrediti starost. Najkorištenija je geokronološka ljestvica (sl. 1.) pomoću koje prikazujemo vrijeme tijekom kojeg su taložene pojedine naslage. Ljestvica se sastoji od najvećih vremenskih segmenata koje nazivamo eoni te manjih segmenata era, koje se dalje dijele na periode, epohe i najkraće dijelove - doba. Pojedini eoni, ere i periodi bit će prikazani u nastavku, zajedno s najvažnijim obilježjima. Granice razdoblja postavljene su na temelju zna- čajnih događaja u geološkoj prošlosti. Tako, primjerice, granicu između paleozojske i mezozojske te mezozojske i kenozojske ere obilježavaju masovna izumiranja (sl. 1.).
+(SLIKA 1)
+        	</p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                </div>
+                <!---->
+                <!---->
+                <button class="button-87" role="button" value="Lock Current"
+                  onclick="toggleWindow('newWindow_1');lockA()">Pretkambrij</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+Zemlja je na početku svog nastanka, zbog akrecije, sudara s drugim tijelima Sun- čeva sustava i obilja kratkoživućih radioaktivnih elemenata, bila užarena i na njoj nije bilo vode ni većine plinova potrebnih za razvoj života. Najdulje razdoblje, tijekom kojeg se Zemlja postupno oblikovala u planet kakav poznajemo, nazivamo pretkambrij ili kriptozoik, a dijelimo ga na neformalno razdoblje - hadij te eone arhaik i proterozoik. Početno razdoblje postanka i razvoja Zemlje, trajanja oko 600 milijuna godina (4,56 milijardi do 4 milijarde godina), nazvano je hadij po grč- kom bogu mrtvih i podzemnog svijeta. U to je vrijeme na Zemlji bila izražena jaka vulkanska aktivnost, ali i bombardirana je iz svemira, a atmosfera je bila bogata izumiram ugljikovim dioksidom (sl. 2.). S obzirom na sve naknadne procese na Zemlji gotovo ne postoje stijene iz ovoga razdoblja (sl. 3.). lako se smatralo da u hadiju nije po- stojao život, najnovija istraživanja pokazuju da su potkraj njega možda postojali prvi primitivni jednostanični organizmi.
+Tijekom eona arhaika (oko 4 do 2,5 milijarde godina) hladi se i stvara prva kora na Zemlji. Relativno je malo kontinentskih prostora iz toga vremena - kratona (sl. 4.), očuvano i danas.
+-201
+→ masovno izumira
+Arhaik je vrijeme u kojem su se sigurno pojavili prvi jednostavni organizmi - cija- nobakterije. Provođenjem fotosinteze pridonijele su stvaranju kisika u prvotnoj atmosferi, koju je do tada najvećim dijelom činio ugljikov dioksid. Cijanobakterije, i mulj koji se lijepi na njih u plitkomorskim prostorima, stvaraju laminirane naslage koje nazivamo stromatoliti (sl. 5. a.). Ovakvi ostatci najstariji su dokazani oblici života na Zemlji. Starosti su oko 3,4 milijarde godina, a nađeni su u zapadnoj Australiji. Slične životne oblike i tvorevine nalazimo i danas (sl. 5. b.) i smatramo ih živim fosilima".
+(SLIKA 2)
+(SLIKA 3)
+(SLIKA 4)
+(SLIKA 5)
+(SLIKA 6)
+(SLIKA 7)
+(SLIKA 8)
+        </p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                <!---->
+                <!---->
+                <button class="button-87" role="button" value="Lock Current"
+                  onclick="toggleWindow('newWindow_1');lockA()">Fanerozoik</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+vjeli spu- ma.
+gle- dnu
+Li su
+esto
+i za
+brij-
+osti, liku
+Fanerozojski eon (oko 539 milijuna godina do danas) poznatiji je dio geološke prošlosti, čije naslage češće nalazimo na površini Zemlje. Kako je fanerozoik vrije- me znatnijeg razvoja različitih živih bića, u ovim je naslagama i češći fosilni zapis. Unutar fanerozojskog eona razlikujemo tri ere: najstariji paleozoik (grč. palaiós -stari, zöé - život), mezozoik (doba gmazova) te najmlađu eru kenozoik (doba novog života).
+Naslage starije od 600 milijuna godina rijetko nalazimo na površini Zemlje. Razlog tome je tektonika ploča i stalne promjene na Zemlji. Više o tome saznat ćete u drugoj cjelini udžbenika.
+Paleozoik - vrijeme,,starog života"
+Paleozoik započinje prije oko 539 milijuna godina, a početak mu je definiran učestalom pojavom tragova životne aktivnosti organizama koji su se kretali kroz sediment (ihnofosili). Tijekom paleozoika pojavljuju se različiti organizmi od kojih mnoge poznajemo i danas. Najvažniji i nagli razvoj života u prvom razdoblju paleozoika - kambriju, veže se uz tzv. kambrijsku eksploziju koja se odnosi na relativno naglu pojavu složenih višestaničnih organizama na Zemlji.
+Kambrij (oko 539 do 485 milijuna godina) je period u kojem je život vezan samo uz morske sredine (sl. 10.), a razvijaju se različiti beskralježnjaci poput spužvi i njima srodnih arheocijatida te školjkaša, puževa, trilobita, ramenonožaca, krinoida i dr.
+ajpoznatiji, vrlo napredni organizmi ovoga razdoblja, koji su živjeli u cijelom aleozoiku, upravo su trilobiti člankonošci s oklopom na leđnoj strani tijela 1. 11. a.). Pri opasnosti mogli su se sklupčati u kuglice kako bi tako zaštitili osjet- iviji trbušni dio tijela (sl. 11. b.). Trilobiti su imali složene i vrlo razvijene oči, čiji se nještaj na glavi razlikovao ovisno o načinu života (mogli su plivati, kretati se po iorskome dnu ili se ukopavati u sediment).
+Arheocijatidi (sl. 12.) su organizmi vrećasta tijela iz skupine Parazoa, koji su živjeli samo tijekom kambrija. Zbog središnje šupljine svojim izgledom podsjećaju na spu- žve, iako im skelet nije sačinjen od iglica već od dvoslojne stijenke s pregradama.
+Ramenonošci (Brachiopoda) su organizmi koji imaju dvije ljušture, pa izgle- dom podsjećaju na školjke, ali, za razliku od njih, uvijek imaju jednu manju i jednu veću ljušturu (sl. 13.). lako ramenonošci žive i danas, tijekom paleozoika bili su mnogo rašireniji i raznolikiji kao skupina.
+Krinoidi (Crinoidea) su bodljikaši koji izgledom podsjećaju na biljke pa ih se često naziva morskim ljiljanima (sl. 14.). Imaju stapku i korijen kojim su pričvršćeni za dno, a na vrhu im je tijela kruna koju čine čaška i krakovi.
+Jedno je od fosilnih ležišta s dobro očuvanim ostatcima neobičnih kambrij- skih organizama (sl. 15. a. i 15. b) fauna Burgess Shale, srednjokambrijske starosti, nađena u zapadnoj Kanadi, a ostatci organizama sačuvani su ponajviše u obliku otisaka.
+Tijekom sljedećeg perioda, ordovicija (oko 485 do 444 milijuna godina), pojavljuju se i mahovnjaci (Bryozoa) - kolonijski organizmi koji izgledom i načinom života podsjećaju na koralje (sl. 16. a. i 16. b.) te prvi glavonošci - nautilidi, koji su u po- četku štapićasta, a kasnije planispiralnog oblika (današnji je predstavnik nautilida indijska ladica (Nautilus) koju smatramo živim fosilom, sl. 17.). U ovom razdoblju već nalazimo gotovo sve skupine beskralježnjaka koje i danas poznajemo.
+Nažalost, mnoge su se skupine organizama relativno kratko pojavljivale u geo- loškoj prošlosti. Razlog su nestanku masovna izumiranja koja su bila česta u geološkoj prošlosti.
+Najčešće se navodi pet velikih izumiranja u geološkoj prošlosti, s time da mnogi smatraju kako je šesto izumiranje danas u tijeku. No bilo je i mnogo manjih izumiranja koja su smanjila brojnost i raznolikost pojedinih skupina organizama.
+Potkraj ordovicija nastupilo je prvo masovno izumiranje, koje je po brojnosti izu- mrlih organizama drugo najveće u geološkoj prošlosti. Smatra se da su glavni razlog izumiranju bile znatne klimatske promjene i promjena razine mora, a naj- više su stradali plitkomorski organizmi koji su živjeli u ekvatorskim područjima. Potkraj ordovicija se tako znatno smanjila raznolikost beskralježnjaka, poput tri- lobita, nautilida, koralja, ramenonožaca, bodljikaša (posebice krinoida), graptoli- ta, mahovnjaka i konodonata (sl. 18.). Unatoč brojnim izumiranjima, u kojima su mnogobrojne skupine i posve nestale, srodnici nekih od ovih organizama i danas su na Zemlji.
+Konodonti su fosilni ostatci neobičnih ribolikih organizama iz razreda Conodonta. Najčešće izgledaju poput zubića ili listića. Građeni su od kalcijeva fosfata, materijala otpornog na dijagenetske promjene, te se zbog toga mogu dobro očuvati. Budući da je riječ o mikroskopskim ostatcima, koji su najčešće veličine do 2 mm, iz stijena se izdvajaju posebnim metodama koje se temelje na njihovu otapanju kiselinama. Možemo ih naći u stijenama od kambrija do kraja trijasa, kada posve nestaju. Zbog raznolikih oblika, specifičnih za pojedine dijelove paleozojske ere i trijasa, smatra ih se odličnim provodnim fosilima.
+Periodi silura (oko 444 do 419 milijuna godina) i devona (oko 419 do 359 milijuna godina) srednji su dio paleozojske ere kada je klima bila topla. Život i dalje buja u morskim prostorima te postupno počinje razvoj prvih jednostavnih biljaka i na kopnu. U siluru se pojavljuju prve ribe s čeljustima, a beščeljusnice su bile pozna- te i prije, od kambrija. Ribe sada nalazimo u slatkovodnim i morskim sredinama. U morskim sredinama nalazimo i velike škorpione (Eurypterida).
+Ordovicij i silur nazivaju se i „doba graptolita" jer su upravo polusvitkovci (Hemichordata) iz skupine Graptolithina (sl. 19.) obilježili ovo vrijeme najvećom brojnošću i raznolikošću.
+Silur je vrijeme raznolikih organizama, posebice u tropskim morskim po- dručjima, pa su ga tako obilježili i neobični tabulastromni grebeni koje su gradili organizmi poput spužava, spužvama srodnih stromatoporoida te neobičnih tabu- latnih i rugoznih koralja.
+Devon je period koji nazivamo i „doba riba" jer su u ovo vrijeme živjele sve sku- pine riba koje su ikada postojale (ribe beščeljusnice i ribe čeljusnice - među njima ribe oklopnjače, prakoštunjače (koje su živjele samo tijekom paleozoika) te danas živuće koštunjače i hrskavičnjače) (sl. 20.). U devonu se u morima pojavljuju glavo- nošci amoniti, a tada i prvi vodozemci izlaze na kopno na kojem nalazimo i prve kukce (bez krila). No u mlađem devonu dolazi do još jednog izumiranja, koje je pogodilo i morske i slatkovodne organizme. Ponajviše su stradali organizmi koji su stvarali tabulastromne grebene. Smatra se da je ovo izumiranje posljedica global- nog zahlađenja mora i ponajviše je pogodilo zajednice tropskih područja.
+Periodi silura (oko 444 do 419 milijuna godina) i devona (oko 419 do 359 milijuna godina) srednji su dio paleozojske ere kada je klima bila topla. Život i dalje buja u morskim prostorima te postupno počinje razvoj prvih jednostavnih biljaka i na kopnu. U siluru se pojavljuju prve ribe s čeljustima, a beščeljusnice su bile pozna- te i prije, od kambrija. Ribe sada nalazimo u slatkovodnim i morskim sredinama. U morskim sredinama nalazimo i velike škorpione (Eurypterida).
+Ordovicij i silur nazivaju se i „doba graptolita" jer su upravo polusvitkovci (Hemichordata) iz skupine Graptolithina (sl. 19.) obilježili ovo vrijeme najvećom brojnošću i raznolikošću.
+Silur je vrijeme raznolikih organizama, posebice u tropskim morskim po- dručjima, pa su ga tako obilježili i neobični tabulastromni grebeni koje su gradili organizmi poput spužava, spužvama srodnih stromatoporoida te neobičnih tabu- latnih i rugoznih koralja.
+Devon je period koji nazivamo i doba riba" jer su u ovo vrijeme živjele sve sku- pine riba koje su ikada postojale (ribe beščeljusnice i ribe čeljusnice - među njima ribe oklopnjače, prakoštunjače (koje su živjele samo tijekom paleozoika) te danas živuće koštunjače i hrskavičnjače) (sl. 20.). U devonu se u morima pojavljuju glavo- nošci amoniti, a tada i prvi vodozemci izlaze na kopno na kojem nalazimo i prve kukce (bez krila). No u mlađem devonu dolazi do još jednog izumiranja, koje je pogodilo i morske i slatkovodne organizme. Ponajviše su stradali organizmi koji su stvarali tabulastromne grebene. Smatra se da je ovo izumiranje posljedica global- nog zahlađenja mora i ponajviše je pogodilo zajednice tropskih područja.
+U geološkoj su prošlosti postojale različite skupine koralja, od kojih su danas živući oktokoralji i heksakoralji. U paleozoiku su živjeli i tabulatni koralji s karakterističnim horizontalnim pregradama (koje nazivamo tabule) i rugozni ili tetrakoralji s karakterističnim naborima (rugama).
+Proučite različite skupine fosilnih i recentnih koralja.
+Slijedi period karbona (oko 359 do 299 milijuna godina) tijekom kojeg se kon- tinenti sudaraju i počinje stvaranje superkontinenta Pangee (sl. 21.). lako zbog močvara u ovom vremenu razdoblje karbona doživljavamo vrlo toplim, na Zemlji nalazimo led na velikom dijelu južne hemisfere.
+Sam naziv karbon vezan je uz naslage ugljena, koji je nastao taloženjem i naknad- nom preobrazbom velike količine biljne organske tvari (sl. 22.). Dominantne su biljke u ovom razdoblju papratnjače, ponajviše crvotočine i preslice. Crvotočine, poput rodova Sigillaria i Lepidodendron, dosezale su visine i do 50 m. Preslice su rasle do visine od 30-ak metara, a iz ovog je razdoblja poznat rod Calamites.
+Karbon je vrijeme i kada se javljaju kukci s krilima - iz ovoga razdoblja potječu nalazi velikih vretenaca, roda Meganeura, čiji je raspon krila iznosio i nekoliko desetaka centimetara (sl. 23.).
+Počinju se pojavljivati i prvi gmazovi, kojima amniotsko jaje (sl. 24.), s em- brijem zaštićenim unutar ljuske uz osigurane nutrijente za razvoj omogućuje lakše razmnožavanje i neovisnost o vodenim sredinama (za razliku od vodozemaca).
+Morske su sredine i dalje prostori s najraznolikijim životnim oblicima, pa su u morima česte foraminifere - jednostanični organizmi s kućicom, čiji su predstav- nici prisutni još od početka paleozoika. Za karbon (i razdoblje perma koji slijedi) je posebice važna skupina fuzulinidnih foraminifera s kućicama od mikrokristala kalcita (sl. 25.). Nalazimo i mnogobrojne beskralježnjake među kojima se ističu: koralji, krinoidi, ramenonošci, mahovnjaci, glavonošci, ali i kralježnjake poput riba, posebice morskih pasa.
+Foraminifere (krednjaci) su jednostanični organizmi koji grade kućice, najčešće od kalcijeva karbonata, ali neke skupine mogu graditi svoje kućice i od materijala iz okoliša. Veličine su najčešće od nekoliko milimetara, do najvećih ikada zabilježenih koje su u promjeru iznosile čak 19 cm. Foraminifere nalazimo od početka paleozoika, no različite skupine dominiraju kroz vrijeme. Najjednostavnija je podjela prema načinu života, na one koje žive na dnu ili uz dno - bentoske (bentičke), i one koje žive u površinskim dijelovima mora - planktonske foraminifere. Možemo ih na skupine dijeliti i prema tipu stijenke, ali i veličini kućica. Fuzulinidne foraminifere živjele su samo potkraj paleozoika te su dobri provodni fosili za taj dio geološke prošlosti.
+Različiti oblici kućica recentnih foraminifera
+Od jednostaničnih organizama, u cijelom fanerozoiku, pa tako i danas, u pučinskim dijelovima oceana žive i radiolarije. Njihov je skelet građen od opala što omogućuje bolje očuvanje njihovih kućica, posebice na velikim dubinama u oceanima u kojima se karbonatni materijal otapa.
+Zadnji je period paleozojske ere perm (oko 299 do 252 milijuna godina), kada se, s obzirom na postojanje superkontinenta Pangee (sl. 26.), znatno mijenja klima - postaje toplija i suša, što pridonosi promjenama u biljnom (papratnjače su zamije- njene golosjemenjačama) i životinjskom svijetu. Razvijaju se gmazovi iz skupine Therapsida (sl. 27.) koji su ishodišna skupina za razvoj sisavaca.
+Već tijekom, a posebice potkraj perma nastaju znatne promjene u okolišu, a naj- važnija se veže uz granicu perma i trijasa (prije oko 252 milijuna godina), kada se dogodilo najveće izumiranje u geološkoj prošlosti Zemlje. S obzirom na broj organizama na koje je utjecalo ovo izumiranje (prethodno je navođeno i do 96 % morskih i 70 % kopnenih vrsta organizama, a prema novijim istraživanjima, u koji- ma su posebno izdvojene krize tijekom perma, oko 81 - 83% morskih organizama) ovo se izumiranje naziva i majka svih izumiranja".
+Sama je granica vrlo detaljno istraživana kako bi se otkrilo što je uzrokovalo ovak- vo masovno izumiranje. Kao mogući uzroci navode se: klimatske promjene, vul- kanske erupcije, stvaranje stakleničkoga učinka, smanjena cirkulacija oceanskih voda i anoksija u oceanima, čak i mogući impakt svemirskog tijela. No, s obzirom na opseg izumiranja, najvjerojatnija je kombinacija više navedenih čimbenika. Pre- živjeti su mogli samo organizmi koji su se uspjeli prilagoditi periodičkim izmje- nama tople i hladne klime i nepovoljnim uvjetima u okolišu. Takve pretpostavke dokazuje fauna s početka sljedeće ere - mezozoika, koja nije bila raznovrsna, ali je bila široko rasprostranjena i živjela je u klimatski različitim uvjetima.
+Što zapravo znači da je neko izumi- ranje masovno i što je uopće izumi- ranje? Prema jednoj od definicija, riječ je o procesu, a ne o događaju, u kojem nestaje više od 10 % poro- dica i više od 40 % različitih vrsta u relativno kratkom razdoblju. S obzirom na to da se radi o dugim vremenskim periodima (geološka razdoblja), pojedina izumiranja tra- jala su i nekoliko tisuća, čak i dese- taka i stotina tisuća godina. Najveće masovno izumiranje bilo je potkraj perma i upravo je prema njemu postavljena granica između perma i trijasa, ali i između paleozoika i mezozoika. Podatci upućuju na to da je nestalo najmanje 81 % morskih organizama, što je teško i zamisliti u današnjim razmjerima. Sljedeće izumiranje s najvećim brojem nesta- lih skupina organizama bilo je ono potkraj ordovicija, a treće je po redu ono potkraj trijasa. Četvrto po broj- nosti izumiranje je u mlađem devo- nu, a s najmanjim brojem izumrlih organizama ono je koje je možda i najpoznatije - na granici krede i paleogena, odnosno mezozoika i kenozoika.
+(SLIKA 9)
+(SLIKA 10)
+(SLIKA 11)
+(SLIKA 12)
+(SLIKA 13)
+(SLIKA 14)
+(SLIKA 15)
+(SLIKA 16)
+(SLIKA 17)
+(SLIKA 18)
+(SLIKA 19)
+(SLIKA 20)
+(SLIKA 21)
+(SLIKA 22)
+(SLIKA 23)
+(SLIKA 24)
+(SLIKA 25)
+(SLIKA 26)
+(SLIKA 27)
+        </p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                <!---->
+                <!---->
+                <button class="button-87" role="button" value="Lock Current"
+                  onclick="toggleWindow('newWindow_1');lockA()">Mezozoik - doba gmazova</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+Na početku sljedeće ere - mezozoika, superkontinent Pangea imao je maksimal- nu površinu. Živi se svijet postupno počeo obnavljati, posebice mekušci poput školjkaša, puževa i glavonožaca amonita.
+Tijekom trijasa (oko 252 do 201 milijuna godina) na kopnu dominiraju igli- časte golosjemenjače, a u morskim su okolišima sve češći gmazovi. Potkraj trijasa pojavljuju se i leteći gmazovi te prvi sisavci. Sisavci su bili prisutni ostatak mezo- zoika u kojem dominiraju gmazovi, samo su bili manji i manje raznoliki. Potkraj trijasa počela je fragmentacija superkontinenta Pangee na dva kontinenta: sjeverni - Lauraziju i južni - Gondwanu. Zbog pada razine mora u nekoliko navrata, zna- čajno se mijenja primarna produkcija te organizmi koji žive u plitkom moru gube prostor za život. No, ovim izumiranjem otvara se više prostora za život drugim organizmima, posebice dinosaurima.
+Tijekom sljedećeg perioda - jure (oko 201 do 145 milijuna godina) u mo- rima dominiraju morski gmazovi i amoniti, a od mlađe jure pa sve do kraja krede plitkomorska područja nastanjuju školjkaši neobična izgleda - najčešće s jednom ljušturom u obliku obrnuta stošca, a drugom u obliku poklopca - rudisti (sl. 28.). Sredinom jure još se više otvara oceanski prostor budućeg Atlantika i postupno se odvajaju kontinentske mase.
+Rudisti su posebna skupina školjkaša sa specifičnim tipom brave
+pahiodontnom bravom, koja se sastoji od jednog do tri klinasta zuba u pokrovnoj ljušturi, koji ulaze u za njih predviđene jamice u donjoj ljušturi. Ti su školjkaši obilježili razdoblje od mlađe jure do kraja krede, a živjeli su u toplim plitkomorskim područjima.
+Tijekom krede (oko 145 do 66 milijuna godina) nastavlja se fragmentiranje su- perkontinenta Pangee te kontinenti postupno počinju poprimati raspored sličan današnjem. Kreda je, uz juru, vrijeme morskih, kopnenih (dinosaura) i letećih gma- zova, uz prisutnost sisavaca i ptica. Ptice su po pojavljivanju najmlađa skupina kralježnjaka - praptice su se javile u juri, a od krede do danas nalazimo moderne ptice. Kreda je i dalje vrijeme rudista (sl. 28.), amonita (sl. 29.), belemnita (sl. 30.), ali i različitih drugih beskralježnjaka. U kredi se znatnije mijenja i biljni svijet te nakon dominacije perastolisnih golosjemenjača (sl. 31.) u juri i kredi, koje su često služile kao hrana biljojednim dinosaurima, započinje dominacija kritosjemenjača, koje su i danas dominantna skupina biljaka.
+Amoniti, kao skupina glavonožaca koja se razvila iz nautilida, naglo evoluiraju i obilježavaju razdoblje od devona do kraja krede. Njihov se skelet naziva kućica, a u njoj je živio organizam kojeg karakterizira glava s velikim očima i krakovima. Na glavi su mogli imati i poklopac - aptihus. S vremenom su pokazivali različite karakteristike skeleta, pa im se tako mijenjaju tzv. lobne linije ili suture, koje su veza pregrada ili sepata unutar kućice sa samom kućicom. Više detalja o amonitima i njihovoj gradi možete naći u dodatnom digitalnom sadržaju.
+Istražite u literaturi i/ili na internetu današnje i fosilne skupine glavo- nožaca s unutarnjim i vanjskim skeletom. Što možete reći o masivnosti skeleta u današnjih skupina s unutarnjim skeletom, posebice u odnosu prema izumrlim belemnitima koji su imali masivan unutarnji skelet?
+Kraj trijasa, te posebice periode jure i krede, obilježili su strašni gmazovi - dino- sauri (sl. 32.). Osim dinosaura, tijekom mezozoika nalazimo i raznolike skupine morskih (sl. 33.) i letećih gmazova.
+Dinosaure dijelimo prema položaju kukovlja na „pticokuke" (Ornithischia) i gušterokuke" (Saurischia) - unutar kojih nalazimo četveronožne biljojede (Sauropodomorpha) i dvonožne mesoždere (Theropoda). Neki od poznatijih dinosaura iz skupine Ornithischia jesu rodovi: Stegosaurus, Ankylosaurus, Triceratops i Iguanodon. Unutar Sauropodomorpha poznati su npr.: Diplodocus, Brachiosaurus, Apatosaurus te neki od najvećih, poput rodova Argentinosaurus i Supersaurus. Od Theropoda svakako ste čuli za rodove Velociraptor, Allosaurus, Spinosaurus te Tyranosaurus. Smatra se da je skupina Theropoda ishodišna skupina za razvoj ptica, koje s razvojem počinju potkraj jure.
+Među brojnim morskim gmazovima poznati su rodovi Ichthyosaurus, Plesiosaurus, Mosasaurus, a od letećih možemo spomenuti rodove Pterodactylus, Pteranodon i Quetzalcoatlus. Zbog oblika tijela gmaz Ichthyosaurus je konvergentan morskim sisavcima i ribama, odnosno izgledom sličan zbog slična načina života, iako je riječ o posve različitim skupinama životinja.
+Potkraj krede, odnosno na granici krede i paleogena (prije oko 66 milijuna godina), dolazi do jakog udara (impakta) svemirskog tijela koje je stvorilo krater Chicxulub na području poluotoka Yucatána, promjera oko 180 km. Događaj je u geološkom zapisu prepoznatljiv prema povećanom udjelu elementa iridija (koji je na Zemlji inače vrlo rijedak) u naslagama diljem svijeta. Posljedice su ovoga udara još jedno masovno izumiranje, koje je najčešće i najpoznatije, iako je po broju organizama najmanje od pet spomenutih velikih masovnih izumiranja u geološkoj prošlosti. Izumiru cijele skupine organizama poput dinosaura, morski i leteći gmazovi, glavo- nošci poput amonita i belemnita, školjkaši rudisti i mnogobrojni drugi organizmi.
+Fosiln konod
+poseb
+Hinde
+odličn fosili granic
+trijasa
+(SLIKA 28)
+(SLIKA 29)
+(SLIKA 30)
+(SLIKA 31)
+(SLIKA 32)
+(SLIKA 33)
+
+        </p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                <!---->
+                <!---->
+                <button class="button-87" role="button" value="Lock Current"
+                  onclick="toggleWindow('newWindow_1');lockA()">Kenozoik - Doba sisavaca</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+Posljednju eru - kenozoik (oko 66 milijuna godina do danas) obilježava pojava i prevlast,modernih organizama, kakve u najvećem udjelu poznajemo i danas. Ovo je vrijeme kada kontinenti sve više poprimaju današnji oblik i raspored. Tijekom kenozoika nalazimo i neobične ptice neletačice velikih dimenzija, tzv. teror-ptice (sl. 34.).
+Razvoj konja započinje prije oko 60 milijuna godina kada je živio rod Eohippus. Bili su veličine današnje lisice, i razlikovali su se od današnjih konja po obliku nogu, stopala, glave i čeljusti te tipu zuba i načinu pre- hrane. Tijekom vremena mijenjao se okoliš u kojem su živjeli, od šumskih prostora sve do travnjaka, a samim time i njihov način prehrane i izgled tijela. Proučite ove detalje i objasnite što se sve i na koji način mijenjalo.
+Prvi je period unutar najmlađe, kenozojske ere, paleogen (oko 66 do 23 milijuna godina), tijekom kojega se posebice razvijaju sisavci, i to skupine poput kitova, zvijeri, konja, ali i prvi primati. Njihov se razvoj, s nizom drugih mikroorganizama i makroorganizama nastavio u sljedećem periodu - neogenu (oko 23 do 2,6 mili- juna godina). Na području kontinentske Hrvatske možemo pratiti gotovo cjeloviti slijed neogenskih naslaga koje su taložene u riječnim, jezerskim, bočatim i marin- skim okolišima. Te se naslage danas nalaze u podlozi Panonske nizine.
+Proučite geološku kartu Republike Hrvatske i obratite pozornost na to koje naslage prema starosti prevladavaju u pojedinom dijelu zemlje. Više o postanku i razlici između ovih dvaju područja bit će objašnjeno u cjelini Geologija Hrvatske.
+Neogen je vrijeme pojave prvih hominida, odnosno izdvajanja od njihovih predaka u razdoblju između 8 i 5 milijuna godina. lako se pretpostavlja i mogućnost starijih nalaza, poznati su nalazi hominida iz istočne Afrike starosti oko 6-7 milijuna go- dina. Kao najstariji nalazi spominju se vrste poput Sahelanthropus tchadensis (oko 7 mil. g.), Orrorin tugenensis (oko 6 mil. g.), Ardipithecus kaddaba (oko 5,5 mil. g.), Ardipithecus ramidus (oko 4,4 mil. g.).
+Kvartar obuhvaća posljednjih oko 2,6 milijuna godina geološke prošlosti Ze- mlje i vrijeme je od početka širenja ledenih kapa na području Arktika (na Antarktici je i prije ovog razdoblja postojao led). Period kvartara obilježava ledeno doba u kojem se izmjenjuju hladna (glacijali) i topla razdoblja (interglacijali). Zadnje gla- cijalno razdoblje trajalo je od otprilike 115 000 do 11 700 godina. Najpoznatiji fosil- ni nalazi ovoga razdoblja ostatci su mamuta (sl. 35.), sabljozubih mačaka, dlakavog nosoroga, velikog jelena i sl.
+Fosilne nalaze mamuta nalazimo u riječnim naslagama na različitim dijelovima Hrvatske. Istražite o kakvim je sve ostacima riječ. Posebno proučite izgled zuba mamuta.
+Kvartar se dijeli na pleistocen (oko 2,6 milijuna do 11 700 godina) i holocen (po- sljednjih 11 700 godina), iako se teži uvođenju antropocena kao najmlađeg raz- doblja, koje bi označavalo vrijeme od početka industrijske revolucije do danas. U kvartaru su na našem prostoru učestale eolske naslage (nastale djelovanjem vjetra), riječni sedimenti te stvaranje sedre, a geokronološki zapis klimatskih promjena kraja pleistocena (posljednjih stotinjak tisuća godina) proučavan je i na našim prostorima, primjerice na Gorjanovićevu prapornom profilu" kraj Du- nava u Vukovaru. Kvartar je vrijeme roda Homo, od vrsta Homo erectus, Homo
+heidelbergensis, Homo neanderthalensis... sve do modernog čovjeka, vrste Homo sapiens. Nalazi neandertalaca (sl. 36.) poznati su na različitim dijelovima svijeta, a jedno je od najpoznatijih područja Hušnjakovo brdo pokraj Krapine na kojem je nađeno oko 70 individua različite životne dobi (između 3 i 27 godina). Starost na- lazišta procijenjena je na oko 130 000 godina. Osim nalaza neandertalaca, nađeni su i mnogobrojni ostatci životinja čija prisutnost na našim prostorima svjedoči i o klimatskim promjenama. Nalazi neandertalaca, ali i životinja poput losa i bizona te ostatci pepela u istom horizontu upućuju na hladniju klimu i poznavanje vatre. Nalazi pantera, leoparda i nosoroga u mlađim i starijim slojevima upućuju na raz- doblja toplije klime.
+Istraživanja ostataka neandertalaca, ali i fosilne faune na našem prostoru započeo je još 1899. godine Dragutin Gorjanović Kramberger. Nastavio ih je, među ostalima, Jakov Radovčić (1946. - 2021.) koji je zaslužan i za mnogobrojne daljnje spoznaje o neandertalcima te realizaciju novog Muzeja krapinskih neandertalaca u Krapini otvorenog 2010. godine. Nalazi hominida poznati su i iz špilje Vindije u kojoj su nađeni ostatci najmlađih neandertalaca (od 45 000 do 28 000 g. prije današnji- ce) te je na temelju nalaza iz špilje Vindije dekodiran genom neandertalca (danas nosimo 1 - 4 % gena neandertalaca).
+Vrsta Homo neanderthalensis nazvana je po nalazištu u dolini Neandertalu kraj Düsseldorfa (Njemačka). Neandertalci su živjeli na području Europe, Bliskog istoka i u zapadnoj Aziji između 250 000 i 30 000 godina.
+Što nas čeka u budućnosti, možemo samo pretpostavljati. Kontinenti će se na- staviti pomicati, pa se pretpostavlja da će se ponovno spojiti za oko 250 miliju- na godina. Životni se uvjeti neprestano mijenjaju, a čovjek je jedan od glavnih
+čimbenika koji utječe na promjene koje doživljavamo (sl. 37.). Smatra se da je, ponajprije pod utjecajem čovjeka i njegovih aktivnosti, danas u tijeku šesto ma- sovno izumiranje.
+        </p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                <!---->
+                <!---->
+                <button class="button-87" role="button" value="Lock Current"
+                  onclick="toggleWindow('newWindow_1');lockA()">Određivanje starosti stijena</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+Relativna starost odnosi se na datiranje pomoću fosilnih ostataka gdje uspo- redbom nalaza fosila u pojedinim naslagama možemo odrediti kojem geološkom razdoblju naslage pripadaju, odnosno koje su od proučavanih naslaga mlađe ili starije. Tako, na primjer, možemo reći da su naslage s nalazima trilobita starije od onih u kojima su nađeni rudisti, a najmlađe su od svih navedenih naslaga one u kojima nalazimo ostatke mamuta ili pak hominida. Ako je riječ o provodnim fosili- ma, lakše ćemo odrediti kojem dijelu geološke prošlosti naslage pripadaju.
+Apsolutna ili radiometrijska starost daje brojčanu starost stijena. Teme- lji se na mjerenju broja preostalih atoma radioaktivnog izotopa roditelja" i broja atoma radiogenog izotopa kćeri" nastalih tijekom vremena protekla od počet- ka radioaktivnog raspadanja izotopa roditelja" te poznate konstante raspadanja (tzv. vremena poluraspada) specifične za svaki kemijski radioaktivan element. Na temelju kvantitativnih podataka mjerljivih vrlo osjetljivim analitičkim uređajima omogućeno je dopunjavanje prvotne geološke ljestvice koja je bila izrađena na te- melju relativne starosti te su sada u njoj vrijednosti pojedinih razdoblja izražene u godinama. Da bismo određivali apsolutnu starost, u stijeni moraju biti prisutni radioaktivni izotopi.
+Jedan element može imati više različitih izotopa, a to znači da mu jezgra može biti karakterizirana različitim brojem neutrona. Nestabilni ili radioaktivni izotop („roditelj") raspada se tako da iz jezgre izbacuje čestice i emitira energiju, ili jezgra prima elektrone, ili prilikom kolizije s kozmičkim zrakama dolazi do izbacivanja protona ili neutrona. Bez obzira na to o kojem je mehanizmu raspada riječ, mijenja se broj protona u jezgri i samim time nastaje novi kemijski element. Vrijeme je poluraspada stalno za sve izotope iste vrste, a označava vrijeme potrebno za raspad točno polovice početne količine izotopa „roditelja".
+Ovisno o potrebnim mjerenjima i istraživanim razdobljima, mogu se upotrebljava- ti izotopi različitih elemenata, pa je starost koja se može mjeriti od nekoliko tisuća (pomoću radioaktivnog izotopa ugljika 4C) pa sve do nekoliko milijardi godina (pomoću izotopa uranija 235U). Apsolutno datiranje nadopuna je relativnom dati- ranju jer se datirati mogu uglavnom magmatske i metamorfne stijene s obzirom na to da u sedimentnima možemo naći niz čestica različita podrijetla i starosti. Za određivanje starosti slijeda naslaga idealna je kombinacija relativnog datiranja pomoću fosila u sedimentnim stijenama te apsolutnog datiranja pomoću radio- aktivnih izotopa iz asociranih magmatskih stijena ili vulkanskog pepela.
+        </p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                <!---->
+                <!---->
+              </div>
+            </div>
+        </section>
+        <!---->
+        <!---->
+        <!---->
+
     <script>
         // Time tracking data for sections
         const sectionData = {
@@ -2360,21 +2692,21 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
             const headerIndicator = document.getElementById(`status-indicator-${sectionId}`);
             const summaryIndicator = document.getElementById(`summary-status-indicator-${sectionId}`);
             const tooltip = headerIndicator ? headerIndicator.nextElementSibling : null;
-            
+
             if (!sectionData[sectionId].lastOpened) {
                 if (headerIndicator) headerIndicator.className = "status-indicator status-red";
                 if (summaryIndicator) summaryIndicator.className = "status-indicator summary-status-indicator status-red";
                 if (tooltip) tooltip.textContent = "Never visited";
                 return;
             }
-            
+
             const now = new Date();
             const diffHours = (now - sectionData[sectionId].lastOpened) / (1000 * 60 * 60);
-            
+
             // Format last visited time
             const lastVisited = formatLastVisited(diffHours);
             if (tooltip) tooltip.textContent = `Last visited: ${lastVisited}`;
-            
+
             // Set indicator color based on time thresholds
             let statusClass;
             if (diffHours <= 36) {
@@ -2384,7 +2716,7 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
             } else {
                 statusClass = "status-red";
             }
-            
+
             if (headerIndicator) headerIndicator.className = `status-indicator ${statusClass}`;
             if (summaryIndicator) summaryIndicator.className = `status-indicator summary-status-indicator ${statusClass}`;
         }
@@ -2393,15 +2725,15 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
         function formatLastVisited(hours) {
             if (hours < 1) return "Just now";
             if (hours < 24) return `${Math.floor(hours)} hours ago`;
-            
+
             const days = Math.floor(hours / 24);
             if (days === 1) return "1 day ago";
             if (days < 7) return `${days} days ago`;
-            
+
             const weeks = Math.floor(days / 7);
             if (weeks === 1) return "1 week ago";
             if (weeks < 4) return `${weeks} weeks ago`;
-            
+
             const months = Math.floor(days / 30);
             if (months === 1) return "1 month ago";
             return `${months} months ago`;
@@ -2419,14 +2751,14 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
             const greenList = document.getElementById('green-list');
             const yellowList = document.getElementById('yellow-list');
             const redList = document.getElementById('red-list');
-            
+
             // Clear existing lists
             greenList.innerHTML = '';
             yellowList.innerHTML = '';
             redList.innerHTML = '';
-            
+
             const now = new Date();
-            
+
             for (const sectionId in sectionData) {
                 if (!sectionData[sectionId].lastOpened) {
                     // Never opened - red status
@@ -2434,9 +2766,9 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
                     redList.appendChild(li);
                     continue;
                 }
-                
+
                 const diffHours = (now - sectionData[sectionId].lastOpened) / (1000 * 60 * 60);
-                
+
                 if (diffHours <= 36) {
                     const li = createStatusListItem(sectionId, 'green');
                     greenList.appendChild(li);
@@ -2455,7 +2787,7 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
             const li = document.createElement('li');
             const indicator = document.createElement('div');
             indicator.className = `status-indicator status-${status}`;
-            
+
             li.innerHTML = `
                 <span>
                     ${indicator.outerHTML}
@@ -2463,14 +2795,14 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
                 </span>
                 <span>${formatLastVisitedTime(sectionData[sectionId].lastOpened)}</span>
             `;
-            
+
             return li;
         }
 
         // Format last visited time for the overview list
         function formatLastVisitedTime(lastOpened) {
             if (!lastOpened) return "Never";
-            
+
             const now = new Date();
             const diffHours = (now - lastOpened) / (1000 * 60 * 60);
             return formatLastVisited(diffHours);
@@ -2481,7 +2813,7 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
             const window = document.getElementById(windowId);
             window.classList.toggle('active');
             document.body.style.overflow = window.classList.contains('active') ? 'hidden' : '';
-            
+
             if (windowId === 'statusOverview' && window.classList.contains('active')) {
                 populateStatusOverview();
             }
@@ -2503,7 +2835,7 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
         }
         window.addEventListener("scroll", reveal, { passive: true });
         reveal(); // Initialize
-        
+
         // ZOOM FUNCTIONALITY
         let zoomInterval;
         const ZOOM_SPEED = 0.1;
@@ -2531,7 +2863,7 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
                 imageScales[img.id] = 1;
                 img.parentElement.scrollTo(0, 0);
             });
-            
+
             const textElements = document.querySelectorAll('.zoomable-text');
             textElements.forEach(text => {
                 text.style.fontSize = '1em';
@@ -2590,7 +2922,7 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
             const windowToToggle = document.getElementById(windowId);
             windowToToggle.classList.toggle('active');
             document.body.style.overflow = windowToToggle.classList.contains('active') ? 'hidden' : '';
-            
+
             if(windowToToggle.classList.contains('active')) {
                 resetAllZooms();
             }
@@ -2599,24 +2931,24 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
         // MODIFIED LAYOUT CYCLING FUNCTION
         let layoutStates = ['default', 'swapped', 'no-images'];
         let currentLayoutIndex = 0;
-        
+
         function cycleLayout(windowId) {
             const window = document.getElementById(windowId);
             const imageContainer = window.querySelector('.image-container');
-            
+
             // Remove all layout classes
             window.classList.remove('swapped', 'no-images');
-            
+
             // Get next layout state
             currentLayoutIndex = (currentLayoutIndex + 1) % layoutStates.length;
             const nextLayout = layoutStates[currentLayoutIndex];
-            
+
             // Apply new layout only if images exist
             if (imageContainer.children.length > 0) {
                 if (nextLayout !== 'default') {
                     window.classList.add(nextLayout);
                 }
-            } 
+            }
             // STRICT CONDITION: Only use no-images mode if no images
             else {
                 window.classList.add('no-images');
@@ -2645,14 +2977,14 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
 
         document.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
-            
+
             const dx = e.clientX - startPos.x;
             const dy = e.clientY - startPos.y;
-            
+
             const container = document.querySelector(`#${currentImageId}`).parentElement;
             container.scrollLeft = scrollPos.x - dx;
             container.scrollTop = scrollPos.y - dy;
-            
+
             e.preventDefault();
         });
 
@@ -2669,8 +3001,8 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
         document.addEventListener('click', function(event) {
             const newWindows = document.querySelectorAll('.newWindow');
             newWindows.forEach(window => {
-                if (window.classList.contains('active') && 
-                    !window.contains(event.target) && 
+                if (window.classList.contains('active') &&
+                    !window.contains(event.target) &&
                     !event.target.matches('.button-87[onclick*="toggleWindow"]')) {
                     toggleWindow(window.id);
                 }
@@ -2680,33 +3012,33 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
         function createParticles() {
             const container = document.getElementById('particles');
             const particleCount = 50;
-            
+
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
-                
+
                 // Random properties
                 const size = Math.random() * 10 + 2;
                 const posX = Math.random() * 100;
                 const posY = Math.random() * 100;
                 const duration = Math.random() * 30 + 10;
                 const delay = Math.random() * 5;
-                
+
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 particle.style.left = `${posX}%`;
                 particle.style.top = `${posY}%`;
                 particle.style.animationDuration = `${duration}s`;
                 particle.style.animationDelay = `${delay}s`;
-                
+
                 container.appendChild(particle);
             }
         }
-        
+
         // Initialize particles and animations
         document.addEventListener('DOMContentLoaded', () => {
             createParticles();
-            
+
             // Add hover effect to table rows
             const tableRows = document.querySelectorAll('.enhanced-table tr');
             tableRows.forEach(row => {
@@ -2719,7 +3051,7 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('search');
             const searchResults = document.getElementById('search-results');
-            
+
             // Sample data for demonstration
             const elementsWithIds = [
                 { id: 'printBtn', text: 'Print Page Button', type: 'button' },
@@ -2729,7 +3061,7 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
                 { id: 'shareBtn', text: 'Share Button', type: 'button' },
                 { id: 'downloadBtn', text: 'Download Button', type: 'button' }
             ];
-            
+
             // Function to find bold text on the page
             function findBoldText() {
                 const boldElements = Array.from(document.querySelectorAll('b, strong'));
@@ -2739,14 +3071,14 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
                     type: 'bold text'
                 }));
             }
-            
+
             // Function to search for matching items
             function searchItems(query) {
                 const results = [];
                 const lowerQuery = query.toLowerCase().trim();
-                
+
                 if (!lowerQuery) return [];
-                
+
                 // Search bold text
                 const boldItems = findBoldText();
                 for (const item of boldItems) {
@@ -2758,10 +3090,10 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
                         });
                     }
                 }
-                
+
                 // Search elements with IDs
                 for (const item of elementsWithIds) {
-                    if (item.id.toLowerCase().includes(lowerQuery) || 
+                    if (item.id.toLowerCase().includes(lowerQuery) ||
                         item.text.toLowerCase().includes(lowerQuery)) {
                         const element = document.getElementById(item.id);
                         if (element) {
@@ -2773,85 +3105,85 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
                         }
                     }
                 }
-                
+
                 return results;
             }
-            
+
             // Function to display search results
             function displayResults(results, query) {
                 searchResults.innerHTML = '';
-                
+
                 if (results.length === 0) {
                     searchResults.innerHTML = '<div class="no-results">No results found for "' + query + '"</div>';
                     searchResults.style.display = 'block';
                     return;
                 }
-                
+
                 // Show search stats
                 const stats = document.createElement('div');
                 stats.className = 'search-stats';
                 stats.textContent = results.length + ' result' + (results.length !== 1 ? 's' : '') + ' for "' + query + '"';
                 searchResults.appendChild(stats);
-                
+
                 // Add results
                 results.forEach(result => {
                     const resultItem = document.createElement('div');
                     resultItem.className = 'result-item';
-                    
+
                     const icon = document.createElement('i');
-                    icon.className = result.type === 'bold text' ? 
+                    icon.className = result.type === 'bold text' ?
                         'fas fa-bold result-icon' : 'fas fa-hashtag result-icon';
-                    
+
                     const text = document.createElement('span');
                     text.textContent = result.text;
-                    
+
                     const type = document.createElement('span');
                     type.className = 'result-type';
                     type.textContent = result.type;
-                    
+
                     resultItem.appendChild(icon);
                     resultItem.appendChild(text);
                     resultItem.appendChild(type);
-                    
+
                     resultItem.addEventListener('click', () => {
                         // Highlight the target element
                         result.element.classList.add('highlight');
-                        
+
                         // Scroll to the element
                         result.element.scrollIntoView({
                             behavior: 'smooth',
                             block: 'center'
                         });
-                        
+
                         // Remove highlight after animation completes
                         setTimeout(() => {
                             result.element.classList.remove('highlight');
                         }, 2000);
-                        
+
                         // Clear search
                         searchInput.value = '';
                         searchResults.style.display = 'none';
                     });
-                    
+
                     searchResults.appendChild(resultItem);
                 });
-                
+
                 searchResults.style.display = 'block';
             }
-            
+
             // Event listeners
             searchInput.addEventListener('input', function() {
                 const query = this.value.trim();
-                
+
                 if (query.length < 2) {
                     searchResults.style.display = 'none';
                     return;
                 }
-                
+
                 const results = searchItems(query);
                 displayResults(results, query);
             });
-            
+
             searchInput.addEventListener('focus', function() {
                 const query = this.value.trim();
                 if (query.length >= 2) {
@@ -2859,7 +3191,7 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
                     displayResults(results, query);
                 }
             });
-            
+
             document.addEventListener('click', function(e) {
                 if (!searchResults.contains(e.target)) {
                     searchResults.style.display = 'none';
@@ -2870,11 +3202,11 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
         document.addEventListener('DOMContentLoaded', function() {
             initializeSectionData();
             updateAllStatusIndicators();
-            
+
             // Initialize scroll event listener
             window.addEventListener("scroll", reveal, { passive: true });
             reveal(); // Initialize sections
-            
+
             // Set the first section as opened
             sectionData.Ozzy_1.lastOpened = new Date();
             localStorage.setItem('lastOpened_Ozzy_1', sectionData.Ozzy_1.lastOpened.getTime());
@@ -2885,7 +3217,7 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
             const window = document.getElementById('statusOverview');
             window.classList.toggle('active');
             document.body.style.overflow = window.classList.contains('active') ? 'hidden' : '';
-            
+
             if (window.classList.contains('active')) {
                 populateStatusOverview();
             }
@@ -2893,12 +3225,12 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
        // UPDATED: EXAMPLE WINDOW FUNCTIONALITY
         let currentExampleSlide = 0;
         const exampleSlideCount = 4;
-        
+
         // Initialize example slider
         function initExampleSlider() {
             const dotsContainer = document.getElementById('exampleDots');
             dotsContainer.innerHTML = '';
-            
+
             for (let i = 0; i < exampleSlideCount; i++) {
                 const dot = document.createElement('div');
                 dot.className = 'example-dot';
@@ -2906,32 +3238,32 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
                 dot.addEventListener('click', () => goToExampleSlide(i));
                 dotsContainer.appendChild(dot);
             }
-            
+
             updateExampleSlider();
         }
-        
+
         // Navigate to specific slide
         function goToExampleSlide(index) {
             currentExampleSlide = index;
             updateExampleSlider();
         }
-        
+
         // Slide navigation
         function slideExample(direction) {
             currentExampleSlide += direction;
-            
+
             // Handle boundaries
             if (currentExampleSlide < 0) currentExampleSlide = exampleSlideCount - 1;
             if (currentExampleSlide >= exampleSlideCount) currentExampleSlide = 0;
-            
+
             updateExampleSlider();
         }
-        
+
         // Update slider position and active dot
         function updateExampleSlider() {
             const slider = document.getElementById('exampleSlider');
             slider.style.transform = `translateX(-${currentExampleSlide * 100}%)`;
-            
+
             // Update active dot
             const dots = document.querySelectorAll('.example-dot');
             dots.forEach((dot, index) => {
@@ -2942,11 +3274,11 @@ Više smo puta spomenuli važno svojstvo metamorfnih stijena po kojem se dobar d
                 }
             });
         }
-        
+
         // Initialize the example slider when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
             // ... existing initialization code ...
-            
+
             // Initialize the example slider
             initExampleSlider();
         });

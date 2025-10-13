@@ -1,0 +1,189 @@
+<h3>Svojstva relacije uređaja</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+>Usporedivost realnih brojeva
+<p>Uspoređivanje veličina svakodnevna je potreba. Posebice je često uspoređivanje brojeva s nulom. Nula je na temperaturnoj ljestvici granica podnošljive hladnoće, nula je znak alarma u poslovanju, nula je visina morske površine itd. Za brojeve koji su manji od nule kažemo da su negativni, brojevi veći od nule su pozitivni.
+                Na brojevnom pravcu ishodište je točka koja odvaja negativne i pozitivne realne brojeve. Njoj je pridružen broj 0. Točki AA s lijeve strane ishodišta pridružen je negativan broj aa. Za njega kažemo da je manji od nule i pišemo a je manje od 0.a je manje od 0.
+                Točki BB zdesna ishodištu pridružen je pozitivan broj bb. Za njega kažemo da je veći od nule i pišemo b>0b>0.
+              </p>
+              <img src="Svojstva relacije uređaja_1.png">
+              <p>Ako je broj aa na brojevnom pravcu smješten lijevo od broja bb, onda je broj aa manji od broja bb, što zapisujemo kao a<ba<b.Isto značenje ima i nejednakost b>ab>a, koju čitamo “bb je veći od aa”. Dakle, pišemo a<ba<b ili b>ab>a. Relacija << naziva se relacija uređaja. (Znak >> je druga oznaka za relaciju uređaja.)
+                Usporedivost realnih brojevaZa svaka dva realna broja vrijedi ili a<ba<b ili a>ba>b ili a=ba=b.
+                </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Uspoređivanje brojeva
+<p>Što općenito znači kad kažemo da je neki broj aa manji od nekog broja b?b?Uspoređivanje brojevaBroj aa manji je od broja bb ako i samo ako je a−b<0a−b<0.Ovoj definiciji ekvivalentna je sljedeća definicija:Broj aa manji je od broja bb onda i samo onda ako postoji pozitivan broj kk za koji je a+k=ba+k=b.Primjerice, broj 7 manji je od broja 12 jer je 12−7=5>012−7=5>0. Broju 7 valja dodati 5 kako bi se dobilo 12.Broj −111−111 manji je od broja −99−99, jer je −99−(−111)=12>0−99−(−111)=12>0. Broju −111−111 treba dodati 12 da bi se dobio broj −99−99.
+                Broj −0.42−0.42 veći je od broja −0.815−0.815 jer je−0.42−(−0.815)=0.395>0.−0.42−(−0.815)=0.395>0.Ili: broj −0.815−0.815 manji je od broja −0.42−0.42 jer broju −0.815−0.815 treba dodati pozitivan broj 0.3950.395 kako bi se dobio −0.42−0.42.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Uspoređivanje RACIONALNIH brojeva
+ <p>
+                <!--primjer 1-->
+                Neka su abab i cdcd razlomci s pozitivnim nazivnicima (b>0b>0 i d>0d>0) i pretpostavimo da vrijedi ab>cdab>cd. Tada možemo pisati ab−cd=ad−bcbd>0ab−cd=ad−bcbd>0 pa zaključujemo: Kako je bd>0bd>0, onda je i ad−bc>0ad−bc>0, odnosno ad>bcad>bc. Dakle, nejednakost ab>cdab>cd, gdje je b>0b>0 i d>0d>0, ekvivalentna je nejednakosti ad−bc>0ad−bc>0.Uspoređivanje racionalnih brojevaAko su racionalni brojevi abab i cdcd napisani u standardnom obliku (s pozitivnim nazivnicima), tada vrijediab>cd⟺ad>bc.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+svojstva relacije uređaja
+ <p>Nejednakosti među brojevima imaju neka važna svojstva koja ćemo izreći u obliku poučaka.
+                Tranzitivnost relacije uređaja
+                Ako su a,ba,b i cc realni brojevi, onda iz a<ba<b i b<cb<c slijedi a<ca<c.
+              </p>
+              <img src="Svojstva relacije uređaja_2.png">
+              <p>Dokažimo ovo svojstvo.
+                Iz a<ba<b slijedi da postoji pozitivan broj mm takav da je a+m=ba+m=b.
+                Iz b<cb<c slijedi da postoji pozitivan broj nn takav da je b+n=cb+n=c.
+                Zbrojimo li dvije dobivene jednakosti, imat ćemo: a+b+m+n=b+c,a+b+m+n=b+c, odnosno a+(m+n)=ca+(m+n)=c,  gdje je m+nm+n
+                pozitivan broj. Slijedi a<ca<c.
+                Zbrojimo li dvije dobivene jednakosti, imat ćemo: a+b+m+n=b+c,a+b+m+n=b+c, odnosno a+(m+n)=ca+(m+n)=c, gdje je m+nm+n pozitivan broj. Slijedi a<ca<c.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Usklađenost relacije uređaja sa zbrajanjem
+<p>Neka su aa i bb realni brojevi. Tada je a<ba<b onda i samo onda ako je a+c<b+ca+c<b+c, za svaki realni broj cc</p>
+              <img src="Svojstva relacije uređaja_3.png">
+              <p>Kažemo još: dodamo li na obje strane nejednakosti isti broj, nejednakosti neće se promijeniti.
+                Iz a<ba<b slijedi da postoji pozitivan broj pp takav da je a+p=ba+p=b.Dodamo li na obje strane ove jednakosti broj cc, jednakost se neće promijeniti: a+p+c=b+ca+p+c=b+c, odnosno (a+c)+p=b+c(a+c)+p=b+c,  što znači da je a+c<b+ca+c<b+c.Time smo pokazali da iz a<ba<b slijedi a+c<b+ca+c<b+c. Tu cc može biti bilo koji realni broj.Obratno, dodavanjem broja −c−c na obje strane nejednakosti a+c<b+ca+c<b+c dobit ćemo a+c+(−c)<b+c+(−c)a+c+(−c)<b+c+(−c), tj. a<ba<b.
+                Ovim je ovo svojstvo relacije uređaja dokazano.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Usklađenost relacije uređaja s množenjem
+<p>Neka su aa i bb realni brojevi takvi da je a<ba<b. Ako je
+                1) c>0c>0, onda je ac<bcac<bc;
+                2) c<0c<0, onda je ac>bcac>bc.
+                  Kažemo još: pomnožimo li nejednakost dvaju realnih brojeva pozitivnim brojem, znak nejednakosti neće se promijeniti; pomnožimo li je negativnim brojem, znak nejednakosti će se promijeniti.
+                  Dokažimo ovo svojstvo.1) Iz a<ba<b slijedi da postoji pozitivan broj pp takav da je a+p=ba+p=b.  Pomnožimo ovu jednakost pozitivnim brojem c.c. Tada je ac+pc=bcac+pc=bc. Kako je pc>0pc>0, slijedi da je i ac<bcac<bc.2) Iz a<ba<b slijedi da postoji pozitivan broj pp takav da je a+p=ba+p=b. Pomnožimo ovu jednakost negativnim brojem c.c. Tada je ac+pc=bcac+pc=bc, odnosno ac=bc+p(−c)ac=bc+p(−c). No kako je p(−c)>0p(−c)>0, onda je ac>bcac>bc.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Intervali
+ <p>Nejednakostima kao što su x<ax<a, x>bx>b, c<x<dc<x<d i sličnim određeni su podskupovi skupa realnih brojeva. Takve podskupove zovemo intervali.
+                Skup realnih brojeva xx takvih da je x>ax>a jest interval i zapisujemo ga kao ⟨a,+∞⟩⟨a,+∞⟩. Zapis +∞+∞ ne predstavlja broj, već simbol. Koristimo ga da naglasimo da interval sadrži sve brojeve veće od aa.
+                Tako je, primjerice, ⟨−1,+∞⟩⟨−1,+∞⟩ skup svih realnih brojeva većih od −1−1. Taj interval zorno prikazujemo na brojevnom pravcu tako da iscrtamo onaj dio pravca kojem pripadaju sve točke T(x)T(x) za koje je x>−1x>−1.
+              </p>
+              <img src="Svojstva relacije uređaja_4.png">
+              <p>U svim trima navedenim primjerima rubovi intervala ne pripadaju intervalu. Tako u skupu ⟨−1,+∞⟩⟨−1,+∞⟩ nije broj −1,−1, već samo brojevi veći od −1−1. Intervalu ⟨−∞,3⟩⟨−∞,3⟩ ne pripada broj 3, niti su u skupu ⟨−12,34⟩⟨−12,34⟩ brojevi −12−12 i 3434. Za ovakve intervale kažemo da su otvoreni.
+                Uz relaciju uređaja << mi ćemo rabiti i relaciju uređaja ≤≤ (manje ili jednako), a≤ba≤b onda i samo onda ako je  a < ba < b ili a=ba=b.Tom relacijom bilježimo slučaj kada i rub intervala pripada intervalu. To u zapisu intervala naznačujemo uglatom zagradom.Primjerice, s [−2,3][−2,3] zapisan je  skup realnih brojeva xx,  −2≤x≤3−2≤x≤3, dakle njemu pripadaju oba ruba. Za takav interval kažemo da je zatvoren.
+              </p>
+              <img src="Svojstva relacije uređaja_5.png">
+              <p>S [−2,3⟩[−2,3⟩ zapisan je  skup realnih brojeva xx,  −2≤x<3−2≤x<3,  dakle njemu pripada samo lijevi rub, broj −2−2, ali ne i desni, broj 3. Za takav interval kažemo da je poluotvoren. Poluotvoren je i interval oblika ⟨−2,3]⟨−2,3].</p>
+            
+---------------------------------------------------------------------------------------------------------------------------------------------------
+vrste intervala<
+<img src="Svojstva relacije uređaja_6.png">
+<!--PRIMJER 2-->
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Linearne nejednadžbe</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Primjeri
+ <p>Pri rješavanju linearnih nejednadžbi primjenjujemo svojstva relacije uređaja.
+                <!--PRIMJER 1-->
+                <!--PRIMJER 2-->
+                <!--PRIMJER 3-->
+                <!--PRIMJER 4-->
+                <!--PRIMJER 5-->
+                <!--PRIMJER 6-->
+                <!--PRIMJER 7-->
+                <!--PRIMJER 8-->
+                <!--PRIMJER 9-->
+                <!--PRIMJER 10-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Apsolutna vrijednost realnog broja</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Apsolutna vrijednost realnog broja
+<p>Za dani realni broj xx njegova je apsolutna vrijednost (modul) broj |x||x| koji određujemo na sljedeći način:|x|={x,ako je x≥0,−x,ako je x<0.|x|={x,ako je x≥0,−x,ako je x<0.
+                Dakle: ako je broj xx pozitivan ili nula, tada je on jednak svojoj apsolutnoj vrijednosti. Za svaki x≥0x≥0, vrijedi |x|=x.|x|=x.Ako je xx negativan broj, njegova apsolutna vrijednost je suprotan broj −x−x koji je pozitivan. Za svaki x<0x<0 je |x|=−x.
+                <!--PRIMJER 1-->
+                <!--primjer 2-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+drugi korijen
+<p>Drugi korijen
+                Drugi korijen iz pozitivnog broja pozitivan je broj, što jednostavno zapisujemo na sljedeći način:√a2=|a|.
+                <!--PRIMJER 3-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Svojstva apsolutne vrijednosti
+ <p>Svojstva apsolutne vrijednosti
+                Za sve realne brojeve aa i bb vrijede sljedeće tvrdnje.
+                1. Apsolutne vrijednosti suprotnih brojeva su jednake:|a|=|−a|.|a|=|−a|.
+                2. Apsolutna vrijednost zbroja dvaju brojeva manja je ili jednaka zbroju apsolutnih vrijednosti tih brojeva (nejednakost trokuta):|a+b|≤|a|+|b|.|a+b|≤|a|+|b|.
+                3. Apsolutna vrijednost umnoška dvaju brojeva jednaka je umnošku apsolutnih vrijednosti tih brojeva:|ab|=|a|⋅|b|.|ab|=|a|⋅|b|.
+                4. Apsolutna vrijednost količnika dvaju brojeva jednaka je količniku apsolutnih vrijednosti tih brojeva, za broj b≠0b≠0 vrijedi:∣∣ab∣∣=|a||b|.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Graf funkcije f(x)=|x|</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Graf funkcije f(x)=|x|
+ <p>Promatramo li apsolutnu vrijednost realnog broja kao funkciju, uočit ćemo da je bliska linearnoj funkciji. Za sve pozitivne brojeve xx i nulu vrijedi |x|=x|x|=x, za negativne je brojeve |x|=−x|x|=−x. Tako možemo zapisati:f(x)=|x|={x,x≥0−x,x<0.f(x)=|x|={x,x≥0−x,x<0.Graf ove funkcije sastoji se iz dviju grana, dvaju polupravaca koji se sastaju u ishodištu koordinatnog sustava.
+              </p>
+              <img src="Graf funkcije f(x)=IxI_1.png">
+              <p>S grafa možemo očitati najvažnija svojstva ove funkcije. Tako uočavamo da je čitav graf smješten iznad osi xx. Kako to tumačite?Nadalje, graf je simetričan prema osi yy. Koji je tome razlog?
+                <!--PRIMJER 1-->
+                <!--PRIMJER 2-->
+                <!--PRIMJER 3-->
+                <!--PRIMJER 4-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Udaljenost točaka na brojevnom pravcu</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Položaj točke na brojevnom pravcu
+ <p>Položaj neke točke na brojevnom pravcu jednoznačno je određen jednim realnim brojem, njezinom koordinatom.Koordinata x1x1 točke T1T1 s desne strane ishodišta pozitivan je broj x1x1 koji predstavlja udaljenost te točke od ishodišta koordinatnog sustava.
+                Od ishodišta je jednako udaljena i točka T2T2 s koordinatom x2=−x1x2=−x1.
+              </p>
+              <img src="Udaljenost točaka na brojevnom pravcu_1.png">
+              <p>Udaljenost točke T2T2 od ishodišta jednaka je −x2−x2.
+                Općenito, za bilo koju točku T(x)T(x) brojevnog pravca, njezina je udaljenost od ishodišta nenegativan broj |x||x|,|OT|=|x|.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Kako na brojevnom pravcu odrediti točke na brojevnom pravcu
+<p>Kako na brojevnom pravcu odrediti točku T(x)T(x) za koju vrijedi |x|=a|x|=a, gdje je aa pozitivan broj? Drugim riječima, treba odrediti onu točku čija je udaljenost od ishodišta koordinatnog sustava jednaka aa.
+                Dvije su takve točke, T1(−a)T1(−a) i T2(a)T2(a). One su simetrične u odnosu na ishodište.
+              </p>
+              <img src="Udaljenost točaka na brojevnom pravcu_2.png">
+              <!--PRIMJER 1-->
+              <!--PRIMJER 2-->
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Udaljenost točaka na pravcu
+<p>Neka su T1(x1)T1(x1) i T2(x2)T2(x2) dvije točke brojevnog pravca. Tada je udaljenost tih dviju točaka jednaka|T1T2|=|x2−x1|.</p>
+              <img src="Udaljenost točaka na brojevnom pravcu_3.png">
+              <!--PRIMJER 3-->
+---------------------------------------------------------------------------------------------------------------------------------------------------
+polovište dužine
+ <p><!--PRIMJER 4-->
+                <!--PRIMJER 5-->
+                <!--PRIMJER 6-->
+                <!--PRIMJER 7-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Jednadžbe i nejednadžbe s apsolutnim vrijednostima</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Jednadžbe i nejednadžbe s apsolutnim vrijednostima
+ <p>Jednadžba oblika |x|=a|x|=a najjednostavnija je jednadžba u kojoj se pojavljuje apsolutna vrijednost realnog broja.
+                1) Ako je a<0a<0 ta jednadžba nema rješenja jer je tada broj s njezine lijeve strane pozitivan, a broj s desne strane negativan.
+                2) Ako je a=0a=0, jednadžba |x|=a|x|=a ima jedinstveno rješenje, x=0x=0.
+                3) Ako je a>0a>0, tada su rješenja jednadžbe suprotni brojevi x1=ax1=a i x2=−ax2=−a.
+                <!--PRIMJER 1-->
+                <!--PRIMJER 2-->
+                <!--PRIMJER 3-->
+                <!--PRIMJER 4-->
+                <!--PRIMJER 5-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Nejednadžbe s apsolutnim vrijednostima
+ <p>Kako se rješavaju nejednadžbe s apsolutnim vrijednostima? U suštini valja razmotriti dva osnovna tipa takvih nejednadžbi, koja su utemeljena na sljedećim činjenicama:
+                ako je aa pozitivan broj, tada vrijedi:
+                1) |x| < a|x| < a, onda i samo onda ako je −a < x < a−a < x < a.
+                2) |x|>a|x|>a, onda i samo onda ako je x<−ax<−a ili  x>ax>a.
+                Možeš li navedene činjenice obrazložiti koristeći se njihovim tumačenjem preko udaljenosti točaka na brojevnom pravcu?
+                <!--PRIMJER 6-->
+                <!--PRIMJER 7-->
+                <!--PRIMJER 8-->
+                <!--PRIMJER 9-->
+              </p>

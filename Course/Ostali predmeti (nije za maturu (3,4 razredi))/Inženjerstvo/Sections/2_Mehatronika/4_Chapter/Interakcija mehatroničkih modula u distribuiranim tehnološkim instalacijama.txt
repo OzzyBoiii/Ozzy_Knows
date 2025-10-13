@@ -1,0 +1,335 @@
+<h3>Interaction of Mechatronic Modules in Distributed Technological Installations</h3>
+<p class="zoomable-text">
+                    Abstract
+The article deals with the interaction of mechatronic devices in real time
+through events and messages. The interaction of distributed network devices is
+necessary to coordinate their work, including synchronization when implementing
+a distributed algorithm. The approach in the development of a distributed control
+system (DCS) for mechatronic devices based on the IEC 61499 standard has been
+analyzed. Using only a LAN for interaction purposes is not always justified, since
+messages transmitted over a LAN do not provide transmission determinism. To
+eliminate this problem, a fast local network is needed, which would not utilize
+resources of the main computer and hardware (e.g., based on the model of terminal
+machines) to carry out a network communication. It is proposed to implement LAN
+controllers on the field-programmable gate array (FPGA) platform. Data-strobe
+coding (DS coding) with a signal level of LVDS was used for keeping the transmit-
+ted data intact and improving the overall reliability of the systems.
+Keywords: real-time interaction, mechatronic devices, IEC 61499 standard,
+distributed control systems, field-programmable gate array, a distributed algorithm
+1. Introduction
+Technological process automation of large industrial or scientific complexes,
+where there is a large territorial and algorithmic distribution, is related to the
+development of network systems that provide interaction of individual technologi-
+cal installations. Usually, a telecommunications system acts as the abovementioned
+network system. In the general case, each installation executes its own part of a
+given algorithm, operating in an autonomous mode, after which it sends results
+to other installations. Algorithm execution can result in some informational data,
+materials, products, etc. A majority of industrial complexes work according to these
+technologies. Another case is when the result of a distributed technological system
+work is created by majority of technological subsystems together in real time and
+the technological processes are related.
+The development of technology process management systems is related to
+building a model through input parameters and current process state parameter
+formalization. Real-time management of linked, territorial, and algorithmically
+distributed technology systems with parallel processes is pretty challenging.
+Additional difficulties appear when linked mechatronic devices that form mecha-
+tronic systems are used as an executive object.
+Emerging Trends in Mechatronics
+64
+Mechatronic components (MCs) can be defined as devices that combine precise
+mechanical units with electronic computing and management components, inter-
+face, and power modules. Such combination allows implementing new features that
+extend existing functions of the device. At the same time, all mechatronic units
+work on general task defined for all units. Over the past decades, the MC definition
+has significantly expanded, and mechatronics became an interdisciplinary industry
+that can include such disciplines as telecom, robotics, power electronics, etc.
+MCs are most commonly used in industries where there are requirements like
+executing mechanisms’ precise positioning, computers’ fast response on internal
+and external events, increased reliability, and limited dimensions.
+Very often electronic control components of MC are called embedded control
+system, which assumes completeness and self-sufficiency of these systems and
+uses software for running it. Modern MUs that are used in distributed systems have
+high-performance computers that work within OS environment with support of all
+common network protocols.
+At this moment, MUs and MCs are commonly used as distributed process
+system (DPS) automation object. All major requirements to MCs as DPS objects are
+described in article [1]. MCs must have:
+• Signal (event) and data interface for interacting with other MDs
+• Managed process parameters I/O interface
+• Dataset for keeping managed object state
+• Manage algorithm for this object.
+The chapter is organized as follows. Section 2 provides an analysis of work
+related to the design of distributed control systems (DCSs) based on the standards
+IEC 61131-3 [2] and IEC 61499 [3]. Section 3 discusses hardware and software solu-
+tions for the implementation of the interaction of mechatronic components. Finally,
+the conclusion is given in Section 4.
+2. Interaction of mechatronic modules in distributed technological
+systems based on IEC 61131-3 and IEC 61499 standards
+2.1 Centralized mechatronic objects control based on standard IEC 61131-3
+The IEC 61131-3 [2] standard plays a big role in the automation of technologi-
+cal systems that contain mechatronic blocks. The establishment of this standard
+allowed unifying development languages of managing applications for program-
+mable logic controller (PLC), which allowed to port developed projects to PLCs
+manufactured by various vendors. One of graphical languages described by the
+standard is function block diagram (FBD) language. This language uses the FB
+concept, which represents part of the program managing code and has an input
+and output interfaces. The FB interface has special entry calls—event inputs. FBs
+are combined into chains using interfaces. One of the disadvantages of the FBD
+language is that a random FB cannot be invoked from a chain.
+The PLC software development technology based on the IEC 61131-3 standard
+is designed for centralized management, which means that direct interaction of
+separate PLCs is carried through the central computer. This disadvantage makes it
+significantly more difficult to develop applications for DCSs. When a new PLC is
+65
+Interaction of Mechatronic Modules in Distributed Technological Installations
+DOI: http://dx.doi.org/10.5772/intechopen.88059
+added to the management system or there is a change of PLC interaction algorithm,
+the central computer program must be changed. Therefore, configuration and
+scaling of such systems requires sophisticated procedures and takes significant
+amount of time. Besides that, there is no way to interact directly with distributed
+technological systems, MCs.
+New developments in microelectronics and circuitry allow eliminating some of dis-
+advantages. Thus using a system on a chip (SoC) technology, Altera (Intel) company
+offered to realize PLC on a crystal, by connecting high-performance dual-core ARM
+processor and field-programmable gate array (FPGA). This allowed processing of
+input events in parallel and configuring managing application algorithm remotely [4].
+2.2 Distributed control systems on standard IEC 61499
+In 2005, a new standard IEC 61499 [4] has been established, which defines a new
+way of building distributed technological process management systems. The IEC
+61499 architecture is based on IEC 61131-3 definitions and uses FBs with extended
+interface abilities. One of the main FB extensions is an event interface, which allows
+defining FB execution order explicitly. Each FB can contain several encapsulated
+algorithms that cannot be accessed from other FBs.
+A management system, based on IEC 61499, represents a set of devices that
+interact with each other using communication network. The management system
+implements functions described with applications. These applications can be
+distributed between several devices that can be represented by PLCs, program-
+mable automation controllers (PACs) [5], and digital computers based on FPGA [6]
+platform. Each device consists of one or several resources. Resource is a functional
+unit that can manage its operations independently, including algorithm execution.
+An application is represented by several linked FBs that can be executed on differ-
+ent resources and management system devices.
+IEC 614999 FB is an independent program unit that can be created, tested, and
+used separately from other FBs [3, 7]. The IEC 61499 standard defines three types
+of blocks: basic function block, service interface function block (mechatronic
+devices interact using these blocks), and composite function block (contains chain
+of FBs). Figure 1 shows the IEC 61499 application model that consists of three FBs
+combined into one network that is used for events and data flows. FBs can be in cer-
+tain states, set by function algorithm of the FB. Transfer from one state to another
+can be triggered by an event, received from a neighbor FB.
+The main advantage of designing management systems based on the IEC 61499
+standard is simplicity of reconfiguration, flexibility, and reduced development
+time, reusing developed components and scalability. Article [8] analyzes features
+of this method of developing distributed technological systems, its advantages and
+(SLIKA 44)
+disadvantages. For keeping backward compatibility while moving from developing
+managing applications based on PLC IEC 61131-3 to applications based on IEC 61499,
+there is a methodology based on web technologies [9]. The main goal set in that article is
+to keep the identity of application behavior when launched on the IEC 61499 platform.
+The DPS stability is defined by distinctness of executing applications. The IEC 61499
+standard defines FB as an abstract model, which allows various FB behavior interpreta-
+tions. Article [10] analyzes FB execution models. The standards sections related to the
+base FB semantics describe a situation, when only one FB can be active at any period
+of time within one network. This limitation allows to develop execution models in two
+directions: serial and cyclic (by analogy with PLC cyclic processing) models.
+However, the evolution of multiprocessor and multicore computers allows run-
+ning a parallel model. Article [11] contains suggestions about running such models.
+Besides, a parallel-type model can be implemented on FPGAs with the ability to use
+real parallelism, which is very important for mechatronic systems that are critical to
+the response time to incoming events.
+Article [12] defines the Intelligent Mechatronic Component (IMC) and describes
+the conditions of using such components in DPS based on IEC 61499. Any IMC can
+contain the following elements:
+• Be a mechatronic device, thus to represent a physical functional device with
+sensors, actuators, and electronic circuits
+• An integrated control device, which is a computing device that includes
+interfaces to sensors, actuators, and communication networks, for interaction
+with other IMCs
+• Software with data support and control logic for implementing automation
+functions of IEC 61499 standard
+Most of the works related to the development of automation projects based on
+IEC 61499 are of research in nature. Despite the obvious advantages of the standard
+(described earlier) in the design of distributed control systems, widespread imple-
+mentation in the industry has not yet happened. Article [13] describes problems of
+the standard that prevent it from being fully used: semantic problems, the lack of
+well-developed design methodologies, restrictions on the use of various execution
+models, and others. There is also a lack of integrated design methodologies that facili-
+tate component-based design throughout the design cycle of automation systems [12].
+The standard is being developed, and its individual provisions are being clarified.
+For practical use, the IEC 61499 compliance profile [14] is issued and constantly
+updated. There are commercial development tools for creating projects that meet the
+IEC 61499 standard. The most well-known project is ISaGRAF [15], in the form of a
+design support tool (workbench), which works with both the IEC 61131-3 and IEC
+61499 standards. The nxtSTUDIO commercial system project [16] focuses exclusively
+on IEC 61499 and allows combining a distributed control system with HMI/SCADA. In
+addition, nxtSTUDIO makes it possible to automate the process of building communi-
+cation channels between controllers of mechatronic devices of a distributed system.
+3. Hardware and software solutions for organizing interaction of
+mechatronic components using local networks
+The development of microelectronics and information technology allows
+creating miniature computers with low power consumption and high performance,
+67
+Interaction of Mechatronic Modules in Distributed Technological Installations
+DOI: http://dx.doi.org/10.5772/intechopen.88059
+which can be embedded not only in technological systems but also in individual ele-
+ments of these systems, including mechatronic devices. This feature, as mentioned
+above, makes it possible to create intelligent subsystems combined by a global or
+local communication network.
+The concept of the Internet of Things (IoT) [17], successfully introduced into
+production, gave an impetus to the development of a new direction that unites robots
+or robotic devices using network technologies. This direction, called the Internet of
+Robotic Things (IoRT), is aimed at implementing robotic technologies, by extend-
+ing the functionality of IoT devices. In [18], the IoRT concept is presented, which
+emphasizes the tremendous flexibility in developing and implementing new applica-
+tions for networked robotics while achieving the goal of providing distributed com-
+puting resources as the main utility. In these network associations (IoT and IoRT),
+the term “Internet” can be interpreted as a global association of computer networks
+that use TCP/IP protocols when interacting with each other. In addition, the partici-
+pants of network associations use a huge variety of interfaces and protocols when
+receiving information from sensors and transmitting control signals to actuators.
+By analogy with the network associations of functional devices given above,
+we can speak about the Internet of Mechatronic Components, a subset of which is
+IoRT. On the other hand, in distributed technological systems among the partici-
+pants, there can be not only MCs but also, for example, self-sufficient electrical
+devices with integrated intelligence, that is, devices that do not include mechanics.
+Self-sufficiency means the ability of devices to solve independently a part of a
+distributed technological problem delegated to them, but which need to exchange
+information with other participants through the formation of events or messages.
+Conditionally, such devices can be called functional network connectivity (FNC).
+3.1 FNC-embedded computer
+Article [19] presents a methodology for creating a prototype intelligent power
+electronic converter (iPEC) with the ability to remotely control and interact with
+other DPS devices. In the developed iPEC prototype, the power module implements
+the function of a powerful generator of infra-low-frequency voltage. This generator
+can be used to power equipment (piezoelectric elements) for ultrasonic cleaning
+of parts or for solving geophysical tasks (cleaning of wells). An example of iPEC-
+type device use can be found in article [20]. This article presents solution of the
+technological problem of the formation of a uniform effect of ultrasonic vibrations
+in a liquid medium on the processed. To solve the problem, it is proposed to use a
+whole matrix of distributed ultrasound transducers placed in a certain way. Control
+signals arriving at the transducers are formed in such a way that areas with low and
+high pressure of the ultrasonic field arise, which causes the occurrence of direc-
+tional flows and contributes to the cleaning of products. Drivers of control signals
+are subject to stringent requirements for response time.
+The given example shows the need to create a universal built-in control module,
+both as part of MCs and as part of other DPS participants, that could provide execu-
+tion of the following main tasks:
+• Global network communication task
+• Local network communication task
+• Management task for the implementation of the built-in algorithm
+• Sensor data processing task
+Emerging Trends in Mechatronics
+68
+In a distributed technological system, participants called as FNCs can be used
+as independent technological subsystems, or they can be clustered, by analogy
+with the composite function block (IEC 61499). On this basis, the interaction of
+individual FNCs can be carried out over several communication networks—global
+and local. The global network is available to all exchange participants, and the local
+network is available only to cluster devices. When interacting over a local network,
+an additional requirement is added—the determinism of the transmitted events and
+messages.
+The interaction of DPS devices is necessary to coordinate their work, including
+synchronization when implementing a distributed algorithm. Article [19] justifies
+the use of the hybrid configuration of the computational control part of FNC-type
+devices. A device can contain several different computators, based on various cal-
+culation models. These can be computators implemented on processors with ARM
+architecture [21] and on the FPGA platform. Sharing two different computers gives
+the most flexible functionality.
+Important benefits of using ARM controllers in FNC are high performance and
+low power consumption. This makes it possible to build a universal-embedded
+computer for both stationary technological systems and mobile ones. For example,
+in computers based on the Smart Mobility ARChitecture (SMARC) standard [22],
+ARM controllers are widely used.
+ARM controllers used in the FNC solve the following tasks: communication
+over a global network, downloading computer configurations, implementing
+an embedded algorithm, implementing cloud technologies, video processing of
+objects for machine vision, etc. Global network controllers must support TCP/
+IP protocols, which are typically present in modern embedded computers. The
+exchange between mobile autonomous objects, for example, automatic guided
+vehicle (AGV) [23], requires a wireless network controller as part of the network
+module.
+The ideology of random access to the network is not suitable for solving the
+problem of interaction between FNC-cluster devices, since it is impossible to
+ensure the determinism of message delivery. Therefore, a fast local network is
+needed, which would not utilize resources of the microcontroller and hardware
+(e.g., based on the model of finite automata) to carry out a network exchange.
+Also, it is necessary to use a special encoding at the signal level when transmit -
+ting events and messages, for keeping the transmitted data intact and improving
+the overall reliability of the systems. Controllers of such a network are usually
+implemented on the FPGA platform. When creating equipment based on FPGA
+for technological installations of the accelerator complex [24], the implementa -
+tion of the exchange based on data-strobe coding (DS coding) network signals
+with the signal level LVDS [25] showed a good result. LVDS levels have high
+noise immunity and energy efficiency. DS coding allows you to transfer data at
+high speeds without first agreeing the speeds between the calculators of the two
+devices. At a speed of 100 Mb/s, the length of the communication line can be
+within 30 m. DS coding has been successfully applied in the aerospace industry
+within the framework of the SpaceWire standard, where increased requirements
+are applied to the reliability of transmitted data [26]. Another option for orga -
+nizing a local network can be using the MIL-1553 interface. Article [27] describes
+a network for transmitting events and messages for technological subsystems of
+the accelerator complex.
+Figure 2 shows an example of the simplified structure of the FNC computer,
+which includes support for communication over local and global networks. The
+computer contains
+(SLIKA 45)
+ARM controller for wired and wireless networking with other members of the
+global network
+• LAN controller on the FPGA platform
+• FPGA signal level converters to LVDS levels (DS links).
+FPGA FNC-embedded computer receives events (EV1.EVn) that must be trans-
+ferred to other FNCs of the cluster. Figure 2 does not show network support for the
+lower level of the sensors. Thus, we can conclude that, for full-fledged work as part
+of a distributed technological system, each FNC should have at least three levels of
+network support.
+3.2 Communication network configuration
+The choice of the type and number of communication networks in DPS is
+determined by many factors: the technological problem to be solved, the network
+configuration chosen, geographical distribution of the interacting subsystems, and
+so on. Article [28] justifies a circular network configuration consisting of series-
+connected MCs. Serial network is formed using a single duplex DS link. Messages
+are transmitted sequentially from one MC to another using a DS interface and can
+have a broadcast status or contain the address of a particular MC. To control the
+(SLIKA 46)
+passage of messages, the last MC is connected to the first. The advantages of a ring
+serial network are as follows:
+• DS link of each MC is a network repeater and amplifier that allows you to
+maintain a high speed with a large number of mechatronic devices.
+• It is possible to control the transmitted message for accuracy and transmission
+time upon return after passing through the entire network.
+• Message transmission time is strictly determined.
+Figure 3 shows the structure of a distributed technological system with two
+communication networks—global and local. Each FNC device may be a specific
+functional technological unit. It can be a mechatronic module, individual compo-
+nents of a robotic system, or a power converter. The devices FNC2, FNC2.1, FNC2.2,
+and FNC2.3 and FNC4, FNC4.1, and FNC4.2 are clustered.
+Each FNC device has access to the global network to perform tasks that require
+access to common databases: reconfiguration, transfer of measured process param-
+eters or video data, and so on. Only FNC1, FNC2, FNC3, and FNC4 exchange event
+control via the global network. Devices within clusters transmit messages sequen-
+tially within the cluster.
+4. Conclusion
+Intellectualization of mechatronic devices allows expanding the functionality of
+technological systems. The intelligence of the MCs is provided by the increased com-
+putational performance of the controllers, the additional real-time video processing
+capability, and high sensory sensitivity. Many algorithmic problems that were previ-
+ously solved with the involvement of a centralized computer can now be solved at
+the level of the mechatronic component itself. The increased intelligence of the MCs
+adds increased requirements for organizing the design of distributed control sys-
+tems, complicating the solution of the problem of interaction of distributed techno-
+logical subsystems. A rather long implementation of the IEC 61499 standard showed
+Figure 3.
+FNC networks.
+71
+Interaction of Mechatronic Modules in Distributed Technological Installations
+DOI: http://dx.doi.org/10.5772/intechopen.88059
+Author details
+Valery A. Kokovin
+State University “Dubna” Branch “Protvino”, Moscow region, Russia
+*Address all correspondence to: kokovin@uni-protvino.ru
+the complexity of the problem to be solved. The development of mechatronic
+components as network devices goes toward the unification of embedded computers
+on the proposed computing and communication services. Standards for the design of
+distributed control systems are being implemented, which determine the ideology of
+the interaction of a distributed algorithm of a technological problem.
+                </p>

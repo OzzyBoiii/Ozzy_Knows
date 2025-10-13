@@ -1,0 +1,124 @@
+1. UVOD - PREGLED METODA I MODELA PROJEKTIRANJA.
+2. GEOMETRIJSKI MODELI U SUSTAVIMA PROJEKTIRANJA
+3. TEORIJSKA OSNOVA METODE PROJEKTIRANJA
+	3.1. Formalni model hijerarhijskog mehatroničkog sustava
+		3.1.1. Agregirana dinamička realizacija...... 
+		3.1.2. Struktura
+		3.1.3. Koordinator..... 
+	3.2. Kanonski model koordinatora 
+		3.2.1. Prikaz koordinirajućeg elementa 
+		3.2.2. Proces koordinacije......... 
+		3.2.3. Opis okruženja koordinatora 
+		3.2.4. Izvršenje zadatka projektiranja mehatroničkih sustava 
+	3.3. Metričke karakteristike hijerarhijskih mehatroničkih sustava 
+		3.3.1. Razine mehatroničkih sustava 
+		3.3.2. Numerički pozicijski sustav......... 
+		3.3.3. Mjerne jedinice mehatroničkih objekata Prethodni zaključci........
+4. OPIS METODE PROJEKTIRANJA
+	4.1. Opće geometrijske karakteristike mehatroničkih objekata 
+	4.2. Numeričke karakteristike mehatroničkih objekata.......... 
+	4.3. Hijerarhijski geometrijski prikaz mehatroničkih objekata 
+		4.3.1. Uvjetna točka 
+		4.3.2. Uvjetni pravac 
+		4.3.3. Uvjetna površina 
+		4.3.4. 3D objekt... 
+		4.3.5. Međusobna koordinacija geometrijskih elemenata mehatroničkih objekata. 
+	4.4. Postupci geometrijskog dizajna mehatroničkih objekata 
+		4.4.1. Koordinacijske akcije s geometrijskim elementima mehatroničkih objekata..... 
+		4.4.2. Geometrijska sinteza.... 
+		4.4.3. Dizajn gibanja i deformacije kao zadaci analize Preliminarni zaključci
+5. KONCEPTUALNI DIZAJN BIOMEHATRONIČKOG KIRURŠKOG ROBOTSKOG SUSTAVA... 
+	5.1. Konceptualni formalni model kirurškog robotskog sustava
+	5.2. Realizacija koordinacije - dizajna i upravljanja - zadaci Preliminarni zaključci.
+6. KONCEPTUALNI MODEL BIOLOŠKI INSPIRIRANOG ROBOTA
+	6.1. Konceptualni model robota dinosaura.
+	6.2. Dizajn gibanja robota
+	6.3. Sastavljanje dijelova robota dinosaura. Preliminarni zaključci.
+7. DIZAJN LJUDSKOG MOTORA KORIŠTENJEM METODE HIJERARHIJSKIH SUSTAVA....... 
+	7.1. Formulacija koordinacijskog zadatka 
+	7.2. Definicija ljudskih pokreta i deformacija 
+	7.3. Računalni dizajn ljudskog gibanja.
+		7.3.1. Algoritam dizajna ljudskog gibanja 
+		7.3.2. Računalni dizajn ljudskih pokreta sjedenja i ustajanja 
+	7.4. Opis laboratorijskog eksperimenta. Preliminarni zaključci i rezultati.......
+8. 	
+	8.1. Geometrijska konstrukcija tiskane ploče
+	8.2. Faze ispitivanja kvalitete međuspojeva PCB-a. Preliminarni zaključci....
+9. DIZAJN I UPRAVLJANJE MCM STROJEM ZA REZANJE 
+	9.1. Konceptualni model MCM-a
+	9.2. Zadaci dizajna...... 
+	9.3. MCM dizajn i simulacija gibanja - Robwork Studio
+integracija.....
+Preliminarni zaključci
+ZAKLJUČAK.....
+Zahvale
+REFERENCE
+</p>
+<h3>Konvencionalni znakovi i pojmovi</h3>
+<p>
+Kratice i pojmovi:
+MS – mehatronički sustav,
+MO – mehatronički objekt,
+MP – mehatronički proces,
+CD – konceptualni dizajn,
+DD – detaljni dizajn,
+CS – konceptualne studije,
+PC – osobno računalo,
+GO – geometrijski objekt,
+CAD – računalno potpomognuto projektiranje,
+CAE – računalno potpomognuto inženjerstvo,
+CIM – računalno integrirana proizvodnja,
+KBE – inženjerstvo temeljeno na znanju,
+MDE – inženjerstvo vođeno modelima,
+FBS – funkcija-ponašanje-struktura,
+FCBS – funkcija-ćelija-ponašanje-struktura,
+FKC – funkcionalna ćelija znanja,
+B-R – granični prikaz,
+CSG – konstruktivna geometrija tijela,
+ACS – automatizirani računalni sustav,
+HS – hijerarhijski sustav,
+DE – diferencijalne jednadžbe,
+CG – računalna geometrija,
+SRS – kirurški robotski sustav,
+TKA – totalna artroplastika koljena,
+MCM – stroj za rezanje šahtova,
+PCB – tiskana elektronička ploča,
+Koordinacija – procesi projektiranja i upravljanja sustavima,
+Aed – formalni analog dvorazinskog sustava s dinamičkim objektima,
+6
+Znakovi i varijable:
+X – ulaz,
+Y – izlaz,
+
+S – sustav razine l,
+
+So – objekt razine l,
+
+S
+ – proces sustava 
+S razine l,
+
+S
+ – okolina sustava 
+S ,
+
+ – struktura sustava 
+S ,
+
+0S – koordinator sustava 
+S ,
+
+ – agregirani dinamički prikaz sustava 
+S ,
+
+ – reakcija sustava 
+S ,
+
+ – funkcija prijelaz stanja sustava 
+S ,
+S
+L – numerički pozicijski sustav,
+ – izlazna funkcija koordinatora (strategija koordinacije),
+tt’ – vremenski interval [t, t’],
+ – signal koordinacije i veze podsustava,
+w – signal povratne veze.

@@ -1,0 +1,216 @@
+<h3>Mechatronics for the Design of Inspection Robotic Systems</h3>
+<p class="zoomable-text">
+                    (STRANICA 51)
+                    Abstract
+Recent trends show how mobile robots are being widely used in security and
+inspection tasks. This chapter reports the requirements, characteristics, and
+development of mobile robotic systems for security and inspection tasks to dem-
+onstrate the feasibility of mechatronic solutions for inspection of sites of interest.
+The development of such systems can be exploited as a modular plug-in kit to be
+installed on a mobile system, with the aim to be used for inspection and monitoring,
+introducing high efficiency, quality, and repeatability in the addressed sector. The
+interoperability of sensors with wireless communication constitutes a smart sensor
+toolkit and a smart sensor network with powerful functions to be used efficiently
+for inspection purposes. A tele-operated robot will be taken as case of study; it is
+controlled by mobile phone and equipped with internal and external sensors, which
+are efficiently managed by the designed mechatronic control scheme.
+Keywords: mechatronics, hybrid leg-wheel locomotion, inspection, interoperability,
+low-cost monitoring
+1. Introduction
+Robotics applied to inspection and home security is becoming a reality in recent
+years. Moreover, with the spread diffusion and popularity of robots in everyday
+life, their use is enormously increased in recent years [1–4]. Soft computing and
+artificial intelligence are successfully used for machinery control and robotic and
+engineering applications [5–7]. The integration of nonlinear system with com-
+munication technology has led smart and secure industry and home become reality.
+Therefore, robots may play an important role in such environments.
+In addition, indoor inspection, surveillance, and home security are becoming
+critical issues at this time to organizing a smart and secure place to live and/or work
+[8, 9]. Advances in closed-circuit TV (CCTV) technology are turning video surveil-
+lance equipment into the most valuable loss prevention tool. Such technology can be
+considered as a safe and secure tool, which is nowadays available for either indus-
+trial, commercial or residential applications. The use of inspection and surveillance
+systems can alert users for threatening situations worsen, as well as for providing
+an important record of events, such as inspection of a production plants or build-
+ings, for verification of structural and/or electrical components. However, in most
+of the conventional systems for surveillance, only fixed cameras and fixed infrared
+cameras are used. Therefore, drawbacks are related to problems in viewing all video
+streams at the same time or tracking a moving object through a mobile device due
+to the object dynamics and limited network bandwidth. In order to overcome these
+Emerging Trends in Mechatronics
+52
+limitations, an increasing number of systems have been developed for automatic
+inspection; they are equipped with sensors allowing the exploration of a building,
+as reported in [10].
+Inspection and monitoring systems are apparently the only tools that are easy
+to use and manage; in fact, they hide drawbacks such as high purchase and mainte-
+nance costs as well as significant financial commitment related to data management
+and processing. In addition, interoperability and integration with other devices
+could be a problem; those factors may greatly influence the wide spreading of those
+systems. In order to enhance the use of these technologies, new solutions have been
+explored dealing with the concept of robotic and automatic survey using low-cost
+technology [11]. More specifically, the use of a robotic platform may drastically
+reduce the time and cost needed for a relief, if compared to a classical approach.
+Moreover, the use of a low-cost technology, both for the mechanical design of the
+mobile robot and the onboard sensors, allows the wide spreading of the robotic
+system and substitution in the case of damages or if the robot is lost. In addition,
+the developed technology may allow the interoperability of the system and integra-
+tion in the industrial environment by taking advantage of Industry 4.0.
+2. Requirements and solutions for surveillance and inspection robotic
+systems within Industry 4.0
+Surveillance and automatic inspection tasks require a careful analysis to identify
+basic requirements and appropriate solutions, as it is represented schematically in
+Figure 1. A first basic requirement is related to the mobility issue, which deals with
+the site to inspect, that is, buildings, industrial plants, or other indoor environment.
+Indoor and outdoor inspections often require different solutions, either ground or
+aerial ones. They have in common the need to have a relatively small sized mobile
+robot that can travel across a large variety of scenarios.
+Mobile robots can be classified according to their type of locomotion. Walking
+systems are well suited for unstructured environment because they can ensure
+stability and adaptability to a wide range of situations, but they are mechanically
+(SLIKA 36)
+complex requiring high power and control efforts [12]. Wheeled locomotion instead
+is the most efficient solution on flat surfaces [13]. In fact, wheeled or tracked robots
+are the optimal solution for well-structured environment and quite regular terrain.
+In off-road, their mobility is often very limited and highly depends on the type of
+environment and the dimension of the obstacles. Hybrid mobile robots have been
+developed to combine advantages of legged- and wheeled-/tracked-locomotion
+types; therefore, lately they are preferred for a large variety of scenarios and
+applications. Very often the mechanisms used for the locomotion (legs, articulated
+wheels) should be synthetized ad hoc [14, 15]. A proper model of the mechanical
+system has to be developed for programming and communication issues [16, 17].
+A classification of three types can be made referring to navigation modes,
+namely, pure teleoperation, safeguarded teleoperation, and autonomous naviga-
+tion, according to the task and overall budget. The choice depends on the applica-
+tion and the environment. The sensorization is strictly related to the navigation
+type and the level of sophistication of the inspection. It is possible to classify
+sensors as internal and external ones. The internal ones give the robot mobility
+control and navigation capabilities. They can be proximity sensors, encoders,
+GPS, accelerometers, gyroscopes, magnetic compasses, and tilt and shock sensors.
+External sensors are related to a specific task; for the inspection and surveillance
+application, the sensors considered can be cameras, thermal cameras, laser, light,
+temperature, gas, smoke, oxygen, humidity, sound, and ultrasound. Hardware and
+software reliability deals with the end user/application of the robot. In fact, this
+issue has to be set at very early stage of the design process since it is related to opera-
+tion, maintenance, failure prevention, and intervention.
+Communication tools are essential for localization, navigation, or data transmis-
+sion [16, 17]. In addition to wired and wireless communication, a great challenge is
+the interoperability with any automatic and robotic system with other devices, such
+as home automation and security system in industrial plants according to Industry
+4.0. This issue is specifically related to the application for surveillance, inspection,
+and maintenance for structures and infrastructures and in industrial environment,
+also related to sustainability [18, 19]. Recently, the term Industry 5.0 has been intro-
+duced in 2015; comparing with Industry 4.0, which is being considered as the latest
+(SLIKA 37)
+industrial revolution, it can be considered a systemic transformation that includes
+impact on civil society, governance structures, and human identity in addition to
+solely economic/manufacturing ramifications, the Industry 5.0 founders prefer to
+speak about next step in evolution.
+The fourth industrial revolution has been applied to significant technological
+developments several times over the last 75 years and is up for an academic debate.
+Industry 4.0, on the other hand, focuses on manufacturing specifically in the current
+context and thus is separate from the fourth industrial revolution in terms of scope. It
+is very interesting to analyze the significant trimming of the time needed to go from
+one revolution to the next one. From this regard, the introduction of Industry 5.0 just
+4 years after the start of Industry 4.0 is not an exception, but a winner (Figure2).
+3. Mechatronic design of inspection robotic system
+The mechatronic design of an inspection robotic system can be schematically
+composed by two main parts: one is related to the robot mobility and operation
+modes and the other one is responsible to manage the external sensor kit, specifi-
+cally made according to the application. Figure 3 shows the mechatronic architec-
+ture of the THROO system, proposed by Rea and Ottaviano [10] and used here as
+paradigmatic example.
+According to the scheme reported in Figure 3, a tablet in (1) is used for the robot
+motion control and navigation, taking advantage of the two sliders represented
+in the zoomed view in (7). The Dension WiRC software is used for programming.
+The USB WiFi router type is TP-Link Model TL-WN821N, and it is represented in
+(2) and allows the tablet to access and connect to the WIRC hardware. The webcam
+(3) is the Logitech U0024 type. The Dension WiRC hardware (4), with four digital
+inputs, four digital outputs, and eight channels, is used to control the servomotors
+of the robot. The hardware in (4) is connected to Arduino board (5) and gives the
+command to the robot’s actuators via relay (6). The target (8) is displayed on the
+tablet.
+The overall mechatronic system architecture for the robot navigation is given
+in (9). For the proposed application (indoor survey) teleoperation mode is used;
+(SLIKA 38)
+(SLIKA 39)
+therefore, when the robot in Figure 4 moves, the internal sensor suite is used to
+help the user to understand the environment and guide the robot to the path or a
+close target. In particular, in Figure 4, label (2) is for the electronic board equipped
+with accelerometer, gravity and gyroscope sensors, GPS sensor, magnetic field,
+and acceleration sensors. The front camera view for navigation is displayed as (3).
+External sensors are used for inspection and monitoring tasks. More specifically, in
+Figure 4, label (1) is used for the thermal infrared camera FLIR ThermaCAM S40,
+and the 3D scan is the Xbox Kinect shown in (4), provided with an infrared sensor
+and two additional micro cameras.
+Examples and applications of industrial and nonindustrial applications are
+reported in [20, 21]. An overall layout for the system is given in Figure 5, in which
+the main components may be recognized, mainly the robot in (2) with external
+and internal sensors, operating (3) and monitoring (5) (6) systems, and the power
+(SLIKA 41)
+supply (6); label (1) represents the target. Figure 6 shows the control architecture
+to operate the robot and a representation of the interoperation with the equipment
+onboard.
+The use of this kind of control system solution offers several advantages, which
+can be summarized as follows:
+1. Low cost—Arduino boards are relatively low cost, if compared to other
+microcontroller platforms. They may enable diffusion and affordable cost of
+the overall system.
+2. The Python software runs on Windows, Macintosh OS X, and Linux operating
+systems. Most microcontroller systems are limited to Windows.
+3. Simple, clear programming environment—the programming environment
+is easy to use for beginners, yet flexible enough for advanced users to take
+advantage of as well.
+4. Open-source and extensible software—the software is made available as open
+source tools, suitable for extension by experienced programmers. The language
+can be expanded through C++ libraries.
+5. Open-source and extensible hardware—the plans for the modules are pub-
+lished under a Creative Commons license, so experienced circuit designers can
+make their own version of the module, extending it and improving it. Even
+relatively inexperienced users can build the breadboard version of the module
+in order to understand how it works and save money.
+CANopen is a CAN-based communication system. It comprises higher-layer
+protocols and profile specifications. CANopen has been developed as a standardized
+embedded network with highly flexible configuration capabilities. It was designed
+originally for motion-oriented machine control systems, such as handling systems.
+(SLIKA 42)
+Today, it is used in various application fields, such as medical equipment, off-
+road vehicles, maritime electronics, railway applications, or building automation.
+In order to obtain this low-cost control system, the advantages of using Arduino
+with CANopen for data transmission have been combined. This was possible using
+a PiCAN 2 breadboard interface card that allows Raspberry to send commands via
+CANopen.
+Table 1 summarizes the main features of the proposed system. The integration
+of sensors and its management has been a subject of research activity in different
+domains [3, 4, 22–24]. An industrial network laboratory prototype has been pro-
+posed by Leão et al. [25] in which several kits have been implemented.
+4. Cases of study
+The THROO system has been proposed here as a paradigmatic example of a
+mechatronic solution for the design. Applications reported here refer to indoor sur-
+veys. Figure 7 shows the robot operation during an indoor inspection. In particular,
+thermal detection of an electrical component is carried out. The interoperability of
+the sensors onboard with navigation sensorization is managed by the control board
+and the WiRC controller
+(SLIKA 43)
+Figure 8 shows an indoor survey in which an indoor wall element made of
+limestone rock is analyzed, as reported in [11]. All the acquired data is monitored
+on two screens as shown in Figure 8 and stored in a PC for further analysis and
+reconstruction.
+Figure 7.
+Photo sequence of an experimental test of data acquisition.
+59
+Mechatronics for the Design of Inspection Robotic Systems
+DOI: http://dx.doi.org/10.5772/intechopen.88489
+5. Conclusion
+In this chapter, we have proposed the main requirements and related items for a
+mechatronic design of an inspection and surveillance robotic system. The mecha-
+tronics and control scheme proposed here might constitute a solution for a broad
+range of scenarios spacing from home security and inspection of industrial sites,
+brownfields, historical sites, or sites dangerous or difficult to access by operators.
+As a paradigmatic example, a hybrid robot is presented here, and experimental tests
+are reported to show the engineering feasibility of the system and interoperability
+of the mobile hybrid robot equipped with sensors that allow real-time multiple
+acquisition and storage. The robot equipment is composed by external and internal
+sensors, for example, gyroscope, accelerometer, inclinometer, thermal camera, and
+3D motion capture system.
+                </p>

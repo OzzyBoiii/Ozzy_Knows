@@ -1,0 +1,255 @@
+<h3>Testing heading</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<p class="zoomable-text">
+                    Conceptual model creation of an engineering, e.g. mechatronic system being de-
+signed is the actual task for automotive control, robotics and industrial production
+systems which usually operate with modern CAD/CIM systems [1, 12-15]. Nowa-
+days, there are a lot of definitions of Conceptual Design (CD) and corresponding
+methods and models which are used at the conceptual design phase. The following
+definitions: “conceptual design or what some call ‘ideation’ defines the general
+description of the product” given by Paul Brown, “the early part of any design
+process, which can occur at any point in the product development cycle” given by
+Bob McNeel, and “conceptual design is about possibilities” given by Fielder Hiss
+are analyzed by Hudspeth [16]. Hudspeth considers conceptual design to be more
+about what a product might be or do, how it would meet the expectations of the
+manufacturer and the customer. M.J. French defines the conceptual design as the
+phase of the design process where the statement of the problem and generation of
+broad solution to it in the form of schemes is performed [17]. In any case before
+giving a definition to Conceptual Design and Conceptual Model of an engineering
+(e.g. mechatronic) object being designed it seems to be reasonable to define the
+place of Conceptual Design in general design process and object’s life cycle. To
+make such a definition, the general design scheme is presented by French [17] in
+the form of a block diagram given in Figure 1.1.
+(SLIKA 1)
+(SLIKA 2)
+Here circles represent phases and rectangles represent work which is not com-
+pleted. In this diagram things that are important but outside of the scope of the
+work, have been omitted by French. For examples, interactions with such activities
+as research and development, inputs of information, etc., were not under considera-
+tion. The ‘evaluation’ box was also omitted in the scheme because French believes
+it should be going on continuously in all the rectangles of the diagram [17]. Ac-
+cording to Ullman [1], in the object life cycle (Fig. 1.2) the Conceptual Design
+phase is just before the phase of the Detailed Design (DD) where the object’s con-
+crete mathematical model is created and numeric calculations are performed. An-
+other similar scheme which contains both conceptual and detailed design phases
+in the total design core is presented by P. Childs in [13], see Figure 1.3.
+(SLIKA 3)
+The main design tasks performed at both CD and DD phases (Fig. 1.3) are
+synthesis and analysis tasks. The places of these tasks in the general design process
+are presented by the scheme in Figure 1.4 given in [13]. Synthesis is defined by
+Childs as the process of combining the ideas developed into a form or concept,
+which offers a potential solution to the design requirement. Analysis task is recog-
+nized as involvement of the application of engineering science. In this case, sub-
+jects are explored extensively in traditional engineering courses, such as statics and
+dynamics, mechanics of materials, fluid flow and heat transfer. These engineering
+'tools' and techniques are used in analysis tasks to examine the design to give quan-
+titative information such as whether it is strong enough or will operate at an ac-
+ceptable temperature [13]. Analysis and synthesis invariably go together.
+In the frames of the conceptual design model presented in this book and de-
+scribed below in aed formal basis of HS (see Chapters 3-4), the synthesis and anal-
+ysis tasks are also performed together and defined as coordinator tasks of creating
+(synthesis) and changing (after analysis) mechatronic system construction and
+technology by selecting units of lower levels and settling their interactions to make
+12
+the state and activity of the system on higher levels (environment) best coordinated
+with environmental aims.
+(SLIKA 4)
+Another definition of the conceptual design process was given in the Over-
+view section of the work titled “Analyzing Requirements and Defining Mi-
+crosoft.net Solution Architectures” [18] where MSF (Microsoft Solutions Frame-
+work) process model was presented. It was pointed out here that the planning phase
+of the Model involves three design processes: conceptual, logical, and physical.
+The conceptual design starts during the envisioning phase of the MSF process
+model and continues throughout the planning phase. Because the MSF design pro-
+cess is evolutionary as well as iterative, conceptual design serves as the foundation
+for both logical and physical design. The following three steps of conceptual de-
+sign and associated baselines are formulated. Conceptual design is an iterative
+process and the steps are repeated as required: 1) research, 2) analysis, 3) optimiza-
+13
+tion. The optimization baseline leads to the baseline of the conceptual design. Cor-
+respondent Figure 1.5 illustrates these steps in the conceptual design.
+During the research step of conceptual design, the team gathers more infor-
+mation to refine and validate data collected during the envisioning phase. Typical-
+ly, the information gathered during the envisioning phase is high level and lacking
+in detail. During the first step of the conceptual design, the design team needs
+to collect detailed information. For example, the team first identifies questions
+raised by the first iteration of information gathering; the team then continues
+to clarify the tasks, business processes, and workflow. As greater detail is discov-
+ered, the results are incorporated in the use cases and draft requirements.
+(SLIKA 5)
+US Department of Transportation [19] formulated that conceptual studies (CS)
+are typically initiated as needed to support the design planning and programming
+process. CS phase identifies, defines and considers sufficient courses of action (i.e.,
+engineering concepts) to address the design needs and deficiencies initially identi-
+fied during the planning process. This phase advances a project proposed in the
+program to a point where it is sufficiently described, defined and scoped to enable
+the preliminary design and technical engineering activities to begin. The CS and
+preliminary design phases are performed in conjunction and concurrently with the
+environmental process which evaluates environmental impacts of the engineering
+proposals resulting from the conceptual studies and preliminary design phases.
+Environmental systems and processes are also taken into account in
+knowledge based engineering (KBE) approach proposed by Pokojski and
+Szustakiewicz in [20]. The main structures for extended KBE application are de-
+sign process and design models. The models contain specific aspects such as prod-
+uct structure as a whole and its fragments, engineering calculations and analysis
+with ability of integration with external systems, design requirements and decision
+making processes. This object-oriented approach makes it possible to speed up the
+14
+process of generating the source code of design models from the extended KBE
+application. KBE approach is also used in [132] to support multidisciplinary design
+optimization. Another approach where the decision support tools in the domain of
+conceptual design are sufficiently developed is model-driven engineering (MDE)
+described in [21]. Here, a prototype software is presented that allows the user to
+specify functional requirements for the designed buildings, and hierarchical graphs
+and graph grammars serve as knowledge representation tool.
+In systematic respect, designing is defined in [22] as the optimization of given
+objectives within partly conflicting constraints. Requirements can be changed with
+time, so that a particular solutions can be optimized for a particular circumstances
+set. In organizational respect, design is recognized as a part of the product life
+cycle. This cycle is trigged by a market need or a new idea. Life cycle starts with
+product planning and ends with recycling or environmentally safe disposal. The
+activity on engineering design is placed at the center of two interacting technical
+and cultural streams (Fig. 1.6) in [22]
+(SLIKA 6)
+From the point of view of Hierarchical Systems (HS) method proposed in this
+manuscript, both streams belong to the general process of level increasing of the
+object being designed in its life cycle. This process and the life cycle for the case
+of Tractor and Automobile Industry (TAI) were described in [23, 24] and are pre-
+sented in Fig. 1.7 below.
+(SLIKA 7)
+Figure 1.7 presents the main phases of product life cycle for the case of
+articles of Tractor and Automobile Industry (TAI) and their places in State levels.
+States levels are (Nat) natural (physical, chemical, biological), (Demog)
+demographical (social), (En) engineering, (Kn) knowledge and the level of the
+State power (St.Power). The phases of TAI product life cycle are: (1)
+manufacturing of articles and equipment for TAI; (2) transport networks, the
+delivering of raw materials, details, equipment; (3) trade; (4) field of activity and
+technical service of TAI articles; (5) design of new things (innovations) in TAI,
+financial and juridical service, scientific maintenance. The place of the conceptual
+design phase where HS design technology and correspondent conceptual model
+(presented and described below in this book) are implemented is in the fifth block
+– design of new things, financial and juridical service, scientific maintenance – of
+the scheme (Fig. 1.7).
+The connection of the Life Cycle phases (Fig. 1.7) as well as State levels –
+natural, demographic, engineering, knowledge, State power – is realized by aed
+technology of hierarchical system partially described by Aλ scheme given in [8].
+The scheme connects elements of symbol construction of hierarchical system pre-
+sented in Aλ form of aed and reflects both the design mechanism and the law of
+object’s level increasing in its life cycle.
+To represent concept design knowledge, the technology of functional
+modelling was researched and applied by Bryant et al. [25]. Gero and
+Kannengiesser [26] presented an function–behavior–structure (FBS) ontology
+representation process for concept design in different domains, and emphasized the
+reasoning mechanism with the FBS ontology for knowledge representation. Borgo
+et al. [27] suggested an ontological characterization of artefact behavior and
+function to capture the informal meanings of these concepts in the engineering
+practice and to characterize them as part of a foundational ontology. As for
+Nat
+Demog
+En
+Kn
+St. Power
+1
+2 3 4
+5
+16
+a mechatronic design process, Yan and Zante stated that "mechatronic system de-
+sign is normally considered to be a sequential process in which a design solution to
+a given design problem is generated, explored and evaluated following a series of
+prescribed steps" [28]. A mechatronic approach towards designing inspection
+robots using rapid prototyping and real-time simulation is also described by
+Giergiel et al. in [29].
+The design methods based on the abstract modelling of PALMERA and the
+DMC model, Design Flow for Reconfigurable Architectures (INDRA) has been
+developed to guide the designer through different implementation steps to create
+a concrete dynamic reconfigurable system architecture. These design methods and
+the design flow are described in [133, 134].
+A formal definition of the concept design and a conceptual model linking con-
+cepts related to design projects are presented by Ralph P. and Wand Y. [30]. Their
+definition of design incorporates seven elements: agent, object, environment, goals,
+primitives, requirements and constraints. The design project conceptual model
+is based here on the view that projects are temporal trajectories of work systems
+that include human agents who work to design systems for stakeholders, and use
+resources and tools to accomplish this task. Ralph and Wand demonstrate how
+these two conceptualizations can be useful by showing that 1) the definition of
+design can be used to classify design knowledge, and 2) the conceptual model can
+be used to classify design approaches. The analysis performed by Ralph and Wand
+[30] led to defining the design as follows in Fig. 1.8.
+(SLIKA 8)
+Here the conceptual model of Design presented as a noun in Fig. 1.8 is recog-
+nized as a specification of an object, manifested by an agent, intended to accom-
+plish goals in a particular environment using a set of primitive components, satisfy-
+ing a set of requirements, subject to constraints. The Design recognized as a verb is
+presented to create a design in an environment where the designer operates.
+17
+Both noun and verb design definitions correspond to the object and its process
+respectively as the elements of aed model of HS conceptual design method sug-
+gested in this book, see aed scheme in Fig. 3.1, Chapter 3.
+A systematic approach for the competency-oriented development of learning
+factories integrating the conceptual design levels ‘learning factory’, ‘teaching
+module’ and ‘learning situation’ is given by Tisch et al. in [129]. The presented
+approach enables “an effective competency development in learning factories by
+addressing problems of intuitively designed learning systems. As a result learning
+factories, teaching modules and single teaching–learning situations meeting indus-
+tries’ requirements can be realized with less effort and an increased success in ap-
+plied competencies in real situations”. A systematic analysis of mechatronic ob-
+jects is also presented by Gawrysiak in [104].
+The function–cell–behaviour–structure (FCBS) model for better comprehend-
+ing representation and reuse of design knowledge in conceptual design was pre-
+sented by Gu et al. [31]. Hierarchical two-layer concept is given here, i.e. two
+knowledge representing layers – the principle layer and the physical layer – are
+presented in the FCBS model. The principle layer is utilized here to represent the
+principle knowledge. Case modelling is employed in the physical layer to integrate
+the structural information and behavioural performances of the existing devices,
+which applies the design principles represented by the functional knowledge cells
+(FKCs).
+FCBS model presented by Gu et al. [31] and a formal definition of the concept
+design and a conceptual model given by Ralph P. and Wand Y. [30] are close to
+Hierarchical Systems design technology which is described below in this book and
+was chosen in this work as the formal basis of the conceptual model creation.
+In the presented book the Conceptual Design (CD) is recognized as a process
+of creation of a systemic model of the object being designed on the early phase of
+its life cycle. To define the conceptual model of a mechatronic system in systemic
+bases it is necessary to describe: mechatronic system structure; its dynamic
+representation as a unit in its environment; the system environment, its process
+and system-environment interactions; the system coordinator and its coordination
+(design&control) processes; processes executed by mechatronic subsystems and a
+general process. Besides, the conceptual model should take into account the con-
+nected descriptions of mechatronic subsystems of different nature, i.e. mechanical,
+electromechanical, electronic and computer.
+Furthermore, conceptual model of the mechatronic system being designed and
+its coordination (deisgn&control) technology should meet the requirements of the
+general design system which must allow performing the design – synthesis and
+analysis – and control tasks under condition of any information uncertainty, i.e. (1)
+to create and change mechatronic system construction and technology by selecting
+units of lower levels and settling their interactions to make the state and activity of
+18
+the system in higher levels (environment) best coordinated with environmental
+aims (selection stratum); (2) to change the ways (strategies) of the design task
+performing when the designed unit is multiplied and the knowledge uncertainty is
+removed (learning stratum); (3) to change the above mentioned strata when new
+knowledge is created (self-organization stratum).
+The coordination technology must also cohere with traditional forms of infor-
+mation representation in mechatronics, i.e. numerical and geometrical systems. The
+theoretical basis of the design process in agreement with these requirements must
+be a hierarchical construction connecting any level unit with its lower and higher
+levels.
+The above mentioned methods used in the conceptual design and well as mod-
+els of mathematics based on set theory and methods of artificial intelligence do not
+meet the above formulated requirement. They do not allow the description of
+mechatronic subsystems with their specific characteristic features in common
+formal basis. At the same time they do not describe the mechanism of interlevel
+dynamics of the mechatronic object (MO) being designed since the set theory de-
+scribes one-level world outlook only.
+To solve the problem, the symbol construction and coordination technology of
+Hierarchical Systems (HSs) [2-8] was chosen in the work as the formal basis of the
+conceptual model creation. HS formal model was constructed with the help of aed
+(Fig. 3.1) – formal analogue of two-level system [3-8], and general dynamic sys-
+tems by Mesarovic and Takahara [9,10], numeric positional system codes, geome-
+try and cybernetics methods [32].
+Among the first attempts of HS technology and aed model application in de-
+sign are the results presented in [3-4, 33]. The current version of the conceptual
+model and design technology of mechatronic objects based on the Hierarchical
+Systems approach is partially described in [49] and presented below in this book.
+(SLIKA 9)
+                </p>

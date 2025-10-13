@@ -1,0 +1,429 @@
+<h3>Trigonometrijske funkcije kutova u trokutu (U RADU)</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Trigonometrijske funkcije kuta u pravokutnom trokutu
+ <p>U pravokutnom trokutu jedan kut ima mjeru 90∘ a dva preostala kuta su šiljasta, njihova je mjera manja od 90∘
+                . Označimo vrhove, stranice i kutove u trokutu na uobičajeni način, kao na slici. Definirali smo trigonometrijske funkcije šiljastog kuta u pravokutnom trokutu na sljedeći način.
+                Trigonometrijske funkcije šiljastog kuta u pravokutnom trokutu
+                Sinus, kosinus, tangens i kotangens kuta α
+                definirani su omjerima stranica u pravokutnom trokutu:
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Trigonometrijske funkcije za kutove od 0∘do 180∘
+<p>Želimo definirati trigonometrijske funkcije za kutove po volji odabranog trokuta. Oni mogu imati mjere od 0∘ do 180∘. Stoga je korisno pojam kuta i trigonometrijske funkcije tog kuta promotriti u općenitijoj situaciji.</p>
+              <img src="Trigonometrijske funkcije kutova u trokutu_1.png">
+              <p>Kut je dio ravnine određen dvjema zrakama (polupravcima) sa zajedničnim početkom. Pri tom označavamo (lukom ili na koji drugi način) na koji dio ravnine određen tim parom zraka mislimo.
+                Mjera kuta je pozitivan broj, između 0∘
+                i 360∘
+                . Ovisno o tome kolika im je mjera, za neke smo kutove govorili da su šiljasti, pravi, tupi, ispruženi, izbočeni i puni.
+                Promatrat ćemo kutove s mjerom od 0∘
+                do 180∘ pa ćemo radi toga od dvaju kutova određenih polupravcima uvijek uzimati onaj manje mjere.
+              </p>
+              <img src="Trigonometrijske funkcije kutova u trokutu_2.png">
+              <p>Neka je α bilo koji šiljasti kut. Nacrtajmo ga u gornjoj poluravnini tako da mu vrh bude u ishodištu koordinatnog sustava, a os Ox jedan od polupravaca koji određuju kut. Na drugom polupravcu uzmimo bilo koju točku P. Njezine koordinate označimo sa x i y
+
+                .
+                
+                Udaljenost točke P
+                do ishodišta označimo sa r.
+                r=x2+y2−−−−−−√
+                
+                Iz pravokutnog trokuta OTP
+                čitamo:
+                sinα=yr,cosα=xr.
+                
+                Neka je sad α
+                tupi kut. Onda se točka P
+                
+                nalazi u drugom kvadrantu. Sinus i kosinus ovog kuta definirat ćemo na identičan način.
+                
+                Sinus i kosinus kuta
+                Neka je točka P(x,y)
+                na drugom polupravcu kuta α i r udaljenost te točke do ishodišta. Onda definiramo
+              </p>
+              <img src="Trigonometrijske funkcije kutova u trokutu_3.png">
+              <p>
+                <!--PRIMJER 1-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Trigonometrijske funkcije za kutove od 0∘do 180∘
+<p>Nacrtajmo polukružnicu polumjera 1 sa središtem u ishodištu koordinatnog sustava. Neka je P(x,y) bilo koja točka te polukružnice. Ta točka određuje kut α:
+                Udaljenost točke P do ishodišta je 1 pa prema definicijama trigonometrijskih funkcija vrijedi
+                x=cosα,y=sinα.
+                
+                Dakle, koordinate točke P su vrijednosti kosinusa i sinusa kuta α pa je P(cosα,sinα).
+              </p>
+              <img src="Trigonometrijske funkcije kutova u trokutu_4.png">
+              <p>Budući da je x2+y2=1, za svaki je kut α  cos2α+sin2α=1.
+                <!--PRIMJER 2-->
+                Džepna računala posjeduju tri tipke za računanje sinusa, kosinusa i tangensa zadanog kuta. Vrijednost kotangensa računa se s pomoću tangensa jer je ctg x=1tg x.
+                Dakle, kotangens računamo tako da najprije odredimo tangens, a onda pritisnemo tipku 1/x za računanje recipročne vrijednosti.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Suplementarni kutovi
+<p>Dva su kuta α i β suplementarna ako zajedno čine ispruženi kut:
+                α+β=180∘.
+                Dakle, suplementaran kut kutu α
+                je (180∘−α). Pri tom α može biti bilo koji, oštri ili tupi kut.
+              </p>
+              <img src="Trigonometrijske funkcije kutova u trokutu_5.png">
+              <p>Na slici su nacrtana dva suplementarna kuta. Neka je α=<)AOP i neka su (x,y) koordinate točke P. Označimo na drugom kraku kuta 180∘−α točku T s ordinatom y i neka je B njezina projekcija na os apscisa. Trokuti AOP i BOT su sukladni jer se podudaraju u kutovima i stranici duljine y. To znači da je |OB|=|OA|=x pa su (−x,y) koordinate točke T. Sad imamo
+                sin(180∘−α)=yr=sinα,cos(180∘−α)=−xr=−cosα.
+                Za tangens i kotangens suplementarnih kutova imamo
+                tg (180∘−α)=sin(180∘−α)cos(180∘−α)=sinα−cosα=−tg α,ctg (180∘−α)=cos(180∘−α)sin(180∘−α)=−cosαsinα=−ctg α.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Određivanje kuta
+<p>Poznata nam je vrijednost trigonometrijske funkcije nekog kuta α
+                . Kolika je mjera tog kuta?
+                Pri određivanju kuta svaka od trigonometrijskih funkcija ima svoje posebnosti pa ćemo opisati račun detaljno, za svaku pojedinu funkciju.
+                Određivanje kuta iz poznatog kosinusa
+                U ovom se slučaju možemo pouzdati u vrijednost koju će nam dati računalo. Ako je kosinus pozitivan, dobit ćemo kut s mjerom 0∘ je manje od α je manje od 90∘
+                . Ako je kosinus negativan, mjera kuta nalazit će se u granicama 90∘ je manje od α je manje od 180∘.
+                <!--PRIMJER 4-->
+                Određivanje kuta iz poznatog sinusa
+                Sinus oštrog i tupog kuta uvijek je pozitivan pa će jednadžbasinα=pimati dva rješenja, za 0 je manje od p je manje od 1. Računalo će dati mjeru kuta koja se nalazi unutar intervala 0∘ je manje od α je manje od 90∘. Tražimo li tupi kut, onda je riječ o suplementu ovog kuta.
+                <!--PRIMJER 5-->
+                Određivanje kuta iz poznatog tangensa
+                Ako je vrijednost tangensa pozitivna, onda je kut šiljast i računalo će dati njegovu mjeru. Ako je vrijednost tangensa negativna, onda je kosinus negativan pa je traženi kut tup. Međutim, rezultat na računalu neće biti mjera tog kuta, već će računalo dati kao rezultat negativnu mjeru nekog kuta. Stoga taj rezultat trebamo prevesti u traženi, kako je pokazano u sljedećem primjeru.
+                <!--PRIMJER 6-->
+                Određivanje kuta iz poznatog kotangensa
+                Kotangens se u računalu računa preko tangensa. Zato moramo najprije odrediti vrijednost tangensa, a potom traženi kut.
+                <!--PRIMJER 7-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Poučak o sinusima (U RADU)</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Poučak o sinusima
+<p>Nacrtajmo bilo koji trokut ABC.</p>
+              <img src="Poučak o sinusima_1.png">
+              <p>Iz pravokutnog trokuta APC čitamo vc=bsinα. Ako je kut α tup, onda je vc=bsin(180∘−α)=bsinα. Dakle, uvijek je
+                vc=bsinα.
+                Slično je iz trokuta BPC
+                vc=asinβ.
+                Slijedi
+                asinβ=bsinα⟹asinα=bsinβ.
+                Potpuno na isti način dobili bismo i ovaj omjer:
+                bsinβ=csinγ.
+                Time smo dokazali sljedeći važni poučak.
+                Poučak o sinusima
+                U svakom su trokutu omjeri duljina stranica i sinusa tim stranicama suprotnih kutova jednaki:
+                asinα=bsinβ=csinγ.
+                
+                Te jednakosti možemo napisati u obliku produženog razmjera
+                a:b:c=sinα:sinβ:sinγ.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Rješavanje trokuta
+<p>Pri rješavanju zadataka vezanih uz trokut moramo iz nekih njegovih poznatih osnovnih elemenata (stranica i kutova) odrediti preostale. Prema poučcima o sukladnosti trokuta znamo da trokut može biti zadan tim elementima na jedan od sljedećih četiriju načina:
+                (a)
+                  zadana je stranica i dva kuta
+                (b)
+                  zadane su dvije stranice i kut nasuprot većoj od njih
+                (c)
+                  zadane su dvije stranice i kut između njih
+                (d)
+                  zadane su tri stranice.
+                U slučajevima (a)
+                i (b)
+                ostale elemente trokuta možemo odrediti primjenom poučka o sinusima.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Stranica i dva kuta
+<p>Razmotrimo prvi od ovih četiriju slučajeva.
+
+                Ako su zadana dva kuta, određen je i treći kut jer je zbroj kutova u trokutu jednak 180∘
+                . Trebamo odrediti preostale dvije stranice trokuta.  To činimo s pomoću poučka o sinusima.
+                <!--PRIMJER 1-->
+                <!--PRIMJER 2-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Dvije stranice i kut nasuprot jednoj od njih
+<p>Iz poučaka o sukladnosti trokuta znamo da je u ovom slučaju trokut jednoznačno određen ako se kut nalazi nasuprot većoj stranici.
+                <!--PRIMJER 3-->
+                Promotrimo sada što se događa u slučaju kad se zadani kut ne nalazi nasuprot većoj stranici. Vidjet ćemo da tada mogu postojati dva različita trokuta koji se podudaraju u dvjema stranicama i jednom kutu.
+                <!--PRIMJER 4-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Primjene poučka o sinusima
+<p>Potrebe mjeriteljstva bile su kroz povijest, uz astronomska mjerenja, najvažniji razlog razvoja trigonometrije. Osnovni je problem mjeriteljstva odrediti udaljenost dviju, najčešće nedostupnih, točaka. Opća je shema ovakva: na dostupnom dijelu terena odrede se istaknute točke (kote) i izmjeri njihova udaljenost. Teodolitom se mogu izmjeriti kutovi između bilo kojih triju vidljivih točaka, među kojima ima i onih koje nam nisu dostupne. Nakon toga zadatak je trigonometrije izračunati tražene udaljenosti.
+                Ilustrirajmo nekoliko tipičnih situacija u kojima se rabi poučak o sinusima.
+                <!--PRIMJER 5-->
+                <!--PRIMJER 6-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Sinus dvostrukog kuta
+<p>Za svaki kut αvrijedisin2α=2sinαcosα.
+                <!--PRIMJER 7-->
+              </p>
+              <img src="Poučak o sinusima_2.png">
+              <p>Kut nad promjerom je pravi pa je trokut ABC sa slike pravokutan. Hipotenuza ¯¯¯¯¯¯¯¯AB ima duljinu 2 pa je duljina stranice |AC|=2cosα, a duljina stranice |BC|=2sinα. Prema poučku o obodnom i središnjem kutu vrijedi <)CSB=2α.
+                Umnožak kateta u pravokutnom trokutu jednak je umnošku hipotenuze i visine na nju pa je 2sinα⋅2cosα=2⋅sin2α.
+                <!--PRIMJER 8-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Poučak o kosinusu (U RADU)</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Poučak o kosinusu
+<p>Stranice i kutove trokuta vezuje još jedan temeljni poučak.
+                Neka je ABC
+                bilo kakav trokut. Kao i pri izvodu poučka o sinusima, razmotrit ćemo sljedeće dvije situacije:
+                (a)
+                  kut γ
+                je šiljast
+                (b)
+                  kut γ je tup.
+              </p>
+              <img src="Poučak o kosinusima_1.png">
+              <p>(a) Sa slike lijevo čitamo
+                c2=|BD|2+|AD|2=(a−|CD|)2+b2−|CD|2=a2−2a⋅|CD|+|CD|2+b2−|CD|2=a2+b2−2a⋅|CD|=a2+b2−2abcosγ.
+                (b)
+                Sa slike desno čitamo
+                c2=|BD|2+|AD|2=(a+|CD|)2+b2−|CD|2=a2+2a⋅|CD|+|CD|2+b2−|CD|2=a2+b2+2a⋅|CD|=a2+b2+2abcos(180∘−γ)=a2+b2−2abcosγ.
+                Prema tome, u oba slučaja vrijedi ista formula. Budući da se u njoj javlja kosinus kuta, ovu formulu nazivamo poučak o kosinusu. Primijetimo da je on istinit i kad je kut γ
+                pravi jer tada poučak o kosinusu prelazi u Pitagorin poučak.
+                Analogne formule vrijede i za preostale dvije stranice trokuta:
+                Poučak o kosinusu
+                Kvadrat stranice u trokutu jednak je zbroju kvadrata drugih dviju stranica, umanjenom za dvostruki umnožak tih stranica i kosinusa kuta između njih:
+                a2=b2+c2−2bccosαb2=a2+c2−2accosβc2=a2+b2−2abcosγ.
+                Primjenom poučka o kosinusu rješavamo preostale dvije mogućnosti zadavanja trokuta:
+                (c)
+                  zadane su dvije stranice i kut među njima
+                (d)  zadane su tri stranice.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Dvije stranice i kut među njima
+<p>S pomoću poučka o kosinusu najprije odredimo treću stranicu. Nakon toga lako je izračunati jedan od dvaju preostalih kutova.
+                <!--PRIMJER 1-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Tri stranice
+ <p>Ako su zadane tri stranice, tada s pomoću poučka o kosinusu možemo odrediti bilo koji od triju njegovih kutova. Nakon toga drugi kut možemo odrediti bilo poučkom o kosinusu, bilo poučkom o sinusima.
+                Da bismo osigurali jednoznačnost odabira, korisno je najprije odrediti kut nasuprot najvećoj stranici. Nakon toga za računanje drugog kuta možemo bez opasnosti upotrijebiti poučak o sinusima.
+                <!--PRIMJER 2-->
+                <!--PRIMJER 3-->
+                <!--PRIMJER 4-->
+                <!--PRIMJER 5-->
+                <!--PRIMJER 6-->
+                <!--PRIMJER 7-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Trigonometrija trokuta (U RADU)</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Uvod
+<p>Sada ćemo pokazati kako se poznavanje trigonometrije, posebno poučaka o sinusima i kosinusu, može primijeniti u rješavanju planimetrijskih i stereometrijskih zadataka.
+                Posebno ćemo se osvrnuti na računanje različitih elemenata trokuta zato što je trokut najvažniji lik u planimetriji.
+                Iz poznatih stranica i kutova mogu se računati i neki drugi elementi trokuta: polumjer opisane i upisane kružnice, težišnice, visine, simetrale kutova, njegova površina i sl.
+                U trokutu ABC
+                upotrebljavat ćemo sljedeće standardne oznake:
+                a,b,cα,β,γta,tb,tcva,vb,vcsα,sβ,sγRrsPstranice trokutakutovi trokutatežišnice trokutavisine trokutasimetrale kutovapolumjer opisane kružnicepolumjer upisane kružnicepoluopsegpovršina trokuta.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Površina trokuta
+p>Nacrtajmo bilo koji trokut ABC i označimo njegove elemente na uobičajeni način.</p>
+              <img src="Trigonometrija trokuta_1.png">
+              <p>Iz planimetrije znamo da je površina trokuta jednaka polovici umnoška stranice i visine na tu stranicu. Primjerice: P=12ava. Iz  pravokutnog trokuta ADC (slika lijevo) je va=bsinγ pa vrijedi
+                P=12absinγ.
+                Ako je kut γ tup, onda je va=bsin(180∘−γ)=bsinγ
+                (desna slika) i vrijedi ista formula. Iskažimo tu važnu formulu riječima.
+                Površina trokuta
+                Površina trokuta jednaka je polovici umnoška dviju stranica i sinusa kuta između njih:
+                P=12absinγ=12bcsinα=12acsinβ.(1)
+                <!--PRIMJER 1-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+2. formula za površinu trokuta
+<p>Korisno je poznavati i formulu za površinu trokuta u kojem su poznati kutovi i jedna stranica. Neka je to stranica a. Iz poučka o sinusima
+                dobivamo:
+                P=12absinγ=12a⋅asinβsinα⋅sinγ=a2sinβsinγ2sinα.
+                Površina trokuta
+                Površina trokuta kojem poznajemo kutove i jednu stranicu je:
+                P=a2sinβsinγ2sinα=b2sinαsinγ2sinβ=c2sinαsinβ2sinγ.
+                <!--PRIMJER 2-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Heronova formula za površinu trokuta
+              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_1');unlock()">X</button>
+<p>Izvedimo još neke formule za površinu trokuta.
+                Površina trokuta
+                Ako su poznate stranice trokuta, njegovu površinu računamo Heronovom formulom
+                P=s(s−a)(s−b)(s−c)−−−−−−−−−−−−−−−−−√,
+                
+                gdje je s=12(a+b+c)
+                poluopseg trokuta.
+                Heronovu formulu koristili smo u planimetriji. Načinimo ipak njezin izvod. Polazimo od temeljne formule P=12absinγ
+                , u kojoj sinγ valja izraziti s pomoću duljina a, b i c stranica trokuta.
+                sin2γ=1−cos2γ=(1−cosγ)(1+cosγ)=(1−a2+b2−c22ab)(1+a2+b2−c22ab)=2ab−a2−b2+c22ab⋅2ab+a2+b2−c22ab=c2−(a−b)22ab⋅(a+b)2−c22ab=14a2b2(c−a+b)(c+a−b)(a+b−c)(a+b+c).
+                
+                Sad je a+b+c=2s te c−a+b=2(s−a), c+a−b=2(s−b), a+b−c=2(s−c). Dobili smo
+                sinγ=2abs(s−a)(s−b)(s−c)−−−−−−−−−−−−−−−−−√.
+                
+                Nakon uvrštavanja u P=12absinγ dobit ćemo Heronovu formulu.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Polumjer opisane i upisane kružnice
+ <p>Nacrtajmo trokut ABC i opišimo mu kružnicu. Označimo sa a duljinu stranice BC¯¯¯¯¯¯¯¯, s α kut pri vrhu A i sa R
+                polumjer kružnice. Razmotrimo ove dvije mogućnosti:
+                (a)
+                  kut α je šiljast
+                (b)  kut α
+                je tup.
+                Promotrimo obje situacije. 
+              </p>
+              <img src="Trigonometrija trokuta_2.png">
+              <p>(a) Povucimo pravac CO. Neka on siječe kružnicu u točki E (slika lijevo). Trokut EBC je pravokutan jer je EC¯¯¯¯¯¯¯¯ promjer kružnice. Prema poučku o obodnom kutu, kut pri vrhu E isti je kao i kut pri vrhu A. Zato vrijedi
+                sinα=a2R.
+                (b)
+                Sad je četverokut ABEC tetivni (slika desno) pa kut pri vrhu E iznosi 180∘−α. Iz pravokutnog trokuta BEC čitamo
+                sinα=sin(180∘−α)=a2R.
+                Ova jednakost vrijedi i za pravokutni trokut. Dakle, za bilo koji trokut vrijedi
+                asinα=2R.
+                
+                Analogne jednakosti vrijede i za preostale dvije stranice trokuta.
+                Poučak o sinusima i polumjer opisane kružnice
+                U svakom su trokutu omjeri duljina stranica i sinusa tim stranicama suprotnih kutova jednaki promjeru trokutu opisane kružnice:
+                asinα=bsinβ=csinγ=2R.(2)
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Površina trokuta iz polumjera kružnice
+ <p>Površina trokuta
+                Površina trokuta može se dobiti iz polumjera upisane kružnice i poluopsega:
+                P=rs.(3)
+                
+                Ako su poznate stranice trokuta te polumjer opisane kružnice, onda vrijedi:
+                P=abc4R.(4)
+              </p>
+              <img src="Trigonometrija trokuta_3.png">
+              <p>Formula (3) slijedi iz slike:
+                P=P△ASB+P△BSC+P△CSA=12cr+12ar+12br=rs.
+                
+                Formula (4) slijedi iz (2) ovako:
+                P=12absinγ=12ab⋅c2R=abc4R.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+C
+iklična zamjena
+p>Neke su formule vezane uz trokut simetrične jer se u njima elementi trokuta javljaju ravnopravno. Primjer je takve formule Heronova formula:
+                P=s(s−a)(s−b)(s−c)−−−−−−−−−−−−−−−−−√.
+                
+                Neke formule nisu simetrične, poput
+                P=12availiasinα=2R.
+                
+                Kako je a bilo koja stranica po volji odabranog trokuta, ove se formule mogu iskazati i u nekoj drugoj kombinaciji stranica (Umjesto pamćenja triju srodnih formula korisnije je zapamtiti formulu prema smislu: površina trokuta jednaka je polovici umnoška stranice i visine na tu stranicu, odnosno omjer duljine stranice i sinusa njoj suprotnog kuta jednak je promjeru opisane kružnice.):
+                P=12bvb=12cvc.
+              </p>
+              <img src="Trigonometrija trokuta_4.png">
+              <p>S pomoću jedne nesimetrične formule možemo napisati drugu tako da zamijenimo imena elementima pazeći na cikličan poredak: stranica a prelazi u b, stranica b u c, stranica c u a
+                i slično za druge elemente trokuta. Shematski to prikazujemo slikom.
+                Tako, primjerice, iz formule va=bsinα
+                cikličnom zamjenom dobivamo vb=csinβ, vc=asinγ.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Visine trokuta
+<p>Visine trokuta obrnuto su proporcionalne duljinama odgovarajućih stranica. U to se možemo uvjeriti iz izraza za površinu trokuta.
+                Iz 12ava=12bvb
+                 slijedi
+                a:b=vb:va.
+                
+                Cikličnom zamjenom dobivamo:
+                b:c=vc:vb,c:a=va:vc.
+                <!--PRIMJER 3-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Simetrale kutova
+<p>Označimo sa sα duljinu simetrale kuta α u trokutu ABC.</p>
+              <img src="Trigonometrija trokuta_5.png">
+              <p>Simetrala unutarnjeg kuta trokuta dijeli suprotnu stranicu u omjeru jednakom omjeru duljina stranica što zatvaraju taj kut:
+                x:y=b:c.
+                 
+                Označimo elemente kao na slici. Prema poučku o sinusima za trokute ABD
+                i ADC je
+                xb=sinα2sinδ,yc=sinα2sin(π−δ)=sinα2sinδ.
+                
+                Zato je xb=yc, a odavde xy=bc i poučak je dokazan.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Težišnice
+<p>Neka je dan trokut ABC. Produžimo težišnicu iz vrha A tako da bude |AT|=2ta. Četverokut ABTC je paralelogram (jer mu se dijagonale raspolavljaju).</p>
+              <img src="Trigonometrija trokuta_6.png">
+              <p>Kut <)ABT iznosi 180∘−α pa po poučku o kosinusu vrijedi
+                4t2a=b2+c2−2bccos(180∘−α)=b2+c2+2bccosα.
+                
+                Međutim, znamo da je a2=b2+c2−2bccosα pa zbrajanjem ovih dviju jednakosti dobivamo:
+                4t2a=2b2+2c2−a2.
+                
+                Cikličnom zamjenom dobivamo izraze za preostale dvije težišnice:
+                4t2b4t2c=2a2+2c2−b2=2a2+2b2−c2.
+                
+                Shvativši ove tri jednakosti kao sustav jednadžbi s nepoznanicama a, b i c, moći ćemo izračunati:
+                a2=49(2t2b+2t2c−t2a).(5)
+                
+                Cikličnom zamjenom dobivamo izraze za stranice b i c:
+                b2c2=49(2t2a+2t2c−t2b)=49(2t2a+2t2b−t2c).
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Četverokut (U RADU)</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Četverokut
+<p>Stranice četverokuta, njegove kutove i dijagonale obično označavamo kao na slici.</p>
+              <img src="Četverokut_1.png">
+              <p>Četverokut je određen ako poznajemo pet njegovih osnovnih elemenata (stranica ili kutova), no među njima smiju biti najviše tri kuta jer je četvrti kut određen iz prvih triju. Ako četverokut ima još neko posebno svojstvo, broj se potrebnih elemenata smanjuje. Tako je, primjerice, trapez određen četirima elementima jer je zbroj dvaju kutova uz njegove krakove jednak 180∘. Isto vrijedi i za tetivni četverokut u kojem je zbroj nasuprotnih kutova 180∘ te za tangencijalni četverokut u kojem su zbrojevi nasuprotnih stranica jednaki. Paralelogram je određen trima elementima jer je uz dvije njegove stranice dovoljno poznavati jedan njegov kut. Romb je određen stranicom i kutom, pravokutnik dvjema stranicama, a kvadrat jednom stranicom.</p>
+            
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Paralelogram
+ <p>Rješavanje paralelograma najčešće se svodi na rješavanje trokuta na koji taj paralelogram dijeli jedna ili obje njegove dijagonale.
+                Neka su zadane stranice ai b paralelograma te njegov kut α. Odredimo duljine njegovih dijagonala e i f te površinu P.
+              </p>
+              <img src="Četverokut_2.png">
+              <p>Dijagonale računamo poučkom o kosinusu:
+                e2f2=a2+b2+2abcosα,=a2+b2−2abcosα.
+                
+                Odavde zbrajanjem slijedi korisna veza
+                Dijagonale i stranice paralelograma
+                Između duljina dijagonala i stranica paralelograma vrijedi relacija
+                e2+f2=2(a2+b2).
+                Površinu paralelograma kojemu znamo duljine stranica i kut računamo ovako:
+                P=ava=absinα.
+                
+                Sva četiri trokuta na koja paralelogram dijele njegove dijagonale imaju istu površinu (zašto?). Zato je korisno znati da vrijedi i ova formula:
+                P=4⋅12⋅e2⋅f2⋅sinφ=12efsinφ.
+                Površina paralelograma
+                Površinu paralelograma računamo preko duljina njegovih stranica i kuta među njima:
+                P=absinα
+                
+                ili preko duljina dijagonala i kuta među njima:
+                P=12efsinφ.
+                <!--PRIMJER 1-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Površina četverokuta
+<p> Površinu bilo kojeg četverokuta možemo izračunati ako mu poznajemo duljine dijagonala i kut među njima.</p>
+              <img src="Četverokut_3.png">
+              <p>Podijelimo četverokut ABCD
+                dijagonalama na četiri trokuta. Površina četverokuta jednaka je zbroju površina tih trokuta:
+                P(△ABS)=12mpsinφ,P(△BCS)=12pnsin(180∘−φ)=12pnsinφ,
+                P(△CDS)=12nqsinφ,P(△DAS)=12qmsin(180∘−φ)=12qmsinφ.
+                Zbrojimo li sada te četiri površine, dobit ćemo:
+                P(ABCD)=12(mp+pn+nq+qm)sinφ.
+                
+                No možemo pisati: mp+pn+nq+qm=p(m+n)+q(m+n)=(m+n)(p+q). A kako je m+n=|AC|=e i p+q=|BD|=f, konačno je:
+                P=12efsinφ.
+                Površina četverokuta jednaka je polovici umnoška duljina dijagonala i sinusa kuta između njih.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Trapez
+<p>Povučemo li vrhom D paralelu s drugim krakom trapeza, dobivamo karakteristični trokut kojem su stranice a−c, b i d, a kutovi uz osnovicu α i β.
+                <!--PRIMJER 2-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Tetivni četverokut
+<p>Tetivni četverokut je četverokut upisan kružnici. Osnovni poučak o tetivnom četverokutu kaže da su njegovi nasuprotni kutovi suplementni. Drugim riječima, zbroj dvaju nasuprotnih kutova tetivnog četverokuta iznosi 180∘.
+                <!--PRIMJER 3-->
+              </p>

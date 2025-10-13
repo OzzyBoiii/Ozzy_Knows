@@ -1,0 +1,127 @@
+<h3>Jednadžba kružnice</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+edadžba kružnice u općem oblikuJ
+p class="zoomable-text">              
+                    <!--PRIMEJR 1-->
+                    Odredimo sada jednadžbu kružnice u općem obliku. Neka je njezino središte točka S(p,q), a duljina polumjera kružnice neka je r. 
+                    Za bilo koju točku T(x,y) te kružnice vrijedi |ST|=r, odnosno √(x−p)2+(y−q)2=r.
+                    Ako je središte kružnice u ishodištu koordinatnog sustava, jednadžba kružnice glasi: x2+y2=r2. 
+                    Ova se kružnica zove središnja ili centralna kružnica.
+                    <!--PRIMEJR 2-->
+                </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Tipovi jednadžbe
+<p class="zoomable-text">
+                    Kružnica koja dodiruje koordinatne osi
+                    <!--PRIMJER 3-->
+                    Općs jednadžba kružnice
+                    Jednadžbu kružnice (x−p)2+(y−q)2=r2 možemo napisati ovako:
+                    x2+y2−2px−2qy+p2+q2−r2=0.
+                    Lijeva strana ove jednadžbe ima dva kvadratna člana po x i y, s koeficijentom 1, dva linearna člana i slobodan član. Koeficijenti uz x2 i y2
+                    ne moraju biti 1 (s obzirom na to da jednadžbu uvijek možemo pomnožiti brojem različitim od nule), ali moraju biti jednaki.
+                    Lijeva strana ove jednadžbe jest, prema tome, polinom drugog stupnja po nepoznanicama x
+                    i y. Najopćenitiji oblik ovakve jednadžbe jest
+                    Ax2+By2+Cxy+Dx+Ey+F=0.
+                    Ako ta jednadžba predstavlja kružnicu, onda nužno mora biti A=B i C=0.
+                    Opća jednadžba kružnice
+                    Neka je A≠0
+                    . Jednadžbom Ax2+Ay2+Dx+Ey+F=0 zadana je kružnica, jedna točka ili prazan skup.
+                    <!--PRIMJER 4-->
+                    <!--PRIMJER 5-->
+                    Kružnica zadana trima točkama (zadavanje kružnice)
+                    <!--PRIMJER 6-->
+                </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Krug
+<img id="image1" src="Jednadžba_kružnice_4.png" class="zoomable-image">
+ <p class="zoomable-text">
+                    Područje ravnine omeđeno kružnicom nazivamo krug. Označimo s d udaljenost bilo koje točke do središta S kružnice. Tri su mogućnosti:
+                    1. d<r− točka leži unutar kruga
+                    2. d=r− točka leži na kružnici
+                    3. d>r− točka leži izvan kruga. (SLIKA 4)
+                    Krug
+                    Krug sa središtem S(p,q)
+                    je skup svih točaka (x,y) ravnine za koje vrijedi (x−p)2+(y−q)2≤r. Ovaj krug nazivamo zatvorenim. Njemu pripadaju i točke na kružnici. Jednadžbom (x−p)2+(y−q) je manje od  r određen je otvoreni krug, koji ne sadrži točke kružnice.
+                    <!--PRIMJER 7-->
+                </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Pravac i kružnica</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Presjek pravca i kružnice te uvjet dodira
+<img id="image1" src="Pravac_i_kružnica_1.png" class="zoomable-image">
+<img id="image1" src="Pravac_i_kružnica_2.png" class="zoomable-image">
+<p class="zoomable-text">              
+                    U kojim međusobnim položajima mogu biti pravac i kružnica?  Tri su mogućnosti:
+                    pravac siječe kružnicu u dvjema točkama; taj se pravac zove sekanta
+                    pravac s kružnicom ima točno jednu zajedničku točku; on je dira, on je njezina tangenta
+                    pravac i kružnica se ne sijeku, nemaju zajedničkih točaka. (SLIKA 1)
+                    Ako su dani pravac y=kx+l i kružnica (x−p)2+(y−q)2, kako ustanoviti u kojem su međusobnom odnosu? Pogledajmo primjer:
+                    <!--PRIMJER 1-->
+                    Kad zadatak rješavamo na ovaj način, možemo dobiti tri situacije koje odgovaraju prije navedenim položajima pravca i kružnice:
+                    Kvadratna jednadžba ima dva različita realna rješenja. Tad pravac siječe kružnicu u dvjema točkama.
+                    Kvadratna jednadžba ima dvostruko rješenje. Tad pravac dira kružnicu.
+                    Kvadratna jednadžba nema realnih rješenja. Tad se pravac i kružnica ne sijeku.
+                    <!--PRIMEJR 2-->
+                    Uvjet dodira
+                    Siječe li pravac kružnicu u dvjema točkama, dira li je, ili možda s njom nema presječnih točaka, možemo ustanoviti na još jedan način. (SLIKA 2)
+                    Označimo s d udaljenost središta kružnice do pravca. Tri su mogućnosti:
+                    d je manje od r− presjek pravca i kružnice su dvije točke
+                    d=r− pravac dira kružnicu
+                    d>r− pravac i kružnica nemaju presječnih točaka.
+                    Udaljenost središta kružnice do pravca p...y=kx+l znamo odrediti:
+                    r=|q−kp−l|√1+k2.
+                    Tako dobivamo sljedeći kriterij.
+                    Uvjet dodira pravca i kružnice
+                    Pravac s jednadžbom y=kx+l
+                    dira kružnicu (x−p)2+(y−q)2=r2 ako i samo ako vrijedi r2(1+k2)=(q−kp−l)2.(1)
+                    <!--PRIMJER 3-->
+                </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Slučajevi
+<img id="image1" src="Pravac_i_kružnica_3.png" class="zoomable-image">
+<img id="image1" src="Pravac_i_kružnica_4.png" class="zoomable-image">
+<p class="zoomable-text">
+                    Tangenta i normala u točki na kružnici
+                    Normala na kružnicu je pravac koji prolazi diralištem tangente i okomit je na nju. Normala prolazi središtem kružnice.
+                    Ako su nam poznate jednadžba kružnice i koordinate točke T(x1,y1) na kružnici, tada znamo napisati jednadžbu normale u točki T jer ona prolazi i središtem S(p,q):
+                    y−q=y1−qx1−p(x−p).
+                    Odavde možemo napisati koeficijent smjera tangente, jer je ona okomita na normalu:
+                    k=−x1−py1−q,
+                    pa jednadžba tangente koja prolazi točkom T(x1,y1) na kružnici glasi y−y1=−x1−py1−q(x−x1). (SLIKA 3)
+                    Ovu ćemo jednadžbu dovesti u prikladniji oblik. Najprije imamo:
+                    (x1−p)(x−x1)+(y1−q)(y−y1)=0.
+                    Točka T(x1,y1) leži na kružnici, pa vrijedi
+                    (x1−p)2+(y1−q)2=r2.
+                    Zbrojimo ove dvije jednadžbe:
+                    (x1−p)(x−x1)+(x1−p)2+(y1−q)(y−y1)+(y1−q)2=r2,(x1−p)(x−x1+x1−p)+(y1−q)(y−y1+y1−q)=r2,(x1−p)(x−p)+(y1−q)(y−q)=r2.
+
+                    Jednadžba tangente u točki na kružnici
+                    Jednadžba tangente u točki T(x1,y1)
+                    na kružnici glasi (x1−p)(x−p)+(y1−q)(y−q)=r2.(2)
+                    <!--PRIMJER 4-->
+                    <!---->
+                    Jednadžba tangente iz točke izvan kružnice
+                    Iz točke izvan kružnice mogu se uvijek povući dvije tangente na kružnicu. Pokažimo kako se nalaze njihove jednadžbe ako je zadana jednadžba kružnice i koordinate točke.
+                    <!--PRIMJER 5-->
+                    <!---->
+                    Zajedničke tangente
+                    Ovisno o položaju dviju kružnica, postojat će najviše četiri njihove zajedničke tangente. Ako su zadane jednadžbe kružnica, zajedničke tangente možemo dobiti iz uvjeta dodira. (SLIKA 4)
+                    <!--PRIMJER 6-->
+                </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Kutovi sijecanja pravca i kružnice
+<img id="image1" src="Pravac_i_kružnica_5.png" class="zoomable-image">
+<img id="image1" src="Pravac_i_kružnica_6.png" class="zoomable-image">
+<p class="zoomable-text">
+                    <!---->
+                    Kut pod kojim pravac siječe kružnicu
+                    Pravac p koji siječe kružnicu čini to u dvjema točkama, D1 i D2. Povucimo tangente t1 i t2 na kružnicu u točkama D1 i D2.
+                    Nacrtana slika zrcalno je simetrična s obzirom na simetralu dužine ¯¯¯¯¯¯¯¯¯¯¯¯¯D1D2, pa obje tangente zatvaraju s pravcem p isti kut φ. Taj se kut naziva kutom pod kojim pravac siječe kružnicu. (SLIKA 5)
+                    <!--PRIMJER 7-->
+                    <!---->
+                    Kut pod kojim se sijeku dvije kružnice
+                    Dvije se kružnice sijeku u dvjema točkama, D1 i D2. Nacrtajmo tangente na obje kružnice u tim točkama. Slika je zrcalno simetrična s obzirom na pravac koji prolazi središtima kružnice. Zato je kut φ koji zatvaraju te tangente u točki D1 jednak kutu među tangentama u točki D2. Taj kut nazivamo kutom pod kojim se sijeku dvije kružnice.(SLIKA 6) 
+                    <!--PRIMEJR 8-->
+                </p>

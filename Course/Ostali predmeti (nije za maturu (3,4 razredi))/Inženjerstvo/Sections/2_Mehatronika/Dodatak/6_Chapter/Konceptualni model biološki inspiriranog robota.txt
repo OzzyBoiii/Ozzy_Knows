@@ -1,0 +1,334 @@
+<h3>6. CONCEPTUAL MODEL OF BIOLOGICALLY INSPIRED ROBOT</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+ <p class="zoomable-text">
+                    In this Chapter, a conceptual model for design of biologically inspired robot –
+Bioloid Dinosaur robot [66] – is presented. Design process of robots – industrial,
+universal, biologically inspired, etc. [56, 67–71, 141] – in general product life cir-
+cle (see Fig. 1.2) contains several phases [1], similar to other engineering objects.
+The first conceptual design phase is very important, because the main design con-
+cept is generated and evaluated at this phase. According to the Hierarchical Sys-
+tems (HS) technology described above (see Chapters 3,4), to create a conceptual
+model of robot being designed it is necessary to take into account its several levels:
+structure of robot (lower level), its aggregated dynamic representation as a unit in
+environment (current level), the environment construction and technology (higher
+level) and robot coordinator, i.e. robot design and control system. Therefore, a
+conceptual model of Dinosaur robot in formal basis of HS technology is given first
+in the Chapter. Examples of conceptual descriptions of assembly design and robot
+motion design are presented after that.
+6.1. Conceptual model of dinosaur robot
+Conceptual model of Bioloid Dinosaur robot is presented in the frames of HS theo-
+retical basis as follows:
+
+S   
+},{ 0
+
+ S , (6.1)
+where 
+ is aggregated dynamic realisation, which represents the robot as a unit
+in its environment, 
+ is structure of Dinosaur robot, 
+0S is coordinator which
+connects
+ with
+ and in this way performs the design tasks,  is index of level.
+122
+Structure 
+ of Dinosaur Bioloid robot is defined in the form of (3.14) – see
+Chapter 3 – and contains aggregated representations of lower level elements (head
+1
+6 
+ , arm 1
+5 
+ , body 1
+4 
+ , leg 1
+3 
+ , tail 1
+2 
+ , foot 1
+1
+
+ ) and their con-
+nections 
+
+ – the joints, see Figure 6.1.
+(SLIKA 50)
+For example, common part of the arm 1
+5 
+ and the body 1
+4 
+ is their
+structural connection, i.e. shoulder  5,4
+
+ which is the structural element of a low-
+er level of Dinosaur robot. The shoulder is constructed from servo motor Dy-
+manixel AX-12 [66] presented in Figure 6.3. Being the electromechanical subsys-
+tem of robot mechatronic system the servo motor is describe in ),(
+
+ form at the
+Conceptual Design phase. ),(
+
+ conceptual description is transformed to State
+Space equations at the Detailed Design phase (Fig. 6.2) and can be concretized and
+presented in the following form (6.2):
+(SLIKA 51)
+In this case first state equation of (6.2) corresponds to
+ function, and output
+equation corresponds to reaction
+ of ),(
+
+ representation. State space equa-
+tions (6.2) can be transformed at DD phase to the following transfer function (6.3)
+if necessary:
+(SLIKA 52)
+In Figure 6.3b and equations (6.2) and (6.3), ia is armature current, La is arma-
+ture inductance, Ra is armature resistance, Va(t) is input voltage, Eb is back emf, Kb
+is voltage constant, TL is load torque, Tm is motor torque, θm, ωm are motor angular
+change and velocity respectively, Ki is moment constant, J is motor moment of
+inertia, B is friction constant, K is a constant.
+Coordinator 
+0S of robot 
+So is presented in the form of (3.15) (see Section
+3.1) and controls the process of robot motion on its strata of selection, learning and
+self-organisation. Coordinator control functions on selection stratum are realised in
+this case by
+Bioloid CM-5 control unit (Fig. 6.4) placed on the Dinosaur robot body .
+Coordinator learning and self-organization strata are realized by the design system.
+Motion process performed by robot in its environment is pre-
+sented as a change of robot’s interconnections with elements ( )
+of environmental system and described according to model (3.4).
+Contact state of robot’s base leg with a pathway surface is regarded as
+robot’s interconnection with sub-system , i.e. the element of robot’s
+environment .
+Fig. 6.4. Design model of Bioloid CM-5 control unit created in SolidWorks system environment
+All the metrical characteristics of robot’s bio-kinetic apparatus (relational an-
+gles, length of limbs, etc.) and motion process (displacement, velocity, accelera-
+tion) are described in the form of numerical characteristics of HS conceptual mod-
+el, similar to the case of human motion design (see Chapter 7).
+1
+4 
+
+
+So
+ 
+So
+
+S
+
+
+
+ 
+iS 1
+ 
+Ii
+
+S
+ ),(
+
+
+1
+
+ 
+1S
+
+
+1
+
+ 
+1S
+
+
+S
+(SLKIKA 53)
+6.2. Robot motion design
+Motion design of Dinosaur robot in described in the frames of the suggested con-
+ceptual model. In this model, it is possible to present the measures of motion (ve-
+locity, acceleration) as a change of measures of the states of dynamic systems in
+elementary time in metrical, structural and boundary (geometric forms) spaces
+[55,72], see Chapter 4. For Dinosaur robot, the velocity, for instance, is defined as
+change
+ of its parts interconnections 'tt
+
+ in elementary time interval tt’, t’>t.
+The velocity is directly proportional to the changes of the interconnections 'tt
+
+ .
+The dependence of the interconnections change and the kinds of robot motions is
+presented as follows:
+;0'  tt
+
+  standing phase,
+;' consttt 
+
+  motion with constant velocity,
+;' consttt 
+
+  motion with acceleration.
+The measures of motion have their directions dependent on the elements’ ad-
+dresses in the environment, according to which the present process is considered.
+One of these elements from robot environment 
+S
+ is the pathway 
+1S
+ .
+Computer program construction for design of Dinosaur robot motion is pre-
+sented according to HS conceptual model (see Fig. 3.1, Chapter 3). Coordinator
+
+0S is presented in the form of control program, subsystems 1
+S play the role of
+subprograms, process 
+S
+ describes the calculation process, inputs and outputs are
+correspondent interactions of subprograms and calculation processes. One of the
+subsystems of the robot environment 
+S
+ is operator 
+iS
+ which observes the
+design process on computer and changes program construction if necessary.
+According to the conceptual HS presentation, all parts of body construction of
+Dinosaur robot are presented in the form of the correspondent program units 1
+ .
+Their connections 
+
+ are realized as programs’ interactions and are presented in
+the form of parameters, i.e. common program variables changeable in calculation
+process. Control program which coordinates the design process is presented in the
+form of coordinator (3.15). Design process is described as coordinator process
+
+0So
+
+ (3.22), see Section 3.1.
+The coordinator’s task in the process of design robot movements is to provide
+a coordinated motion of robot in its environment and deformations of its elements,
+126
+i.e. 
+
+ changing. 
+
+ in geometrical sense are angles between robot parts (body,
+foot, leg). So, the coordinator’s task is to continuously change the angles to provide
+the required locomotion process of robot. Formally, the task performing is de-
+scribed as reaction 
+0
+ of the coordinator (6.4). At the same time, it is described
+according to ),(
+
+ model as state transition function 'tt
+ of the system (robot
+bio-kinetic apparatus) in the form (6.5) as follows:
+ '00 : ttC
+
+
+  , (6.4)
+ ''' : tttttt
+
+
+
+   , (6.5)
+where 
+t
+ is the state of robot bio-kinetic apparatus structure at the moment of
+time t, 'tt
+
+ is the change of angles during the period of time tt’, 't
+ is the state
+of robot bio-kinetic apparatus structure at the moment of time t’ and t’>t.
+As stated above, the connections 
+
+ are presented as program variables on
+computer. In motion design the coordinator (control program) changes continuous-
+ly the angles, i.e. parameters which are common for two correspondent program
+units, and in this way realizes the required motion process 
+S
+ of robot.
+6.3. Assembly of dinosaur robot parts
+HS conceptual design model is presented in this Section for the design of Bioloid
+robot assembly operations. In the basis of the conceptual model described above,
+the robot being assembled is presented in the form of (6.1), and the assembly oper-
+ations are presented as a particular case of synthesis operations considered in
+Chapter 4, and partially described in [73]. The difference between the synthesis
+and the assembling operation is that the common part (structural element) of one of
+the two united objects is an “imaginary” geometric element. For instance, a cylin-
+drical hole can be regarded as a geometric object – cylinder – marked with a “mi-
+nus”. Such imaginary elements have their structural addresses given in numeric
+codes in (4.12) form.
+The exemplary assembling process of Bioloid Dinosaur robot foot from its
+parts, i.e. its two frames, screws and nuts is presented as follows.
+127
+At the first stage the robot foot parts (geometric objects 
+ig S ), which are of
+different constructive dimensions, are not connected objects: 3
+1Sg and 2
+2Sg are
+frames F1 (3D object) and F3 (conditional surface) respectively, 1
+3Sg and 0
+4Sg are
+screws S1 (conditional lines) and nuts N1 (conditional points), Fig. 6.5. Coordina-
+tor defines the sequence of the parts being assembled and structural addresses of
+their common parts (links). The addresses of the interconnections are defined in a
+numeric positional code in the form similar to the connections defects 
+ (4.12).
+(SLIKA 54)
+At the second stage, coordinator executes consecutive connections of the foot
+parts. Simultaneously, both the basic element (state C1: part 2
+2Sg ) and the input
+element X1 (part 3
+1Sg ) are indicated. Output (Y1) is a construction of two assem-
+bled parts 2,1Sg (Fig. 6.6), which is the basic element (C2) for the next assembling
+step. States dynamics of object 
+Sg (dinosaur robot) in the assembling process is
+described by (6.5). The reaction is:
+ 
+TYXCo  1&: 1111
+ . (6.6)
+0
+4Sg
+3
+1Sg
+2
+2Sg
+1
+3Sg
+128
+Structure 
+ of the assembled Dinosaur robot foot is presented according to
+(3.14). Structural elements of a lower level are subsystems 3
+1Sg and 2
+2Sg , i.e.
+frames F1 and F2 respectively. Connections 2,1
+
+ are presented by elements 1
+3Sg
+and 0
+4Sg , i.e. screws S1 and nuts N1 respectively (Fig. 6.5). After creation of the
+robot foot (Fig. 6.6), the following steps of the assembly process are realized. Two
+of the steps are presented in Figure 6.7. Resultant assembled Dinosaur robot is
+presented in Figure 6.1.
+(SLIKA 55)
+Figures 6.1 and 6.4-6.7 are the results of a computer design of Dinosaur Bi-
+oloid robot and its assembling operation in SolidWoks (Dassault Systèmes Solid-
+Works Corp.) program system environment [74]
+(SLIKA 56)
+Preliminary conclusions
+The conceptual model of Dinosaur Bioloid robot created in theoretical basis of HS
+is presented in this Chapter. In comparison with traditional methods, the formal
+construction of the suggested conceptual model contains connected descriptions of
+the Dinosaur robot structure, its aggregated dynamic representation as a unit in its
+environment, part of the environment model. All the descriptions are connected by
+the coordinator which performs the design and control tasks on its selection, learn-
+ing and self-organization strata. Besides, numeric and geometric characteristics of
+the robot being designed are presented in the frames of HS conceptual model in the
+form of numeric positional system. It allows the model to fulfill the general re-
+quirements of design and control systems, see Chapters 1 and 3, and CAD systems
+in particular.
+Therefore, hierarchical systems technology is applied in the Chapter in the ex-
+emplary tasks of conceptual description and mechatronic design of Dinosaur Bi-
+oloid robot, design of robot’s assembly operations and motion design. The exam-
+ples of computer realizations of the design tasks in the frames of SolidWorks pro-
+gram system are presented. Mechanical, electromechanical and program computer
+subsystems of general robot mechatronic system are partially described in common
+formal bases of the conceptual model suggested. The model dynamics while trans-
+ferring from the conceptual to detailed design phases is shown for the case of the
+robot servo-motor.
+                </p>

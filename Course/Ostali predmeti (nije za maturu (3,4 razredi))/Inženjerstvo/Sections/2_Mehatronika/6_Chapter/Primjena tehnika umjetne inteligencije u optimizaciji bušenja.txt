@@ -1,0 +1,827 @@
+<h3>Applications of Artificial Intelligence Techniques in Optimizing Drilling</h3>
+<p class="zoomable-text">
+                    Abstract
+Artificial intelligence has transformed the industrial operations. One of the impor-
+tant applications of artificial intelligence is reducing the computational costs of opti-
+mization. Various algorithms based on their assumptions to solve problems have been
+presented and investigated, each of which having assumptions to solve the problems.
+In this chapter, firstly, the concept of optimization is fully explained. Then, an artifi-
+cial bee colony (ABC) algorithm is used on a case study in the drilling industry. This
+algorithm optimizes the problem of study in combination with ANN modeling. At the
+end, various models are fully developed and discussed. The results of the algorithm
+show that by better understanding the drilling data, the conditions can be improved.
+Keywords: optimization, ROP, ABC algorithm, prediction, ANN
+1. Introduction
+Optimization is the process of setting decision variable values in such a way that
+the objective in question is optimized. The optimal solution is a set of decision
+variables that maximizes or minimizes the objective function while satisfying the
+constraints. In general, optimal solution is obtained when the corresponding values
+of the decision variables yield the best value of the objective function, while satis-
+fying all the model constraints.
+Apart from the gradient-based optimization methods, some new optimization
+methods have also been proposed that help solve complex problems. In the available
+classifications, these methods are recognized as “intelligent optimization,” “optimi-
+zation and evolutionary computing,” or “intelligent search.” One of the advantages
+of these algorithms is that they can find the optimal point without any need to use
+objective function derivatives. Moreover, compared to the gradient-based methods,
+they are less likely to be trapped in local optima.
+Optimization algorithms are classified into two types: exact algorithms and
+approximate algorithms. Exact algorithms are capable of precisely finding optimal
+solutions, but they are not applicable for complicated optimization problems, and
+their solution time increases exponentially in such problems. Approximate algo-
+rithms can find close-to-optimal solutions for difficult optimization problems
+within a short period of time [1].
+There are two types of approximate algorithms: heuristics and metaheuristics.
+Two main shortcomings of the heuristic algorithms are (1) high possibility of
+89
+being trapped into local optima and (2) performance degradation in practical
+applications on complex problems. Metaheuristic algorithms are introduced to
+eliminate the problems associated with heuristic algorithms. In fact, metaheuristic
+algorithms are approximate optimization algorithms that enjoy specific
+mechanisms to exit local optima and can be applied on an extensive range of
+optimization problems.
+2. Methodology
+2.1 Optimization model
+The decision-making process consists of three steps: problem formulation,
+problem modeling, and problem optimization. A variety of optimization models are
+actually applied to formulate and solve decision-making problems (Figure 1). The
+most successful models used in this regard include mathematical programming and
+constraint programming models.
+2.2 Optimization method
+The optimization methods are presented in Figure 2. Since the problem is
+complicated, exact or approximate methods are used to solve it. The exact
+methods provide optimal solutions and guarantee optimality. Approximate
+methods lead to favorable and near-optimal solutions, but they do not
+guarantee optimality
+(slika 58)
+(SLIKA 59)
+3. Theoretical foundations
+3.1 Theoretical foundations of optimization
+Any problem in the real world has the potential to be formulated as an optimi-
+zation problem. Generally, all optimization problems with explicit objectives can be
+expressed as nonlinearly constrained optimization problem as presented in Eq. (1).
+max or min f xð Þ, x ¼ x1; x2; …; xnð ÞT ∈ Rn
+Subject to ϕj xð Þ ¼ 0, j ¼ 1, 2, …, M
+ψk xð Þ ≤ 0, k ¼ 1, 2, …, N
+(1)
+where f xð Þ, ϕj xð Þ, and ψk xð Þ are the scalar functions of the column vector x. The x i
+elements of the vector x are the design variables, or the decision variables, that could
+be either continuous, discrete, or mixed of the two. The vector x is often referred to as
+the decision vector, which varies in an n-dimensional space Rn. The function f (x) is
+called the objective function or the energy function. The objective function is called
+the cost function in minimization problems and fitness function in maximization
+problems. Moreover, ϕj xð Þ are constraints in terms of M equalities and ψk xð Þ are
+constraints in terms of N inequalities. Thus, in general, we will have a total of M + N
+constraints. The space spanned by the decision variables is known as the search space,
+and the space spanned by the objective function value is called the solution space. The
+optimization problem maps the search space on the solution space.
+3.1.1 Norms
+For a vector v, p-norm is denoted by vk kp and defined as Eq. (2).
+vk kp ¼ ∑
+n
+i¼1
+vij jp
+ 1 p=
+(2)
+Figure 2.
+Optimization methods.
+91
+Applications of Artificial Intelligence Techniques in Optimizing Drilling
+DOI: http://dx.doi.org/10.5772/intechopen.85398
+where p is a positive integer. According to this definition, one can understand
+that a p-norm satisfies the following conditions: k vk k ≥ 0 for all k vk k ¼ 0 if and only
+if v = 0. This shows the nonnegativeness of p-norm. In addition, for each real
+number α, we have the scaling condition αvk k ¼ α vk k. Three most commonly used
+norms are 1-, 2-, and infinity norms, when p is equal to 1, 2, and ∞, respectively.
+3.1.2 Eigenvalues and eigenvectors
+The eigenvectors for a square matrix A½  n n are defined as Eq. (3).
+A   λIð Þu ¼ 0 (3)
+where I is a unitary matrix with the same size as A. All the nontrivial solutions
+are obtained from Eq. (4).
+a11   λ a12
+a21 a22   λ ⋯ a1n
+a2n
+⋮ ⋮ ⋱ ⋮
+an1 a n2 ⋯ ann   λ
+2
+6
+6
+6
+4
+3
+7
+7
+7
+5 ¼ 0 det A   λIj j ¼ 0 (4)
+which can be written as a polynomial in form of Eq. (4).
+λn þ αn 1λn 1 þ … þ α1λ þ α0 ¼ λ   λ1ð Þ λ   λ2ð Þ… λ   λnð Þ ¼ 0 (5)
+where λi are eigenvalues and could be complex numbers as well. For each
+eigenvalue λi, we have a corresponding eigenvector u i, whose direction can be
+defined uniquely, but the eigenvector length will not be unique, since any
+nonzero multiple of vector u can satisfy Eq. (3) and can thus be considered as an
+eigenvector.
+3.1.3 Spectral radius of the matrix
+The spectral radius of a square matrix is another important concepts associated
+with eigenvalues of matrices. Assuming that λi are eigenvalues of the square matrix A,
+the spectral radius of the matrix ρ Að Þ will be defined as Eq. (6).
+ρ Að Þ ¼ max λij jf g (6)
+which is equal to the maximum absolute value of all eigenvectors. Geometrically
+speaking, if we draw all the eigenvalues of matrix A on a complex plane and then
+draw a circle on the plane, in such a way that it encloses all the eigenvalues, then the
+minimum radius of such a circle is referred to as the spectral radius. Spectral radius
+is useful in determining the stability or instability of iterative algorithms.
+3.1.4 Hessian matrix
+The gradient vector of a multivariate function f (x) is defined according to Eq. (7),
+G1 xð Þ   ∇f xð Þ   ∂f =∂x1; ∂f =∂x2; …; ∂f =∂xnð ÞT (7)
+where x ¼ x1; x2; …; xnð Þ is a vector. Since ∇f xð Þis a linear function, it is defined
+as the vector constant k, and the linear function is generated from Eq. (8).
+f xð Þ ¼ kT x þ b (8)
+where b is a vector constant.
+Second derivative of a general function f (x) of a matrix n   n is called the
+Hessian matrix,
+G2 xð Þ ¼ ∇2f xð Þ ¼
+∂2f=∂x2
+1 ⋯ ∂2f=∂x1∂xn
+⋮ ⋱ ⋮
+∂2f=∂x n∂x1 ⋯ ∂2f=∂x2
+n
+0
+B
+@
+1
+C
+A (9)
+3.1.5 Convexity
+Linear programming problems are usually classified according to the convexity
+of their defining functions. Geometrically speaking, an object is called convex when
+for any two points within the object, every point on the straight line connecting
+them also lies within the object (Figure 3). Mathematically, a set S ∈ Rn within the
+space of a real vector is called a convex set when Eq. (10) holds true.
+tx þ 1   tð Þy ∈ S, ∀ x; yð Þ ∈ S, t ∈ 0; 1½   (10)
+A function f xð Þ defined on the convex set Ω is called convex if and only if:
+f αx þ βyð Þ ≤ f αxð Þ þ f βyð Þ, ∀ x; yð Þ ∈ Ω
+α ≥ 0, β ≥ 0, α þ β ¼ 1 (11)
+An interesting feature of the convex function f is that it ensures that the gradient
+at a point df
+dx
+ 
+ 
+ 
+ x ∗
+¼ o approaches zero. In this case, x ∗ is an absolute minimum point
+for f.
+3.1.6 Optimality criteria
+Mathematical programming includes several concepts. Here, we will first intro-
+duce three related concepts: feasible solution, strong local maximum, and weak
+local maximum
+(slika 60)
+(SLIKA 61)
+Point X that satisfies all the constraints of the problem is called a feasible
+solution. The set of all feasible points will form the feasible region.
+Point x is a strong local maximum if f (x) is defined in δ neighborhood
+N δ; x ∗ð Þand satisfies f x ∗ð Þ>f xð Þ for each ∀u ∈ N δ; x ∗ð Þ where ∀u ∈ N δ; x ∗ð Þ and
+u 6 ¼ x ∗ .The inclusion of equality in the condition f x ∗ð Þ ≥ f xð Þ will define x as a
+weak local maximum. A schematic view of strong and weak local maxima and
+minima is presented in Figure 4.
+3.1.7 Computational complexity
+The efficiency of an algorithm is usually measured by algorithmic complexities
+or computational complexities. Such complexities are often referred to as Kolmo-
+gorov complexity in literature. For a given problem with complexity of n, this
+complexity is represented by big-O notations, for example, O n2
+ð Þor O n log nð Þ [1].
+For two functions f (x) and g (x), if we have,
+lim
+x!x0
+f xð Þ=g xð Þ ! K; f ¼ O gð Þ (12)
+where K is a finite and nonzero value. The big-O notation indicates that f is
+asymptotically equivalent to the order of g. If the limit value is K = 1, it can be
+argued that f is of the same order as g [1]. The small-o notation is applied when the
+limit tends to be zero,
+lim
+x!x0
+f xð Þ=g xð Þ ! 0; f ¼ o gð Þ (13)
+3.1.8 Nondeterministic polynomial (NP) problems
+In mathematical programming, an easy or tractable problem is a problem that
+can be solved using a computer algorithm, with a reasonable solution time, as a
+polynomial function of problem size n. An algorithm is referred to as a P-problem,
+or a polynomial-time problem, when the number of steps needed to find the solu-
+tion is represented by a polynomial in terms of n and there is at least one algorithm
+to solve it.
+On the other hand, a hard or intractable problem is a problem whose solution
+time is an exponential function of n. In case the solution to a polynomial problem is
+estimated in polynomial time, then it is called a nondeterministic polynomial. But it
+should be noted that there is no specific rule for making such a guess. As a result,
+the estimated solutions cannot be guaranteed to be optimal or even near-optimal
+solutions. In fact, there is no specific algorithm for solving hard-NP problems, and
+only approximate or heuristic solutions are applicable. Therefore, heuristic and
+metaheuristic methods can provide us the near-optimal/suboptimal responses with
+acceptable accuracy.
+A given problem can be called NP-complete if it is actually an NP-hard problem,
+and other NP problems can be reduced to it using certain reduction algorithms. The
+reduction algorithm has a polynomial time. The traveling salesman problem can be
+counted as an example of NP-hard problem, which aims to find the shortest route or
+the lowest traveling cost to visit all n cities once and then return to the starting city.
+3.2 Theoretical foundations of metaheuristic optimization
+Two opposite criteria should be taken into account in development of a
+metaheuristic algorithm: (1) exploration of the search space and (2) exploitation of
+the best solution (Figure 5).
+Promising areas are specified by good solutions obtained. In intensification, the
+promising regions are explored accurately to find better solutions. In diversifica-
+tion, attempts are made to make sure that all regions of the search space are
+explored.
+In the exploration approach, random algorithms are the best algorithms for
+searching. Random algorithms generate a random solution in each iteration and
+completely exploit the search space in this way.
+3.2.1 Representation
+The simulation of any metaheuristic algorithm requires an encoding method. In
+other words, the problem statement procedure is referred to as representation.
+Encoding plays a major role in the productivity and efficiency of any metaheuristic
+algorithm and is recognized as a necessary step in the algorithm. Additionally, the
+representation efficiency depends on the search operators (neighborhood, recom-
+bination, etc.). In fact, when defining a representation, we first need to remember
+how the problem is evaluated and how the search operator will work. A represen-
+tation needs to have the following characteristics:
+Completeness: It is one of the main characteristics of representation; in the sense
+that all the solutions of a given problem need to be represented.
+Connectivity: It means that a search path must exist between any two solutions
+in the search space.
+Efficiency: Representation should be easily available to search operators.
+Representations can be divided into two types in terms of their structure: linear
+and nonlinear. In this study, linear representation has been used. Some linear
+representations include the following:
+Binary encoding: It is performed using binary alphabets.
+Continuous encoding: In continuous optimization problems, encoding is
+performed based on real numbers.
+Discrete encoding: It is used for discrete optimization problems such as the
+assignment problem.
+(SLIKA 62)
+Permutation encoding: It is used in problems where the objective is to find a
+permutation.
+Random Key: This type of encoding converts real numbers into a permutation.
+Diploid representation: In the diploid representation, two values are considered
+for each subset of the decision vector.
+3.2.2 Objective function
+The objective function generates a real number for any solution in the search
+space. This number describes the quality or the fitness of the solution. The objective
+function is an important element in development of a metaheuristic algorithm that
+directs the search toward the best solution. If the objective function is wrongly
+defined, it will generate unacceptable solutions. In the present work, the objective
+function is maximization of drilling penetration rate.
+3.2.3 Constraint
+Constraint handling is another critical issue for the efficient design of
+metaheuristic algorithms. In fact, many continuous or discrete optimization prob-
+lems are constrained. As mentioned earlier, constraints might be linear or nonlinear,
+equal or unequal. Constraints can mostly be applied to the decision variables or
+objective function. Some constraint handling strategies are presented in this section;
+these strategies can be categorized as follows:
+Reject strategy: In this approach, infeasible solutions are rejected, and only the
+feasible ones are taken into account.
+Penalizing strategy: In this strategy, infeasible solutions obtained during the
+search process are preserved in the search space. This strategy is the most popular
+strategy used to handle constraints. This strategy uses the penalizing strategy to
+transform problems with constraints into a problem with no constraint.
+Repairing strategy: In this strategy, infeasible solutions turn into feasible solutions.
+Preserving strategy: In this strategy, specific operators are used to generate
+feasible solutions alone.
+3.2.4 Search strategy
+Search strategy is of particular importance in metaheuristic algorithms. This
+strategy carries out the search process without using the derivative of the problem.
+Some of the leading search models are listed below.
+Golden Section search: This is a technique used to find the extremum (maximum
+and minimum) of a unimodal function by narrowing the range of values inside
+which the extremum is known to exist.
+Random search: Random search is a numerical optimization method indepen-
+dent of the gradient and hence can be used for noncontinuous or nondifferentiable
+functions.
+Nelder-Mead method: The Nelder-Mead method, also known as downhill sim-
+plex, is usually used for nonlinear optimization. This method is a numerical method
+that can converge to nonstationary points.
+3.2.5 Classification of metaheuristic algorithms
+The criteria used for classification of metaheuristic algorithms are as follows:
+Nature-inspired vs. nonnature inspiration: Many of the metaheuristic algorithms
+are inspired by natural processes. Evolutionary algorithms and artificial immune
+96
+Emerging Trends in Mechatronics
+systems, ranging from biological behavior of bee, social behavior of bird flocking,
+and physical behavior of materials in simulated annealing to human-sociopolitical
+behavior in imperialist competitive algorithm, belong to these nature-inspired
+algorithms.
+Memory usage versus memoryless methods: Some metaheuristic algorithms
+are memoryless. These algorithms do not store data dynamically during
+search time. Simulated annealing lies in this category of algorithms, while some
+other metaheuristic algorithms use information explored during the search
+process. Short-term and long-term memory used in tabu search algorithm are of
+this type.
+Deterministic or stochastic: Deterministic metaheuristic algorithms solve opti-
+mization problems through deterministic decision-making (such as local search and
+tabu search). In stochastic metaheuristic algorithms, several stochastic rules are
+applied to searching. In deterministic algorithms, the initial solution leads to the
+generation of a final solution similar to the initial one.
+Population-based vs. single-point search algorithms: Single-point algorithms
+(such as simulated annealing) direct and transmit a single solution throughout the
+search process, while population-based algorithms (such as particle swarm optimi-
+zation) will involve the whole solution population. Single-point search algorithms
+apply an exploitive approach; these algorithms have the power to concentrate
+searching on the local space. Population-based algorithms have exploratory trajec-
+tory and allow for more diversified exploration of the search space.
+Iterative or greedy approach: In iterative algorithms, the search starts with an
+initial set of solutions (population), and the solutions vary in each iteration. In
+greedy algorithms, the search begins with a null solution, and a decision variable is
+determined at each step until the final solution is obtained. Most metaheuristic
+algorithms follow an iterative approach.
+4. Review of literature
+In this section, firstly, a brief explanation of some of the mostly used
+metaheuristic algorithms is provided. Next, previous works dealing with prediction
+and optimization of penetration rate performed by various authors are introduced.
+4.1 Literature on metaheuristic optimization
+The optimization literature changed dramatically with the advent of
+metaheuristic algorithms in the 1960s. Alan Turing might be the first to use heuris-
+tic algorithms. During the Second World War, Alan Turing and Gordon Welchman
+managed to design the Bambe machine and finally crack the German Enigma
+machine in 1940. In 1948, he managed to get a patent for his ideas in the field
+of intelligent machinery, machine learning, neural network, and evolutionary
+algorithms.
+4.1.1 Genetic algorithm
+The genetic algorithm that was developed by John Holland et al. during
+1960–1970 is a biological evolutionary model inspired by Charles Darwin’s natural
+selection and survival of the fittest. Holland was the first to use crossover, recom-
+bination, mutation, and selection in comparative studies and artificial systems [2].
+Figures 6 and 7 indicate the application of crossover and mutation operators
+(SLIKA 63)
+Patrick et al. developed a simulated annealing algorithm to solve optimization
+problems. When steel is cooled, it develops into a crystallized structure with mini-
+mum energy and larger crystalline sizes, and the defects of steel structure are
+decreased (Figure 8) [3].
+The search technique used in this algorithm is a movement-based search, which
+starts from an initial guess at high temperatures and the system cools down with a
+gradual decrease in temperature. A new movement or solution is accepted if it is
+better. Otherwise, it will be accepted as a probable solution so that the system can
+be freed from the local optima trap [3].
+4.1.3 Tabu search algorithm
+Tabu search was discovered by Glover [4]. It is a memory-based search strategy
+that searches the memory history as an integrative element. Two important points
+should be taken into account in this search: (1) how to efficiently use memory and
+(2) how to integrate the algorithm into other algorithms to develop a superior
+algorithm. Tabu search is the centralized local search algorithm that uses memory to
+avoid potential cycles of local solutions to increase search efficiency.
+In the algorithm running stages, recent attempts (memory history) are recorded
+and listed as tabu, such that new solutions should avoid those available in the tabu
+list. Tabu list is one of the most important concepts in the tabu search method and
+records the search moves as a recent history, so that any new move must avoid the
+(SLIKA 64)
+previous move list. This will also lead to time saving because the previous move is
+not repeated [4].
+4.1.4 Ant colony optimization
+When ants find a food source, they use pheromones to mark the food source and
+the trails to and from it. As more ants cross the same path, that path turns into a
+preferred path (Figure 9). Thus, several preferred paths will emerge during the
+(SLIKA 65)
+process. Using this behavioral property of the ants, scientists have managed to
+develop a number of robust ant colony optimization methods. Dorigo was known as
+a pioneer in this field in 1992 [5].
+4.1.5 Particle swarm optimization
+Sometime later, the particle swarm optimization was developed by [6]. This
+method is inspired by the collective behavior exhibited by birds, fish, and even
+humans, which is referred to as swarm intelligence. Particles swarm around the
+search space based on initial random guess. This swarm communicates the current
+best and the global best and is updated based on the quality of the solutions. The
+movement of particles includes two main components: a stochastic component and
+a deterministic component. A particle is attracted toward the current global best
+while it has a tendency to move randomly. When a particle finds a location that is
+better than the previous ones, it updates it as the new best location. Figure 10 shows
+the schematic view of the motion of particles [7].
+4.1.6 Harmony search
+Harmony search was first developed by Geem et al. [8]. Harmony search is a
+metaheuristic algorithm inspired by music, which is developed based on the obser-
+vation that the aim of music is to search for a perfect state of harmony. This
+harmony in music is analogous to find optimality in an optimization process. When
+a musician wants to play a piece of music, there are three choices:
+• Harmony memory accurately plays a piece of famous music on memory.
+• Pitch adjusting plays something similar to a famous piece.
+• Randomization sets a random or new note [8].
+4.1.7 Honeybee algorithm
+Honeybee algorithm is another type of optimization algorithm. This algorithm is
+inspired by the explorative behavior of honeybees, and many variants of this algo-
+rithm have already been formulated: honeybee algorithm, virtual bee algorithm,
+artificial bee colony, and honeybee mating algorithm.
+Literature suggests that the honeybee algorithm was first formulated by Sunill
+Nakrani and Craig Tovey (2004) at Oxford University in order to be used to
+allocate computers among different clients and web hosting servers [9].
+(SLIKA 66)
+4.1.8 Big Bang-Big Crunch
+Big Bang-Big Crunch was first presented by Erol and Eksin [10]. This approach
+relies on theories of the evolution of the universe, namely the Big Bang-Big Crunch
+evolution theory. In the Big Bang phase, energy dissipation causes a state of disorder
+or chaos, and randomization is known as the principal feature of this stage. In the
+Big Crunch stage, however, the randomly distributed particles are drawn into an
+order [10].
+4.1.9 Firefly algorithm
+The Firefly algorithm was developed by Yang [11] at Cambridge University
+based on idealization of the flashing characteristics of fireflies. In order to develop
+the algorithm, the following three idealized rules are used:
+All fireflies are unisex, such that a firefly will be attracted to other fireflies,
+regardless of their gender.
+Attractiveness is proportional to its desired brightness, hence for any of the two
+flashing fireflies, the less brighter firefly will move toward the more brighter one.
+The brightness of a firefly can be determined by the landscape of the objective
+function [11].
+4.1.10 Imperialist competitive algorithm
+The imperialist competitive algorithm was developed by Atashpaz Gargari and
+Lucas in 2007. Drawing on mathematical modeling of sociopolitical evolution pro-
+cess, this algorithm provides an approach to solving mathematical optimization
+problems. During the imperialist competition, weak empires lose their power grad-
+ually and are finally eliminated. The imperialist competition makes it possible for us
+to reach a point where there is only one empire left in the world. This comes to
+realization when the imperialist competitive algorithm reaches the optimal point of
+the objective function and stops [12].
+4.1.11 Cuckoo search
+Cuckoo search is an optimization algorithm developed by Yang and Deb in 2009.
+This algorithm is inspired by the obligate brood parasitism of some cuckoo species
+by laying their eggs in the nests of other host birds. The following idealized rules are
+used for more simplicity:
+Each cuckoo lays egg once at a time and puts it in a randomly selected nest.
+The best nests with high-quality eggs will carry over to the next generation.
+The number of hosts nests is fixed, and the egg laid by a cuckoo can be discov-
+ered by the host bird with a probability P a ∈ (0,1). In this case, the host bird will
+either dump the eggs or just leaves the nest to build a new one somewhere else [13].
+4.1.12 Bat algorithm
+The bat algorithm is a metaheuristic optimization algorithm developed by Yang
+[14]. This algorithm is based on the echolocation behavior of microbats with vary-
+ing pulse rates of emission and loudness. Echolocation is a biological sound tracking
+system that is used by bats and some other animals, such as dolphins. By idealiza-
+tion of some of the echolocation features, one can develop various bat-inspired
+algorithms:
+101
+Applications of Artificial Intelligence Techniques in Optimizing Drilling
+DOI: http://dx.doi.org/10.5772/intechopen.85398
+All bats use echolocation to sense distance, and they also “know” the difference
+between food/prey and background barriers in some magical way.
+Bats fly randomly with velocity vi at position x i with a fixed frequency f min,
+varying wavelength λ and loudness A0 to search for prey. They can automatically
+adjust the wavelength (or frequency) of their emitted pulses and adjust the rate of
+pulse emission r ∈ [0, 1], depending on the proximity of their target.
+Although loudness may vary in many ways, it is assumed that loudness varia-
+tions range from a large (positive) A0 to a minimum constant value A min [14].
+4.1.13 Charged system search
+Charged system search was presented by Kaveh and Talatahari [15] for optimi-
+zation of mathematical model. Each search agent is referred to as a charged particle,
+which behaves like a charged sphere with a known radius and a charge proportional
+to the quality of the produced solution. Thus, the particles are able to exert force on
+one another and cause other particles move. In addition, exploitation of particle’s
+previous velocity as a consideration of the particle’s past performance can be effec-
+tive in changing the particle position. Newtonian mechanic rules were used to
+precisely determine these changes from the rules used here provided some sort of
+balance between the algorithm power at the conclusion and search stage [15].
+4.1.14 Krill herd algorithm
+The krill herd algorithm was proposed by Gandomi and Alavi [16] to optimize
+the mathematical model. This algorithm is classified as a swarm intelligence algo-
+rithm. This algorithm is inspired by the herding behavior of krill swarms in the
+process of food finding. In the krill herd algorithm, minimum distance of the krill
+individual from food and from the highest density of the herd is considered as the
+objective functions for krill movement. The specific location of the individual krill
+varies with time depending on the following three actions: movement induced by
+other krill individuals; foraging activity; and random diffusion (Figure 11).
+(SLIKA 67)
+4.1.15 Dolphin echolocation
+Dolphin echolocation was first proposed by Kaveh and Farhoudi as a new opti-
+mization method. Scientists believe that dolphins are ranked second (after humans)
+in terms of smartness and intelligence. This optimization method was developed
+according to echolocation ability of dolphins [17].
+4.2 Literature on drilling operations
+Drilling operations lead to significant costs during the development of oil and
+gas fields. Therefore, drilling optimization can decrease the costs of a project and
+hence increase the profit earned from the oil and gas production. In most of the
+studies, rate of penetration (ROP) has been considered as the objective function of
+the optimization process. ROP depends on many factors including well depth,
+formation characteristics, mud properties, rotational speed of the drill string, etc.
+Several studies have been conducted to gain a profound insight into the effective
+parameters on ROP. Maurer [18] introduced an equation for ROP, in which it was
+accounted for rock cratering mechanisms of roller-cone bits. Galle and Woods [19]
+proposed a mathematical model for estimating ROP, where formation type, weight
+on bit, rotational speed of bit, and bit tooth wear were taken as input parameters.
+Mechem and Fullerton [20] proposed a model with input variables of formation
+drilling ability, well depth, weight on bit, bit rotational speed, mud pressure, and
+drilling hydraulics. Bourgoyne and Young [21] used multiple regression analysis to
+develop an analytical model and also investigated the effects of depth, strength, and
+compaction of the formation, bit diameter, weight on bit, rotational speed of bit, bit
+wear, and hydraulic interactions associated with drilling. Bourgoyne and Young
+[21] introduced a technic for selection of optimum values for weight on bit, rota-
+tional speed, bit hydraulics, and calculation of formation pressure through multiple
+regression analysis of drilling data. Tanseu [22] developed a new method of ROP
+and bit life optimization based on the interaction of raw data, regression, and an
+optimization method, using the parameters of bit rotational speed, weight on bit,
+and hydraulic horsepower. Al-Betairi et al. [23] used multiple regression analysis for
+optimization of ROP as a function of controllable and uncontrollable variables. They
+also studied the correlation coefficients and multicollinearity sensitivity of the dril-
+ling parameters. Maidla and Ohara [24] introduced a computer software for opti-
+mum selection of roller-cone bit type, bit rotational speed, weight on bit, and bit
+wearing for minimizing drilling costs. Hemphill and Clark [25] studied the effect of
+mud chemistry on ROP through tests conducted with different types of PDC bits
+and drilling muds. Fear [26] conducted a series of studies using geological and mud
+logging data and bit properties in order to develop a correlation for estimating ROP.
+Ritto et al. [27] introduced a new approach for optimization of ROP as a function of
+rotational speed at the top and the initial reaction force at the bit, vibration, stress,
+and fatigue limit of the dynamical system. Alum and Egbon [28] conducted a series
+of studies, which led to the conclusion that pressure loss in the annulus is the only
+parameter that affects ROP significantly, and finally, they proposed an analytical
+model for estimation of ROP based on the model introduced by Bourgoyne and
+Young. Ping et al. [29] utilized shuffled frog leaping algorithm to optimize ROP as a
+function of bit rotational velocity, weight on bit, and flow rate. Hankins et al. [30]
+optimized drilling process of already drilled wells with variables of weight on bit,
+rotational velocity, bit properties, and hydraulics to minimize drilling costs.
+Shishavan et al. [31] studied a preliminary managed pressure case to minimize the
+associated risk and decrease the drilling costs. Wang and Salehi [32] used artificial
+intelligence for prediction of optimum mud hydraulics during drilling operations
+103
+Applications of Artificial Intelligence Techniques in Optimizing Drilling
+DOI: http://dx.doi.org/10.5772/intechopen.85398
+and performed sensitivity analysis using forward regression. A variety of
+artificial intelligence works have recently been conducted in civil and oil
+engineering [33–36].
+In the following sections, a new approach was used for prediction and optimi-
+zation of ROP, based on artificial neural network (ANN). According to the authors’
+knowledge, ANN application on ROP optimization has not been widely used by
+previous studies. The variables used in this study were well depth (D), weight on
+bit (WOB), bit rotational velocity (N), the ratio of yield point to plastic viscosity
+(Y p/PV), and the ratio of 10 min gel strength to 10 s gel strength (10MGS/10SGS).
+Using ANN technic, several models were developed for prediction of ROP, and the
+best one was selected according to their performances. Then, an artificial bee colony
+(ABC) algorithm was used for optimization of ROP based on the selected ANN
+predictive model, and the drilling parameters were evaluated to determine their
+effects on ROP.
+5. Methodology of the problem of the case study
+In the present work, it is aimed to apply neural networks in combination with
+artificial bee colony (ABC) algorithm on a real case of penetration rate prediction
+and optimization. The basic definitions regarding the problem of study are provided
+in the nest subsections. Then, the case used in our work is explained. At the end,
+ABC algorithm used in the optimization process is described.
+5.1 Hydrocarbon reservoir
+Hydrocarbon is the general term used for any substance, which is composed of
+hydrogen and carbon. From clothing to energy, there are different areas in which
+hydrocarbons serve as the main material. Hydrocarbons are usually extracted from
+reservoirs located deep in the formation of the earth’s crust. Underground hydro-
+carbon reservoirs, which are also known as oil and gas reservoirs, have been
+exploited since more than one and half a century ago. And there have been several
+developments in technologies associated with oil and gas industry [37, 38].
+The term hydrocarbon reservoir is used for a large volume of rock containing
+hydrocarbon either in oil or gas form, which is usually found in deep formation in
+the earth. This type of reservoir is far different from what most of people imagine
+when they think about. A hydrocarbon reservoir is not a tank or something like
+that. In fact, it is a rock having numerous pores, which make it capable of storing
+fluid. There are two types of hydrocarbon reservoirs: conventional and
+unconventional [39].
+A conventional reservoir consists of porous and permeable rock, which is
+bounded by an impermeable rock, usually called cap rock. Due to the high pressure
+in the deep layers, the fluid in the reservoir rock tends to move out of the rock
+toward lower depths, which usually have lower pressures. The role of cap rock is to
+seal the rock in order to prevent the hydrocarbon from migrating to low-pressure
+depths.
+Conventional reservoirs were the only type of exploited hydrocarbon reservoirs
+until the recent years. As the conventional reserves became rare and depleted, oil
+and gas industries started to study the feasibility of production from unconven-
+tional reservoirs. Thanks to the recent developments in the related technologies,
+production of hydrocarbon from unconventional reservoirs has been started in
+different locations of the earth. The major difference between conventional and
+unconventional reservoirs is that in unconventional reservoirs, there is no
+104
+Emerging Trends in Mechatronics
+traditional placement of reservoir and cap rock. The reservoir rock has high
+ĸporosity, but because of low permeability, the fluid cannot move out of it
+and is entrapped into the rock. Since the example of the present work deals
+with a conventional reservoir, we avoid discussing more about unconventional
+reservoirs.
+In order to produce oil and gas from a reservoir, at the first step, it is required to
+find a location in which hydrocarbon is accumulated in such a large volume that it
+can be exploited in an economic way. This exploration step is typically done using
+seismic technics. In the next step, the location with high probability of having
+hydrocarbon storage is drilled. The drilled well is called exploration well, and if it
+reaches a relatively large amount of hydrocarbon, more wells are drilled after
+preparing a field development plan. The production of the reservoir continues until
+the production rate falls below an economic criterion, which is usually defined as
+net present value.
+Due to the high pressure of the reservoir rock, the hydrocarbon tends to move
+toward a lower pressurized region. In order to exploit the entrapped hydrocarbon
+and providing a flow path, one or more wells are needed. The well is drilled deep
+into the rocks, and after passing the cap rock, it reaches the reservoir rock. Then,
+due to the pressure difference between the rock and surface, the hydrocarbons start
+to move from the reservoir to the surface through the drilled well. Sometimes the
+pressure difference is not so large that the fluid can reach the surface. In these cases,
+some technics, called artificial lift methods, are used to increase the energy for
+delivering the fluid to higher altitude. After extraction of hydrocarbon, it is
+delivered to treatment facilities and the next steps are designed according to the
+producer company’s plan.
+5.2 Drilling operations
+As mentioned above, exploitation of oil and gas reservoirs typically consists of
+the three types of operation: exploration, drilling, and production. The drilling
+phase involves costly operations, which consume a high portion of the capital
+expenditure of the field development. Therefore, optimizing the operations associ-
+ated with drilling can reduce the investments significantly, increasing the net pre-
+sent value of the project [40].
+In the early years of oil and gas industry, the wells were drilled using percussion
+table tools. These technics became inefficient as demand for drilling deep and hence
+more pressurized formations increased. In the early twentieth century, rotary dril-
+ling technic was introduced to oil and gas industries and it paved the way for
+drilling faster and deeper wells.
+Rotary drilling simply defines the process in which a sharp bit penetrates into
+the rock due to its weight and rotational movement [41]. Rotary drilling system
+comprises prime movers, hoisting equipment, rotary equipment, and circulating
+equipment, all of which mounted on a rig. The prime mover, usually a diesel engine,
+provides the power required for the whole rig. Hoisting system is responsible for
+raising and lowering the drill string in and out of the hole. Rotary equipment
+supports the rotation of the drill bit by transforming electrical power to rotational
+movement. In order to transport the cuttings to the surface and also to cool the bit,
+the circulation equipment provides mud flow that is directed into the drill string
+down to the bit and returns to surface transporting the debris accumulated in the
+bottom of the hole.
+One of the important factors in drilling process is rate of penetration, which is
+usually measured in terms of meter per minute or foot per minute. This parameter
+shows how fast the drilling process has been done, and thus, how much cost has
+105
+Applications of Artificial Intelligence Techniques in Optimizing Drilling
+DOI: http://dx.doi.org/10.5772/intechopen.85398
+been reduced. Through the survey of previous studies, a series of parameters were
+identified as having significant effect on rate of penetration during drilling opera-
+tions. These parameters include rotation speed of the bit, weight on the bit, shut-in
+pipe pressure, mud circulation rate, yield point and plastic viscosity of the mud, and
+mud gel strength. In the following, each parameter is briefly described.
+Bit rotation speed: In a drilling process, the bit is rotated using rotary table or
+top drive system. The rotation of the bit is usually measured in rotation per
+minute (rpm).
+Weight on the bit: In order to provide the required downward force for pene-
+trating into the rock, several drill collars are installed before the bit. The parameter
+is generally called weight on bit (WOB) and measured in thousand of pounds (Klb).
+Standpipe pressure: Standpipe pressure (SPP) refers to the total pressure loss
+due to fluid friction. In detail, SPP is the summation of pressure losses in drill string,
+annulus, bottom hole assembly, and across the bit. The unit for measuring the SPP is
+pounds per square inch (psi).
+Mud flow rate: In order to lubricate and cool down the bit under drilling
+process, a mixture of additives mixed in water or oil, which, respectively, are called
+water-based and oil-based drilling mud, is pumped through the drill pipe down to
+the bit. Drilling mud also cleans up the bottomhole by transporting the cuttings up
+to the surface. It also helps penetration rate as it passes bit nozzles and penetrates
+the rock as a water jet system. Mud flow rate is often expressed in gallons per
+minute (gpm).
+Mud yield point: Yield point, which is usually expressed in lbf/100 ft 2
+, is an
+indicator for determining the resistance of a fluid to movement. It is a parameter of
+Bingham plastic model, which is equal to shear stress at zero shear rate. As attrac-
+tive force among the colloidal particle increases, the mud needs more force to move;
+hence the yield point is considered higher.
+Mud plastic viscosity: Plastic viscosity of the mud is determined by the slope of
+the shear stress vs. shear rate plot. Higher plastic viscosity indicates more viscous
+fluid and vice versa. The unit for measurement of plastic viscosity is centipoises.
+Mud gel strength: Gel strength is the term that defines the shear stress mea-
+sured at low shear rate after the drilling mud has been static for a certain period of
+time, which is 10 s and 10 min in API standard. It indicates ability of the drilling
+mud to suspend drill solid and weighting material when circulation is ceased. It is
+measured in lbf/100 ft 2 in petroleum engineering applications.
+5.3 Case study
+In the present study, a data set obtained from a drilling process in a gas field
+located in the south of Iran was used. The depth of the well was 4235, which was
+drilled with one run of roller-cone bit and three runs of PDC bit. The IADC code of
+the roller-cone bit was 435 M, and PDC bits had codes of M332, M433, and M322.
+Roller-cone bit was used for about 20% and PDC bits for 80% of the drilled depth.
+In detail, roller-cone bit was used for the depth interval of 1016–1647 m, PDC
+(M332) was used for depth interval of 1647–2330 m, PDC (M433) was used for
+depth interval of 2330–3665 m, and finally, the depth between 3665 and 4235 m was
+drilled by PDC (M322).
+The data set consists of 3180 samples, which were taken every 1 meter of
+penetration from 1016 to 4235 m. The recorded variables included well depth (D),
+rotation speed of bit (N), weight on bit (WOB), shut-in pipe pressure (SPP), fluid
+rate (Q), mud weight (MW), the ratio of yield point to plastic viscosity (Yp/PV),
+and the ratio of 10 min gel strength to 10 s gel strength (10MGS/10SGS). The
+statistical summary of the data points is gathered in Table 1.
+(SLIKA 68)
+5.4 General description of artificial bee Colony
+This algorithm was developed by Karaboga [42] and mimics the behavior of bees
+when they search for nectar of flowers. In a hive of bees, there are three different
+types of bees: scouts, employed bees, and onlookers. The scout bees start a random
+search of the surrounding environment in order to find flowers that secrete nectar.
+After finding the flowers, they keep the location in their memory. Then, they return
+to the hive and share their information about their findings through a process called
+waggle dance. Next, the other group, called employed bees, starts finding the
+flowers based on the information obtained from the scouts in order to exploit the
+nectar of the flowers. The number of employed bees is equal to number of food
+sources. The third group of bees are called onlookers, which remain in the hive
+waiting for the return of the employed bees in order to exchange information and
+(SLIKA 69)
+select the best source based on the dances (fitness of the candidates). In addition,
+the employed bees of an abandoned food site serves as a scout bee.
+Considering an objective function, f xð Þ, the probability of a food source to be
+chosen by an onlooker can be expressed as [42]:
+Pi ¼ F x ið Þ
+∑
+S
+j¼1
+F xið Þ
+(14)
+where S indicates the number of food sources and F xð Þ represents the amount of
+nectar at location x. The intake efficiency is defined as F=τ, in which τ represents
+the time consumed at the food source. If in a predefined number of iterations, a
+food source is tried with no improvement, then the employed bees dedicated to
+this location become scout and hence start searching the new food sources in a
+random manner.
+ABC algorithm has been used in different engineering problems including well
+placement optimization of petroleum reservoirs [43], optimization of water
+discharge in dams [44], data classification [45], and machine scheduling [46].
+More description on the ABC algorithm can be found in other references [47–50].
+A typical flowchart of ABC algorithm is shown in Figure 12.
+6. Result and discussion
+6.1 Prediction
+In the present research, an ANN model was developed to predict the ROP as a
+function of effective parameters. The neural network is widely used in various
+engineering fields [51–60]. In order to train the network, three training functions
+were used including Levenberg-Markvart (LM), scaled conjugate gradient (SCG),
+and one-step secant (OSS). The number of hidden layers in the network was one
+since according to Hornik et al. [61], one hidden layer is capable of solving any type
+of nonlinear function. The number of neurons in the hidden layer was another
+parameter to be set. Several equations have been proposed by different authors
+to determine the optimum number of neurons in a hidden layer, which are
+represented in Table 2. Ni and N o indicate the number of input and output vari-
+ables, respectively.
+Using the values obtained by equations of Table 2, several ANN models were
+developed with neurons of 2–16. Then, the models were compared in terms of R2
+and RMSE, and the best model was selected [69, 70, 56, 71]. The comparison was
+done through the method proposed by Zorlu et al. [72]. In this method, the R2 and
+RMSE of each enveloped model are calculated. Next, the networks are assigned an
+integer number according to their R 2 and RMSE value, in the way that the better
+result acquires higher number. For example, if the number of models is equal to 8,
+the model having the best (highest) R 2 value acquires 8, and the model having the
+worst model acquires the value of 1. This procedure also is repeated based on RMSE
+comparison. Then, the two numbers assigned to each model are summed up, and a
+total score is obtained for each model. Finally, the model acquiring the highest total
+value is determined as the best model for the problem of study.
+In the present article, three types of learning functions were used for training the
+network, results of which are presented in Tables 3–5. According to the tables, LM,
+SCG, and OSS functions acquired the best results, respectively. In order to design an
+(SLIKA 70)
+accurate model, the best model of each function was compared. The results of
+comparison are shown in Figures 13 and 14. As can be seen, the best model of LM
+function yielded better performance. Thus, this function was selected for designing
+an ANN for prediction and optimization of ROP
+(SLIKA 71)
+(SLIKA 72)
+6.2 Optimization
+In the previous section, an ANN was developed for prediction of ROP using the
+input data. As mentioned, selecting the most accurate predictive model can signif-
+icantly affect the performance of optimization. In this section, the performance of
+the optimization algorithm is evaluated. Then, the ANN model obtained in the
+previous section is incorporated in the optimization algorithm to optimize the
+effective parameters for maximizing the penetration rate.
+6.3 Evaluation of optimization algorithm
+In this section, the best ANN model obtained in the previous section was
+selected for optimization of ROP using ABC algorithm. In order to evaluate the
+performance of ABC, two functions were used for minimization by ABC:
+F1 xð Þ ¼ 1 þ x1 þ x2 þ 1ð Þ2 19   14x1 þ 3x2
+1   14x2 þ 6x1x2 þ 3x2
+2
+   h i
+  30 þ 2x1   3x2ð Þ2 18   32x1 þ 12x2
+1 þ 48x2   36x1x2 þ 27x2
+2
+   h i (15)
+The range of variations of x1 and x2 are ( 2, 2). Also, the optimal value of this
+function at the point (1 , 0) is 3.
+This function is plotted in Figure 15. The ABC algorithm was used for finding
+minimum point of the above mentioned function, and the values of  0.33559 and
+ 0.52311 were obtained for Eq. (15). The performance of ABC in finding the
+minimum point is illustrated in Figure 16.
+6.4 Optimization of ROP in petroleum wells
+In this section, the ANN predictive model was used for optimization of param-
+eters effective on ROP. Since the well depth increases during drilling, it was not
+considered as a decision variable. Hence, the parameters of ROP were optimized in
+(SLIKA 73)
+(SLIKA 74)
+some specific depths. It makes sense in the way that the parameters cannot be
+optimized in each meter of penetration.
+The ABC algorithm was used for optimization of ROP effective parameters.
+After a series of sensitivity analysis, it was concluded that the efficient number of
+population and iterations are 40 and 500, respectively. Three depths on which
+optimization applied were 2000, 2500, and 3000. The results of optimization in the
+selected depths are provided in Tables 6–8.
+As can be seen, in each selected depth, value of ROP was increased by about
+20–30%. Therefore, by combining artificial intelligence and optimization, suitable
+(SLIKA 75)
+(SLIKA 76)
+patterns for ROP in an oil well in order to increase penetration and reduce costs can
+be created.
+6.5 Conclusion and summary
+In this chapter, firstly, the basics of optimization are explained to solve prob-
+lems. Then, an application of neural network combined with ABC algorithm was
+used for prediction of rate of penetration in a gas well. The data were collected from
+a gas field located in south of Iran. Seven input parameters were selected as input
+data to develop a predictive ANN model. For this purpose, three learning functions
+were compared, and LM function was selected as the best function for designing the
+predictive model. Next, an ABC algorithm was employed to optimize the effective
+parameters of ROP for maximizing the penetration rate. Three scenarios were
+selected for considering the well depth in optimization process. Then, the best
+models for the depths of 2000, 2500, and 3000 m were obtained, and the results
+showed 20–30% of improvement in penetration rate.
+According to the results of the test, it was concluded that the proposed model is a
+powerful tool for prediction and optimization of rate of penetration during drilling
+process. Since the drilling process involves numerous effective parameters, it is
+almost infeasible to explicitly take into account each parameter. Therefore, use of
+ANN seems very useful in this complex problem and it helps to predict and opti-
+mize the penetration rate in a short period of time and without heavy computational
+costs.
+                </p>

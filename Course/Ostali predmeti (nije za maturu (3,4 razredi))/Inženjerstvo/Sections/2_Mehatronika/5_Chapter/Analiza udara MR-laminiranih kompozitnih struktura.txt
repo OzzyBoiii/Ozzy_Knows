@@ -1,0 +1,364 @@
+h3>Impact Analysis of MR-Laminated
+Composite Structures</h3>
+<p class="zoomable-text">
+                    Abstract
+Laminated composite structures are being used in many applications, includ-
+ing aerospace, automobiles, and civil engineering applications, due to their high
+stiffness to weight ratio. However, composite structures suffer from low ductility
+and sufficient flexibility to resist against dynamic, particularly impact loadings.
+Recently, a new generation of laminated composite structures has been developed in
+which some layers have been filled fully or partially with magnetorheological (MR)
+fluids; hereafter we call them MR-laminated structures. The present article investi-
+gates the effects of MR fluid layers on vibration characteristics and specifically on
+impact loadings of the laminated composite beams. Experimental works have been
+conducted to study the dynamic performance of the MR-laminated beams.
+Keywords: laminated composite, MR fluid, vibration, impact
+1. Introduction
+Laminated composite materials, due to their unique characteristics such as
+high strength-to-weight ratio, high corrosion and impact resistance, and excellent
+fatigue strength, are being widely used in aerospace, automobiles, and recently
+civil engineering applications [1–7]. However, composite structures are highly
+vulnerable for failure under dynamic loading and, most importantly, impact loads.
+In the past few years, elements of smart and functional materials have been added
+to the conventional composite structures to develop a new generation of the lami-
+nated composite structures [8]. Researchers have proposed and test many types of
+smart materials, including piezoelectric, shape memory alloys, fiber optics, and
+electrorheological (ER) and magnetorheological (MR) fluids, to add the required
+features, such as controllability, and improve the performance for specific applica-
+tions [9–14]. These structures have the capability to adapt their response to external
+stimuli such as load or environmental changes. These new structures have opened
+new challenges in research communities. The use of MR fluids in composite struc-
+tures is relatively new as embedding fluids inside a rigid, laminated structure may
+raise many challenges in fabrication. Figure 1 shows a typical MR-laminated beam
+in which some layers are partially replaced by segments of MR fluid. Yalcintas and
+Dai [15] investigated the dynamic vibration response of three-layered MR and ER
+adaptive beams both theoretically and experimentally.
+Sapiński et al. [16, 17] explored vibration control capabilities of a three-layered
+cantilever beam with MR fluid and developed FEM model to describe the phe-
+nomena in MR fluid layer during transverse vibration of the beam. Sapiński et al.
+[18] proposed a finite element (FE) model by using ANSYS for sandwich beam
+(SLIKA 47)
+incorporating MR fluid. Rajamohan et al. [19] investigated the properties of a three-
+layer MR beam. The governing equations of MR adaptive beam were formulated in
+the finite element form and also by Ritz method. Ramamoorthy et al. [20] investi-
+gated vibration responses of a partially treated laminated composite plate integrated
+with MR fluid segment. The governing differential equations of motion for partially
+treated laminated plate with MR are presented in finite element formulation.
+Payganeh et al. [21] theoretically investigated free vibrational behavior of a sandwich
+panel with composite sheets and MR layer. They studied effects of length and width
+of sheet and also core thickness on frequency. Aguib et al. [22] experimentally and
+numerically studied the vibrational response of a MR elastomer sandwich beam sub-
+jected to harmonic excitation. They studied the effect of the intensity of the current
+flowing through a magnet coil on several dynamic factors. Naji et al. [23] employed
+generalized layerwise theory to overcome this challenge and passed behind constant
+shear deformation assumption in MR layer that is mainly used for vibration analysis
+of MR beam. Based on layerwise theory, FEM formulation was developed for simula-
+tion of MR beam, and results were verified by experimental test. Naji et al. [24, 25]
+presented a distinctive and innovative formulation for shear modulus of MR fluid.
+Most recently, Momeni et al. [26, 27] developed a finite element model to investigate
+the vibration response of MR-laminated beams with multiple MR layers through the
+thickness of the laminated beam with uniform and tapered cross sections.
+The present work intends to study the vibration response of MR-laminated beam
+with emphasis on impact loadings. The mathematical modeling of MR-laminated
+beam is similar to the work done by present authors in previous publications [23, 24,
+26, 27]. However, here, the modeling has been used mainly to study the effects of
+impact loading, although for more clarification, basic results for natural vibration
+have also been provided. Some experimental works have been conducted to illus-
+trate the performance of the MR-laminated beam under practical impact loadings.
+2. Review the modeling laminated composite beams with layerwise
+displacement theory
+In brief, laminated composite plates are composed of individual layers, which
+have been stacked together, usually by hand-layup techniques. Individual layers
+are composed of fibers, which have been derationed according to property require-
+ment, and matrix, which serves as binder of fibers and transfers the loads to the
+fibers. Changing the orientation of the fibers optimizes the composite material for
+strength, stiffness, fatigue, heat, and moisture resistance. Modeling laminated com-
+posite structures for conventional applications mainly is conducted by considering
+the stacked layers as one single layer. The equivalent single-layer (ESL) theories
+assume continuous displacement through the thickness of the laminate. In general,
+the stiffness of the adjacent layers in the laminates is not equal; thus, it results in
+discontinuity in transverse stress through the thickness, which is contrary to the
+equilibrium of the interlaminar stresses as stated by ESL. In general, ESL theories
+Figure 1.
+MR-laminated beam.
+77
+Impact Analysis of MR-Laminated Composite Structures
+DOI: http://dx.doi.org/10.5772/intechopen.86466
+provide acceptable results for relatively thin laminate. For thick laminate and
+laminate with material and/or geometric inhomogeneities, such as MR-laminated
+beams, the ESL theories lead to erroneous results for all stresses.
+In smart-laminated structures, due to the material and geometric inhomogene-
+ities through thickness, including MR-laminated beams, it is required to acquire an
+accurate evaluation of strain–stress at the ply level. Interlaminar stresses can lead
+to delamination and failure of the laminate at loads that are much lower than the
+failure strength predicted by the ESL theories.
+The accurate modeling of interlaminar stress field in composite laminates
+requires the displacement field to be piecewise continuous through the thickness
+direction. Researchers in composite communities have proposed and developed
+a variety of displacement models to provide sufficient accuracy for interlaminar
+stresses in composite structures. Layerwise displacement theory developed by
+Reddy [28] developed a layerwise theory based on the piecewise displacement
+through the laminate thickness.
+The layerwise formulation has the capability to address local through-the-
+thickness effect, such as the evolution of complicated stress–strain fields in
+MR-laminated composite structures and interfacial phenomena between the differ-
+ent embedded layers. In this work, the layerwise displacement theory has been used
+for modeling MR-laminated beam.
+The displacement field for a laminated beam based on the layerwise theory is
+obtained by considering the axial and through-the-thickness displacements as
+u(x, z, t) = ∑
+I=1
+N
+UI(x, t) ΦI(z), w(x, z, t) = ∑
+I=1
+N
+WI(x, t) ΦI(z) ΦI(z) = [1 − ζ ζ] (1)
+where u and w are displacements along x- and z-directions, respectively.
+N denotes the total number of nodes through the thickness. The ratio ζ is defined
+as ζ = z/h, in which h represents the thickness of each discrete layer. Interpolation
+functions Φ(z) are defined between any two adjacent layers. For thin laminate,
+displacements in z-direction between layers are negligible, so w(x,z,t) = Wo(x,t).
+2.1 Finite element formulation
+For many applications, closed-form solution for MR-laminated beams is either not
+available or very complex. Therefore, most of the computations are based on finite
+element models. Finite element formulation has been obtained by incorporating the
+local in-plane approximations for the state variables introduced in Eq. (1) as follows:
+UI = ∑
+i=1
+Nn
+UI
+i(x) ϕi(x) (2)
+where Nn is the number of nodes and ϕi(x) are the interpolation functions along
+the length of the beam, respectively. For details on finite element modeling of
+composite structures based on layerwise theory, one may refer to the work done by
+the present author in Ref. [8].
+3. Fundamentals of magnetorheological (MR) fluids
+Magnetorheological (MR) fluid is a class of new intelligent materials, which
+rheological characteristics such as the viscosity, elasticity and plasticity change
+rapidly (in order of milliseconds) subject to the applied magnetic field as shown
+in Figure 2. By applying a magnetic field, the particles create columnar structure
+(SLIKA 49)
+parallel to the applied field and these chain-like structures restrict the flow of the
+fluid, requiring minimum shear stress for the flow to be initiated. Upon removing
+the magnetic field, the fluid returns to its original status, very fast.
+Overall, MRF is composed of a carrier fluid, such as silicone oil, and iron
+particles, which are dispersed in the fluid [29, 30]. Each of the components plays a
+significant role in the characteristic of MRF.
+3.1 Ferromagnetic particles
+There are two types of ferromagnetic materials, used in MRFs: the soft material
+and the hard material [31]. The applied magnetic field intensity (H) and the mag-
+netization of the material (B) are two parameters that show the difference between
+the two kinds of materials.
+Figure 3 shows the H-B hysteresis loops of the soft and hard materials. It is noted
+that the soft ferromagnetic material has lower remanence and coercivity [32].
+The shape of the magneto-soft particles is spherical with a diameter ranging
+between 1 and 10 μm . One of the most widely used soft materials is carbonyl
+iron, and that can take up to 50% of the volume of MRF [32]. In order to
+improve the MRF’s dynamic behavior, iron-cobalt and iron-nickel alloys can be
+used instead of conventional carbonyl iron particles. However, they are more
+expensive [32].
+The hard magnetic material can be made of chromium dioxide (CrO2), which
+shows high coercivity and remanence. The size of dispersed CrO2 is between 0.1
+and 10 𝜇𝜇m, and it can be easily oriented under the influence of magnetic fields [32].
+(SLIKA 50)
+It mixes with the soft magnetic material to enhance the rheological behavior and
+provide more stability to the MRF [32].
+3.2 Carrier liquids
+The second component of MRF is a carrier liquid providing the continuous
+medium for the ferromagnetic particles [32]. Although all types of fluids are
+suitable for this purpose, Ashour et al. [13] recommended a fluid with a viscosity
+ranging between 0.01 and 1 N/m2 [32]. Silicon oil and synthetic oil are samples of
+suitable carrier fluids [32]. Table 1 provides the samples of carrier fluids with their
+specifications. As noted in Table 1, water is the suitable fluid, which can carry iron
+particles up to 41% of volume. Hydrocarbon oil and silicone can have the suspended
+particles between 22 and 36% of the volume.
+3.3 Stabilizers
+The third element of the MRF is a stabilizer, which are “polymers (surfactants)
+in nonpolar media.” The main roles of the materials as stabilizer are to retain the
+iron alloy particles suspended in the MRF, extend the service life of the smart fluid,
+and increase its reliability [32, 35]. There are three types of stabilizers—the agglom-
+erative, the sedimental, and the thermal [32]—as briefly described below:
+1.An agglomerative stabilizer is used to prevent the formation of aggregates
+between the iron particles. Agglomeration usually occurs due to the van der Waals’
+interactions between the iron particles in the MRF, causing the ferromagnetic
+particles to stick together. In MRF applications, surfactants should be selected in
+accordance with the type and concentration of particles. In fine-dispersed con-
+centrations, when the iron particles fill up to 50% of the volume, ionic or nonionic
+surfactants are recommended. In lower concentrations of iron particles, which
+only occupy up to 10% of the volume, gel-like stabilizers are also suggested [32].
+2.A sedimental stabilizer is employed to prohibit the iron particles from settling
+down as a result of gravity which decreases the effectiveness of MRFs [32]. The gel-
+forming and nonionic surfactants, as the sedimental stabilizer, are used to be added
+to the fluid carrier [35].
+3.A thermal stabilizer is utilized to stabilize MRF over a wide temperature range
+particularly for the long-term applications at high temperature.
+Since then, MR fluids have been utilized in various applications, including
+dampers, brakes and clutches, polishing devices, hydraulic valves, seals, and flex-
+ible fixtures. Recently, the application of MR fluids in vibration control has been
+Commercial MRF Percent iron by volume Carrier fluid Density (g/cm3
+)
+MRF-122-2ES 22 Hydrocarbon oil 2.38
+MRF-132 AD 32 Hydrocarbon oil 3.09
+MRF-336AG 36 Silicone oil 3.45
+MRF-241ES 41 Water 3.86
+Table 1.
+Properties of commercial MRFs [34].
+Emerging Trends in Mechatronics
+80
+attracted by many researchers. However, due to the nature of MR fluids, it is very
+difficult to integrate them with thin-laminated composite structures.
+4. Governing equation of MR-laminated beams
+Using the displacement field given in Eq. (1) and following a finite element
+procedure for each element, the governing equation of motion of MR-laminated
+beam in the matrix form is defined as
+[m e
+] {d¨ } i + [k e (B, f)] {d} i = {f e
+} (3)
+where [me ] and [ke
+] are the element mass and stiffness matrices, respectively,
+and {f e
+} is the element force vector. One may note that when using layerwise
+displacement theory, depending on the number of layers in the laminate, each node
+may have many degrees of freedom.
+Considering axial displacement given in Eq. (2), the generalized equation of
+motion of the MR-laminated beam can be obtained by assembling the mass, stiff-
+ness matrices, and the force vector as
+[M]{d¨ } + [K(B, f)]{d} = {F} (4)
+where [M] and [K] are the MR-laminated beam mass and stiffness matrices,
+respectively, {F} is the force vector, and [d] is the displacement vector.
+It should be noted that the stiffness matrix is a complex value since it is the sum-
+mation of the stiffness matrix of the laminated layer [Kc] and the stiffness matrix of
+the MR fluid [K MR(B, f)]:
+[K(B, f)] = [K c] + [K MR(B, f)] (5)
+One important feature in Eq. (4) is the structural damping which is included in
+the stiffness matrix. For the sake of simplicity, the complex mathematical modeling
+is neglected here; however, complete details are available in Ref. [23].
+5. Experimental setup for vibration and impact tests
+In order to conduct experimental test for MR beams, it is essential to provide a
+uniform magnetic field all over the beam. For the current work, an electromagnet
+device shown in Figure 4, which was previously fabricated by the current authors at
+Sharif University of Technology, is used. The length of poles (gap) is 240 mm. The
+space between the poles (gap) is 40 mm. To ensure that enough magnetic strength
+is provided, each arm of the electromagnet has 1000 wound turns of copper wire
+1.2 mm in diameter. A Hall effect Gauss meter, (Kanetec-TM701) with a suitable
+probe (TM-701PRB), was used to measure the magnetic flux generated by the
+electromagnet. The MR fluid selected for this study was MRF-132DG manufactured
+by Lord Corporation. For more details of the devices, one may consult Ref. [23].
+5.1 Modal test
+In order to perform modal tests, first a laminated composite plate
+(800 × 800 mm) made of glass fiber has been fabricated. Glass fiber composite is
+chosen as its magnetic permeability is zero. The plate was then cut into several strips
+(SLIKA 51)
+(250 × 30 × 2.0 mm) by water jet to make beams. We used two similar beam strips as
+top and bottom faces and make a box beam with a 2.4 mm gap between two strips for
+MR fluid. Therefore, the total thickness of the MR-laminated beam became 4.4 mm.
+In order to maintain the uniform gap and hold the fluid between two strips, 2.4 mm
+thick spacer was glued on the inside face of one strip. Some mechanical properties of
+the glass fiber layers are given as follows:
+Density = 200 g/m3
+, E1 = E2 = 15.5 GPa, G12 = G21 = 6.5 GPa, ρ = 1650 kg/m3
+.
+In this work, the complex shear modulus of the MR fluid as function of mag-
+netic field and driving frequency has been considered from the results of the work
+done by Naji et al. [10].
+To study the effects of magnetic field on modal response of the MR-laminated
+beams, different magnetic fields, from 0 to 2000 Gauss, have been applied to the
+specimens.
+5.2 Impact tests
+To conduct the impact tests, the same electromagnet as described in Section 5.1
+has been used. However, for impact tests, the specimens are fabricated as box-
+aluminum beam with length 400 mm and width 30 mm filled by MR fluid. The
+thickness of each aluminum layer and MR layer was 1 mm. The density of alumi-
+num was 2700 kg/m3 and that of the MR fluid was 3500 kg/m3
+.
+The impact tests were performed by dropping a 5.0 g mass from different
+heights (0.5, 1.0, and 1.5 m) on the tip of the MR-aluminum cantilever beam.
+In order to investigate the effect of magnetic field on the impact response of the
+MR-aluminum beam, the impact tests have been repeated for three levels of mag-
+netic fields, 0, 1000, and 2000 Gauss.
+6. Results
+In the following two subsections, the analytical results and experimental ones
+followed by brief explanations are provided.
+6.1 Modal tests
+The results obtained by analytical approach described in Section 4 and the
+results extracted from the experimental work are given in Table 2. The first three
+(SLIKA 52)
+natural frequencies which were extracted from the peak of vibration response
+spectrum subject to three levels of magnetic fields are compared with analytical
+ones.
+As it is shown, the analytical results provide sufficient agreement with experi-
+mental ones for most of the cases.
+An important feature that one may conclude from these results is noting that
+intensifying magnetic field increases the natural frequencies of the MR beams.
+Increasing the natural frequencies of MR beams by increasing the magnetic field
+can be explained by noting that increasing magnetic field increases the stiffness
+of the MR fluid, which leads to increasing the total stiffness of the MR beam and,
+in turn, increasing the natural frequencies. However, an exception is shifting the
+fundamental frequency of the MR beam after 800 Gauss, which is in contradic-
+tion with intuitive sense. To interpret this phenomenon, one may note that the loss
+factor at high magnetic field jumps up dramatically [10], so increasing damping is
+dominated by increasing stiffness of MR fluid, and higher damping dictates vibra-
+tion behavior.
+6.2 Effects of the MR layer thickness
+In order to investigate the effect of MR fluid thickness on the modal response
+of the MR beams, the first three modes have been computed for different thickness
+ratios of the MR layer to base material under different applied magnetic fields. The
+results are given in Table 3, where h1 is the thickness of composite laminated which
+(SLIKA 53)
+(SLIKA 54)
+(SLIKA 55)
+s a summation of the upper and lower layers and h 2 is the thickness of MR fluid in
+middle layer.
+The results generally demonstrate that increase in thickness of the MR layer
+decreases the natural frequencies of all the three modes. This is because in general,
+the stiffness of MR fluid is lower than the stiffness of the base composite material
+(SLIKA 56)
+(SLIKA 57)
+6.3 Impact tests
+The MR-aluminum beams are subjected to dropping mass as described in
+Section 5.2. The results for dropping mass from 0.5 m on the tip of the MR beam
+subject to different magnetic fields are shown in Figure 5. As it is observed, increas-
+ing the magnetic field makes the MR beam stiffer and thus reduces sharply the
+settling time.
+The impact test results for dropping mass from 1.0 to 1.5 m on the tip of the MR
+beam for different magnetic fields is shown in Figures 6 and 7, where once again
+it is realized that increasing magnetic field reduces the settling time of the beam
+response.
+To study the effect of magnetic field on the response of the MR beam subject to
+different impact loads, 1000 Gauss of magnetic field is applied to the MR beam, and
+its response of different dropping heights is measured and shown in Figure 8. As it is
+observed, increasing the level of impact force increases the amplitude of oscillation.
+7. Conclusions
+The effect of magnetic field on the vibration and impact responses of the MR
+beams has been investigated. For modeling purposes, the layerwise displacement
+theory was employed to overcome some challenges in the modeling of MR beams.
+Figure 7.
+Impact test for dropping mass from 1.5 m.
+Figure 8.
+Impact test for different dropping heights at 1000 Gauss.
+85
+Impact Analysis of MR-Laminated Composite Structures
+DOI: http://dx.doi.org/10.5772/intechopen.86466
+Author details
+Abolghassem Zabihollah*, Jalil Naji and Shahin Zareie
+School of Science and Engineering, Sharif University of Technology,
+International Campus, Kish Island, Iran
+*Address all correspondence to: zabihollah@sharif.edu
+The MR-laminated composite beams in which the top and bottom layers are made
+of glass-fiber laminated composites and the middle layer, is filled with MR fluids.
+Experimental tests have been conducted to validate the analytical results and show
+the performance of the MR-laminated beam for different magnetic fields. It was
+observed that increasing the magnetic field up to 800 Gauss increases the natural
+frequencies of the MR-laminated beam. However, beyond the 800 Gauss, the
+fundamental frequency of the MR-laminated beam begins to drop. The influence of
+MR layer thickness on the vibration behavior of MR-laminated beam was exam-
+ined. Adding thickness of the MR layer affected decreases the natural frequencies of
+the first three modes.
+In another study, a three-layered aluminum beam composed of aluminum
+layers at the top and bottom and the middle layer filled with MR fluid has been
+investigated for impact loadings. It was realized that increasing the magnetic field
+reduces the settling time of vibration for MR-aluminum beam. Also, for a constant
+magnetic field, increasing the level of impact load leads to increasing the amplitude
+of vibration as it was expected.
+
+                </p>

@@ -1,0 +1,238 @@
+<h3>Zadavanje funkcije. Područje definicije</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Pojam funkcije
+  <p>Funkcije (preslikavanja, pridruživanja), uz brojeve, predstavljaju temeljni pojam matematike.
+                U dosadašnjem školovanju susreli smo se s funkcijama. Poznajemo, među ostalima, svojstva linearnih i kvadratnih funkcija. U ovom poglavlju naučit ćemo razlikovati funkcije prema njihovim svojstvima, promatrat ćemo uzastopno djelovanje više funkcija te djelovanje inverznih funkcija i detaljnije izučiti realne funkcije.
+                Ideja pridruživanja temelj je matematičke definicije funkcije. Primjeri pridruživanja svuda su oko nas:
+                Svaki dan u tjednu ima svoje ime.
+                Svaka osoba ima određeni broj godina.
+                Svaki proizvod u trgovini ima svoju cijenu.
+                Svaki kućni broj jednoznačno određuje kuću u ulici.
+                Svaki krug ima neki opseg.
+                Svaki broj ima svoj kvadrat.
+                Funkcija Ako je svakom elementu xx nekog skupa AA pridružen točno jedan element yy skupa BB, tad kažemo da je definirana funkcija (preslikavanje) ff iz skupa AA u skup BB. Pišemo f:A→Bf:A→B i y=f(x)y=f(x). Element xx naziva se još argument funkcije ff, a yy vrijednost te funkcije.
+                Da je elementu xx pridružen yy, zapisujemo još i simbolom: x↦yx↦y (čita se: xx se preslikava u yy.).
+              </p>
+              <img src="Zadavanje funkcije. Područje definicije_1.png">
+              <p>Skup AA zovemo domenom ili područjem definicije funkcije ff i označavamo najčešće sa DD ili DfDf, a skup
+                BB zovemo kodomenom ili područjem vrijednosti funkcije ff i označavamo najčešće sa RR ili RfRf.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Zadavanje funkcije
+ <p>Funkciju možemo zadati na razne načine:
+                •	opisno, navodeći pravilo pridruživanja
+                •	tablicom, navodeći vrijednosti ulaznih podataka (argumenata) i funkcijskih vrijednosti
+                •	grafički, prikazujući ovisnost varijabli xx i yy
+                •	analitički, navodeći vezu među varijablama xx i yy
+                Zadavanje funkcije
+                Funkcija ff zadana je:
+                1.	svojom domenom (područjem definicije) DD
+                2.	svojom kodomenom (područjem vrijednosti) RR
+                3.	zakonom pridruživanja x↦f(x)x↦f(x).
+              </p>
+              <!--PRIMJER 1-->
+              <p>Iako domena i kodomena funkcije mogu biti skupovi vrlo različitih osobina, mi ćemo u nastavku uglavnom promatrati funkcije za koje je domena i kodomena podskup skupa realnih brojeva. Takve funkcije zovemo realnim funkcijama.</p>
+              <!--PRIMJER 2-->
+              <!--PRIMJER 3-->
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Graf funkcije
+<p>Kad god je to moguće, funkcije ćemo prikazivati crtajući njihov graf ΓfΓf u Kartezijevu sustavu.
+                Graf funkcije
+                Graf ΓfΓf funkcije ff skup je svih točaka (x,f(x))(x,f(x)) za sve xx iz domene DD funkcije ff:Γf={(x,y):x∈D, y=f(x)}.
+              </p>
+              <img src="Zadavanje funkcije. Područje definicije_2.png">
+              <p>Graf funkcija koje ćemo promatrati (postoje neelementarne funkcije čiji graf može biti bitno složeniji) opisan je krivuljom (ili dijelovima različitih krivulja) u ravnini.
+                Prirodno je postaviti obratna pitanja:
+                •	Kada neka krivulja predstavlja graf neke funkcije?
+                •	Kako se određuju njezina domena i kodomena, a kako zakon pridruživanja?
+                Prema definiciji funkcije svakom elementu xx domene DD mora biti pridružen točno jedan element yy iz kodomene RR. To znači sljedeće: vertikalni pravac (paralelan s osi ordinata) smije sjeći graf funkcije najviše u jednoj točki. Apscisa presjeka tog pravca s osi apscisa predstavlja vrijednost varijable xx, a odgovarajuću vrijednost od yy dobivamo iz presjeka pravca sa zadanom krivuljom.
+                Vertikalni test
+                Vertikalni pravac smije sjeći graf funkcije najviše u jednoj  točki.
+              </p>
+              <img src="Zadavanje funkcije. Područje definicije_3.png">
+              <p>
+                <!---PRIMJER 4-->
+                <!--PRIMJER 5-->
+                <!--PRIMJER 6-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Grafovi jednostavnih funkcija</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Proporcionalne i obrnuto proporcionalne veličine
+<p>Neka su aa, bb i cc duljine stranica nekog trokuta. Onda njemu sličan trokut ima stranice duljina a′a′, b′b′, c′c′ pri čemu vrijedi
+                a′a=b′b=c′c=k.a′a=b′b=c′c=k.
+                Kažemo da su duljine stranica sličnih trokuta proporcionalne. Faktor proporcionalnosti ovdje iznosi kk i to može biti bilo koji pozitivni broj.
+              </p>
+              <img src="Grafovi jednostavnih funkcija_1.png">
+              <p>Ovisnost duljine stranice sličnog trokuta o duljini stranice početnog dana je linearnom funkcijoma′=k⋅a.a′=k⋅a.
+                Promotrimo sada stranicu aa i odgovarajuću visinu vv u trokutu kojemu je površina P=2P=2. Među njima vrijedi odnosa⋅v2=2a⋅v2=2pa jev=4a.v=4a.Dakle, ako se površina trokuta ne mijenja, onda su stranica i visina na tu stranicu obrnuto proporcionalne. Povećanje duljine stranice uzrokuje smanjenje visine. Smanjujemo li duljinu stranice, onda se mora povećati visina da bi trokut zadržao istu površinu.Veza visine i stranice opisana je funkcijomf(x)=kx.f(x)=kx.Ovdje je k>0k>0 neki konstantan broj.
+                <!--PRIMJER 1-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Funkcija obrnute proporcionalnosti
+ <p>Funkcijaf(x)=kxf(x)=kxnaziva se funkcija obrnute proporcionalnosti. Područje definicije ove funkcije je skup R∖{0}R∖{0} jer ona nije definirana samo za x=0x=0.</p>
+              <img src="Grafovi jednostavnih funkcija_2.png">
+              <img src="Grafovi jednostavnih funkcija_3.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Hiperbola
+<p>Hiperbola - graf funkcije obrnute proporcionalnosti
+                Graf funkcije f(x)=kxf(x)=kx zovemo hiperbola.
+                Za k>0k>0 hiperbola je smještena u I. i III. kvadrantu, a za k je manji od 0k je manji od 0 smještena je u II. i IV. kvadrantu.
+                Hiperbola je zrcalno simetrična s obzirom na pravce y=xy=x i y=−xy=−x.
+                Ako je k>0k>0, presjek pravca y=xy=x i hiperbole su točke T1T1 i T2T2 koje nazivamo tjemena hiperbole.
+                Ako je k je manji od 0k je manji od 0, tjemena su presjek hiperbole i pravca y=−xy=−x jer hiperbola tad leži u II. i IV. kvadrantu.
+                Neka su aa i bb koordinate točke A(a,b)A(a,b) koja leži na grafu funkcije f(x)=kxf(x)=kx. Onda vrijedi b=kab=ka. Odatle slijede četiri jednakosti
+                b=ka,a=kb,−b=k−a,−a=k−b.b=ka,a=kb,−b=k−a,−a=k−b.
+                No, to znači da uz točku AA i točke B(b,a)B(b,a), C(−a,−b)C(−a,−b) i D(−b,−a)D(−b,−a) leže na istoj hiperboli. Te se točke dobivaju iz točke AA zrcaljenjem s obzirom na pravce y=xy=x i y=−xy=−x. Zato je hiperbola zrcalno simetrična s obzirom na te pravce.
+              </p>
+              <img src="Grafovi jednostavnih funkcija_4.png">
+              <p>Odredimo tjemena hiperbole y=4xy=4x. Presjek te hiperbole i pravca y=xy=x dobivamo iz sustavay=x,y=4xy=x,y=4xodakle slijedix=4x,x2=4,x=±2.x=4x,x2=4,x=±2.
+                Ordinata je jednaka apscisi. Zato su tjemena T1(−2,−2)T1(−2,−2) i T2(2,2)T2(2,2).
+                Uvjeri se da su tjemena hiperbole y=−3xy=−3x točke T1(−√3,√3)T1(−3,3) i  T2(√3,−√3)T2(3,−3).
+              </p>
+              <img src="Grafovi jednostavnih funkcija_5.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Translacije grafa
+ <p>Crtanje grafa funkcije s pomoću translacija upoznali smo crtajući parabole. Graf racionalne funkcije koja je količnik dviju linearnih funkcija možemo dobiti translacijom hiperbole grafa funkcije f(x)=kxf(x)=kx.
+                <!--PRIMJER 2-->
+                <!--PRIMJER 3-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Funkcija drugi korijen x↦√x
+ <p>Ako se tijelo iz stanja mirovanja ubrzava stalnim ubrzanjem aa, onda je ovisnost prijeđenog puta o vremenu iskazana u formulis(t)=12at2.s(t)=12at2.Tako na primjer, tijelo koje pada pri površini Zemlje, uz zanemareni otpor zraka, u prve dvije sekunde prevalit će puts=12⋅9.81 m/s2⋅4 s2=19.62 m.s=12⋅9.81 m/s2⋅4 s2=19.62 m.Nakon četiri sekunde taj će put iznositis=12⋅9.81 m/s2⋅16 s2=74.48 m,s=12⋅9.81 m/s2⋅16 s2=74.48 m,
+                dakle, povećat će se četiri puta. Prijeđeni put u ovisnosti o vremenu predstavljen je kvadratnom funkcijom.
+              </p>
+              <img src="Grafovi jednostavnih funkcija_6.png">
+              <p>Pokušajmo sad riješiti obratni problem. Ako tijelo pada s visine od 10 m, za koje će vrijeme pasti na tlo, uz zanemareni otpor zraka?
+                Sad je poznata veličina put ss, a traži se vrijeme tt. Temeljnu vezu ćemo onda napisati u oblikut2=2sat2=2sapa jet=√2sa.t=2sa.
+                Uvrstimo li ovdje s=10 ms=10 m, a=9.81 m/s2a=9.81 m/s2, dobit ćemot=√2⋅109.81 s2=√2.04 s=1.43 s.t=2⋅109.81 s2=2.04 s=1.43 s.
+                Kad se put poveća četiri puta, vrijeme padanja će se udvostručiti. Provjerite.
+                Vezu između vremena potrebnog da se prevali neki put opisuje funkcija drugi korijenf(x)=√x.f(x)=x.
+                Područje definicije ove funkcije je skup [0,∞⟩[0,∞⟩. Područje vrijednosti je isti taj skup. Kažemo da je drugi korijen definiran na skupu nenegativnih realnih brojeva i da su mu vrijednosti također nenegativni realni brojevi.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Funkcija drugi korijen x↦√x
+ <p>Skicirajmo graf funkcije f(x)=√xf(x)=x računajući njezine vrijednosti za nekoliko odabranih vrijednosti varijable xx. Svakako ćemo odabrati brojeve x=0x=0, 1, 4 i 9 jer je tada √xx cijeli broj. Uz njih, odabrat ćemo za xx još nekoliko pogodnih vrijednosti. Načinimo tablicu i na temelju nje nacrtajmo graf funkcije ff.</p>
+              <img src="Grafovi jednostavnih funkcija_7.png">
+              <p>Graf funkcije drugi korijen jedna je grana parabole. Njezina os je os apscisa. Tjeme ove parabole je u ishodištu.
+                <!--PRIMJER 4-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Određivanje domene i slike funkcije</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Analitičko zadavanje funkcija. Područje definicije
+ <p>Za funkciju zadanu zakonom pridruživanja (koji popularno nazivamo formulom) kažemo da je zadana analitički. Primjerice:f(x)=3x2−2x+1g(x)=x−1x+1h(x)=√4x−2.f(x)=3x2−2x+1g(x)=x−1x+1h(x)=4x−2.Da bi funkcija bila definirana, moramo poznavati njezinu domenu. Ako je funkcija zadana formulom, a nije naznačena njezina domena,  onda prema dogovoru, za domenu uzimamo skup svih realnih brojeva xx za koje ovi izrazi imaju smisla (kažemo još: za koje postoji f(x)f(x))Prirodna domena funkcije
+                Domena realne funkcije po dogovoru je skup svih realnih brojeva xx za koje zadani zakon pridruživanja ima smisla. Takvu domenu nazivamo prirodna domena.
+                Tako, primjerice, funkcija ff ima za prirodnu domenu Df=RDf=R. Funkcija gg definirana je za one xx za koje je x+1≠0x+1≠0, dakle, Dg=⟨−∞,−1⟩∪⟨−1,∞⟩Dg=⟨−∞,−1⟩∪⟨−1,∞⟩. Funkcija hh definirana je za svaki realni broj xx za koji je izraz pod korijenom veći ili jednak nuli. Stoga je Dh=[12,∞⟩Dh=[12,∞⟩.
+                <!--PRIMJER 1-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Slika funkcije
+ <p>Što je i kako se određuje kodomena RR funkcije ff? Pri određivanju kodomene ne moramo biti toliko precizni kao kad određujemo domenu funkcije. U većini slučajeva točno poznavanje kodomene nije nam niti potrebno. Zato najčešće uzimamo R=RR=R i pišemo jednostavno f:D→Rf:D→R.
+                S pojmom kodomene povezan je još jedan skup: slika funkcije. Njega možemo shvatiti kao najmanju od svih mogućih kodomena funkcije ff. Slika funkcije sastoji se od svih y∈Ry∈R za koje postoji x∈Dx∈D takav da je f(x)=yf(x)=y. To je, dakle, skup na koji funkcija ff preslikava svoju domenu. Označavamo ga s II, ili
+                preciznije, sa IfIf. Određivanje slike funkcije nije uvijek jednostavno. Mi ćemo naučiti određivati sliku samo za najjednostavnije funkcije.
+              </p>
+              <img src="Određivanje domene i slike funkcije_1.png">
+              <p><!--PRIMJER 2-->
+                <!--PRIMJER 3-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Slaganje funkcija. Injektivnost</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Kompozicija funkcija
+<p>Funkcionalnu vezu varijabli xx i yy često dobivamo uzastopnim djelovanjem nekoliko elementarnih funkcija. Primjerice, funkcijah(x)=√x2+1h(x)=x2+1dobivena je uzastopnim djelovanjem dviju elementarnih funkcija, kvadratne funkcije i funkcije drugi korijen.
+                Neka je f(x)=x2+1f(x)=x2+1 i g(x)=√xg(x)=x. Onda jeg(f(x))=g(x2+1)=√x2+1=h(x).g(f(x))=g(x2+1)=x2+1=h(x).
+                Kažemo da je hh kompozicija funkcija gg i ff i pišemo h=g∘fh=g∘f.***
+                Neka su f:Df→Rf:Df→R, g:Dg→Rg:Dg→R bilo koje funkcije. Funkcija ff broju xx pridružuje broj yy, y=f(x)y=f(x). Da bi bila definirana kompozicija g∘fg∘f u točki xx, mora biti y∈Dgy∈Dg.
+              </p>
+              <img src="Slaganje funkcija - Injektivnost_1.png">
+              <p>Zato je područje definicije Dg∘fDg∘f ove kompozicije podskup domene DfDf jer sadrži samo one elemente x∈Dfx∈Df za koje vrijedi f(x)∈Dgf(x)∈Dg.
+                <!--PRIMJER 1-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Nekomutativnost funkcija
+  <p>Slaganje funkcija nije komutativno; općenito vrijedi f∘g≠g∘ff∘g≠g∘f.
+                <!--PRIMJER 2-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Injektivnost
+<p>Injektivnost funkcije
+                Kažemo da funkcija ff ima svojstvo injektivnosti11 ili da je ona injekcija ako vrijedi:f(x1)=f(x2)⟹x1=x2.f(x1)=f(x2)⟹x1=x2.Dakle, funkcija je injekcija ako iz jednakosti funkcijskih vrijednosti slijedi i jednakost argumenata. Svojstvo ekvivalentno ovome je:x1≠x2⟹f(x1)≠f(x2).x1≠x2⟹f(x1)≠f(x2).Dakle, funkcija je injekcija ako različitim brojevima pridružuje različite vrijednosti funkcije.
+                1 Čita se in-jektivnost, in-jekcija, s odvojenim glasovima n i j.
+                Jesu li sve funkcije injektivne? Dakako da nisu. Tako primjerice, f(x)=x2f(x)=x2 nije injekcija:−3≠3ali je ipak(−3)2=32.−3≠3ali je ipak(−3)2=32.
+                Zato kod rješavanja jednadžbi u kojima se javlja kvadratna funkcija moramo biti oprezniji. Iz jednadžbe(x−2)2=16=42(x−2)2=16=42ne slijedi nužno da je x−2=4x−2=4 odnosno x=6x=6 jer je rješenje ove jednadžbe i broj x=−2x=−2.***
+                Funkcija nije injekcija ako postoje dva različita broja x1x1 i x2x2 koja se preslikavaju u istu vrijednost: f(x1)=f(x2).
+              </p>
+              <img src="Slaganje funkcija - Injektivnost_2.png">
+<!--PRIMJER 3-->
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Kriterij Injektivnosti
+ <p>Kako možemo s pomoću grafa ustanoviti je li neka funkcija injektivna? Pogledajmo najprije sljedeću sliku dviju funkcija od kojih je jedna injektivna, a druga to nije.
+                Pretpostavimo da funkcija nije injektivna. Za takvu funkciju postoje brojevi x1≠x2x1≠x2 za koje je y1=f(x1)=f(x2)=y2y1=f(x1)=f(x2)=y2. Prema tome, točke (x1,y1)(x1,y1) i (x2,y2)(x2,y2) leže na grafu funkcije, a imaju jednake ordinate. To znači da pravac s jednadžbom y=y1y=y1 (paralelan s xx-osi) siječe graf funkcije u dvjema točkama, s apscisama x1x1 i x2x2.
+              </p>
+              <img src="Slaganje funkcija - Injektivnost_3.png">
+              <p>Horizontalni test --- kriterij injektivnosti
+                Funkcija ff je injektivna ako svaki pravac paralelan sa xx-osi siječe njezin graf najviše u jednoj točki.
+              </p>
+              <img src="Slaganje funkcija - Injektivnost_4.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+ <h3>Inverzna funkcija. Graf inverzne funkcije (U RADU)</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Inverzna funkcija
+ <p>Inverzna funkcija
+                Funkcija g inverzna je funkciji f
+                
+                ako vrijedi:
+                g(f(x))=x,za svaki x∈Df,(1)
+                f(g(y))=y,za svaki y∈Dg.(2)
+                Pišemo g=f−1. U isto je vrijeme funkcija f inverzna funkciji g te je isto tako f=g−1. Zato kažemo da su funkcije f i g međusobno inverzne.
+                Relacije (1) i (2) možemo zapisati na jednostavniji način ovako: funkcije f i g međusobno su inverzne ako vrijedi: 
+                y=f(x)⟺x=g(y),∀x∈Df,∀y∈Dg.(3)
+                <!--PRIMJER 1-->  
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Postojanje Inverzne funkcije
+ <p>Ako funkcija f preslikava dva različita elementa domene u isti element kodomene, onda ne postoji inverzna funkcija. Naime, ako je x1≠x2, a vrijedi f(x1)=f(x2)=y, onda inverznu funkciju ne možemo definirati u točki y jer bi moralo biti f−1(y)=x1, ali isto tako i f−1(y)=x2. Dakle, da bi postojala inverzna funkcija, f mora za sve elemente x1, x2 domene zadovoljavati uvjet</p>
+              <img src="Inverzna funkcija_1.png">
+              <p>Ako f preslikava skup D u R, onda inverzna funkcija mora preslikavati skup R nazad u D. Dakle, funkcija g mora biti definirana za svaki y∈R. Da bi to bilo moguće, za svaki y∈R mora postojati x∈D takav da bude f(x)=y
+                .
+                Ovo svojstvo preslikavanja f
+                nazivamo surjektivnost, a za funkcije s tim svojstvom kažemo da su surjekcije.
+                Injekcija, surjekcija, bijekcija i inverzna funkcija
+                Funkcija f:D→R
+                je injekcija ako vrijedi 
+                x1≠x2⟹f(x1)≠f(x2).
+                Ona je surjekcija ako za svaki y∈R postoji x∈D takav da je f(x)=y. Funkcija f:D→R je bijekcija ako je injekcija i surjekcija. Funkcija f:D→R ima inverznu funkciju onda i samo onda ako je f bijekcija.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Računanje Inverzne funkcije
+ <p>Kako računamo inverznu funkciju? Krećemo od osnovne veze (3) koju pišemo ovako:
+                y=f(x)⟺x=f−1(y).
+                
+                Vidimo da iz jednadžbe y=f(x) moramo izračunati vrijednost varijable x u ovisnosti o varijabli y. Ako to uspijemo načiniti, dobit ćemo jednadžbu inverzne funkcije.
+                <!--PRIMJER 2-->
+                Inverznu funkciju nalazimo sljedećim postupkom:
+                1.	Napišemoy=f(x)•  . •  Jednadžbu y=f(x) riješimo po nepoznanici x•  . •  Ako postoji jedinstveno rješenje te jednadžbe, tad funkcija ima inverznu funkciju, x=f−1(y)•  . •  Zamijenimo imena nepoznanicama x i y da bismo dobili zapis y=f−1(x).
+                <!--PRIMJER 3-->
+                <!--PRIMJER 4-->
+                <!--PRIMJER 5-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Graf Inverzne funkcije
+ <p>Znajući graf funkcije f, kako možemo odrediti graf njoj inverzne funkcije g? Iz osnovne veze
+                y=f(x)⟺x=g(y) 
+                čitamo sljedeće: točka (x,y) leži na grafu funkcije f ako i samo ako točka (y,x) leži na grafu funkcije g. Međutim, točke (x,y) i (y,x) simetrične su s obzirom na pravac y=x
+                , simetralu prvog i trećeg kvadranta. Zato vrijedi: 
+                Graf inverzne funkcije
+                Grafovi funkcije f
+                i njoj inverzne funkcije g simetrični su s obzirom na pravac y=x.
+              </p>
+              <img src="Inverzna funkcija_2.png">

@@ -40,7 +40,7 @@
             position: relative;
             overflow-x: hidden;
         }
-        
+
         .light {
             position: absolute;
             width: 0px;
@@ -55,7 +55,7 @@
             margin: auto;
             z-index: -1;
         }
-        
+
         .x1 { animation: floatUp 4s infinite linear; transform: scale(1); }
         .x2 { animation: floatUp 7s infinite linear; transform: scale(1.6); left: 15%; }
         .x3 { animation: floatUp 2.5s infinite linear; transform: scale(0.5); left: -15%; }
@@ -65,7 +65,7 @@
         .极速x7 { animation: floatUp 5.3s infinite linear; transform: scale(3.2); left: 37%; }
         .x8 { animation: floatUp 4.7s infinite linear; transform: scale(1.7); left: 62%; }
         .x9 { animation: floatUp 4.1s infinite linear; transform: scale(0.9); left: 85%; }
-        
+
         @keyframes floatUp {
             0% { top: 100vh; opacity: 0; }
             25% { opacity: 1; }
@@ -73,7 +73,7 @@
             75% { opacity: 1; }
             100% { top: -100vh; opacity: 0; }
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -83,25 +83,25 @@
         section .container {
             margin: 100px;
         }
-        
+
         section h1 {
             font-size: 3rem;
             margin: 20px;
         }
-        
+
         section h极速2 {
             font-size: 40px;
             text-align: center;
             text-transform: uppercase;
         }
-        
+
         .text-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
         }
-        
+
         .text-box {
             background: rgba(0, 194, 203, 0.85);
             border-radius: 15px;
@@ -110,11 +110,11 @@
             transition: transform 0.3s ease;
             max-width: 100%;
         }
-        
+
         .text-box:hover {
             transform: translateY(-10px);
         }
-        
+
         @media (max-width: 900px) {
             section h1 {
                 font-size: 2rem;
@@ -124,28 +124,28 @@
                 flex-direction: column;
             }
         }
-        
+
         .reveal {
             position: relative;
             opacity: 0;
         }
-        
+
         .reveal.active {
             opacity: 1;
         }
-        
+
         .active.fade-bottom {
             animation: fade-bottom 1s ease-in;
         }
-        
+
         .active.fade-left {
             animation: fade-left 1s ease-in;
         }
-        
+
         .active.fade-right {
             animation: fade-right 1s ease-in;
         }
-        
+
         @keyframes fade-bottom {
             0% {
                 transform: translateY(50px);
@@ -156,7 +156,7 @@
                 opacity: 1;
             }
         }
-        
+
         @keyframes fade-left {
             0% {
                 transform: translateX(-100px);
@@ -167,7 +167,7 @@
                 opacity: 1;
             }
         }
-        
+
         @keyframes fade-right {
             0% {
                 transform: translateX(100px);
@@ -198,10 +198,10 @@
             transition: 0.2s;
             white-space: nowrap;
         }
-        
+
         button:hover { transform: rotate(-3deg); }
         button:active { transform: scale(0.95) rotate(-3deg); }
-        
+
         @keyframes shimmer {
             to { background-size: 100% 100%; box-shadow: -2px -2px 6px rgba(255, 227, 126, 0.5), 2px 2px 6px rgba(144, 148, 255, 0.5); }
         }
@@ -227,7 +227,7 @@
             color: #333;
             border: 2px solid #ff9800;
         }
-        
+
         .summary-line {
             display: flex;
             justify-content: space-between;
@@ -236,13 +236,13 @@
             margin-bottom: 8px;
             position: relative;
         }
-        
+
         .summary-content {
             flex-grow: 极速1;
             position: relative;
             padding-right: 30px; /* Space for status dot */
         }
-        
+
         .summary-text {
             position: relative;
             z-index: 2;
@@ -253,7 +253,7 @@
             font-size: inherit;
             width: 95%;
         }
-        
+
         .summary-dots {
             position: absolute;
             top: 0;
@@ -264,7 +264,7 @@
             pointer-events: none;
             letter-spacing: 2px;
         }
-        
+
         .summary-number {
             width: 5%;
             min-width: 50px;
@@ -279,7 +279,7 @@
             color: #e65100;
             font-weight: bold;
         }
-        
+
         .summary-header {
             text-align: center;
             margin-bottom: 25px;
@@ -291,7 +291,7 @@
             position: relative;
             padding-bottom: 15px;
         }
-        
+
         .summary-header::after {
             content: "";
             position: absolute;
@@ -302,25 +302,25 @@
             background: linear-gradient(90deg, transparent, #ff9800, transparent);
             border-radius: 3px;
         }
-        
+
         .summary-box::-webkit-scrollbar {
             width: 10px;
         }
-        
+
         .summary-box::-webkit-scrollbar-track {
             background: rgba(0,0,0,0极速.1);
             border-radius: 10px;
         }
-        
+
         .summary-box::-webkit-scrollbar-thumb {
             background: #ff9800;
             border-radius: 10px;
         }
-        
+
         .summary-box::-webkit-scrollbar-thumb:hover {
             background: #ff7d00;
         }
-        
+
         .summary-h极速int {
             text-align: center;
             margin-top: 15px;
@@ -335,7 +335,7 @@
                 padding: 20px;
                 font-size: 16px;
             }
-            
+
             .summary-header {
                 font-size: 20px;
             }
@@ -440,12 +440,12 @@
             box-shadow: 0 15px 50px rgba(0,0,0,0.5);
             z-index: 1000;
         }
-        
+
         .newWindow.active {
             display: block;
             animation: popIn 0.5s ease-out;
             }
-        
+
         @keyframes popIn {
             0% { transform: scale(0.8); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
@@ -747,45 +747,45 @@
         .summary-line.subheading {
             display: none;
         }
-        
+
         .summary-line.subheading.visible {
             display: flex;
         }
-        
+
         .bracket-letter {
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .bracket-letter.A {
             color: #FF5733; /* Vibrant orange-red */
         }
-        
+
         .bracket-letter.B {
             color: #33C4FF; /* Bright blue */
             cursor: pointer;
         }
-        
+
         .bracket-letter.C {
             color: #33FF57; /* Bright green */
         }
-        
+
         .bracket-letter.B:hover {
             text-shadow: 0 0 8px rgba(51, 196, 255, 0.8);
             transform: scale(1.1);
         }
-        
+
         .toggle-indicator {
             margin-left: 5px;
             font-size: 0.8em;
             transition: transform 0.3s ease;
         }
-        
+
         .toggle-indicator.open {
             transform: rotate(90deg);
         }
-        
+
         /* Debug panel */
         .debug-panel {
             position: fixed;
@@ -846,7 +846,7 @@
                     <div class="summary-container">
                         <div class="summary-box">
                             <div class极速="summary-header">Subject Summary</div>
-                            
+
                             <div class="summary-line">
                                 <div class="summary-content">
                                     <span class="summary-dots">.......................................................</span>
@@ -1069,7 +1069,7 @@
             <h3>Section Status Overview</h3>
             <button class="close-btn" onclick="toggleWindow('statusOverview')">Close</button>
         </div>
-        
+
         <div class="status-categories">
             <div class="status-category">
                 <div class="status-title">
@@ -1080,7 +1080,7 @@
                     <!-- Will be populated by JavaScript -->
                 </ul>
             </div>
-            
+
             <div class="status-category">
                 <div class="status-title">
                     <div class="status-indicator status-yellow"></div>
@@ -1090,7 +1090,7 @@
                     <!-- Will be populated by JavaScript -->
                 </ul>
             </div>
-            
+
             <div class="status-category">
                 <div class="status极速-title">
                     <div class="status-indicator status-red"></div>
@@ -1121,20 +1121,20 @@
         let currentlyActiveSection = null;
         let activeSectionStartTime = null;
         let lastUnloadTime = null;
-        
+
         // Debug function
         function updateDebugInfo() {
             const debugContent = document.getElementById('debugContent');
             if (!debugContent) return;
-            
+
             let debugText = `Active Section: ${currentlyActiveSection || 'None'}<br>`;
             debugText += `Active Start: ${activeSectionStartTime || 'None'}<br>`;
             debugText += `Last Unload: ${lastUnloadTime || 'None'}<br>`;
-            
+
             for (const sectionId in sectionData) {
                 debugText += `${sectionId}: ${sectionData[sectionId].totalTime.toFixed(2)}h, Last: ${sectionData[sectionId].lastOpened || 'Never'}<br>`;
             }
-            
+
             debugContent.innerHTML = debugText;
         }
 
@@ -1145,41 +1145,40 @@
             if (storedUnloadTime) {
                 lastUnloadTime = new Date(parseInt(storedUnloadTime));
             }
-            
+
             // Load active section from previous session
             const storedActiveSection = localStorage.getItem('activeSection');
-            
+
             for (const sectionId in sectionData) {
                 // Load last opened time
                 const storedTime = localStorage.getItem(`lastOpened_${sectionId}`);
                 if (storedTime) {
                     sectionData[sectionId].lastOpened = new Date(parseInt(storedTime));
                 }
-                
+
                 // Load total time
                 const storedTotalTime = localStorage.getItem(`totalTime_${sectionId}`);
                 if (storedTotalTime) {
                     sectionData[sectionId].totalTime = parseFloat(storedTotalTime);
                 }
-                
                 // Update summary number display
                 updateSummaryNumber(sectionId, sectionData[sectionId].totalTime);
             }
-            
+
             // Calculate elapsed time since last unload if there was an active section
             if (storedActiveSection && sectionData[storedActiveSection] && lastUnloadTime) {
                 const now = new Date();
                 const elapsedHours = (now - lastUnloadTime) / (1000 * 60 * 60);
-                
+
                 // Add elapsed time to the previously active section
                 sectionData[storedActiveSection].totalTime += elapsedHours;
                 localStorage.setItem(`totalTime_${storedActiveSection}`, sectionData[storedActiveSection].totalTime);
                 updateSummaryNumber(storedActiveSection, sectionData[storedActiveSection].totalTime);
-                
+
                 // Update debug info
                 updateDebugInfo();
             }
-            
+
             // Update all status indicators
             updateAllStatusIndicators();
         }
@@ -1189,21 +1188,21 @@
             const headerIndicator = document.getElementById(`status-indicator-${sectionId}`);
             const summaryIndicator = document.getElementById(`summary-status-indicator-${sectionId}`);
             const tooltip = headerIndicator ? headerIndicator.nextElementSibling : null;
-            
+
             if (!sectionData[sectionId].lastOpened) {
                 if (headerIndicator) headerIndicator.className = "status-indicator status-red";
                 if (summaryIndicator) summaryIndicator.className = "status-indicator summary-status-indicator status-red";
                 if (tooltip) tooltip.textContent = "Never visited";
                 return;
             }
-            
+
             const now = new Date();
             const diffHours = (now - sectionData[sectionId].lastOpened) / (1000 * 60 * 60);
-            
+
             // Format last visited time
             const lastVisited = formatLastVisited(diffHours);
             if (tooltip) tooltip.textContent = `Last visited: ${lastVisited}`;
-            
+
             // Set indicator color based on time thresholds
             let statusClass;
             if (diffHours <= 36) {
@@ -1213,7 +1212,7 @@
             } else {
                 statusClass = "status-red";
             }
-            
+
             if (headerIndicator) headerIndicator.className = `status-indicator ${statusClass}`;
             if (summaryIndicator) summaryIndicator.className = `status-indicator summary-status-indicator ${statusClass}`;
         }
@@ -1222,15 +1221,15 @@
         function formatLastVisited(hours) {
             if (hours < 1) return "Just now";
             if (hours < 24) return `${Math.floor(hours)} hours ago`;
-            
+
             const days = Math.floor(hours / 24);
             if (days === 1) return "1 day ago";
             if (days < 7) return `${days} days ago`;
-            
+
             const weeks = Math.floor(days / 7);
             if (weeks === 1) return "1 week ago";
             if (weeks < 4) return `${weeks} weeks ago`;
-            
+
             const months = Math.floor(days / 30);
             if (months === 1) return "1 month ago";
             return `${months} months ago`;
@@ -1248,7 +1247,7 @@
             const summaryNumber = document.querySelector(`.summary-content a[href="#${sectionId}"]`)
                 ?.closest('.summary-line')
                 ?.querySelector('.summary-number');
-                
+
             if (summaryNumber) {
                 summaryNumber.value = Math.round(time * 10) / 10; // Round to 1 decimal place
             }
@@ -1259,14 +1258,14 @@
             const greenList = document.getElementById('green-list');
             const yellowList = document.getElementById('yellow-list');
             const redList = document.getElementById('red-list');
-            
+
             // Clear existing lists
             greenList.innerHTML = '';
             yellowList.innerHTML = '';
             redList.innerHTML = '';
-            
+
             const now = new Date();
-            
+
             for (const sectionId in sectionData) {
                 if (!sectionData极速[sectionId].lastOpened) {
                     // Never opened - red status
@@ -1274,9 +1273,9 @@
                     redList.appendChild(li);
                     continue;
                 }
-                
+
                 const diffHours = (now - sectionData[sectionId].lastOpened) / (1000 * 60 * 60);
-                
+
                 if (diffHours <= 36) {
                     const li = createStatusListItem(sectionId, 'green');
                     greenList.appendChild(li);
@@ -1295,9 +1294,9 @@
             const li = document.createElement('li');
             const indicator = document.createElement('div');
             indicator.className = `status-indicator status-${status}`;
-            
+
             const totalTime = sectionData[sectionId].totalTime.toFixed(1);
-            
+
             li.innerHTML = `
                 <span>
                     ${indicator.outerHTML}
@@ -1305,14 +1304,14 @@
                 </span>
                 <span>${formatLastVisitedTime(sectionData[sectionId].lastOpened)} (${totalTime}h)</span>
             `;
-            
+
             return li;
         }
 
         // Format last visited time for the overview list
         function formatLastVisitedTime(lastOpened) {
             if (!last极速Opened) return "Never";
-            
+
             const now = new Date();
             const diffHours = (now - lastOpened) / (1000 * 60 * 60);
             return formatLastVisited(diffHours);
@@ -1323,7 +1322,7 @@
             const window = document.getElementById(windowId);
             window.classList.toggle('active');
             document.body.style.overflow = window.classList.contains('active') ? 'hidden' : '';
-            
+
             if (windowId === 'statusOverview' && window.classList.contains('active')) {
                 populateStatusOverview();
             }
@@ -1338,10 +1337,10 @@
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
                 var elementVisible = 150;
-                
+
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("active");
-                    
+
                     // If we haven't found an active section yet, this one becomes active
                     if (newActiveSection === null) {
                         const sectionId = reveals[i].closest('section').id;
@@ -1364,17 +1363,17 @@
                     localStorage.setItem(`totalTime_${currentlyActiveSection}`, sectionData[currentlyActiveSection].totalTime);
                     updateSummaryNumber(currentlyActiveSection, sectionData[currentlyActiveSection].totalTime);
                 }
-                
+
                 // Start timer for new active section
                 currentlyActiveSection = newActiveSection;
                 activeSectionStartTime = new Date();
                 localStorage.setItem('activeSection', currentlyActiveSection);
-                
+
                 // Update the lastOpened time and status indicator
                 sectionData[currentlyActiveSection].lastOpened = new Date();
                 localStorage.setItem(`lastOpened_${currentlyActiveSection}`, sectionData[currentlyActiveSection].lastOpened.getTime());
                 updateStatusIndicator(currentlyActiveSection);
-                
+
                 // Update debug info
                 updateDebugInfo();
             } else if (newActiveSection === null && currentlyActiveSection) {
@@ -1384,10 +1383,10 @@
                 sectionData[currentlyActiveSection].totalTime += timeSpent;
                 localStorage.setItem(`totalTime_${currentlyActiveSection}`, sectionData[currentlyActiveSection].totalTime);
                 updateSummaryNumber(currentlyActiveSection, sectionData[currentlyActiveSection].totalTime);
-                
+
                 currentlyActiveSection = null;
                 localStorage.removeItem('activeSection');
-                
+
                 // Update debug info
                 updateDebugInfo();
             }
@@ -1401,7 +1400,7 @@
                 sectionData[currentlyActiveSection].totalTime += timeSpent;
                 localStorage.setItem(`totalTime_${currentlyActiveSection}`, sectionData[currentlyActiveSection].totalTime);
             }
-            
+
             // Store unload time and active section
             localStorage.setItem('lastUnloadTime', new Date().getTime());
             if (currentlyActiveSection) {
@@ -1412,24 +1411,24 @@
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
             initializeSectionData();
-            
+
             // Initialize scroll event listener
             window.addEventListener("scroll", reveal, { passive: true });
             reveal(); // Initialize sections
-            
+
             // Set up beforeunload event
             window.addEventListener('beforeunload', handlePageUnload);
-            
+
             // Set the first section as opened if none was active before
             if (!currentlyActiveSection) {
                 sectionData.Ozzy_1.lastOpened = new Date();
                 localStorage.setItem('lastOpened_Ozzy_1', sectionData.Ozzy_1.lastOpened.getTime());
                 updateStatusIndicator('Ozzy_1');
             }
-            
+
             // Update debug info
             updateDebugInfo();
-            
+
             // Add test button for debugging
             const debugPanel = document.getElementById('debugPanel');
             const testButton = document.createElement('button');
@@ -1448,7 +1447,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('search');
             const searchResults = document.getElementById('search-results');
-            
+
             // Sample data for demonstration
             const elementsWithIds = [
                 { id: 'printBtn', text: 'Print Page Button', type: 'button' },
@@ -1458,7 +1457,7 @@
                 { id: 'shareBtn', text: 'Share Button', type: 'button' },
                 { id: 'downloadBtn', text: 'Download Button', type: 'button' }
             ];
-            
+
             // Function to find bold text on the page
             function findBoldText() {
                 const boldElements = Array.from(document.querySelectorAll('b, strong'));
@@ -1468,14 +1467,14 @@
                     type: 'bold text'
                 }));
             }
-            
+
             // Function to search for matching items
             function searchItems(query) {
                 const results = [];
                 const lowerQuery = query.toLowerCase().trim();
-                
+
                 if (!lowerQuery) return [];
-                
+
                 // Search bold text
                 const boldItems极速 = findBoldText();
                 for (const item of boldItems) {
@@ -1487,10 +1486,10 @@
                         });
                     }
                 }
-                
+
                 // Search elements with IDs
                 for (const item of elementsWithIds) {
-                    if (item.id.toLowerCase().includes(lowerQuery) || 
+                    if (item.id.toLowerCase().includes(lowerQuery) ||
                         item.text.toLowerCase().includes(lowerQuery)) {
                         const element = document.getElementById(item.id);
                         if (element) {
@@ -1502,85 +1501,85 @@
                         }
                     }
                 }
-                
+
                 return results;
             }
-            
+
             // Function to display search results
             function displayResults(results, query) {
                 searchResults.innerHTML = '';
-                
+
                 if (results.length === 0) {
                     searchResults.innerHTML = '<div class="no-results">No results found for "' + query + '"</div>';
                     searchResults.style.display = 'block';
                     return;
                 }
-                
+
                 // Show search stats
                 const stats = document.createElement('div');
                 stats.className = 'search-stats';
                 stats.textContent = results.length + ' result' + (results.length !== 1 ? 's' : '') + ' for "' + query + '"';
                 searchResults.appendChild(stats);
-                
+
                 // Add results
                 results.forEach(result => {
                     const resultItem = document.createElement('div');
                     resultItem.className = '极速result-item';
-                    
+
                     const icon = document.createElement('i');
-                    icon.className = result.type === 'bold text' ? 
+                    icon.className = result.type === 'bold text' ?
                         'fas fa-bold result-icon' : 'fas fa-hashtag result-icon';
-                    
+
                     const text = document.createElement('span');
                     text.text极速Content = result.text;
-                    
+
                     const type = document.createElement('span');
                     type.className = 'result-type';
                     type.textContent = result.type;
-                    
+
                     resultItem.appendChild(icon);
                     resultItem.appendChild(text);
                     resultItem.appendChild(type);
-                    
+
                     resultItem.addEventListener('click', () => {
                         // Highlight the target element
                         result.element.classList.add('highlight');
-                        
+
                         // Scroll to the element
                         result.element.scrollIntoView({
                             behavior: 'smooth',
                             block: 'center'
                         });
-                        
+
                         // Remove highlight after animation completes
                         setTimeout(() => {
                             result.element.classList.remove('highlight');
                         }, 2000);
-                        
+
                         // Clear search
                         searchInput.value = '';
                         searchResults.style.display = 'none';
                     });
-                    
+
                     searchResults.appendChild(resultItem);
                 });
-                
+
                 searchResults.style.display = 'block';
             }
-            
+
             // Event listeners
             searchInput.addEventListener('input', function() {
                 const query = this.value.trim();
-                
+
                 if (query.length < 2) {
                     searchResults.style.display = 'none';
                     return;
                 }
-                
+
                 const results = searchItems(query);
                 displayResults(results, query);
             });
-            
+
             searchInput.addEventListener('focus', function() {
                 const query = this.value.trim();
                 if (query.length >= 2) {
@@ -1588,7 +1587,7 @@
                     displayResults(results, query);
                 }
             });
-            
+
             document.addEventListener('click', function(e) {
                 if (!searchResults.contains(e.target) && e.target !== searchInput) {
                     searchResults.style.display = 'none';
@@ -1601,7 +1600,7 @@
             const window = document.getElementById('statusOverview');
             window.classList.toggle('active');
             document.body.style.overflow = window.classList.contains('active') ? 'hidden' : '';
-            
+
             if (window.classList.contains('active')) {
                 populateStatusOverview();
             }
@@ -1611,23 +1610,23 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Add click event listeners to all (极速B) headings
             const bHeadings = document.querySelectorAll('.summary-line.heading .bracket-letter.B');
-            
+
             bHeadings.forEach(heading => {
                 heading.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    
+
                     const parentLine = this.closest('.summary-line');
                     const group = parentLine.getAttribute('data-group');
-                    
+
                     // Toggle all subheadings with the same group
                     const subheadings = document.querySelectorAll(`.summary-line.subheading[data-group="${group}"]`);
                     const toggleIndicator = parentLine.querySelector('.toggle-indicator');
-                    
+
                     subheadings.forEach(subheading => {
                         subheading.classList.toggle('visible');
                     });
-                    
+
                     // Rotate the toggle indicator
                     if (toggleIndicator) {
                         toggleIndicator.classList.toggle('open');

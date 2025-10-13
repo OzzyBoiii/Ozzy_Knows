@@ -1,0 +1,2096 @@
+<h3>Drugi zakon termodinakime i entroipija</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Test
+<p class="zoomable-text">
+                    3.1. LIMITATIONS OF FIRST LAW OF THERMODYNAMICS AND INTRODUCTION TO SECOND LAW
+It has been observed that energy can flow from a system in the form of heat or work. The first law of thermodynamics sets no limit to the amount of the total energy of a system which can be caused to flow out as work. A limit is imposed, however, as a result of the principle enunciated in the second law of thermodynamics which states that heat will flow naturally from one energy reservoir to another at a lower temperature, but not in opposite direction without assistance. This is very important because a heat engine operates between two energy reservoirs at different tem- peratures.
+Further the first law of thermodynamics establishes equivalence between the quantity of heat used and the mechanical work but does not specify the conditions under which conversion of heat into work is possible, neither the direction in which heat transfer can take place. This gap has been bridged by the second law of thermodynamics.
+3.2. PERFORMANCE OF HEAT ENGINES AND REVERSED HEAT ENGINES
+Refer Fig. 3.1 (a). A heat engine is used to produce the maximum work transfer from a given positive heat transfer. The measure of success is called the thermal efficiency of the engine and is defined by the ratio:
+Thermal efficiency.
+"
+W
+where, W Net work transfer from the engine, and
+Q, Heat transfer to engine.
+...(3.1)
+For a reversed heat engine [Fig. 3.1 (b)) acting as a refrigerator when the purpose is to achieve the maximum heat transfer from the cold reservoir, the measure of success is called the co-efficient of performance (C.O.P.). It is defined by the ratio:
+112
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+Co-efficient of performance, (C.O.P.),
+where, Q2 Heat transfer from cold reservoir, and
+W. The net work transfer to the refrigerator.
+113
+...(3.2)
+For a reversed heat engine [Fig. 3.1 (b)) acting as a heat pump, the measure of success is
+again called the co-efficient of performance. It is defined by the ratio:
+Co-efficient of performance, (C.O.P.)
+where, Q, Heat transfer to hot reservoir, and
+W
+Network transfer to the heat pump
+W
+...(3.3)
+(SLIKA 63)
+In all the above three cases application of the first law gives the relation Q,-Q2-W, and this can be used to rewrite the expressions for thermal efficiency and co-efficient of performance solely in terms of the heat transfers.
+શ
+(C.O.P.)-
+(C.O.P.)
+Q
+(3.4)
+(3.5)
+(3.6)
+It may be seen that na is always less than unity and (C.O.P.)eat pump is always greater than unity.
+3.3. REVERSIBLE PROCESSES
+A reversible process should fulfill the following conditions:
+1. The process should not involve friction of any kind.
+2. Heat transfer should not take place with finite temperature difference.
+Materjal za autorskim pravo
+114
+MECHANICAL ENGINEERING
+3. The energy transfer as heat and work during the forward process should be identically equal to energy transfer as heat and work during the reversal of the process.
+4. There should be no free or unrestricted expansion.
+5. There should be no mixing of the fluids.
+6. The process must proceed in a series of equilibrium states.
+Some examples of ideal reversible processes are:
+6) Frictionless adiabatic expansion or compression; (i) Frictionless isothermal expansion or compression; (i) Condensation and boiling of liquids.
+Some examples of irreversible processes are:
+Combustion process;
+(iii) All processes involving friction;
+(ii) Mixing of two fluids;
+(iv) Flow of electric current through a resistance;
+(e) Heat flow from a higher temperature to lower temperature.
+Reversible processes are preferred because the devices which produce work such as engines and turbines, reversible process of the working fluid delivers more work than the corresponding irreversible processes. Also in case of fans, compressors, refrigerators and pumps less power input is required when reversible processes are used in place of corresponding irreversible ones.
+In thermodynamic analysis concept of reversibility, though hypothetical, is very important because a reversible process is the most efficient process. Only reversible processes can be truely represented on property diagrams. Thermodynamic reversibility can only be approached but can never be achieved. Thus the main task of the engineer is to design the system which will evolve approximate reversible processes.
+3.4. STATEMENTS OF SECOND LAW OF THERMODYNAMICS
+The second law of thermodynamics has been enunciated meticulously by Clausius, Kelvin and Planck in slightly different words although both statements are basically identical. Each statement is based on an irreversible process. The first considers transformation of heat between two thermal reservoirs while the second considers the transformation of heat into work.
+3.4.1. Clausius Statement
+"It is impossible for a self acting machine working in a cyclic process unaided by any external agency, to convey heat from a body at a lower temperature to a body at a higher temperature".
+In other words, heat of, itself, cannot flow from a colder to a hotter body.
+3.4.2. Kelvin-Planck Statement
+"It is impossible to construct an engine, which while operating in a cycle produces no other effect except to extract heat from a single reservoir and do equivalent amount of work".
+Although the Clausius and Kelvin-Planck statements appear to be different, they are really equivalent in the sense that a violation of either statement implies violation of other.
+3.4.3. Equivalence of Clausius Statement to the Kelvin-Planck Statement Refer Fig. 3.2. Consider a higher temperature reservoir T, and low temperature reservoir T. Fig. 3.2 shows a heat pump which requires no work and transfers an amount of Q, from a low temperature to a higher temperature reservoir (in violation of the Clausius statement). Let an amount of heat Q, (greater than Q) be transferred from high temperature reservoir to heat engine which devolops a net work, WQ,-Q, and rejects Q, to the low temperature reservoir. Since there is no heat interaction with the low temperature, it can be eliminated. The combined system
+of the heat engine and heat pump acts then like a heat engine exchanging heat with a single
+reservoir, which is the violation of the Kelvin-Planck statement.
+Without violating the first law, a machine can be imagined which would continuously absorb heat from a single thermal reservoir and would convert this heat completely into work. The efficiency of such a machine would be 100 per cent. This machine is called the perpetual motion machine of the second kind (PMM2).
+Fig. 3.3 shows the perpetual motion machine of the second kind. A machine of this kind will evidently violates the second law of thermodynamics.
+116
+3.6. THERMODYNAMIC TEMPERATURE
+MECHANICAL ENGINEERING
+Take the case of reversible heat engine operating between two reservoirs. Its thermal effi- ciency is given by the eqn. (3.4),
+-1-
+91-92 ૨૧ Q રા
+The temperature of a reservoir remains uniform and fixed irrespective of heat transfer. This means that reservoir has only one property defining its state and the heat transfer from a reservoir is some function of that property, temperature. Thus Q(K), where K is the tempera- ture of reservoir. The choice of the function is universally accepted to be such that the relation,
+9K) Q2 Kg)
+becomes
+Q2 T
+(3.7)
+where T, and T, are the thermodynamic temperatures of the reservoirs. Zero thermodynamic temperature (that temperature to which T, tends, as the heat transfer Q, tends to zero) has never been attained and one form of third law of thermodynamics is the statement:
+"The temperature of a system cannot be reduced to zero in a finite number of processes".
+After establishing the concept of a zero thermodynamic temperature, a reference reservoir is chosen and assigned a numerical value of temperature. Any other thermodynamic temperature may now be defined in terms of reference value and the heat transfers that would occur with reversible engine,
+(3.8)
+The determination of thermodynamic temperature cannot be made in this way as it is not possible to build a reversible engine. Temperatures are determined by the application of thermody namic relations to other measurements.
+The SI unit of thermodynamic temperature is the kelvin (K). The relation between thermo- dynamic temperature and celsius scale, which is in common use is:
+Thermodynamic temperature Celsius temperature + 273.15".
+The kelvin unit of thermodynamic temperature is the fraction temperature of "Triple point' of water.
+3.7. CLAUSIUS INEQUALITY
+1
+of thermodynamic
+273.15
+When a reversible engine uses more than two reservoirs the third or higher numbered reservoirs will not be equal in temperature to the original two. Consideration of expression for efficiency of the engine indicates that for maximum efficiency, all the heat transfer should take place at maximum or minimum reservoir temperatures. Any intermediate reservoir used will, therefore, lower the efficiency of the heat engine. Practical engine cycles often involve continu- ous changes of temperature during heat transfer. A relationship among processes in which these sort of changes occur is necessary. The ideal approach to a cycle in which temperature continually changes is to consider the system to be in communication with a large number of reservoirs in procession. Each reservoir is considered to have a temperature differing by a small amount from the previous one. In such a model it is possible to imagine that each reservoir is replaced by a reversible heat engine in communication with standard reservoirs at same temperature To Fig. 3.4 shows one example to this substitution.
+(SLIKA 65)
+energy it receives nor with the method of transfer, save that it must be reversible. Associated with the small heat transfer d to the original system is a small work transfer dW and for this system the first law gives
+Σ (8Q-5W)=0
+cycle
+...(3.9)
+Now consider the engine replacing the reservoirs and apply the second law to the new system in Fig. 3.4 (b). If the new system is not a perpetual motion machine of second kind, no positive work transfer is possible with a single reservoir.
+Therefore,
+Σ (8W-8W) 50
+cycle
+But by the definition of thermodynamic temperature in equation (3.8)
+To-T
+&Q. 3Q
+T
+and by combination of eqns. (3.9), (3.10) and (3.11)
+Το Σ
+50 but To 0 and therefore;
+Σ (1) 50
+cycle
+This is known as Clausius inequality.
+Let us now consider the case of a reversible engine for which
+Σ
+50.
+cycle
+(3.10)
+(3.11)
+..(3.12)
+118
+MECHANICAL ENGINEERING
+reverse the engine and for the reversible heat pump obtained it is possible to develop the expression,
+50
+The negative sign indicates that the heat transfers have all reversed in direction when the engine was reversed. This means that for the same machine we have two relations which are only satisfied if in the reversible case,
+Σ (1) 50
+(3.13)
+For a reversible case, as the number of reservoirs used tends to infinity, the limiting value of the summation will be
+ΣΟ (9)-0
+In words, the Clausius inequality may be expressed as follows:
+"When a system performs a reversible cycle, then
+but when the cycle is not reversible
+onla
+0,
+3.8. CARNOT CYCLE
+The cycle was first suggested by a French engineer Sadi Carnot in 1824 which works on reversible cycle and is known as Carnot cycle.
+Any fluid may be used to operate the Carnot cycle (Fig. 3.5) which is performed in an engine cylinder the head of which is supposed alternatively to be perfect conductor or a perfect insulator of a heat. Heat is caused to flow into the cylinder by the application of high temperature energy source to the cylinder head during expansion, and to flow from the cylinder by the application of a lower temperature energy source to the head during compression.
+(SLIKA 66)
+(SLIKA 67)
+The assumptions made for describing the working of the Carnot engine are as follows:
+The piston moving in a cylinder does not develop any friction during motion.
+(i) The walls of piston and cylinder are considered as perfect insulators of heat. (ii) The cylinder head is so arranged that it can be a perfect heat conductor or perfect heat insulator.
+(iv) The transfer of heat does not affect the temperature of source or sink.
+(u) Working medium is a perfect gas and has constant specific heat.
+(vi) Compression and expansion are reversible.
+Following are the four stages of Carnot cycle:
+Stage 1. (Process 1-2). Hot energy source is applied. Heat Q, is taken in whilst the fluid expands isothermally and reversibly at constant high temperature T
+Stage 2. (Process 2-3). The cylinder becomes a perfect insulator so that no heat flow takes place. The fluid expands adiabatically and reversibly whilst temperature falls from T, to Tr
+Stage 3. (Process 3-4). Cold energy source is applied. Heat Q, flows from the fluid whilst it is compressed isothermally and reversibly at constant lower temperature T
+Stage 4. (Process 4-1). Cylinder head becomes a perfect insulator so that no heat flow occurs. The compression is continued adiabatically and reversibly during which temperature is raised from 7, to T
+The work delivered from the system during the cycle is represented by the enclosed area of the cycle. Again for a closed cycle, according to first law of the thermodynamics the work obtained is equal to the difference between the heat supplied by the source (Q,) and the heat rejected to the sink (Q).
+2
+Work done
+Also, thermal efficiency. "Heat supplied by the source
+9-9 Q
+120
+MECHANICAL ENGINEERING
+-1-1-1-7)
+Q-me, T2 Q=mc, T2
+where, m mass of fluid.]
+Such an engine since it consists entirely of reversible processes, can operate in the reverse direction so that it follows the cycle shown in Fig. 3.5 (b) and operates as a heat pump. Q, is being taken in at the lower temperature T, during the isothermal expansion (process 4-3) and heat Q, is being rejected at the upper temperature T, (process 2-1). Work W will be needed to drive the pump. Again, the enclosed area represents this work which is exactly equal to that flowing from it when used as engine.
+The Carnot cycle cannot be performed in practice because of the following reasons: 1. It is imposible to perform a frictionless process.
+2. It is impossible to transfer the heat without temperature potential.
+3. Isothermal process can be achieved only if the piston moves very slowly to allow heat transfer so that the temperature remains contant. Adiabatic process can be achieved only if the piston moves as fast as possible so that the heat transfer is negligible due to very short time available. The isothermal and adiabatic processes take place during the same stroke therefore the piston has to move very slowly for part of the stroke and it has to move very fast during remaining stroke. This variation of motion of the piston during the same stroke is not possible.
+3.9. CARNOT'S THEOREM
+"It states that of all engines operating between a given constant temperature source and a given constant temperature sink, none has a higher efficiency than a reversible engine".
+Refer Fig. 3.6.
+(SLIKA 68)
+Let HE, be any heat engine and HE, be any reversible heat engine. We have to prove that efficiency of HE is more than that of HE, Let us assume that >ng Let the rates of working of the engines be such that
+Since
+> B WAW
+QUA QLB WA> WB
+Now, let HE be reversed. Since HE is a reversible leat engine, the magnitudes of heat and work transfer quantities will remain the same, but their direct ons will be reversed, as shown in Fig. 3.7. Since W>W, some part of W, (equal to W) may be fed to drive the reversed heat engine 3H Since QQQ, the heat discharged by H, may be supplied to HE,. The source may, therefore, be eliminated (Fig. 3.8). The net result is that HE, and 3H, together constitute a heat engine which, operating in a cycle produces net work W-W while exchanging heat with a single reservoir at T. This violates the Kelvin-Planck statement of the second law. Hence the assump- tion that is wrong.
+(SLIKA 69)
+3.10. COROLLARY OF CARNOT'S THEOREM
+"The efficiency of all reversible heat engines operating between the same temperature levels is the same".
+Refer Fig. 3.6. Let both the heat engines HE, and HE, be reversible. Let us assume > Similar to the procedure outlined in the Article 3.9, if HE, is reversed to run say, as a heat pump using some part of the work output (W) of engine HE,, we see that the combined system of heat pump HE, and engine HE,, becomes a PMM2. Son cannot be greater than na. Similary, if we assume ng>, and reverse the engine HE, we observe that no cannot be greater than
+A
+Since the efficiencies of all reversible engines operating between the same heat reservoirs are the same, the efficiency of a reversible engine is independent of the nature or amount of the working substance undergoing the cycle.
+3.11. EFFICIENCY OF THE REVERSIBLE HEAT ENGINE
+The efficiency of a reversible heat engine in which heat is received solely at T, is found to be
+-1- T T1
+or
+T-T T
+From the above expression, it may be noted that as T, decreases and T, increases, the efficiency of the reversible cycle increases.
+Since n is always less than unity, T, is always greater than zero and +ve.
+The C.O.P. of a refrigerator is given by
+1
+(C.O.P.)
+Q2
+Q1-Q2
+Q
+1
+Q2
+For a reversible refrigerator, using
+Q2 T2
+(C.O.P.)
+T
+T2
+T2
+IC.O.P.)
+T-T
+...(3.14)
+Similarly, for a reversible heat pump
+[C.O.P.
+T-T
+...(3.15)
+Example 3.1. A heat engine receives heat at the rate of 1500 kJ/min and gives an output of 8.2 kW. Determine:
+(i) The thermal efficiency:
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+Solution. Heat received by the heat engine, Q1- 1500 kJ/min
+1500
+-25 kJ/s
+60
+Work output, W 8.2 kW 8.2 kJ/s.
+W
+(4) Thermal efficiency, na" Q
+8.2
+0.328 32.8%
+Hence, thermal efficiency 32.8%. (Ans.)
+(ii) The rate of heat rejection.
+Source
+Q,1500 kJ/min
+HE W-8.2 kW
+123
+Q, HE Heat engine
+(4) Rate of heat rejection,
+Q, Q-W-25-8.2
+16.8 kJ/s
+Hence, the rate of heat rejection 16.8 kJ/s.
+(Ans.)
+Sink
+Fig. 3.9
+Example 3.2. During a process a system receives 30 kJ of heat from a reservoir and does 60 kJ of work. Is it possible to reach initial state by an adiabatic process?
+Solution. Heat received by the system 30 kJ
+Work done 60 kJ
+(SLIKA 70)
+(SLIKA 71)
+Process 1-2: By first law of thermodynamics,
+Q-a (UU)+ W-2 30 (U-U)+60
+Process 2-1: By first law of thermodynamics,
+A
+(U2-U1)=-30 kJ.
+Q2-1 (U1-Ug)+ W2-1
+0-30+ W-1
+A
+W-30 kJ.
+Thus 30 kJ work has to be done on the system to restore it to original state, by adiabatic
+A
+process.
+124
+MECHANICAL ENGINEERING
+Example 3.3. Find the co-efficient of performance and heat transfer rate in the condenser of a refrigerator in kJ/h which has a refrigeration capacity of 12000
+kJ/h when power input is 0.75 kW.
+Solution. Refer Fig. 3.11.
+Refrigeration capacity, Q, 12000 kJ/h
+Power input, W = 0.75 kW (= 0.75 x 60 x 60 kJ/h) Co-efficient of performance, C.O.P.:
+Condenser (T1)
+40,
+Heat transfer rate:
+Heat absorbed at lower temperature
+(C.O.P.)
+эн
+W
+Work input
+12000
+:
+C.O.P..
+4.44
+0.75 x 60 x 60
+Hence
+C.O.P.4.44. (Ans.)
+Hence transfer rate in condenser = Q
+According to the first law
+Evaporator
+لام
+QQ2+W 12000+ 0.75 x 60 x 60 14700 kJ/h
+Hence, heat transfer rate 14700 kJ/h. (Ans.)
+Fig. 3.11
+Example 3.4. A domestic food refrigerator maintains a temperature of -12°C. The ambi
+ent air temperature is 35°C. If heat leaks into the freezer at the continuous rate of 2 kJ/s deter- mine the least power necessary to pump this heat out continuously.
+Solution. Freezer temperature,
+T-12273261 K
+Ambient air temperature,
+T1 = 308 K Ambient air
+T35273308 K
+Rate of heat leakage into the freezer = 2 kJ/s
+Least power required to pump the heat:
+The refrigerator cycle removes heat from the freezer at the
+same rate at which heat leaks into it (Fig. 3.12).
+For minimum power requirement
+Q,
+эн
+W
+A
+T2 T1
+2 261
+x 308 2.36 kJ/s
+T2 = 261 K Freezer
+Q, 2 kJ/s
+0.36 kJ/s = 0.36 kW
+Fig. 2.12
+W-Q1-Q2
+2.362
+Hence, least power required to pump the heat continuously
+= 0.36 kW. (Ans.)
+Example 3.5. A house requires 2 x 10 kJ/h for heating in winter. Heat pump is used to absorb heat from cold air outside in winter and send heat to the house. Work required to operate
+the heat pump is 3 x 10 kJ/h. Determine:
+(i) Heat abstracted from outside;
+(ii) Co-efficient of performance.
+(SLIKA 72)
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+Solution. (i) Heat requirement of the house, Q, (or heat rejected) = 2 x 10 kJ/h
+Work required to operate the heat pump,
+Now,
+W = 3 x 10 kJ/h
+Q1 =W+Q2
+where Q, is the heat abstracted from outside.
+Thus
+2 x 103 x 10+ Q2
+Q, 2 x 10-3 x 104
+200000-30000 170000 kJ/h
+125
+Hence, heat abstracted from outside 170000 kJ/h. (Ans.)
+(C.O.PQ-Q
+2x10 2x10-170000
+6.66
+Hence, co-efficient of performance 6.66. (Ans.)
+Note. If the heat requirements of the house were the same but this amount of heat had to be abstracted from the house and rejected out, ie, cooling of the house in summer, we have
+(C.O.P
+170000 3x 10
+5.00
+Thus the same device has two values of C.O.P. depending upon the objective.
+Example 3.6. What is the highest possible theoretical efficiency of a heat engine operating with a hot reservoir of furnace gases at 2100°C when the cooling water available is at 15°C Solution. Temperature of furnace gases, T, 2100 + 273-2373 K Temperature of cooling water, 7, 15+ 273-288 K
+Now,
+(a)=1-
+1-
+288 2373
+-0.878 or 87.8%. (Ans.)
+Note. It should be noted that a system in practice operating between similar temperatures (eg, a steam generating plant) would have a thermal efficiency of about 30%. The discrepency is due to irreversibility in the actual plant, and also because of deviations from the ideal Carnot cycle made for various practical reasons. Example 3.7. A Carnot cycle operates between source and sink temperatures of 250°C and -15°C. If the system receives 90 kJ from the source, find:
+(1) Efficiency of the system;
+(iii) Heat rejected to sink.
+(ii) The net work transfer
+Solution. Temperature of source, T, = 250+ 273 = 523 K
+Temperature of sink, T2- 15+ 273 258 K
+Heat received by the system,
+0
+Q1 = 90 kJ
+Theart-1-
+끓이
+-1- 253=0.506 = 50.6%. (Ans.)
+126
+126
+MECHANICAL ENGINEERING
+(i) The net work transfer, Warnet Q
+W
+"Tarot
+=0.506 x 90=45.54 kJ. (Ans.)
+(iii) Heat rejected to the sink, Q, Q-W
+90-45.54 44.46 kJ. (Ans.)
+Example 3.8. An inventor claims that his engine has the following specifications:
+Temperature limits
+Power developed
+Fuel burned per hour
+Heating value of the fuel
+-75 AW
+750°C and 25°C
+3.9 kg
+.....74500 kJ/kg
+State whether his claim is valid or not.
+750+ 273 1023 K
+Solution. Temperature of source, T, Temperature of sink, T, 25+ 273 298 K
+We know that the thermal efficiency of Carnot cycle is the maximum between the specified temperature limits.
+Now,
+1-
+The actual thermal efficiency claimed,
+1023
+298
+-0.7086 or 70.80%
+Work done
+75 x 1000 x 60 x 60
+"Heat supplied
+3.9 x 74500 x 1000
+-0.9292 or 92.92%.
+Since thermal
+therefore claim of the inventor is not valid (or possible). (Ans.)
+Example 3.9. A cyclic heat engine operates between a source temperature of 1000°C and a sink temperature of 40°C. Find the least rate of heat rejection per AW net output of the engine! Solution. Temperature of source,
+T, 1000+ 273 1273 K
+Temperature of sink,
+T, 1273 K Source
+T40 273 313 K
+Least rate of heat rejection per kW net out.
+put
+For a reversible heat engine, the rate of heat rejection will be minimum (Fig. 3.13)
+W-Q,-Q,-1 kW
+HE
+T-1-
+T2
+T1
+313
+-1-
+0.754
+Now
+0.754
+W
+net..
+1
+Sink
+T2-313 K
+Fig. 3.13
+1.326 kW
+0.754
+0.754
+Now
+QQ-W1.326-10.326 kW
+Hence, the least rate of heat rejection = 0.326 kW. (Ans.)
+Example 3.10. A fish freezing plant requires 40 tons of refrigeration. The freezing tem perature is -35°C while the ambient temperature is 30°C. If the performance of the plant is 20% of the theoretical reversed Carnot cycle working within the same temperature limits, calculate the power required.
+Given: I ton of refrigeration 210 kJ/min.
+Solution. Cooling required = 40 tons = 40 x 210
+= 8400 kJ/min
+Ambient temperature, T, 30+ 273 303 K
+Freezing temperature, Performance of plant
+T-35+ 273-238 K
+A
+20% of the theoretical reversed Carnot cycle
+(CO.PT-T 303-236
+238
+3.66
+Actual C.O.P
+0.20 x 3.66 0.732
+Now work needed to produce cooling of 40 tons is calculated as follows:
+Work needed
+Cooling read.
+(COP)
+8400
+8400
+0.732-
+or W
+kJ/min 191.25 kJ/s 191.25 kW
+0.732
+Hence, power required 191.25 kW. (Ans.)
+Example 3.11. Source I can supply energy at the rate of 12000 kJ/min at 320°C. A second source 2 can supply energy at the rate of 120000 kJ/min at 70°C. Which source (1 or 2) would you choose to supply energy to an ideal reversible heat engine that is to produce large amount of power if the temperature of the surroundings is 35°C
+Solution. Source 1
+Rate of supply of energy = 12000 kJ/min
+Temperature,
+Source 21
+7,320 273 593 K.
+- 120000 kJ/min T-70273343 K
+Rate of supply of energy
+Temperature,
+Temperature of the surroundings, T, 35°C + 273 = 308 K
+Let the Carnot engine be working in the two cases with the two source temperatures and the single sink temperature. The efficiency of the cycle will be given by:
+and
+1-
+308
+1-
+593
+0.4806 or 48.00%
+1-1-
+308
+--
+1-0.102 or 10.2%
+343
+The work delivered in the two cases is given by
+W, W
+12000 x 0.4806 5767.2 kJ/min
+120000 x 0.102-12240 kJ/min.
+Thus, choose source 2. (Ans.)
+Note. The source 2 is selected even though efficiency in this case is lower, because the criterion for selection is the larger output.
+128
+MECHANICAL ENGINEERING
+Example 3.12. A reversible heat engine operates between two reservoirs at tempera- tures 700°C and 50°C. The engine drives a reversible refrigerator which operates between reser- voirs at temperatures of 50°C and -25°C. The heat transfer to the engine is 2500 kJ and the net work output of the combined engine refrigerator plant is 400 kJ.
+(i) Determine the heat transfer to the refrigerant and the net heat transfer to the reservoir at 50°C;
+(ii) Reconsider (1) given that the efficiency of the heat engine and the C.O.P. of the refrig erator are each 45 per cent of their maximum possible values.
+Solution. Refer Fig. 3.14.
+(SLIKA 73)
+Temperature,
+Temperature,
+Temperature,
+T700273973 K T250+273323 K
+T2-25+ 273-248 K
+The heat transfer to the heat engine, Q,- 2500 kJ
+The network output of the combined engine refrigerator plant,
+WW, W, 400 kJ.
+(i) Maximum efficiency of the heat engine cycle is given by
+323
+1-
+-1-
+-0.668
+973
+W
+Again,
+0.668
+Q1
+W10.668
+2500 = 1670 kJ
+T
+248
+(C.O.P.)
+-3.306
+T2-T
+323-248
+Also,
+C.O.P..
+Q1
+3.306
+W2
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+Since,
+A
+W1-W, W 400 kJ
+WWW 1670-400 1270 kJ Q-3.306 x 1270 4198.6 kJ Q-Q+W,4198.6+ 1270 5468.6 kJ Q-Q-W-25001670 830 kJ.
+Heat rejection to the 50°C reservoir
+-Q2+Q-830+ 5468.6 6298.6 kJ. (Ans.)
+(i) Efficiency of actual heat engine cycle,
+A
+0.3
+10.45 0.45 x 0.668 W1n Q, 0.3x 2500 = 750 kJ W, 750-400 350 kJ
+C.O.P. of the actual refrigerator cycle,
+C.O.P..
+04
+0.45 x 3.306 1.48
+W2
+Majalen autorskim pravo
+129
+A
+Q-350 x 1.48 518 kJ. (Ans.) Q, 518 350-868 kJ
+Q, 2500-750 1750 kJ
+Heat rejected to 50°C reservoir
+-Q,+Q,1750+ 868 2618 kJ.
+(Ans.)
+Example 3.13. (1) A reversible heat pump is used to maintain a temperature of 0°C in a refrigerator when it rejects the heat to the surroundings at 25°C. If the heat removal rate from the refrigerator is 1440 kJ/min, determine the C.O.P. of the machine and work input required.
+(ii) If the required input to run the pump is developed by a reversible engine which receives heat at 380°C and rejects heat to atmosphere, then determine the overall C.O.P. of the system. Solution. Refer Fig. 3.15 (a).
+() Temperature, 7, 25+ 273 298 K Temperature, 7,0 273-273 K
+Heat removal rate from the refrigerator,
+Q, 1440 kJ/min = 24 kJ/s
+Now, co-efficient of performance, for reversible heat pump,
+T
+C.O.P..
+T-T
+298 (298-273)
+11.92. (Ans.)
+T
+273
+A
+(C.O.P.)
+10.92
+T-T 298-273
+924
+Now,
+10.92-
+WW
+i... Work input required
+(i) Refer Fig. 3.15 (b).
+W = 2.2 kW
+-2.2 kW. (Ans.)
+Q, Q, W-24+2.2-26.2 kJ/
+The overall C.O.P. is given by,
+C.O.P..
+Heat removed from the refrigerator Heat supplied from the source
+For the reversible engine, we can write
+...()
+4 4 4 2 2 2
+A
+Q+22
+(380+273) (25+273) Q+229 653 298
+298(Q,+2.2) 653 Q, Q(653-296) 298 2.2
+298 x 2.2
+(653-298)
+-1.847 kJ/
+Q, Q, W-1.847+ 2.2 4.047 kJ/
+Substituting this value in eqn.(), we get
+24 C.O.P..
+5.93. (Ans.)
+4.047
+If the purpose of the system is to supply the heat to the sink at 25°C, then
+Overall C.O.P.
+92+94 26.2+1.847
+Q
+4.047
+6.93. (Ans.)
+Example 3.14. An ice plant working on a reversed Carnot cycle heat pump produces 15 tonnes of ice per day. The ice is formed from water at 0°C and the formed ice is maintained at 0°C. The heat is rejected to the atmosphere at 25°C. The heat pump used to run the ice plant is
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+131
+coupled to a Carnot engine which absorbs heat from a source which is maintained at 220°C by burning liquid fuel of 44500 kJ/kg calorific value and rejects the heat to the atmosphere. Determine:
+(i) Power developed by the engine;
+(ii) Fuel consumed per hour.
+Take enthalpy of fusion of ice = 334.5 kJ/kg.
+Solution. Fig. 3.16 shows the arrangement of the system.
+(i) Power developed by the engine:
+Amount of ice produced per day = 15 tonnes.
+(SLIKA 75)
+132
+The amount of heat removed by the
+heat pump. 15 x 1000 x 3345
+24 x 60
+-3484.4 kJ/min
+273
+C.O.P. of the heat pump
+W
+298-273
+A
+W-Qn
+298-273
+25
+-34844 x
+319.08 kJ/min
+273
+273
+This work must be developed by the Carnot engine,
+319.08
+-5.3 kJ/s = 5.3 kW
+60
+Thus power developed by the engine
+5.3 kW. (Ans.)
+(4) Fuel consumed per hour
+The efficiency of Carnot engine is given by
+1-
+-0.396
+493
+W
+5.3
+0.396 0.396
+-13.38 kJ
+13.38 x 60 x 60 = 48168 kJ
+MECHANICAL ENGINEERING
+Quantity of fuel consumed/hour
+48168 44500
+1.082 kg/h. (Ans)
+Example 3.15. Two Carnot engines work in series between the source and sink tempera- tures of 550 K and 350 K. If both engines develop equal power determine the intermediate tem- perature.
+Solution. Fig. 3.17 shows the arrangement of the system.
+Temperature of the source, T,
+Temperature of the sink,
+550 K
+T-350 K
+Source 550 K
+T
+Intermediate temperature, T,
+The efficiencies of the engines HE, and HE, are given by
+WT-T Τι
+W
+HE,
++W
+---T
+WT-T
+W
+Q2 T2
+Q2+W
+...A)
+HE
+From eqn.00, we get
+W = (Q,+W)
+w[1-(4-3)-(-1) *)-(-)
+W-Q
+From eqn.), we get
+T2
+W-Q
+to,
+Sink
+350K
+Pe 317
+...Lio)
+Now from eqns. (iii) and (iv), we get
+T-TT-T,
+27, 7+7,550 + 350 T-450 K
+Hence intermediate temperature 450 K. (Ans.)
+Example 3.16. A Carnot heat engine draws heat from a reservoir at temperature T, and rejects heat to another reservoir at temperature T, The Carnot forward cycle engine drives a Carnot reversed cycle engine or Carnot refrigerator which absorbs heat from reservoir at tem perature T, and rejects heat to a reservoir at temperature T, If the high temperature T, = 600 K and low temperature T, 300 K, determine:
+The temperature T, such that heat supplied to engine Q, is equal to the heat absorbed by refrigerator Q
+(ii) The efficiency of Carnot engine and C.O.P. of Carnot refrigerator.
+(SLIKA 76)
+134
+Efficiency of Carnot engine,
+Also
+War
+9-97-7 ગ
+T1
+Work of Carnot engine
+Heat supplied to the Carnot engine
+T
+Q
+T
+T2-T
+Q
+CO.P" Q-Q2
+Temperature, T,
+From eqns. (1) and (), we get
+Heat absorbed
+T-T T2
+Q(5-7). Q. (5-7) (
+1-
+300 (600-T
+600 7-300,
+600-7-217-300)
+600-7-27-600 or T1 = 400 K
+Hence, temperature, T, 400 K. (Ans) (40) Efficiency of Carnot engine,
+MECHANICAL ENGINEERING
+T-T
+600-400
+-0.333333.33%. (Ans)
+600
+T
+300
+00
+C.O.P-400-300 -3. (Ans.)
+CLAUSIUS INEQUALITY
+Example 3.17.300 kls of heat is supplied at a constant fixed temperature of 290°C to a heat engine. The heat rejection takes place at 8.5°C. The following results were obtained:
+215 ks are rejected.
+(ii) 150 kJls are rejected.
+(i) 75 klls are rejected.
+Classify which of the result report a reversible cycle or irreversible cycle or impossible
+results.
+Solution. Heat supplied at 290°C 300 kJ/
+Heat rejected at 8.5°C: 0) 215 kJ, () 150k,75 k Applying Clausius inequality to the cycle or process, we have:
+00
+(M)
+300
+215
+290+273 85+273
+= 0.5328-0.7637=-0.2309 < 0.
+Cycle is irreversible. (Ans)
+300
+150
+290 273 85 273
+Cycle is reversible. (Ans)
+-0.5328-0.5328-0
+75
+300
+T 290 273 85+273
+-0.5328 -0.2664 = 0.2664> 0.
+This cycle is impossible by second law of thermodynamics, ie, Clausius inequality. (Ans) Example 3.18. A steam power plant operates between boiler temperature of 160°C and condenser temperature of 50°C. Water enters the boiler as saturated liquid and steam leaves the boiler as saturated vapour. Verify the Clausius inequality for the cycle.
+Given: Enthalpy of water entering boiler 687 kJ/kg.
+Enthalpy of steam leaving boiler 2760 kJ/kg
+Condenser pressure 0.124 x 10 N/m2
+Solution. Boiler temperature, 7, 160+ 273 = 433 K
+Condenser temperature, 7, 50+ 273 323 K
+From steam tables:
+Enthalpy of water entering boiler, A
+Enthalpy of steam leaving boiler, A,
+= 687 kJ/kg
+2760 kJ/kg
+Condenser pressure = 0.124 x 10 N/m2
+Boiler pressure = 6.18 x 10 N/m2(corresponding to 160°C) Enthalpy of vapour leaving the turbine, A, 2160 kJ/kg (assuming isentropic expansion)
+Enthalpy of water leaving the condenser, 200 kJ/kg
+Now
+and
+QQ-A-A-2760-687-2073 kJ/kg QQAA-209-2160-1961 kJ/kg
+Σ
+2073 433
+-1951)
+--1.25 kJ/kg K
+<0. Proved.
+Example 3.19. In a power plant cycle, the temperature range is 166°C to 51°C, the upper temperature being maintained in the boiler where heat is received and the lower temperature being maintained in the condenser where heat is rejected. All other processes in the steady flow cycle are adiabatic. The specific enthalpies at various points are given in Fig. 3.19.
+Verify the Clausius Inequality.
+(SLIKA 77)
+Heat transferred in the boiler per kg of fluid,
+Q,A-,-2760-600-2070 kJ/kg
+Heat transferred out at the condenser per kg of fluid,
+Q-450-2300-1910
+kJ/kg
+Since there is no transfer of heat at any other point, we have per kg
+2070 (-1910)
+7437
+-4.737-5.895
+-1.158 kg K < 0.
+324
+The Clausius Inequality is proved. The steady flow cycle is obviously irreversible.
+If the cycle is reversible between the same temperature limits and the heat supplied at higher temperature is same, the heat rejected can be calculated as follows:
+1-
+Heat rejected per kg is given by
+324 1- -0.2586 or 25.80% 437
+Q2 = (1-0.2586) xQ,-(1-0.2586) 2070 = 1534.7 kJ/kg SQ 2070 15347
+4.73-4.73-0
+Le..
+Σ
+437
+324
+Σ
+Tink
+Thus Clausius Equality sign for a reversible engine is verified.
+3.12. ENTROPY
+3.12.1. Introduction
+In heat engine theory, the term entropy plays a vital role and leads to important results which by other methods can be obtained much more laboriously.
+It may be noted that all heat is not equally valuable for converting into work. Heat that is supplied to a substance at high temperature has a greater possibility of conversion into work than beat supplied to a substance at a lower temperature.
+"Entropy is a function of a quantity of heat which shows the possibility of conversion of that heat into work. The increase in entropy is small when heat is added at a high temperature and is greater when heat addition is made at a lower temperature. Thus for maximum entropy, there is minimum availability for conversion into work and for minimum entropy there is maxi mam availability for conversion into work."
+3.12.2. Entropy- Property of a System
+Refer Fig. 3.20. Let us consider a system undergoing a reversible process from state 1 to state 2 along path L and then from state 2 to the original state 1 along path M. Applying the Clausius theorem to this reversible cyclic process, we have
+JT
+(where the subscript designates a reversible cycle)
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+Hence when the system passes through the cycle 1-L-2-M-1, we have
+0
+T
+137
+43.16)
+Now consider another reversible cycle in which the system changes from state 1 to state 2 along path L, but returns from state 2 to the original state 1 along a different path N. For this reversible cyclic process, we have
+JTJT
+(3.17)
+(SLIKA 78)
+or
+Jan I Jun 2 S-0
+As no restriction is imposed on paths L and M, except that they must be reversible, the 3Q quantity is a function of the initial and final states of the system and is independent of the
+path of the process. Hence it represents a property of the system. This property is known as the "entropy".
+3.12.3. Change of Entropy in a Reversible Process
+Refer Fig. 3.20.
+Let 8, Entropy at the initial state 1, and
+S, Entropy at the final state 2.
+Then, the change in entropy of a system, as it undergoes a change from state 1 to 2, becomes
+8-8,- ()
+(3.18)
+Lastly, if the two equilibrium states 1 and 2 are infinitesimal near to each other, the inte- gral sign may be omitted and 8,-8, becomes equal to dS.
+138
+Hence equation (3.18) may be written as
+dS
+MECHANICAL ENGINEERING
+(3.19)
+where dS is an exact differential.
+Thus, from equation (3.19), we find that the change of entropy in a reversible process is equal to This is the mathematical formulation of the second law of thermodynamics. Equation (3.19) indicates that when an inexact differential &Q is divided by an integrating factor To 7 during a reversible process, it becomes an exact differential.
+The third law of thermodynamics states "When a system is at zero absolute tempera- ture, the entropy of system is zero"
+It is clear from the above law that the absolute value of entropy corresponding to a given
+state of the system could be determined by integrating (2) between the state at absolute zero
+and the given state. Zero entropy, however, means the absence of all molecular, atomic, elec tronic and nuclear disorders.
+As it is not practicable to get data at zero absolute temperature, the change in entropy is calculated either between two known states or by selecting some convenient point at which the
+entropy is given an arbitrary value of zero. For steam, the reference point at which the entropy is given an arbitrary value of zero is 0°C and for refrigerants like ammonia, Freon-12, carbon dioxide etc. the reference point is -40°C, at which the entropy it taken as zero.
+Thus, in practice we can determine the change in entropy and not the absolute value of
+entropy.
+3.13. ENTROPY AND IRREVERSIBILITY
+We know that change in entropy in a reversible process is equal to (a) (eqn. 3.19). Let
+us now find the change in entropy in an irreversible process.
+(SLIKA 79)
+Consider a closed system undergoing a change from state 1 to state 2 by a reversible process 1-1-2 and returns from state 2 to the initial state 1 by an irreversible process 2-M-1 as shown in Fig. 3.21 on the thermodynamic coordinates, pressure and volume.
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+Since entropy is a thermodynamic property, we can write
+(Subscript / represents the irreversible process).
+Now for a reversible process, from eqn. (3.19), we have
+(-)
+Substituting the value of (5), in eqn. (3.20), we get
+()(45), -0
+139
+...43.20)
+43.21)
+...(3.22)
+Again, since in eqn. (3.20) the processes 1-1-2 and 2-M-1 together form an irreversible cycle, applying Clausius equality to this expression, we get
+<0
+Now subtracting eqn. (3.23) from eqn. (3.22), we get
+which for infinitesimal changes in states can be written as
+>(), (d),>(),
+(3.23)
+(324)
+Eqn. (3.24) states that the change in entropy in an irreversible process is greater than 30
+Combining eqns. (3.23) and (3.24), we can write the equation in the general form as
+(3.25) where equality sign stands for the reversible process and inequality sign stands for the irrevers ible process.
+It may be noted here that the effect of irreversibility is always to increase the entropy of the system.
+Let us now consider an isolated system. We know that in an isolated system, matter, work or heat cannot cross the boundary of the system. Hence according to first law of thermodynamics, the internal energy of the system will remain constant.
+Since for an isolated system, &Q= 0, from eqn. (3.25), we get
+(d) 20
+...(3.26)
+Eq. (3.26) states that the entropy of an isolated system either increases or remains con stant. This is a corollary of the second law. It explains the principle of increase in entropy. 3.14. CHANGE IN ENTROPY OF THE UNIVERSE
+We know that the entropy of an isolated system either increase or remains constant, ie, (d)
+140
+MECHANICAL ENGINEERING
+By including any system and its surrounding within a single boundary, as shown in Fig. 3.22, an isolated system can be formed. The combination of the system and the surroundings within a single boundary is sometimes called the Universe. Hence, applying the principle of increase in entropy, we get
+where (48) (d5},
+(d)
+In the combined closed system consider that a quantity of heat &Q is transferred from the system at temperature 7 to the surroundings at temperature To Applying eqn. (3.24) to this process, we can write
+(48),
+BQ
+(-ve sign indicates that heat is transferred from the system).
+Similarly, since an amount of heat &Q is absorbed by the surroundings, for a reversible process, we can write
+Hence, the total change in entropy for the combined system
++(ds)
+(S)
+zdQ
+The same result can be obtained in the case of an open system. For both closed and open systems, we can write
+(d)0
+(3.27)
+Eq. (3.27) states that the process involving the interaction of a system and the surround. ings takes place only if the net entropy of the combined system increases or in the limit remains constant. Since all natural processes are irreversible, the entropy is increasing continually.
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+141
+The entropy attains its maximum value when the system reaches a stable equilibrium state from a non-equilibrium state. This is the state of maximum disorder and is one of maximum thermodynamic probability.
+3.15. TEMPERATURE-ENTROPY DIAGRAM
+If entropy is plotted-horizontally and absolute temperature vertically the diagram so obtained is called temperature-entropy (T-a) diagram. Such a diagram is shown in Fig. 3.23. If working fluid receives a small amount of heat dQ in an elementary portion ab of an operation AB when temperature is T, and if dQ is represented by the shaded area of which T is the mean ordinate, the width of the figure must bed. This is called 'increment of entropy and is denoted by ds. The
+T
+total heat received by the operation will be given by the area under the curve AB and (5-8) will be corresponding increase of entropy.
+(SLIKA 81)
+From above we conclude that:
+Entropy change, d8-
+Heat change (Q)
+Absolute temperature (7)
+"Entropy may also be defined as the thermal property of a substance which remains constant when substance is expanded or compressed adiabatically in a cylinder".
+Note. Y stands for specific entropy whereas mean total entropy (ie, 8m).
+3.16. CHARACTERISTICS OF ENTROPY
+or not.
+The characteristics of entropy in a summarised form are given below:
+1. It increases when heat is supplied irrespective of the fact whether temperature changes
+2. It decrease when heat is removed whether temperature changes or not.
+142
+3. It remains unchanged in all adiabatic frictionless processes.
+MECHANICAL ENGINEERING
+4. It increases if temperature of heat is lowered without work being done as in a throttling process.
+3.17. ENTROPY CHANGES FOR A CLOSED SYSTEM
+3.17.1. General Case for Change of Entropy of a Gas
+Let 1 kg of gas at a pressure p,, volume, absolute temperature T, and entropy, be heated such that its final pressure, volume, absolute temperature and entropy are PT and respectively. Then by law of conservation of energy.
+dQ= du dW
+where, dQ-Small change of heat, du Small internal energy, and
+dW - Small change of work done (pde).
+Now
+dQ = c,dT+ pdu
+Dividing both sides by T, we get
+But
+and as
+&
+dQ T
+PRT
+Hence
+Integrating both sides, we get
+]*d。 c』,"『+w』、d*
+log
+This expression can be reproduced in the following way: According to the gas equation, we have
+Τι
+Substituting the value of
+in eq. (3.28), we get
+4-4-clog, BR log
+P
+-c, log, c, logo,
+(3.28)
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+=c, log,
+4-4-clog, B+c, log
+Again, from gas equation,
+-
+Putting the value of in eqn. (3.28), we get
+A
+AF
+-c, log,+R log, AR log
+=(c+R) log, R
+P2
+-
+一般
+P
+---
+--
+3.17.2. Heating a Gas at Constant Volume
+Refer Fig. 3.24. Let 1 kg of gas be heated at T constant volume and let the change in entropy and absolute temperature be from a, to a, and T, to T respectively.
+Then
+Q=c(T,-T1)
+Differentiating to find small increment of heat dQ corresponding to small rise in temperature dr.
+dQ = cdT
+Dividing both sides by T, we get
+dQ
+Integrating both sides, we get
+-
+..(3.31)
+Fig. 3.24.7
+(SLIKA 82)
+(SLIKA 83)
+47.
+Differentiating to find small increase in heat, dQ of this gas when the temperature rise is
+dQ
+= c,.dr
+Dividing both sides by T, we get
+Integrating both sides, we get
+dac
+(3.32)
+3.17.4. Isothermal Process
+An isothermal expansion 1-2 at constant temperature T is shown in Fig. 3.26. Entropy changes from, tos, when gas absorbs heat during expansion. The heat taken by the gas is given by the area under the line 1-2 which also represents the work done during expan sion. In other words, Q-W.
+But
+and
+W-PP, log-RT, log, per kg of gas
+[P1 =RT]
+(SLIKA 84)
+(SLIKA 85)
+from
+3.178. Polytropic Process
+Refer Fig. 3.28.
+The expression for entropy change in polytropic process (po constant) can be obtained eq. (3.28)
+Le...
+(SLIKA 86)
+Also
+Pi-Pri
+Again, as
+From() and (0), we get
+(
+-2x
+-0
+Substituting the value of
+in eqn. (3.28), we get
+4-4, + (A), (-)
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+...(i)
+147
+-8
+--
+-c, lox-6,-)x()
+[R=c2-e]
+-10-(x-6-) (1) serie
+-<[-(=)) - <[---]
+(-1)
+-<--+) x
+A
+-cloper kg of gas
+< (1) log, per kg of gas
+3.17.7. Approximation For Heat Absorbed
+(3.35)
+The curve LM shown in the Fig. 3.29 is obtained by heating 1 kg of gas from initial state L to final state M. Let temperature during heating increases from T, to Ty. Then heat absorbed by the gas will be given by the area (shown shaded) under curve LM.
+(SLIKA 87)
+3.18. ENTROPY CHANGES FOR AN OPEN SYSTEM
+In an open system, as compared with closed system, there is additional change of entropy due to the mass crossing the boundaries of the system. The net change of entropy of a system due to mass transport is equal to the difference between the product of the mass and its specific entropy at the inlet and at the outlet of the system. Therefore, the total change of entropy of the system during a small interval is given by
+where,
+dQ dsz To
+To Temperature of the surroundings, = Specific entropy at the inlet,
+Specific entropy at the outlet,
+dm,
+Mass entering the system, and
+dm,
+Mass leaving the system.
+(Subscripts i and O refer to inlet and outlet conditions)
+The above equation in general form can be written as
+dQ To
+...(3.37)
+In equation (3.37) entropy flow into the system is considered positive and entropy out-flow is considered negative. The equality sign is applicable to reversible process in which the heat interactions and mass transport to and from the system is accomplished reversibly. The inequality sign is applicable to irreversible processes.
+Materjal za autom prav
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+If equation (3.37) is divided by dt, then it becomes a rate equation and is written as
+dS 2
++
+dt To dt
+dt
+In a steady-state, steady flow process, the rate of change of entropy of the system
+becomes zero.
+or
+02.dm
+ΟΣ
+dQ +
+dt
++ s. m 50
+.
+g
+where
+Q =
+dt
+and
+dm
+dt
+For adiabatic steady flow process, Q=0
+Σε 50
+If the process is reversible adiabatic, then
+Σε
+3.19. THE THIRD LAW OF THERMODYNAMICS
+• The third law of thermodynamics is stated as follow:
+149
+(3.38)
+(ds
+...(3.39)
+...(3.40)
+...(3.41)
+"The entropy of all perfect crystalline solids is zero at absolute zero temperature".
+The third law of thermodynamics, often referred to as Nernst Law, provides the basis for the calculation of absolute entropies of substances.
+According to this law, if the entropy is zero at T=0, the absolute entropy of a substance at any temperature T and pressure p is expressed by the expression.
+where
++
+dThy TT, dTh T T, JT,
+T-TT-T
++
+CHT
+......for fusion,
+......for vaporisation,
+dT
+Ep Constant pressure specific heats for solids, liquids and gas,
+hh
+Latent heats of fusion and vaporisation.
+...(3.42)
+Thus by puttings=0 at T=0, one may integrate zero kelvin and standard state of 278.15 K and 1 atm, and find the entropy difference.
+⚫ Further, it can be shown that the entropy of a crystalline substance at T=0 is not a function of pressure, viz.,
+=0
+However, at temperatures above absolute zero, the entropy is a function of pressure also. The absolute entropy of a substance at 1 atm pressure can be calculated using eqn. (3.16); for pressures different from 1 atm, necessary corrections have to be applied.
+ENTROPY
+Exmaple 3.20. An iron cube at a temperature of 400°C is dropped into an insulated bath containing 10 kg water at 25°C. The water finally reaches a temperature of 50°C at steady state. Given that the specific heat of water is equal to 4186 J/kg K. Find the entropy changes for the iron cube and the water. Is the process reversible? If so why ?
+Solution. Given: Temperature of iron cube Temperature of water
+Mass of water
+= 400°C = 673 K
+= 25°C = 298 K
+10 kg
+Temperature of water and cube after equilibrium = 50°C = 323 K
+Specific heat of water, p
+= 4186 J/kg K
+Entropy changes for the iron cube and the water:
+Is the process reversible?
+Now, Heat lost by iron cube = Heat gained by water
+m, cp (673-323)= mcp (323-298)
+m. cpi=
+= 10 x 4186 (323-298)
+10x4186 (323-298)
+(623-323)
+m, Mass of iron, kg, and
+= 2990
+p=Specific heat of iron, J/kg K
+(GATE, 1996)
+where,
+Entropy of iron at
+673 K =
+me in
+673
+273
+673
+=2990 In
+273
+= 2697.8 J/K
+298
+Entropy of water at 298 K = m pln
+273
+298
+= 10 x 4186 In
+= 3667.8 J/K
+273
+323
+Entropy of iron at
+323 K = 2990 x In
+= 502.8 J/K
+273
+323
+323 K = 10 x 4186 In
+= 7040.04 J/K
+273
+[Taking O°C as datum]
+Entropy water at Changes in entropy of iron Change in entropy of water Net change in entropy
+502.8-2697.8-2195 J/K
+7040.04-3667.83372.24 J/K
+= 3372.24-2195 = 1177.24 J/K
+Since AS >0 hence the process is irrevesible. (Ans.)
+Example 3.21. An ideal gas is heated from temperature T, to T2 by keeping its volume constant. The gas is expanded back to its initial temperature according to the law pu" = constant. If the entropy change in the two processes are equal, find the value of n in terms of the adiabatic index x
+(U.P.S.C., 1997)
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+Solution. Change in entropy during constant volume process
+= mc, In
+2)
+Change in entropy during polytropic process (pu" = constant)
+c. (1-1))
+=mc,
+In
+For the same entropy, equating (i) and (ii), we have
+or (y-n) = (n-1) or
+2n = y + 1
+n = 1+1
+(Ans).
+151
+...(i)
+...(ii)
+Example 3.22. Air at 20°C and 1.05 bar occupies 0.025 m3. The air is heated at constant volume until the pressure is 4.5 bar, and then cooled at constant pressure back to original tem- perature. Calculate:
+(i) The net heat flow from the air.
+(ii) The net entropy change.
+Sketch the process on T-s diagram.
+Solution. The processes are shown on a T-s diagram in Fig. 3.30.
+152
+For air: Temperature,
+Volume,
+Pressure,
+Pressure,
+(i) Net heat flow:
+T20+273293 K V1 = V2 = 0.025 m3
+P1 1.05 bar 1.05 x 10 N/m2
+Pg 4.5 bar 4.5 x 105 N/m2.
+For a perfect gas (corresponding to point 1 of air),
+PIVI
+105 x 10 x 0.025
+m =
+0.0312 kg
+RT1
+0.287 x 103 x 293
+For a perfect gas at constant volume,
+P1 P2
+Materjal za autorskim pravom
+MECHANICAL ENGINEERING
+Ti Ta
+105 4.5
+293 T2
+or
+T-
+4.5 x 293 105
+= 1255.7 K.
+At constant volume,
+i.e..
+Le..
+Le..
+Q=me, (T2-T) 0.0312 x 0.718 (1255.7-293) 91-21.56 kJ.
+Also, at constant pressure,
+Q=mxc, x(T-T) 0.0312 x 1.005 (293-1255.7) Q3-3--30.18 kJ
+Q1-393-321.56+(- 30.18)-8.62 kJ
+Net heat flow
+Heat rejected
+8.62 kJ. (Ans.)
+(ii) Net entropy change:
+Referring to Fig. 3.30.
+Net decrease in entropy,
+S-S2 (S-S)-(8-8)
+At constant pressure, dQ= me, dT, hence
+13567 medT
+J293
+T
+1255.7
+-0.0312 1.005 log,
+293
+.....
+S-8,-0.0456 kJ/K
+At constant volume, dQ me, dT, hence
+1266.7 medT
+т
+1255.7
+0.0312 x 0.718 x log,
+0.0326 kJ/K
+293
+i.e...
+S1-8,
+0.0326 kJ/K
+m(s,-8)
+Hence, decrease in entropy
+S-S,= (S2-S)-(S2-S)
+0.0456 0.0326 = 0.013 kJ/K
+0.013 kJ/K. (Ans.)
+Note that since entropy is a property, the decrease in entropy is given by S, - S1, is inde pendent of the process undergone between states 1 and 3.
+Example 3.23. 0.04 m3 of nitrogen contained in a cylinder behind a piston is initially at 1.05 bar and 15°C. The gas is compressed isothermally and reversibly until the pressure is 4.8 bar. Calculate:
+(i) The change of entropy,
+(ii) The heat flow, and
+(iii) The work done.
+Sketch the process on a p-u and T-s diagram.
+Assume nitrogen to act as a perfect gas. Molecular weight of nitrogen = 28.
+Solution. Refer Fig. 3.31.
+Initial pressure,
+Initial volume,
+Temperature,
+Final pressure,
+Final temperature,
+P1 = 1.05 bar = 1.05 x 105 N/m2 V1 = 0.04 m3
+T115+273288 K
+P2 = 4.8 bar = 4.8 x 10 N/m2 T2-T1 = 288 K.
+The process is shown on a p-u and a T-s diagram in Figs. 3.31 (a) and 3.31 (b) respectively. The shaded area in Fig. 3.31 (a) represents work input, and the shaded area on Fig. 3.31 (6) represents heat rejected.
+Characteristic gas constant,
+R=
+Universal gas constant, R Molecular weight, M
+8314 28
+- 297 Nm/kg K
+Now, using characteristic gas equation (to find mass 'm' of nitrogen), we have:
+P1V1 = MRT
+PV
+105 x 10 x 0.04
+RT1
+= 0.0491 kg
+297 x 288
+(i) The change of entropy,
+S2-S, MR log,
+Pi
+P2
+297
+105
+= 0.0491 x
+10
+log
+4.8
+L...
+S-8,-0.02216 kJ/K.
+Decrease in entropy, 8, 8, 0.02216 kJ/K. (Ans.)
+(ii) Heat rejected = Shaded area on Fig. 3.31 (b)
+-TS,-S) 288 x 0.02216 6.382 kJ. (Ans.)
+(iii) For an isothermal process for a perfect gas,
+W-Q-6.382 kJ
+Hence, the work done on air 6.382 kJ. (Ans.)
+Example 3.24. 1 kg of gas enclosed in an isolated box of volume v,, temperature T, and pressure p, is allowed to expand freely till volume increases to v, 20,
+Determine the change in entropy.
+Take R for gas as 287 kJ/kg K.
+Solution. During the process of free expansion in an isolated box,
+AU=0, W0 and Q=AU+W=0
+The process is represented by dotted line on p-u diagram as shown in Fig. 3.32 (a) where Ug201
+(SLIKA 91)
+To calculate the entropy change, assume that the irreversible free expansion process is replaced by a reversible isothermal process as temperature in free expansion remains constant, in such a way that the volume increases to double of its original as shown in Fig. 3.32 (6). As the work is developed by the system and heat is given to the system at constant temperature, during iso- thermal reversible system then as per first law of thermodynamics:
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+i.....
+AU=0, Q = W
+Q-Sp.du
+Materijal zalicen autorskim pravo
+155
+.du
+RT
+pu= RT and p=
+-RT log,
+-R log
+But this is the expression for change in entropy of the system. Entropy being the property of the system, its change is same whether it is reversible or irreversible process.
+For the given process,
+As = R log
+-287 log, (2)
+198.9 kJ/kg K
+[20, (given)]
+Hence change in entropy
+198.9 kJ/kg K. (Ans.)
+Example 3.25. 0.04 kg of carbon dioxide (molecular weight 44) is compressed from 1 bar, 20°C, until the pressure is 9 bar, and the volume is then 0.003 m3. Calculate the change of entropy.
+Take c, for carbon dioxide as 0.88 kJ/kg K, and assume carbon dioxide to be a perfect gas. Solution. Mass of carbon dioxide, m = 0.04 kg
+Molecular weight,
+M
+= 44
+Initial pressure,
+P
+1 bar 1 x 10 N/m2
+Initial temperature,
+Final pressure,
+P
+9 bar
+Final volume,
+V
+0.003 m3
+for carbon dioxide
+Change of entropy:
+T20+273 293 K
+= 0.88 kJ/kg K
+(SLIKA 92)
+Characteristics gas constant,
+R =
+Ro
+8314
+M
+44
+=189 Nm/kg K
+To find T2, using the relation,
+P2V2 - MRT2
+A
+T1 = PV2
+9x10 x 0.003
+= 357 K
+mR
+Now
+R log
+Pa
+0.04 x 189
+189
+Pi
+10
+= log
+= 0.4153 kJ/kg K
+Also at constant pressure from 1 to A
+T2
+357
+=0.88 log, 293
+= 0.1738 kJ/kg K
+Then
+(8-8)=(8-5)-(-51)
+Hence for 0.04 kg of carbon dioxide decrease in entropy,
+S-S2m(s,-5)=0.04 x 0.2415
+= 0.00966 kJ/K. (Ans.)
+Note. In short, the change of entropy can be found by using the following relation:
+= 0.4153-0.1738
+0.2415 kJ/kg K
+(x,-8,) = c, log, -
+-R log, P=0.88 log,
+357
+P1
+293
+от
+=0.1738-0.4153=-0.2415 kJ/kg K
+S-8, ms,-8) 0.04x (-0.2415)
+= -0.00966 kJ/K
+(-ve sign means decrease in entropy)
+S, -8, -0.00966 kJ/K.
+Example 3.26. Calculate the change of entropy of 1 kg of air expanding polytropically in a cylinder behind a piston from 7 bar and 600°C to 1.05 bar. The index of expansion is 1.25. Solution. The process is shown on a T-s diagram in Fig. 3.34.
+Initial pressure,
+Initial temperature,
+Final pressure,
+Index of expansion,
+Mass of air
+P17 bar = 7 x 10 N/m2
+T1 = 600+273 873 K
+P2 1.05 bar 1.05 x 10 N/m2
+л 1.25
+= 1 kg
+To find T2, using the relation,
+P2
+=
+Pr
+125-1
+1.05 125
+873
+7
+(SLIKA 93)
+(SLIKA 94)
+Note that if in this problem s-s, happened to be greater than s-s, this would mean that s, was greater than s2, and the process should appear as in Fig. 3.35."
+Note. The change of entropy can also be found by using the following relation:
+4)
+1.25-1.399 (597.3 10% 873 log,
+=0.718
+1.25-1
+=0.718x (-0.596) x (-0.3795)=0.1626 kJ/kg K (increase).
+1.005
+1.399
+0.718
+Example 3.27. In an air turbine the air expands from 7 bar and 460°C to 1.012 bar and
+160°C. The heat loss from the turbine can be assumed to be negligible.
+(i) Show that the process is irreversible;
+(ii) Calculate the change of entropy per kg of air.
+Solution. Refer Fig. 3.36.
+Initial pressure,
+P17 bar = 7 x 105 N/m2
+Initial temperature, T, = 460 + 273
+733 K
+Final pressure,
+Pg 1.012 bar
+1.012 x 105 N/m2
+Final temperature, T2 = 160+ 273
+433 K
+(SLIKA 95)
+(i) To prove that the process is irreversible :
+Since the heat loss is negligible, the process is adiabatic.
+For a reversible adiabatic process for a perfect gas, using the following equation, we have:
+-() 73-(1.012 (14)
+Materijal zaten autorskim prav
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+T-733 x (1.01214733 x (0.1446)0286-421.6 K
+7
+421.6273148.6°C.
+159
+But the actual temperature is 160°C at the pressure of 1.012 bar, hence the process is irreversible. Proved.
+(ii) Change of entropy per kg of air:
+The change of entropy s-s,, can be found by considering a reversible constant pressure process between 2 and 2".
+-c, log, 1.005 log, Ta
+433 421.6 (Ans.)
+= 0.02681 kJ/kg K
+i.e., Increase of entropy, s-s,= 0.02681 kJ/kg K.
+Example 3.28. A fluid undergoes a reversible adiabatic compression from 4 bar, 0.3 m3
+to 0.08 m3 according to the law, pul.25 constant.
+Determine :(i) Change in enthalpy:
+(iii) Change in entropy;
+(v) Work transfer.
+Solution. Refer Fig. 3.37.
+(ii) Change in internal energy;
+(iv) Heat transfer:
+(SLIKA 96)
+or
+Initial volume, Initial pressure,
+Final volume,
+V1 = 0.3 m3
+P4 bar 4 x 10 N/m2
+V1
+= 0.08 m3
+Law of compression: pulas constant.
+For reversible adiabatic process,
+PV-PV
+() () -.
+125
+0.3
+- 4x
+- 20.87 bar.
+0.08
+160
+(i) Change in enthalpy, H, H,
+We know that,
+Also
+A
+"H-["Vdp
+PV-PV
+V
+Substituting this value of V in eqn. (), we get
+H-J
+dp
+- dp
+MECHANICAL ENGINEERING
+...(4)
+(n-1)
+1.25 (1.25-1)x10
+1.25
+(20.87 10 0.08-4 x 10 x 0.31 kJ
+0.25 x 10 10 (20.87 0.08-4 x 0.3) kJ = 234.8 kJ.
+Hence, change in enthalpy 234.8 kJ. (Ans)
+(i) Change in internal energy, U,- U
+H2-H, (U2+PV)-(U1+P1V1) =(U2-U)+(p,V,-PV)
+U-U,-,-H)-V2-P11)
+234.8-
+(20.87 x 10 x 0.08-4 x 10 x 0.3 10
+234.846.96187.84 kJ.
+Hence, change in internal energy 187.84 kJ. (Ans)
+(iii) Change in entropy,
+(iv) Heat transfer,
+8-8,0. (Ans.)
+Q1-0. (Ans.)
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+(v) Work transfer, W1-2:
+Q1-2-(U2-U)+W1-2
+W1-2-Q1-2-(U2-U1)
+0-187.84-187.84 kJ
+161
+Hence, work done on the fluid = 187.84 kJ. (Ans.)
+Example 3.29. An insulated cylinder of volume capacity 4 m3 contains 20 kg of nitro-
+gen. Paddle work is done on the gas by stirring it till the pressure in the vessel gets increased from 4 bar to 8 bar. Determine :
+(i) Change in internal energy,
+(ii) Work done,
+(iii) Heat transferred, and
+(iv) Change in entropy.
+Take for nitrogen: c, = 1.04 kJ/kg K, and c, = 0.7432 kJ/kg K.
+Solution. Pressure,
+Pressure,
+Volume,
+P1 = 4 bar = 4 x 105 N/m2
+P2 = 8 bar = 8 x 105 N/m2
+V1 = V2 = 4 m3
+and it is constant for both end states.
+Now,
+-
+or
+Also,
+=
+P2 8x10
+P 4x105
+-2
+Rc, c, 1.04 -0.7432 0.2968 kJ/kg K.
+The mass of the gas in the cylinder is given by
+and
+PV
+m=
+or
+mT = PV
+R
+mT1 = PV
+mT2-4
+4x105 x 4
+0.2968x1000 = 5390.8 kg K
+8 x 105 x 4
+= 10781.6 kg K.
+0.2968 x 1000
+AU = (U2- U1)
+(i) Change in internal energy,
+(ii) Work done, W:
+= mc, (T2-T) = c, (mT2- mT1)
+= 0.7432 (10781.6-5390.8) 4006.4 kJ. (Ans.)
+Energy in the form of paddle work crosses into the system, but there is no change in system boundary or pdu work is absent. No heat is transferred to the system. We have
+But
+Q1-2 (U2-U1)+W1-2 91-2-0
+W1-2-(U2-U)=-4006.4 kJ or kN-m. (Ans.)
+(iii) Heat transferred, Q1-20. (Ans.)
+(iv) Change in entropy,
+T2
+S2- S1 = mc, log,
+For constant volume process
+= 20 x 0.7432 log, 2 = 10.3 kJ/K. (Ans.)
+Example 3.30. A certain gas has a specific heat at constant volume of 1.25 kJ/kg K. When it is expanded reversibly and adiabatically from a specific volume of 0.0624 m3/kg and a tempera- ture of 530 K to a specific volume of 0.186 m3/kg its temperature falls by 165 K. When it is expanded into an evacuated space from the same initial condition to the same final specific volume its temperature falls only by 25 K.
+Find the change in entropy in each of the adiabatic processes.
+Solution. Refer Fig. 3.38.
+(SLIKA 97)
+Specific heat of gas at constant volume, c, = 1.25 kJ/kg K
+Initial specific volume,
+Initial temperature,
+Final specific volume,
+0.0624 m3/kg
+T1 = 530 K
+U2 = 0.186 m3/kg
+Temperature fall when expanded reversibly and adiabatically = 165 K
+Temperature fall when expanded into an evacuated space = 25 K
+Change in entropy:
+Path 1-2: Reversible adiabatic process.
+Change in entropy, (8-8)=0.
+Path 1-3: Adiabatic process such that v2 = 0.186 m3/kg (= v2) (States 2 and 3 lie on the same constant volume line on T-s diagram)
+and T1-T, = 25 K.
+Change in entropy during this adiabatic process = 3,-8.
+To calculate (s-s,) a reversible path has to be selected joining 3 and 1.
+This is achieved by selecting the reversible adiabatic path 1-2 and the reversible constant volume process 2-3.
+Materijal zaten autorskim pravom
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+83-81 = (8g8g)+(8-8) =(83-8g) + 0 = (8g-3g)
+530-25
+1.25 log, 530-165
+=c, log=
+505
+= 1.25 log, 365 0.4058 kJ/kg K. (Ans.)
+163
+Example 3.31. A heat pump operates between two identical bodies which are at tempera- ture T, and cools one of the bodies to a temperature T (T <T). Prove that for this operation the minimum work required by the heat pump is given by
++T2-2T
+where c, is the specific heat which is same for both the bodies.
+Solution. The arrangement is shown in Fig. 3.39.
+For the minimum work absorbed by the heat pump, the heat pump must be reversed Carnot cycle engine and the required condition is
+For infinitely small changes, we can write
+=0
+If T' is the final temperature of the high level reservoir, then the above equation can be written as
+dT
+■0
+(4)+(4)- 108 (7) + log().
+=0=log, (1)
+10%
+(27)-
+=log, (1)
+Source
+T1
+Heat pump
+W
+T:-
+Now the work given to the heat pump
+Heat rejected at higher level temperature -heat picked up at lower level temperature
+7= c, [" (dT) - c,]
+W Cp
+M
+(dT)
+=c, [(T-T)-(T-T2 = c, (T+T2-2T1)
+Now substituting the value of T,' in the above equation in terms of
+T1 and T2
+W=c+T-27. Proved.
+Sink
+T2
+Fig. 3.39
+Example 3.32. The connections of a reversible engine to three sources at 500 K, 400 K and 300 K are shown in Fig. 3.40. It draws 1500 kJ/min of energy from the source at 800 K and develops 200 kJ/min of work.
+(i) Determine the heat interactions with the other two sources of heat.
+(ii) Evaluate the entropy change due to each heat interaction with the engine.
+(iii) Total entropy change during the cycle.
+Solution. Refer Fig. 3.40.
+(SLIKA 98)
+Temperature of source 1 = 500 K Temperature of source 2 = 400 K Temperature of source 3300 K
+Heat energy drawn from source 1, Q1 = 1500 kJ/min
+Work developed, W= 200 kJ/min.
+(1) The direction of heat flow from source 1 is known as given in the problem. Assume that the quantities of heats Q, and Q, are taken from heat sources and their directions are arbitrarily
+chosen.
+and
+and
+For the cyclic operation of the engine
+$(42)-0
++--0 Q2+Q2-Q2 = W
+1500
+500
+26-300-0
+1500 + Q2-Q2 = 200
+Solving eqns. (i) and (ii), we get
+Q2 = 1600 kJ/min and Q, = - 300 kJ/min.
+...(i)
+...(ii)
+The above values indicate that the direction of Q, and Q, are reversed. Since Q2 should be +v and Q, also must be +ve but both are-ve therefore, their assumed directions should be reversed. The arrangement is shown in Fig. 3.41.
+(SLIKA 99)
+(1) Entropy change of source 1
+Entropy change of sink 2
+Entropy change of source 3
+-
+-3 kJ/K. (Ans.)
+500
+1600
+4 kJ/K. (Ans.)
+400
+-300
+-1 kJ/K. (Ans.)
+300
+(iii) Net change of the entropy =-3+4-1-0
+As the cycle is completed, the net change in entropy must be zero because entropy is a property.
+It may be observed from the new arrangement that the engine takes heat from source 1 and source 3 and rejects to source 2, only ie, the equipment does both a heat engine and a heat pump function.
+Example 3.33. The heat capacity of a system at constant volume is given by C, - Z7 where Z= 0.045 JIK
+A system is originally at 250 K, and a thermal reservoir at 125 K is available. Determine the maximum amount of work that can be recovered as the system is cooled down to the temperature of the reservoir.
+Solution. Refer Fig. 3.42.
+Initial temperature of the system, T, = 250 K Temperature of the reservoir,
+T125 K
+Heat capacity of the system at constant volume is C.-279-0.045 79
+The product of mass and specific heat (me) is called the heat capacity of the substance. The capital letter C,C, or C, is used for heat capacity
+Heat removed from the system
+0.045 TdT
+System T, = 250 K
+HE
++W
+Reservoir
+T2 = 125 K
+Fig. 3.42
+166
+(AS)
+(AS)
+= 0.045
+0045
+(1251-2503)
+Jaso
+205.08 x 10 J
+- 0.04573
+-0.0457&T=0045
+Jaso
+0045
+2
+(125-250)=-1054.7 J/K
+Q-W
+205.08 x 10-W
+T
+J/K
+reservoir
+125
+(AS) working in E=0
+(AS) universe (AS)ystem (AS)-1054.7 +
+MECHANICAL ENGINEERING
+20508 x 10-W 125
+Since
+(AS)
+20
+205.08 x 10" - W
+- 1054.7 +
+20
+125
+or
+- 1054.7+ 1640.64-
+W 20 125
+W
+or
+586.94-
+20 125
+W
+W
+or
+i....
+585.94 2
+125
+or
+125 5585.94
+Wax)=585.94 x 125 73.24 kJ. (Ans.)
+Example 3.34. (a) One kg of water at 0°C is brought into contact with a heat reservoir
+at 90°C. When the water has reached 90°C, find:
+(i) Entropy change of water;
+(ii) Entropy change of the heat reservoir; (iii) Entropy change of the universe.
+(b) If water is heated from 0°C to 90°C by first bringing it in contact with a reservoir at 40°C and then with a reservoir at 90°C, what will the entropy change of the universe be? (e) Explain how water might be heated from 0°C to 90°C with almost no change in the entropy of the universe.
+Solution. Mass of water,
+Temperature of water,
+Temperature of the heat reservoir,
+m1 kg T-0273-273 K T-90+273 = 363 K.
+(a) Refer Fig. 3.43. Water is being heated through a finite temperature difference. The entropy of water would increase and that of the reservoir would decrease so that net entropy change of the water (system) and the reservoir together would be positive definite. Water is being
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+heated, irreversibly, and to find the entropy change of water, we have to assume a reversible path between the end states, which are at equilibrium.
+(i) Entropy of water,
+Reservoir (90+273 = 363 K)
+(A) water"
+medT
+me log,
+(c = Specific heat of water)
+363
+1 x 4.187 x log,
+273
+167
+= 1.193 kJ/kg K. (Ans.)
+(ii) The temperature of the reservoir remains con- stant irrespective of the amount of the heat withdrawn. Amount of heat absorbed by the system from the Q-1 x 4.187 x (363-273)
+reservoir,
+376.8 kJ
+Entropy change of the reservoir,
+(48)
+System (0 +273 -273K)
+Fig. 3.43
+376--1.038 kJ/K. (Ans.)
+363
+(-ve sign indicates decrease in entropy).
+(iii) Entropy change of the universe,
+(A) universe = (43) water (or system)+(A)ervoir
+1.193+(-1.038) 0.155 kJ/K.
+(Ans.)
+(b) The heating of water is being carried out in two stages, first from 0°C (273 K) to 40°C (ie., 313 K) by bringing in contact with a reservoir at 40°C (313 K), and then from 40°C (313 K) to 90°C (363 K) by bringing in contact with a second reservoir at 90°C (363 K).
++
+dT
+mc1x 4.187 (log 373 + log, 313)
+4.187 (0.1367+0.1482) 1.1928 kJ/K.
+ᏯᎢ .
+(A) water
+me
+J13
+(A)--
+1x4.187x(313-273) 313
+-- 0.535 kJ/K
+(A) 11--
+-- 0.576 kJ/K
+1x4.187x(363-313)
+363
+(A)=(43) water+ (A) + (A)
+1.1928+ (-0.535)+(-0.576) 0.0818 kJ/K.
+i.e., Entropy change of universe 0.0818 kJ/K. (Ans.)
+(c) The entropy change of universe would be less and less, if the water is heated in more and more stages, by bringing the water in contact successively with more and more heat reservoirs, each succeeding reservoir being at a higher temperature than the preceding one. When water is heated in infinite steps, by bringing in contact with an infinite number of reservoirs in succession, so that at any instant the temperature difference between the water and the reservoir in contact is infinitesimally small, then the entropy change of the universe would be zero and the water would be reversibly heated.
+(SLIKA 101)
+Example 3.35. 1 kg of ice at -5°C is exposed to the atmosphere which is at 25°C. The ice melts and comes into thermal equilibrium.
+-5°C?
+(i) Determine the entropy increase of the universe.
+(ii) What is the minimum amount of work necessary to convert the water back into ice at
+Take: c, of ice 2.093 kJ/kg C
+Latent heat of fusion of ice = 333.33 kJ/kg.
+Solution. Mass of ice, m = 1 kg
+Temperature of ice-5°C (-5+273 268 K)
+Temperature of atmosphere 25°C (= 25+ 273 = 298 K)
+Heat absorbed by ice from the atmosphere (Fig. 3.44)
+- Heat absorbed in solid phase + latent heat
++ heat absorbed in liquid phase
+= 1 x 2.093 x (0-(-5)] + 1 x 333.33 + 1 x 4.187 x (25-0)
+10.46 + 333.33+ 104.67 = 448.46 kJ.
+(6) Entropy increase of the universe, (A)
+Entropy change of the atmosphere,
+Atmosphere 25°C
+448.46
+-1.5049 kJ/K
+Entropy change of system (ice) as it gets heated from -5°C to 0°C.
+(Ammc=1x 2.093 log, 273 = 0.0386 kJ/K
+Entropy change of the system as ice melts at 0°C to become water at O'C.
+-5°C
+Ice
+ग्रह यह ग्रह यह ग्रह‌तार
+Fig. 3.44
+(ره )
+333.33 273
+1.2209 kJ/K
+Entropy change of water as it gets heated from 0°C to 25°C
+(A
+mc=1 x 4.187 log, (279) = 0.3668 kJ/K
+Total entropy change of ice as it melts into water
+(A) A+ A+ A
+= 0.0386 + 1.2209 +0.3668 1.6263 kJ/K
+Then temperature-entropy diagram for the system as ice at -5°C converts to water at 25°C is shown in Fig. 3.45.
+.. Entropy increase of the universe,
+(A)(A)tem + (A)
+1.6263+(-1.5049) 0.1214 kJ/K. (Ans.)
+(ii) Minimum amount of work necessary to convert the water back into ice at -5°C, Win
+(SLIKA 102)
+169
+To convert 1 kg of water at 25°C to ice at -5°C, 448.46 kJ of heat have to be removed from it, and the system has to be brought from state 4 to state 1 (Fig. 3.45). A refrigerator cycle, as shown in Fig. 3.46, is assumed to accomplish this. The entropy change of the system would be the same, i.e., 5-5,, with the only difference that its sign will be negative, because heat is removed from the system (Fig. 3.45).
+(A)=1
+(negative)
+(SLIKA 103)
+The entropy change of the working fluid in the refrigerator would be zero, since it is operat ing in a cycle, i.e.,
+(A) refrigerator=0.
+The entropy change of the atmosphere (positive),
+(44)=2+W (As)
+.. Entropy change of the universe
+(A) univ. (A)ystem (AB) frigerator + (48)
+=(8-8)+0+8+W-6, -8)+Q+W
+By the principle of increase of entropy
+(As)
+(SLIKA 104)
+Here
+1. Clausius statement:
+[(4-4)+2+W] 20 Q+W 2 (5-8)
+W2T,-)-Q WinT(8-5)-Q Q = 448.46 kJ
+T = 298 K
+54-8=1.6263 kJ/K
+W
+298 1.6263-448.46 36.17 kJ. (Ans.)
+HIGHLIGHTS
+"It is impossible for a self-acting machine working in a cyclic process, unaided by any external agency, to convey heat from a body at a lower temperature to a body at a higher temperature."
+Kelvin-Planck statement:
+"It is impossible to construct an engine, which while operating in a cycle produces no other effect except to extract heat from a single reservoir and do equivalent amount of work".
+Although above statements of second law of thermodynamic appear to be different, they are really equiva lent in the sense that violation of either statement implies violation of other.
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+171
+2 Perpetual motion machine of second kind (PMM2) is that imaginary machine which would continu ously absorb heat from a single thermal reservoir and convert this heat completely into work. The effi ciency of such a machine would be 100%
+3. Clausius inequality is given by.
+Σ(4) 50
+Cycle
+"When a system performs a reversible cycle, then
+Σ).
+Cycle
+but when the cycle is not reversible
+Σ(*).
+Cycle
+=0,
+4 "Entropy' is a function of a quantity of heat which shows the possibility of conversion of that heat into work. The increase in entropy is small when heat is added at a high temperature and is greater when heat addition is made at lower temperature. Thus for maximum entropy, there is a minimum availability for conversion into work and for minimum entropy there is maximum availability for conversion into work. & Entropy changes for a closed system (per kg):
+(i) General case:
+(a) c, log,+
++R log, (in terms of Tand)
+(b)c, log,
+c, log, (in terms of p and e)
+(c), log
+-R log, (in terms of T and p)
+PL
+(ii) Constant volume:e, log,
+(iv) Isothermal: Rlog,
+(vi) Polytropic: e,() log.
+6 Entropy change for an open system
+(ii) Constant pressure: e, log,
+(v) Adiabatic: zero
+45
++2.dm, -,.dm
+where, T-Temperature of the surroundings.
+Subscripts i and O refer to inlet and outlet conditions.
+OBJECTIVE TYPE QUESTIONS
+Choose the Correct Answer:
+1. Second law of thermodynamics defines
+(a) heat
+(d) entropy
+(b) work
+(e) internal energy.
+(c) enthalpy
+172
+2. For a reversible adiabatic process, the change in entropy is
+(a) zero
+(d) infinite
+(b) minimum (e) unity.
+MECHANICAL ENGINEERING
+(c) maximum
+3. For any reversible process, the change in entropy of the system and surroundings is
+(a) zero
+(d) positive
+(b) unity
+(e) infinite.
+4. For any irreversible process the net entropy change is
+(c) negative
+(e) negative
+(d)
+(a) zero infinite
+(b) positive
+(e) unity.
+5. The processes of a Carnot cycle are
+(a) two adiabatic and two constant volume
+(b) one constant volume and one constant pressure and two isentropics
+(e) two adiabatics and two isothermals
+(d) two constant volumes and two isothermals
+(e) two isothermals and two isentropics.
+6 Isentrople flow is
+(a) irreversible adiabatic flow (b) ideal fluid flow
+(d) frictionless reversible flow (e) reversible adiabatic flow.
+(c) perfect gas flow
+7. In a Carnot engine, when the working substance gives heat to the sink
+(a) the temperature of the sink increases
+(b) the temperature of the sink remains the same
+(c) the temperature of the source decreases
+(d) the temperatures of both the sink and the source decrease
+(e) changes depend on the operating conditions.
+& If the temperature of the source is increased, the efficiency of the Carnot engine
+(a) decreases
+(c) does not change
+(e) depends on other factors.
+(b) increases
+(d) will be equal to the efficiency of a practical engine
+9. The efficiency of an ideal Carnot engine depends on
+(a) working substance
+(e) on the temperature of the sink only
+(b) on the temperature of the source only
+(d) on the temperatures of both the source and the sink
+(e) on the construction of engine.
+10. The efficiency of a Carnot engine using an ideal gas as the working substance is
+T-T
+(a)
+T-T2
+(d)
+T1T2
+T
+(b) T-T2
+TT-T)
+(e)
+T(T+T)
+TT
+11. In a reversible cycle, the entropy of the system
+(a) increases
+(c) does not change
+(b) decreases
+(d) first increases and then decreases
+(e) depends on the properties of working substance.
+12 A frictionless heat e at engine can be 100% efficient only if its exhaust temperature is
+(a) equal to its input temperature
+(c) 0°C
+(d) 0°K
+(b) less than its input temperature (e)-100°C.
+13. Kelvin-Planck's law deals with
+(a) conservation of energy
+(d) conversion of heat into work
+(b) conservation of heat
+(c) conservation of mass (e) conversion of work into heat.
+14. Which of the following statements is correct according to Clausius statement of second law of thermodynamics?
+(a) It is impossible to transfer heat from a body at a lower temperature to a body at a higher temperature (b) It is impossible to transfer heat from a body at a lower temperature to a body at a higher temperature, without the aid of an external source.
+(e) It is possible to transfer heat from a body at a lower temperature to a body at a higher temperature by using refrigeration cycle
+(d) None of the above.
+15. According to Kelvin-Planck's statement of second law of thermodynamics
+(a) It is impossible to construct an engine working on a cyclic process, whose sole purpose is to convert heat energy into work
+(b) It is possible to construct an engine working on a cyclic process, whose sole purpose is to convert the heat energy into work
+(e) It is impossible to construct a device which while working in a cyclic process produces no effect other than the transfer of heat from a colder body to a hotter body
+(d) When two dissimilar metals are heated at one end and cooled at the other, the e.m.f. developed is proportional to the difference of their temperatures at the two end.
+(e) None of the above.
+16. The property of a working substance which increases or decreases as the heat is supplied or removed in a reversible manner is known as
+(a) enthalpy
+(c) entropy
+17. The entropy may be expressed as a function of
+(a) pressure and temperature
+(c) heat and work
+(e) none of the above.
+(b) internal energy
+(d) external energy.
+(b) temperature and volume
+(d) all of the above
+18. The change of entropy, when heat is absorbed by the gas is
+(a) positive
+(b) negative
+19. Which of the following statements is correct?
+(c) positive or negative.
+(a) The increase in entropy is obtained from a given quantity of heat at a low temperature
+(b) The change in entropy may be regarded as a measure of the rate of the availability of heat for transformation into work
+(e) The entropy represents the maximum amount of work obtainable per degree drop in temperature (d) All of the above.
+20. The condition for the reversibility of a cycle is
+(a) the pressure and temperature of working substance must not differ, appreciably from those of the surroundings at any stage in the process
+(b) all the processes taking place in the cycle of operation, must be extremely slow
+(c) the working parts of the engine must be friction free
+(d) there should be no loss of energy during the cycle of operation
+(e) all of the above.
+21. In an irreversible process there is a
+(a) loss of heat
+(c) gain of heat
+(b) no loss of work
+(d) no gain of heat.
+174
+22. The main cause for the irreversibility is
+(a) mechanical and fluid friction
+MECHANICAL ENGINEERING
+(b) unrestricted expansion
+(c) heat transfer with a finite temperature difference (d) all of the above.
+23. The efficiency of the Carnot cycle may be increased by (a) increasing the highest temperature
+(c) increasing the lowest temperature (e) keeping the lowest temperature constant. 24. Which of the following is the correct statement?
+(b) decreasing the highest temperature
+(d) decreasing the lowest temperature
+(a) All the reversible engines have the same efficiency
+(b) All the reversible and irreversible engines have the same efficiency
+(c) Irreversible engines have maximum efficiency
+(d) All engines are designed as reversible in order to obtain maximum efficiency.
+Answers
+1.
+(d)
+2 (0)
+3 (0)
+4 (6)
+5(e)
+6. (e)
+7. (b)
+& (b)
+9. (d)
+10. (a)
+11. (c)
+12. (d)
+13. (d)
+14. (b)
+15. (e)
+16. (e)
+17. (a)
+18. (a)
+19. (d)
+20. (e)
+21. (a)
+22. (d)
+23. (d)
+24. (a)
+THEORETICAL QUESTIONS
+1. State the limitations of first law of thermodynamics.
+2. What is the difference between a heat engine and a reversed heat engine?
+3. Enumerate the conditions which must be fulfilled by a reversible process. Give some examples of ideal reversible processes.
+4 What is an irreversible process? Give some examples of irreversible processes.
+5. Give the following statements of second law of thermodynamics.
+(4) Clausius statement
+(ii) Kelvin-Planck statement.
+& Define heat engine, refrigerator and heat pump.
+7. What is the perpetual motion machine of the second kind?
+& What do you mean by Thermodynamic temperature"?
+2. What do you mean by Clausius inequality'?
+10. Describe the working of a Carnot cycle.
+11. Derive an expression for the efficiency of the reversible heat engine.
+12. What do you mean by the term "Entropy?
+13. What are the characteristics of entropy?
+14. Prove that entropy is a property of a system.
+15. Derive an expression for the change in entropy of the universe.
+16. What is a temperature-entropy diagram?
+17. Derive expressions for entropy changes for a closed system in the following cases: (i) General case for change of entropy of a gas
+(ii) Heating a gas at constant volume
+(iii) Heating a gas at constant pressure
+(iv) Polytropic process.
+18. Give an expression for entropy changes for an open system.
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+UNSOLVED EXAMPLES
+Heat Engines and Reversible Heat Engines
+175
+1. A cyclic heat engine operates between a source temperature of 800°C and a sink temperature of 30°C. What is the least rate of heat rejection per kW net output of the engine? [Ans. 0.392 kW] 2 A domestic food freezer maintains a temperature of-15°C. The ambient air temperature is 30°C. If heat leaks into the freezer at the continuous rate of 1.75 kJ/s what is the least power necessary to pump this heat out continuously. [Ans. 0.31 kW]
+3 A reversible heat engine operates between two reservoirs at temperatures of 600°C and 40°C. The engine drives a reversible refrigerator which operates between reservoirs at temperatures of 40°C and -20°C. The heat transfer to the heat engine is 2000 kJ and the net work output for the combined engine refrigera tor is 360 kJ. (1) Calculate the heat transfer to the refrigerant and the net heat transfer to the reservoir at 40°C. (ii) Reconsider (i) given that the efficiency of the heat engine and the C.O.P. of the refrigerator are each 40 per cent of their maximum possible values.
+[Ans. Heat rejection to 40°C reservoir () 5539 kJ (4) 1899.6 kJ) 4. A heat engine is supplied heat at the rate of 1700 kJ/min and gives an output of 9 kW. Determine the thermal efficiency and the rate of heat rejection. Ans. 31.76%; 9.333 kJ/
+5 What is the highest possible theoretical efficiency of a heat engine operating with a hot reservoir of furnace gases at 2000°C when the cooling water available is at 10°C? [Ans. 87.54%)
+& A Carnot cycle operates between source and sink temperatures of 260°C and 17.8°C. If the system receives 100 kJ from the source, find (1) efficiency of the system, (ii) the net work transfer, (ii) heat rejected to the sink. [Ans. 52.2%; 52.2 kJ: 47.8kJ]
+7. Source A can supply energy at a rate of 11000 kJ/min at 320°C. A second source B can supply energy at a rate of 110000 kJ/min at 68°C. Which source A or B, would you choose to supply energy to an ideal reversible engine that is to produce large amount of power if the temperature of the surroundings is 40°C? [Ans. Source B 8 A fish freezing plant requires 50 tons of refrigeration. The freezing temperature is -40°C while the ambient temperature is 35°C. If the performance of the plant is 15% of the theoretical reversed Carnot cycle working within the same temperature limits, calculate the power required. [Ans. 375 kW] Take 1 ton = 210 kJ/min.
+Clausius Inequality
+9. A heat engine is supplied with 278 kJ/s of heat at a constant fixed temperature of 283°C and the heat rejection takes place at 5°C. The following results were reported: (i) 208 kJ/s are rejected, (ii) 139 kJ/s are rejected, (ii) 70 kJ/s are rejected.
+Classify which of the results report a reversible cycle or irreversible cycle or impossible results. [Ans. (i) Irreversible (ii) Reversible (iii) Impossible]
+Entropy
+10. Air at 15°C and 1.05 bar occupies 0.02 m2. The air is heated at constant volume until the pressure is 4.2 bar, and then cooled at constant pressure back to the original temperature. Calculate the net heat flow to or from the air and the net entropy change.
+Sketch the process on a T-s diagram.
+[Ans. Heat rejected = 6.3 kJ, decrease in entropy of air = 0.0101 kJ/K] 11. 0.03 m2 of nitrogen contained in a cylinder behind a piston is initially at 1.05 bar and 15°C. The gas is compressed isothermally and reversibly until the pressure is 4.2 bar. Calculate the change of entropy, the heat flow, and the work done, and sketch the process on ap- and T-s diagrams. Assume nitrogen to act as a perfect gas. Molecular weight of nitrogen = 28.
+Ans. 0.01516 kJ/K (decrease); 4.37 kJ (heat rejected); 4.37 kJ] 12. Calculate the change of entropy of 1 kg of air expanding polytropically in a cylinder behind a piston from 6.3 bar and 550°C to 1.05 bar. The index of expansion is 1.3. (Ans. 0.1 kJ/kg K (increase) 13. 0.05 kg of carbon dioxide (molecular weight=44) is compressed from 1 bar, 15°C, until the pressure is 8.3 bar, and the volume is then 0.004 m. Calculate the change of entropy. Take, for carbon dioxide as 0.88 kJ/kg K, and assume carbon dioxide to be a perfect gas. Ans. 0.0113 kJ/K (decrease)
+176
+CHANICAL ENGINEERING
+14. In an air turbine the air expands from 6.8 bar and 430°C to 1.013 bar and 150°C. The heat loss from the turbine can be assumed to be negligible. Show that the process is irreversible, and calculate the change of entropy per kg of air. (Ans. 0.0355 kJ/kg K (increase) 15. (i) One kg of water at 273 K is brought into contact with a heat reservoir at 373 K. When the water has reached 373 K, find the entropy change of the water of the heat reservoir, and of the universe.
+(ii) If water is heated from 273 K to 373 K by first bringing it in contact with a reservoir at 323 K and then with reservoir at 373 K, what will the entropy change of the universe be?
+[Ans. (1) 0.183 kJ/K; (i) 0.098 kJ/K] 16. One kg of ice at-5°C is exposed to the atmosphere which is at 20°C. The ice melts and comes into thermal equilibrium with the atmosphere.
+(4) Determine the entropy increase of the universe.
+(44) What is the minimum amount of work necessary to convert the water back into ice at-5°C?c, ofice is 2.093 kJ/kg "C and the latent heat of fusion of ice is 333.3 kJ/kg.
+[Ans. (1) 0.0949 kJ/K (increase); (ii) 28.5 kJ] 17. A system has a heat capacity at constant volume C, AT, where A = 0.042 J/K". The system is originally at 200 K and a thermal reservoir at 100 K is available. What is the maximum amount of work that can be recovered as the system is cooled down to the temperature of the reservoir?
+[Ana. 35 kJ
+18. Afluid undergoes a reversible adiabatic compression from 0.5 MPa, 0.2 m2 to 0.05 m3 according to the law, pola constant. Determine the change in enthalpy, internal energy and entropy, and the heat transfer and work transfer during the process. [Ans. 223.3kJ; 171.77kJ: zero; zero;-171.77kJ]
+19. A rigid cylinder containing 0.006 m3 of nitrogen (molecular weight 280 at 1.04 bar, 15°C, is heated reversibly until the temperature is 90°C. Calculate the change of entropy and the heat supplied. Sketch the process on T-s diagram. Take the isentropic index, y, for nitrogen as 1.4, and assume that nitrogen is a perfect gas. [Ans. 0.00125 kJ/K; 0.407 kJ) 20. 1 m3 of air is heated reversibly at constant pressure from 15°C to 300°C, and is then cooled reversibly at constant volume back to the initial temperature. The initial pressure is 1.03 bar. Calculate the net heat flow and overall change of entropy, and sketch the process on a T-s diagram. [Ans. 101.5kJ: 0.246 kJ/K] 21. 1kg of air is allowed to expand reversibly in a cylinder behind a piston in such a way that the temperature remains constant at 260°C while the volume is doubled. The piston is then moved in, and heat is rejected by the air reversibly at constant pressure until the volume is the same as it was initially. Calculate the net heat flow and the overall change of entropy. Sketch the processes on a T's diagram.
+[Ans.-161.9 kJ/kg:-0.497 kJ/kg K 22 1kg of air at 1.013 bar, 17°C, is compressed according to a law pola constant, until the pressure is 5 bar. Calculate the change of entropy and sketch the process on a T-s diagram, indicating the area, which represents the heat flow. (Ans.-0.0885 kJ/kg K
+23 0.06m3 of ethane (molecular weight 30), at 6.9 bar and 60°C, is allowed to expand isentropically in a cylinder behind a piston to a pressure of 1.05 bar and a temperature of 107°C. Calculatey, R., e, for ethane, and calculate the work done during the expansion. Assume ethane to be a perfect gas.
+The same mass of ethane at 1.05 bar, 107°C, is compressed to 6.9 bar according to a law po constant. Calculate the final temperature of the ethane and the heat flow to or from the cylinder walls during the compression. Calculate also the change of entropy during the compression, and sketch both processes on p- and Ts diagrams.
+[Ans. 1.219;0.277 kJ/kgK; 1.542 kJ/kgK; 1.265 kJ/kg K; 54.2 kJ ; 378°C; 43.4 kJ ; 0.0867 kJ/K] 24. In a reversible process the rate of heat transfer to the system per unit temperature rise is given by=0.5kJC. Find the change in entropy of the system if its temperature rises from 500 K to 800 K. [Ans. 0.235 kJ/kg°C)
+25. In a reversible cycle 100 kJ of heat is received at 500 K; then an adiabatic expansion occurs to 400 K, at which temperature 50 kJ of heat is received, then a further adiabatic expansion to 300 K at which temperature 100 kJ of heat is rejected:
+SECOND LAW OF THERMODYNAMICS AND ENTROPY
+177
+(1) Find the change in entropy which occurs as the system is restored to its initial state in the remainder of the cycle.
+(ii) If during the remainder of the cycle heat is transferred only at 400 K, how much heat is transferred and in what direction? [Ans. 0.008 kJ/K; +3.2kJ] 26. 1 kg of air is compressed according to the law pol constant from 1.03 bar and 15°C to 16.45 bar. Calculate the change in entropy. (Ans. 0.255 kJ/kg K 27. A quantity of gas (mean molecular weight 36.2) is compressed according to the law po = constant, the initial pressure and volume being 1.03 bar and 0.98 m2 respectively. The temperature at the start of compression is 17°C and at the end it is 115°C. The amount of heat rejected during compression is 3.78 kJ, <= 0.92. Calculate:
+() Value of n
+(ii) Final pressure,
+(iii) Change in entropy. [Ans. (1) 1.33; (i) 1.107 bar; (ii) 0.228 kJ/kg K
+                </p>

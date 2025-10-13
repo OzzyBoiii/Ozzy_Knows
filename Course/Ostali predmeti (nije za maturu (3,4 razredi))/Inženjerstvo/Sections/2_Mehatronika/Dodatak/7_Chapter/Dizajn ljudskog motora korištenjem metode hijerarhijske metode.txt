@@ -1,0 +1,843 @@
+<h3>HUMAN MOTION DESIGN USING HIERARCHICAL SYSTEMS METHOD</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+  <p class="zoomable-text">
+                    Realization of Hierarchical Systems (HS) design method and conceptual model in
+design and control of human motion is presented in this Chapter. Design and con-
+trol of human motion requires consideration of man’s connected levels and their
+dynamics. Advanced design methods are required for effective problems solving.
+At present there are a lot of models and methods, which are applied in tasks of
+coordination (design and control) of bio-mechanical systems and human motion in
+particular [75-78]. The overview of theories concerning human bipedal walking is
+well presented by Vaughan in [79]. All the methods differ with reference to the
+type of movements they describe and kind of problem being solved. The most pop-
+ular mathematical models which are used for biomechanical motion description,
+such as differential equations (DE), integral-differential equations (IDE) are single
+level by nature and useful enough for modeling of mechanical kind of physical
+motion.
+In comparison with physical type of movements which are caused by action of
+external forces only, the bio-mechanical one executed by man is characterized by
+structural changes (deformation) of human body elements – muscles compressing
+and limbs angular change – which lead to the man movement in its environment.
+So, the biomechanical movements in general and human motion in particular are
+hierarchical by nature. To design and control human motion it is necessary to take
+into account several levels: 1) human body structure, 2) human dynamic represen-
+tation in its environment, 3) the environment structure. Traditional one-level for-
+mal models can-not describe human body construction and motion process on mul-
+ti-levels. It is also impossible to regard the task of connected motion and defor-
+mation within the frames of one common formal model. The most popular Finite
+Elements Method (FEM) is usually used for the deformation tasks performing and
+Integral-Differential Equations (IDE) are used for motion description.
+That is why the construction of hierarchical systems (HS), its coordinator
+technology and the design methods described in Chapters 3,4 are applied in this
+Chapter as a theoretical basis for coordination problems solving and conceptual
+design of human motion. The main aim of the study presented here is the develop-
+131
+ment of a new method for human motion design with the use of coordination tech-
+nology, Hierarchical Systems and Dynamic Systems approach (see Chapters 3 and
+4). The method takes into account all the levels mentioned above and provides a
+common theoretical framework for a formal expression of both the human motion
+and design procedures. The aim of the experimental study is to answer the question
+if the computer design method developed corresponds to the real processes of hu-
+man motion, in our case to human sitting-standing-up movements, and if it is pos-
+sible to predict and coordinate (design and control) human motion using the HS
+design method developed.
+To reach the aims: 1) a theoretical basis of the design method proposed is de-
+scribed using hierarchical and dynamic systems [9,10] hierarchical mathematics,
+and aed (ancient Greek word) coordination technology of HS [6-8], see Chapters 3,
+4; 2) coordination (design and control) task is formulated, ways of human motion
+design and method steps are defined in this Chapter in Section 7.1, 3) systems
+movements and deformations are defined within the frames of theoretical basis of
+the HS technology in Section 7.2; 4) an algorithm of computer design and steps of
+the method realization for human sitting-standing-up motion are given in Section
+7.3; 5) computer motion design, and 6) an experimental motion study are per-
+formed and described in Sections 7.3 and 7.4 respectively; 7) comparison of the
+results of both in vivo laboratory and computer experiments is performed, and de-
+sign method analysis is given in Sections 7.4 and 7.5 of this Chapter.
+7.1. Coordination task formulation
+In the coordination process (design and control) of human motion it is necessary to
+consider several connected levels of the object under consideration. All connected
+levels, i.e. 1) human body structure, 2) human dynamic representation as a unit in
+its environment, 3) the environment structure are taken into account within the
+frames of aed coordination method of HS, described in Chapters 3,4 and sections
+7.1-7.3 of this Chapter.
+The main design tasks, i.e. synthesis and analysis, are performed by coordina-
+tor of hierarchical system (HS), which connects human body structural change with
+its behavior in the environment and in this way predicts various kinds of human
+movements taking into account the environment construction.
+Coordinator of HS is a multilayer system (see Chapter 3). The tasks of various
+layers (strata) in within the frames of general coordination task under conditions of
+any knowledge uncertainty, are as follows:
+– creation or improvement of the system construction & technology, to make
+its activity in higher level system most coordinated with the desired environment
+states on all its levels; (selection stratum);
+– change the ways of main design & control task carrying out when de-
+signed constructions & technologies are multiplied and knowledge uncertainty is
+removed; (learning stratum);
+– change the selection and learning strata as new (higher level) knowledge
+constructions & technologies are created (self-organization stratum).
+Human motion design task is carried out by the coordinator on its selection
+stratum. In this process coordinator 
+0S creates the desired geometrical construc-
+tion of the object under consideration (human bio-kinetic apparatus) according to
+the required object’s representation (form) in its environment (synthesis task). In its
+turn, the coordinator partly changes the structure of the resultant object and anal-
+yses the object’s behavior in the environment (analysis task). All the tasks are per-
+formed by the means of realization of one of the coordinator’s strategies [3, 80].
+The immediate performance of the task is realized at the fourth stage of HS
+design method (see Chapter 4). The main general steps of HS method realization in
+the process of human motion design are the following.
+1) Description of the object being designed (human body construction and its
+motion process) in the form of aed (two-level system with dynamic units) – stand-
+ard block of hierarchical systems.
+2) Representation of basic geometric elements of human bio-kinetic apparatus
+in the hierarchical form as conditional objects – conditional point, line, surface, 3D
+object.
+3) Definition of metric and structural characteristics of geometric construc-
+tion of human body – constructive dimension of body segments, addresses and
+directions of the segments (limbs) connections (body segments structural connec-
+tions) – in the codes of numeric positional system (see Chapters 3, 4).
+4) Realization of the design process of human motion – synthesis and analy-
+sis – as the coordination process of HS.
+Fourth stage of the method realization contains two design sub-tasks, i.e. syn-
+thesis of geometric construction of human bio-kinetic apparatus and analysis.
+Analysis tasks are two connected tasks of deformation and motion. Deformation in
+our case means partial change of human body structural connections (joints angles,
+velocities, limbs lengths). Motion is considered to be a change of human interac-
+tions with the elements of the environment system (human movements in its envi-
+ronment) caused by the structural deformations of human bio-kinetic apparatus. An
+example of the change of human interactions with its environment is the change of
+the contact of human feet with the road while walking. Both synthesis and analysis
+tasks are formulated and described below within the frames of the presented HS
+133
+design method (see Sections 7.3). Theoretical basis of the HS method of human
+motion design – aed formal model, coordinator model, numeric and geometric
+characteristics – is described above in Chapters 3, 4.
+7.2. Definition of human movements and deformations
+The design task of object movements and deformation is defined as a coordination
+task of the hierarchical system. The motion process 
+So
+ of man 
+So in its envi-
+ronment 
+S
+ is presented using HS aed technology as changing human intercon-
+nections 
+
+ with elements 
+iS ( 1
+ 
+Ii ) of the environment system 
+S
+ . Inter-
+connections 
+
+ changing of the elements of human bio-kinetic apparatus struc-
+ture 
+ is considered to be deformations. Coordinator 
+0S controls the process of
+human motion by changing structural connections 
+
+ (joint angles) of human
+structure. Continuous changes in joint angles cause continuous changes of external
+connections 
+
+ of man in its environment 
+S
+ , i.e. human motion. All the tasks
+are performed by coordinator 
+0S on its layers.
+It is possible to define different kinds of movements and deformations by in-
+troducing corresponding conditions. For instance, the following relation corre-
+sponds to physical movement (object’s coordinates changing) in time interval 
+ttT  :
+constT tt 
+ |
+
+ . (7.1)
+Here structural connections 
+
+ are not changed (in this time period) and
+structure 
+ state is not changed either. Such movement is conditioned by envi-
+ronment process 
+S
+ and described in the following form:
+ 
+
+ , : },&:{  TtYCX tttt 
+
+
+
+
+
+
+ (7.2)
+}&,&:{ ttTttXCX tttttt   
+
+
+
+
+
+For the bio-mechanical movement the following relation is true:
+constTTYX tttt   
+
+
+
+ )( , (7.3)
+in other words the external connections 
+
+ in time interval 
+ttT | depend on
+structural interconnections changes  ttT |
+
+ only. This movement is condi-
+tioned by process 
+So
+ of the object and is described in the following (7.4) form:
+ 
+
+ ,o : }&:{  TtYCX ttttoo 
+
+ 
+ , (7.4)
+}.&,&:{ ttTttXCX ttttttoo   
+
+ 
+
+Geometric and physical values of biomechanical objects, e.g. man, are defined
+in state spaces: 
+ , 
+ , 
+ , and 
+T which are metrical, structural, dynamical and
+time characteristics of systems respectively (see Section 4.1). All calculations are
+carried out in these spaces with codes of numeric positional system S
+L . The ways
+of human motion design depend on the characteristics (metrical characteristics 
+~ ,
+connection defect 
+
+~ , constructive dimension 
+
+~ ) of both structural 
+ and ag-
+gregated dynamic 
+ representations. The ways correspond to coordination strate-
+gies },,,{  oooooo
+
+
+
+
+
+
+
+
+
+  for different levels of coordinator 
+0S
+information uncertainty indicated by
+
+
+
+ ,,, indexes.
+7.3. Computer design of human motion
+Motion process 
+So
+ of man (or human-like robot) 
+So in its environment 
+S
+
+is presented within the frames of HS aed technology as changing the man’s inter-
+connections 
+
+ with elements 
+iS ( 1
+ 
+Ii ) in its environment system 
+S
+ .
+The design task of human motion is defined as coordination task of Hierarchical
+System using aed technology. The process of human motion is presented according
+to the formal description given in Section 7.2 and Subsection 7.3.1. The design
+task is performed using aed conceptual design method (see Chapters 3 and 4).
+7.3.1. Algorithm of human motion design
+The design algorithm of human movements is realized according to the steps of HS
+design method (see Chapters 3 and 4). These steps are as follows.
+1. Synthesis of the geometrical construction of human bio-kinetic apparatus.
+This process corresponds to the calculations of the resultant characteristics
+  ,, of the geometrical construction of bio-kinetic apparatus.   ,, is
+the set of parameters which describe the geometric construction of mechatronic
+object according to aed presentation (4.7), see Section 4.1 of Chapter 4.
+  Iii :
+ is the description (with the help of metrical characteristics 
+i
+
+which are the coordinates, length, squares, volumes, angles) of the state of geomet-
+ric construction of human bio-kinetic apparatus presented in aggregated dynamic
+form 
+ ;   Iii :
+ is the description of the human body interconnections
+
+
+ with other objects (boundary of the human body defined by the coordinator);
+  Iii :
+ is the description of human bio-kinetic apparatus (body) struc-
+ture 
+ . So, human body construction as well as any geometric construction of
+mechatronic object being synthesised can be presented in the form of relations
+S on the Cartesian product of variables  ,, .
+Within the frames of the conceptual design method proposed (see Chapter 4),
+synthesis of human bio-kinetic apparatus structure 
+ of level  from lower level
+elements 1
+ (body segments) is realised by coordinator 
+0S on its selection
+stratum (see 2.2.3) according to the following algorithm. In the synthesis process
+coordinator performs the following actions:
+a) defines the constructive dimension of the resultant object, i.e. geometric
+construction of human bio-kinetic apparatus (chooses the required structure class
+3210 ,,,
+
+
+
+ from );
+b) defines kinds of changes of initial standard element of the defined structure
+which are necessary to perform the constructing of human bio-kinetic apparatus
+
+S ;
+c) sets the sequence of the changing actions from the determined classes;
+d) performs the actions defined in c), – this process corresponds to the calcu-
+lations of the resultant bio-kinetic apparatus characteristics   ,, .
+136
+Formally, this synthesis process is presented as follows:
+
+
+
+   },{: 1
+0S (7.5)
+where 
+0S is coordinator, 
+ is structure of human bio-kinetic apparatus of level  ,
+1
+ are lower level  -1 elements, i.e. bio-kinetic apparatus segments, from which
+structure 
+ is synthesized, 
+
+ are their structural connections (joints) (see Fig.7.1).
+As a result of this synthesis step, structure 
+ of human bio-kinetic apparatus
+
+S is synthesised as well as structure 1
+ of environment 1
+S ( 
+S
+ ) where
+man 
+S performs his motion. The process of synthesis goes in such a way that
+elements of structures 1
+ and 
+ obtain common parts 1
+
+ and 
+
+  , and
+the connections 1
+
+ include the interconnections of human bio-kinetic
+apparatus 
+S with other elements 
+iS  i
+ of environment system 1
+S .
+Relations between the basic geometrical structures are presented in the form of
+procedures from the given classes. So, it became possible to choose a class of pro-
+cedures for the synthesis of a required output object (human bio-kinetic apparatus
+construction) from the given input objects. Both the states of structure and form of
+human bio-kinetic apparatus are continuously changed. The process dynamics is
+described by dynamic system  
+ , (3.5). As an example, the result of synthesis
+process of the human body geometric construction is given in Figure 7.3.
+2. Changing interconnections of segments of human bio-kinetic apparatus.
+Usually, the data of the relative joint angles, velocities, trajectories, etc. for a defi-
+nite kinds of human movements is obtained from ‘in vivo’ experiments, e.g. using
+motion capture system. Design of a similar motions is executed by changing input
+parameters, such as limb length, mass, etc. Prediction of another kind of move-
+ments can be conducted by intuitive setting of arbitrary parameters, such as joint
+angles. The results of computer motion design, for instance obtained trajectories
+and velocities of various points of body segments, can be compared with the exper-
+imental results, i.e. trajectories and velocities of various points of markers, placed
+on the human body segments.
+3. Realization of human motion (the change of human interactions with the ele-
+ments of its environment) by changing the body structural parameters (partial
+structural deformation) on the predefined time interval.
+The process is realised in the following way.
+For biomechanical kind of human motion the changes take place inside the
+human bio-kinetic apparatus structure 
+ without the influence of external effects
+(not taking into account gravitation forces); structural connections 
+
+  are weak-
+ened in one place and become stronger in another one, the general metric charac-
+teristic 
+0 of human bio-kinetic apparatus 
+S remains the same; the change of
+structural connections 
+
+  causes the change of external interconnections 
+
+ 
+(the change of human body 
+S location in environment structure 1
+ , i.e. human
+motion); the consecutive changes of structural connections 
+
+  on time interval
+simulate the deformation evolution in human bio-kinetic apparatus structure 
+
+and correspondent human movement in its environment system, caused by the
+deformations of structure 
+ .
+The relations between the variations of human structure 
+ changes and the
+kinds of human motion are set by the coordinator. So, the task of human motion
+design – coordination task of the connected human movements and its bio-kinetic
+apparatus deformations – is reduced by the proposed conceptual design method to
+the coordination task of standard aed block of hierarchical systems. Formally, human
+motion task performing is presented with the help of ),(
+
+ functions as follows:
+00''00 ,&: XYC tttt  
+
+
+
+
+ , (7.6)
+ ''' : tttttt
+
+
+
+   ,
+i.e. in the form of coordinator reaction 
+0
+ , and in the form of state transition func-
+tion  'tt
+ of the human system, where 
+t
+ and 
+'t
+ are the states of human bio-
+kinetic structure at moments of time t and t’ respectively, t’>t; 'tt
+
+ is the change
+of structural connections (joint angles) during the period of time tt’; 
+0C coordina-
+tor states, i.e. the states of computer control program. The exemplary task of com-
+puter design of human sitting-standing-up motion is described below.
+138
+7.3.2. Computer design of human sitting-standing-up movements
+The following design steps of human sitting-standing-up movements are coordinated
+with the general algorithm of human motion design presented in Subsection 7.3.1.
+At the first step, the construction of human bio-kinetic apparatus 
+ is synthe-
+sized by coordinator from the apparatus elements 1
+ of lower level 1 (see
+Fig. 7.1). This process is executed according to the first step of the algorithm pre-
+sented above in Subsection 7.3.1. During the synthesis process the human 3D ap-
+paratus is constructed as a complex of its details 1
+ of 
+ =0010 constructive
+dimensions, i.e. conditional lines – limbs, which are created independently from
+conditional points, i.e. cubes (Fig. 7.2). The details have incoherent scales (sizes)
+and locations. Computer HS technology of synthesis in the given case only de-
+mands the indication of common (in the resultant bio-kinetic construction) details
+(joints) of the units, i.e. limbs, being united. The other details are restored from the
+indicated ones thanks to their connections defined before. As a result of the uniting
+technology realization, coordinator creates a connected unit of human bio-kinetic
+apparatus with coherent scales and locations of its details. This unit can be recon-
+structed by any of its details.
+(SLIKA 57)
+Synthesized human bio-kinetic apparatus structure 
+ contains aggregated
+representations 1
+ of lower level elements (thigh 1
+4 
+ , shank 1
+3 
+ , foot 1
+2 
+ ,
+1
+6 
+
+1
+1
+
+
+1
+4 
+
+1
+3 
+
+1
+2 
+
+ 3,2
+
+
+
+iS
+
+
+
+
+1
+
+
+1
+5 
+
+1
+7 
+
+139
+fingers 1
+1
+
+ , body 1
+5 
+ , arm 1
+6 
+ , head 1
+7 
+ ), and their connections 
+
+
+– joints (Fig. 7.1). For example, the common part of the foot 1
+2 
+ and the shank
+1
+3 
+ is their structural connection, i.e. heel  3,2
+
+ . One element of environment
+
+iS
+ is the pathway on the base surface. The external connection 
+1
+
+ of man is
+the contact place of his foot with the pathway on the base surface.
+At the second step, sitting-standing-up motion parameters are defined as the
+input data of the computer program. In this process the external connection 
+1
+
+ of
+man (contact place of its foot with the base surface) is constant value, i.e. 
+1
+
+
+=const. Velocity of interaction change (angular velocity of knee joint) is greater
+than ones of heels and other joints. So, joints angular velocities ω are defined in the
+program with the help of weights of joint angels change as follows:
+a1(i)=a1(i)+w1*a0,
+where: a0 is a minimal angular change on each i step (discrete time moment), w1 is
+weight, a1(i) is a meaning of the value of angle a of 1 joint at i discrete moment of
+time. Acceleration ε is presented in the program as a change of velocity w1(i), i.e.
+weight, at each time step. The inertia moment of the bio-kinetic apparatus n seg-
+ment (see Fig. 7.2) is defined as follows:
+2
+iix hmI  or 
+V
+x dVhI 2
+ , (7.7)
+where
+ is mass density and V is the volume of a segment element, i.e. conditional
+point.
+(SLIKA 58)
+In the computer program the inertia moment is defined as follows:
+for i:=1 to lip[n] do
+begin
+write('enter mass of I element of n body segment?:');
+readln(mas[i,n]);
+end;
+mis[n]:=mas[1,n]*0.5*long[n]*0.5*long[n];
+for i:=1 to lip[n] do begin
+mis[n]:=mis[n]+(i-1)*mas[i,n]*((i-1)*long[n])*((i-1)*long[n]);
+where lip[n] is a number of elements (conditional points) in the construction of
+n segment of the bio-kinetic apparatus, long[n] is the length of the edge of each
+conditional point of n segment, mas[i,n] is a mass of i element of n body segment,
+mis[n] is inertia moment of apparatus segment n.
+The torque of each segment of bio-kinetic apparatus is defined in the standard
+form:
+Ixε=Mz (7.8)
+and in the computer program:
+Torque:=w1(i)*mis[n].
+The other parameters, i.e. way of interconnections (joint angles) changing, ve-
+locities, trajectories of segments of human body are also defined. This input data
+for sitting-standing-up kinds of human movements necessary for computer motion
+design was obtained from experiments (see Fig. 7.6), using Optotrak 3020 motion
+capture system (Northern Digital Inc., Canada).
+At the third step, a human sitting-standing-up motion for one cycle is realized.
+One cycle contains the change of bio-kinetic apparatus structural parameters, i.e.
+joint angles, from their initial to maximal values (sitting) and vise versa (standing-
+up).
+Design of similar sitting-standing-up motions is executed by changing input
+parameters, such as limb length, mass, etc. Design process is visualized, so it is
+possible to make visual control of design process by observing the computer mov-
+ie. Prediction of another kind of movements is conducted by setting of arbitrary
+parameters, such as limbs lengths, weights and joint angles. The predicted results
+of computer motion design, e.g. trajectories and velocities of various points of bio-
+kinetic apparatus segments, are compared with the experimental laboratory results,
+i.e. trajectories and velocities of various points of markers placed on the subject’s
+body.
+141
+The above algorithm is realized as a computer program and is used in the
+computer experiment of human sitting-standing-up movements design. The com-
+puter experiment contains the following particular steps:
+1) definition of the program input parameters: length of human body seg-
+ments (lip[n]*long[n]; lip[n] is a number of elements (conditional points) in the
+construction of the body segment n, long[n] is length of the edge of each condi-
+tional point of segment n); mass of the segments elements (lip[n]*m[i] is a mass of
+the body segment n, m[i] is elementary mass of i conditional point of segment n);
+coefficients of joints angels change wi in the elementary time interval;
+2) realization of motion design, i.e. simulation of human motion and visuali-
+zation of the process;
+3) calculation of the trajectories of definite points of human body 3D seg-
+ments (hand, arm, leg, head), correspondent displacements, and velocities – analo-
+gous of a forward kinematics task;
+4) calculation of relative angular velocities of joints of human bio-kinetic ap-
+paratus;
+5) program simulation of various angular accelerations of joints and calcula-
+tion of correspondent inertia moments and toques;
+6) comparison of the computer design data with the experimental results ob-
+tained from motion capture system in the laboratory environment;
+7) model validation;
+8) computer design of human sitting-standing-up motion for another input
+data;
+9) computer design and prediction of other kinds of human motion by defin-
+ing other conditions and arbitrary parameters of motion based on previous skills.
+The first step corresponds to the coordinator (model) learning process when
+real parameters obtained from in vivo laboratory experiment are introduced to the
+computer model. The last four steps 6-9 presented above correspond to the stages
+of model modification (adaptation) on the self-organization strata of the coordina-
+tor. The other steps of the computer design experiment are the selection strata
+functions (see Chapters 3 and 4).
+The results of human sitting-standing-up movements design, i.e. four images
+a)-d) of the exemplary four states of geometric construction of human bio-kinetic
+apparatus obtained from a computer monitor in the process of motion design, are
+presented in Figs. 7.3. The forward kinematics task is performed as accompanying
+detailed design task of general task of motion design within the frameworks of one
+common computational model. The data of human arm end-point trajectory is pre-
+sented in Fig. 7.4 as a result of exemplary forward kinematics tasks performance.
+In comparison with the traditional forward kinematics tasks the motion parameters
+can be calculated for any point of 3D construction of human body.
+(SLIKA 59)
+(SLIKA 690)
+The graphic user interface (GUI) of the developed computer program is pre-
+sented in Fig. 7.5. All computer program modules were developed by Delphi 7
+program system using Pascal language. MATLAB system is used for data analysis
+and graphic presentation of the experimental results. The analysis conducted at the
+last stages of the study shows the coherence of the results of computer motion de-
+sign and the data obtained in a laboratory experiment of human sitting-standing-up
+movements registration using Optotrak 3020 motion capture systems, i.e. coher-
+ence of joints angular changes, trajectories, and velocities of various points of hu-
+man bio-kinetic apparatus. It shows the validity of both the conceptual and com-
+puter models developed. The description of the experiment of the human move-
+ment fixation and analysis using motion capture system is presented below.
+(SLIKA 61)
+7.4. Description of the laboratory experiment
+The main aim of the laboratory experiment on human motion is to obtain the real
+motion data which can be used in computer design and learning process as input
+data of a computer model. The data is also necessary for model modification (self-
+organization) purposes. Therefore, the experiment is performed to obtain the coor-
+dinates of trajectories of the human body points selected (indicated by markers)
+during the process of sitting-standing-up motion of different groups of subjects –
+144
+people of various height, mass, limb length, definition of relative joint angles
+change, i.e. angular coefficients, which allow calculation of displacements, angular
+velocities and accelerations, and comparison of the data obtained with the results
+of computer human motion design.
+Protocol of the laboratory experiment contains the following steps.
+1. Choice of the criteria (characteristics are limb length, height, mass, number
+of persons – subjects) for selecting an experimental group.
+At this step the criteria for selecting groups of subjects being examined are
+formulated. The following groups G1 and G2 of subjects were chosen according to
+the predefined height criteria: 165-170 cm. for G1, and 175-180 cm. for G2. There
+are 3 subjects in each group
+(SLIKA 62)
+2. Definition of the standard sitting-standing-up posture.
+The way of sitting-standing-up motion (way of legs, arms, and back positions
+changing) performed by the subjects being examined was defined. All the experi-
+ments were conducted with subjects standing in their initial position upright on the
+floor with heels slightly apart (see Figs. 7.6-7.8) and parallel and elbows held close
+to the torso. Their back was straight vertical. The arms were bent in the elbow
+joints. Sitting-standing-up process was executed uniformly with little delay in low-
+er down position. Heels were taken off the floor. Body was slightly bent forward.
+2: Optotrack
+3: Computer
+1: Subject
+145
+3. Definition of the experiment conditions.
+The following conditions of the experiment were defined: time of the sitting-
+standing-up process (regulated during the registration process with the help of
+a metronome) is 20 s.; the values being measured are coordinates (trajectories) of
+markers placed on the predefined body points (Fig.7.9); scales of the measure-
+ments: discrete moments on the time interval of 1/30 sec., scale of the measured
+space is 3x3 m.; number of observations for each subject is 3.
+4. Calibration of the Optotrack 3020 motion capture system.
+Optotrack motion capture system was set according to the predefined experi-
+ment scheme (see Figs. 7.6 and 7.7).
+(SLIKA 63)
+5. Choice of the places of markers.
+First, markers number 10, 11, and 12 were placed to define sagittal plane and
+floor base surfaces (Fig. 7.8). After that, the other markers were placed in the defi-
+nite points of human body to execute further measurements: two markers on foot,
+and two on each limb, i.e. shank, thigh, leg, subject’s body side.
+6. Execution of the measurements and data obtaining.
+Data acquisition of markers coordinates is performed at each predefined mo-
+ment of time. The markers trajectories are built after that. The data collected have
+been given to MATLAB program system environment for further processing and
+graphic presentation. Various markers coordinates in numeric format (Fig. 7.9) and
+their trajectories in graphic format (Fig. 7.10) are plotted in MATLAB system.
+(SLIKA 64)
+7. Measurement results processing.
+The representative data is calculated using the dependence:
+Xj(t)=ΣXj(t)i/n, (7.9)
+where Xj(t) is X coordinate change of j marker, Xj(t)i is the X coordinate change of j
+marker obtained in i observation, n is the number of observations.
+8. Calculation of the joint rotation centers, limbs lengths as the distance be-
+tween the joints rotation centers of correspondent limbs.
+This procedure is executed by using the known mathematical relations. First,
+the rotation centers are defined as the point of intersection of two lines each of
+which is defined by two markers. After that, the limbs lengths are defined as a dis-
+tance between the rotation points.
+(LSSLIKA 65)
+9. Calculations of correspondent displacements, angular velocities and angu-
+lar coefficients for each group of subjects being examined.
+To perform the calculations, special program functions were written in
+MATLAB. One of the functions for joints angles calculation is presented in the
+following form:
+(SLIKA 66)
+where i is the number of registrations of markers coordinates placed on the sub-
+ject’s body; A(i, j) are fields of markers coordinates written in correspondent data
+file while performing the laboratory experiment; fiSL is a correspondent ankle joint
+angle between two limbs of human bio-kinetic apparatus – foot and leg in this case.
+The results of relative angles calculation using the function presented above and
+other functions are presented in Fig. 7.10.
+(SLIKKA 67)
+10. Comparison of experimental and computer design data and prediction, i.e.
+design, of other kinds of human sitting-standing-up motion.
+The results of computer motion design and experimental data obtained by
+Optotrack system for human sitting-standing-up motion were compared and ana-
+lyzed. Prediction of motion is conducted for virtual subject with other limbs pa-
+rameters. The results of prediction are compared with the data obtained from the
+laboratory experiment with real subject with the same parameters (see Fig. 7.11).
+Positive results of the analysis allows the validity to be stated of both conceptual
+and computer models developed within the frameworks of the suggested HS design
+method.
+(SLIKA 68)
+Preliminary conclusions and results
+The main aim of the task described in this Chapter was HS conceptual model and
+design method application in the design and control tasks of human motion. As a
+result, a new HS method for human motion design was developed. The method
+presents all the connected levels, i.e. human body structure (lower level), human
+body dynamic representation as a unit in its environment, the environment struc-
+ture (higher level), in common HS formal basis and takes into account geometric,
+numeric, biomechanical and physical characteristics. The method developed allows
+performing of the motion design task more sufficiently in comparison with tradi-
+tional methods because of the functional abilities of the HS design method, such as
+reconstructing the whole object being designed from its any structural element,
+coordination of human movements and bio-kinetic apparatus deformations within
+the frameworks of one common formal model, prediction of human motion, learn-
+ing and others. The aim of the experimental study was to answer the question if the
+computer design method developed corresponds to the real process of human mo-
+tion, in our case to human sitting-standing-up movements, and if it is possible to
+predict and coordinate (design and control) the human motion using the developed
+program modules.
+(deg) (deg)
+150
+To reach these aims, theoretical basis of the method suggested was described
+in the work using hierarchical dynamic systems and aed coordination technology.
+Coordination task of human motion was formulated, ways of motion design and
+the method steps were defined, systems movements and deformations were de-
+scribed within the frameworks of the suggested HS theoretical basis. Algorithm of
+computer design and steps of the method realization for human sitting-standing-up
+motion were given. Experimental study of human motion (using motion capture
+system) and computer design with the motion prediction were performed. Compar-
+ison of experimental and computer simulation results as well as the method analy-
+sis were given.
+The computer motion design was performed using a geometric model of hu-
+man bio-kinetic apparatus constructed from conditional geometric objects (see
+Chapter 4). The objects were presented according to HS aed model. The design
+process of human sitting-standing-up motion was performed using initial experi-
+mental data of one subject with definite parameters – limbs length and weights.
+Prediction of motion was conducted for a virtual subject with other limbs parame-
+ters. The results of computer prediction were compared with the data obtained in
+the laboratory experiment with real subject with the same parameters. Coherence
+of computer design and laboratory experiment results shows the efficiency of the
+suggested HS design method. Exemplary analogous task of the traditional forward
+kinematics task have been performed as the accompanying task within the frame-
+works of the suggested method as a result of human sitting-standing-up motion
+design and simulation.
+As a result, new conceptual formal model and HS design method of human
+motion coordination – design and control – have been created. The design method
+has the following characteristics:
+1) describes a human bio-kinetic apparatus as a hierarchical system; it allows
+the design and control task of human motion to be performed as interconnections
+coordination of coordinated structural and dynamic representation of man in its
+environment;
+2) makes possible designing (synthesis) of different kinds of human move-
+ments, predicts the motion and obtains correspondent motion data using only the
+geometrical or biomechanical data such as limbs length and weights; consecutive
+interactive performing of the analysis design task, i.e. changing human structural
+interactions (joint angles) and its subsystems characteristics – limbs length and
+mass, and observation of the change of motion process being designed executed by
+man in its environment (higher level system) allows obtaining the desired charac-
+teristics of this process, i.e. trajectories coordinates, displacements, velocities, etc.;
+3) connects three levels in common formal basis, such as the presentation of
+human structure (bio-kinetic apparatus) and structural deformations (limbs motion
+and joints angular change), description of human motion in environment (change
+151
+of human interactions with subsystems of environment), and construction of envi-
+ronment (set of subsystems of higher level);
+4) performs the connected tasks of human body deformations and human mo-
+tion in its environment cased by these deformations within the frameworks of one
+common HS aed model not using traditional approaches, i.e. Finite Elements
+method and Integral Differential equations; allows performing of motion synthesis
+and analysis tasks within the frameworks of one common computer model - soft-
+ware construction.
+5) allows presentation and processing of information of biomechatronic sub-
+systems of various nature – mechanical, electronic, biomechanical, computer – in
+frames of one common HS aed formal basis, what is very important in the case of
+bio-mechanical, robotics, medical, rehabilitation and other systems coordination and
+allows avoiding of modelling conflicts of various subsystems of different nature;
+6) makes possible the modification of the developed conceptual and computer
+models on the self-organization strata of coordinator, and motion prediction using
+controlled experimental data;
+7) presents the parts of human body in computer design as connected 3D ob-
+jects due to the operations with HS models of conditional geometric objects (see
+Chapter 4);
+8) allows performing geometric design and forward kinematics tasks as a
+common computational task owing to the description of geometric construction of
+bio-kinetic apparatus, coordination (design and control) procedures and kinematic
+characteristics within the frameworks of one common conceptual model.
+Computer program created for human motions design has been constructed ac-
+cording to HS structure, and the program functioning corresponds to the actions of aed
+coordinator of HS. The design tasks are realized using commercial software Delphi
+(Embarcadero Technologies Inc., CA, USA) and Matlab (The MathWorks Inc., MA,
+USA) systems. All calculations effectively executed on computer as operations with
+systems quantitative characteristics are presented in numeric positional code. During
+the motion design, the dependences of functional parameters (kinds of motions) on
+the structural ones (sizes, angles) of a human body segments were determined.
+Creation of the HS theoretical basis, experimental study and computer simula-
+tion of human motion are parts of the development process of aed conceptual mod-
+el and HS method of human motion design. Theoretical constructions made possi-
+ble the development of computer program modules which realize the technology of
+the method. Experimental measurements obtained by the Optotrack motion capture
+system and the results of simulation (computer experiment) of sitting-standing-up
+human motion allowed the data comparison and the model validation. The results
+of the conducted experimental study show the correspondence of the HS design
+method and computer model developed to real processes of human motion and
+wide abilities of HS design method in motion design.
+                </p>

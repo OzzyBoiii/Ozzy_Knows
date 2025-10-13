@@ -71,7 +71,7 @@
             -webkit-user-select: none;
             touch-action: manipulation;
         }
-        
+
         /* BUTTON */
         /* BUTTON */
         /* BUTTON */
@@ -249,17 +249,17 @@
             box-shadow: 0 15px 50px rgba(0,0,0,0.5);
             z-index: 1000;
         }
-        
+
         .newWindow.active {
             display: grid;
             animation: popIn 0.5s ease-out;
         }
-        
+
         @keyframes popIn {
             0% { transform: scale(0.8); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
-        
+
         .newWindow.swapped {
             grid-template-columns: 65% 35%;
             grid-template-areas: "content images";
@@ -269,11 +269,11 @@
             grid-template-columns: 100%;
             grid-template-areas: "content";
         }
-        
+
         .newWindow.no-images .window-column {
             display: none;
         }
-        
+
         .window-column {
             display: flex;
             flex-direction: column;
@@ -285,7 +285,7 @@
             border-right: 2px solid rgba(255,255,255,0.1);
             padding: 0 15px;
         }
-        
+
         .title-grid-container {
             display: grid;
             grid-template-columns: 1fr auto;
@@ -297,14 +297,14 @@
             border-radius: 10px;
             margin-bottom: 15px;
         }
-        
+
         .title-grid-container h3 {
             text-align: center;
             margin: 0;
             color: #ffeb3b;
             font-size: 1.4rem;
         }
-        
+
         .image-container {
             flex: 1;
             overflow-y: auto;
@@ -316,7 +316,7 @@
             max-width: 800px;
             height: calc(100vh - 200px);
         }
-        
+
         .content-container {
             display: flex;
             flex-direction: column;
@@ -395,7 +395,7 @@
             justify-content: center;
             padding: 10px;
         }
-        
+
         .image-square {
             height: 400px;
             width: 100%;
@@ -435,7 +435,7 @@
             scrollbar-width: none; /* Firefox */
             -ms-overflow-style: none; /* IE 10+ */
         }
-        
+
         .image-display img {
             max-width: 100%;
             max-height: 100%;
@@ -444,7 +444,7 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        
+
         .image-info {
             display: flex;
             flex-direction: column;
@@ -519,7 +519,7 @@
             border-radius: 10px;
             display: inline-block;
         }
-        
+
         .example-box {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
@@ -528,7 +528,7 @@
             max-width: 600px;
             text-align: left;
         }
-        
+
         .example-step {
             margin: 10px 0;
             padding: 10px;
@@ -544,39 +544,39 @@
                 grid-template-columns: 100%;
                 grid-template-areas: "content";
             }
-            
+
             .window-column {
                 display: none;
             }
-            
+
             .text-controls-container {
                 grid-template-columns: 1fr;
             }
-            
+
             .image-square {
                 height: 300px;
                 min-width: 300px;
             }
-            
+
             h1 {
                 font-size: 2.5rem;
             }
-            
+
             h2 {
                 font-size: 2rem;
             }
-            
+
             .zoomable-text {
                 padding: 0;
                 max-width: 100%;
             }
         }
-        
+
         /* Close button in text controls for no-image mode */
         .text-close-button {
             display: none;
         }
-        
+
         .newWindow.no-images .text-close-button {
             display: block;
         }
@@ -604,7 +604,7 @@
             color: #333;
             border: 2px solid #ff9800;
         }
-        
+
         .summary-line {
             display: flex;
             justify-content: space-between;
@@ -613,13 +613,13 @@
             margin-bottom: 8px;
             position: relative;
         }
-        
+
         .summary-content {
             flex-grow: 1;
             position: relative;
             padding-right: 30px; /* Space for status dot */
         }
-        
+
         .summary-text {
             position: relative;
             z-index: 2;
@@ -630,7 +630,7 @@
             font-size: inherit;
             width: 95%;
         }
-        
+
         .summary-dots {
             position: absolute;
             top: 0;
@@ -641,7 +641,7 @@
             pointer-events: none;
             letter-spacing: 2px;
         }
-        
+
         .summary-number {
             width: 5%;
             min-width: 50px;
@@ -656,7 +656,7 @@
             color: #e65100;
             font-weight: bold;
         }
-        
+
         .summary-header {
             text-align: center;
             margin-bottom: 25px;
@@ -668,7 +668,7 @@
             position: relative;
             padding-bottom: 15px;
         }
-        
+
         .summary-header::after {
             content: "";
             position: absolute;
@@ -679,25 +679,25 @@
             background: linear-gradient(90deg, transparent, #ff9800, transparent);
             border-radius: 3px;
         }
-        
+
         .summary-box::-webkit-scrollbar {
             width: 10px;
         }
-        
+
         .summary-box::-webkit-scrollbar-track {
             background: rgba(0,0,0,0.1);
             border-radius: 10px;
         }
-        
+
         .summary-box::-webkit-scrollbar-thumb {
             background: #ff9800;
             border-radius: 10px;
         }
-        
+
         .summary-box::-webkit-scrollbar-thumb:hover {
             background: #ff7d00;
         }
-        
+
         .summary-hint {
             text-align: center;
             margin-top: 15px;
@@ -712,7 +712,7 @@
                 padding: 20px;
                 font-size: 16px;
             }
-            
+
             .summary-header {
                 font-size: 20px;
             }
@@ -820,12 +820,12 @@
             box-shadow: 0 15px 50px rgba(0,0,0,0.5);
             z-index: 1000;
         }
-        
+
         .NEWWindow.active {
             display: block;
             animation: popIn 0.5s ease-out;
         }
-        
+
         .window-header {
             display: flex;
             justify-content: space-between;
@@ -1029,29 +1029,29 @@
             h1 {
                 font-size: 2.5rem;
             }
-            
+
             h2 {
                 font-size: 2rem;
             }
-            
+
             .table-container {
                 padding: 20px;
             }
-            
+
             .enhanced-table {
                 font-size: 0.9rem;
             }
-            
-            .enhanced-table th, 
+
+            .enhanced-table th,
             .enhanced-table td {
                 padding: 12px 10px;
             }
-            
+
             .table-controls {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .control-btn {
                 width: 100%;
                 max-width: 300px;
@@ -1063,11 +1063,11 @@
             h1 {
                 font-size: 2rem;
             }
-            
+
             h2 {
                 font-size: 1.6rem;
             }
-            
+
             .enhanced-table {
                 display: block;
                 overflow-x: auto;
@@ -1310,14 +1310,14 @@
             background: rgba(0,0,0,0.3);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-        
+
         .example-slider {
             display: flex;
             width: 100%;
             height: 100%;
             transition: transform 0.5s ease-in-out;
         }
-        
+
         .example-window {
             flex: 0 0 100%;
             height: 100%;
@@ -1332,7 +1332,7 @@
             background: rgba(0,0,0,0.2);
             border-radius: 10px;
         }
-        
+
         .example-window img {
             max-width: 100%;
             max-height: 150px;
@@ -1340,14 +1340,14 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
-        
+
         .example-window ul {
             list-style-type: none;
             padding: 0;
             width: 100%;
             max-width: 300px;
         }
-        
+
         .example-window li {
             padding: 8px 15px;
             margin: 6px 0;
@@ -1355,7 +1355,7 @@
             border-radius: 6px;
             border-left: 3px solid #ff9800;
         }
-        
+
         .example-controls {
             display: flex;
             justify-content: center;
@@ -1363,14 +1363,14 @@
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .example-dots {
             display: flex;
             justify-content: center;
             margin-top: 15px;
             gap: 8px;
         }
-        
+
         .example-dot {
             width: 12px;
             height: 12px;
@@ -1379,7 +1379,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .example-dot.active {
             background-color: #ff9800;
             transform: scale(1.2);
@@ -1453,7 +1453,7 @@
                             </div>
                             <input type="text" class="summary-number" value="15">
                         </div>
-                        
+
                             <div class="summary-line">
                                 <div class="summary-content">
                                     <span class="summary-dots">.......................................................</span>
@@ -1462,7 +1462,7 @@
                                 </div>
                                 <input type="text" class="summary-number" value="28">
                             </div>
-                            
+
                             <div class="summary-line">
                                 <div class="summary-content">
                                     <span class="summary-dots">.......................................................</span>
@@ -1471,7 +1471,7 @@
                                 </div>
                                 <input type="text" class="summary-number" value="42">
                             </div>
-                            
+
                             <div class="summary-line">
                                 <div class="summary-content">
                                     <span class="summary-dots">.......................................................</span>
@@ -1480,7 +1480,7 @@
                                 </div>
                                 <input type="text" class="summary-number" value="19">
                             </div>
-                            
+
                             <div class="summary-line">
                                 <div class="summary-content">
                                     <span class="summary-dots">.......................................................</span>
@@ -1489,7 +1489,7 @@
                                 </div>
                                 <input type="text" class="summary-number" value="35">
                             </div>
-                            
+
                             <div class="summary-line">
                                 <div class="summary-content">
                                     <span class="summary-dots">.......................................................</span>
@@ -1498,7 +1498,7 @@
                                 </div>
                                 <input type="text" class="summary-number" value="27">
                             </div>
-                            
+
                             <div class="summary-line">
                                 <div class="summary-content">
                                     <span class="summary-dots">.......................................................</span>
@@ -1507,7 +1507,7 @@
                                 </div>
                                 <input type="text" class="summary-number" value="33">
                             </div>
-                            
+
                             <div class="summary-line">
                                 <div class="summary-content">
                                     <span class="summary-dots">.......................................................</span>
@@ -1516,7 +1516,7 @@
                                 </div>
                                 <input type="text" class="summary-number" value="21">
                             </div>
-                            
+
                             <div class="summary-line">
                                 <div class="summary-content">
                                     <span class="summary-dots">.......................................................</span>
@@ -1525,7 +1525,7 @@
                                 </div>
                                 <input type="text" class="summary-number" value="38">
                             </div>
-                            
+
                             <div class="summary-hint">Tip: Dots represent available space for text</div>
                         </div>
                     </div>
@@ -1593,7 +1593,7 @@
                         <h3>Geometric Representation</h3>
                     </div>
                 </div>
-                
+
                 <div class="image-square">
                     <div class="image-controls">
                         <button class="button-87" onmousedown="startZoom('in', 'image2')" onmouseup="stopZoom()" onmouseleave="stopZoom()">+</button>
@@ -1609,7 +1609,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="content-container">
             <div class="text-controls-container">
                 <div class="text-controls-grid">
@@ -1701,7 +1701,7 @@
                         <h3>Geometric Representation</h3>
                     </div>
                 </div>
-                
+
                 <div class="image-square">
                     <div class="image-controls">
                         <button class="button-87" onmousedown="startZoom('in', 'image2')" onmouseup="stopZoom()" onmouseleave="stopZoom()">+</button>
@@ -1717,7 +1717,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="content-container">
             <div class="text-controls-container">
                 <div class="text-controls-grid">
@@ -1738,7 +1738,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Visualization Window -->
     <div id="newWindow_3" class="newWindow">
         <div class="window-column">
@@ -1760,7 +1760,7 @@
                         <h3>Geometric Representation</h3>
                     </div>
                 </div>
-                
+
                 <div class="image-square">
                     <div class="image-controls">
                         <button class="button-87" onmousedown="startZoom('in', 'image2')" onmouseup="stopZoom()" onmouseleave="stopZoom()">+</button>
@@ -1776,7 +1776,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="content-container">
             <div class="text-controls-container">
                 <div class="text-controls-grid">
@@ -1805,7 +1805,7 @@
                                     <li>Polynomial expressions</li>
                                 </ul>
                             </div>
-                
+
                             <!-- Window 2 -->
                             <div class="example-window">
                                 <h3>Geometry Concepts</h3>
@@ -1815,7 +1815,7 @@
                                     <li>Trigonometric ratios</li>
                                 </ul>
                             </div>
-                
+
                             <!-- Window 3 -->
                             <div class="example-window">
                                 <h3>Calculus Fundamentals</h3>
@@ -1825,7 +1825,7 @@
                                     <li>Integrals</li>
                                 </ul>
                             </div>
-                
+
                             <!-- Window 4 -->
                             <div class="example-window">
                                 <img src="https://via.placeholder.com/400x200/2a5298/ffffff?text=Math+Visualization" alt="Math Visualization">
@@ -1838,16 +1838,16 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="example-controls">
                         <button class="button-87" onclick="slideExample(-1)">Previous</button>
-                        
+
                         <div class="example-dots" id="exampleDots">
                             <!-- Dots will be generated here -->
                         </div>
-                        
+
                         <button class="button-87" onclick="slideExample(1)">Next</button>
-                    </div>               
+                    </div>
                 </div>
             </div>
         </div>
@@ -1884,6 +1884,393 @@
         </div>
     </div>
 
+<section>
+          <div>
+            <h3>ELEKTROMAGNETSKI VALOVI</h3>
+            <div>
+              <div>
+                <div>
+              </div>
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Teorija</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+- elektromagnetski se val sastoji od promjenjivog električnog polja i magnetskog polja koja se periodički
+mijenjaju titrajući u fazi, a koja su po smjeru uvijek međusobno okomita; smjer širenja vala okomit je i na
+smjer električnog i na smjer magnetskog polja (transverzalni val):
+(SLIKA 1)
+- Isaac Newton pretpostavljao je da je svjetlost snop čestica koje izlijeću iz izvora
+- Christian Huygens smatrao je da je svjetlost impuls koji se širi kroz elastično sredstvo
+- Thomas Young, Augustin Frasnel i James Maxwell su u 19. stoljeću opisali svjetlost kao val
+- u 20. stoljeću je Albert Einstein opisao svjetlost kao pojavu koja ima i čestična i valna svojstva
+- u geometrijskoj optici proučavali smo svjetlost kao val
+- brzina svjetlosti vrlo je precizno izmjerena i u vakuumu iznosi 2,997925∙108 m/s, a vrlo je mala razlika te
+brzine u zraku, pa uzimamo približnu vrijednost u računskim zadacima c≈3∙108 m/s
+- već je Galilei uočio da brzina svjetlosti ima konačnu, ali veliku vrijednost koju nije mogao izmjeriti
+- koristeći se pomrčinom Jupiterovog mjeseca, Olaf Römer je prvi izmjerio brzinu svjetlosti s prilično
+dobrom točnošću
+- Armand Fizeau je prvi izmjerio brzinu svjetlosti mjereći udaljenosti na Zemljinoj površini pomoću zrcala;
+ovu metodu su kasnije usavršili i dobili još točnije rezultate Jean Foucault u 19. stoljeću te Albert Michelson
+u 20. stoljeću
+- u vakuumu brzina svjetlosti ne ovisi o frekvenciji svjetlosti
+- pri prijelazu iz jednog u drugo sredstvo frekvencija svjetlosti ostaje jednaka, a mijenjaju joj se brzina i
+valna duljina
+- jedna od modernijih metoda mjerenja brzine svjetlosti prikazana je na slijedećoj shemi (izvor slike:
+http://science.nasa.gov):
+
+(SLIKA 2)
+- u vakuumu je brzina elektromagnetskih valova c, dok je u nekom materijalu
+r r
+c
+v
+ 
+=
+, a valna duljina je
+v
+f
+
+=
+- cijeli raspon mogućih valnih duljina i frekvencija elektromagnetskih valova zovemo spektrom
+(SLIKA 3)
+(SLIKA 4)
+        	</p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                </div>
+                <!---->
+                <!---->
+              </div>
+            </div>
+        </section>
+        <!---->
+        <!---->
+        <!---->
+        <section>
+          <div>
+            <h3>SPEKTAR ELEKROMAGNETSKIH VALOVA</h3>
+            <div>
+              <div>
+                <div>
+              </div>
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Teorija</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+                    - svjetlosne, električne i magnetske pojave povezao je Maxwell u 4 jednadžbe (1864. godine):
+1. Silnice električnog polja imaju svoj početak (izvor) i kraj (ponor) u električnim nabojima.
+2. Silnice magnetskog polja su zatvorene linije.
+3. Promjenjivo magnetsko polje stvara električno polje.
+4. Promjenjivo magnetsko polje i naboji u gibanju uzrokuju nastanak magnetskog polja.
+- raspon svih valnih duljina, tj. frekvencija elektromagnetskih valova nazivamo spektrom:
+(SLIKA 1)
+• TV i radio valovi su oni kojima se služimo u radiokomunikacijama i telekomunikacijama, a dio ih
+dolazi i iz svemira. Njihov izvor su elektronski uređaji, najčešće električni titrajni krugovi.
+• Mikrovalovi se primjenjuju u radarskoj tehnici, mikrovalnim pećnicama te u proučavanju i
+mijenjanju svojstava pojedinih tvari.
+• Izvor infracrvenih zraka su užarena tijela i molekule, a mi ih osjećamo kao toplinu. Imaju
+primjenu u industriji, medicini, astronomiji i prirodnim znanostima koje se bave istraživanjima
+molekulske strukture tvari.
+• Vidljiva svjetlost obuhvaća elektromagnetske valove valnih duljina od 400 do 750 nm, a koje
+detektira ljudsko oko. Izvor vidljive svjetlosti je omotač elektrona. Naše oko vidi predmete
+obasjane svjetlosnim snopom koji se sastoji od kvanata svjetlosti – fotona. Foton je kvantnomehanička čestica koja je prijenosnik međudjelovanja jedne od osnovnih sila u prirodi –
+elektromagnetske sile. Vidljivo područje bijele svjetlosti sastoji se od ovih boja:
+(SLIKA 2)
+Ljudsko oko je različite osjetljivosti na valne duljine u vidljivom dijelu spektra: najosjetljivije je na
+žutu svjetlost, a slabije vidi plavu i crvenu svjetlost; ako su izvori svjetlosti jednake snage, oku će
+se činiti da je izvor žute svjetlosti najjači, a izvori plave i crvene svjetlosti desetak puta slabiji.
+f / Hz
+Na grafu je prikazana osjetljivost oka na valne duljine vidljivog dijela svjetlosti
+(SLIKA 3)
+ Ultraljubičasti dio spektra zrače atomi i molekule. UV zračenje ima jako biološke djelovanje – na
+koži izaziva opekline i crvenilo, kao i pigmentaciju kože; prevelika doza tog zračenja može
+izazvati rak kože, ali ono je i korisno – potiče stvaranje D vitamina u organizmu pa se njime liječi
+rahitis (bolest koja se očituje u poremećaju rasta kosti).
+• Rendgensko zračenje (X-zrake) ima veliku energiju i prodornost – prolazi kroz neprozirna tijela i
+slabo se apsorbira, a primjenjuje se u medicini i u istraživanju kristalne građe tvari.
+• Gama-zračenje je nuklearnog porijekla i nastaje pri promjenama stanja atomske jezgre, vrlo je
+opasno jer izaziva teška oštećenja živih organizama, a primjenjuje se u medicini i tehnici.
+• Kozmičko zračenje potječe iz svemira i ima još manje valne duljine od gama zračenja
+        	</p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                </div>
+                <!---->
+                <!---->
+              </div>
+            </div>
+        </section>
+        <!---->
+        <!---->
+        <!---->
+        <section>
+          <div>
+            <h3>Valna optika i interferancija svjetlosti</h3>
+            <div>
+              <div>
+                <div>
+              </div>
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Teorija</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+                    - valna optika proučava svjetlost kao val, i tu ja važno titranje električnog polja jer je ono to koje izaziva
+podražaje u oku
+- valove prikazujemo pomoću valnih fronti, tj. zamišljenih ploha u prostoru kroz koje prolazi val
+- sve točke jedne valne fronte imaju istu fazu titranja
+- udaljenost dviju valnih fronti u kojima je vrijednost električnog polja maksimalna je λ
+- na slikama su prikazane valne fronte ravnog i kuglastog vala:
+(SLIKA 1)
+- okomice na valne fronte su zrake i one pokazuju smjer širenja vala
+- val se širi tako da je svaka točka valne fronte izvor novog elementarnog kuglastog vala (Huygensovo načelo):
+(SLIKA 2)
+- pojave koje dokazuju valnu prirodu svjetlosti su interferencija, ogib i polarizacija svjetlost
+
+- kad imamo dva svjetlosna snopa koja prolaze jedan kroz drugi, oni se mogu pojačati ili poništiti; ta pojava se
+zove interferencija
+- interferencija može biti konstruktivna (pojačavanje) ili destruktivna (poništavanje)
+- da bi se interferencija opazila, valovi moraju biti koherentni (imati jednake frekvencije, a razlika u fazi im mora
+biti neovisna o vremenu, tj. konstantna na određenom mjestu u prostoru)
+- da bismo dobili dva izvora koherentne svjetlosti, možemo učiniti da svjetlost jednog izvora svjetlosti pada na
+prepreku s dvije uske pukotine; prema Huygensovom načelu, svaka će od te dvije prepreke postati izvor novog
+vala
+- ovako načinjene koherentne izvore koristio je Thomas Young u svom pokusu
+(SLIKA 3)
+- u sredini nasuprot pukotina uvijek nastaje pojačavanje vala, i dobije se svijetla pruga, a do nje se na jednu i
+drugu stranu nižu tamne i svijetle pruge sve manjeg intenziteta
+- r2-r1 zoveo geometrijska razlika hoda (
+geom.
+
+), i o njoj će ovisiti da li dobijemo svijetlu ili tamnu prugu
+- u slučaju pojačavanja valova (svjetlo), vrijedi:
+.
+, 0,1,2,... geom   =  = k k
+- u slučaju poništavanja valova (tama) vrijedi:
+. (2 1 , 1,2,3,... )
+2
+geom k k 
+ = −  =
+- za dvije susjedne svijetle ili tamne pruge razlika putova jednaka je valnoj duljini
+1
+r
+2
+r
+- izvedimo izraz za udaljenost između pruga (dvije svijetle ili dvije tamne pruge):
+(SLIKA 4)
+
+        	</p>
+                  </div>
+<button class="button-87" role="button" value="Lock Current"
+                  onclick="toggleWindow('newWindow_1');lockA()">Zadatci</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+                    1. Dva koherentna izvora svjetlosti valne duljine 589 nm daju sliku interferencije na zastoru udaljenom 1 m od
+izvora. Koliki je razmak između dviju susjednih svijetlih pruga interferencije ako su izvori međusobno udaljeni
+20 µm?
+2. Koliko se posto poveća razmak između susjednih pruga interferencije u Youngovu pokusu ako umjesto
+svjetlosti valne duljine 450 nm upotrijebimo svjetlost valne duljine 700 nm
+        </p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                <!---->
+                <!---->
+
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                </div>
+                <!---->
+                <!---->
+              </div>
+            </div>
+        </section>
+        <!---->
+        <!---->
+        <!---->
+        <section>
+          <div>
+            <h3>Ogib svjetlosti</h3>
+            <div>
+              <div>
+                <div>
+              </div>
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">tEORIJA</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+- pojava da se svjetlost širi i iza neke zapreke na koju naiđe zovemo ogib ili difrakcija
+- ogib se lakše opaža kad je valna duljina valova usporediva s dimenzijama zapreke ili pukotine
+- kad svjetlost dolazi na rubove zapreke ili pukotine, dolazi do ogiba u područje sjene tj. međusobne
+interferencije valova koji se poništavaju ili pojačavaju; ogibna slika je uvijek slika prepreke na koju svjetlost
+dolazi pri ogibu
+- pri proučavanju ogiba najviše se koristi optička rešetka, tj. niz jednako razmaknutih (ekvidistantnih) pukotina;
+razmak između pukotina naziva se konstanta rešetke
+(SLIKA 1)
+- uvjet za svijetle pruge (ogibne slike) je:
+sin k
+d k   =
+, gdje je d konstanta rešetke, a αk kut pod kojim se
+ogiba svjetlost
+- u sredini je uvijek svijetla pruga najvećeg maksimuma, a intenzitet slijedećih svijetlih pruga opada
+- broj maksimuma svjetlosti koji se vide ovise o konstanti optičke rešetke
+- crvena svjetlost ogiba se više od ljubičaste
+- optička rešetka može bijelu svjetlost rastavit na spektar
+(SLIKA 2)
+
+        	</p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                </div>
+                <!---->
+                <!---->
+                <button class="button-87" role="button" value="Lock Current"
+                  onclick="toggleWindow('newWindow_1');lockA()">Zadatci</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+1. Pod kojim se kutovima vide maksimumi intenziteta svjetlosti ako na optičku rešetku konstante 0,002 mm
+okomito upada paralelni snop natrijeve svjetlosti od 589 nm?
+2. Kolika je konstanta optičke rešetke ako svjetlost valne duljine 0,6 µm daje prvi maksimum rasvjete za 20°?
+3. Optička rešetka ima 500 pruga na 1 cm. Kut ogiba crvene svjetlosti na rešetki je 2° u spektru prvog reda.
+Kolika je valna duljina crvene svjetlosti?
+4. Zelena svjetlost valne duljine 540 nm ogiba se na difrakcijskoj rešetki koja ima 2000 pruga na 1 cm. Nađite
+kut za koji će se otkloniti slika pukotine u spektru trećeg reda. Postoji li slika pukotine u spektru desetog reda
+        </p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                <!---->
+                <!---->
+
+              </div>
+            </div>
+        </section>
+        <!---->
+        <!---->
+        <!---->
+        <section>
+          <div>
+            <h3>POLARIZACIJA SVJETLOSTI</h3>
+            <div>
+              <div>
+                <div>
+              </div>
+              <button class="button-87" role="button" value="Lock Current" onclick="toggleWindow('newWindow_1');lockA()">Teorija</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+                    - polarizacija svjetlosti je pojava nesimetričnog titranja električnoga i
+magnetskoga polja svjetlosnog vala
+- polarizacija nastaje međudjelovanjem svjetlosti i tvari
+- ukoliko ima elektromagnetski val uvijek isti smjer titranja, a ravnina titranja se ne
+mijenja, kažemo da je val polariziran
+- polariziranu svjetlost simbolički označavamo tako da na svjetlosnoj zraci
+označimo smjer titranja električnog polja
+(SLIAK 1)
+- primjer polariziranih valova su TV valovi i laserska svjetlost
+- postoji više načina na koje možemo dobiti polariziranu svjetlost od nepolarizirane:
+1. refleksijom,
+2. selektivnom apsorpcijom (na primjer pomoću polaroida)
+3. dvolomom
+4. raspršenjem
+- stupanj polarizacije ovisi o kutu upada
+- postoji kut upada pri kojemu se reflektiraju samo valovi čiji električni vektor titra
+okomito na ravninu upada: to je tzv. Brewsterov kut
+(SLIKA 2)
+- uvjet je potpune polarizacije reflektirane svjetlosti da su upadna i lomljena zraka
+okomite
+- svjetlost se može polarizirati i pomoću posebnih dikroničnih kristala koji propuštaju
+svjetlost u jednom smjeru, a ostatak apsorbirajuŽ
+(SLIKA 3)
+- svjetlost se može polarizirati pomoću tzv. polaroida koji se upotrebljavaju i za izradu
+nekih vrsta sunčanih naočala; kada se dva polaroida postave okomito jedan na
+drugog, na zastoru gdje lovimo sliku nastane tama
+(SLIKA 4)
+- promatramo li polariziranu svjetlost kroz polaroid-analizator, tada intenzitet
+propuštene svjetlosti ovisi o kutu φ između polaroida i analizatora prema izrazu:
+2
+1 I I = cos 
+, gdje je I
+1
+intenzitet svjetlosti propuštene kroz polaroid:
+1 0
+1
+2
+I I =
+I0
+-intenzitet nepolarizirane svjetlost
+        	</p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                </div>
+                <!---->
+                <!---->
+                <button class="button-87" role="button" value="Lock Current"
+                  onclick="toggleWindow('newWindow_1');lockA()">Zadatci</button>
+                <div id="newWindow_1" class="newWindow">
+                <p>
+Zadatak 1. Kut polarizacije za flintovo staklo je 60°30'. Koliki je indeks loma tog
+stakla?
+Zadatak 2. Zrake se svjetlosti reflektiraju na dnu staklene posude. Odredite kut
+totalne polarizacije ako je posuda prazna; posuda napunjena vodom; napunjena
+benzolom. Indeks loma vode je 4/3, benzola 1,52, stakla 1,5.
+        </p>
+                  </div>
+                  <div class="right">
+                    <div class="zoom-controls">
+                      <button id="Img_Zoom" onclick="zoomIn(2)">+</button>
+                      <button id="Img_Zoom" onclick="zoomOut(2)">-</button>
+                      <button id="Img_Zoom" onclick="resetZoom(2)">Reset</button>
+                    </div>
+                    <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
+                  </div>
+                <!---->
+                <!---->
+              </div>
+            </div>
+        </section>
+        <!---->
+        <!---->
+        <!---->
     <script>
         // Time tracking data for sections
         const sectionData = {
@@ -1913,21 +2300,21 @@
             const headerIndicator = document.getElementById(`status-indicator-${sectionId}`);
             const summaryIndicator = document.getElementById(`summary-status-indicator-${sectionId}`);
             const tooltip = headerIndicator ? headerIndicator.nextElementSibling : null;
-            
+
             if (!sectionData[sectionId].lastOpened) {
                 if (headerIndicator) headerIndicator.className = "status-indicator status-red";
                 if (summaryIndicator) summaryIndicator.className = "status-indicator summary-status-indicator status-red";
                 if (tooltip) tooltip.textContent = "Never visited";
                 return;
             }
-            
+
             const now = new Date();
             const diffHours = (now - sectionData[sectionId].lastOpened) / (1000 * 60 * 60);
-            
+
             // Format last visited time
             const lastVisited = formatLastVisited(diffHours);
             if (tooltip) tooltip.textContent = `Last visited: ${lastVisited}`;
-            
+
             // Set indicator color based on time thresholds
             let statusClass;
             if (diffHours <= 36) {
@@ -1937,7 +2324,7 @@
             } else {
                 statusClass = "status-red";
             }
-            
+
             if (headerIndicator) headerIndicator.className = `status-indicator ${statusClass}`;
             if (summaryIndicator) summaryIndicator.className = `status-indicator summary-status-indicator ${statusClass}`;
         }
@@ -1946,15 +2333,15 @@
         function formatLastVisited(hours) {
             if (hours < 1) return "Just now";
             if (hours < 24) return `${Math.floor(hours)} hours ago`;
-            
+
             const days = Math.floor(hours / 24);
             if (days === 1) return "1 day ago";
             if (days < 7) return `${days} days ago`;
-            
+
             const weeks = Math.floor(days / 7);
             if (weeks === 1) return "1 week ago";
             if (weeks < 4) return `${weeks} weeks ago`;
-            
+
             const months = Math.floor(days / 30);
             if (months === 1) return "1 month ago";
             return `${months} months ago`;
@@ -1972,14 +2359,14 @@
             const greenList = document.getElementById('green-list');
             const yellowList = document.getElementById('yellow-list');
             const redList = document.getElementById('red-list');
-            
+
             // Clear existing lists
             greenList.innerHTML = '';
             yellowList.innerHTML = '';
             redList.innerHTML = '';
-            
+
             const now = new Date();
-            
+
             for (const sectionId in sectionData) {
                 if (!sectionData[sectionId].lastOpened) {
                     // Never opened - red status
@@ -1987,9 +2374,9 @@
                     redList.appendChild(li);
                     continue;
                 }
-                
+
                 const diffHours = (now - sectionData[sectionId].lastOpened) / (1000 * 60 * 60);
-                
+
                 if (diffHours <= 36) {
                     const li = createStatusListItem(sectionId, 'green');
                     greenList.appendChild(li);
@@ -2008,7 +2395,7 @@
             const li = document.createElement('li');
             const indicator = document.createElement('div');
             indicator.className = `status-indicator status-${status}`;
-            
+
             li.innerHTML = `
                 <span>
                     ${indicator.outerHTML}
@@ -2016,14 +2403,14 @@
                 </span>
                 <span>${formatLastVisitedTime(sectionData[sectionId].lastOpened)}</span>
             `;
-            
+
             return li;
         }
 
         // Format last visited time for the overview list
         function formatLastVisitedTime(lastOpened) {
             if (!lastOpened) return "Never";
-            
+
             const now = new Date();
             const diffHours = (now - lastOpened) / (1000 * 60 * 60);
             return formatLastVisited(diffHours);
@@ -2034,7 +2421,7 @@
             const window = document.getElementById(windowId);
             window.classList.toggle('active');
             document.body.style.overflow = window.classList.contains('active') ? 'hidden' : '';
-            
+
             if (windowId === 'statusOverview' && window.classList.contains('active')) {
                 populateStatusOverview();
             }
@@ -2056,7 +2443,7 @@
         }
         window.addEventListener("scroll", reveal, { passive: true });
         reveal(); // Initialize
-        
+
         // ZOOM FUNCTIONALITY
         let zoomInterval;
         const ZOOM_SPEED = 0.1;
@@ -2084,7 +2471,7 @@
                 imageScales[img.id] = 1;
                 img.parentElement.scrollTo(0, 0);
             });
-            
+
             const textElements = document.querySelectorAll('.zoomable-text');
             textElements.forEach(text => {
                 text.style.fontSize = '1em';
@@ -2143,7 +2530,7 @@
             const windowToToggle = document.getElementById(windowId);
             windowToToggle.classList.toggle('active');
             document.body.style.overflow = windowToToggle.classList.contains('active') ? 'hidden' : '';
-            
+
             if(windowToToggle.classList.contains('active')) {
                 resetAllZooms();
             }
@@ -2152,24 +2539,24 @@
         // MODIFIED LAYOUT CYCLING FUNCTION
         let layoutStates = ['default', 'swapped', 'no-images'];
         let currentLayoutIndex = 0;
-        
+
         function cycleLayout(windowId) {
             const window = document.getElementById(windowId);
             const imageContainer = window.querySelector('.image-container');
-            
+
             // Remove all layout classes
             window.classList.remove('swapped', 'no-images');
-            
+
             // Get next layout state
             currentLayoutIndex = (currentLayoutIndex + 1) % layoutStates.length;
             const nextLayout = layoutStates[currentLayoutIndex];
-            
+
             // Apply new layout only if images exist
             if (imageContainer.children.length > 0) {
                 if (nextLayout !== 'default') {
                     window.classList.add(nextLayout);
                 }
-            } 
+            }
             // STRICT CONDITION: Only use no-images mode if no images
             else {
                 window.classList.add('no-images');
@@ -2198,14 +2585,14 @@
 
         document.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
-            
+
             const dx = e.clientX - startPos.x;
             const dy = e.clientY - startPos.y;
-            
+
             const container = document.querySelector(`#${currentImageId}`).parentElement;
             container.scrollLeft = scrollPos.x - dx;
             container.scrollTop = scrollPos.y - dy;
-            
+
             e.preventDefault();
         });
 
@@ -2222,8 +2609,8 @@
         document.addEventListener('click', function(event) {
             const newWindows = document.querySelectorAll('.newWindow');
             newWindows.forEach(window => {
-                if (window.classList.contains('active') && 
-                    !window.contains(event.target) && 
+                if (window.classList.contains('active') &&
+                    !window.contains(event.target) &&
                     !event.target.matches('.button-87[onclick*="toggleWindow"]')) {
                     toggleWindow(window.id);
                 }
@@ -2233,33 +2620,33 @@
         function createParticles() {
             const container = document.getElementById('particles');
             const particleCount = 50;
-            
+
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
-                
+
                 // Random properties
                 const size = Math.random() * 10 + 2;
                 const posX = Math.random() * 100;
                 const posY = Math.random() * 100;
                 const duration = Math.random() * 30 + 10;
                 const delay = Math.random() * 5;
-                
+
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 particle.style.left = `${posX}%`;
                 particle.style.top = `${posY}%`;
                 particle.style.animationDuration = `${duration}s`;
                 particle.style.animationDelay = `${delay}s`;
-                
+
                 container.appendChild(particle);
             }
         }
-        
+
         // Initialize particles and animations
         document.addEventListener('DOMContentLoaded', () => {
             createParticles();
-            
+
             // Add hover effect to table rows
             const tableRows = document.querySelectorAll('.enhanced-table tr');
             tableRows.forEach(row => {
@@ -2272,7 +2659,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('search');
             const searchResults = document.getElementById('search-results');
-            
+
             // Sample data for demonstration
             const elementsWithIds = [
                 { id: 'printBtn', text: 'Print Page Button', type: 'button' },
@@ -2282,7 +2669,7 @@
                 { id: 'shareBtn', text: 'Share Button', type: 'button' },
                 { id: 'downloadBtn', text: 'Download Button', type: 'button' }
             ];
-            
+
             // Function to find bold text on the page
             function findBoldText() {
                 const boldElements = Array.from(document.querySelectorAll('b, strong'));
@@ -2292,14 +2679,14 @@
                     type: 'bold text'
                 }));
             }
-            
+
             // Function to search for matching items
             function searchItems(query) {
                 const results = [];
                 const lowerQuery = query.toLowerCase().trim();
-                
+
                 if (!lowerQuery) return [];
-                
+
                 // Search bold text
                 const boldItems = findBoldText();
                 for (const item of boldItems) {
@@ -2311,10 +2698,10 @@
                         });
                     }
                 }
-                
+
                 // Search elements with IDs
                 for (const item of elementsWithIds) {
-                    if (item.id.toLowerCase().includes(lowerQuery) || 
+                    if (item.id.toLowerCase().includes(lowerQuery) ||
                         item.text.toLowerCase().includes(lowerQuery)) {
                         const element = document.getElementById(item.id);
                         if (element) {
@@ -2326,85 +2713,85 @@
                         }
                     }
                 }
-                
+
                 return results;
             }
-            
+
             // Function to display search results
             function displayResults(results, query) {
                 searchResults.innerHTML = '';
-                
+
                 if (results.length === 0) {
                     searchResults.innerHTML = '<div class="no-results">No results found for "' + query + '"</div>';
                     searchResults.style.display = 'block';
                     return;
                 }
-                
+
                 // Show search stats
                 const stats = document.createElement('div');
                 stats.className = 'search-stats';
                 stats.textContent = results.length + ' result' + (results.length !== 1 ? 's' : '') + ' for "' + query + '"';
                 searchResults.appendChild(stats);
-                
+
                 // Add results
                 results.forEach(result => {
                     const resultItem = document.createElement('div');
                     resultItem.className = 'result-item';
-                    
+
                     const icon = document.createElement('i');
-                    icon.className = result.type === 'bold text' ? 
+                    icon.className = result.type === 'bold text' ?
                         'fas fa-bold result-icon' : 'fas fa-hashtag result-icon';
-                    
+
                     const text = document.createElement('span');
                     text.textContent = result.text;
-                    
+
                     const type = document.createElement('span');
                     type.className = 'result-type';
                     type.textContent = result.type;
-                    
+
                     resultItem.appendChild(icon);
                     resultItem.appendChild(text);
                     resultItem.appendChild(type);
-                    
+
                     resultItem.addEventListener('click', () => {
                         // Highlight the target element
                         result.element.classList.add('highlight');
-                        
+
                         // Scroll to the element
                         result.element.scrollIntoView({
                             behavior: 'smooth',
                             block: 'center'
                         });
-                        
+
                         // Remove highlight after animation completes
                         setTimeout(() => {
                             result.element.classList.remove('highlight');
                         }, 2000);
-                        
+
                         // Clear search
                         searchInput.value = '';
                         searchResults.style.display = 'none';
                     });
-                    
+
                     searchResults.appendChild(resultItem);
                 });
-                
+
                 searchResults.style.display = 'block';
             }
-            
+
             // Event listeners
             searchInput.addEventListener('input', function() {
                 const query = this.value.trim();
-                
+
                 if (query.length < 2) {
                     searchResults.style.display = 'none';
                     return;
                 }
-                
+
                 const results = searchItems(query);
                 displayResults(results, query);
             });
-            
+
             searchInput.addEventListener('focus', function() {
                 const query = this.value.trim();
                 if (query.length >= 2) {
@@ -2412,7 +2799,7 @@
                     displayResults(results, query);
                 }
             });
-            
+
             document.addEventListener('click', function(e) {
                 if (!searchResults.contains(e.target)) {
                     searchResults.style.display = 'none';
@@ -2423,11 +2810,11 @@
         document.addEventListener('DOMContentLoaded', function() {
             initializeSectionData();
             updateAllStatusIndicators();
-            
+
             // Initialize scroll event listener
             window.addEventListener("scroll", reveal, { passive: true });
             reveal(); // Initialize sections
-            
+
             // Set the first section as opened
             sectionData.Ozzy_1.lastOpened = new Date();
             localStorage.setItem('lastOpened_Ozzy_1', sectionData.Ozzy_1.lastOpened.getTime());
@@ -2438,7 +2825,7 @@
             const window = document.getElementById('statusOverview');
             window.classList.toggle('active');
             document.body.style.overflow = window.classList.contains('active') ? 'hidden' : '';
-            
+
             if (window.classList.contains('active')) {
                 populateStatusOverview();
             }
@@ -2446,12 +2833,12 @@
        // UPDATED: EXAMPLE WINDOW FUNCTIONALITY
         let currentExampleSlide = 0;
         const exampleSlideCount = 4;
-        
+
         // Initialize example slider
         function initExampleSlider() {
             const dotsContainer = document.getElementById('exampleDots');
             dotsContainer.innerHTML = '';
-            
+
             for (let i = 0; i < exampleSlideCount; i++) {
                 const dot = document.createElement('div');
                 dot.className = 'example-dot';
@@ -2459,32 +2846,32 @@
                 dot.addEventListener('click', () => goToExampleSlide(i));
                 dotsContainer.appendChild(dot);
             }
-            
+
             updateExampleSlider();
         }
-        
+
         // Navigate to specific slide
         function goToExampleSlide(index) {
             currentExampleSlide = index;
             updateExampleSlider();
         }
-        
+
         // Slide navigation
         function slideExample(direction) {
             currentExampleSlide += direction;
-            
+
             // Handle boundaries
             if (currentExampleSlide < 0) currentExampleSlide = exampleSlideCount - 1;
             if (currentExampleSlide >= exampleSlideCount) currentExampleSlide = 0;
-            
+
             updateExampleSlider();
         }
-        
+
         // Update slider position and active dot
         function updateExampleSlider() {
             const slider = document.getElementById('exampleSlider');
             slider.style.transform = `translateX(-${currentExampleSlide * 100}%)`;
-            
+
             // Update active dot
             const dots = document.querySelectorAll('.example-dot');
             dots.forEach((dot, index) => {
@@ -2495,11 +2882,11 @@
                 }
             });
         }
-        
+
         // Initialize the example slider when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
             // ... existing initialization code ...
-            
+
             // Initialize the example slider
             initExampleSlider();
         });

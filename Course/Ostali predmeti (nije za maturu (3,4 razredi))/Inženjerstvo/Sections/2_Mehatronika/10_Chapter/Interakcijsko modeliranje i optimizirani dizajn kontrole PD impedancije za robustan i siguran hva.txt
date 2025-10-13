@@ -1,0 +1,949 @@
+<h3>Interactional Modeling and Optimized PD Impedance Control Design for Robust Safe Fingertip Grasping</h3>
+ <p class="zoomable-text">
+                    Abstract
+Dynamic and robust control of fingertip grasping is essential in robotic hand
+manipulation. This study introduces detailed kinematic and dynamic mathematical
+modeling of a two-fingered robotic hand, which can easily be extended to a multi-
+fingered robotic hand and its control. The Lagrangian technique is applied as a
+common procedure to obtain the complete nonlinear dynamic model. Fingertip
+grasping is considered in developing the detailed model. The computed torque
+controller of six proportional derivative (PD) controllers, which use the rotation
+angle of the joint variables, is proposed to linearize the hand model and to establish
+trajectory tracking. An impedance controller of optimized gains is suggested in the
+control loop to regulate the impedance of the robotic hand during the interaction
+with the grasped object in order to provide safe grasping. In this impedance con-
+troller, the gains are designed by applying a genetic algorithm to reach minimum
+contact position and velocity errors. The robustness against disturbances is achieved
+within the overall control loop. A computer program using MATLAB is used to
+simulate, monitor, and test the interactional model and the designed controllers.
+Keywords: modeling robotic hand, optimized impedance controller,
+linearization the dynamics of robotic hand, fingertip grasping, Lyapunov stability,
+Lagrange technique
+1. Introduction
+A recent research on service robotics has shown that there is an environmental
+reaction on major applications [1]. The robotic hand is the main interactive part of
+the environment with the service robotics [2, 3]. Grasping operation [4] has been
+used explicitly in robotic hand during the interactive period which represents the
+process of holding objects via two stages: free motion and constrained motion. Free
+motion is the moving of fingers before detecting the grasped object, and the
+constrained motion is the state of fingers when the object is detected. The common
+purpose in grasping is to handle unknown objects. Thus, finding both a model system
+and a control algorithm to deal with non-predefined objects is essential in a robotic
+hand. Regarding modeling, interactional modeling is the demand to perform a
+specific control algorithm. With interactional modeling, the contact force between
+163
+the robotic hand and the grasped objects has obtained without needing their prop-
+erties. In control point of view, the robotic hand holds an object by its fingers and
+moves the object to another place. In this case, there are different modes of opera-
+tion which can be listed as before holding the grasped object, holding the grasped
+object, and moving the robotic hand while holding the grasped object. The aim at
+each mode is distinct to the others and has to respond to the operation assigned.
+Thus, the multitude of various goals which have to be achieved with regard to the
+various operations presents an interesting scenario in the control of a robotic hand.
+Generally, it is essential to obtain the modeling of a multi-fingered robotic hand
+before implementing a specific model-based control algorithm. Arimoto et al. [5]
+presented a two-fingertip grasping model to control the rolling contact between the
+fingertips and the grasped object. Arimoto et al. derived the model through the use
+of the Euler-Lagrange equation with respect to the geometry of the fingertips which
+is represented by the arc length of a fingertip. Corrales et al. [6] developed a model
+for a three-fingered robotic hand; in their study the transmission of fingertip con-
+tact force from the hand to the grasped object is considered. Boughdiri et al. [7]
+discussed the issue of modeling a multi-fingered robotic hand as a first step, before
+designing controllers. They considered free motion only, without the constraints of
+grasped objects. In a proceeding work, Boughdiri et al. later [8] considered the
+constraints of grasped objects and the coupling between fingers in grasping tasks.
+In the control scenario of a robotic-environment interaction, there is generally
+also a similar case of a robotic hand-grasped object interaction; force tracking is
+necessary to obtain appropriate and safe contacts. In force tracking, three main
+position-force controllers are introduced: stiffness control, hybrid position/force
+control, and impedance control [9]. Among the above three controllers, impedance
+control presents an integrated process to constrained manipulators [10]. The
+impedance controller is introduced by Hogan in 1985 to set the dynamic conduct
+between the motion of the robot end-effector and the contact force with the envi-
+ronment, instead of regarding the control of motion and force individually [11, 12].
+Chen et al. [13] derived impedance controller for an elastic joint-type robotic hand
+in Cartesian and joint spaces. Chen et al. focused on the compensation of gravity
+and managing the parameter of uncertainties. Huang et al. [14] proposed the
+impedance controller for grasping by two fingers to deal with the problem of
+dropping objects when grasping by one finger. Zhang et al. [15] proposed an adap-
+tive impedance controller with friction compensation to track forces of the multi-
+fingered robotic hand.
+However, the synthesis of impedance control design continues to exist as a major
+challenge in the performance advancement of robotic hand in order to provide safe
+and robust grasping. Besides this, the greatest problems in robotic hand-grasped
+object interaction are the existence of nonlinearity in the dynamic system, dealing
+with different grasped objects, disturbances, and interference. In the previous
+studies, the aforementioned problems have not taken in consideration. The aim of
+this paper is to treat these problems using interactional modeling and the design
+gains of impedance control. The action of the suggested control expression is to
+provide a fingertip interactional robust control algorithm that takes into account the
+dynamics of the robotic hand under unknown contact conditions. To accomplish
+this, we propose first to linearize the dynamics on the level of position-tracking
+controller through six PD controllers. When executed, the calculated gains of the
+designed PD controllers result in zero steady errors without overshoot. Second,
+through an impedance controller, the interactional fingertips’ force is regulated by
+the robotic hand’s impedance. The gains of the impedance are designed based on
+genetic algorithm. As a result, the introduced control expression enables the posi-
+tion and velocity of fingertips to be controlled simultaneously without changing
+164
+Emerging Trends in Mechatronics
+over control subspace. This control expression avoids selecting between different
+controllers which causes indirect control and consumption of high energy. The
+operation and the robustness of the presented control expression are approved by
+MATLAB/Simulink in several tests.
+The rest of the chapter is organized as follows. In Section 2, the mathematical
+representation of kinematics and dynamics of the robotic hand with environment
+interaction is derived and explained. In Section 3, the overall controllers of position
+tracking and impedance control are designed. In addition, the suggested procedure
+of obtaining optimum values of impedance gains using genetic algorithm is
+explained. In Section 4, following the joint path and fingertip position is tested.
+Then, the robustness of the system is examined. Finally, the conclusions of this
+study are presented in Section 5.
+2. Mathematical model
+The models of a robotic hand system are the mathematical equations that
+describe all the contact forces and motion of the fingers at any time [16]. These
+models are essential for grasping and manipulation operations which include kine-
+matics, dynamics, and contacts between the fingers and the environment. A multi-
+fingered robotic hand with an existing grasped object has a complex structure.
+Thus, deriving the mathematical representation is not a simple task. In this section,
+the mathematical representation for a two-fingered robotic hand with an environ-
+ment is developed. Changing the orientation of the robotic hand with respect to the
+inertial (earth) frame during manipulation operation is considered in this analysis.
+2.1 Reference frames
+The system is a two-fingered robotic hand that can adjust fingertip grasp forces
+by the torque of actuators in the joints. Each finger includes three joints (MCP, PIP,
+and DIP) and three rigid phalanges (proximal, intermediate, and distal). The
+motion of the finger actuates through the torque in the joints. The variables i ¼ 1, 2
+and j ¼ 1, 2, 3 represent the index of the finger and the joint, respectively. The
+analysis is based on the four main reference frames: finger frames O ij, hand base
+frame O hb, fingertip contact point frames O tipi, and inertia frame O e as shown in
+Figure 1. The joints MCP, PIP, and DIP are located at O i1 , O i2 , and O i3 ,
+respectively. The length Lij represents the distance from O ij to O i jþ1ð Þ. The angle of
+rotation θij around z j 1 associates with the ith phalanx and j th joint. The coordinate
+frame Oij is attached in order to express the coordinates of any point on the
+phalanges as a result of the motion of θij. In our case, expressing the motion of the
+fingertip points ðxtip1, y tip1, z tip1Þ and ðx tip2, y tip2, ztip2Þ is the primary interest. The
+frame Ohb is defined to switch between the motions of the fingertips with respect to
+the base of the hand through matrices. The frames O tipi are defined to represent the
+contact points between the fingertips and the environment. Finally, the inertial
+frame O e which is assumed at O hb is assigned to represent the orientation of the
+robotic hand with respect to the earth.
+The result of orienting the robotic hand with respect to the earth coordinates is
+expressed by defining the three rotation angles roll, pitch, and yaw (RPY). In
+which, roll is (α: around x hb-axis), pitch is (γ: around yhb-axis), and yaw is
+(φ: around zhb-axis). Mathematical representation of rotation about a fixed axis
+(earth frame) can be expressed by a specified sequence of multiplying the free
+(SLIKA 119)
+rotation matrices Rx αð Þ, Ry γð Þ, and Rz φð Þ [17]. Thus, the final rotation matrix R hb
+e
+which switches from the earth frame O e xe; y e; z e
+    to the robotic hand base frame is
+obtained as
+(SLIA K 120)
+where L0 and b are the length and the width of the palm shown in Figure 1,
+respectively. In Eqs. (2) and (3) and the rest of equations in this study, the
+denotation c1 , s1 , c12 , s12 , c 123 , and s 123 represents cos θ1, sin θ1, cos θ1 þ θ2ð Þ,
+sin θ1 þ θ2ð Þ, cos θ1 þ θ2 þ θ3ð Þ, and sin θ1 þ θ2 þ θ2ð Þ, respectively. To control the
+position of the three links, the joint variables θi1, θi2, θi3 are calculated using inverse
+kinematic as
+(SLIKA 121)
+2.3 Contact interaction
+A contact interaction, which uses contact behavior between rigid fingertips and
+a flexible grasped object, is proposed in this study (see Figure 2). The grasped
+object is assumed as a linear spring of stiffness kobject. Hence, each fingertip exerts a
+force on the grasped object as
+(SLIKA 122)
+(SLIKA 123)
+(SLIKA 124)
+(SLIKA 125)
+Thus, the six motion equations are presented by rearranging Eq. (29) to result in
+€q1
+€q2
+   
+¼ Mhand q1; q2
+    1  D hand q1; _q1; q2; _q2
+    _q1
+_q2
+   
+  G hand q1; q2
+    þ τhand   F tips
+   
+: (30)
+The desired finger configuration in joint space can be obtained by solving the
+above equation, which will be explained later in Section 3.1 for designing the
+position-tracking controller.
+3. Controller design
+The derived mathematical representation is applied using MATLAB/Simulink to
+implement the proposed controllers and the tests of this study. The parameters of
+the model, which are used in Simulink, are shown in Table 1. The overall control-
+lers of the robotic hand are depicted as a complete block diagram in Figure 3. In the
+following sections, the design of the controllers is described in detailed.
+3.1 Position tracking
+Recently, a variant of the PD controller explicitly has been considered in the
+control of nonlinear system where the aim is to make the system follow a specific
+trajectory [19–22]. The joint angle controller shown in Figure 3 is the inner
+feedforward loop which presents the effect of the input torque on the error in
+Eq. (30). The detailed block diagram of this controller is shown in Figure 4. The
+tracking error is formed by subtracting the joint angle vector (q i) from the desired
+joint angle vector (q di ) as below:
+e i tð Þ ¼ q di tð Þ   q i tð Þ: (31)
+The objective is to minimize this error at any time, by differentiating Eq. (31)
+twice, solving for €q1 ; €q2
+    in Eq. (30), and rearranging the results in terms of the
+input torque that yields the following computed torque control equation
+(SLIKA 126)
+(SLIKA 127)
+(SLIKA 128)
+where €e i is the control input which is selected as six PD controllers with the
+following feedback:
+€e i ¼  K vi _e i   K pi e i , (33)
+where K v i ¼ diag k v if g and K p i ¼ diag k pi
+   ; hence, the robotic hand input
+becomes
+τhand ¼ M hand
+€q d1
+€q d2
+" #
+þ K v1 _e1 þ K p1 e1
+K v2 _e2 þ K p2 e2
+" #!
+þ D hand þ G hand þ F tips: (34)
+Figure 3.
+Block diagram of the complete robotic hand controllers.
+Figure 4.
+PD joint angle controller for each finger.
+172
+Emerging Trends in Mechatronics
+The system can be stabilized in Eq. (34) by a proper design of PD controller to
+track the error error tð Þ to zero. In which, the input torque at joints results in the
+trajectory of reaching the grasped object. According to Eq. (33), the typical transfer
+function of the error dynamic in closed-loop approach is
+error sð Þ
+w sð Þ ¼ 1
+s2 þ kv s þ k p
+, (35)
+where w is the disturbance. Thus, the system is stable for all positive values of k v
+and kp. Comparing Eq. (35) with the standard second-order polynomial term
+(s2 þ 2λωn s þ ω2
+n), we get
+k p i ¼ ω2
+n ,
+k vi ¼ 2λωn:
+The design of gains is selected for the closed-loop time constant (0:1s); thus
+ωn ¼ 1
+0:1 ¼ 10,
+kp ¼ ωn2 ¼ 100,
+k v ¼ 2ωn ¼ 20
+where ωn and λ are the natural frequency and the damping coefficient,
+respectively.
+The stability of robustness analysis by Lyapunov’s direct method is implemented
+here to verify the ability of applying the proposed PD controller in real situations
+where unmodeled disturbances are included in the actual robotic hand. The effect
+of unmodeled disturbances in robotic manipulator can be represented by replacing
+the PD controller gain matrices with matrices of nonlinear gains [23]. Considering
+the nonlinear matrices gains, the robotic hand input in Eq. (34) becomes
+τhand ¼ M hand
+€q d1
+€q d2
+" #
+þ K v1 e1ð Þ _e1 þ K p1 e1ð Þe1
+K v2 e2ð Þ _e2 þ K p2 e2ð Þe2
+" #!
+þ D hand þ G hand þ F tips , (36)
+where K p i e ið Þ ¼ diag k pi e ið Þ
+    and K v i e ið Þ ¼ diag k v i eið Þf g are the nonlinear
+proportional gain matrix and the nonlinear derivative gain matrix, respectively.
+Combining Eq. (32) with Eq. (36), the equation of the closed loop becomes
+d
+dt
+e1
+e2
+_e1
+_e2
+2
+6
+6
+6
+4
+3
+7
+7
+7
+5 ¼
+_e1
+_e2
+ K v1 e1ð Þ _e1   K p1 e1ð Þe1
+ K v2 e2ð Þ _e2   K p2 e2ð Þe2
+2
+6
+6
+6
+6
+4
+3
+7
+7
+7
+7
+5: (37)
+The stability of Eq. (32) together with Eq. (36) is assumed if there exists ρ . 0
+with the following inequality sentences:
+k p i eið Þ ≥ ρ,
+k v i eið Þ ≥ ρ:
+The stability analysis is implemented by proposing the following Lyapunov
+function:
+173
+Interactional Modeling and Optimized PD Impedance Control Design for Robust Safe Fingertip…
+DOI: http://dx.doi.org/10.5772/intechopen.85531
+V ¼ 1
+2 _e1T _e1 þ 1
+2 _e2T _e2 þ
+ðe1
+0
+ε1T K p1 ε1ð Þ þ β1K v1 ε1ð Þ
+   dε1 þ
+ðe2
+0
+ε2T K p2 ε2ð Þ þ β2K v2 ε2ð Þ
+   dε2
+þ β1e1T _e1 þ β2e2T _e2 :
+(38)
+Considering the smallest eigenvalues λsi, the limit of βi satisfies
+λs1 K v1 ε1ð Þf g . β1 . 0,
+λs2 K v2 ε2ð Þf g . β2 . 0;
+thus
+k vj 1 εj1
+      β1
+2 . 0,
+k vj 2 εj2
+      β2
+2 . 0,
+where j ¼ 1, …, 3. Since β1, β2 . 0 and k pj 1 εj1
+   , kp j 2 εj2
+    ≥ ρ; thus
+kp j 1 εj1
+    þ β1k vj 1 εj1
+      β12
+2 ≥ ρ, (39)
+k p j 2 εj2
+    þ β2kv j 2 εj2
+      β22
+2 ≥ ρ: (40)
+Then, Eq. (38) becomes
+V ¼ 1
+2 _e1 þ β1e1ð ÞT _e1 þ β1e1ð Þ þ 1
+2 _e2 þ β2e2ð ÞT _e2 þ β2e2ð Þ
+þ
+ðe1
+0
+ε1T K p1 ε1ð Þ þ β1K v1 ε1ð Þ   β12
+2 I
+   
+dε1þ
+ðe2
+0
+ε2T K p2 ε2ð Þ þ β2K v2 ε2ð Þ   β22
+2 I
+   
+dε2 .
+(41)
+The first two terms of Lyapunov function are positive. Regarding the third and
+the fourth terms, according to Eqs. (39) and (40), we have
+ðej 1
+0
+ε1 kp j 1 εj1
+    þ β1k vj 1 εj1
+      β12
+2
+   
+dε1 ≥ 1
+2 ρ e j1
+ 
+   
+ 2, (42)
+ðe j2
+0
+ε2 kp j 2 εj2
+    þ β2kv j 2 εj2
+      β22
+2
+   
+dε2 ≥ 1
+2 ρ e j2
+ 
+   
+ 2 ; (43)
+thus
+ðej 1
+0
+ε1 k p j 1 εj1
+    þ β1k vj 1 εj1
+      β12
+2
+   
+dε1 ! ∞ when e j1
+ 
+   
+  ! ∞, (44)
+ðej 2
+0
+ε2 k pj 2 εj2
+    þ β2k vj 2 εj2
+      β22
+2
+   
+dε2 ! ∞ when e j2
+ 
+   
+  ! ∞: (45)
+Equations (44) and (45) result in
+ðe1
+0
+ε1T K p1 ε1ð Þ þ β1K v1 ε1ð Þ   β12
+2
+   
+dε1 ≥ 1
+2 ρ e1k k2, (46)
+174
+Emerging Trends in Mechatronics
+ðe2
+0
+ε2T K p2 ε2ð Þ þ β2K v2 ε2ð Þ   β22
+2
+   
+dε2 ≥ 1
+2 ρ e2k k2, (47)
+and
+ðe1
+0
+ε1T K p1 ε1ð Þ þ β1K v1 ε1ð Þ   β12
+2
+   
+dε1 ! ∞ when e1k k ! ∞, (48)
+ðe2
+0
+ε2T K p2 ε2ð Þ þ β2K v2 ε2ð Þ   β22
+2
+   
+dε2 ! ∞ when e2k k ! ∞: (49)
+Hence, the Lyapunov function presented in Eq. (38) is globally positive defini-
+tive function.
+Taking the derivative of Eq. (38) with respect to time, we get
+_V ¼ _e1T €e1 þ _e2T €e2 þ e1T K p1 e1ð Þ þ β1K v1 e1ð Þ
+    _e1 þ e2T K p2 e2ð Þ þ β2K v2 e2ð Þ
+    _e2 þ β1 _e1T _e1
+þ β1e1T €e1 þ β2 _e2T _e2 þ β2e2T €e2
+(50)
+Finally, using the rule of Leibnitz for representation, the integrals in differenti-
+ation form and Substituting Eq. (37) in (50) yield
+_V ¼   _e1T K v1 e1ð Þ   β1I½   _e1   _e2T K v2 e2ð Þ   β2I½   _e2   β1e1T K p1 e1ð Þe1   β2e2T K p2 e2ð Þe2,
+(51)
+for all positive values of gain matrices K v1 e1ð Þ, K v2 e2ð Þ, K p1 e1ð Þ,and K p2 e2ð Þ;
+Eq. (51) is globally negative function. Then
+_V , 0:
+In this way, the system is globally exponential stabile.
+3.2 Impedance controller
+The PD impedance controller has been widely applied in modern researches for
+controlling the interaction with the environment [24, 25]. The fundamental princi-
+ple of the implemented impedance control in this study is that the fingers should
+track a motion trajectory, and adjust the mechanical impedance of the robotic hand.
+The mechanical impedance of the robotic hand is defined in terms of velocity and
+position as
+Z hand ¼ F tip i sð Þ
+_X sð Þ , (52)
+sZ hand ¼ F tip i sð Þ
+X sð Þ : (53)
+By virtue of the above two equations, the fingertip contact force F tip i gives the
+essential property of regulating the position and velocity of the contact points
+between the fingertips and the grasped object. This regulating behavior is obtained
+by two PD controllers as shown in Figure 3. In the first PD controller, the position is
+regulated by
+175
+Interactional Modeling and Optimized PD Impedance Control Design for Robust Safe Fingertip…
+DOI: http://dx.doi.org/10.5772/intechopen.85531
+ΔX stiffness ¼ K F1F tip i , (54)
+where K F1 is the matrix of the proportional gain of the controller and the
+velocity is regulated by
+Δ _X damping ¼ K F2F tip i , (55)
+where K F2 is the matrix of the controller’s derivative gain. The regulated position
+and velocity of Eqs. (54) and (55) are integrated in the impedance control loop with
+another PD controller of proportional gain matrix K0
+p and derivative gain matrix K0
+v
+in order to adjust the damping of the robotic hand during grasping operation
+according to the following equation:
+τimp ¼ J T K0
+p ΔX D þ K0
+vΔ _X D
+   
+, (56)
+where
+ΔX D ¼ X D   X   ΔX stiffness ,
+and
+Δ _X D ¼ _X D   _X   Δ _X damping :
+Hence, the contact forces are regulated in joint space, and the robotic hand can
+adapt the collision of the fingers with the grasped objects.
+The application of Lyapunov function technique determines the conditions of
+stability of impedance controller [26]. In the forward kinematic model, the equa-
+tions of fingers are
+X i ¼ f q i
+   , (57)
+_X i ¼ J fingeri _q i: (58)
+On the other hand, the errors are given as
+ℶi ¼ q i   q id , (59)
+ℵi ℶið Þ ¼ X i q i
+      X id , (60)
+where ℶi, ℵi ℶið Þ, and i are the error of joint angle, the error in task space, and the
+index of finger (i ¼ 1, 2), respectively. Consider the constrained dynamics of the
+two fingers in Eqs. (15) and (16) for the control torque in Eq. (56). Applying
+Eqs. (59) and (60), the error dynamic equation of each finger becomes
+Mfinger1 ℶ1ð Þ €ℶ1 þ D finger1 ℶ1; _ℶ1
+    _ℶ1 þ Gfinger1 ℶ1ð Þ þ J T
+finger1 K0
+p þ K0
+p K F1K e þ K0
+v K F2K e þ K e
+h i
+ℵ1 ℶ1ð Þ
+þ J T
+finger1 K0
+v _ℵ1 ℶ1ð Þ ¼ 0,
+(61)
+M finger2 ℶ2ð Þ €ℶ2 þ D finger2 ℶ2; _ℶ2
+    _ℶ2 þ G finger2 ℶ2ð Þ þ J T
+finger2 K0
+p þ K0
+p K F1K e þ K0
+v K F2K e þ K e
+h i
+ℵ2 ℶ2ð Þ
+þ J T
+finger2 K0
+v _ℵ2 ℶ2ð Þ ¼ 0,
+(62)
+176
+Emerging Trends in Mechatronics
+where K e is the stiffness matrix of the fingertip/grasped object. In order to find
+the potential energy P ℶið Þ and the dissipation function D ℶið Þ, compare Eqs. (61)
+and (62) with the following Lagrangian’s equations of total kinetic energy T:
+d
+dt
+∂T
+∂ _ℶi
+   
+  ∂T
+∂ℶi
+þ ∂P
+∂ℶi
+þ ∂D
+∂ _ℶi
+¼ 0; (63)
+then, we get
+∂P
+∂ℶ1
+¼ K0
+p þ K0
+p K F1K e þ K0
+v K F2K e þ K e
+h i
+ℵ1 ℶ1ð Þ, (64)
+∂D
+∂ _ℶ1
+¼ K0
+v _ℵ1 ℶ1ð Þ, (65)
+∂P
+∂ℶ2
+¼ K0
+p þ K0
+p K F1K e þ K0
+v K F2K e þ K e
+h i
+ℵ2 ℶ2ð Þ, (66)
+∂D
+∂ _ℶ2
+¼ K0
+v _ℵ2 ℶ2ð Þ, (67)
+T ℶ1; _ℶ1
+    ¼ 1
+2 _ℶ1
+T Mfinger1 ℶ1ð Þ _ℶ1, (68)
+T ℶ2; _ℶ2
+    ¼ 1
+2 _ℶ2
+T M finger2 ℶ2ð Þ _ℶ2: (69)
+The error dynamics in Eqs. (61) and (62) is asymptotically stable if the following
+candidate Lyapunov function
+V ℶ; _ℶ
+    ¼ T ℶ1; _ℶ1
+    þ T ℶ2; _ℶ2
+    þ P ℶ1ð Þ þ P ℶ2ð Þ (70)
+satisfies the following conditions:
+V ℶ; _ℶ
+    is positive,
+_V ℶ; _ℶ
+    is negative:
+The derivative of Eq. (70) is
+d
+dt V ℶ; _ℶ
+    ¼ dT ℶ1ð Þ
+dt þ dT ℶ2ð Þ
+dt þ dP ℶ1ð Þ
+dt þ dP ℶ2ð Þ
+dt ,
+_V ℶ; _ℶ
+    ¼ _ℶ1
+T M finger1
+€ℶ1 þ _ℶ1
+T dMfinger1
+dt
+_ℶ1
+2 þ _ℶ2
+T M finger2
+€ℶ2 þ _ℶ2
+T dMfinger2
+dt
+_ℶ2
+2
+þ _ℶ1
+T K0
+p þ K0
+p K F1K e þ K0
+v K F2K e þ K e
+h i
+ℵ1 ℶ1ð Þ
+   
+þ _ℶ2
+T K0
+p þ K0
+p K F1K e þ K0
+v K F2K e þ K e
+h i
+ℵ2 ℶ2ð Þ
+   
+:
+(71)
+Equations (61) and (62) can be rearranged as below
+M finger1 ℶ1ð Þ €ℶ1 þ D finger1 ℶ1; _ℶ1
+    _ℶ1 þ G finger1 ℶ1ð Þ
+þ J T
+finger1 K0
+p þ K0
+p K F1K e þ K0
+v K F2K e þ K e
+h i
+ℵ1 ℶ1ð Þ ¼  J T
+finger1 K0
+v _ℵ1 ℶ1ð Þ, (72)
+177
+Interactional Modeling and Optimized PD Impedance Control Design for Robust Safe Fingertip…
+DOI: http://dx.doi.org/10.5772/intechopen.85531
+Mfinger2 ℶ2ð Þ €ℶ2 þ D finger2 ℶ2; _ℶ2
+    _ℶ2 þ Gfinger2 ℶ2ð Þ
+þ J T
+finger2 K0
+p þ K0
+p K F1K e þ K0
+v K F2K e þ K e
+h i
+ℵ2 ℶ2ð Þ ¼  J T
+finger2 K0
+v _ℵ2 ℶ2ð Þ, (73)
+By substituting Eqs. (72) and (73) in Eq. (71) and applying the relations in
+Eqs. (57)–(60), it yields
+_V ℶ; _ℶ
+    ¼   _ℵ1
+T ℶ1ð ÞK0
+v _ℵ1 ℶ1ð Þ   _ℵ2
+T ℶ2ð ÞK0
+v _ℵ2 ℶ2ð Þ: (74)
+Hence, the robotic hand system is asymptotically stable under the following
+boundaries:
+2K0
+p þ 2K0
+p K F1ke þ 2K0
+v K F2ke þ 2k e
+h i
+. 0,
+K0
+v . 0,
+or
+K0
+v . 0:
+3.3 Gains design using genetic algorithm
+Genetic algorithm is a well-known optimization procedure for complex prob-
+lems which ascertains optimum values for different systems [27]. The genetic algo-
+rithm is written to find the optimum impedance gains. The code takes the calculated
+data from the robotic hand Simulink model to compute impedance’s gains. How-
+ever, the detailed genetic algorithm that is applied in the design of the gains can be
+defined by the following proceedings:
+(1) Generate a number of solutions. This represents the random number of popu-
+lation which includes the gains K F1 , K F2 , K0
+p, and K0
+v of the impedance controller of
+Figure 3. These gains are the individual of population.
+(2) Fitness function. During the running of the program, the fitness is evaluated
+for each individual in the population. In this study, the objective of the fitness
+function is to minimize the errors ΔX D and Δ _X D of Eq. (56) as below:
+Error tracking ¼ 0:05ΔX D þ 0:05Δ _X D þ 0:1t r1 þ 0:1t s1 þ 0:1do 1 þ 0:1t r2 þ 0:1t s 2
+þ0:1do 2 þ 0:1t r 3 þ 0:1t s 3 þ 0:1do 3 ,
+(75)
+where t rj , ts j , and d o j are the rising time, the settling time, and the overshoot,
+respectively, for each error signal (j ¼ 1, 2, 3).
+(3) Create the next generation [28]. At each step, genetic algorithm implements
+the following three rules to create a new generation of the recent population:
+• Individuals called parents are selected by the selection rules, and then the
+population of the next generation is obtained by contributing the parents.
+• Two parents are combined to generate children by crossover rules for the next
+generation.
+• Children are formed by mutation rules. The process of forming children is
+dependent on applying random changes on the individual parents.
+178
+Emerging Trends in Mechatronics
+(4) Setting the genetic algorithm. The following parameters are used for setting the
+proposed genetic algorithm in this study: the number of generations = 80, the size of
+population = 30, and the range of gains are K F1min ¼ 0, K F1max ¼ 50, K F2min ¼ 0,
+K F2max ¼ 50, K pmin ¼ 0, K pmax ¼ 50, K V min ¼ 0, K V max ¼ 50.
+4. Simulation results
+The obtained interactional model was applied in the simulation to verify the
+designed controllers through three tests as follows:
+• Test 1: Following a specific joint path.
+• Test 2: Following fingertip position.
+• Test 3: Robustness of the controllers.
+The Simulink model is implemented using MATLAB as shown in Figure 5.
+4.1 Following a specific joint path
+This test is focused on position-tracking performance of joints. We assumed the
+two fingers are in initial position (θij ¼ 0) and the joints should follow the following
+path:
+θij d ¼ 0:2 sin πt:
+The simulation result explained in Figure 6 shows that the designed position-
+tracking controller can follow a specific path with zero steady error and without
+overshoot. A unit step input function of amplitude 20 ° is implemented to check this
+tracking error, and the response of the controllers is more detailed as shown in
+Figure 7.
+(SLIKA 129)
+(SLIKA 130)
+(SLIKA 131)
+4.2 Following fingertip position
+The second test is implemented to monitor the operation of the designed
+impedance controller in task space. We assumed the initial position of the fingertip
+1 is (135, 100,  25 mm) and it has to reach the position (115, 153.7,  25 mm). The
+position of the grasped object is assumed at x object1 ¼ 118mm, y object1
+¼ 152:7mm,
+z object1 ¼  25. The result of the optimization process of the impedance controller is
+obtained as K F1 ¼ 1:8089, K F2 ¼ 1, K P ¼ 1, K V ¼ 1. At these gains, as shown in
+Figure 8, the percentage error of position and velocity are 0.6 and 0%, respectively.
+Regarding the fingertip contact force represented in Figure 9, the overall designed
+controllers have given the essential property of contact without overshoot.
+For comparison purposes, another study is implemented without considering
+the impedance controller in the overall control loop, i.e., K F1 ¼ 0, K F2 ¼ 0,
+K P ¼ 0, K V ¼ 0. The results showed that the fingertip position error reaches 0.69%,
+but the main side effect was of the fingertip velocity error which reached 100% (see
+Figure 10). In turn, the fingertip contacts the grasped object with high value of
+error in velocity; this situation causes unsafe grasping. As a result, the proposed
+overall controller has minimized the velocity error to 0% thanks to the proposed
+impedance controller with genetic algorithm.
+4.3 System robustness
+The robustness of the designed controllers is checked in this section. This test is
+implemented within the same parameters of the desired position and object location
+(SLIKA 133)
+(SLIKA 134)
+(SLIKA 135)
+n the test of Section 4.2. The disturbances on the robotic hand cause change of the
+fingertip contact forces. Here, we assumed that the disturbances result in a contact
+force with a white Gaussian noise [29–32] shown in Figure 11. The Gaussian noise
+model is generated using block AWGN channel in Simulink. The position of the
+AWGN channel is shown in Figure 5. The parameters of white Gaussian noise are
+set as shown in Figure 12. The designed controllers have achieved the functionality
+of rejecting the disturbances and kept the motion of the finger as shown in
+Figure 13.
+(SLIKA 137)
+5. Conclusion
+Grasping by two fingertips plays a distinctive role in its performance related to
+robotic hand-environment interaction. A mathematical model including the
+dynamic equation has been derived based on the Lagrange technique. The coupling
+between two fingers and the fingertip contacts with unknown grasped objects has
+been presented in this model. The performance of the derived model is confirmed
+when a designed based model controller is implemented in Simulink. A computed
+torque controller of six PD controllers has been implemented to control the rotation
+of joints. The impedance controller is applied to operate as the outer loop of the
+overall control system. This controller allowed the regulation of the fingertip con-
+tact forces without overshoot response, which is essential for safe grasping, espe-
+cially in holding fragile objects. Besides this, the impedance gains have been
+obtained using a genetic algorithm with a new behavior of improving the response
+of the position and velocity errors. The applied genetic algorithm method has
+minimized the position error and the velocity error while keeping the operation of
+the overall control system. The robot finger has been ordered to follow a specific
+joint path and fingertip position grasping; the results of simulations have achieved a
+typical accomplishment of trajectory tracking. Finally, the overall controllers have
+shown a perfect rejection of disturbances in terms of fingertip contact force. As a
+future work, it is recommended to apply the proposed controllers of this study to
+mobile manipulator for grasping and manipulation objects.
+Figure 13.
+Response of the designed controllers to the disturbances.
+184
+Emerging Trends in Mechatronics
+Appendix A. Calculating the representation of Q i,
+Let
+F1
+!
+¼  m1 g j
+!
+, F2
+!
+¼  m2 g j
+!
+, F3
+!
+¼  m3 g j
+!
+,
+and
+r
+!
+1 ¼ x1 i
+!
+þ y1 j
+!
+, r
+!
+2 ¼ x2 i
+!
+þ y2 j
+!
+, r
+!
+3 ¼ x3 i
+!
+þ y3 j
+!
+:
+Then
+r
+!
+1 ¼ d1 cos θ1 i
+!
+þ d1 sin θ1 j
+!
+,
+r2
+! ¼ L1 cos θ1 þ d2 cos θ1 þ θ2ð Þð Þ i
+!
+þ L1 sin θ1 þ d2 sin θ1 þ θ2ð Þð Þ j
+!
+,
+r
+!
+3 ¼ L1 cos θ1 þ L2 cos θ1 þ θ2ð Þ þ d3 cos θ1 þ θ2 þ θ3ð Þð Þ i
+!
+þ L1 sin θ1 þ L2 sin θ1 þ θ2ð Þ þ d3 sin θ1 þ θ2 þ θ3ð Þð Þ j
+!
+:
+The partial derivatives of ri
+! with respect to θi are
+∂ r
+!
+1
+∂θ1
+¼  d1 sin θ1 i
+!
+þ d1 cos θ1 j
+!
+,
+∂ r
+!
+1
+∂θ2
+¼ 0,
+∂ r
+!
+1
+∂θ3
+¼ 0,
+∂ r
+!
+2
+∂θ1
+¼  L1 sin θ1   d2 sin θ1 þ θ2ð Þ½   i
+!
+þ L1 cos θ1 þ d2 cos θ1 þ θ2ð Þ½   j
+!
+,
+∂ r
+!
+2
+∂θ2
+¼  d2 sin θ1 þ θ2ð Þ i
+!
+þ d2 cos θ1 þ θ2ð Þ j
+!
+,
+∂ r
+!
+2
+∂θ3
+¼ 0,
+∂ r
+!
+3
+∂θ1
+¼  L1 sin θ1   L2 sin θ1 þ θ2ð Þ   d3 sin θ1 þ θ2 þ θ3ð Þð Þ i
+!
+þ L1 cos θ1 þ L2 cos θ1 þ θ2ð Þ þ d3 cos θ1 þ θ2 þ θ3ð Þð Þ j
+!
+,
+∂ r
+!
+3
+∂θ2
+¼  L2 sin θ1 þ θ2ð Þ   d3 sin θ1 þ θ2 þ θ3ð Þð Þ i
+!
+þ L2 cos θ1 þ θ2ð Þ þ d3 cos θ1 þ θ2 þ θ3ð Þð Þ j
+!
+,
+∂ r
+!
+3
+∂θ3
+¼  d3 sin θ1 þ θ2 þ θ3ð Þ i
+!
+þ d3 cos θ1 þ θ2 þ θ3ð ÞÞ j
+!
+,
+The matrices’ elements in Eq. (28) are
+m11 ¼ m1d12 þ I1 þ m2L12 þ m2d22 þ 2m2L1d2 cos θ2 þ I2 þ m3L12 þ m3L22
+þ 2m3L1L2 cos θ2 þ 2m3L1d3 cos θ2 þ θ3ð Þ þ 2m3L2d3 cos θ3 þ m3d32 þ I3,
+m12 ¼ m2d22 þ m2L1d2 cos θ2 þ I2 þ m3L1L2 cos θ2 þ m3L1d3 cos θ2 þ θ3ð Þ þ 2m3L22
+þ 2m3L2d3 cos θ3 þ m3d32 þ I3,
+185
+Interactional Modeling and Optimized PD Impedance Control Design for Robust Safe Fingertip…
+DOI: http://dx.doi.org/10.5772/intechopen.85531
+m13 ¼ m3L1d3 cos θ2 þ θ3ð Þ þ m3L2d3 cos θ3 þ m3d32 þ I3,
+m21 ¼ m2d22 þ m2L1d2 cos θ2 þ I2 þ m3L1L2 cos θ2 þ m3L1d3 cos θ2 þ θ3ð Þ
+þ2m3L2d3 cos θ3 þ 2m3L22 þ m3d32 þ I3,
+m22 ¼ m2d22 þ I2 þ m3L22 þ 2m3L2d3 cos θ3 þ m3d32 þ I3,
+m23 ¼ m3L2d3 cos θ3 þ m3d32 þ I3,
+m31 ¼ m3L1d3 cos θ2 þ θ3ð Þ þ m3L2d3 cos θ3 þ m3d32 þ I3,
+m32 ¼ m3L2d3 cos θ3 þ m3d32 þ I3,
+m33 ¼ m3d32 þ I3,
+d11 ¼  2m2L1d2 sin θ2 _θ2   2m3L1L2 sin θ2 _θ2   2m3L1d3 sin θ2 þ θ3ð Þ _θ2
+ 2m3L1d3 sin θ2 þ θ3ð Þ _θ3   2m3L2d3 sin θ3 _θ3,
+d12 ¼  m2L1d2 sin θ2 _θ2   m3L1L2 sin θ2 _θ2   m3L1d3 sin θ2 þ θ3ð Þ _θ2
+ m3L1d3 sin θ2 þ θ3ð Þ _θ3   2m3L2d3 sin θ3 _θ3   m3L1d3 sin θ2 þ θ3ð Þ _θ3,
+d13 ¼  m3L1d3 sin θ2 þ θ3ð Þ _θ3   m3L2d3 sin θ3 _θ3,
+d21 ¼  m2L1d2 sin θ2 _θ2   m3L1L2 sin θ2 _θ2   m3L1d3 sin θ2 þ θ3ð Þ _θ2 þ _θ3
+ 
+ 2m3L2d3 sin θ3 _θ3 þ m2L1d2 sin θ2 _θ1 þ m2L1d2 sin θ2 _θ2 þ m3L1L2 sin θ2 _θ1
+þ m3L1d3 sin θ2 þ θ3ð Þ _θ1 þ m3L1L2 sin θ2 _θ2 þ m3L1d3 sin θ2 þ θ3ð Þ _θ2 þ m3L1d3 sin θ2 þ θ3ð Þ _θ3,
+d22 ¼  2m3L2d3 sin θ3 _θ3,
+d23 ¼  m3L2d3 sin θ3 _θ3,
+d31 ¼  m3L1d3 sin θ2 þ θ3ð Þ _θ2 þ _θ3
+    m3L2d3 sin θ3 _θ3 þ m3L1d3 sin θ2 þ θ3ð Þ _θ1
+þm3L2d3 sin θ3 _θ1 þ m3L1d3 sin θ2 þ θ3ð Þ _θ2 þ 2m3L2d3 sin θ3 _θ2
+þm3L1d3 sin θ2 þ θ3ð Þ _θ3 þ m3L2d3 sin θ3 _θ3,
+d32 ¼  m3L2d3 sin θ3 _θ3 þ m3L2d3 sin θ3 _θ2 þ m3L2d3 sin θ3 _θ3,
+d33 ¼ 0,
+g1 ¼ m1 gd1 cos θ1 þ m2 gL1 cos θ1 þ m2 gd2 cos θ1 þ θ2ð Þ þ m3 gL1 cos θ1
+þm3 gL2 cos θ1 þ θ2ð Þ þ m3 gd3 cos θ1 þ θ2 þ θ3ð Þ,
+g2 ¼ m2 gd2 cos θ1 þ θ2ð Þ þ m3 gL2 cos θ1 þ θ2ð Þ þ m3 gd3 cos θ1 þ θ2 þ θ3ð Þ,
+g3 ¼ m3 gd3 cos θ1 þ θ2 þ θ3ð Þ,
+                </p>

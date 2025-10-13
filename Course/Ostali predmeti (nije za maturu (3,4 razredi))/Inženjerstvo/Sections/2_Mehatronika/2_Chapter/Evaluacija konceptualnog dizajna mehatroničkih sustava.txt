@@ -1,0 +1,758 @@
+<h3>Conceptual Design Evaluation of Mechatronic Systems</h3>
+<p class="zoomable-text">
+                    The definition of the conceptual design phase has been expressed in many
+different phrasings, but all of them lead to the same conclusion. The conceptual
+design phase is of the highest importance during the design process, due to the fact
+that many crucial decisions concerning the progress of the design need to be taken
+with very little to none information and knowledge about the design object. This
+implies to very high uncertainty about the effects that these decisions will have later
+on. During the conceptual design of a mechatronic system, the system to be
+designed is modeled, and several solutions (alternatives) to the design problem are
+generated and evaluated so that the most fitting one to the design specifications and
+requirements is chosen. The purpose of this chapter is to mention some of the most
+widely used methods of system modeling, mainly through hierarchical representa-
+tions of their subsystems, and also to present a method for the generation and
+evaluation of the design alternatives.
+Keywords: conceptual design, mechatronic design, hierarchical modeling,
+concept evaluation, mechatronic abilities, Choquet integral, criterion interactions
+1. Introduction
+The current mechatronic systems acquire very advanced capabilities based on
+the evolution of the mechatronics enabling technologies and the mechatronic design
+methodology. The enhanced intelligence of the mechatronic systems and the
+increased complexity are identified; however, these changes drive to completely
+new characteristics and capabilities of mechatronic systems supporting the new
+generation of production systems, e.g., these devices evolved from the simple
+monitoring to self-optimizing their performance. On top of that, mechatronics
+enhanced the application domains from manufacturing to biomechatronics and
+micromechatronics.
+The development of mechatronic products and systems requires concurrent,
+multidisciplinary, and integrated design approaches. This chapter deals with
+methods and models used during the mechatronic design and more specifically with
+the design evaluation. A method for concept generation and evaluation is presented.
+The criteria used as well as the mathematical foundations of the method will be
+presented and analyzed. More specifically, the mechatronic criteria based on the
+mechatronic abilities as well as their scoring will be described using a systematic
+approach. Aggregation of the new criteria will be performed using a nonlinear fuzzy
+27
+integral. The use of the mechatronic design index in a chosen application task will
+be presented.
+The next section of this chapter is a two-part state of the art. First, the concep-
+tual design of mechatronic systems and different techniques and approaches for the
+system modeling and representation during this phase are discussed. Later, the state
+of the art concerning concept evaluation methodologies and indexes is presented. A
+method for concept evaluation is proposed in Section 3 of the chapter. In the final
+section, an exemplary case study of the conceptual design phase of a mechatronic
+object is presented and discussed in the Conclusions section.
+2. State of the art
+2.1 System modeling and hierarchical representations
+Conceptual model creation of a mechatronic object to be designed is the actual
+task for industrial production systems that usually operate with modern CAD/CAM
+systems [1–4]. According to [1], in the object life cycle, the conceptual design is
+made just before the phase of creating the detailed design, when the object’s con-
+crete mathematical model is created and numeric calculations are realized.
+Nowadays, there are many definitions of conceptual design and corresponding
+methods and models that are used at the conceptual design phase analyzed in [5].
+An opinion given by Hudspeth [5] is that conceptual design is more about what a
+product might be or do and how it might meet the expectations of the manufacturer
+and the customer. M. J. French defines conceptual design as the phase of the design
+process when the statement of the problem and generation of a broad solution to it
+in the form of schemes is performed [6].
+The US Department of Transportation’s FLH Project Development and Design
+Manual [7] states that conceptual studies (CS) are typically initiated as needed to
+support the design planning and programming process. The CS phase identifies,
+defines, and considers sufficient courses of action (i.e., engineering concepts) to
+address the design needs and deficiencies initially identified during the planning
+process. This phase advances a project proposed in the program to a point when it is
+sufficiently described, defined, and scoped to enable the preliminary design and
+technical engineering activities to begin. The CS studies and preliminary design
+phases are performed in conjunction and concurrently with the environmental
+process, which evaluates environmental impacts of the engineering proposals
+resulting from the conceptual studies and preliminary design phases.
+Functional modeling technology was researched and applied to represent concept
+design knowledge by [8, 9] presented a function-behavior-structure (FBS) ontology
+representation process for concept design in different domains and emphasized the
+reasoning mechanism with the FBS ontology for knowledge representation.
+Borgo et al. [10] proposed an ontological characterization of artifact behavior
+and function to capture the informal meanings of these concepts in the engineering
+practice and characterize them as part of a foundational ontology. The function-
+cell-behavior-structure (FCBS) model to better comprehend representation and
+reuse of design knowledge in conceptual design was proposed by Gu [11]. A hierar-
+chical two-layer concept is given here, i.e., two knowledge-representing layers—the
+principle layer and the physical layer—are presented in the FCBS model. The
+principle layer is utilized here to represent the principle knowledge. Case modeling
+is employed in the physical layer to integrate the structural information and behav-
+ioral performances of the existing devices that apply the design principles
+represented by the functional knowledge cells (FKCs).
+28
+Emerging Trends in Mechatronics
+A formal definition of the concept design and a conceptual model linking con-
+cepts related to design projects are proposed by Ralph and Wand [12]. Their defi-
+nition of design incorporates seven elements: agent, object, environment, goals,
+primitives, requirements, and constraints. The design project conceptual model is
+based, here, on the view that projects are temporal trajectories of work systems that
+include human agents who work to design systems for stakeholders and use
+resources and tools to accomplish this task. Ralph and Wand [12] demonstrate how
+these two conceptualizations can be useful by showing that (1) the definition of
+design can be used to classify design knowledge and (2) the conceptual model can
+be used to classify design approaches.
+An approach for using hierarchical models in the design of mechatronic systems
+is presented by Hehenberger in [13]. To master the mechatronic design approach, a
+hierarchical design process is proposed. The models cover the different views on a
+system as well as the different degrees of detailing. The utilization and proper
+combination of solution principles from different domains of mechatronics allow an
+extended variety and quality of principal solutions, where hierarchical models serve
+as very important tools for complex design tasks. Analysis of different mechatronic
+design concepts is also conducted in the work. The approach is demonstrated by
+studying the activities during the design process of synchronous machines.
+Another approach used in mechatronic design is knowledge-based engineering
+(KBE) described by Sobieszczanski-Sobieski in [14]. The main structures for
+extended KBE application are design process and design models. The models con-
+tain specific aspects such as product structure as a whole and its fragments, engi-
+neering calculations, and analysis with ability of integration with external systems,
+design requirements, and decision-making processes. This object-oriented approach
+makes it possible to speed up the process of generating the source code of design
+models from the extended KBE and supports multidisciplinary design optimization.
+Knowledge-based hybrid intelligent systems, namely, imperialist competitive algo-
+rithm, artificial neural networks, genetic algorithms, and particle swarm optimiza-
+tion, are also used in tunnel design and construction processes and described in [15].
+Mathematical models used in design and modeling of mechanical structures of
+mechatronic systems are described in [16]. The examples of car suspension system
+modeling were presented in this work. The approach of interactive design and
+production evaluating of a manufacturing cell is described in [17].
+The use of hierarchical system (HS) formal construction and HS coordination
+technology in conceptual design of mechatronic objects is proposed and described
+by Miatliuk [18].
+2.2 Concept evaluation and generation
+The mechatronic design quotient (MDQ) [19–21] was proposed as a multicriterion
+measure for assisting decision-making in mechatronic design. In MDQ seven criteria
+were incorporated: meeting task requirements, reliability, intelligence, matching,
+control friendliness, efficiency, and cost. These criteria are aggregated by means of
+the Choquet Integral—a nonlinear fuzzy integral that can be used for assisting
+decision-making with interactive criteria [22]. Guidelines for the concept evaluation
+using these criteria were presented in [21], where four alternatives of an industrial
+fish cutting machine were evaluated using a hierarchical classification of the afore-
+mentioned criteria and the Choquet integral as the aggregator.
+The mechatronic multicriteria profile (MMP) [23] includes five main criteria
+(machine intelligence quotient, reliability, complexity, flexibility, and cost of man-
+ufacture and production) for the mechatronic concept evaluation. The MMP
+criteria are defined in such a way that the assessment of the alternatives with
+29
+Conceptual Design Evaluation of Mechatronic Systems
+DOI: http://dx.doi.org/10.5772/intechopen.88643
+respect to each criterion results from measurable sizes and does not depend entirely
+on the designer’s judgment and experience. In [23], the proposed method is applied
+to the conceptual design of a visual servoing system for a 6-DOF robotic manipula-
+tor, and the Choquet nonlinear fuzzy integral is used for the aggregation of the
+criteria. Three different aggregation techniques, the Choquet integral, the Sugeno
+integral, and a fuzzy-based neural network, were tested and compared for the
+design evaluation of a quadrotor mechatronic system [24].
+The mechatronic index vector (MIV) introduced in [2] consists of three criteria,
+intelligence, flexibility, and complexity. The attributes of every criterion are ana-
+lyzed and formulated. The intelligence level of a system is determined by its control
+functions, and the structure for information processing of mechatronic systems is
+used to model intelligence. A technique to measure the flexibility of manufacturing
+systems was used for the estimation of the flexibility of a mechatronic product. The
+various types of flexibility were classified in three main categories, namely, product
+flexibility, operation flexibility, and capacity flexibility. The complexity was
+modeled using seven elements. Various models for aggregating the criteria were
+proposed and compared including t-norms, averaging operators [2], and the dis-
+crete Choquet integral [25].
+Ferreira [26] proposed a decision support tool based on a neural network to
+provide suggestions for early design decisions based on previous solutions. In the
+same manner, the mechatronic design indicator (MDI) was proposed [27] as a
+performance indicator based on a neuronal network of radial basis functions.
+In [28], Moulianitis proposed a new mechatronic index for the evaluation of
+alternatives. The proposed criteria that make up the mechatronic index were mainly
+extracted from the collective knowledge presented in the multi annual roadmap
+(MAR) for robotics in Europe [29] and adapted by considering the recent advance-
+ments in mechatronics. The discrete Choquet integral is used for the aggregation of
+the evaluation scores, while also taking into account the correlations between
+criteria. The criteria and the aggregation method of the mechatronic index are
+presented in detail in the following sections.
+In recent years, some research has been focused in the automated generation of
+system architecture concepts for mechatronic design problems. In [30], an auto-
+mated generation and evaluation method for feasible and ranked physical architec-
+tures is proposed. First, the components that can realize specified system functions
+are identified and combined with the use of a unified knowledge model and
+dynamic programming methods. Then, the criteria are realized, and the system
+architectures are evaluated based on the technique for order preference by similar-
+ity to an ideal solution (TOPSIS).
+An integrated principle solution synthesis method which achieves the automated
+synthesis of multidisciplinary principle solutions but also solves the undesired
+physical conflicts among synthesized solutions was proposed in [31].
+In [32], a model-based research approach for an integrated conceptual design
+evaluation of mechatronic systems using SysML software is proposed and applied to
+the design of a two-wheel differential drive robot to find the optimal combination
+of component alternatives for specific evaluation goals.
+3. Concept evaluation in mechatronic design
+In this section, the necessary steps for concept evaluation are presented and
+described. The process is described in terms of a flowchart in Figure 1.
+The definition of the design specifications and requirements is a perquisite for a
+more complete evaluation. The designer can also capitalize on a well-defined set of
+(SLIKA 21)
+requirements and specifications in order to generate functional concepts that will
+later be evaluated. In order for the evaluation to take place, four steps are necessary.
+The criteria that are to be used for the evaluation of the alternatives must be chosen
+and defined. Then, the weights (importance) of the said criteria must be decided, as
+well as the interactions between them. The design alternatives are then evaluated
+with respect to each criterion, and those scores are aggregated using a discrete
+Choquet integral in order for the final scoring values to be derived. The alternative
+with the highest score is considered to be the most suitable to the design problem,
+given the specific requirements and other design environment characteristics
+(design team experience, knowledge, etc.). At this point, the designer has the
+choice to select the alternative that will be further developed during the detailed
+design phase or to review some of the previous step and reevaluate the design
+alternatives. The steps presented in Figure 1 are presented in more detail in
+the following paragraphs. The final section of this chapter is an exemplary case
+study where the proposed evaluation method is used for the evaluation of a
+mechatronic system.
+3.1 Design specifications
+In the early stage of defining the mechatronic system/product to be designed,
+the engineering specifications and constraints are determined. The quality function
+deployment (QFD) is a well-known and widely used method for deriving the design
+specifications and constraints by realizing customers’ needs and requirements. In
+[33], the classification of design specifications to demands and wishes is proposed,
+and, by extension, the further grading of wishes is based on their importance over
+the design process. The determination and the recording of design specifications are
+of great importance to the concept generation and evaluation processes. During the
+concept generation process, design specifications and constraints can help the
+designer to easily recognize any unfeasible concepts that will not satisfy the mini-
+mum requirements, while during the concept evaluation process, the designer can
+Figure 1.
+The proposed evaluation process during the conceptual design phase.
+31
+Conceptual Design Evaluation of Mechatronic Systems
+DOI: http://dx.doi.org/10.5772/intechopen.88643
+consult the list of customer requirements and design specifications for the evalua-
+tion criterion selection and the determination of their weights.
+3.2 Concept generation
+Concept generation is the process where possible solutions to the design problem
+are realized based on design specifications and functions that the system/product
+must accomplish. In order for a generated concept to be considered a feasible
+solution to the design problem, the two following conditions must be satisfied: (a)
+the concept meets at least the minimum design specifications, and (b) it includes
+the necessary software and hardware components [28]. Concepts can be
+represented in different ways, such as sketches or flow diagrams, function hierar-
+chies, textual notes, or table representations. However, regardless of which way a
+concept is represented, enough detail must be developed to model performance so
+that the functionality of the idea can be ensured [1]. The quality and the thorough-
+ness of the generated alternatives mainly depend on the available information and
+knowledge about the design problem at that early stage of the process and the
+experience of the design team.
+3.3 Concept evaluation
+In the concept evaluation stage, the concepts that have been generated are being
+evaluated with respect to some criteria. The performance of each alternative with
+respect to each criterion is rated, and these scores are aggregated with a specified
+aggregation function. The purpose of the evaluation is to support the decision-
+making process of the designer and help him/her to choose the best concept for
+further analysis in the detail design stage. In this section, the basic ideas behind each
+step of the process will be described, and different ways of implementing them will
+be mentioned. More emphasis will be placed on describing the foundations and
+methods (criterion definition, aggregation function, correlations between criteria)
+to be applied in the exemplary case study that follows in the next section.
+3.4 Criterion definition
+A criterion can be thought of as a measure of performance for an alternative
+[34]. As we saw earlier in the state of the art section, more than a few criteria and
+combinations of those criteria have been proposed for the evaluation of
+mechatronic concepts. The type and number of criteria to be used are up to the
+designer and the stakeholders that take part in the design process. The selection of
+criteria could depend on the designer’s experience and personal judgment; the
+available information and knowledge about the design problem; the alternatives
+and the abstraction level of their description, design specifications, and customer
+requirements; and whether the designer wants to incorporate the interactions
+among the criteria in the decision-making process.
+For the purposes of this chapter, the mechatronic abilities proposed by
+Moulianitis in [28] as criteria for the evaluation of mechatronic systems will be used
+in the exemplary case study. The criteria are based on the collective knowledge
+presented in the Multi Annual Roadmap (MAR) for Robotics in Europe [29]. The
+mechatronic abilities found in [28] are the following:
+• Adaptability
+• Configurability
+32
+Emerging Trends in Mechatronics
+• Decisional autonomy
+• Dependability
+• Interaction ability
+• Motion ability
+• Perception ability
+Abilities provide a basis for setting performance metrics and for application
+providers to specify desired levels of system performance [29]. These ability levels
+are adapted to mechatronic criteria, and a scoring scale for concept evaluation with
+respect to these criteria is presented [28]. Different scaling types for scoring and
+evaluation of criteria have been proposed, and the dispute concerning the superior-
+ity among them has been discussed in [35]. The way the criteria are mapped to
+scoring methods affects the evaluation results, meaning that a suitable mapping
+could lead to more realistic results. However, this work is outside the scope of this
+chapter and is left for future work.
+For the scoring of alternatives, it is assumed that the progression of the levels
+advances the characteristics of the system linearly, so a linear interpolation is used
+to map each level to a score. The criteria are scaled in the same universe of
+discourse, with the lowest possible value being equal to zero and the highest possi-
+ble equal to one. The scores of the intermediate levels are assigned linearly between
+zero and one. In the following, the scaling of the criteria according to [28], as well as
+short descriptions of the criteria, is provided.
+3.4.1 Adaptability
+Fricke [36] defined adaptability as the ability of a system to adapt in order to
+deliver intended function ability under varying conditions by changing the values
+of the design parameters either actively (online) or passively (off-line). In [29],
+adaptability is defined as the ability of the system to adapt itself to different work
+scenarios and different environments and conditions. Adaptability is often mixed
+with configurability and decisional autonomy but is differentiated by
+configurability in the sense that adaptation is mostly devoted to the parameter
+change rather than to the structure change. The difference between autonomous
+decision and adaptation is that adaptation takes place over time based on an accu-
+mulation of experience, while decisional autonomy is a result of environmental
+perception by means of sensors and cognitive mechanisms.
+Adaptability can be broken down to five ability levels, starting from Level 0
+when the system has no ability to adapt and reaching up to Level 4 when the process
+of adaptation is carried out by multiple agents. In the three intermediate levels, the
+system behavior is self-evaluated, and the need for parameter adaptation is recog-
+nized (Level 1), and in addition, individual parameters can be altered based on local
+performance assessment (Level 3), and in Level 4 the adaptation concerns multiple
+parameter changes. The levels of adaptability and the scaling for the scoring of each
+level are presented in Table 1.
+3.4.2 Configurability
+Configurability is the ability of a system to alter its configuration to perform
+different tasks. As it is stated in [29], configurability must be carefully distinguished
+(SLIKA 22)
+from adaptability and decisional autonomy which relate to how a robot system
+alters its responses (adaptability) and how it changes its behavior as it performs an
+operating cycle. At the highest level (Level 4) of configurability, the system is able
+to sense changes in its environment’s conditions that are not pre-programmed and
+alter its configuration in response to those changes. At the lowest levels, the system
+has a single and non-alterable configuration (Level 0), and at Level 1 the user is
+responsible for the definition of the system configuration at the beginning of each
+cycle of operations. As we go up to Level 3, the system can alter its configuration
+autonomously from a predetermined set of alternative built-in configurations, and
+in Level 4 the system is able to alter its configuration in response to changing
+conditions that are not pre-programmed or predetermined. The score scaling for
+each configurability level is shown in Table 2.
+3.4.3 Decisional autonomy
+A feature of many mechatronic systems is the devolution of functional respon-
+sibility to the system, freeing the operator or user to pay attention on the higher-
+level functions associated with the deployment and applicability of the system [37].
+In order to enhance the decisional autonomy of a system, it should be equipped with
+heuristics, machine learning capabilities, logic tools, etc. The same as before, the
+leveling starts from Level 0 for systems with no ability to take decisions, and it goes
+up as the system enhances its ability to take decisions. At first, the system is fully
+dependent on user decisions (Level 1), the system makes decisions to choose its
+behavior from a predefined set of alternatives based on basic sensing and user
+inputs (Level 2), and at Level 3 the system is able to process the inputs from the user
+and the sensing unit and makes decisions continuously, while in Level 4 moment-
+to-moment decisions about the environment are taken. Level 5 introduces an inter-
+nal model of the environment to the system in order to support the system’s
+decision-making process, and when in Level 6, the sequence of predefined subtasks
+is decided in a way, so it accomplishes a higher-level task. Level 7 means that the
+system can adapt its behavior to accommodate task constraints, and Level 8
+(SLIKA 23)
+translates to the alteration of the strategy as the system gathers new information
+and knowledge about the environment. In the two higher levels, decisions about
+actions are altered within the time frame of dynamic events that occur inside the
+environment (Level 9), and in Level 10, system compensation in real-time events is
+enabled by the alteration of the tasks themselves. The levels and the corresponding
+scores are presented in Table 3.
+3.4.4 Dependability
+Dependability of mechatronic units is defined as the qualitative and quantitative
+assessment of the degree of performance, reliability, and safety taking into consid-
+eration all relevant influencing factors [38]. The higher the level of dependability of
+a system, the more reliable this system is. Seven levels of dependability are defined
+as follows. At Level 0, there is no system ability to predict any failures. At Level 1,
+dependability is measured only by estimations of the mean time between failures,
+and the system has no real ability to detect or prevent those failures. At Level 2, the
+system has the ability to diagnose a failure and enter safe mode operation, while at
+Level 3 the system is able to diagnose a number of failures and recover from a
+proportion of them. If the system has the added ability to predict the consequences
+to its tasks caused by the diagnosed failures, then it has reached Level 4. At Level 5,
+the system can communicate its failures to other systems in order to rearrange the
+aggregate sequence of tasks and keep its mission dependable, and as we reach Level
+6, the system is able to predict a failure and act to prevent it. Dependability levels
+and scores are presented in Table 4.
+3.4.5 Interaction ability
+It is the ability of a system to interact physically, cognitively, and socially either
+with users, operators, or other systems around it [29]. In the concept of human
+adaptive mechatronics (HAM) [39], the goal is to design a mechatronic system that
+includes the user in the control loop and modifies the functions and the structure of
+user-machine interface to improve the human’s operational skills. Interactivity is
+considered in most of the modern mechatronic systems to facilitate either the
+(SLIKA 24)
+(SLIKA 25)
+operation or the maintenance and repair. Six levels were used for the modeling of
+interaction ability. Level 0 entails that no ability for interaction exists. The lowest
+level where human-system interactions are present is Level 1, where the operation
+of the system can be interrupted at any time by the user. When human-machine
+interaction is possible even if the user and the system are isolated, we are at Level 2,
+and if the system’s workspace is divided into safe and unsafe zone for human
+interaction, then Level 3 of interaction ability is reached. At Level 4, human-system
+synergy is considered, while the system checks for dangerous motions or forces that
+could be harmful to the human. At the highest level, that is, Level 5, recognition of
+the conditions under which the system should have a safe mode behavior based on
+detection of uncertainty is enabled. Interaction ability levels and their scoring are
+presented in Table 5.
+3.4.6 Motion ability
+In [28], motion ability is considered to categorize the different types of motion
+control. Open-source 3D printers are systems with Level 1 motion ability, while
+robotic vacuum cleaners are presenting abilities up to Level 5. Motion ability levels
+and the scores are presented in Table 6. At the lowest level (Level 0), the system
+presents no motion ability. As we go up to Level 1, the system accomplishes
+predefined motions in a sequence using open-loop control, while the use of closed-
+loop control for motion in a predefined manner is considered to be at Level 2 of
+motion ability. Level 3 offers the ability for constrained position or force options
+integrated to the motion control, while a reactive motion describes Level 4. Opti-
+mization of a set of parameters and planning of its motion based on said optimiza-
+tion translate to Level 5 of motion ability.
+(SLIKA 25)
+3.4.7 Perception ability
+In order for mechatronic systems to be capable of operation in unstructured,
+dynamic environments, multiple sensors and methods for sensor fusion and envi-
+ronment recognition are integrated into them [40]. The perception ability of a
+system is associated with its ability to understand and sense its working environ-
+ment. The leveling of the perception ability extends to eight levels in total. The same
+with all the previous mechatronic abilities, Level 0 means that there is no ability to
+perceive data. If critical data are collected using sensors and the behavior of the
+system is directly altered, then the system is at Level 1 of perception ability. If the
+collected data are first processed and the behavior of the system is then indirectly
+altered, we are at Level 2. At Level 3, multiple sensors are being used to create a
+unified model of the surrounding environment, while at Level 4 system is able to
+extract features of the environment by sensing only a region of it. Being a Level 5
+system goes with the ability to process the sensing data in order to extract informa-
+tion features that help with better environment interpretation. At Level 6 objects
+are identified using an object model, and at the highest level, Level 7, processed data
+are used in order to infer about properties of the environment. Perception ability
+levels and their scoring are given in Table 7.
+3.4.8 Criteria weights
+Criteria weights express the designer’s preference for the importance of each
+criterion in the assessment of the alternatives. Various methods for assigning
+weights to criteria have been proposed in the relevant literature [1, 33, 34, 41]. The
+most commonly used weight assignment technique for concept evaluation in the
+mechatronic design process is the direct rating of each criterion weight by the
+decision-makers (direct rating, point allocation, numerical scale) [1, 41, 42]. The
+eigenvector method, proposed by Saaty in [43], is a simple method that uses
+pairwise comparisons and ratings between criteria in order to formulate the weight
+of each individual criterion. In [34, 41], the reader can find a more in-depth analysis
+of different weight rating methods and how to choose the most suitable method
+depending on the decision problem. In the process of assigning values to criteria
+weights, the design team should make an effort to consider the design specifications
+and customer requirements and try to reflect them on the assigned values.
+3.5 Criteria correlations and aggregation method
+Choquet integral is a nonlinear fuzzy integral, which has been proposed and
+used for the aggregation of interacting criteria [22]. The integral allows for the
+designer to incorporate interactions into the evaluation process by providing
+weighting factors (weights) both for the criteria and the correlations between each
+subset of criteria. Considering the set of criteria X ¼ x1; x2; …; xnf g, the concept of a
+fuzzy measure [44] is defined.
+A fuzzy measure on the set X of criteria is a set function μ : P Xð Þ ! 0; 1½  
+satisfying the following axioms:
+i. μ ∅ð Þ ¼ 0 and μ Xð Þ ¼ 1
+ii. A ⊂ B ⊂ C implies μ Αð Þ ≤ μ Βð Þ.
+In this context, μ Αð Þ represents the weight of importance of criterion A [22]. By
+expressing the weighting factors of each subset of criteria, the interactions between
+criteria can be taken into account during the aggregation. Four types of interactions
+between criteria are presented in this chapter. A positive interaction (or correlation)
+means that a good score in criterion xi implies a good score in criterion xj and vice
+versa, while a negative correlation between interacting criteria means that a good
+score in criterion xi implies a bad score in criterion xj and vice versa. If a criterion has
+a veto effect on the evaluation process, a bad score in criterion xi results in a bad
+global score. A pass effect, on the other hand, implies that a good score in criterion xi
+results in a good global score. In Table 8, the four types of interactions between
+criteria and the relations between their weighting factors are presented.
+Given the set of criteria X and the fuzzy measure μ, the Choquet integral of a
+function f : X ! 0; 1½   with respect to μ is defined by [23]
+Cμ ¼ Cμ f x1ð Þ; …; f x nð Þð Þ ≔ Xn
+i¼1
+f x ið Þ
+      f x i 1ð Þ
+      μ Α ið Þ
+     
+(SLIKA 27)
+where :ð Þ ið Þ indicates that the indices have been permuted so that 0 ≤ f x1ð Þ ≤
+… ≤ f x nð Þ ≤ 1, f x 0ð Þ
+    ¼ 0, and A ið Þ ¼ x ið Þ; …; x nð Þ
+   :
+or equally [45]
+Cμ ¼ Xn
+i¼1
+f x ið Þ
+    μ Α ið Þ
+      μ Α iþ1ð Þ
+       (2)
+where :ð Þ ið Þ indicates that the indices have been permuted so that the criteria
+values are sorted in ascending order, such that 0 ≤ f x1ð Þ ≤ … ≤ f xnð Þ ≤ 1,
+A ið Þ ¼ x ið Þ; …; x nð Þ
+   , and A nþ1ð Þ ¼ 0.
+Marichal [45] also proposed an axiomatic characterization of the integral to
+motivate its use in applications. The expression he ended up with is the Choquet
+integral in terms of the Mobius representation:
+Cμ ¼ X
+i ∈ N
+a ið Þ ∙ f x ið Þ
+    þ X
+i;jf g⊆N
+a i; jð Þ ∙ f x ið Þ
+    ∧ f x jð Þ
+       þ … (3)
+where a ið Þ ¼ μ ið Þ and a i; jð Þ ¼ μ i; jð Þ   μ ið Þ þ μ jð Þ½  .
+4. Case study: automated BMP system
+The proposed method is used for the concept evaluation of an automated
+biomethane potential (BMP) measurement system. Before the presentation of the
+evaluation of the system, it should be mentioned that all the scoring values of
+alternatives, the criteria weights, and the criteria correlation weights were given
+intuitively by the authors of this chapter. This is not ideal, since the design team
+should strive for a more analytic and objective approach to the evaluation process.
+However, the study of the cognitive mechanisms that take place during the evalua-
+tion and the consideration of different ways of scoring criteria and criteria weights
+is left for future work. The purpose of this chapter is to focus more on the general
+methodology for concept evaluation and not so on its specifics.
+Production of biogas from different organic materials is an interesting source of
+renewable energy. The biomethane potential (BMP) of these materials has to be
+determined to get insight in design parameters for anaerobic digesters [46]. The test
+is conducted by placing an active inoculum and a sample of a substrate in a sealed
+container vessel and measuring the amount of the gas produced [47]. The basic
+steps followed in a BMP test are:
+1.The substrate and the inoculum are placed in the sealed reactor vessel.
+2. Stirring (not continuous) and heating (the temperature is held constant in the
+range 20–90°C, depending on the test mixture) of the test mixture to enhance
+biogas production. The production of biogas starts at this step and continuous
+until the end of the experiment.
+3. Absorption of CO2 . The biogas is transferred to a reactor vessel containing
+(liquid) NaOH. This allows for the dissolution of the CO2 in the NaOH
+solution, and the remaining gas volume is representative of the CH 4 present in
+the biogas.
+39
+Conceptual Design Evaluation of Mechatronic Systems
+DOI: http://dx.doi.org/10.5772/intechopen.88643
+. Gas flow measurement. The CH4 is transferred to the flow measurement
+system. The volume of gas produced in a specific time interval is quantified,
+usually under the fluid displacement principle.
+5.Data analysis and reporting.
+An average BMP test can last for more than 30 days, during which the test system
+must run without disruptions. The BMP test can be done manually, where human
+interference in 24-h intervals is needed in order for the gas flow measurement to take
+place. The whole process can also be automated, where no human interaction is
+needed for the gas flow measurement, and the analysis and representation of the
+results take place in real time during the experimental process. Two commercial
+products that automate the BMP test are the AMPTS II by Bioprocess Control Sys-
+tems [48] and the Biogas Batch Fermentation System by Ritter [49]. The following
+scheme represents the basic functions that need to be accomplished for the automa-
+tion of the process. The functions presented in the scheme in Figure 2 are incorpo-
+rated in both products (AMPTS II and Biogas Batch Fermentation System).
+In Figures 3 and 4, the two products are presented in relation to the scheme
+given in Figure 2. They accomplish the same functions but with slightly different
+components and working principles.
+(SLIKA 29)
+(SLIKA 30)
+The agitation in the case of the AMPTS is accomplished with an overhead stirrer
+with a special airtight cap that allows for the stirring of the mixture with a stirring
+rod coupled to the actuator. Ritter used an overhead stirrer, but the coupling
+between the actuator and the stirring rod is accomplished with a magnetic coupling.
+Ritter utilized a heating oven for the temperature control of the mixture, while in
+AMPTS II a water bath is used. For the ultralow gas flow measurement (ULGFM),
+Bioprocess Control uses their patented gas flow cell meter which operates based on
+the liquid displacement and buoyancy working principles, as well as the Hall effect.
+Ritter’s gas flowmeter is based on the same operating principles but utilizes the
+tipping bucket effect in combination with a Hall effect sensor. For the normaliza-
+tion of the measurement results, a temperature and a barometric pressure sensor are
+being used. The user can control the speed and the movement direction of the
+actuator motors through the software.
+The main requirements considered by the design team are that the system can
+reliably operate for the whole duration of the experiment (more than 30 days), the
+temperature of the mixture inside the reactor vessel is held constant at a
+prespecified temperature, it offers an automated and accurate flow measurement
+method, its components and subsystems are gastight in order for the gas to be able
+to travel through the system without any leakages, and finally the results are
+presented to the user via a software UI.
+After the listing of the design requirements, the design team proceeds with the
+generation of alternative concepts. For the facilitation of concept generation, the
+system could be modeled in various ways, such as the scheme shown in Figure 5. In
+Table 9, the information about the mechatronic system is presented in terms of
+energy, material, and information flows [1].
+By studying existing automated BMP systems, the design team attempted to
+model the basic functions of any automated BMP measuring system as a flowchart.
+This flowchart representation of the system functions is meant to be representative
+of any automated BMP measurement system and help the design team with the
+better understanding of the system to be designed.
+In [28], a design tree with the subfunctions of a mechatronic object, more
+specifically an educational firefighting robot, is presented. A representation of the
+automated BMP system in a manner similar to that design tree is presented in
+Figure 5.
+(SLIKA 31)
+The component and component categories that are considered in the design tree
+in Figure 5 are the following:
+• Sensing: For temperature control inside the reactor vessel, pressure recording
+and gas measurement.
+• Information processing: Software that is responsible for the actuator and
+temperature control, the data logging and processing of flow measurement
+values, and the calculation and representation of the experimental results.
+• Power components: The power supply of the actuators, the heating elements,
+and the control and software electronics.
+• Work components: The components that produce some kind of work.
+Mechanical work by the agitation actuators and thermal work by the heating
+elements.
+• Mechanical components: For the casing and structural support of the system,
+the tubing connections, the vessels (reactor vessel, absorption unit), the stirrer,
+the airtight components, and the mechanical parts contained within the flow
+measurement sensor.
+• Ultralow gas flow measurement: Working principles incorporated within the
+gas flow measurement system. In reality, the design of an ultralow gas flow
+measurement system could be considered by itself as a distinct mechatronic
+design problem.
+Energy flow Material flow Information flow
+Transformation of electrical power to
+kinetic energy (agitation)
+Flow of gas mixtures
+through the system
+Temperature, pressure, and flow
+sensing
+Transformation of electrical power to
+thermal energy
+Agitation of mixture in
+the reactor vessels
+Control of actuators
+Control of heating element
+Flow sensor data processing and
+result representation
+Table 9.
+Energy, material, and information flow representation of the automated BMP system.
+Figure 5.
+Design tree for automated BMP measurement system.
+42
+Emerging Trends in Mechatronics
+• Communication: For the inter process communications between the software
+and the rest subsystems (actuators, heater, sensors).
+Based on the classification of components considered in the design tree of the
+system (Figure 5) and the subsystems considered in the flowchart representation of
+the system (Figure 2), the design team came up with a first set of alternative
+concepts for the automated BMP system. The alternative components considered
+are presented in Table 10.
+As it can be seen in Table 10, not all subsystems and components were taken
+into account in the generation of possible solutions, but this does not mean that the
+basic requirements of the system are not met by the alternatives that have been
+chosen. As mentioned in previous sections, the quality and completeness of the
+solutions depend to a large extent on the available information and knowledge
+about the design object and the design team experience. It should also be borne in
+mind that the evaluation of the solutions is an iterative process, the purpose of
+which is to support the design team in the decision-making processes during the
+conceptual design phase.
+Based on the data of Table 11, there are 4   3   2 4 ¼ 192 possible design solu-
+tions. The study of the procedures for reducing the number of solutions lies outside
+the scope of this chapter and is left for future work. However, some of the factors
+that may play an important role in rejecting some alternatives without requiring a
+thorough evaluation process are outlined. The factors are as follows.
+• The design team is not familiar with relevant technology [28].
+• The assembly/communication between some components is unacceptably
+complicated or even impossible.
+• The cost of some alternatives is too high.
+• Some alternatives have already been realized by competitors, and they are not
+considered innovative enough.
+• The alternative does not satisfy the basic system/product requirements.
+• The time frame for the design process does not allow for the exhaustive
+evaluation of the alternatives, and a decision must be made quickly.
+(slika 32)
+(SLIKA 33)
+In the same manner, if an alternative presents really low cost and complexity
+and the design team is very familiar with the relevant technology, it could be chosen
+for further development along with the alternatives that will be chosen after the
+evaluation process. The design team came up with the three design alternatives
+DA k k ¼ 1, 2, 3ð ) presented in Table 11.
+Each design alternative uses a different type of actuator for the stirring of the
+mixture. In DA1 and DA2 , a brushed DC motor and a brushless DC motor, respec-
+tively, are used. A stepper motor with the additional components for the open-loop
+control of the system is being utilized in DA3 . As for the other agitation compo-
+nents, DA1 and DA2 are using an overhead stirrer which is coupled with the motor
+with a linear coupling, e.g., helix coupler, while the third alternative makes use of a
+magnetic coupling between the actuator and the stirrer. The three design alterna-
+tives realize the heating of the mixture inside the reaction vessels in three different
+ways. The two first alternatives, i.e., DA1 and DA2, use a water bath and a heating
+oven, respectively, for the heating of the mixture, while in DA 3 a silicon rubber
+heater (etch foil heater) is chosen for the heating purposes. Thermocouples (DA 1 )
+and a RTD sensor (DA2 , DA 3) are chosen as alternative solutions for temperature
+sensing inside the reactor vessel. The two alternatives that the design team came up
+with for the realization of the ultralow gas flow measurement system are presented
+in Figure 6.
+The first alternative for the ULGFMS, presented in Figure 6a and used in design
+alternatives DA1 and DA3 , utilizes the liquid displacement discipline and with the
+use of an optical sensor is able to calculate the flow of the produced gas. As gas
+(SLIKA 34)
+enters the chamber, pressure arises, and the liquid level inside the chamber rises
+until it reaches the point where the optical sensor is pointed at. The sensor records
+the phenomenon, and the gas is then released from the system, the liquid level
+drops again, and the process repeats itself. By calibrating the system so that we
+know the exact gas volume needed for the liquid to reach the optical sensor’s level
+and recording the number of times it reaches that level in a given time interval, we
+can estimate the gas flow. The second alternative presented in Figure 6b and
+utilized in design alternative DA 2 makes use of a tipping bucket mechanism. A
+bucket-like chamber is placed inside a container packed with a liquid. Gas bubbles
+enter the bucket, and when enough of them have gathered, the bucket tips because
+of the buoyancy. During the tipping motion, a Hall sensor records the phenomenon,
+and the gas is released. As we can see, the second alternative is very similar to the
+first one. Finally, for the first two alternatives DA1 and DA2 , the communication
+between its subsystems will all be achieved via physical (wired) communication
+protocols and hardware components, while the third DA3 alternative is using radio
+frequencies, namely, Wi-Fi communication between its subsystems.
+The next step of the conceptual design phase involves the selection of the
+appropriate criteria for the evaluation of the design alternatives, the determination
+of their weights, and the interactions between them. In the example of the auto-
+mated BMP system, five criteria from the total of seven presented in the previous
+section are considered for the evaluation, along with the cost and complexity
+criteria. For the cost criterion, the material resources and man-hours required for
+the development of the system are estimated. Complexity mainly describes the
+familiarity of the design team with specific technologies, and complex design pro-
+cess will be based on that fact. It should be noted that higher scores on cost and
+complexity criteria translate to fewer resources needed for the development of the
+product and also to less complex designs. The score of each alternative with respect
+to each criterion is shown in Table 12.
+The fuzzy measures that represent the weight of each criterion are presented in
+Table 13. Three values were chosen to specify the importance of each criterion
+0:05; 0:105; 0:160ð Þ, with each one corresponding to low, medium, and high
+importance, respectively. As it is stated in [28], a choice of very low and/or very
+high values limits the ability to define the correlations between criteria. For exam-
+ple, assuming a low importance equal to μ x1ð Þ ¼ 0:01 and a high importance equal
+to μ x2ð Þ ¼ 0:20, then the positive correlation among them is impossible to be
+defined since the following constraints must be true: μ x1ð Þ þ μ x2ð Þ > μ x1; x2ð Þ and
+μ x1; x2ð Þ > μ x2ð Þ.
+The design team wanted to reward systems that display low cost and complex-
+ity, and so the two criteria are negatively correlated. The same thinking applies to
+(SLIKA 35)
+5. Conclusions
+In this chapter, some well-known methods for the conceptual analysis and
+evaluation during the mechatronic design process are discussed, and a method for
+the evaluation of generated design alternatives is proposed. The proposed design
+criteria, which were derived from the multi annual roadmap in robotics in Europe,
+were presented in [28]. Four interactions between criteria are presented and the
+Choquet integral along with the two additive fuzzy measures used for dealing with
+the aggregation of the evaluation scores.
+Criteria (x i) Weight (μ xið Þ)
+1. Configurability μ x1ð Þ ¼ 0:16
+2. Dependability μ x2ð Þ ¼ 0:05
+3. Interaction ability μ x3ð Þ ¼ 0:105
+4. Motion ability μ x4ð Þ ¼ 0:05
+5. Perception μ x5ð Þ ¼ 0:05
+6. Cost μ x6ð Þ ¼ 0:16
+7. Complexity μ x7ð Þ ¼ 0:16
+Table 13.
+Criteria weights.
+Criteria xi ; xj
+  Interaction Set weight μ xi ; xj
+ Þ
+
+Cost/complexity Negative μ x6; x7ð Þ ¼ 0:45
+Complexity/configurability Negative μ x1; x7ð Þ ¼ 0:40
+Interaction ability/configurability Positive μ x1; x3ð Þ ¼ 0:20
+Cost/configurability Negative μ x1; x6ð Þ ¼ 0:35
+Table 14.
+Criteria correlations and set weights.
+Design alternatives DA1 DA 2 DA3
+Evaluation scores 0.2995 0.1960 0.3205
+Table 15.
+Choquet values of the alternative scores.
+46
+Emerging Trends in Mechatronics
+The most useful outcomes of this chapter are as follows. (i) The modeling of the
+system can lead to a better understanding of the problem and make the evaluation
+process easier and more accurate. (ii) The proposed mechatronic abilities can be
+utilized in a number of different situations. However, the score scaling of the
+criteria needs to be further investigated. (iii) The proposed method is there to
+support the design team on the selection of the most suitable design alternative. The
+evaluation process and the results obtained from it are dependent on the experience
+of the design team, the number of people participating in the evaluation, and the
+available knowledge at the time the decision is made.
+                </p>

@@ -1,0 +1,493 @@
+<h3>Sukladnost dužina i kutova</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Sukladnost dužina
+ <p>Sve su tri stranice jednakostraničnog trokuta sukladne. Sukladne su i suprotne stranice paralelograma, a sukladni su i kraci jednakokračnog trapeza.</p>
+              <img src="Sukladnost dužina i kutova_1.png">
+              <p>Sukladnost dužina
+                Dvije dužine ¯¯¯¯¯¯¯¯ABAB¯ i ¯¯¯¯¯¯¯¯¯CDCD¯ su sukladne ako su jednake duljine, ako je |AB|=|CD|.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Sukladnost kutova
+<p>Dva su kuta uz osnovicu jednakokračnog trokuta sukladna. Sukladni su i suprotni kutovi u paralelogramu. Kutovi uz osnovicu jednakokračnog trapeza su sukladni.</p>
+              <img src="Sukladnost dužina i kutova_2.png">
+              <p>Sukladnost kutovaDva su kuta sukladna ako imaju istu mjeru.
+                O sukladnosti kutova govori više poučaka koje ste učili u osnovnoj školi. Te poučke često ćemo primjenjivati pri provjeri sukladnosti i sličnosti trokuta pa ih ukratko ponovimo.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Sukladnost kutova
+<p>Ako su kutovima αα i ββ kraci paralelni, ti su kutovi ili sukladni (slika lijevo) ili suplementarni, a zajedno čine ispruženi kut (slika desno).</p>
+              <img src="Sukladnost dužina i kutova_3.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Vršni kutovi i kutovi uz presječnicu
+<p>Poučak o vršnim kutovima</p>
+              <img src="Sukladnost dužina i kutova_4.png">
+              <p>Dva pravca koji se sijeku određuju dva para međusobno sukladnih kutova. Sukladni su kutovi <)AVB<)AVB i <)CVD<)CVD te <)BVC<)BVC i <)DVA.
+                Poučak o kutovima uz presječnicu (transverzalu)
+              </p>
+              <img src="Sukladnost dužina i kutova_5.png">
+              <p>Neka su pp i qq paralelni pravci. Tada pravac tt koji ih siječe određuje s njima sukladne kutove. Na slici su sukladni kutovi  <)EAC<)EAC i <)EBD.</p>
+           
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Kutovi s okomitim kracima
+ <p>Ako su kutovima αα i ββ kraci okomiti, ti su kutovi ili sukladni (slika lijevo) ili suplementarni (slika desno).</p>
+              <img src="Sukladnost dužina i kutova_6.png">
+              <!--PRIMJER 2-->
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Sukladnost trokuta</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Sukladnost likova
+<p>Preslikavanje koje točkama ravnine pridružuje točke iste ravnine zovemo preslikavanje ravnine.
+                Neka je ff preslikavanje ravnine koje čuva udaljenost točaka. Drugim riječima, mora biti ispunjen sljedeći uvjet: ako su AA i BB bilo koje dvije točke i ako su A′A′ i B′B′ slike tih dviju točaka, tada je |AB|=|A′B′||AB|=|A′B′|. Takvo se preslikavanje ravnine zove izometrija ravnine.
+                Translacija, rotacija i osna (zrcalna) simetrija primjeri su izometrija. Ponekad se još izdvaja rotacija ravnine za 180∘180∘ i ona se zove centralna simetrija.
+                Na sljedećim trima sličicama prikazano je djelovanje tih triju izometrija; translacije (lijevo), rotacije (u sredini) i zrcalne simetrije (desno).
+              </p>
+              <img src="Sukladnost trokuta_1.png">
+              <p>Uzastopno djelovanje nekih dviju izometrija također je izometrija</p>
+              <img src="Sukladnost trokuta_2.png">
+              <!--ANIMATION HERE-->
+              <p>Sukladnost likova
+                Lik LL sukladan je liku L′L′ ako postoji izometrija koja lik LL preslikava na lik L′L′.
+                Svaka dva kruga jednakog polumjera su sukladna. Ako su S1S1 i S2S2 njihova središta, tada se translacijom za vektor −−−→S1S2S1S2→ jedan krug može preslikati na drugi.
+                I svaka dva kvadrata sa stranicama jednakih duljina su sukladna. Translacijom se do poklapanja mogu dovesti njihova središta, a potom rotacijom poklopiti i sami kvadrati.
+                No sukladnost složenijih likova nije uvijek jednostavno utvrditi.
+                Jedan od temeljnih geometrijskih likova je trokut. U nastavku ćemo proučavati sukladnost trokuta..
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Sukladnost trokuta
+<p>Ako su trokuti ΔΔ i Δ′Δ′ sukladni, onda trokut ΔΔ možemo premjestiti (po potrebi i “prevrnuti”) tako da se on poklopi s trokutom Δ′Δ′.
+                Ako su trokuti ABCABC i A′B′C′A′B′C′ sukladni, onda pišemo △ABC≅△A′B′C′△ABC≅△A′B′C′.
+              </p>
+              <img src="Sukladnost trokuta_3.png">
+              <p>Osnovni elementi trokuta su njegove stranice i kutovi. Što možemo reći o stranicama i kutovima sukladnih trokuta?
+                Sukladnost trokuta
+                Trokuti su sukladni ako i samo ako imaju sukladne odgovarajuće stranice i sukladne odgovarajuće kutove.Što su to odgovarajuće stranice i odgovarajući kutovi?Kad provjeravamo sukladnost dvaju trokuta, najvažnije je odrediti koji vrh jednog trokuta odgovara pojedinom vrhu drugog trokuta. Tada su kutovi uz te vrhove i stranice nasuprot tim vrhovima odgovarajući elementi trokuta.
+              </p>
+              <img src="Sukladnost trokuta_4.png">
+              <p>Ako u trokutima na slici vrijedi <)A≅<)M<)A≅<)M i <)B≅<)P<)B≅<)P, onda vrhovima AA, BB i CC trokuta ABCABC odgovaraju vrhovi MM, PP, NN trokuta MNPMNP (tim redom). Taj odnos zapisujemo ovako:A↔M,B↔P,C↔N.A↔M,B↔P,C↔N.Odgovarajući su kutovi uz odgovarajuće vrhove:α↔<)M,β↔<)P,γ↔<)N.α↔<)M,β↔<)P,γ↔<)N.Odgovarajuće su stranice:a↔m,b↔p,c↔n.a↔m,b↔p,c↔n.Da su trokuti ABCABC i MNPMNP sukladni, pišemo ovako: △ABC≅△MPN△ABC≅△MPN, pazeći na poredak odgovarajućih vrhova!</p>
+            
+---------------------------------------------------------------------------------------------------------------------------------------------------
+1. poučak o sukladnosti trokuta: S-S-S
+<p>Dva su trokuta sukladna ako se podudaraju u svim trima stranicama.</p>
+              <img src="Sukladnost trokuta_5.png"> 
+              <p>Neka su ABCABC i A′B′C′A′B′C′ dva trokuta čije su stranice sukladne:  a=a′a=a′, b=b′b=b′, c=c′c=c′.
+                Stranica ¯¯¯¯¯¯¯¯¯¯¯A′B′A′B′¯ sukladna je stranici ¯¯¯¯¯¯¯¯ABAB¯, pa trokut A′B′C′A′B′C′ možemo preslikati (pomaknuti, zarotirati i po potrebi zrcaliti) tako da se te dvije stranice poklope, a vrh C′C′ padne u neku točku C′′C″ u poluravnini (određenoj pravcem ABAB) u kojoj se nalazi i vrh CC. Sada je △A′B′C′≅△ABC′′△A′B′C′≅△ABC″
+              </p>
+              <img src="Sukladnost trokuta_6.png">
+              <p>Gdje se može nalaziti točka C′′C″? Budući da je a′=aa′=a, ona mora ležati na kružnom luku sa središtem u točki BB i polumjerom aa (taj luk prolazi točkom CC). Također, zbog b′=bb′=b, točka C′′C″ mora ležati i na kružnom luku sa središtem u točki AA i polumjerom bb (i taj luk prolazi točkom CC).
+                No ta se dva luka u ovoj poluravnini sijeku samo u točki CC, pa je C′′=CC″=C. Sada je △A′B′C′≅△ABC′′=△ABC△A′B′C′≅△ABC″=△ABC i poučak je dokazan.
+                Posljedica ovog poučka je: ako se dva trokuta podudaraju u svim trima stranicama, onda se oni podudaraju i u svim trima kutovima.
+                KONSTRUKCIJA
+              </p>
+              <img src="Sukladnost trokuta_7.png">
+              <p>Analiza. Prije početka konstrukcije skicirat ćemo trokut (koji veličinom i oblikom ne mora odgovarati zadanom) i na njemu označiti zadane elemente.
+                Konstrukcija. Odaberemo bilo koju od ovih triju stranica (recimo, ¯¯¯¯¯¯¯¯ABAB¯ duljine cc) i konstruiramo je (prenesemo šestarom njezinu duljinu na odabrani pravac). Iz rubnih točaka te stranice zasijecimo kružni luk duljine aa, te drugi duljine bb. Tamo gdje se ti lukovi sijeku, nalazi se treći vrh trokuta, CC.
+                Rasprava. Da bi konstrukcija bila moguća (da bi se dva kružna luka sjekla), duljina najdulje stranice mora biti manja od zbroja duljina preostalih dviju (nejednakost trokuta).
+                Ti se lukovi sijeku u dvjema točkama pa postoje dva rješenja. Međutim, trokuti ABCABC i ABC′ABC′ su  sukladni, jedan se iz drugog može dobiti preklapanjem (zrcaljenjem) preko stranice ¯¯¯¯¯¯¯¯ABAB¯. Zato kažemo da je trima zadanim stranicama trokut jednoznačno određen. Vidimo zapravo da je on određen do na sukladnost, jer su svi trokuti s danim duljinama stranica međusobno sukladni.
+                <!--PRIMJER 1-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+2. poučak o sukladnosti trokuta: S-K-S
+<p>Dva su trokuta sukladna ako se podudaraju u dvjema stranicama i kutu među njima.</p>
+              <img src="Sukladnost trokuta_8.png">
+              <p>Neka su ABCABC i A′B′C′A′B′C′ dva trokuta koja se podudaraju u dvjema stranicama i kutu među njima. Primjerice, neka je b=b′b=b′, c=c′c=c′ i α=α′α=α′. Kao i u prethodnom poučku, zaključujemo da trokut A′B′C′A′B′C′ možemo preslikati izometrijom tako da se stranica ¯¯¯¯¯¯¯¯¯¯¯A′B′A′B′¯ poklopi sa stranicom ¯¯¯¯¯¯¯¯ABAB¯, a vrh C′C′ padne u neku točku C′′C″ u poluravnini (određenoj pravcem ABAB) u kojoj se nalazi i vrh CC. Sada je △A′B′C′≅△ABC′′△A′B′C′≅△ABC″.
+                Ponovo se postavlja pitanje kamo može pasti točka C′′C″. Je li moguća situacija kao na slici lijevo? Ne, jer se kut α′α′ podudara s kutom αα. Zato C′′C″ mora pasti na krak ACAC kuta αα. Je li moguća situacija kao na slici dolje?
+              </p>
+              <img src="Sukladnost trokuta_9.png">
+              <p>Ne, jer je b=b′b=b′, pa mora biti |AC|=|AC′′||AC|=|AC″|. Zato je C′′=CC″=C pa imamo △A′B′C′≅△ABC′′=△ABC△A′B′C′≅△ABC″=△ABC i poučak je dokazan.
+                KONSTRUKCIJA
+              </p>
+              <img src="Sukladnost trokuta_10.png">
+              <p>Analiza. Skicirajmo trokut i naznačimo zadane elemente.
+                Konstrukcija. Najprije nacrtamo stranicu ¯¯¯¯¯¯¯¯ABAB¯ trokuta duljine cc. Uz vrh AA konstruiramo kut αα. Na drugom kraku tog kuta nanesemo stranicu ¯¯¯¯¯¯¯¯ACAC¯ duljine bb i time je određen treći vrh CC trokuta.
+                Rasprava. Ovim je podatcima trokut određen do na sukladnost. Na slici je nacrtan trokut MNPMNP sukladan trokutu ABCABC, koji ima jednake odgovarajuće elemente. Po čemu se konstrukcija trokuta MNPMNP razlikuje od konstrukcije trokuta ABCABC? Da bi se taj trokut poklopio s trokutom ABCABC, moramo ga preokrenuti (tj. zrcaliti s obzirom na neki pravac) i tek zatim pomaknuti u položaj trokuta ABCABC.
+              </p>
+              <img src="Sukladnost trokuta_11.png">
+              <p>
+                <!--PRIMJER 2-->
+                <!--PRIMJER 3-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+3. poučak o sukladnosti: K-S-K
+ <p>Dva su trokuta sukladna ako se podudaraju u stranici i kutovima uz tu stranicu</p>
+              <img src="Sukladnost trokuta_12.png">
+              <p>Neka su ABCABC i A′B′C′A′B′C′ dva trokuta koja se podudaraju u jednoj stranici i kutovima uz tu stranicu, npr. c=c′c=c′, α=α′α=α′ i β=β′β=β′. Preslikajmo izometrijom trokut A′B′C′A′B′C′ tako da mu stranica ¯¯¯¯¯¯¯¯¯¯¯A′B′A′B′¯ padne na stranicu ¯¯¯¯¯¯¯¯ABAB¯, a točka C′C′ u neku točku C′′C″ u poluravnini (određenoj pravcem ABAB) u kojoj se nalazi i vrh CC. Sada je △A′B′C′≅△ABC′′△A′B′C′≅△ABC″.
+                Je li moguća situacija kao na slici dolje? Ne! Budući da je α′=αα′=α, točka C′′C″ mora ležati na kraku ACAC kuta αα. Također, zbog β′=ββ′=β, točka C′′C″ mora ležati na kraku BCBC kuta ββ. Ta se dva kraka sijeku u točki CC, pa je zato C′′=CC″=C i imamo △A′B′C′≅△ABC′′=△ABC△A′B′C′≅△ABC″=△ABC. Poučak je dokazan.
+              </p>
+              <img src="Sukladnost trokuta_13.png">
+              <p>KONSTRUKCIJA</p>
+              <img src="Sukladnost trokuta_14.png">
+              <p>Analiza. Nacrtajmo trokut i označimo zadane elemente.
+                Konstrukcija. Nacrtajmo najprije stranicu ¯¯¯¯¯¯¯¯ABAB¯ trokuta. Uz vrhove AA i BB konstruirajmo kutove αα i ββ. U točki u kojoj se sijeku njihovi krakovi nalazi se treći vrh trokuta, CC.
+                Rasprava. Dva trokuta s ovim podatcima su sukladna. Mogu se razlikovati po položaju u ravnini pa se pomakom jednog od njih može postići da se preklopi s drugim. Zamijenimo li poredak kutova αα i ββ, dobit ćemo također sukladan trokut, koji treba zrcaliti i pomaknuti da bi se poklopio s početnim trokutom.
+              </p>
+              <img src="Sukladnost trokuta_15.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Zbroj kutova
+<p>Zbroj kutova u trokutu jednak je 180∘180∘. Prema tome, ako su zadana dva kuta u trokutu, onda je zadan i njegov treći kut. Zato je za sukladnost trokuta dovoljno zahtijevati da se dva trokuta podudaraju u stranici i bilo koja dva odgovarajuća kuta.
+                Zašto naglašavamo riječ odgovarajući? Sljedeća će slika pokazati zašto. Trokuti ABCABC i MNPMNP podudaraju se u svim trima kutovima i dvjema stranicama, a ipak nisu sukladni!
+              </p>
+              <img src="Sukladnost trokuta_16.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+4. poučak o sukladnosti: S-S-K
+ <p>Dva su trokuta sukladna ako se podudaraju u dvjema stranicama i kutu nasuprot duljoj od njih.</p>
+              <img src="Sukladnost trokuta_17.png">
+              <p>Neka su ABCABC i A′B′C′A′B′C′ dva trokuta koja se podudaraju u dvjema stranicama i kutu nasuprot duljoj: c=c′c=c′, b=b′b=b′ (c>bc>b) i γ=γ′γ=γ′. Preslikajmo (translatirajmo, zarotirajmo, zrcalimo) trokut A′B′C′A′B′C′ tako da mu se stranica ¯¯¯¯¯¯¯¯¯¯¯A′C′A′C′¯ poklopi sa stranicom ¯¯¯¯¯¯¯¯ACAC¯, a točka B′B′ padne u neku točku B′′B″ u poluravnini (određenoj pravcem ACAC) u kojoj se nalazi i vrh BB. Sada je △A′B′C′≅△AB′′C△A′B′C′≅△AB″C.</p>
+              <img src="Sukladnost trokuta_18.png">
+              <p>Gdje se nalazi točka B′′B″? Ona leži na kraku CBCB kuta γγ jer je γ′=γγ′=γ. Kako je c′=cc′=c, njezina udaljenost od vrha AA jednaka je cc, pa točka B′′B″ leži na luku kružnice sa središtem u AA i polumjerom cc. Međutim, taj luk siječe krak CBCB samo u točki BB, pa mora biti B′′=BB″=B. Dakle, △A′B′C′≅△AB′′C=△ABC△A′B′C′≅△AB″C=△ABC. Poučak je dokazan.
+                Zbog čega je bitno da zadani kut bude nasuprot dulje stranice? Zadajmo sljedeće podatke: stranice bb i cc (b<c)(b<c) te kut ββ nasuprot kraćoj stranici.
+              </p>
+              <img src="Sukladnost trokuta_19.png">
+              <p>Na jednom kraku kuta ββ nanesimo stranicu cc. Time su određeni vrhovi AA i BB trokuta. Treći vrh CC mora ležati na luku kružnice sa središtem u AA i polumjerom bb. Problem je u tome što to neće uvijek biti moguće. Neka je vava duljina visine spuštene iz vrha AA na drugi krak kuta ββ. Ako je b<vab<va, onda taj luk neće sjeći drugi krak kuta! Trokut s tim podatcima uopće neće postojati! Ako je b=vab=va, postojat će točno jedan trokut zadan ovim podatcima (i bit će pravokutan). Ako je b>vab>va, onda će luk sjeći krak kuta u dvjema točkama, C1C1 i C2C2, i postojat će dva trokuta, ABC1ABC1 i ABC2ABC2, određena zadanim podatcima, ali oni neće biti sukladni!</p>
+              <img src="Sukladnost trokuta_20.png">
+              <img src="Sukladnost trokuta_21.png">
+              <p>Evo još jednog primjera. Nacrtajmo jednakokračni trokut ABCABC s osnovicom ¯¯¯¯¯¯¯¯ABAB¯. Kutovi uz osnovicu su sukladni. Izaberimo bilo koju točku DD s te osnovice, različitu od polovišta. Tada se trokuti ADCADC i DBCDBC podudaraju u dvjema stranicama i kutu nasuprot kraćoj od njih i nisu sukladni ni za jedan odabir točke DD!
+                KONSTRUKCIJA
+              </p>
+              <img src="Sukladnost trokuta_22.png">
+              <p>Analiza. Skicirajmo trokut i naznačimo zadane elemente.
+                Konstrukcija. Konstrukcija trokuta odgovara konstrukciji S-K-S. Konstruiramo najprije kraću stranicu ¯¯¯¯¯¯¯¯BCBC¯. Pri vrhu CC konstruiramo kut γγ i zatim iz vrha BB nanesemo dulju stranicu.
+                Rasprava. Postoji samo jedan trokut s ovim elementima.
+              </p>
+              <img src="Sukladnost trokuta_23.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Ostali čimbenici za sukladnost
+<p>
+                <!--PRIMJER 4-->
+                <!--PRIMJER 5-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Četiri karakteristične točke trokuta</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Uvod
+<p>Četiri karakteristične točke trokuta su
+                •	središte opisane kružnice  ̶  točka u kojoj se sijeku simetrale stranica trokuta;
+                •	središte upisane kružnice  ̶  točka u kojoj se sijeku simetrale unutarnjih kutova trokuta;
+                •	težište  ̶  točka u kojoj se sijeku težišnice trokuta;
+                •	ortocentar  ̶  točka u kojoj se sijeku pravci na kojima leže visine trokuta
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+O simetrali dužine
+<p>Simetrala dužine je pravac koji je okomit na dužinu i prolazi njezinim polovištem.
+                Poučak o simetrali dužine
+                Svaka točka simetrale dužine jednako je udaljena od krajnjih točaka dužine.
+                Dokažimo ovaj poučak.
+              </p>
+              <img src="4 karateristične točke trokuta_1.png">
+              <p>Neka je dana dužina ¯¯¯¯¯¯¯¯ABAB¯ i neka je PP njezino polovište. Simetrala dužine prolazi točkom PP okomito na ¯¯¯¯¯¯¯¯ABAB¯. Neka je MM neka točka na toj simetrali.
+                Uočavamo da je △APM≅△BPM△APM≅△BPM. Naime, ta su dva trokuta pravokutna, jednu stranicu imaju zajedničku i još je |AP|=|PB||AP|=|PB|.
+                No onda je i |AM|=|BM||AM|=|BM|, a to se u poučku i tvrdi.
+                OBRAT
+                Obrat poučka o simetrali dužine
+                Ako je neka točka ravnine jednako udaljena od krajnjih točaka dane dužine, onda ta točka pripada simetrali te dužine.
+              </p>
+              <img src="4 karateristične točke trokuta_2.png">
+              <p>Neka je dana dužina ¯¯¯¯¯¯¯¯ABAB¯ i neka je NN točka za koju vrijedi |AN|=|BN||AN|=|BN|. Neka je, nadalje, PP polovište dužine ¯¯¯¯¯¯¯¯ABAB¯.
+                Trokuti APNAPN i BPNBPN su sukladni jer se podudaraju u svim trima stranicama. Naime, ¯¯¯¯¯¯¯¯AP≅¯¯¯¯¯¯¯¯PBAP¯≅PB¯ (jer je PP polovište dužine ¯¯¯¯¯¯¯¯ABAB¯) ¯¯¯¯¯¯¯¯¯AN≅¯¯¯¯¯¯¯¯¯BNAN¯≅BN¯ (prema pretpostavci), a ¯¯¯¯¯¯¯¯¯PNPN¯ je zajednička stranica.
+                No onda je <)APN≅<)BPN<)APN≅<)BPN, a kako su to sukuti, svaki od njih je pravi kut. Zato je PNPN simetrala dužine ¯¯¯¯¯¯¯¯ABAB¯.
+                KONSTRUKCIJA
+                Nacrtamo dužinu ¯¯¯¯¯¯¯¯ABAB¯ te u otvor šestara uzmemo dužinu duljine rr veće od polovine duljine dužine ¯¯¯¯¯¯¯¯ABAB¯. Oko točaka AA i BB opišemo kružnice koje se sijeku u točkama CC i DD. Spojimo te dvije točke pravcem i taj je pravac simetrala dužine ¯¯¯¯¯¯¯¯ABAB¯.
+              </p>
+              <img src="4 karateristične točke trokuta_3.png">
+              <p>Ova konstrukcija poznata nam je još iz osnovne škole. Obrazložimo njezinu točnost. Točke CC i DD jednako su udaljene od točaka AA i BB jer je |AC|=|BC|=|AD|=|BD|=r|AC|=|BC|=|AD|=|BD|=r. Prema obratu poučka o simetrali dužine, te dvije točke pripadaju simetrali te dužine.</p>
+            
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Okomica na zadani pravac iz zadane točke
+<p>Zadani su pravac pp i točka PP. Treba konstruirati pravac koji prolazi točkom PP, okomit na zadani. Iz točke PP kružnim lukom zasiječemo pravac pp u točkama AA i BB. Simetrala dužine ¯¯¯¯¯¯¯¯ABAB¯ je tražena okomica. (Jednu točku simetrale već znamo - to je točka PP. Zato je potrebno odrediti još samo jednu točku.)</p>
+              <img src="4 karateristične točke trokuta_4.png">
+              <p>Konstrukcija ne ovisi o tome je li točka PP izvan pravca ili na njemu. Ipak, ako PP ne leži na pravcu, onda govorimo da smo spustili okomicu iz točke PP, a ako je ona na pravcu, onda smo podigli okomicu u točki PP.</p>
+            
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Kružnica opisana trokutu
+ <p>Neka je OO sjecište simetrala scsc i sasa stranica ¯¯¯¯¯¯¯¯ABAB¯ i ¯¯¯¯¯¯¯¯BCBC¯ trokuta ABCABC. Prema poučku o simetrali dužine točka OO jednako je udaljena od točaka AA i BB (jer leži na simetrali scsc), a jednako je udaljena i od točaka BB i CC (jer leži na simetrali sasa). Dakle, ona je jednako udaljena od točaka AA, BB i CC pa je središte kružnice koja prolazi tim točkama. Zato se svakom trokutu može opisati kružnica koju zovemo kružnica opisana trokutu.</p>
+              <img src="4 karateristične točke trokuta_5.png">
+              <p>Primijetimo još da prema obratu poučka o simetrali dužine točka OO leži i na simetrali treće stranice ¯¯¯¯¯¯¯¯ACAC¯ (jer je jednako udaljena od točaka AA i CC). Dakle, sve tri simetrale sijeku se u istoj točki.
+                Kružnica opisana trokutuOko svakog trokuta može se opisati kružnica. Simetrale stranica trokuta sijeku se u njezinom središtu OO.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Poučak o simetrali kuta
+<p>Simetrala kuta je pravac koji prolazi vrhom kuta i dijeli taj kut na dva sukladna dijela.
+                Poučak o simetrali kuta
+                Svaka točka simetrale kuta jednako je udaljena od njegovih krakova.
+              </p>
+              <img src="4 karateristične točke trokuta_6.png">
+              <p>Neka je dan kut s vrhom u točki VV i neka je CC neka točka na njegovoj simetrali. Spustimo iz točke CC okomice ¯¯¯¯¯¯¯¯CECE¯ i ¯¯¯¯¯¯¯¯CFCF¯ na krakove kuta. Pokazat ćemo da su trokuti VECVEC i VFCVFC sukladni. Naime, <)CVE≅<)CVF<)CVE≅<)CVF, stranica ¯¯¯¯¯¯¯¯CVCV¯ je zajednička, a trokuti su uz to i pravokutni.Slijedi: |CE|=|CF||CE|=|CF|, a to je i trebalo dokazati.OBRATObrat poučka o simetrali kutaAko je neka točka ravnine jednako udaljena od krakova danog kuta, onda ona pripada simetrali tog kuta.</p>
+              <img src="4 karateristične točke trokuta_7.png">
+              <p>Neka je dan kut s vrhom u točki VV i neka je TT neka točka jednako udaljena od krakova kuta. Dakle, neka je |TA|=|TB||TA|=|TB|.
+                Trokuti VATVAT i VBTVBT su sukladni. Naime, oni su pravokutni, po pretpostavci je |TA|=|TB||TA|=|TB|, a dužina ¯¯¯¯¯¯¯¯VTVT¯ zajednička im je stranica.No, onda je i <)TVA≅<)TVB<)TVA≅<)TVB, što znači da je točka TT na simetrali kuta <)AVB<)AVB.KONSTRUKCIJA
+              </p>
+              <img src="4 karateristične točke trokuta_8.png">
+              <p>Naznačimo na kutu neki luk sa središtem u vrhu VV kuta. Luk siječe krakove kuta u točkama PP i QQ. Sada šestarom oko točaka PP i QQ nacrtamo lukove dviju kružnica s istim otvorom (većim od polovine udaljenosti točaka PP i QQ) i oni se sijeku u točki KK. Spojimo točke VV i KK pravcem i taj je pravac simetrala kuta <)PVQ<)PVQ.
+                Obrazložimo i ovu konstrukciju.
+                Trokuti KVPKVP i KVQKVQ na slici su sukladni jer se podudaraju u svim trima stranicama. Zato su im kutovi pri vrhu VV jednaki, pa je VKVK simetrala kuta <)PVQ<)PVQ.U priloženom GeoGebrinom programčiću konstruiraj simetralu kuta slijedeći postupak.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Kružnica upisana trokutu
+ <p>Neka je zadan trokut ABCABC. Simetrale sαsα i sβsβ njegovih kutova <)CAB<)CAB i <)ABC<)ABC sijeku se u točki UU.</p>
+              <img src="4 karateristične točke trokuta_9.png" title="Simetrale kutova sijeku se u jednoj točki UU koja je središte trokutu upisane kružnice. To središte uvijek leži unutar trokuta.">
+              <p>Točka UU jednako je udaljena od stranica ¯¯¯¯¯¯¯¯ABAB¯ i ¯¯¯¯¯¯¯¯ACAC¯ jer pripada simetrali sαsα, a kako pripada i simetrali sβsβ, jednako je udaljena i od stranica ¯¯¯¯¯¯¯¯ABAB¯ i ¯¯¯¯¯¯¯¯BCBC¯.
+                Prema obratu poučka o simetrali kuta ta točka pripada i trećoj simetrali kuta sγsγ, jer je jednako udaljena od stranica ¯¯¯¯¯¯¯¯ACAC¯ i ¯¯¯¯¯¯¯¯BCBC¯. Zato sve tri simetrale kutova trokuta prolaze istom točkom. Ta točka jednako je udaljena od svih triju stranica trokuta te je ona središte kružnice koja dira stranice trokuta. Tu kružnicu zovemo kružnica upisana trokutu, ili kraće, upisana kružnica.
+                Za dani trokut postoji točno jedna kružnica koja dira sve tri njegove stranice. Njezino središte sjecište je triju simetrala kutova trokuta.
+                <!--PRIMJER 1-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Svojstvo srednjice
+ <p>Srednjica trokuta je dužina koja spaja polovišta dviju stranica trokuta.
+                Poučak o srednjici trokuta
+                1. Dužina koja prolazi polovištem jedne stranice trokuta i paralelna je s drugom stranicom srednjica je trokuta.
+                2. Srednjica trokuta paralelna je sa stranicom trokuta i dvostruko kraća od nje.
+              </p>
+              <img src="4 karateristične točke trokuta_10.png">
+              <p>Dokažimo najprije prvo svojstvo. Polovištem MM stranice ¯¯¯¯¯¯¯¯ABAB¯ povucimo paralele sa stranicama ¯¯¯¯¯¯¯¯BCBC¯ i ¯¯¯¯¯¯¯¯ACAC¯. Tako dobivamo presječne točke NN i PP.
+                Trokut AMNAMN sukladan je s trokutom MBPMBP jer se podudaraju u svim trima kutovima (kutovi s paralelnim kracima) i jednoj stranici, ¯¯¯¯¯¯¯¯¯¯AM≅¯¯¯¯¯¯¯¯¯¯MBAM¯≅MB¯.
+                Trokut MNPMNP sukladan je s trokutom CPNCPN jer se podudaraju u svim trima kutovima (kutovi uz presječnicu) i zajedničkoj stranici. Zato je |MN|=|BP|=|PC||MN|=|BP|=|PC|. Dakle, PP je polovište stranice ¯¯¯¯¯¯¯¯BCBC¯, pa je ¯¯¯¯¯¯¯¯¯¯MPMP¯ uistinu srednjica trokuta. Ovim se vidi da vrijedi i obrat, srednjica trokuta mora biti paralelna sa stranicom.
+                Iz istog je razloga NN polovište stranice ¯¯¯¯¯¯¯¯ACAC¯ pa je i ¯¯¯¯¯¯¯¯¯¯¯MNMN¯ srednjica trokuta. Za njezinu duljinu vrijedi |MN|=|BP|=12|BC||MN|=|BP|=12|BC|.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Ortocentar
+ <p>Pravci koji sadrže visine trokuta sijeku se u jednoj točki koju nazivamo ortocentar trokuta.</p>
+              <img src="4 karateristične točke trokuta_11.png">
+              <p>Vrhovima trokuta ABCABC povucimo paralele s njegovim stranicama. Na taj način dobivamo trokut MNP,MNP, kao na slici.
+                Svaki od trokuta CNACNA, MCBMCB i BAPBAP sukladan je s trokutom ABCABC, jer se podudaraju u kutovima (kutovi uz presječnicu) i jednoj stranici (vidi sliku). Zato su svi ti trokuti sukladni i međusobno. Odatle slijedi da su AA, BB i CC polovišta stranica trokuta MNPMNP.
+                Promotrimo visinu iz vrha BB u trokutu ABCABC. Ta je visina okomita na stranicu ¯¯¯¯¯¯¯¯ACAC¯ pa je okomita i na stranicu ¯¯¯¯¯¯¯¯¯¯PMPM¯ trokuta MNPMNP. Zaključujemo da je pravac koji sadrži visinu trokuta ABCABC ujedno simetrala stranice trokuta MNPMNP (prolazi njezinim polovištem i okomit je na nju).
+                Isto vrijedi i za druge dvije visine. Pravci koji sadrže te visine su simetrale stranica u većem trokutu pa se prema poučku o simetralama stranica sijeku u jednoj točki HH, koju nazivamo ortocentar trokuta ABCABC.0
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Težište trokuta
+ <p>Dužina koja spaja vrh trokuta s polovištem nasuprotne stranice naziva se težišnica.
+                U trokutu ABCABC označimo polovišta stranica ¯¯¯¯¯¯¯¯ABAB¯, ¯¯¯¯¯¯¯¯BCBC¯, ¯¯¯¯¯¯¯¯CACA¯ redom s C1C1, A1A1, B1B1. Onda su ¯¯¯¯¯¯¯¯¯¯AA1AA1¯, ¯¯¯¯¯¯¯¯¯¯BB1BB1¯ i ¯¯¯¯¯¯¯¯¯¯CC1CC1¯ težišnice tog trokuta.
+                Težišnice trokuta sijeku se u jednoj točki TT koju nazivamo težište trokuta. Težište dijeli svaku težišnicu u omjeru 2:12:1, tj.|AT|:|TA1|=|BT|:|TB1|=|CT|:|TC1|=2:1.
+              </p>
+              <img src="4 karateristične točke trokuta_12.png">
+              <p>Neka je TT sjecište težišnica ¯¯¯¯¯¯¯¯¯¯AA1AA1¯ i ¯¯¯¯¯¯¯¯¯¯BB1BB1¯. Trebamo pokazati da i treća težišnica ¯¯¯¯¯¯¯¯¯¯CC1CC1¯ prolazi tom točkom, te da su težišnice podijeljene u omjeru 2:12:1.
+                Dužina ¯¯¯¯¯¯¯¯¯¯¯¯¯B1A1B1A1¯ srednjica je trokuta ABCABC, pa je zato paralelna sa stranicom ¯¯¯¯¯¯¯¯ABAB¯ i vrijedi |B1A1|=12|AB||B1A1|=12|AB|.
+                Neka je MM polovište dužine ¯¯¯¯¯¯¯¯ATAT¯ i NN polovište dužine ¯¯¯¯¯¯¯¯BTBT¯. Dužina ¯¯¯¯¯¯¯¯¯¯¯MNMN¯ srednjica je trokuta ABTABT pa vrijedi ¯¯¯¯¯¯¯¯¯¯¯MN∥¯¯¯¯¯¯¯¯ABMN¯∥AB¯ i |MN|=12|AB||MN|=12|AB|.
+                Zaključujemo da je ¯¯¯¯¯¯¯¯¯¯¯MNMN¯ paralelna i sukladna s dužinom ¯¯¯¯¯¯¯¯¯¯¯¯¯B1A1B1A1¯. Zato su i trokuti NMTNMT i A1B1TA1B1T sukladni, jer se podudaraju u trima kutovima i jednoj stranici.
+                Sad zaključujemo da vrijedi |MT|=|TA1||MT|=|TA1|, pa kako je k tome |AM|=|MT||AM|=|MT|, vidimo da točka TT dijeli težišnicu ¯¯¯¯¯¯¯¯¯¯AA1AA1¯ u omjeru 2:12:1,|AT|:|TA1|=2:1.|AT|:|TA1|=2:1.Na jednak način zaključujemo da je i |BT|:|TB1|=2:1|BT|:|TB1|=2:1.
+                Povucimo sad težišnicu ¯¯¯¯¯¯¯¯¯¯CC1CC1¯. Na potpuno isti način možemo zaključiti da ona siječe težišnicu ¯¯¯¯¯¯¯¯¯¯AA1AA1¯ u točki T′T′ za koju je|AT′|:|T′A1|=2:1.|AT′|:|T′A1|=2:1.Točke TT i T′T′ leže na istoj težišnici ¯¯¯¯¯¯¯¯¯¯AA1AA1¯ i dijele je u istom omjeru. Zato mora vrijediti T=T′T=T′ pa sve tri težišnice prolaze istom točkom.
+                <!--PRIMJER 2-->
+                <!--PRIMJER 3-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Heronova formula za površinu trokuta
+<p>Površina trokuta ABCABC jednaka jeP=√s(s−a)(s−b)(s−c),P=s(s−a)(s−b)(s−c),gdje smo sa ss označili poluopseg trokuta, s=12(a+b+c)s=12(a+b+c).</p>
+              <img src="4 karateristične točke trokuta_13.png">
+              <p>Neka je vv duljina visine na stranicu cc. Tada je površina trokuta jednaka P=cv2P=cv2.
+                Iz pravokutnih trokuta na slici slijedi, prema Pitagorinu poučku,
+                v2=b2−x2,v2=a2−(c−x)2.v2=b2−x2,v2=a2−(c−x)2.
+                Odavde jeb2−x2=a2−(c2−2cx+x2),b2=a2−c2+2cx,b2−x2=a2−(c2−2cx+x2),b2=a2−c2+2cx,pa dobivamox=b2+c2−a22c.x=b2+c2−a22c.Sada duljinu vv visine možemo izraziti pomoću duljina stranica trokuta:
+                v2=b2−x2=b2−(b2+c2−a22c)2=(b−b2+c2−a22c)(b+b2+c2−a22c)=2bc−(b2+c2−a2)2c⋅2bc+(b2+c2−a2)2c=a2−(b2−2bc+c2)2c⋅(b2+2bc+c2)−a22c=a2−(b−c)22c⋅(b+c)2−a22c=(a−b+c)(a+b−c)2c⋅(b+c−a)(b+c+a)2c.v2=b2−x2=b2−(b2+c2−a22c)2=(b−b2+c2−a22c)(b+b2+c2−a22c)=2bc−(b2+c2−a2)2c⋅2bc+(b2+c2−a2)2c=a2−(b2−2bc+c2)2c⋅(b2+2bc+c2)−a22c=a2−(b−c)22c⋅(b+c)2−a22c=(a−b+c)(a+b−c)2c⋅(b+c−a)(b+c+a)2c.
+                Vrijedi a+b+c=2sa+b+c=2s pa je a−b+c=a+b+c−2b=2s−2b=2(s−b)a−b+c=a+b+c−2b=2s−2b=2(s−b). Jednako se dobiva a+b−c=2(s−c)a+b−c=2(s−c) i b+c−a=2(s−a)b+c−a=2(s−a). Nakon uvrštavanja imamov2=2(s−b)⋅2(s−c)⋅2(s−a)⋅2s4c2=4s(s−a)(s−b)(s−c)c2.v2=2(s−b)⋅2(s−c)⋅2(s−a)⋅2s4c2=4s(s−a)(s−b)(s−c)c2.  Konačno jeP2=c2v24=s(s−a)(s−b)(s−c),P2=c2v24=s(s−a)(s−b)(s−c),
+                odakle dobivamo Heronovu formulu.
+                <!--PRIMJER 4-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Proporcionalnost dužina. Talesov teorem</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Omjeri i razmjeri
+ <p>Količnik a:ba:b brojeva aa i bb nazivamo još i omjerom. Taj se naziv naročito rabi kad je riječ o omjeru nekih veličina zadanih u jedinicama mjere.
+                Jednakost dvaju omjeraa:b=c:d(1)(1)a:b=c:dnaziva se još i proporcijom ili razmjerom. Čitamo: aa prema bb odnosi se kao cc prema dd.
+                Iz jednakosti razlomaka znamo da možemo napisatia:b=c:d⟺ad=bc.a:b=c:d⟺ad=bc.
+                Kažemo: umnožak vanjskih članova razmjera jednak je umnošku unutarnjih članova.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Produženi razmjeri
+ <p>U istom omjeru može biti više veličina. U tom slučaju razmjer možemo pisati na različite načine:a1b1=a2b2=a3b3=…=anbna1b1=a2b2=a3b3=…=anbnilia1:b1=a2:b2=a3:b3=…=an:bna1:b1=a2:b2=a3:b3=…=an:bnilia1:a2:a3:…:an=b1:b2:b3:…:bn.a1:a2:a3:…:an=b1:b2:b3:…:bn.Ovakav razmjer nazivamo produženi. Ako jea1b1=a2b2=a3b3=…=anbn=k,a1b1=a2b2=a3b3=…=anbn=k,onda umjesto produženog razmjera možemo napisati više jednakosti koje su njemu ekvivalentne:
+                a1:a2:a3:…:an=b1:b2:b3:…:bn⟺⎧⎪⎪⎪⎪⎪⎪⎪⎨⎪⎪⎪⎪⎪⎪⎪⎩a1=kb1,a2=kb2,a3=kb3,⋮an=kbn.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Dijeljenje dužine u zadanom omjeru
+<p>Dužinu ¯¯¯¯¯¯¯¯ABAB¯ podijelimo na tri sukladna dijela.
+                Povucimo točkom AA po volji odabran polupravac pp i odredimo na njemu po volji točku A1A1. Dužinu ¯¯¯¯¯¯¯¯¯¯AA1AA1¯ nanesimo (šestarom) još dvaput na polupravac pp, te tako dobivamo točke A2A2 i A3A3 (vidi sliku).
+              </p>
+              <img src="Proporcionalnost dužina. Talesov teorem_1.png">
+              <p>Spojimo točku A3A3 s BB i zatim povucimo paralele A2B2A2B2 i A1B1A1B1 s pravcem A3BA3B. Tvrdimo da točke B1B1 i B2B2 dijele dužinu ¯¯¯¯¯¯¯¯ABAB¯ na tri jednaka dijela.
+                Da bismo to dokazali, povucimo iz točaka B1B1 i B2B2 paralele s polupravcem pp. Tako ćemo dobiti tri trokuta: AA1B1AA1B1, B1CB2B1CB2 i B2DBB2DB. Ti se trokuti podudaraju u svim trima kutovima te u jednoj stranici, |AA1|=|B1C|=|B2D||AA1|=|B1C|=|B2D|. Zato su oni sukladni, pa im se podudaraju i druge dvije stranice. Dakle: |AB1|=|B1B2|=|B2B||AB1|=|B1B2|=|B2B|.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Dijeljenje dužine u zadanom omjeru
+ <p>Opisanom konstrukcijom zadanu dužinu možemo podijeliti na dva dijela u po volji odabranom omjeru cijelih brojeva.
+                Dužinu ¯¯¯¯¯¯¯¯ABAB¯ podijelimo točkom CC u omjeru m:nm:n (m,n∈Nm,n∈N), tj. tako da bude|AC|:|CB|=m:n.
+              </p>
+              <img src="Proporcionalnost dužina. Talesov teorem_2.png">
+              <p>Povucimo točkom AA pomoćni polupravac pp i izaberimo jediničnu dužinu ¯¯¯¯¯¯¯¯¯¯AA1AA1¯. Nanesimo tu dužinu mm puta, pa neka je |AC′|=m|AA1||AC′|=m|AA1|. Nanesimo je sad još nn puta, |C′B′|=n|AA1||C′B′|=n|AA1|. Povucimo pravac B′BB′B i paralelu točkom C′C′ s tim pravcem. Neka ta paralela siječe ¯¯¯¯¯¯¯¯ABAB¯ u točki CC. Tvrdimo da je CC tražena točka.
+                Iz sukladnosti trokutića nacrtanih na slici vidimo da je dužina ¯¯¯¯¯¯¯¯ACAC¯ mm puta dulja od dužine ¯¯¯¯¯¯¯¯¯ADAD¯. Slično, dužina ¯¯¯¯¯¯¯¯CBCB¯ je nn puta dulja od ¯¯¯¯¯¯¯¯¯ADAD¯. Zato možemo napisati:|AC|:|CB|=m|AD|:n|AD|=m:n.|AC|:|CB|=m|AD|:n|AD|=m:n.Upamtimo sljedeći rezultat:
+                Svojstvo paralela
+                Ako paralele na jednom kraku kuta odsijecaju sukladne dužine, onda one odsijecaju sukladne dužine i na drugom kraku kuta.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Talesov teorem
+ <p>S prethodne slike možemo pročitati i sljedeća dva razmjera:|AC|:|CB|=|AC′|:|C′B′||AC|:|CB|=|AC′|:|C′B′|i|AC|:|AB|=|AC′|:|AB′|.|AC|:|AB|=|AC′|:|AB′|.Promotrimo sad novu sliku na kojoj su pravci aa i bb paralelni i odsijecaju od kuta <)pVp′<)pVp′ dužine ¯¯¯¯¯¯¯¯¯AA′AA′¯ i ¯¯¯¯¯¯¯¯¯¯BB′BB′¯.
+                Vrijedi sljedeći poučak:
+                Talesov teorem o proporcionalnosti dužina
+                Neka paralelni pravci aa i bb sijeku krakove kuta <)pVp′<)pVp′ u točkama AA i A′A′ te BB i B′.B′. Onda je|VA|:|AB|=|VA′|:|A′B′||VA|:|AB|=|VA′|:|A′B′|i|VA|:|VB|=|VA′|:|VB′|.|VA|:|VB|=|VA′|:|VB′|.Kraće kažemo: paralelni pravci na krakovima kuta odsijecaju proporcionalne dužine.
+              </p>
+              <img src="Proporcionalnost dužina. Talesov teorem_3.png" title="Svaki par odgovarajućih dužina na ovoj slici je međusobno proporcionalan.">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Dokaz Talesovog teorema
+<p>Dokažimo Talesov teorem. Prisjetit ćemo se načina na koji smo dužinu dijelili u zadanom omjeru. Pretpostavimo da je omjer |VA|:|AB||VA|:|AB| racionalan:|VA|:|AB|=m:n,m,n∈N.|VA|:|AB|=m:n,m,n∈N.Tada dužinu ¯¯¯¯¯¯¯¯VAVA¯ možemo podijeliti na mm, a dužinu ¯¯¯¯¯¯¯¯ABAB¯ na nn jednakih dijelova pa uz istu sliku zaključivati na identičan način:</p>
+              <img src="Proporcionalnost dužina. Talesov teorem_4.png">
+              <p>
+                <!--PRIMJER 1-->
+                <!--PRIMJER 2-->
+                <!--PRIMJER 3-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Talesov teorem za treći par odgovarajućih dužina
+ <img src="Proporcionalnost dužina. Talesov teorem_5.png">
+              <p>Dokažimo da Talesov teorem o proporcionalnosti vrijedi i za treći par odgovarajućih dužina:|VA|:|VB|=|AA′|:|BB′|.|VA|:|VB|=|AA′|:|BB′|.Sa slike vidimo da je:|VB′||VA′|=|VA′|+|A′B′||VA′|=1+|A′B′||VA′|.|VB′||VA′|=|VA′|+|A′B′||VA′|=1+|A′B′||VA′|.Povucimo točkom A′A′ paralelu qq s pravcem pp. Neka je CC njezino sjecište s pravcem BB′BB′.
+                Primijenimo li Talesov teorem na kut <)VB′B<)VB′B i paralelne pravce pp i qq, slijedi|A′B′||VA′|=|B′C||CB|.|A′B′||VA′|=|B′C||CB|.Zato je|VB′||VA′|=1+|B′C||CB|=|B′C|+|CB||CB|=|BB′||AA′||VB′||VA′|=1+|B′C||CB|=|B′C|+|CB||CB|=|BB′||AA′|i odavde|VA||VB|=|AA′||BB′|.|VA||VB|=|AA′||BB′|.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Obrat Talesova teorema o proporcionalnosti
+  <p>Obrat Talesova teorema o proporcionalnosti
+                Ako dva pravca odsijecaju na krakovima kuta proporcionalne dužine, onda su ti pravci paralelni.
+              </p>
+              <img src="Proporcionalnost dužina. Talesov teorem_6.png">
+              <p>Neka pravci aa i bb odsijecaju na krakovima kuta <)pVp′<)pVp′ proporcionalne dužine:|VA|:|VB|=|VA′|:|VB′|.|VA|:|VB|=|VA′|:|VB′|.Neka je b1b1 pravac paralelan s aa, koji prolazi točkom BB. On siječe pravac p′p′ u točki B1B1. Prema Talesovu teoremu vrijedi|VA|:|VB|=|VA′|:|VB1|,|VA|:|VB|=|VA′|:|VB1|,pa zato mora biti |VB′|=|VB1||VB′|=|VB1|, odnosno B′=B1B′=B1. Dakle, pravci b1b1 i bb se podudaraju, što znači da je bb paralelan s aa.
+                <!--PRIMJER 5-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Sličnost trokuta</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Sličnost trokuta
+<p>Kažemo da su dva trokuta ABCABC i A′B′C′A′B′C′ slična ako se podudaraju u svim trima kutovima: α=α′α=α′, β=β′β=β′, γ=γ′γ=γ′. Pišemo △ABC∼△A′B′C′△ABC∼△A′B′C′.</p>
+              <img src="Sličnost trokuta_1.png">
+              <p>Temeljno svojstvo sličnih trokuta
+                Ako su dva trokuta slična, onda su im odgovarajuće stranice proporcionalne:△ABC∼△A′B′C′⟹a:a′=b:b′=c:c′.
+              </p>
+              <img src="Sličnost trokuta_2.png">
+              <p>Dokažimo ovaj poučak.
+                Pretpostavimo da su trokuti ABCABC i A′B′C′A′B′C′ slični, pri čemu vrhu AA odgovara vrh A′A′, vrhu BB vrh B′B′ i vrhu CC vrh C′C′. Kako su kutovi tih trokuta jednaki, trokute možemo dovesti u položaj kao na slici.
+                Pravci BCBC i B′C′B′C′ su paralelni. Prema Talesovu teoremu za duljine stranica ovih trokuta vrijedi|AB||AB′|=|AC||AC′|=|BC||B′C′|,|AB||AB′|=|AC||AC′|=|BC||B′C′|,tj. a:a′=b:b′=c:c′a:a′=b:b′=c:c′, pa su stranice ovih trokuta proporcionalne.
+                Ako vrijedi a:a′=b:b′=c:c′a:a′=b:b′=c:c′, onda su, jasno, jednaki i sljedeći omjeri: a′:a=b′:b=c′:ca′:a=b′:b=c′:c. Tim je omjerom definiran koeficijent sličnosti ovih trokuta.
+                Koeficijent sličnosti
+                Neka su trokuti ABCABC i A′B′C′A′B′C′ slični. Omjer duljina njihovih stranicak=a′a=b′b=c′ck=a′a=b′b=c′czove se koeficijent sličnosti.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+1. poučak o sličnosti trokuta: S-S-S
+ <p>Ako su duljine stranica dvaju trokuta proporcionalne, onda su ti trokuti slični:a:a′=b:b′=c:c′⟹△ABC∼△A′B′C′.</p>
+              <img src="Sličnost trokuta_3.png">
+              <p>Ako su stranice proporcionalne, onda vrijedi:
+                a′:a=b′:b=c′:c=k⟹⎧⎪⎨⎪⎩a′=ka,b′=kb,c′=kc.a′:a=b′:b=c′:c=k⟹{a′=ka,b′=kb,c′=kc.Neka je B1B1 točka na pravcu ABAB za koju vrijedi |AB1|=k|AB|=kc|AB1|=k|AB|=kc, a C1C1 točka na pravcu ACAC za koju vrijedi |AC1|=k|AC|=kb|AC1|=k|AC|=kb (vidi sliku).Prema Talesovu teoremu i njegovom obratu stranica ¯¯¯¯¯¯¯¯¯¯¯¯B1C1B1C1¯ je paralelna stranici ¯¯¯¯¯¯¯¯BCBC¯ i |B1C1|=k|BC|=ka|B1C1|=k|BC|=ka. Trokut AB1C1AB1C1 ima kutove sukladne kutovima trokuta ABCABC pa mu je sličan. Međutim, duljine njegovih stranica su ka=a′ka=a′, kb=b′kb=b′ i kc=c′kc=c′, pa je on sukladan trokutu A′B′C′A′B′C′. Zato je trokut ABCABC sličan trokutu A′B′C′A′B′C′.
+                <!--PRIMJER 1-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+2. poučak o sličnosti trokuta: S-K-S
+ <p>Ako se dva trokuta podudaraju u jednom kutu, a stranice uz taj kut su proporcionalne, onda su ti trokuti slični. Primjerice:α=α′,b:b′=c:c′⟹△ABC∼△A′B′C′α=α′,b:b′=c:c′⟹△ABC∼△A′B′C′
+                Nacrtajmo sliku. Budući da je α=α′α=α′, trokute možemo dovesti u nacrtani položaj. Stranice trokuta uz vrh AA su proporcionalne: |AB|:|AB′|=|AC|:|AC′||AB|:|AB′|=|AC|:|AC′|. Prema obratu Talesova teorema stranice ¯¯¯¯¯¯¯¯BCBC¯ i ¯¯¯¯¯¯¯¯¯¯¯B′C′B′C′¯ su paralelne. Tada se podudaraju i druga dva kuta trokuta pa su oni slični.
+              </p>
+              <img src="Sličnost trokuta_4.png">
+              <p>Uvjeri se da vrijedi i obratna tvrdnja: ako su dva trokuta slična, onda se podudaraju u jednom kutu, a stranice uz taj kut su proporcionalne.
+                <!--PRIMJER 2-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+3. poučak o sličnosti trokuta: K-K
+ <p>Ako se dva kuta dvaju trokuta podudaraju, onda su ti trokuti slični. Primjerice:α=α′,β=β′⟹△ABT∼△A′B′C′.
+                <!--PRIMJER 3-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Svojstvo sličnih trokuta
+ <p>Kod sličnih trokuta veličina kutova se ne mijenja, a stranice su uvećane (umanjene) uvijek u istom omjeru.
+                Svojstvo sličnih trokuta
+                Neka su trokuti ABCABC i A′B′C′A′B′C′ slični uz koeficijent sličnosti kk:a′a=b′b=c′c=k.a′a=b′b=c′c=k.Svi elementi trokuta A′B′C′A′B′C′ (težišnice, simetrale kutova, visine, polumjeri opisane i upisane kružnice) proporcionalni su odgovarajućim elementima trokuta ABCABC uz isti faktor proporcionalnosti kk.
+                Ako je k=1k=1, onda su trokuti sukladni.
+                Ovaj poučak gotovo da i ne treba dokazivati. On naglašava da na sličnost dvaju trokuta možemo gledati kao na postupak jednolikog stezanja ili rastezanja dvaju likova, pri čemu oblik lika ostaje nepromijenjen, ali se sve njegove dimenzije smanjuju, odnosno povećavaju za isti faktor.
+                <!--PRIMJER 4-->
+                <!--PRIMJER 5-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Opsezi i površine sličnih trokuta<
+<p>Kako se odnose opsezi sličnih trokuta? Ako su trokuti ABCABC i A′B′C′A′B′C′ slični, onda za njihove opsege OO i O′O′ vrijedi
+                O′=a′+b′+c′=ka+kb+kc=k(a+b+c)=k⋅O.O′=a′+b′+c′=ka+kb+kc=k(a+b+c)=k⋅O.
+                Što je s površinama? Neka su aa i a′a′ duljine odgovarajućih stranica te vava i v′a′va′′ duljine visina na te stranice u sličnim trokutima. Vrijedi a′=kaa′=ka i v′a′=kvava′′=kva pa je
+                P′=a′v′a′2=ka⋅kva2=k2ava2=k2⋅P.P′=a′va′′2=ka⋅kva2=k2ava2=k2⋅P.
+                Zapamtimo te dvije veze!
+                Opsezi i površine sličnih trokuta
+                Omjer opsega sličnih trokuta jednak je koeficijentu sličnosti tih trokuta:O′:O=k=a′:a.O′:O=k=a′:a.Površine sličnih trokuta odnose se kao kvadrati duljina odgovarajućih stranica:P′:P=k2=a′2:a2.
+                <!--PRIMJER 6-->
+                <!--PRIMJER 7-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Euklidov poučak
+<img src="Sličnost trokuta_5.png">
+              <p>Neka je DD nožište visine spuštene iz vrha CC. Trokut ADCADC je pravokutan i jedan mu je kut αα pa je on sličan trokutu ABCABC. Isto tako, i trokut BDCBDC sličan je trokutu ABCABC:△ABC∼△ACD∼△CBD.△ABC∼△ACD∼△CBD.
+                Iz △ABC∼△ACD△ABC∼△ACD slijedi b:q=c:b⟹b2=cqb:q=c:b⟹b2=cq.
+                Iz △ABC∼△CBD△ABC∼△CBD slijedi a:p=c:a⟹a2=cpa:p=c:a⟹a2=cp.
+                Iz △ACD∼△CBD△ACD∼△CBD slijedi v:p=q:v⟹v2=pqv:p=q:v⟹v2=pq.
+                Euklidov poučak
+                Neka je △ABC△ABC pravokutan trokut i DD nožište visine položene iz vrha CC na hipotenuzu. Označimo p=|BD|p=|BD|, q=|AD|q=|AD|. Onda vrijedia=√cp,b=√cq,v=√pq.a=cp,b=cq,v=pq.Duljina katete pravokutnog trokuta geometrijska je sredina duljina hipotenuze i odgovarajućeg odsječka.
+                Duljina visine pravokutnog trokuta geometrijska je sredina duljina odsječaka na hipotenuzi.
+                <!--PRIMJER 8-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Algebarske konstrukcije
+ <p>1. Konstrukcija prirodnih i racionalnh brojeva
+                Pretpostavit ćemo da nam je zadana jedinična dužina. Nanošenjem jedinične dužine možemo konstruirati dužinu kojoj je duljina neki prirodni broj mm.
+              </p>
+              <img src="Sličnost trokuta_6.png">
+              <p>Također, dužinu znamo podijeliti na nn jednakih dijelova. Onda možemo konstruirati bilo koji pozitivan racionalan broj mnmn.
+                Geometrijskim postupcima s dužinama možemo baratati kao s brojevima! Pretpostavit ćemo da su nam zadane dvije dužine, duljina aa i bb. Pokažimo kako se određuje dužina čija je duljina a+ba+b, a−ba−b, abab i a/ba/b, što kraće kažemo zbroj, razlika, umnožak i količnik dužina.2. Zbroj i razlika dužinaOvaj se problem rješava samo šestarom, nanošenjem jedne dužine do druge, odnosno jedne na drugu.
+              </p>
+              <img src="Sličnost trokuta_7.png">
+              <p>3. Umnožak i količnik dužinaTreba konstruirati dužine čije su duljine abab i a/ba/b.Riješimo općenitiji zadatak — konstruirajmo dužinu čija je duljina jednakax=acb.x=acb.Tada vrijedib:c=a:x,b:c=a:x,pa ovaj razmjer predstavlja ključ rješenja. Koristit ćemo Talesov teorem o proporcionalnosti.
+
+              </p>
+              <img src="Sličnost trokuta_8.png">
+              <p>Na krakovima po volji odabranog kuta nanesemo dužine duljina aa, bb i cc kao na slici. Povucimo paralelu ADAD s pravcem BCBC. Prema Talesovu teoremu je b:c=a:xb:c=a:x, pa je time određena dužina duljine xx.Duljina xx određena ovim razmjerom naziva se četvrta geometrijska proporcionala.Kako se sad konstruira umnožak i količnik dviju dužina? Tako da se za jednu od dužina odabere jedinična dužina:
+
+              </p>
+              <img src="Sličnost trokuta_9.png">
+              <p>4. Konstrukcija geometrijske sredine
+                Geometrijska sredina dvaju pozitivnih brojeva aa i bb je broj √abab. Riječ sredina naznačuje da je taj broj veći od manjeg, a manji od većeg od ovih dvaju brojeva.Ako su zadane dužine duljina aa i bb, onda možemo konstruirati dužinu duljine √abab. Konstrukcija se temelji na dokazanom svojstvu pravokutnog trokuta: v=√pqv=pq (Euklidov poučak).
+              </p>
+              <img src="Sličnost trokuta_10.png">
+              <p>Na zadani pravac nanesemo redom dužine duljina aa i bb. Zatim konstruiramo polukružnicu nad promjerom ¯¯¯¯¯¯¯¯ACAC¯ i podignemo okomicu ¯¯¯¯¯¯¯¯¯BDBD¯ iz točke BB. Kut pri vrhu DD trokuta ACDACD je pravi. Dužina ¯¯¯¯¯¯¯¯¯BDBD¯ je visina pravokutnog trokuta i ima duljinu √abab.
+                <!--PRIMJER 9-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Homotetija (U RADU)</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+>Definicija homotetije
+<p>Taj se postupak matematički može opisati preslikavanjem koje će svaku točku lika preslikati u neku drugu, po točno utvrđenom pravilu. To se preslikavanje naziva homotetija.
+                <!--ANIMACIJA-->
+              </p>
+              <img src="Hometetija_1.png">
+              <p>Neka je O točka ravnine i k≠0 realan broj. Homotetija je preslikavanje h ravnine, koje svakoj točki T pridružuje točku T′=h(T) tako da vrijedi:
+                1.  točke O, T i T′ leže na istom pravcu;
+                2.  a) ako je k>0, onda T′ leži na polupravcu OT;b) ako je k<0, onda T′ ne leži na polupravcu OT;
+                3.  |OT′|=|k|⋅|OT|.
+                Točku O nazivamo središte (centar) homotetije, a broj k koeficijent homotetije.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Zorni prikaz homotetije<
+<img src="Hometetija_2.png">
+              <p>Ako je k>1, onda se pri preslikavanju homotetijom lik povećava (širi, rasteže) za faktor k:</p>
+              <img src="Hometetija_3.png">
+              <p>Ako je 0<k<1, onda se lik smanjuje (skuplja, steže).</p>
+              <img src="Hometetija_4.png">
+              <p>Za k<0 dobit ćemo ovakvu sliku:</p>
+              <img src="Hometetija_5.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Svojstvo homotetije
+ <p>Nacrtajmo dva para pridruženih točaka. Stranice trokuta OAB i OA′B′ su proporcionalne, a kut pri vrhu O je zajednički, pa su ti trokuti slični. Zato je dužina A′B′¯¯¯¯¯¯¯¯¯¯ paralelna s dužinom AB¯¯¯¯¯¯¯¯.Svojstvo homotetijePri preslikavanju homotetijom pravac se preslikava u pravac paralelan s njim.Slika kuta je sukladan kut.Slika dužine AB¯¯¯¯¯¯¯¯je dužina A′B′¯¯¯¯¯¯¯¯¯¯ paralelna s početnom, a njezina je duljina jednaka |A′B′|=|k|⋅|AB|.
+                <!--PRIMJER 1-->
+                <!--PRIMJER 2-->  
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Slika trokuta i kružnice
+<p>Slika trokuta i kružnice
+                Pri preslikavanju homotetijom trokut se preslikava u njemu sličan trokut s koeficijentom sličnosti |k|.
+                Kružnica se preslikava u kružnicu polumjera |k|R.
+                <!--PRIMJER 3-->
+                <!--PRIMJER 4-->  
+              </p>
