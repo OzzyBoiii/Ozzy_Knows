@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geologija (TESTING)</title>
+    <title>English</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        /* GLOBAL STYLE */
-        /* GLOBAL STYLE */
         /* GLOBAL STYLE */
         * {
             margin: 0;
@@ -25,8 +23,6 @@
         }
 
         /* FLEXIBLE WEBSITE */
-        /* FLEXIBLE WEBSITE */
-        /* FLEXIBLE WEBSITE */
         .container {
             width: 100%;
             max-width: 1200px;
@@ -34,9 +30,7 @@
             padding: 0 20px;
         }
 
-        /* BACKGROUND (SPOREDNI PREDMET) */
-        /* BACKGROUND (SPOREDNI PREDMET) */
-        /* BACKGROUND (SPOREDNI PREDMET) */
+       /* BACKGROUND (SPOREDNI PREDMET) */
         body {
             margin: 0;
             height: 100vh;
@@ -44,21 +38,20 @@
             background: radial-gradient(#a23982, #1f1013);
             animation: fadeIn 1s ease-out;
         }
-        
+
         .light {
             position: absolute;
             width: 0px;
             opacity: 0.75;
             background-color: white;
             box-shadow: #e9f1f1 0px 0px 20px 2px;
-            opacity: 0;
             top: 100vh;
             bottom: 0px;
             left: 0px;
             right: 0px;
             margin: auto;
         }
-        
+
         .x1 { animation: floatUp 4s infinite linear; transform: scale(1); }
         .x2 { animation: floatUp 7s infinite linear; transform: scale(1.6); left: 15%; }
         .x3 { animation: floatUp 2.5s infinite linear; transform: scale(0.5); left: -15%; }
@@ -68,7 +61,7 @@
         .x7 { animation: floatUp 5.3s infinite linear; transform: scale(3.2); left: 37%; }
         .x8 { animation: floatUp 4.7s infinite linear; transform: scale(1.7); left: 62%; }
         .x9 { animation: floatUp 4.1s infinite linear; transform: scale(0.9); left: 85%; }
-        
+
         @keyframes floatUp {
             0% { top: 100vh; opacity: 0; }
             25% { opacity: 1; }
@@ -76,12 +69,12 @@
             75% { opacity: 1; }
             100% { top: -100vh; opacity: 0; }
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        
+
         /*  */
         button {
           display:grid;
@@ -103,38 +96,35 @@
             white-space: nowrap;
             margin: 10px;
         }
-        
+
         button:hover { transform: rotate(-3deg); }
         button:active { transform: scale(0.95) rotate(-3deg); }
-        
+
         @keyframes shimmer {
             to { background-size: 100% 100%; box-shadow: -2px -2px 6px rgba(255, 227, 126, 0.5), 2px 2px 6px rgba(144, 148, 255, 0.5); }
         }
-
-        /* SCROLLING ANIMATION */
-        /* SCROLLING ANIMATION */
         /* SCROLLING ANIMATION */
         .reveal {
             position: relative;
             opacity: 0;
         }
-        
+
         .reveal.active {
             opacity: 1;
         }
-        
+
         .active.fade-bottom {
             animation: fade-bottom 1s ease-in;
         }
-        
+
         .active.fade-left {
             animation: fade-left 1s ease-in;
         }
-        
+
         .active.fade-right {
             animation: fade-right 1s ease-in;
         }
-        
+
         @keyframes fade-bottom {
             0% {
                 transform: translateY(50px);
@@ -145,7 +135,7 @@
                 opacity: 1;
             }
         }
-        
+
         @keyframes fade-left {
             0% {
                 transform: translateX(-100px);
@@ -156,7 +146,7 @@
                 opacity: 1;
             }
         }
-        
+
         @keyframes fade-right {
             0% {
                 transform: translateX(100px);
@@ -168,8 +158,6 @@
             }
         }
 
-        /* TEXT CONTAINER STYLE */
-        /* TEXT CONTAINER STYLE */
         /* TEXT CONTAINER STYLE */
         .text-container {
             display: flex;
@@ -202,8 +190,6 @@
         }
 
         /* NEW WINDOW STYLE */
-        /* NEW WINDOW STYLE */
-        /* NEW WINDOW STYLE */
         .newWindow {
             position: fixed;
             top: 5%;
@@ -222,17 +208,17 @@
             box-shadow: 0 15px 50px rgba(0,0,0,0.5);
             z-index: 1000;
         }
-        
+
         .newWindow.active {
             display: grid;
             animation: popIn 0.5s ease-out;
         }
-        
+
         @keyframes popIn {
             0% { transform: scale(0.8); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
-        
+
         .newWindow.swapped {
             grid-template-columns: 65% 35%;
             grid-template-areas: "content images";
@@ -242,11 +228,11 @@
             grid-template-columns: 100%;
             grid-template-areas: "content";
         }
-        
+
         .newWindow.no-images .window-column {
             display: none;
         }
-        
+
         .window-column {
             display: flex;
             flex-direction: column;
@@ -258,7 +244,7 @@
             border-right: 2px solid rgba(255,255,255,0.1);
             padding: 0 15px;
         }
-        
+
         .title-grid-container {
             display: grid;
             grid-template-columns: 1fr auto;
@@ -270,14 +256,14 @@
             border-radius: 10px;
             margin-bottom: 15px;
         }
-        
+
         .title-grid-container h3 {
             text-align: center;
             margin: 0;
             color: #ffeb3b;
             font-size: 1.4rem;
         }
-        
+
         .image-container {
             flex: 1;
             overflow-y: auto;
@@ -289,7 +275,7 @@
             max-width: 800px;
             height: calc(100vh - 200px);
         }
-        
+
         .content-container {
             display: flex;
             flex-direction: column;
@@ -331,11 +317,11 @@
         }
 
         .text-zoom-controls {
-            display: contents; /* Remove container boundaries */
+            display: contents;
         }
 
         .layout-controls {
-            display: contents; /* Remove container boundaries */
+            display: contents;
             justify-self: end;
         }
 
@@ -368,7 +354,7 @@
             justify-content: center;
             padding: 10px;
         }
-        
+
         .image-square {
             height: 400px;
             width: 100%;
@@ -400,15 +386,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: scroll;
             cursor: grab;
             height: 300px;
             padding: 15px;
             overflow: auto;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE 10+ */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
-        
+
         .image-display img {
             max-width: 100%;
             max-height: 100%;
@@ -417,7 +402,7 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        
+
         .image-info {
             display: flex;
             flex-direction: column;
@@ -437,8 +422,6 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        /* HEADER STYLES */
-        /* HEADER STYLES */
         /* HEADER STYLES */
         header {
             text-align: center;
@@ -470,8 +453,6 @@
         }
 
         /* SECTION STYLE */
-        /* SECTION STYLE */
-        /* SECTION STYLE */
         .section-header {
             text-align: center;
             padding: 30px;
@@ -479,10 +460,9 @@
             background: rgba(0,0,0,0.3);
             border-radius: 15px;
             border: 2px solid #ff9800;
+            position: relative;
         }
 
-        /* FORMULA STYLE */
-        /* FORMULA STYLE */
         /* FORMULA STYLE */
         .formula {
             font-size: 1.8rem;
@@ -492,7 +472,7 @@
             border-radius: 10px;
             display: inline-block;
         }
-        
+
         .example-box {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
@@ -501,7 +481,7 @@
             max-width: 600px;
             text-align: left;
         }
-        
+
         .example-step {
             margin: 10px 0;
             padding: 10px;
@@ -517,46 +497,44 @@
                 grid-template-columns: 100%;
                 grid-template-areas: "content";
             }
-            
+
             .window-column {
                 display: none;
             }
-            
+
             .text-controls-container {
                 grid-template-columns: 1fr;
             }
-            
+
             .image-square {
                 height: 300px;
                 min-width: 300px;
             }
-            
+
             h1 {
                 font-size: 2.5rem;
             }
-            
+
             h2 {
                 font-size: 2rem;
             }
-            
+
             .zoomable-text {
                 padding: 0;
                 max-width: 100%;
             }
         }
-        
+
         /* Close button in text controls for no-image mode */
         .text-close-button {
             display: none;
         }
-        
+
         .newWindow.no-images .text-close-button {
             display: block;
         }
 
-         /* SUMMARY STYLE */
-         /* SUMMARY STYLE */
-         /* SUMMARY STYLE */
+        /* NEW: SUMMARY TEXTBOX STYLES */
         .summary-container {
             width: 100%;
             max-width: 800px;
@@ -577,7 +555,7 @@
             color: #333;
             border: 2px solid #ff9800;
         }
-        
+
         .summary-line {
             display: flex;
             justify-content: space-between;
@@ -586,13 +564,13 @@
             margin-bottom: 8px;
             position: relative;
         }
-        
+
         .summary-content {
             flex-grow: 1;
             position: relative;
-            padding-right: 30px; /* Space for status dot */
+            padding-right: 30px;
         }
-        
+
         .summary-text {
             position: relative;
             z-index: 2;
@@ -603,7 +581,7 @@
             font-size: inherit;
             width: 95%;
         }
-        
+
         .summary-dots {
             position: absolute;
             top: 0;
@@ -614,13 +592,13 @@
             pointer-events: none;
             letter-spacing: 2px;
         }
-        
+
         .summary-number {
-            width: 5%;
-            min-width: 50px;
+            width: 15%;
+            min-width: 60px;
             text-align: right;
             background: rgba(255, 152, 0, 0.1);
-            border: none;
+            border: 1px solid #ff9800;
             outline: none;
             font-family: inherit;
             font-size: inherit;
@@ -629,7 +607,7 @@
             color: #e65100;
             font-weight: bold;
         }
-        
+
         .summary-header {
             text-align: center;
             margin-bottom: 25px;
@@ -640,8 +618,15 @@
             text-shadow: 0 2px 3px rgba(0,0,0,0.1);
             position: relative;
             padding-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
-        
+
+        .summary-header:hover {
+            color: #ff9800;
+            transform: scale(1.05);
+        }
+
         .summary-header::after {
             content: "";
             position: absolute;
@@ -652,25 +637,25 @@
             background: linear-gradient(90deg, transparent, #ff9800, transparent);
             border-radius: 3px;
         }
-        
+
         .summary-box::-webkit-scrollbar {
             width: 10px;
         }
-        
+
         .summary-box::-webkit-scrollbar-track {
             background: rgba(0,0,0,0.1);
             border-radius: 10px;
         }
-        
+
         .summary-box::-webkit-scrollbar-thumb {
             background: #ff9800;
             border-radius: 10px;
         }
-        
+
         .summary-box::-webkit-scrollbar-thumb:hover {
             background: #ff7d00;
         }
-        
+
         .summary-hint {
             text-align: center;
             margin-top: 15px;
@@ -685,14 +670,12 @@
                 padding: 20px;
                 font-size: 16px;
             }
-            
+
             .summary-header {
                 font-size: 20px;
             }
         }
 
-        /* STATUS INDICATOR STYLE */
-        /* STATUS INDICATOR STYLE */
         /* STATUS INDICATOR STYLE */
         .section-header {
             display: flex;
@@ -712,6 +695,7 @@
             cursor: help;
         }
 
+        /* Summary status indicators */
         .summary-status-indicator {
             position: absolute;
             right: 10px;
@@ -774,10 +758,8 @@
             opacity: 1;
         }
 
-        /* STATUS OVERVIEW WINDOW */
-        /* STATUS OVERVIEW WINDOW */
-        /* STATUS OVERVIEW WINDOW */
-        .NEWWindow {
+        /* STATUS OVERVIEW WINDOW - FIXED */
+        .status-overview-window {
             position: fixed;
             top: 5%;
             left: 5%;
@@ -786,19 +768,19 @@
             background: linear-gradient(135deg, #1e3c72, #2a5298);
             border: 2px solid #ff9800;
             display: none;
+            flex-direction: column;
             padding: 20px;
             box-sizing: border-box;
-            overflow: hidden;
             border-radius: 15px;
             box-shadow: 0 15px 50px rgba(0,0,0,0.5);
             z-index: 1000;
         }
-        
-        .NEWWindow.active {
-            display: block;
+
+        .status-overview-window.active {
+            display: flex;
             animation: popIn 0.5s ease-out;
         }
-        
+
         .window-header {
             display: flex;
             justify-content: space-between;
@@ -811,13 +793,15 @@
         .window-header h3 {
             font-size: 24px;
             color: #ffeb3b;
+            margin: 0;
         }
 
         .status-categories {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            margin-bottom: 20px;
+            overflow-y: auto;
+            flex: 1;
         }
 
         .status-category {
@@ -826,6 +810,8 @@
             background: rgba(0,0,0,0.3);
             border-radius: 10px;
             padding: 15px;
+            display: flex;
+            flex-direction: column;
         }
 
         .status-title {
@@ -839,6 +825,10 @@
 
         .status-list {
             list-style-type: none;
+            flex: 1;
+            overflow-y: auto;
+            margin: 0;
+            padding: 0;
         }
 
         .status-list li {
@@ -890,8 +880,6 @@
             box-shadow: 0 8px 20px rgba(0,194,203,0.6);
         }
 
-        /*TABLE STYLE*/
-        /*TABLE STYLE*/
         /*TABLE STYLE*/
         .table-container {
             background: rgba(10, 15, 35, 0.7);
@@ -1002,29 +990,29 @@
             h1 {
                 font-size: 2.5rem;
             }
-            
+
             h2 {
                 font-size: 2rem;
             }
-            
+
             .table-container {
                 padding: 20px;
             }
-            
+
             .enhanced-table {
                 font-size: 0.9rem;
             }
-            
-            .enhanced-table th, 
+
+            .enhanced-table th,
             .enhanced-table td {
                 padding: 12px 10px;
             }
-            
+
             .table-controls {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .control-btn {
                 width: 100%;
                 max-width: 300px;
@@ -1036,11 +1024,11 @@
             h1 {
                 font-size: 2rem;
             }
-            
+
             h2 {
                 font-size: 1.6rem;
             }
-            
+
             .enhanced-table {
                 display: block;
                 overflow-x: auto;
@@ -1067,8 +1055,6 @@
         .enhanced-table tr:nth-child(7) { animation-delay: 0.7s; }
         .enhanced-table tr:nth-child(8) { animation-delay: 0.8s; }
 
-        /* SEARCH BAR STYLE */
-        /* SEARCH BAR STYLE */
         /* SEARCH BAR STYLE */
         .search-bar {
             width: 100%;
@@ -1269,8 +1255,192 @@
             border-radius: 4px;
         }
 
-        /* EXAMPLE WINDOW STYLE */
-        /* EXAMPLE WINDOW STYLE */
+        /* NEW STYLES FOR TOGGLE FUNCTIONALITY */
+        .summary-line.subheading {
+            display: none;
+        }
+
+        .summary-line.subheading.visible {
+            display: flex;
+        }
+
+        .bracket-letter {
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .bracket-letter.A {
+            color: #FF5733;
+        }
+
+        .bracket-letter.B {
+            color: #33C4FF;
+            cursor: pointer;
+        }
+
+        .bracket-letter.C {
+            color: #33FF57;
+        }
+
+        .bracket-letter.B:hover {
+            text-shadow: 0 0 8px rgba(51, 196, 255, 0.8);
+            transform: scale(1.1);
+        }
+
+        .toggle-indicator {
+            margin-left: 5px;
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-indicator.open {
+            transform: rotate(90deg);
+        }
+
+        /* ENHANCED DEBUG PANEL */
+        .debug-panel {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.85);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            z-index: 1000;
+            max-width: 400px;
+            max-height: 500px;
+            display: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            border: 1px solid #ff9800;
+            overflow-y: auto;
+        }
+
+        .debug-panel.active {
+            display: block;
+        }
+
+        .debug-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .debug-title {
+            font-weight: bold;
+            font-size: 14px;
+            color: #64e3ff;
+        }
+
+        .debug-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        .debug-control-btn {
+            background: rgba(100, 227, 255, 0.2);
+            border: 1px solid #64e3ff;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 10px;
+        }
+
+        .debug-control-btn:hover {
+            background: rgba(100, 227, 255, 0.4);
+        }
+
+        .debug-section {
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+        }
+
+        .debug-section-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #ffb84d;
+            font-size: 13px;
+        }
+
+        .debug-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            padding: 2px 0;
+        }
+
+        .debug-label {
+            color: #aaa;
+        }
+
+        .debug-value {
+            color: white;
+            text-align: right;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .debug-status {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .status-online {
+            background-color: #2ecc71;
+        }
+
+        .status-offline {
+            background-color: #e74c3c;
+        }
+
+        .status-warning {
+            background-color: #f1c40f;
+        }
+
+        .time-details {
+            font-size: 11px;
+            color: #64e3ff;
+            margin-top: 5px;
+        }
+
+        .debug-progress {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 3px;
+        }
+
+        .debug-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #64e3ff, #9192ff);
+            transition: width 0.3s ease;
+        }
+
+        /* NEW: Active section styles */
+        section.active {
+            background: rgba(100, 227, 255, 0.1);
+            border: 2px solid rgba(100, 227, 255, 0.5);
+            box-shadow: 0 0 30px rgba(100, 227, 255, 0.3);
+        }
+
+        section.active h2 {
+            color: #64e3ff;
+            text-shadow: 0 0 10px rgba(100, 227, 255, 0.7);
+            background: rgba(100, 227, 255, 0.2);
+        }
+
         /* EXAMPLE WINDOW STYLE */
         .example-container {
             width: 100%;
@@ -1283,14 +1453,14 @@
             background: rgba(0,0,0,0.3);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-        
+
         .example-slider {
             display: flex;
             width: 100%;
             height: 100%;
             transition: transform 0.5s ease-in-out;
         }
-        
+
         .example-window {
             flex: 0 0 100%;
             height: 100%;
@@ -1305,7 +1475,7 @@
             background: rgba(0,0,0,0.2);
             border-radius: 10px;
         }
-        
+
         .example-window img {
             max-width: 100%;
             max-height: 150px;
@@ -1313,14 +1483,14 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
-        
+
         .example-window ul {
             list-style-type: none;
             padding: 0;
             width: 100%;
             max-width: 300px;
         }
-        
+
         .example-window li {
             padding: 8px 15px;
             margin: 6px 0;
@@ -1328,7 +1498,7 @@
             border-radius: 6px;
             border-left: 3px solid #ff9800;
         }
-        
+
         .example-controls {
             display: flex;
             justify-content: center;
@@ -1336,14 +1506,14 @@
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .example-dots {
             display: flex;
             justify-content: center;
             margin-top: 15px;
             gap: 8px;
         }
-        
+
         .example-dot {
             width: 12px;
             height: 12px;
@@ -1352,33 +1522,242 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .example-dot.active {
             background-color: #ff9800;
             transform: scale(1.2);
             box-shadow: 0 0 8px rgba(255, 152, 0, 0.8);
         }
+
+        /* NEW STYLES FOR THE INTEGRATED EDUCATIONAL TEMPLATE */
+        .educational-template {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .template-header {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .template-main-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .template-subtitle {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .template-content-area {
+            padding: 30px;
+            background: white;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .template-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .template-section-title {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .template-footer {
+            text-align: center;
+            padding: 20px;
+            background: #ecf0f1;
+            color: #7f8c8d;
+            margin-top: 40px;
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Ensure the template blends with your dark theme */
+        .text-box .educational-template {
+            background: transparent;
+        }
+
+        .text-box .template-content-area {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .text-box .template-header {
+            background: rgba(44, 62, 80, 0.9);
+        }
+
+        .text-box .template-footer {
+            background: rgba(236, 240, 241, 0.9);
+        }
+
+        /* NEW: DYNAMIC TIMER STYLES */
+        .status-overview-timer {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #64e3ff;
+            background: rgba(0,0,0,0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(100, 227, 255, 0.3);
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .status-overview-timer.updating {
+            animation: pulse-timer 2s infinite;
+        }
+
+        @keyframes pulse-timer {
+            0% { border-color: rgba(100, 227, 255, 0.3); }
+            50% { border-color: rgba(100, 227, 255, 0.8); }
+            100% { border-color: rgba(100, 227, 255, 0.3); }
+        }
     </style>
 </head>
 <body>
-    <!--Background modeling-->
-    <div class="light x1"></div>
-    <div class="light x2"></div>
-    <div class="light x3"></div>
-    <div class="light x4"></div>
-    <div class="light x5"></div>
-    <div class="light x6"></div>
-    <div class="light x7"></div>
-    <div class="light x8"></div>
-    <div class="light x9"></div>
-    <!--Background modeling-->
+     <!--Background modeling-->
+        <div class="light x1"></div>
+        <div class="light x2"></div>
+        <div class="light x3"></div>
+        <div class="light x4"></div>
+        <div class="light x5"></div>
+        <div class="light x6"></div>
+        <div class="light x7"></div>
+        <div class="light x8"></div>
+        <div class="light x9"></div>
+        <!--Background modeling-->
     <!---->
     <!---->
     <!-- Status Overview Button -->
     <button class="status-overview-btn" onclick="toggleStatusOverview()">
         <i class="fas fa-clock"></i> View Status
     </button>
-    <!-- Status Overview Button -->
+
+    <!-- Enhanced Debug panel -->
+    <div class="debug-panel" id="debugPanel">
+        <div class="debug-header">
+            <div class="debug-title">System Diagnostics</div>
+            <div class="debug-controls">
+                <button class="debug-control-btn" onclick="toggleDebugPanel()">X</button>
+                <button class="debug-control-btn" onclick="refreshDebugInfo()">↻</button>
+                <button class="debug-control-btn" onclick="clearDebugData()">Clear</button>
+            </div>
+        </div>
+
+        <div class="debug-section">
+            <div class="debug-section-title">Session Information</div>
+            <div class="debug-item">
+                <span class="debug-label">Active Section:</span>
+                <span class="debug-value" id="debug-active-section">None</span>
+            </div>
+            <div class="debug-item">
+                <span class="debug-label">Session Duration:</span>
+                <span class="debug-value" id="debug-session-duration">0s</span>
+            </div>
+            <div class="debug-item">
+                <span class="debug-label">Current Time:</span>
+                <span class="debug-value" id="debug-current-time">--:--:--</span>
+            </div>
+        </div>
+
+        <div class="debug-section">
+            <div class="debug-section-title">Performance Metrics</div>
+            <div class="debug-item">
+                <span class="debug-label">Memory Usage:</span>
+                <span class="debug-value" id="debug-memory">Calculating...</span>
+            </div>
+            <div class="debug-item">
+                <span class="debug-label">FPS:</span>
+                <span class="debug-value" id="debug-fps">--</span>
+            </div>
+            <div class="debug-item">
+                <span class="debug-label">Page Load Time:</span>
+                <span class="debug-value" id="debug-load-time">--</span>
+            </div>
+        </div>
+
+        <div class="debug-section">
+            <div class="debug-section-title">Section Analytics</div>
+            <div class="debug-item">
+                <span class="debug-label">Total Sections:</span>
+                <span class="debug-value" id="debug-total-sections">0</span>
+            </div>
+            <div class="debug-item">
+                <span class="debug-label">Visited Today:</span>
+                <span class="debug-value" id="debug-visited-today">0</span>
+            </div>
+            <div class="debug-item">
+                <span class="debug-label">Completion Rate:</span>
+                <span class="debug-value" id="debug-completion">0%</span>
+            </div>
+            <div class="debug-progress">
+                <div class="debug-progress-bar" id="debug-progress-bar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="debug-section">
+            <div class="debug-section-title">File System Status</div>
+            <div class="debug-item">
+                <span class="debug-label">Content Files:</span>
+                <span class="debug-value" id="debug-files-loaded">0/4</span>
+            </div>
+            <div class="debug-item">
+                <span class="debug-label">Storage Used:</span>
+                <span class="debug-value" id="debug-storage-used">0 KB</span>
+            </div>
+            <div class="debug-item">
+                <span class="debug-label">Last Backup:</span>
+                <span class="debug-value" id="debug-last-backup">Never</span>
+            </div>
+        </div>
+
+        <div class="debug-section">
+            <div class="debug-section-title">Content File Connections</div>
+            <div id="debug-content-connections">
+                <div class="debug-item">
+                    <span class="debug-label">No content files loaded</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="debug-section">
+            <div class="debug-section-title">System Status</div>
+            <div class="debug-item">
+                <span class="debug-label"><span class="debug-status status-online"></span>Local Storage:</span>
+                <span class="debug-value" id="debug-storage-status">Online</span>
+            </div>
+            <div class="debug-item">
+                <span class="debug-label"><span class="debug-status status-online"></span>Content Loader:</span>
+                <span class="debug-value" id="debug-content-status">Online</span>
+            </div>
+            <div class="debug-item">
+                <span class="debug-label"><span class="debug-status status-online"></span>UI Controller:</span>
+                <span class="debug-value" id="debug-ui-status">Online</span>
+            </div>
+        </div>
+
+        <div class="debug-section">
+            <div class="debug-section-title">Recent Activity</div>
+            <div id="debug-recent-activity">
+                <div class="debug-item">
+                    <span class="debug-label">No recent activity</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <!---->
     <!---->
     <!--Header-->
@@ -1387,7 +1766,7 @@
             <div class="section-header">
                 <h1>Osnovni izgled Stranice (SPOREDNI PREDMET)</h1>
                 <div class="text-container">
-                    <button class="button-87" role="button">Close Page</button>
+                    <button class="button-87" role="button" onclick="toggleDebugPanel()">Debug Panel</button>
                 </div>
             </div>
         </div>
@@ -1399,7 +1778,7 @@
     <section>
         <div class="container reveal fade-bottom">
             <div class="section-header">
-                <h1>Content summary</h1>
+                <h1 onclick="toggleDebugPanel()">Content summary</h1>
             </div>
             <div class="text-container">
                 <div class="text-box">
@@ -1414,18 +1793,81 @@
                         <option value="Accessibility"></option>
                         <option value="Web Design"></option>
                     </datalist>
-                </div>
-                <div class="summary-container">
-                    <div class="summary-box">
-                        <div class="summary-header">Subject Summary</div>
-                        <div class="summary-line">
-                            <div class="summary-content">
-                                <span class="summary-dots">.......................................................</span>
-                                <span class="summary-text"><a href="#Ozzy_1">Testing</a></span>
-                                <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_1"></div>
+                    </div>
+                    <div class="summary-container">
+                        <div class="summary-box">
+                            <div class="summary-header" onclick="toggleStatusOverview()">Subject Summary</div>
+                         <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_1"><span class="bracket-letter A">(A)</span> Table</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_1"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="42" data-section="Ozzy_1">
                             </div>
-                            <input type="text" class="summary-number" value="15">
-                        </div>
+
+                             <div class="summary-line heading" data-group="group1">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_2"><span class="bracket-letter B">(B)</span> Heading_1 <span class="toggle-indicator">❯</span>App opening</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_2"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="87" data-section="Ozzy_2">
+                            </div>
+
+                             <div class="summary-line subheading" data-group="group1">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_3"><span class="bracket-letter C">(C)</span> PDF :)</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_3"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="105" data-section="Ozzy_3">
+                            </div>
+
+                             <div class="summary-line subheading" data-group="group1">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_4"><span class="bracket-letter C">(C)</span> Example window</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_4"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="122" data-section="Ozzy_4">
+                            </div>
+
+                             <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Mathematics"><span class="bracket-letter D">(D)</span> Mathematics</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Mathematics"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="150" data-section="Mathematics">
+                            </div>
+
+                             <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Physics"><span class="bracket-letter E">(E)</span> Physics</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Physics"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="175" data-section="Physics">
+                            </div>
+
+                             <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Chemistry"><span class="bracket-letter F">(F)</span> Chemistry</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Chemistry"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="200" data-section="Chemistry">
+                            </div>
+
+                             <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Biology"><span class="bracket-letter G">(G)</span> Biology</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Biology"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="225" data-section="Biology">
+                            </div>
                             <div class="summary-hint">Tip: Dots represent available space for text</div>
                         </div>
                     </div>
@@ -1433,10 +1875,12 @@
             </div>
     </section>
 
-    <section>
+    <section id="Ozzy_1">
         <div class="container reveal fade-bottom">
             <div class="section-header">
-                <h2>Table</h2>
+                <h2 onclick="setActiveSection('Ozzy_1')">Table</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_1"></div>
+                <div class="status-tooltip">Last visited: Never</div>
             </div>
             <div class="text-container">
                 <div class="text-box">
@@ -1446,10 +1890,29 @@
         </div>
     </section>
 
-    <section>
+    <section id="Ozzy_2">
         <div class="container reveal fade-bottom">
             <div class="section-header">
-                <h2>PDF</h2>
+                <h2 onclick="setActiveSection('Ozzy_2')">App opening</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_2"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <a href="steam://open">Open Steam</a><br>
+                    <a href="discord://open">Open Discord</a><br>
+                    <a href="python://open">Open Python</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ozzy_3">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Ozzy_3')">PDF</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_3"></div>
+                <div class="status-tooltip">Last visited: Never</div>
             </div>
             <div class="text-container">
                 <div class="text-box">
@@ -1459,10 +1922,12 @@
         </div>
     </section>
 
-    <section>
+   <section id="Ozzy_4">
         <div class="container reveal fade-bottom">
             <div class="section-header">
-                <h2>Example Window</h2>
+                <h2 onclick="setActiveSection('Ozzy_4')">Example window</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_4"></div>
+                <div class="status-tooltip">Last visited: Never</div>
             </div>
             <div class="text-container">
                 <div class="text-box">
@@ -1470,6 +1935,192 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- MATHEMATICS SECTION -->
+    <section id="Mathematics">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Mathematics')">Mathematics</h2>
+                <div class="status-indicator" id="status-indicator-Mathematics"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="educational-template">
+                        <header class="template-header">
+                            <h1 class="template-main-title" id="mathematics-main-title">Mathematics</h1>
+                            <p class="template-subtitle" id="mathematics-subtitle">Loading mathematics content...</p>
+                        </header>
+
+                        <main class="template-content-area" id="mathematics-content-container">
+                            <div class="template-section">
+                                <p>Loading mathematics content... Please wait.</p>
+                            </div>
+                        </main>
+
+                        <footer class="template-footer">
+                            <p>&copy; 2024 Educational Library | Content: <span id="mathematics-content-file-info">mathematics.txt</span></p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHYSICS SECTION -->
+    <section id="Physics">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Physics')">Physics</h2>
+                <div class="status-indicator" id="status-indicator-Physics"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="educational-template">
+                        <header class="template-header">
+                            <h1 class="template-main-title" id="physics-main-title">Physics</h1>
+                            <p class="template-subtitle" id="physics-subtitle">Loading physics content...</p>
+                        </header>
+
+                        <main class="template-content-area" id="physics-content-container">
+                            <div class="template-section">
+                                <p>Loading physics content... Please wait.</p>
+                            </div>
+                        </main>
+
+                        <footer class="template-footer">
+                            <p>&copy; 2024 Educational Library | Content: <span id="physics-content-file-info">physics.txt</span></p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHEMISTRY SECTION -->
+    <section id="Chemistry">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Chemistry')">Chemistry</h2>
+                <div class="status-indicator" id="status-indicator-Chemistry"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="educational-template">
+                        <header class="template-header">
+                            <h1 class="template-main-title" id="chemistry-main-title">Chemistry</h1>
+                            <p class="template-subtitle" id="chemistry-subtitle">Loading chemistry content...</p>
+                        </header>
+
+                        <main class="template-content-area" id="chemistry-content-container">
+                            <div class="template-section">
+                                <p>Loading chemistry content... Please wait.</p>
+                            </div>
+                        </main>
+
+                        <footer class="template-footer">
+                            <p>&copy; 2024 Educational Library | Content: <span id="chemistry-content-file-info">chemistry.txt</span></p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BIOLOGY SECTION -->
+    <section id="Biology">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Biology')">Biology</h2>
+                <div class="status-indicator" id="status-indicator-Biology"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="educational-template">
+                        <header class="template-header">
+                            <h1 class="template-main-title" id="biology-main-title">Biology</h1>
+                            <p class="template-subtitle" id="biology-subtitle">Loading biology content...</p>
+                        </header>
+
+                        <main class="template-content-area" id="biology-content-container">
+                            <div class="template-section">
+                                <p>Loading biology content... Please wait.</p>
+                            </div>
+                        </main>
+
+                        <footer class="template-footer">
+                            <p>&copy; 2024 Educational Library | Content: <span id="biology-content-file-info">biology.txt</span></p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 1 SECTION -->
+    <section id="Page1">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Page1')">Page 1 Content</h2>
+                <div class="status-indicator" id="status-indicator-Page1"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div id="content1">Loading text...</div>
+                </div>
+            </div>
+        </div>
+        <script>
+            fetch('data.txt')
+                .then(response => response.text())
+                .then(data => {
+                    const sections = data.split('###TEXT2###');
+                    const text1 = sections[0].replace('###TEXT1###', '').trim();
+                    document.getElementById('content1').textContent = text1;
+                })
+                .catch(error => {
+                    console.error('Error loading text for Page1:', error);
+                    document.getElementById('content1').textContent = 'Error loading content';
+                });
+        </script>
+    </section>
+
+    <!-- PAGE 2 SECTION -->
+    <section id="Page2">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Page2')">Page 2 Content</h2>
+                <div class="status-indicator" id="status-indicator-Page2"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div id="content2">Loading text...</div>
+                </div>
+            </div>
+        </div>
+        <script>
+            fetch('data.txt')
+                .then(response => response.text())
+                .then(data => {
+                    const sections = data.split('###TEXT2###');
+                    if (sections.length > 1) {
+                        const text2 = sections[1].trim();
+                        document.getElementById('content2').textContent = text2;
+                    } else {
+                        document.getElementById('content2').textContent = 'Text 2 not found';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading text for Page2:', error);
+                    document.getElementById('content2').textContent = 'Error loading content';
+                });
+        </script>
     </section>
 
     <!-- Visualization Window -->
@@ -1493,7 +2144,7 @@
                         <h3>Geometric Representation</h3>
                     </div>
                 </div>
-                
+
                 <div class="image-square">
                     <div class="image-controls">
                         <button class="button-87" onmousedown="startZoom('in', 'image2')" onmouseup="stopZoom()" onmouseleave="stopZoom()">+</button>
@@ -1509,7 +2160,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="content-container">
             <div class="text-controls-container">
                 <div class="text-controls-grid">
@@ -1601,7 +2252,7 @@
                         <h3>Geometric Representation</h3>
                     </div>
                 </div>
-                
+
                 <div class="image-square">
                     <div class="image-controls">
                         <button class="button-87" onmousedown="startZoom('in', 'image2')" onmouseup="stopZoom()" onmouseleave="stopZoom()">+</button>
@@ -1617,7 +2268,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="content-container">
             <div class="text-controls-container">
                 <div class="text-controls-grid">
@@ -1638,7 +2289,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Visualization Window -->
     <div id="newWindow_3" class="newWindow">
         <div class="window-column">
@@ -1660,7 +2311,7 @@
                         <h3>Geometric Representation</h3>
                     </div>
                 </div>
-                
+
                 <div class="image-square">
                     <div class="image-controls">
                         <button class="button-87" onmousedown="startZoom('in', 'image2')" onmouseup="stopZoom()" onmouseleave="stopZoom()">+</button>
@@ -1676,7 +2327,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="content-container">
             <div class="text-controls-container">
                 <div class="text-controls-grid">
@@ -1705,7 +2356,7 @@
                                     <li>Polynomial expressions</li>
                                 </ul>
                             </div>
-                
+
                             <!-- Window 2 -->
                             <div class="example-window">
                                 <h3>Geometry Concepts</h3>
@@ -1715,7 +2366,7 @@
                                     <li>Trigonometric ratios</li>
                                 </ul>
                             </div>
-                
+
                             <!-- Window 3 -->
                             <div class="example-window">
                                 <h3>Calculus Fundamentals</h3>
@@ -1725,7 +2376,7 @@
                                     <li>Integrals</li>
                                 </ul>
                             </div>
-                
+
                             <!-- Window 4 -->
                             <div class="example-window">
                                 <img src="https://via.placeholder.com/400x200/2a5298/ffffff?text=Math+Visualization" alt="Math Visualization">
@@ -1738,23 +2389,23 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="example-controls">
                         <button class="button-87" onclick="slideExample(-1)">Previous</button>
-                        
+
                         <div class="example-dots" id="exampleDots">
                             <!-- Dots will be generated here -->
                         </div>
-                        
+
                         <button class="button-87" onclick="slideExample(1)">Next</button>
-                    </div>               
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Status Overview Window -->
-    <div id="statusOverview" class="NEWWindow">
+    <!-- Status Overview Window - FIXED -->
+    <div id="statusOverview" class="status-overview-window">
         <div class="window-header">
             <h3>Status Overview</h3>
             <button class="close-btn" onclick="toggleStatusOverview()">Close</button>
@@ -1785,10 +2436,97 @@
     </div>
 
     <script>
+        /******************************************************************
+         * CONTENT FILE CONFIGURATION - PATHS AND SETTINGS
+         * This section defines the paths and settings for the content files.
+         * You can modify the paths here to match your file structure.
+         ******************************************************************/
+        window.SECTION_CONFIG = {
+            Mathematics: {
+                contentFile: 'mathematics.txt',
+                defaultTitle: 'Mathematics',
+                defaultSubtitle: 'Algebra, Calculus, and Geometry',
+                // Multiple possible paths for file location
+                possiblePaths: [
+                    'content/mathematics.txt',
+                    'text_files/mathematics.txt',
+                    'subjects/mathematics.txt',
+                    'mathematics.txt',
+                    'Project_Z/mathematics.txt',
+                    './mathematics.txt'
+                ]
+            },
+            Physics: {
+                contentFile: 'physics.txt',
+                defaultTitle: 'Physics',
+                defaultSubtitle: 'Mechanics, Thermodynamics, and Electromagnetism',
+                possiblePaths: [
+                    'content/physics.txt',
+                    'text_files/physics.txt',
+                    'subjects/physics.txt',
+                    'physics.txt',
+                    'Project_Z/physics.txt',
+                    './physics.txt'
+                ]
+            },
+            Chemistry: {
+                contentFile: 'chemistry.txt',
+                defaultTitle: 'Chemistry',
+                defaultSubtitle: 'Organic, Inorganic, and Physical Chemistry',
+                possiblePaths: [
+                    'content/chemistry.txt',
+                    'text_files/chemistry.txt',
+                    'subjects/chemistry.txt',
+                    'chemistry.txt',
+                    'Project_Z/chemistry.txt',
+                    './chemistry.txt'
+                ]
+            },
+            Biology: {
+                contentFile: 'biology.txt',
+                defaultTitle: 'Biology',
+                defaultSubtitle: 'Cell Biology, Genetics, and Ecology',
+                possiblePaths: [
+                    'content/biology.txt',
+                    'text_files/biology.txt',
+                    'subjects/biology.txt',
+                    'biology.txt',
+                    'Project_Z/biology.txt',
+                    './biology.txt'
+                ]
+            }
+        };
+        /******************************************************************/
+
         // Time tracking data for sections
         const sectionData = {
-            Ozzy_1: { name: "Umetni", lastOpened: null },
+            Ozzy_1: { name: "Table", lastOpened: null, pageNumber: 42 },
+            Ozzy_2: { name: "App opening", lastOpened: null, pageNumber: 87 },
+            Ozzy_3: { name: "PDF", lastOpened: null, pageNumber: 105 },
+            Ozzy_4: { name: "Example Window", lastOpened: null, pageNumber: 122 },
+            Mathematics: { name: "Mathematics", lastOpened: null, pageNumber: 150 },
+            Physics: { name: "Physics", lastOpened: null, pageNumber: 175 },
+            Chemistry: { name: "Chemistry", lastOpened: null, pageNumber: 200 },
+            Biology: { name: "Biology", lastOpened: null, pageNumber: 225 },
+            Page1: { name: "Page 1 Content", lastOpened: null, pageNumber: 250 },
+            Page2: { name: "Page 2 Content", lastOpened: null, pageNumber: 275 },
         };
+
+        // Debug panel data
+        let debugData = {
+            sessionStartTime: new Date(),
+            pageLoadTime: null,
+            fps: 0,
+            frameCount: 0,
+            lastFpsUpdate: 0,
+            filesLoaded: 0,
+            totalFiles: 4,
+            recentActivity: [],
+            contentManagers: {}
+        };
+
+        // Timer interval for dynamic time updates
+        let dynamicTimeInterval = null;
 
         // Initialize section data from localStorage
         function initializeSectionData() {
@@ -1798,6 +2536,8 @@
                     sectionData[sectionId].lastOpened = new Date(parseInt(storedTime));
                 }
             }
+            updateAllStatusIndicators();
+            startDynamicTimeUpdates();
         }
 
         // Update status indicators based on time elapsed
@@ -1805,21 +2545,21 @@
             const headerIndicator = document.getElementById(`status-indicator-${sectionId}`);
             const summaryIndicator = document.getElementById(`summary-status-indicator-${sectionId}`);
             const tooltip = headerIndicator ? headerIndicator.nextElementSibling : null;
-            
+
             if (!sectionData[sectionId].lastOpened) {
                 if (headerIndicator) headerIndicator.className = "status-indicator status-red";
                 if (summaryIndicator) summaryIndicator.className = "status-indicator summary-status-indicator status-red";
                 if (tooltip) tooltip.textContent = "Never visited";
                 return;
             }
-            
+
             const now = new Date();
             const diffHours = (now - sectionData[sectionId].lastOpened) / (1000 * 60 * 60);
-            
+
             // Format last visited time
             const lastVisited = formatLastVisited(diffHours);
             if (tooltip) tooltip.textContent = `Last visited: ${lastVisited}`;
-            
+
             // Set indicator color based on time thresholds
             let statusClass;
             if (diffHours <= 36) {
@@ -1829,24 +2569,45 @@
             } else {
                 statusClass = "status-red";
             }
-            
+
             if (headerIndicator) headerIndicator.className = `status-indicator ${statusClass}`;
             if (summaryIndicator) summaryIndicator.className = `status-indicator summary-status-indicator ${statusClass}`;
+        }
+
+        // Format time difference for dynamic display
+        function formatTimeDifference(startTime, endTime) {
+            if (!startTime) return "Never";
+
+            const diffMs = endTime - startTime;
+            const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+            const diffHours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const diffMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+            const diffSeconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+
+            if (diffDays > 0) {
+                return `${diffDays}d ${diffHours}h ${diffMinutes}m`;
+            } else if (diffHours > 0) {
+                return `${diffHours}h ${diffMinutes}m ${diffSeconds}s`;
+            } else if (diffMinutes > 0) {
+                return `${diffMinutes}m ${diffSeconds}s`;
+            } else {
+                return `${diffSeconds}s`;
+            }
         }
 
         // Format last visited time for display
         function formatLastVisited(hours) {
             if (hours < 1) return "Just now";
             if (hours < 24) return `${Math.floor(hours)} hours ago`;
-            
+
             const days = Math.floor(hours / 24);
             if (days === 1) return "1 day ago";
             if (days < 7) return `${days} days ago`;
-            
+
             const weeks = Math.floor(days / 7);
             if (weeks === 1) return "1 week ago";
             if (weeks < 4) return `${weeks} weeks ago`;
-            
+
             const months = Math.floor(days / 30);
             if (months === 1) return "1 month ago";
             return `${months} months ago`;
@@ -1859,19 +2620,61 @@
             }
         }
 
+        // Start dynamic time updates for status overview
+        function startDynamicTimeUpdates() {
+            // Clear any existing interval
+            if (dynamicTimeInterval) {
+                clearInterval(dynamicTimeInterval);
+            }
+
+            // Update timers every second
+            dynamicTimeInterval = setInterval(() => {
+                const now = new Date();
+
+                // Update status overview timers if window is open
+                if (document.getElementById('statusOverview').classList.contains('active')) {
+                    updateStatusOverviewTimers();
+                }
+
+                // Update debug panel if active
+                if (document.getElementById('debugPanel').classList.contains('active')) {
+                    updateDebugInfo();
+                }
+            }, 1000);
+        }
+
+        // Update timers in status overview
+        function updateStatusOverviewTimers() {
+            const now = new Date();
+            const timerElements = document.querySelectorAll('.status-overview-timer');
+
+            timerElements.forEach(timerElement => {
+                const sectionId = timerElement.getAttribute('data-section-id');
+                if (sectionId && sectionData[sectionId]) {
+                    timerElement.textContent = formatTimeDifference(sectionData[sectionId].lastOpened, now);
+                    timerElement.classList.add('updating');
+
+                    // Remove updating class after animation completes
+                    setTimeout(() => {
+                        timerElement.classList.remove('updating');
+                    }, 2000);
+                }
+            });
+        }
+
         // Populate the status overview window
         function populateStatusOverview() {
             const greenList = document.getElementById('green-list');
             const yellowList = document.getElementById('yellow-list');
             const redList = document.getElementById('red-list');
-            
+
             // Clear existing lists
             greenList.innerHTML = '';
             yellowList.innerHTML = '';
             redList.innerHTML = '';
-            
+
             const now = new Date();
-            
+
             for (const sectionId in sectionData) {
                 if (!sectionData[sectionId].lastOpened) {
                     // Never opened - red status
@@ -1879,9 +2682,9 @@
                     redList.appendChild(li);
                     continue;
                 }
-                
+
                 const diffHours = (now - sectionData[sectionId].lastOpened) / (1000 * 60 * 60);
-                
+
                 if (diffHours <= 36) {
                     const li = createStatusListItem(sectionId, 'green');
                     greenList.appendChild(li);
@@ -1900,34 +2703,54 @@
             const li = document.createElement('li');
             const indicator = document.createElement('div');
             indicator.className = `status-indicator status-${status}`;
-            
+
+            const now = new Date();
+            const timeDisplay = formatTimeDifference(sectionData[sectionId].lastOpened, now);
+
             li.innerHTML = `
                 <span>
                     ${indicator.outerHTML}
-                    <a href="#${sectionId}" onclick="toggleWindow('statusOverview')">${sectionData[sectionId].name}</a>
+                    <a href="#${sectionId}" onclick="toggleStatusOverview()">${sectionData[sectionId].name}</a>
                 </span>
-                <span>${formatLastVisitedTime(sectionData[sectionId].lastOpened)}</span>
+                <span class="status-overview-timer" data-section-id="${sectionId}">${timeDisplay}</span>
             `;
-            
+
             return li;
         }
 
-        // Format last visited time for the overview list
-        function formatLastVisitedTime(lastOpened) {
-            if (!lastOpened) return "Never";
-            
-            const now = new Date();
-            const diffHours = (now - lastOpened) / (1000 * 60 * 60);
-            return formatLastVisited(diffHours);
-        }
-
-        // Toggle window visibility
+        // Toggle window visibility - FIXED FUNCTION
         function toggleWindow(windowId) {
             const window = document.getElementById(windowId);
-            window.classList.toggle('active');
-            document.body.style.overflow = window.classList.contains('active') ? 'hidden' : '';
-            
-            if (windowId === 'statusOverview' && window.classList.contains('active')) {
+            if (window.classList.contains('active')) {
+                window.classList.remove('active');
+                document.body.style.overflow = '';
+            } else {
+                // Close all other windows first
+                document.querySelectorAll('.newWindow.active').forEach(w => {
+                    w.classList.remove('active');
+                });
+                window.classList.add('active');
+                document.body.style.overflow = 'hidden';
+
+                if (windowId === 'newWindow_3') {
+                    initExampleSlider();
+                }
+            }
+        }
+
+        // Toggle status overview window - FIXED FUNCTION
+        function toggleStatusOverview() {
+            const window = document.getElementById('statusOverview');
+            if (window.classList.contains('active')) {
+                window.classList.remove('active');
+                document.body.style.overflow = '';
+            } else {
+                // Close all other windows first
+                document.querySelectorAll('.newWindow.active, .status-overview-window.active').forEach(w => {
+                    w.classList.remove('active');
+                });
+                window.classList.add('active');
+                document.body.style.overflow = 'hidden';
                 populateStatusOverview();
             }
         }
@@ -1948,7 +2771,7 @@
         }
         window.addEventListener("scroll", reveal, { passive: true });
         reveal(); // Initialize
-        
+
         // ZOOM FUNCTIONALITY
         let zoomInterval;
         const ZOOM_SPEED = 0.1;
@@ -1976,7 +2799,7 @@
                 imageScales[img.id] = 1;
                 img.parentElement.scrollTo(0, 0);
             });
-            
+
             const textElements = document.querySelectorAll('.zoomable-text');
             textElements.forEach(text => {
                 text.style.fontSize = '1em';
@@ -2030,38 +2853,27 @@
             });
         }
 
-        // WINDOW MANAGEMENT
-        function toggleWindow(windowId) {
-            const windowToToggle = document.getElementById(windowId);
-            windowToToggle.classList.toggle('active');
-            document.body.style.overflow = windowToToggle.classList.contains('active') ? 'hidden' : '';
-            
-            if(windowToToggle.classList.contains('active')) {
-                resetAllZooms();
-            }
-        }
-
         // MODIFIED LAYOUT CYCLING FUNCTION
         let layoutStates = ['default', 'swapped', 'no-images'];
         let currentLayoutIndex = 0;
-        
+
         function cycleLayout(windowId) {
             const window = document.getElementById(windowId);
             const imageContainer = window.querySelector('.image-container');
-            
+
             // Remove all layout classes
             window.classList.remove('swapped', 'no-images');
-            
+
             // Get next layout state
             currentLayoutIndex = (currentLayoutIndex + 1) % layoutStates.length;
             const nextLayout = layoutStates[currentLayoutIndex];
-            
+
             // Apply new layout only if images exist
             if (imageContainer.children.length > 0) {
                 if (nextLayout !== 'default') {
                     window.classList.add(nextLayout);
                 }
-            } 
+            }
             // STRICT CONDITION: Only use no-images mode if no images
             else {
                 window.classList.add('no-images');
@@ -2090,14 +2902,14 @@
 
         document.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
-            
+
             const dx = e.clientX - startPos.x;
             const dy = e.clientY - startPos.y;
-            
+
             const container = document.querySelector(`#${currentImageId}`).parentElement;
             container.scrollLeft = scrollPos.x - dx;
             container.scrollTop = scrollPos.y - dy;
-            
+
             e.preventDefault();
         });
 
@@ -2112,46 +2924,51 @@
 
         // Close new windows when clicking outside
         document.addEventListener('click', function(event) {
-            const newWindows = document.querySelectorAll('.newWindow');
+            const newWindows = document.querySelectorAll('.newWindow, .status-overview-window');
             newWindows.forEach(window => {
-                if (window.classList.contains('active') && 
-                    !window.contains(event.target) && 
-                    !event.target.matches('.button-87[onclick*="toggleWindow"]')) {
-                    toggleWindow(window.id);
+                if (window.classList.contains('active') &&
+                    !window.contains(event.target) &&
+                    !event.target.matches('.button-87[onclick*="toggleWindow"], .status-overview-btn, .close-btn')) {
+                    if (window.id === 'statusOverview') {
+                        toggleStatusOverview();
+                    } else {
+                        toggleWindow(window.id);
+                    }
                 }
             });
         });
+
         // Create floating particles
         function createParticles() {
             const container = document.getElementById('particles');
             const particleCount = 50;
-            
+
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
-                
+
                 // Random properties
                 const size = Math.random() * 10 + 2;
                 const posX = Math.random() * 100;
                 const posY = Math.random() * 100;
                 const duration = Math.random() * 30 + 10;
                 const delay = Math.random() * 5;
-                
+
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 particle.style.left = `${posX}%`;
                 particle.style.top = `${posY}%`;
                 particle.style.animationDuration = `${duration}s`;
                 particle.style.animationDelay = `${delay}s`;
-                
+
                 container.appendChild(particle);
             }
         }
-        
+
         // Initialize particles and animations
         document.addEventListener('DOMContentLoaded', () => {
             createParticles();
-            
+
             // Add hover effect to table rows
             const tableRows = document.querySelectorAll('.enhanced-table tr');
             tableRows.forEach(row => {
@@ -2164,7 +2981,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('search');
             const searchResults = document.getElementById('search-results');
-            
+
             // Sample data for demonstration
             const elementsWithIds = [
                 { id: 'printBtn', text: 'Print Page Button', type: 'button' },
@@ -2174,7 +2991,7 @@
                 { id: 'shareBtn', text: 'Share Button', type: 'button' },
                 { id: 'downloadBtn', text: 'Download Button', type: 'button' }
             ];
-            
+
             // Function to find bold text on the page
             function findBoldText() {
                 const boldElements = Array.from(document.querySelectorAll('b, strong'));
@@ -2184,14 +3001,14 @@
                     type: 'bold text'
                 }));
             }
-            
+
             // Function to search for matching items
             function searchItems(query) {
                 const results = [];
                 const lowerQuery = query.toLowerCase().trim();
-                
+
                 if (!lowerQuery) return [];
-                
+
                 // Search bold text
                 const boldItems = findBoldText();
                 for (const item of boldItems) {
@@ -2203,10 +3020,10 @@
                         });
                     }
                 }
-                
+
                 // Search elements with IDs
                 for (const item of elementsWithIds) {
-                    if (item.id.toLowerCase().includes(lowerQuery) || 
+                    if (item.id.toLowerCase().includes(lowerQuery) ||
                         item.text.toLowerCase().includes(lowerQuery)) {
                         const element = document.getElementById(item.id);
                         if (element) {
@@ -2218,85 +3035,85 @@
                         }
                     }
                 }
-                
+
                 return results;
             }
-            
+
             // Function to display search results
             function displayResults(results, query) {
                 searchResults.innerHTML = '';
-                
+
                 if (results.length === 0) {
                     searchResults.innerHTML = '<div class="no-results">No results found for "' + query + '"</div>';
                     searchResults.style.display = 'block';
                     return;
                 }
-                
+
                 // Show search stats
                 const stats = document.createElement('div');
                 stats.className = 'search-stats';
                 stats.textContent = results.length + ' result' + (results.length !== 1 ? 's' : '') + ' for "' + query + '"';
                 searchResults.appendChild(stats);
-                
+
                 // Add results
                 results.forEach(result => {
                     const resultItem = document.createElement('div');
                     resultItem.className = 'result-item';
-                    
+
                     const icon = document.createElement('i');
-                    icon.className = result.type === 'bold text' ? 
+                    icon.className = result.type === 'bold text' ?
                         'fas fa-bold result-icon' : 'fas fa-hashtag result-icon';
-                    
+
                     const text = document.createElement('span');
                     text.textContent = result.text;
-                    
+
                     const type = document.createElement('span');
                     type.className = 'result-type';
                     type.textContent = result.type;
-                    
+
                     resultItem.appendChild(icon);
                     resultItem.appendChild(text);
                     resultItem.appendChild(type);
-                    
+
                     resultItem.addEventListener('click', () => {
                         // Highlight the target element
                         result.element.classList.add('highlight');
-                        
+
                         // Scroll to the element
                         result.element.scrollIntoView({
                             behavior: 'smooth',
                             block: 'center'
                         });
-                        
+
                         // Remove highlight after animation completes
                         setTimeout(() => {
                             result.element.classList.remove('highlight');
                         }, 2000);
-                        
+
                         // Clear search
                         searchInput.value = '';
                         searchResults.style.display = 'none';
                     });
-                    
+
                     searchResults.appendChild(resultItem);
                 });
-                
+
                 searchResults.style.display = 'block';
             }
-            
+
             // Event listeners
             searchInput.addEventListener('input', function() {
                 const query = this.value.trim();
-                
+
                 if (query.length < 2) {
                     searchResults.style.display = 'none';
                     return;
                 }
-                
+
                 const results = searchItems(query);
                 displayResults(results, query);
             });
-            
+
             searchInput.addEventListener('focus', function() {
                 const query = this.value.trim();
                 if (query.length >= 2) {
@@ -2304,46 +3121,44 @@
                     displayResults(results, query);
                 }
             });
-            
+
             document.addEventListener('click', function(e) {
                 if (!searchResults.contains(e.target)) {
                     searchResults.style.display = 'none';
                 }
             });
         });
-// Initialize the page
+
+        // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
             initializeSectionData();
             updateAllStatusIndicators();
-            
+
             // Initialize scroll event listener
             window.addEventListener("scroll", reveal, { passive: true });
             reveal(); // Initialize sections
-            
+
             // Set the first section as opened
             sectionData.Ozzy_1.lastOpened = new Date();
             localStorage.setItem('lastOpened_Ozzy_1', sectionData.Ozzy_1.lastOpened.getTime());
             updateStatusIndicator('Ozzy_1');
+
+            // Initialize all educational content managers
+            initializeEducationalContent();
+
+            // Initialize debug panel
+            initializeDebugPanel();
         });
-        // Toggle status overview window
-        function toggleStatusOverview() {
-            const window = document.getElementById('statusOverview');
-            window.classList.toggle('active');
-            document.body.style.overflow = window.classList.contains('active') ? 'hidden' : '';
-            
-            if (window.classList.contains('active')) {
-                populateStatusOverview();
-            }
-        }
-       // UPDATED: EXAMPLE WINDOW FUNCTIONALITY
+
+        // UPDATED: EXAMPLE WINDOW FUNCTIONALITY
         let currentExampleSlide = 0;
         const exampleSlideCount = 4;
-        
+
         // Initialize example slider
         function initExampleSlider() {
             const dotsContainer = document.getElementById('exampleDots');
             dotsContainer.innerHTML = '';
-            
+
             for (let i = 0; i < exampleSlideCount; i++) {
                 const dot = document.createElement('div');
                 dot.className = 'example-dot';
@@ -2351,32 +3166,32 @@
                 dot.addEventListener('click', () => goToExampleSlide(i));
                 dotsContainer.appendChild(dot);
             }
-            
+
             updateExampleSlider();
         }
-        
+
         // Navigate to specific slide
         function goToExampleSlide(index) {
             currentExampleSlide = index;
             updateExampleSlider();
         }
-        
+
         // Slide navigation
         function slideExample(direction) {
             currentExampleSlide += direction;
-            
+
             // Handle boundaries
             if (currentExampleSlide < 0) currentExampleSlide = exampleSlideCount - 1;
             if (currentExampleSlide >= exampleSlideCount) currentExampleSlide = 0;
-            
+
             updateExampleSlider();
         }
-        
+
         // Update slider position and active dot
         function updateExampleSlider() {
             const slider = document.getElementById('exampleSlider');
             slider.style.transform = `translateX(-${currentExampleSlide * 100}%)`;
-            
+
             // Update active dot
             const dots = document.querySelectorAll('.example-dot');
             dots.forEach((dot, index) => {
@@ -2387,13 +3202,641 @@
                 }
             });
         }
-        
+
         // Initialize the example slider when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-            // ... existing initialization code ...
-            
-            // Initialize the example slider
             initExampleSlider();
+        });
+
+        // Active section tracking
+        let currentlyActiveSection = null;
+        let activeSectionStartTime = null;
+        let lastUnloadTime = null;
+
+        // NEW: Function to set active section when clicking on h2
+        function setActiveSection(sectionId) {
+            // Remove active class from all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Add active class to clicked section
+            const clickedSection = document.getElementById(sectionId);
+            if (clickedSection) {
+                clickedSection.classList.add('active');
+
+                // Scroll to the section
+                clickedSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+
+            // If the same section is already active, do nothing
+            if (currentlyActiveSection === sectionId) {
+                return;
+            }
+
+            // Stop the timer for the current active section
+            if (currentlyActiveSection) {
+                const endTime = new Date();
+                const timeSpent = (endTime - activeSectionStartTime) / (1000 * 60 * 60);
+                sectionData[currentlyActiveSection].totalTime += timeSpent;
+                localStorage.setItem(`totalTime_${currentlyActiveSection}`, sectionData[currentlyActiveSection].totalTime);
+            }
+
+            // Start timer for new active section
+            currentlyActiveSection = sectionId;
+            activeSectionStartTime = new Date();
+            localStorage.setItem('activeSection', currentlyActiveSection);
+
+            // Update the lastOpened time and status indicator
+            sectionData[sectionId].lastOpened = new Date();
+            localStorage.setItem(`lastOpened_${sectionId}`, sectionData[sectionId].lastOpened.getTime());
+            updateStatusIndicator(sectionId);
+
+            // Add to recent activity
+            addDebugActivity(`Switched to section: ${sectionData[sectionId].name}`);
+
+            // Update debug info
+            updateDebugInfo();
+        }
+
+        // ENHANCED DEBUG PANEL FUNCTIONS
+        function toggleDebugPanel() {
+            const debugPanel = document.getElementById('debugPanel');
+            debugPanel.classList.toggle('active');
+
+            if (debugPanel.classList.contains('active')) {
+                updateDebugInfo();
+            }
+        }
+
+        function refreshDebugInfo() {
+            updateDebugInfo();
+            addDebugActivity("Debug panel refreshed");
+        }
+
+        function clearDebugData() {
+            debugData.recentActivity = [];
+            updateDebugInfo();
+            addDebugActivity("Debug data cleared");
+        }
+
+        function addDebugActivity(message) {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            debugData.recentActivity.unshift({
+                time: timeString,
+                message: message
+            });
+
+            // Keep only last 5 activities
+            if (debugData.recentActivity.length > 5) {
+                debugData.recentActivity.pop();
+            }
+
+            updateDebugInfo();
+        }
+
+        function initializeDebugPanel() {
+            debugData.pageLoadTime = new Date();
+            debugData.lastFpsUpdate = performance.now();
+
+            // Start FPS counter
+            function updateFPS() {
+                debugData.frameCount++;
+                const now = performance.now();
+                if (now >= debugData.lastFpsUpdate + 1000) {
+                    debugData.fps = Math.round((debugData.frameCount * 1000) / (now - debugData.lastFpsUpdate));
+                    debugData.frameCount = 0;
+                    debugData.lastFpsUpdate = now;
+                }
+                requestAnimationFrame(updateFPS);
+            }
+            updateFPS();
+
+            // Update debug info periodically
+            setInterval(updateDebugInfo, 1000);
+
+            addDebugActivity("Debug panel initialized");
+        }
+
+        function updateDebugInfo() {
+            const now = new Date();
+
+            // Session Information
+            document.getElementById('debug-active-section').textContent =
+                currentlyActiveSection ? sectionData[currentlyActiveSection].name : 'None';
+
+            const sessionDuration = Math.floor((now - debugData.sessionStartTime) / 1000);
+            document.getElementById('debug-session-duration').textContent =
+                formatTime(sessionDuration);
+
+            document.getElementById('debug-current-time').textContent =
+                now.toLocaleTimeString();
+
+            // Performance Metrics
+            document.getElementById('debug-fps').textContent = debugData.fps;
+
+            if (debugData.pageLoadTime) {
+                const loadTime = Math.floor((now - debugData.pageLoadTime) / 1000);
+                document.getElementById('debug-load-time').textContent =
+                    formatTime(loadTime);
+            }
+
+            // Memory usage (approximation)
+            if (performance.memory) {
+                const usedMB = Math.round(performance.memory.usedJSHeapSize / 1048576);
+                const totalMB = Math.round(performance.memory.totalJSHeapSize / 1048576);
+                document.getElementById('debug-memory').textContent =
+                    `${usedMB} MB / ${totalMB} MB`;
+            }
+
+            // Section Analytics
+            const totalSections = Object.keys(sectionData).length;
+            document.getElementById('debug-total-sections').textContent = totalSections;
+
+            const visitedToday = Object.values(sectionData).filter(section => {
+                if (!section.lastOpened) return false;
+                const today = new Date();
+                return section.lastOpened.toDateString() === today.toDateString();
+            }).length;
+            document.getElementById('debug-visited-today').textContent = visitedToday;
+
+            const completionRate = Math.round((visitedToday / totalSections) * 100);
+            document.getElementById('debug-completion').textContent = `${completionRate}%`;
+            document.getElementById('debug-progress-bar').style.width = `${completionRate}%`;
+
+            // File System Status
+            document.getElementById('debug-files-loaded').textContent =
+                `${debugData.filesLoaded}/${debugData.totalFiles}`;
+
+            // Calculate storage used
+            let storageUsed = 0;
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+                storageUsed += key.length + value.length;
+            }
+            const storageKB = Math.round(storageUsed / 1024);
+            document.getElementById('debug-storage-used').textContent = `${storageKB} KB`;
+
+            // Last backup (simulated)
+            const lastBackup = localStorage.getItem('lastBackup');
+            document.getElementById('debug-last-backup').textContent =
+                lastBackup ? new Date(parseInt(lastBackup)).toLocaleDateString() : 'Never';
+
+            // Content File Connections
+            updateContentConnectionsDebugInfo();
+
+            // System Status
+            document.getElementById('debug-storage-status').textContent =
+                localStorage ? 'Online' : 'Offline';
+            document.getElementById('debug-content-status').textContent =
+                debugData.filesLoaded > 0 ? 'Online' : 'Loading';
+            document.getElementById('debug-ui-status').textContent = 'Online';
+
+            // Recent Activity
+            const activityContainer = document.getElementById('debug-recent-activity');
+            activityContainer.innerHTML = '';
+
+            if (debugData.recentActivity.length === 0) {
+                activityContainer.innerHTML = '<div class="debug-item"><span class="debug-label">No recent activity</span></div>';
+            } else {
+                debugData.recentActivity.forEach(activity => {
+                    const activityItem = document.createElement('div');
+                    activityItem.className = 'debug-item';
+                    activityItem.innerHTML = `
+                        <span class="debug-label">${activity.time}</span>
+                        <span class="debug-value">${activity.message}</span>
+                    `;
+                    activityContainer.appendChild(activityItem);
+                });
+            }
+        }
+
+        function updateContentConnectionsDebugInfo() {
+            const container = document.getElementById('debug-content-connections');
+            container.innerHTML = '';
+
+            if (!debugData.contentManagers || Object.keys(debugData.contentManagers).length === 0) {
+                container.innerHTML = '<div class="debug-item"><span class="debug-label">No content managers registered</span></div>';
+                return;
+            }
+
+            for (const sectionId in debugData.contentManagers) {
+                const manager = debugData.contentManagers[sectionId];
+                const item = document.createElement('div');
+                item.className = 'debug-item';
+
+                const statusIcon = manager.loaded ? 'status-online' : 'status-warning';
+                const statusText = manager.loaded ? 'Loaded' : 'Loading';
+
+                item.innerHTML = `
+                    <span class="debug-label">
+                        <span class="debug-status ${statusIcon}"></span>${sectionId}:
+                    </span>
+                    <span class="debug-value">${statusText}</span>
+                `;
+
+                container.appendChild(item);
+
+                // Add file path info
+                if (manager.loaded && manager.currentPath) {
+                    const pathItem = document.createElement('div');
+                    pathItem.className = 'debug-item';
+                    pathItem.innerHTML = `
+                        <span class="debug-label">Path:</span>
+                        <span class="debug-value">${manager.currentPath}</span>
+                    `;
+                    container.appendChild(pathItem);
+                }
+
+                // Add file size info if available
+                if (manager.loaded && manager.fileSize) {
+                    const sizeItem = document.createElement('div');
+                    sizeItem.className = 'debug-item';
+                    sizeItem.innerHTML = `
+                        <span class="debug-label">Size:</span>
+                        <span class="debug-value">${manager.fileSize} bytes</span>
+                    `;
+                    container.appendChild(sizeItem);
+                }
+
+                // Add loading time if available
+                if (manager.loaded && manager.loadTime) {
+                    const timeItem = document.createElement('div');
+                    timeItem.className = 'debug-item';
+                    timeItem.innerHTML = `
+                        <span class="debug-label">Load Time:</span>
+                        <span class="debug-value">${manager.loadTime}ms</span>
+                    `;
+                    container.appendChild(timeItem);
+                }
+            }
+        }
+
+        function formatTime(seconds) {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+
+            if (hours > 0) {
+                return `${hours}h ${minutes}m ${secs}s`;
+            } else if (minutes > 0) {
+                return `${minutes}m ${secs}s`;
+            } else {
+                return `${secs}s`;
+            }
+        }
+
+        // Set up click listeners for h2 elements
+        function setupH2ClickListeners() {
+            const h2Elements = document.querySelectorAll('section h2');
+            h2Elements.forEach(h2 => {
+                h2.addEventListener('click', function() {
+                    const sectionId = this.closest('section').id;
+                    setActiveSection(sectionId);
+                });
+            });
+        }
+
+        // Set up listeners for page number inputs
+        function setupPageNumberListeners() {
+            const pageInputs = document.querySelectorAll('.summary-number');
+            pageInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    const sectionId = this.getAttribute('data-section');
+                    const pageNumber = parseInt(this.value) || 0;
+
+                    if (sectionId && sectionData[sectionId]) {
+                        sectionData[sectionId].pageNumber = pageNumber;
+                        localStorage.setItem(`pageNumber_${sectionId}`, pageNumber);
+                    }
+                });
+            });
+        }
+
+        // Update summary number display with page number
+        function updateSummaryNumber(sectionId, pageNumber) {
+            const summaryNumber = document.querySelector(`.summary-content a[href="#${sectionId}"]`)
+                ?.closest('.summary-line')
+                ?.querySelector('.summary-number');
+
+            if (summaryNumber) {
+                summaryNumber.value = pageNumber;
+            }
+        }
+
+        // Handle page unload
+        function handlePageUnload() {
+            if (currentlyActiveSection) {
+                const endTime = new Date();
+                const timeSpent = (endTime - activeSectionStartTime) / (1000 * 60 * 60);
+                sectionData[currentlyActiveSection].totalTime += timeSpent;
+                localStorage.setItem(`totalTime_${currentlyActiveSection}`, sectionData[currentlyActiveSection].totalTime);
+            }
+
+            // Store unload time and active section
+            localStorage.setItem('lastUnloadTime', new Date().getTime());
+            if (currentlyActiveSection) {
+                localStorage.setItem('activeSection', currentlyActiveSection);
+            }
+        }
+
+        // Functionality to toggle subheadings
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click event listeners to all (B) headings
+            const bHeadings = document.querySelectorAll('.summary-line.heading .bracket-letter.B');
+
+            bHeadings.forEach(heading => {
+                heading.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const parentLine = this.closest('.summary-line');
+                    const group = parentLine.getAttribute('data-group');
+
+                    // Toggle all subheadings with the same group
+                    const subheadings = document.querySelectorAll(`.summary-line.subheading[data-group="${group}"]`);
+                    const toggleIndicator = parentLine.querySelector('.toggle-indicator');
+
+                    subheadings.forEach(subheading => {
+                        subheading.classList.toggle('visible');
+                    });
+
+                    // Rotate the toggle indicator
+                    if (toggleIndicator) {
+                        toggleIndicator.classList.toggle('open');
+                    }
+                });
+            });
+        });
+
+        // ENHANCED CONTENT MANAGER FOR MULTIPLE SECTIONS
+        class SectionContentManager {
+            constructor(sectionId) {
+                this.sectionId = sectionId;
+                this.config = window.SECTION_CONFIG[sectionId];
+                this.contentFiles = [this.config.contentFile];
+                this.currentContentFile = this.config.contentFile;
+                this.basePaths = this.config.possiblePaths || this.getDefaultPaths();
+                this.loaded = false;
+                this.currentPath = '';
+                this.fileSize = 0;
+                this.loadTime = 0;
+
+                // Register with debug data
+                debugData.contentManagers[sectionId] = this;
+
+                this.init();
+            }
+
+            getDefaultPaths() {
+                return [
+                    'content/',
+                    'text_files/',
+                    'subjects/',
+                    './',
+                    '../',
+                    'Project_Z/'
+                ];
+            }
+
+            async init() {
+                try {
+                    const startTime = performance.now();
+                    await this.loadContent(this.currentContentFile);
+                    this.loadTime = Math.round(performance.now() - startTime);
+                    debugData.filesLoaded++;
+                    addDebugActivity(`Loaded content for ${this.sectionId}`);
+                } catch (error) {
+                    console.error(`Error loading content for ${this.sectionId}:`, error);
+                    addDebugActivity(`Failed to load ${this.sectionId} content`);
+                    this.showError();
+                }
+            }
+
+            async loadContent(contentFile) {
+                let loaded = false;
+                let lastError = null;
+                let successfulPath = '';
+
+                for (const fullPath of this.basePaths) {
+                    try {
+                        const response = await fetch(fullPath);
+                        if (response.ok) {
+                            const text = await response.text();
+                            this.parseContent(text);
+                            document.getElementById(`${this.sectionId.toLowerCase()}-content-file-info`).textContent = fullPath;
+                            loaded = true;
+                            successfulPath = fullPath;
+                            this.currentPath = fullPath;
+                            this.fileSize = text.length;
+                            this.loaded = true;
+                            console.log(`Successfully loaded ${this.sectionId} content from: ${fullPath}`);
+                            break;
+                        }
+                    } catch (error) {
+                        lastError = error;
+                        console.log(`Failed to load ${this.sectionId} from ${fullPath}:`, error);
+                    }
+                }
+
+                if (!loaded) {
+                    throw lastError || new Error(`Failed to load ${contentFile} from any path for ${this.sectionId}`);
+                } else {
+                    // Store successful path for future use
+                    localStorage.setItem(`contentPath_${this.sectionId}`, successfulPath);
+                }
+            }
+
+            parseContent(text) {
+                const sections = this.splitIntoSections(text);
+                this.renderContent(sections);
+                this.updateMetadata(sections);
+            }
+
+            splitIntoSections(text) {
+                const sections = [];
+                const lines = text.split('\n');
+                let currentSection = { type: 'SECTION', title: 'Content', content: [] };
+
+                for (const line of lines) {
+                    const trimmedLine = line.trim();
+
+                    const markerMatch = trimmedLine.match(/^\[(\w+)(?::(.*))?\]$/);
+
+                    if (markerMatch) {
+                        if (currentSection.content.length > 0) {
+                            sections.push({...currentSection});
+                        }
+
+                        const [, type, title] = markerMatch;
+                        currentSection = {
+                            type: type,
+                            title: title || this.capitalize(type),
+                            content: [],
+                            id: this.generateId(title || type)
+                        };
+                    } else {
+                        if (trimmedLine || currentSection.content.length > 0) {
+                            currentSection.content.push(line);
+                        }
+                    }
+                }
+
+                if (currentSection.content.length > 0) {
+                    sections.push(currentSection);
+                }
+
+                return sections;
+            }
+
+            generateId(title) {
+                return title.toLowerCase()
+                    .replace(/[^a-z0-9]+/g, '-')
+                    .replace(/(^-|-$)/g, '');
+            }
+
+            renderContent(sections) {
+                const container = document.getElementById(`${this.sectionId.toLowerCase()}-content-container`);
+                container.innerHTML = '';
+
+                sections.forEach((section) => {
+                    const sectionElement = this.createSectionElement(section);
+                    if (sectionElement) {
+                        container.appendChild(sectionElement);
+                    }
+                });
+            }
+
+            createSectionElement(section) {
+                if (['TITLE', 'SUBTITLE', 'METADATA'].includes(section.type)) {
+                    return null;
+                }
+
+                const element = document.createElement('div');
+                element.className = 'template-section';
+                element.id = section.id;
+
+                const content = this.processContent(section.content);
+                const contentHTML = `
+                    <h2 class="template-section-title">${section.title}</h2>
+                    <div>${content}</div>
+                `;
+
+                element.innerHTML = contentHTML;
+                return element;
+            }
+
+            processContent(contentLines) {
+                let html = '';
+                let inList = false;
+
+                for (const line of contentLines) {
+                    const trimmed = line.trim();
+
+                    if (!trimmed) {
+                        if (inList) {
+                            html += '</ul>';
+                            inList = false;
+                        }
+                        continue;
+                    }
+
+                    if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
+                        if (!inList) {
+                            html += '<ul>';
+                            inList = true;
+                        }
+                        html += `<li>${this.processInlineFormatting(trimmed.substring(2))}</li>`;
+                    } else if (trimmed.match(/^\d+\./)) {
+                        if (!inList) {
+                            html += '<ol>';
+                            inList = true;
+                        }
+                        html += `<li>${this.processInlineFormatting(trimmed.substring(trimmed.indexOf('.') + 1))}</li>`;
+                    } else {
+                        if (inList) {
+                            html += inList ? '</ul>' : '</ol>';
+                            inList = false;
+                        }
+                        html += `<p>${this.processInlineFormatting(trimmed)}</p>`;
+                    }
+                }
+
+                if (inList) {
+                    html += inList ? '</ul>' : '</ol>';
+                }
+
+                return html;
+            }
+
+            processInlineFormatting(text) {
+                return text
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                    .replace(/`(.*?)`/g, '<code>$1</code>')
+                    .replace(/\\\[(.*?)\\\]/g, '$$$1$$')
+                    .replace(/\\\((.*?)\\\)/g, '\\($1\\)');
+            }
+
+            updateMetadata(sections) {
+                const titleSection = sections.find(s => s.type === 'TITLE');
+                const subtitleSection = sections.find(s => s.type === 'SUBTITLE');
+
+                if (titleSection) {
+                    document.getElementById(`${this.sectionId.toLowerCase()}-main-title`).textContent = titleSection.content.join(' ').trim();
+                } else {
+                    document.getElementById(`${this.sectionId.toLowerCase()}-main-title`).textContent = this.config.defaultTitle;
+                }
+
+                if (subtitleSection) {
+                    document.getElementById(`${this.sectionId.toLowerCase()}-subtitle`).textContent = subtitleSection.content.join(' ').trim();
+                } else {
+                    document.getElementById(`${this.sectionId.toLowerCase()}-subtitle`).textContent = this.config.defaultSubtitle;
+                }
+            }
+
+            showError() {
+                const container = document.getElementById(`${this.sectionId.toLowerCase()}-content-container`);
+                const triedPaths = this.basePaths.join(', ');
+
+                container.innerHTML = `
+                    <div class="template-section">
+                        <h2 class="template-section-title">Error Loading ${this.sectionId} Content</h2>
+                        <div>
+                            <p>Unable to load the content file. Tried the following paths:</p>
+                            <ul>
+                                ${this.basePaths.map(path => `<li>${path}</li>`).join('')}
+                            </ul>
+                            <p>Please ensure the file exists in one of these locations.</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            capitalize(str) {
+                return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+            }
+        }
+
+        // Initialize all educational content sections
+        function initializeEducationalContent() {
+            for (const sectionId in window.SECTION_CONFIG) {
+                new SectionContentManager(sectionId);
+            }
+        }
+
+        // Set up beforeunload event
+        window.addEventListener('beforeunload', handlePageUnload);
+
+        // Set up click listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            setupH2ClickListeners();
+            setupPageNumberListeners();
         });
     </script>
 </body>
