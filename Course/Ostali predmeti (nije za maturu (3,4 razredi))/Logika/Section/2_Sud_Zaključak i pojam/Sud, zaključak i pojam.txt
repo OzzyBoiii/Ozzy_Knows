@@ -1,0 +1,747 @@
+<h2>Reductio ad absurdum</h2>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Uvod
+<p>Dosad smo valjanost zaključka u logici sudova provjeravali metodom istinitosne tablice. No, vidjeli smo da će, što je veći broj različitih jednostavnih sudova, istinitosna tablica imati veći broj redaka. Već za četiri suda tablica ima 16 redaka, što oduzima dosta vremena za izradu, a i postoji mogućnost pogreške. Stoga ćemo prikazati metodu koja funkcionira po principu istinitosnih tablica, ali nam skraćuje posao jer se odmah usmjeravamo na traženje tumačenja u kojem zaključak nije valjan, odnosno retka (redaka) u tablici u kojima složeni sud nije istinit. Osim za provjeru valjanosti zaključka, ova se metoda može koristiti za određivanje je li sud valjan, zadovoljiv ili kontradiktoran, kao i za provjeru  jesu li dva suda istovrijedna.</p>
+            
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Reductio ad absurdum<
+<p>U doslovnom prijevodu reductio ad absurdum znači svođenje na apsurd.
+                Riječ je o vrsti argumenta u kojem se neodrživost neke tvrdnje pokazuje tako da se pokaže kako iz nje proizlazi apsurd, to jest mi određenu tvrdnju svodimo na apsurd. Zbog toga što vodi u apsurd, tu tvrdnju odbacujemo.
+                Pokušajmo još malo objasniti kako ova metoda djeluje.
+                Pretpostavimo da Petrica i Tihana raspravljaju o nečemu, pri čemu Petrica tvrdi da iz A
+                i B slijedi C, dok Tihana tvrdi da slijedi ¬C
+                . Petrica tek treba dokazati da Tihanina tvrdnja nije točna, a time da njezina jest točna. Stoga će uzeti Tihaninu tvrdnju kao da ona vrijedi, a ako u izvodu dođe do apsurda, može je odbaciti (odnosno odbacuje postojanje protuprimjera) jer je pokazala da ne vrijedi te prihvaća suprotnu, to jest svoju početnu tvrdnju.
+                Uzmimo kao primjer zaključak prikazan ispod:
+              </p>
+              <img src="Reductio ad absurdum_1.png">
+              <p>Ovaj je zaključak sastavljen od premisa koje čine sudovi P∧K i P∧R i konkluzije R→K. Pretpostavit ćemo istinitost premisa i neistinitost konkluzije kako bismo utvrdili je li apsurd moguć:</p>
+              <img src="Reductio ad absurdum_2.png">
+              <p>Budući da znamo da je konjunkcija istinita samo kada su svi konjunkti istiniti te da je implikacija neistinita samo u slučaju kada je antecedens istinit, a konsekvens neistinit, postoji samo jedan slučaj, odnosno jedan redak koji možemo riješiti:</p>
+              <img src="Reductio ad absurdum_3.png">
+              <p>Sada smo upisali sve nužne istinitosne vrijednosti sudova i njihovih dijelova. Budući da su obje premise složeni sudovi s konjunkcijom, svi jednostavni sudovi od kojih su sastavljeni moraju biti istiniti. Možemo primijetiti da se pretpostavljena istinitosna vrijednost konkluzije ne može održati jer je implikacija istinita kada su antecedens i konsekvens neistiniti.  Stoga ćemo mjesto na kojem je došlo do apsurda precrtati (često možemo birati hoćemo li to napraviti s premisom ili konkluzijom):</p>
+              <img src="Reductio ad absurdum_4.png">
+              <p>Precrtavši dio zaključka (neovisno koji), pokazujemo da smo, pretpostavivši da su premise istinite, a konkluzija neistinita, došli do apsurda. Prema tome možemo odbaciti negiranu konkluziju i utvrditi da je zaključak valjan.
+                Promotrimo sljedeći primjer zaključka:
+              </p>
+              <img src="Reductio ad absurdum_5.png">
+              <p>Opet ćemo pretpostaviti istinitost premisa i neistinitost konkluzije:</p>
+              <img src="Reductio ad absurdum_6.png">
+              <p>No, sada u premisama imamo disjunkcije, a one mogu biti istinite u tri slučaja. Krenimo stoga od konkluzije koja je ponovno neistinita samo u slučaju istinitosti antecedensa i neistinitosti konsekvensa:</p>
+              <img src="Reductio ad absurdum_7.png">
+              <p>Budući da su u konkluziji istinitosne vrijednosti članova implikacije nužne, možemo ih prenijeti tamo gdje se ti isti članovi pojavljuju u premisama:</p>
+              <img src="Reductio ad absurdum_8.png">
+              <p>Jedini preostali član bez određene istinitosne vrijednosti je P. U drugoj premisi njegova istinitosna vrijednost nije važna jer je s istinitim R disjunkcija već sigurno istinita. Međutim, u prvoj je premisi K neistinit, pa bi P trebao biti istinit kako bi disjunkcija bila istinita prema pretpostavci:</p>
+              <img src="Reductio ad absurdum_9.png">
+              <p>Označivši sve do kraja, vidimo da pretpostavka istinitih premisa i neistinite konkluzije ne može biti odbačena jer nas nigdje nije dovela do apsurda. Drugim riječima, uspjeli smo dobiti protuprimjer i time pokazati da konkluzija ne slijedi nužno iz premisa te da zaključak nije valjan. Protuprimjer je P, R, ¬K.</p>
+              <p>Upozorenje
+                Provjerom valjanosti zaključka metodom reductio ad absurdum pretpostavljamo da konkluzija ne slijedi iz premisa, odnosno da postoji tumačenje u kojem su premise istinite, a konkluzija neistinita. Ako takvo tumačenje postoji, ono predstavlja protuprimjer te zaključak nije valjan. Ali s obzirom na to da smo pretpostavili da je zaključak nevaljan, ako smo došli do protuslovlja (apsurda), zaključujemo da zaključak nije nevaljan, odnosno nema protuprimjera, pa je zaključak valjan.
+                Dakle:
+                Pronašli smo protuprimjer →
+                zaključak nije valjan.
+                Nismo pronašli protuprimjer →
+                zaključak je valjan.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h2>Istinitosna tablica u logici sudova</h2>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Istinitosna stabla
+<p>Istinitosna stabla
+                Za gradnju istinitosnih stabala poslužit će uvjeti istinitosti složenih sudova kako su predstavljeni u izgradnji istinitosnih tablica. 
+                
+                U istinitosnim stablima sudovi se rastavljaju željenim redoslijedom, ništa nas ne obvezuje da ih rastavljamo redom kojim se pojavljuju. Međutim, uputno ih je rastavljati tako da dobijemo što manje razgranato stablo kako bismo reducirali mogućnosti i time si olakšali posao i sveli mogućnost pogreške na najmanju moguću mjeru. 
+                
+                Kada rastavimo neki sud do kraja, označimo ga kvačicom kako bismo znali da smo završili s rastavljanjem tog suda. 
+                
+                Nakon što rastavimo sve potrebno, na svakoj grani stabla tražimo moguću kontradikciju. Ako se kontradikcija javlja, kraj te grane ćemo označiti križićem (×
+                ) kako bismo naznačili da je staza zatvorena. Ako nema kontradikcije, na kraj stavljamo kružić (∘
+                ) koji znači da je staza otvorena. 
+                
+                Križić i kružić daju nam interpretaciju suda ili skupa sudova. Otvorena staza (koja završava kružićem) znači da postoji interpretacija suda ili skupa sudova koja daje istinu, odnosno da je sud ili skup sudova zadovoljiv. Zatvorena staza (koja završava križićem) znači da postoji interpretacija suda ili skupa sudova koja daje neistinu, odnosno da skup sudova nije zadovoljiv. Ako je skup sudova u kojem se nalaze premise i negirana konkluzija nekonzistentan, zaključak je valjan.
+                Pogledajmo kako izgledaju pravila za stablo i samo stablo.
+                Za konjunkciju već znamo da je istinita kada su svi konjunkti istiniti. Pretpostavimo da je konjunktivni sud jedini sud u stablu. Stablo bi izgledalo kao što je prikazano ispod.
+              </p>
+              <img src="Istinitosna tablica u logici sudova_1.png">
+              <p>Ako vrijedi konjunkcija, onda moraju vrijediti i svi konjunkti. Stoga smo ih mogli izdvojiti iz cijelog suda na istoj grani, a stablo se nije proširilo jer postoji samo jedna mogućnost istinitosti. Pritom konjunkti ne moraju biti ispisani redom kojim se pojavljuju u konjunkciji, a isto pravilo vrijedi i za sva druga rastavljanja suda.
+                Rastavljanje suda označili smo kvačicom kraj njega. Na kraju smo stavili kružić jer se nigdje ne pojavljuje kontradikcija. Dakle, postoji barem jedna interpretacija koja nam kaže da je konjunkcija kao takva istinita, dakle, barem zadovoljiva. No, ona ne bi uvijek trebala biti i istinita, a to također možemo ispitati istinitosnim stablom.
+                Da bismo utvrdili da sud nije kontradikcija, dovoljna nam je jedna istinita interpretacija početnog suda. Da bismo utvrdili da sud nije tautologija, moramo utvrditi postoji li istinita interpretacija njemu kontradiktornog suda, tj.\ njegove negacije:
+              </p>
+              <img src="Istinitosna tablica u logici sudova_2.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+De Morganova pravila
+ <p>Kontradikcija konjunkcije je negacija cijelog tog suda. Negacija konjunkcije podrazumijeva da ona nije istinita, a to odgovara trima redcima u istinitosnoj tablici za konjunkciju. Naime, moguće je da u tom slučaju bilo koji od dijelova konjunkcije nije istinit, a moguće je da istovremeno oba nisu istinita. Stoga negacija konjunkcije odgovara disjunkciji s negiranim disjunktima. To je pravilo istovrijednosti jedno od De Morganovih pravila.
+                Budući da ni na jednoj grani nema kontradikcije, opet imamo istinitu interpretaciju početnog suda. No, kako je to interpretacija negiranog suda, moramo zaključiti da je moguća neistinitost konjunkcije kao takve. To, dakako, odgovara onom što smo vidjeli u istinitosnim tablicama.
+                Oba ova postupka pokazala su da je konjunkcija zadovoljiva, ali i da nije tautologija, ali ni kontradikcija.
+                De Morganova pravila ili De Morganovi zakoni
+                ¬(P∧Q)≡¬P∨¬Q
+                ¬(P∨Q)≡¬P∧¬Q.
+                U prethodnom je primjeru usporedno pokazan i način rastavljanja disjunkcije. Rastavljanje disjunkcije vrši se u istom retku jer za istinitost disjunkcije, i prema istinitosnim tablicama, dovoljno je da barem jedan disjunkt bude istinit.
+                Stoga se istinitosno stablo račva na dvije grane, a time pokazujemo postojanje dviju mogućnosti za istinitu interpretaciju. Budući da su i u disjunkciji staze otvorene, ona je sigurno zadovoljiva. Kako bismo vidjeli oba slučaja De Morganovih pravila, pogledajmo i je li disjunkcija sama po sebi tautologija. Slijede stabla za disjunkciju i negaciju disjunkcije.
+              </p>
+              <img src="Istinitosna tablica u logici sudova_3.png">
+              <img src="Istinitosna tablica u logici sudova_4.png">
+              <p>Budući da je staza na kraju otvorena, očito postoji istinita interpretacija za neistinitu disjunkciju. Dakle, disjunkcija može biti neistinita, tj. također nije tautologija.
+                Početni je sud negirana disjunkcija jer nas zanima je li disjunkcija tautologija, tj. mora li negirana disjunkcija biti neistinita. Prema De Morganovu pravilu transformirali smo negaciju disjunkcije u konjunkciju neistinitih dijelova suda. Tu smo konjunkciju rastavili poput konjunkcije u prvom primjeru. Pored oba suda stavili smo kvačicu kad smo ih rastavili.
+                Na isti način možemo provjeriti implikaciju i ekvivalenciju:
+              </p>
+              <img src="Istinitosna tablica u logici sudova_5.png">
+              <p>Iz stabala je vidljivo da ni implikacija ni ekvivalencija nisu ni tautologije ni kontradikcije, već zadovoljivi sudovi. U oba smo slučaja stablo gradili tako da smo početne sudove uz pomoć istovrijednosti i istinitosnih uvjeta rastavili do jednostavnih sudova i da smo na svakoj stazi izbjegli kontradikcije.
+                Zakon istovrijednosti
+                Prema zakonima istovrijednosti vrijedi: P→Q≡¬P∨Q
+                P↔Q≡(P∧Q)∨(¬P∧¬Q) ¬(P→Q)≡P∧¬Q ¬(P↔Q)≡(P∧¬Q)∨(¬P∧Q).
+                Za kraj je potrebno još samo pokazati kako u stablu baratamo negacijom, što je prikazano ispod.
+              </p>
+              <img src="Istinitosna tablica u logici sudova_6.png">
+              <p>ZAKONI istovrijednosti
+                Svaki sud s parnim brojem negacija ima isto značenje kao sud bez negacije, a sud s bilo kojim neparnim brojem negacija ima isto značenje kao sud s jednom negacijom. I ovdje je potrebno rastavljeni sud označiti kvačicom.
+                Upozorenje
+                Stablo koje u sebi sadrži barem jednu granu s kružićem i barem jednu s križićem (barem jednu otvorenu i barem jednu zatvorenu stazu) pokazuje da je skup sudova zadovoljiv jer otvorena staza otkriva da postoji protuprimjer. Stoga često možemo iskoristiti jedno stablo za provjeru sudova.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Primjeri sudova
+<p>Provjerimo sada još neke sudove:</p>
+              <img src="Istinitosna tablica u logici sudova_7.png">
+              <p>Budući da smo dobili barem jednu otvorenu stazu bez kontradikcije, tj. barem jednu interpretaciju za koju je sud istinit, sud je sigurno zadovoljiv, tj. nije kontradikcija. Želimo li ispitati je li tautologija, morat ćemo ga negirati što je prikazano sljedećim stablom.
+                Može se postaviti pitanje zašto bismo za provjeru valjanosti suda trebali negirati sve grane i onda tražiti da su sve zatvorene? Odgovor leži u tome da je stablo jedna ''skraćena'' metoda s obzirom na istinitosne tablice.
+                U određenom smislu, problem je u tome što je zatvorena grana konkretno definirana, a otvorene grane su definirane kao sve ostale grane koje nisu zatvorene. Zbog toga ne možemo otvorene grane koristiti kao test za tautologiju jer su one otvorene kad god nemaju kontradikciju.
+                Intuitivno, to možemo gledati na sljedeći način. Imamo tri kategorije: kontradikcije, tautologije i zadovoljive sudove. Sve zatvorene grane govore da se radi o kontradikciji, no ako nisu sve grane zatvorene, ne znamo je li sud zadovoljiv ili tautologija. Da bismo to vidjeli na primjeru, stavimo u stablo A∧B
+                i gledajmo kako se ponaša. U tom stablu imamo samo jedan korak, odnosno imamo nedovoljno "materijala" da ga razvijemo do eventualne kontradikcije, koja je jedini način da se neka grana zatvori. Zbog toga, za provjeru tautologičnosti  se formula AwedgeB
+                stavlja u negirana stabla i gleda se je li se tada sve grane zatvaraju. Ako da, onda je početna formula tautologija.
+                Rastavljanjem suda do kraja naišli smo čak na dvije kontradikcije, Q
+                i ¬Q te P i ¬P
+                .
+                Nakon što smo rastavili bilo sud u drugom, bilo sud u trećem retku (svejedno kojim redoslijedom), već smo došli do kontradikcije. Da je nakon bilo kojeg od tih sudova uslijedio n
+                broj grana na kojima bismo dalje rastavljali sudove, svaka od tih grana odvela bi nas natrag do glavne grane i do kontradikcije koja je na njoj prisutna.
+              </p>
+              <img src="Istinitosna tablica u logici sudova_8.png">
+              <p>Stoga je sigurni završetak bilo koje pretpostavljene grane križić (x). On predstavlja uočenu kontradikciju pa zaključujemo da je sud koji smo provjeravali tautologija.
+                Pogledajmo još jedan primjer.
+              </p>
+              <img src="Istinitosna tablica u logici sudova_9.png">
+              <p>Početni je sud rastavljen i obje su staze zatvorene, tj. dale su neistinitu interpretaciju suda. Moramo zaključiti da za sud ne postoji istinita interpretacija te da nije zadovoljiv, tj. da je kontradikcija.
+                Istinitosnim stablima možemo ispitati i valjanost zaključka. Kao i u metodi reductio ad absurdum, pretpostavit ćemo premise, ali i negaciju konkluzije. Postoji li za takav slučaj istinita interpretacija, zaključak ne može biti valjan jer neistina ne može slijediti iz istinitih premisa. Ne postoji li takva interpretacija, zaključak je valjan. Ispitajmo sljedeće zaključke:
+              </p>
+              <img src="Istinitosna tablica u logici sudova_10.png">
+              <p>Stablo smo izgradili do kraja rastavljajući sve sudove, a krenuvši od najjednostavnijeg i onog koji nam neće dati više grana. Nakon toga smo rastavili negiranu konkluziju koja nam također daje samo jednu granu. Ovdje smo mogli i stati te odmah zatvoriti stablo jer smo dobili dvije očite kontradikcije na glavnoj stazi. No, kako bismo jasnije pokazali rezultat istinitosnog stabla, izgradili smo stablo do kraja i označili obje staze dobivene rastavljanjem prvog suda kao zatvorene. Drugim riječima, za naš slučaj koji smo provjeravali, naime da neistinita konkluzija slijedi iz istinitih premisa, ne postoji konzistentna interpretacija. Dakle zaključak je valjan.</p>
+              <img src="Istinitosna tablica u logici sudova_11.png">
+              <p>U ovom smo primjeru sve napravili jednako. Negirali smo konkluziju i rastavljali prvo konjunkciju koja nam daje samo jednu mogućnost. Konkluziju nismo rastavljali jer je ne možemo rastaviti. Na lijevoj smo grani dobili kontradikciju, ali smo na desnoj dobili istinitu interpretaciju. Budući da se ne smije dogoditi slučaj u kojem neistina (negirana konkluzija) slijedi iz istina (premisa bez negacije), zaključak nije valjan.</p>
+              <img src="Istinitosna tablica u logici sudova_12.png">
+              <p>Jednako kao što istinitosnim stablima možemo provjeravati jesu li sudovi tautologije, kontradikcije ili zadovoljivi sudovi, možemo provjeriti i jesu li sudovi istovrijedni.
+                To možemo napraviti na dva načina: za svaki sud možemo izgraditi posebno stablo i provjeriti vrijede li za oba suda jednake interpretacije istinitosti i neistinitosti ili, kao u zadatku 2.13, stablom provjeriti negaciju ekvivalencije. Gradeći oba stabla, moramo imati na umu da svakim stablom moramo ispitati istinitost početnog suda i negaciju suda za koji želimo ustanoviti je li istovrijedan početnom sudu, tj. da time propitujemo slijedi li iz početnog suda sud za koji provjeravamo je li mu istovrijedan.
+                Provjerimo to na jednom od sudova čiju smo istovrijednost već koristili, tj.\ na P→Q
+                ≡ ¬P∨Q
+                . Napravit ćemo dva stabla: jednim ćemo provjeriti slijedi li iz lijeve strane desna, a drugim vrijedi li obrnuto. To ćemo napraviti tako da krenemo od dvije negirane ekvivalencije.
+                U stablima odmah krećemo s pravilom za negaciju disjunkcije i pravilom za negaciju ekvivalencije:
+              </p>
+              <img src="Istinitosna tablica u logici sudova_13.png">
+              <p>Budući da su sve staze zatvorene, zaključujemo da nema slučaja u kojem sudovi P→Q i ¬P∨Q imaju različitu vrijednost, odnosno nemoguće je da jedan bude istinit, a drugi neistinit.</p>    
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h2> Istinitosna stabla u logici prvoga reda</h2>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Uvod
+ <p>Prisjetimo se onoga što smo već rekli o valjanosti: kako bi zaključak bio valjan, u svim slučajevima kada su istinite premise, mora biti istinita i konkluzija. Drugim riječima, zaključak je valjan ako i samo ako ne postoje protuprimjeri, odnosno slučajevi u kojima su premise istinite, a konkluzija neistinita.
+                U logici prvoga reda naši su slučajevi interpretacije, a njih je uvijek beskonačno mnogo (jer varijable možemo zamijeniti s beskonačno puno konstanti u slučaju beskonačnih domena ili sa svim konstantama u slučaju konačnih domena) pa ih nikad ne možemo sve provjeriti kako bismo bili sigurni da ne postoje protuprimjeri. Stoga protuprimjere tražimo koristeći istinitosna stabla.
+                Izgradnju stabla počinjemo isto kao i u logici sudova −
+                na početku stabla navodimo premise i negaciju konkluzije.
+                Metoda stabala za logiku prvoga reda funkcionira na potpuno isti način kao i za logiku sudova, samo s jednom izmjenom: grane više ne predstavljaju jedan redak istinitosne tablice koji će sve sudove duž pojedine grane učiniti istinitim, nego sada grane predstavljaju jednu interpretaciju koja će sve sudove duž tih grana učiniti istinitim.
+                Upozorenje
+                Također, uveli smo izmjenu u označavanju. Naime, u stablu se mogu, a ne moraju pisati brojevi redaka i opravdanja koja kazuju iz kojih je prethodnih redaka neki sljedeći redak izveden. U logici sudova takvo označavanje često nije nužno, a i otežava sam zapis, pogotovo kod stabala koja imaju puno grananja. U logici prvoga reda takav je zapis koristan jer nekad iz samoga retka nije lako zaključiti iz čega je dobiven, pogotovo kada se radi o isključenjima kvantifikatora. Stoga ćemo pisati potpuna opravdanja kad se radi o isključenjima kvantifikatora, a u ostalim slučajevima samo retke iz kojih je formula dobivena.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Pravilo za univerzalni kvantifikator
+<p>Pogledajmo kako to funkcionira na jednom jednostavnom primjeru.
+                Svi vole Anu. ∀xVxaKarlo voli Anu. Vka
+                Počinjemo tražeći interpretaciju u kojoj je premisa istinita, a konkluzija neistinita navodeći premisu i negaciju konkluzije:
+                1.∀xVxaP
+                2.¬Vka¬K
+                Kako je ¬Vka
+                negirani jednostavni sud, s njim ne možemo ništa dalje učiniti. Ali kako je ∀xVx
+                kvantificirani sud, možemo ga učiniti istinitim tako da sudove koji su sadržani u njemu učinimo istinitima
+                Budući da je taj sud istinit ako je istinito da svi vole Anu, možemo zamisliti interpretaciju (mogući svijet) u kojem je domena ograničena na Karla i Anu.
+                U tom slučaju, taj je sud istinit ako je istinito da Ana voli Anu (odnosno da voli samu sebe −
+                jer nigdje nismo rekli da je ta relacija isključena) i da Karlo voli Anu. Stoga u stablo dalje uvrštavamo supstitucijske instance Vka i Vaa u kojima su umjesto varijable x uvrštene konstante k i a
+                .
+                1.∀xVxaP2.¬Vka¬K3.Vka1,∀,k4.Vaa1,∀,a× 
+                I time je stablo zatvoreno jer u njemu imamo ¬Vka
+                i Vka
+                . Prema tome, zaključak je valjan.
+                Pravilo za univerzalni kvantifikator
+                Ako se univerzalno kvantificirani sud pojavi u nekom retku stabla, potrebno je postupiti na sljedeći način sa svakom otvorenom granom u kojoj se on pojavljuje:
+                1) Prikupiti sve konstante koje se pojavljuju unutar te grane. Ako se ne pojavljuje nijedna konstanta, potrebno je jednu uvesti. 
+                2) Unijeti supstitucijske instance s tim konstantama i napisati sve konstante u opravdanju u redcima u kojima se one uvode. U redak u kojem se nalazi univerzalni kvantifikator ne ide kvačica.
+                3) Ako se isti univerzalno kvantificirani sud pojavljuje u više grana, potrebno ga je u svakoj grani instancirati samo za one konstante koje se javljaju u toj grani.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Pravilo za egzistencijalni kvantifikator 
+<p>Pogledajmo sljedeći zaključak:
+                Netko je simpatičan.Dakle, Bruno je simpatičan.
+                Taj je zaključak očito nevaljan jer to što je netko simpatičan, ne znači da je taj netko baš Bruno. Na to moramo posebno obratiti pažnju kod formuliranja pravila za egzistencijalno kvantificirane sudove. 
+                Kao i inače, počinjemo premisom i negacijom konkluzije:
+                1.∃xSxP✓
+                2.¬Sb¬K
+                Sud koji sadrži egzistencijalni kvantifikator istinit je u nekoj interpretaciji samo u slučaju da je najmanje jedna od supstitucijskih instanci istinita u toj interpretaciji. Imamo jednu konstantu, b
+                , u toj interpretaciji, stoga možemo učiniti ∃xSx istinitim ako učinimo Sb istinitim. Ali ako to napravimo, dodajemo Sb u granu koja već ima ¬Sb
+                , stoga se ona zatvara. To bi značilo da nema protuprimjera, što znači da je zaključak valjan, ali znamo da nije, stoga je nešto pogrešno.
+                Ključni je problem što simpatičan može biti i netko drugi osim Brune. Na to upućujemo na način da egzistencijalno kvantificirani sud instanciramo novom konstantom. Tako ćemo ∃xSx
+                učiniti istinitim dodajući Sa na kraj grane, gdje je a
+                nova konstanta. Dodajemo tu novu konstantu kako bismo bili sigurni da su obuhvaćeni i ostali predmeti koji su bili u interpretaciji.
+                Stoga potpuno stablo izgleda ovako:
+                1.∃xSxP✓2.¬Sb¬K3.Sa1,∃,a∘ 
+                Sada vidimo da je zaključak nevaljan jer postoji protuprimjer D={a,b};¬Sb∧Sa
+                , koji nam govori da u ovoj interpretaciji, za domenu u kojoj su Bruno i Ana, vrijedi da Bruno nije simpatičan, ali Ana jest.
+                Pravilo za egzistencijalni kvantifikator
+                Ako se egzistencijalno kvantificirani sud pojavljuje u nekom retku u stablu, tada u svakoj otvorenoj grani u kojoj se on pojavljuje treba napraviti sljedeće: 
+                1) izabrati novu konstantu koja se ne pojavljuje nigdje u grani
+                2) uvesti jednu supstitucijsku instancu koja uključuje novu konstantu
+                3) staviti kvačicu desno od egzistencijalno kvantificiranog suda koji je instanciran.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Pravila za negaciju kvantificirani sudova
+<p>Još su nam potrebna pravila za negaciju kvantificiranih sudova. Krenimo s jednostavnim primjerom:
+                Vib∃xVxb
+                Napravimo stablo:
+                1.VibP
+                
+                2.¬∃xVxb¬K
+                Kako bismo se riješili negacije koja se nalazi prije kvantifikatora, koristimo pravila za pretvorbu koja smo učili ranije:
+                ¬∃x≡∀x¬ i ¬∀x≡∃x¬.
+                
+                Sada možemo dovršiti stablo:
+                1.VibP2.¬∃xVxb¬K✓3.∀x¬Vxb2,¬∃4.¬Vib3,∀,i5.¬Vbb3,∀,b×
+                S obzirom na to da smo ovdje nakon pretvorbe imali univerzalni kvantifikator, postupali smo dalje po pravilu za univerzalni kvantifikator.
+                Na sljedećem ćemo primjeru prikazati pretvorbu negiranog univerzalnog kvantifikatora u egzistencijalni:
+                ∃xVxb∀xVxb
+                1.∃xBxbp✓2.¬∀xVxb¬K✓3.∃x¬Vxb2,¬∀✓4.Vnb1,∃,n5.¬Vrb3,∃,r∘
+                Zaključak nije valjan jer postoji protuprimjer
+                D={b,n,r}; ¬Vrb∧Vnb.
+                
+                Neka je Vxb = x voli Borisa, n= Nataša, a R
+                = Robert. Dakle, ako su u domeni Boris, Robert i Nataša, moguće je da Nataša voli Borisa, ali da Robert ne voli Borisa, stoga iz toga da netko voli Borisa ne slijedi da svi vole Borisa.
+                Upozorenje
+                Kod stabala je potrebno paziti na sljedeće:
+                ∙
+                Uvijek se koristi pravilo za rastavljanje glavnog veznika u sudu. Ako sud počinje kvantifikatorom u čijem je dosegu cijeli sud, tada se prvo primjenjuje pravilo za kvantifikator. Ako je u dosegu kvantifikatora samo dio suda, tada se prvo primjenjuje pravilo za glavni veznik.
+                ∙
+                Kada se radi o univerzalnom kvantifikatoru, potrebno ga je instancirati za sve konstante koje se nalaze u grani (naravno, ako grana nije ranije zatvorena).
+                ∙
+                Kada se radi o egzistencijalnom kvantifikatoru, potrebno je uvesti novu konstantu i instancirati sud samo za tu konstantu.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Provjernik istinitosti tablica i stabala
+(U RADU)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h2>Prirodna dedukcija u logici sudova</h2>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Sustav prirodne dedukcije u Fitchevoj notaciji
+<p>U ovom ćemo poglavlju kao glavni dokazni sustav proučavati sustav prirodne dedukcije u Fitchevoj notaciji.
+                Jedan gotov dokaz u sustavu prirodne dedukcije zapisan Fitchevom notacijom prikazan je u nastavku.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Sustav prirodne dedukcije u Fitchevoj notaciji
+<p>U ovom ćemo poglavlju kao glavni dokazni sustav proučavati sustav prirodne dedukcije u Fitchevoj notaciji.
+                Jedan gotov dokaz u sustavu prirodne dedukcije zapisan Fitchevom notacijom prikazan je u nastavku.
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_1.png">
+              <p>U redu je ako vam ništa nije jasno jer shvatiti i znati reproducirati ovakvu dedukciju konačan je cilj ovog poglavlja. Na kraju ovog poglavlja dokaze ćete ne samo razumjeti nego ćete ih i sami konstruirati. No, krenimo redom.
+                Prvo ćemo opisati gore prikazanu strukturu. Prije svega, dokaz je podijeljen na  retke, a s lijeve strane nalaze se brojevi redaka. S pomoću tih se brojeva možemo u objašnjenjima referirati na određeni redak.
+                Okomita crta s lijeve strane koja odvaja brojeve redaka jest crta dokaza, a ostale okomite crte jesu crte poddokaza. Na vrhu svake crte poddokaza nalazi se jedna formula podvučena vodoravnom crtom. To je pretpostavka. Svaka pretpostavka znači otvaranje novog poddokaza, a formule koje su sadržane u nekom poddokazu mogu se koristiti jedino unutar tog poddokaza. Povratak na bilo koju prethodnu okomitu crtu dokaza moguć je tek nakon zatvaranja poddokaza otvorenog tom pretpostavkom.
+                Osim pretpostavki svaka je formula u dokazu dobivena iz nekog konkretnog retka (ili više njih), nekim točno određenim pravilom. Oznake s desne strane su objašnjenja, odnosno opravdanja izvođenja formule primjenom definiranih pravila. Primjerice, opravdanje u 7. retku kaže da je formula u 7. retku (⊥
+                ) dobivena iz 2. retka i postupcima od 3. do 6. retka pravilom za isključenje egzistencijalnog kvantifikatora. Ubrzo ćemo objasniti što to znači.
+                Drugim riječima, ukratko smo opisali „anatomiju“ dokaza, a u ostatku ovog poglavlja bavit ćemo se njegovom „fiziologijom“, odnosno definirat ćemo i objasniti kako pojedina pravila djeluju
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Uvođenje i isključenje konjunkcije
+ <p>Krenimo s objašnjenjem dvaju jednostavnih pravila. Prvo se pravilo zove uvođenje ili introdukcija konjunkcije 1 (oznaka: ∧I)</p>
+              <img src="Prirodna dedukcija u logici sudova_2.png">
+              <p>Pravilo za uvođenje ili introdukciju konjunkcije
+                Ako imamo P
+                u retku m i Q u retku n, onda u retku o možemo dobiti P∧Q, gdje je o iza m i o iza n
+                .
+                Dakle, jedino je bitno da redak o
+                dolazi nakon redaka m i n, ali nije bitno da on bude neposredno nakon njih, a nije bitno niti kojim redoslijedom dolaze m i n
+                .
+                Drugo je pravilo isključenje ili eliminacija konjunkcije (oznaka: ∧
+                E):
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_3.png">
+              <p>Isključenjem konjunkcije možemo dobiti oba konjunkta, stoga u dokaz uvodimo onaj konjunkt koji nam je potreban. Po potrebi možemo isto pravilo primijeniti i dva puta kako bismo dobili oba konjunkta.
+                Pravilo za isključenje ili eliminaciju konjunkcije
+                Ako je P∧Q
+                u retku m, onda u retku o možemo dobiti P (ili Q), gdje je o iza m
+                .
+                Pogledajmo primjer. Kako iz tvrdnje A∧B
+                dokazati da vrijedi B∧A
+                ? Time bismo zapravo dokazali komutativnost konjunkcije:
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_4.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Uvođenje i isključenje implikacije
+<p>Želimo dokazati formulu
+                (A∧B)→(B∧A)
+                bez pretpostavki. Da bismo u tome uspjeli, treba nam pravilo koje se naziva uvođenje ili introdukcija implikacije.
+                Pravilo je prikazano ispod.
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_5.png">
+              <p>Pogledajmo što se događa u ovom pravilu. Prije svega, uočimo da se u retku o
+                nalazi implikacija koju želimo dokazati.
+                Pravilo za uvođenje ili introdukciju implikacije
+                Ako smo u redcima od m
+                do n iz pretpostavke P izveli Q, onda u retku o možemo uvesti implikaciju P→Q, gdje je o iza n
+                .
+                Drugim riječima, ako je konkluzija koju želimo dokazati implikacija P→Q
+                , onda u gornjim redcima moramo otvoriti poddokaz s dodatnom pretpostavkom P. Ako iz nje (i ranijih pretpostavki) uspijemo dokazati da vrijedi Q, tada je i bez pretpostavke P (koju odbacujemo i zatvaramo poddokaz) dokazivo P→Q
+                .
+                Opravdanje za redak o
+                ovaj put nije isto kao u slučaju konjunkcije − gdje smo se pozvali samo na retke m i n − ovdje se pozivamo na cijeli niz redaka od m do n, odnosno na cijeli poddokaz, temeljem kojeg uvodimo implikaciju u retku o
+                .
+                Ovo pravilo primijenit ćemo u rješavanju našeg zadatka.  Evo kako dedukcijom možemo dokazati
+                (A∧B)→(B∧A)
+                .
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_6.png">
+              <p>Opišimo dokaz. S obzirom na to da trebamo dokazati implikaciju (A∧B)→(B∧A), morali smo pretpostavkom A∧B otvoriti poddokaz te iz toga dokazati (drugim pravilima) B∧A. Formulu u 1. retku poddokaza (A∧B) rastavili smo pravilom za isključenje konjunkcije, i to dva puta. Prvi put smo u 2. retku dobili A, a drugi put smo u 3. retku dobili B
+                .
+                Zatim smo koristili pravilo za uvođenje konjunkcije: ako u nekim gornjim redcima imamo P
+                i Q (i to bilo kojim redom), onda možemo uvesti P∧Q. Ova mogućnost „bilo kojim redom“ znači da smijemo uvesti i Q∧P, što je upravo varijanta koja nam ovdje odgovara. Tako iz redaka 2 i 3 pravilom za uvođenje konjunkcije nastaje B∧A
+                u 4. retku.
+                Sada imamo sve što nam treba za redak 5. Naime, iz pretpostavke A∧B
+                dokazali smo u poddokazu B∧A pa pravilom za uvođenje implikacije iz postupaka od 1. do 4. retka dobivamo 5. redak.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Pravilo za isključenje ili eliminaciju implikacije
+<p>Objasnit ćemo sada i pravilo za isključenje ili eliminaciju implikacije. Prisjetimo se kako glasi modus ponens, jedan od osnovnih oblika valjanog zaključivanja.
+                Iz pretpostavki „Ako kiša pada, onda trava raste.“ i „Kiša pada.“, zaključujemo „Trava raste.“
+                Simbolima to zapisujemo kao P→Q,P⊨Q
+                .
+                Ovo zaključivanje zapravo predstavlja pravilo za isključenje implikacije:
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_7.png">
+              <p>Pravilo za isključenje ili eliminaciju implikacije
+                Ako u retku m
+                imamo P→Q i u retku n imamo P, onda u retku o možemo dobiti Q, gdje je o iza m i n
+                .
+                Uočimo da nam, za razliku od isključenja konjunkcije, ovdje trebaju i redak m
+                i redak n da bismo dobili redak o
+                , na što ukazuje opravdanje u tom retku.
+                Dokažimo modus ponens oblikovan u jednu formulu:
+                ((A→B)∧A)→B
+                .
+                S obzirom na to da trebamo dokazati implikaciju, očito je da će nam trebati isključenje implikacije. Evo kako izgleda potpuni dokaz:
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Uvođenje i isključenje ekvivalencije
+<p>Pravilo za uvođenje ili introdukciju ekvivalencije
+                Ako smo u redcima od j do k iz P
+                izveli Q, a u redcima od m do n iz Q izveli P, onda u retku o možemo uvesti ekvivalenciju P↔Q
+                , gdje je o iza k i n.
+                Pravilo nećemo posebno objašnjavati jer nam je otprije poznato da je ekvivalencija konjunkcija dviju implikacija. Stoga, ako možemo izvesti implikaciju u oba smjera, možemo i uvesti ekvivalenciju.
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_8.png">
+              <p>Pravilo za isključenje ili eliminaciju ekvivalencije
+                Ako u retku m imamo P↔Q
+                i u retku n imamo P, onda u retku o možemo dobiti Q, gdje je o iza m i n. Također, ako u retku m imamo P↔Q i u retku n imamo Q, onda u retku o možemo dobiti P, gdje je o iza m i n.
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_9.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Uvođenje i isključenje disjunkcije
+<p>Krenimo dalje na pravilo za uvođenje ili introdukciju disjunkcije. Ovo jednostavno pravilo ponekad se naziva i slabljenje.
+                Pravilo za uvođenje ili introdukciju disjunkcije
+                Ako u prethodnim redcima imamo P
+                (ili za Q), onda možemo dobiti P∨Q
+                .
+                Drugim riječima, zbog komutativnosti disjunkcije redoslijed tvrdnji P
+                i Q nije bitan, pa i iz Q možemo dobiti P∨Q. Zbog toga nam pravilo daje dvije mogućnosti:
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_10.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Pravilo za isključenje disjunkcije
+<p>Sada prelazimo na pravilo za isključenje ili eliminaciju disjunkcije:</p> 
+              <img src="Prirodna dedukcija u logici sudova_11.png">
+              <p>Objasnimo što se događa.
+                Pravilo za isključenje ili eliminaciju disjunkcije
+                Formula R
+                slijedi iz disjunkcije P∨Q ako u prethodnim redcima postoji dokaz za R iz P i dokaz za R iz Q
+                .
+                Disjunkcija P∨Q
+                ne daje puno informacija o tome što iz nje slijedi. Međutim, ako iz oba njena disjunkta slijedi R, onda sigurno i iz disjunkcije slijedi R
+                . I to je cijelo pravilo isključenja disjunkcije.
+                Pogledajmo primjer, odnosno dokažimo komutativnost disjunkcije kao jednu formulu bez pretpostavki. To znači da trebamo dokazati
+                A∨B
+                ako i samo ako B∨A
+                ,
+                odnosno ako A∨B
+                , onda B∨A i obrnuto (ako B∨A, onda A∨B
+                ). Dovoljno je dokazati samo jedan smjer, uz napomenu da drugi smjer ide na sasvim analogan način.
+                Dokažimo smjer s lijeva na desno, odnosno ako A∨B
+                onda B∨A. Prvi korak je pretvoriti „ako A∨B, onda B∨A
+                “ u formulu:
+                (A∨B)→(B∨A)
+                i zatim sastavljamo dedukciju:
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_12.png">
+              <p>Prokomentirajmo što smo napravili. Prije svega, morali smo uvesti cijelu implikaciju u 7. retku. To znači da smo ispred trebali imati poddokaz koji iz pretpostavke A∨B dolazi do B∨A
+                , a to je poddokaz od 1. retka do 6. retka.
+                Unutar tog poddokaza moramo dokazati B∨A
+                , a imamo samo jednu pretpostavku, A∨B
+                . Dakle, samo trebamo naći način da povežemo te dvije formule.
+                Upozorenje
+                Kada trebamo dokazati neku formulu, intuitivno je najprije dokazujemo uz pomoć pravila za uvođenje glavnog veznika. Međutim, ponekad ta jednostavna strategija ne vrijedi jer za uvođenje disjunkcije moramo imati jedan disjunkt.
+                Druga je opcija pravilo za isključenje disjunkcije koje nam omogućava da dokažemo bilo koju formulu R
+                . U našem slučaju želimo da to bude formula B∨A
+                (6. redak).
+                No, pravilo za isključenje disjunkcije ima nekoliko uvjeta za primjenu. Prvi je uvjet da imamo disjunkciju koju ćemo isključiti, što je u našem slučaju disjunkcija A∨B
+                u 1. retku. Drugi je uvjet da iz oba disjunkta, A i B, moramo moći dokazati formulu R, odnosno u našem slučaju B∨A
+                .
+                U našem je primjeru to jednostavno dokazati jer uvođenjem disjunkcije nad A
+                dobivamo B∨A, a u drugom poddokazu uvođenjem disjunkcije nad B isto dobivamo B∨A. Time smo dovršili dokaz.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Negacija i kontradikcija
+<p>Uvedimo najprije simbol za kontradikciju: ⊥
+                .
+                Kontradikcija
+                Kontradikcija je konjunkcija bilo koje formule i njezine negacije: P∧¬P
+                za bilo koji P
+                .
+                Za kontradikciju uvodimo sljedeće pravilo:
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_13.png">
+              <p>U ovom i u pravilima za negaciju koja tek slijede, propozicijska konstanta ⊥ ponaša se kao bilo koja propozicijska varijabla, primjerice kao P ili Q. ⊥ dolazi na njihova mjesta u formulama, sa ⊥ se mogu stvarati složene formule, ona može biti i formula R
+                iz pravila za isključenje disjunkcije.
+                Općenito se s njome po svemu postupa kao i s bilo kojom drugom formulom −
+                osim po jednome: kada se ⊥
+                pojavi u poddokazima, mogu se koristiti pravila za negaciju.
+                Postoje dva takva pravila, pravilo za uvođenje ili introdukciju negacije i pravilo za isključenje ili eliminaciju negacije. Ta su pravila:
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_14.png">
+              <p>Pravila su jako slična i glase:
+                Pravila za negaciju
+                Ako pretpostavimo P
+                (odnosno ¬P) pa iz toga dobijemo kontradikciju (⊥), tada P (odnosno ¬P
+                ) u kombinaciji s drugim premisama nije konzistentno (uz pretpostavku da su druge premise međusobno konzistentne).
+                Intuitivno, to znači da P
+                (tj. ¬P ako gledamo isključenje negacije) ne vrijedi uz druge premise. Može se reći i da je P zajedno s drugim premisama nekonzistentno, što pak znači da se ¬P može dodati ostalim premisama, a da one ne postanu nekonzistentne. To čini ova pravila valjanim.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Dokazi klasičnih tautologija
+<p>U ovom ćemo potpoglavlju pokazati kako se dokazuju neke od najpoznatijih tautologija.
+                Dokažimo bez premisa jednu klasičnu tautologiju koja se naziva zakon neproturječja:
+                ¬(A∧¬A)
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_15.png">
+              <p>Ovakvi bi vam dokazi sada trebali biti jasni, pa ovaj dokaz nećemo posebno komentirati. Umjesto toga, dokazat ćemo i komentirati jedan smjer svakog od dvaju De Morganovih zakona..</p>
+            
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Dokazi de Morganovih zakona
+<p>Ovakvi bi vam dokazi sada trebali biti jasni, pa ovaj dokaz nećemo posebno komentirati. Umjesto toga, dokazat ćemo i komentirati jedan smjer svakog od dvaju De Morganovih zakona.
+                Krenimo s dokazom:
+                ako ¬A∨¬B
+                , onda ¬(A∧B) .
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_16.png">
+              <p>U dokazu krećemo od konkluzije ¬(A∧B). Pretpostavimo da ju možemo dokazati uvođenjem negacije, pa zato otvaramo poddokaz i pretpostavljamo A∧B u 2. retku s ciljem da dobijemo ⊥. Zato od 3. do 5. retka i od 6. do 8. retka otvaramo poddokaze nužne za isključenje disjunkcije iz 1. retka. Za formulu R iz pravila o isključenju disjunkcije uzmemo ⊥
+                .
+                Za usporedbu pogledajmo i sljedeći smjer drugog pravila:
+                ako ¬A∧¬B
+                , onda ¬(A∨B)
+                .
+                Dokaz će biti skoro isti kao i prethodni, pa ga i sami možete razumjeti i objasniti:
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_17.png">
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Formula bez veznika
+<p>Pogledajmo sada dokaz formule
+                (¬A→¬B)→(B→A)
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_18.png">
+              <p>Prokomentirajmo ovaj dokaz. Kao i uvijek kada trebamo dokazati nešto bez pretpostavki, najprije pogledamo o kojoj je formuli riječ. Ovdje smo trebali dokazati (¬A→¬B)→(B→A)
+                , što znači da dokazujemo implikaciju.
+                Upozorenje
+                Ponekad ćemo imati situaciju u kojoj moramo dokazati formulu koja nije implikacija bez premisa. Ti su slučajevi ili krajnje jednostavni, poput dokaza za ¬(A∧¬A)
+                , ili krajnje komplicirani, poput dokaza za A∨¬A
+                .
+                Implikacija nam znatno olakšava posao jer u tom slučaju otvorimo poddokaz, a u njegovu premisu stavimo antecedens ¬A→¬B
+                . Cilj je od toga doći do B→A
+                . Kada taj poddokaz bude gotov, pravilom za uvođenje implikacije automatski ćemo imati dokaz za cijelu formulu (što vidimo u opravdanju 8. retka).
+                No, trebamo dobiti 7. redak, odnosno trebamo pronaći dokaz za B→A
+                , a imamo samo jednu premisu, onu u 1. retku. Ona će nam biti važna, ali će nam trebati još neke premise da bi se dokaz „složio“.
+                Razmislimo na koje sve načine možemo dobiti B→A
+                .
+                Prvi pokušaj neka uvijek bude uvođenje implikacije. To znači da trebamo otvoriti novi poddokaz koji pretpostavlja B
+                (2. redak) te iz toga i ostalih premisa daje dokaz za A (6. redak). Sada se pitamo kako ćemo dobiti A
+                iz te formule bez veznika u 2. retku.
+                Formula bez veznika
+                Kad želimo izvesti formulu bez veznika, postoje dva načina kako bismo je mogli dobiti: 
+                
+                ∙
+                pravilom za isključenje disjunkcije ili 
+                ∙
+                pravilom za isključenje negacije.
+                S obzirom na to da u gornjem dijelu našeg dokaza nemamo nikakvu disjunkciju koju bismo isključili, odlučujemo se za isključenje negacije.
+                Ako A
+                u 6. retku želimo dobiti isključenjem negacije, to znači da trebamo otvoriti poddokaz s pretpostavkom ¬A. Otvaramo ga od 3. retka gdje je ¬A sve do 7. retka. Da bi pravilo za isključenje negacije bilo primjenjivo, u tom poddokazu trebamo doći do ⊥. Čim dođemo do ⊥, gotovi smo i zatvaramo poddokaz, pa ⊥
+                stavljamo na dno, na mjesto označeno kao 5. redak.
+                Upozorenje
+                Uočite da pri izradi dedukcije brojeve redaka u dokazu zapravo ne znamo do samoga kraja, ali ovdje objašnjavamo već napisani dokaz zato da se jasno možemo referirati na pojedine retke.
+                Preostaje nam naći dokaz za ⊥
+                u 5. retku. Za to imamo na raspolaganju premise ¬A→¬B, B i ¬A. Uočimo da iz ¬A→¬B i ¬A možemo zaključiti ¬B, a onda ¬B i B daju ⊥. I time je dokaz gotov.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Dokaz Peirceova pravila
+<p>Prije nego što krenemo na logiku prvog reda, dajemo dva složenija dokaza. Prvi je dokaz Peirceova pravila:
+                ((P→Q)→P)→P
+                .
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_19.png">
+              <p>Prokomentirajmo dokaz. Trebamo dokazati implikaciju ((P→Q)→P)→P i to bismo pokušali s pomoću uvođenja implikacije (u 11. retku). To znači da otvaramo poddokaz s pretpostavkom (P→Q)→P u 1. retku odakle bismo trebali dobiti P
+                .
+                Dakle, glavno je pitanje kako dobiti P
+                u 10.\ retku.
+                Prisjetimo se dviju ranije spomenutih mogućnosti:
+                1.	P
+                dobiti kao R
+                1.	s pomoću pravila za isključenje disjunkcije ili
+                2.	upotrijebiti pravilo za isključenje negacije.
+                Kako nemamo nijednu disjunkciju, nastavljamo s idejom da P
+                dobijemo isključenjem negacije. To znači da otvaramo poddokaz s pretpostavkom ¬P u kojem moramo doći do ⊥
+                .
+                Do ⊥
+                ćemo doći ili putem P i ¬P ili putem Q i ¬Q. Ali između dviju kontradikcija, one na temelju P ili one na temelju Q, ne možemo se lako odlučiti. Trebali bismo isprobati obje kontradikcije, ali ispostavit će se da treba uzeti P i ¬P. Jedan od razloga je u tome da se P
+                u dokazu pojavljuje na više mjesta, ali to je više posljedica intuicije nego racionalan razlog.
+                Uočimo da ¬P
+                već imamo u 2.\ retku, ali nedostaje nam P. Vraćamo se staroj ideji da iz (P→Q)→P uz pomoć P→Q (koji nemamo) isključenjem implikacije dobijemo P
+                .
+                Ovo ostavlja dojam da se vrtimo u krug, ali ovaj put imamo dodatnu pretpostavku, ¬P
+                . S obzirom na to da znamo da ćemo jednom kada imamo P→Q lako dobiti P, zapisujemo P u 8. redak, a P→Q
+                u 7. redak.
+                Sada tražimo dokaz za P→Q
+                . Poslužit ćemo se osnovnom strategijom za dokazivanje implikacija: uvođenjem implikacije. To znači da otvaramo novi poddokaz s pretpostavkom P i moramo nekako dobiti Q
+                .
+                Kako dobiti Q
+                ? Imamo ponovno dvije opcije:
+                1.	Q
+                dobiti kao R
+                1.	isključenjem disjunkcije ili
+                2.	upotrijebiti pravilo za isključenje negacije.
+                Kako u gornjem dijelu nemamo disjunkciju, idemo s isključenjem negacije. Uočimo da među svim premisama koje smo nagomilali, imamo P
+                i ¬P, čime ćemo dobiti potrebni ⊥ u 5.\ retku. Dopunimo detalje i time smo dovršili dokaz.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Dokaz zakona isključenja trećeg
+ <p>Na kraju ćemo nakon Peirceova pravila dokazati i zakon isključenja trećeg:
+                A∨¬A
+                .
+                Dokaz je dosta kompleksan, ali lijepo ilustrira kako se koriste pravila.
+              </p>
+              <img src="Prirodna dedukcija u logici sudova_20.png">
+              <p>Prokomentirajmo ga.
+                A∨¬A
+                ne možemo dokazati uvođenjem disjunkcije jer je nemamo iz čega uvesti. Stoga konkluziju možemo dobiti ili isključenjem negacije ili kao R isključenjem disjunkcije. S obzirom na to da na početku nemamo nikakvu disjunkciju koju možemo isključiti, krećemo s isključenjem negacije pa otvaramo poddokaz i u 1. redak pišemo ¬(A∨¬A). Znamo da u tom poddokazu moramo dobiti ⊥ pa ga zapisujemo u redak koji će na kraju biti označen brojem 7. Sada trebamo ideju kako dobiti ⊥
+                .
+                Možda bismo ⊥
+                mogli dobiti od nekog A i ¬A, ali u pretpostavkama nemamo ni A ni ¬A
+                . Bismo li ih mogli nekako dobiti?
+                Razmislimo što imamo u pretpostavkama. Imamo samo ¬(A∨¬A)
+                , a ta je formula oblika ¬Q. Znači, trebali bismo još samo formulu oblika Q, a to je onda A∨¬A
+                .
+                A sad trebamo dokazati isto ono o čemu smo već raspravljali i što smo željeli dokazati na početku, ali s jednom ključnom razlikom: sada imamo jednu pretpostavku više, a onda je nismo imali.
+                Pokušajmo na ovaj način: u 1. retku imamo ¬(A∨¬A)
+                i onda u 6. redak stavljamo A∨¬A, ali to tek moramo dokazati. Sad se vraćamo alternativama za dobivanje A∨¬A
+                . Isključenje neke disjunkcije zvuči dobro, ali ono što imamo u 1. retku nije disjunkcija, nego negacija, tako da taj pokušaj otpada.
+                Ostaju nam dvije opcije. Prva, (A∨¬A)
+                dobiti isključenjem negacije iz neke dodatne pretpostavke i druga, (A∨¬A) dobiti uvođenjem disjunkcije iz A ili ¬A
+                .
+                Intuicija nam kaže da je bolje ići uvođenjem disjunkcije. Zašto? Jer ako idemo isključenjem negacije, morat ćemo otvoriti poddokaz identičan onom koji ide od prvog do zadnjeg retka. Imat će istu konkluziju, ali i istu pretpostavku pa zaključujemo da tako nećemo napraviti korak naprijed prema rješenju.
+                Idemo li sada uvođenjem disjunkcije, to znači da ćemo morati dobiti primjerice ¬A
+                ili A. Pokušajmo sa ¬A. Stavljamo ¬A u 5. redak, otvaramo poddokaz s pretpostavkom A u 2. retku. Iz A uvođenjem disjunkcije dobijemo A∨¬A, i uz pomoć formule iz 1. retka dobijemo ⊥
+                u 4. retku, što nam je i trebalo. Time smo dovršili dedukciju.
+                Upozorenje
+                U prethodnom dokazu mogli smo ići i s pretpostavkom ¬A
+                s ciljem da dobijemo A. Uočite da uvođenje disjunkcije kod tautologija uvijek ima svog „skrivenog dvojnika“: ako je potrebno uvesti disjunkciju za dokaz tautologije, negdje će je trebati uvesti preko jednog disjunkta, a negdje, na nekom drugom mjestu u istom dokazu, preko drugog.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h2>Odnosi među pojmovima</h2>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Teorija skupova
+<p>Uvedimo prva dva dodatna pravila za dedukciju u logici prvog reda,pravilo za isključenje ili eliminaciju univerzalnog kvantifikatora i pravilo za uvođenje ili introdukciju egzistencijalnog kvantifikatora:</p>
+              <img src="Prirodna dedukcija u logici prvoga reda_1.png">
+              <p>Pravilo za isključenje ili eliminaciju univerzalnog kvantifikatora
+                Ako imamo dokaz za ∀xPx
+                , onda imamo dokaz za Pt, pri čemu je t
+                bilo koja varijabla ili konstanta.
+                Zajednički naziv za varijablu i konstantu je term. Dakle, kada kažemo da je nešto term, to znači da to može biti varijabla ili konstanta.
+                Jedini je uvjet za isključenje univerzalnog kvantifikatora taj da varijabla x
+                bude zamijenjena termom koji označava neki element domene.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Pravilo za uvođenje i pravilo za isključenje egzistencijalnog kvantifikatora
+<p>Ako imamo dokaz za Pt, gdje je t bilo koji term, onda imamo i dokaz za ∃xPx
+                .
+                Sada prelazimo na pravilo za isključenje ili eliminaciju egzistencijalnog kvantifikatora kako je prikazano ispod.
+              </p>
+              <img src="Prirodna dedukcija u logici prvoga reda_2.png">
+              <p>Uz ovo pravilo moraju vrijediti i sljedeće dodatne napomene:
+                1.	s
+                mora biti term koji se ne javlja niti u jednoj drugoj premisi osim u Ps
+                •  , 
+                •  U je bilo koja formula, ali ne smije sadržavati term s
+                2.	.
+                Upozorenje
+                Ove su napomene sastavni dio pravila isključenja egzistencijalnog kvantifikatora i pravilo se ne smije koristiti bez njih.
+                Prokomentirajmo sada pravilo isključenja egzistencijalnog kvantifikatora. Vrijedi li formula ∃xPx
+                , onda znamo da za neki term vrijedi P, ali ne znamo za koji. Zato uzmemo neki novi predmet s i pretpostavimo da za njega vrijedi P. Ako iz te pretpostavke možemo dokazati neku tvrdnju U, koja se uopće ne tiče predmeta s, to znači da U vrijedi i bez pretpostavke Ps, tj.\ da U vrijedi isključivo na temelju ∃xPx
+                .
+                Pravilo za isključenje ili eliminaciju egzistencijalnog kvantifikatora
+                Ako iz pretpostavke Ps
+                možemo dokazati neku tvrdnju U koja se uopće ne tiče predmeta s, onda U vrijedi isključivo na temelju ∃xPx. Pritom s mora biti term koji se ne javlja niti u jednoj drugoj premisi osim u Ps, a U je bilo koja formula koja ne sadrži term s.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Pravilo za uvođenje i pravilo za isključenje egzistencijalnog kvantifikatora
+ <p>Za kraj smo ostavili pravilo za uvođenje ili introdukciju univerzalnog kvantifikatora kako je prikazano u nastavku:</p>
+              <img src="Prirodna dedukcija u logici prvoga reda_3.png">
+              <p>Prokomentirajmo što pravilo kaže.
+                Px
+                (ima varijablu koja nije vezana nijednim kvantifikatorom − slobodna varijabla) i ∀xPx zapravo iste tvrdnje.
+                Zbog toga nam za ovo pravilo ne trebaju nikakvi dodatni uvjeti, osim uvjeta da x
+                ne smije biti slobodna varijabla niti u jednoj aktivnoj premisi.
+                Pravilo za uvođenje ili introdukciju univerzalnog kvantifikatora Ako imamo formulu Px
+                gdje je x slobodna varijabla, onda imamo i formulu ∀xPx
+                .
+                U nekim drugim verzijama dedukcije, koje ne prihvaćaju korištenje slobodnih varijabli, ovo je pravilo znatno kompliciranije i kosi se s našom intuicijom.
+                Pogledajmo jednostavan primjer, dokaz formule
+                ∀x∀yRxy→∀y∀xRyx
+                ,
+                koji nam zapravo kaže da smijemo zamijeniti „imena“ varijabli x
+                i y
+                .
+              </p>
+              <img src="Prirodna dedukcija u logici prvoga reda_4.png">
+              <p>Objasnimo što se događa. Drugi redak dobiven je iz 1. retka isključenjem univerzalnog kvantifikatora. Pravilo kaže da iz ∀xPx možemo izvesti Pt za bilo koji term t koji želimo. Za taj ćemo term odabrati varijablu z
+                i tako dobiti 2. redak.
+                Uočimo da kvantifikatore isključujemo jedan po jedan, pa 3. redak dobivamo iz 2. retka još jednom primjenom pravila za isključenje univerzalnog kvantifikatora. Ovaj ćemo put za term izabrati varijablu w
+                .
+                Doduše, mogli smo opet izabrati varijablu z
+                , ali tada bismo u formuli imali Pzz pa bismo pri ponovnom uvođenju kvantifikatora dobili ∀xPxx, što je točno 3
+                , ali nije ono što trebamo dokazati.
+                Upozorenje
+                Moramo paziti da nam se varijable slučajno ne stope u jednu, što se naziva sukob varijabli.
+                Četvrti redak dobili smo iz trećeg pravilom za uvođenje univerzalnog kvantifikatora. Uočimo da smo ga mogli primijeniti zato što smo kod ranijih isključenja birali varijable, a ne konstante.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Primjena pravila
+<p>Sada slijede dva dokaza koji su međusobno vrlo slični i u svojoj su osnovi jednostavni, ali lijepo ilustriraju primjenu novih pravila.
+                Prvi dokazuje formulu
+                ∃xPx→¬∀x¬Px
+                ,
+                a drugi je dokaz da vrijedi formula
+                ∀x¬Px→¬∃xPx
+              </p>
+              <img src="Prirodna dedukcija u logici prvoga reda_5.png">
+              <p>Proučit ćemo drugi dokaz. Trebali smo dokazati formulu ∀x¬Px→¬∃xPx
+                , a već znamo da implikaciju najčešće dobivamo uvođenjem implikacije. Ovaj slučaj nije iznimka pa krećemo dopisivati retke koji će biti neophodni za uvođenje implikacije (u 8. retku).
+                Najprije u 1. retku otvaramo poddokaz pretpostavkom ∀x¬Px
+                , a u redak koji će kasnije biti označen brojem 7 stavljamo ¬∃xPx
+                . Zapitamo li se kako bismo mogli dobiti ovu formulu, prvi odgovor koji nam pada na pamet je točan: uvođenjem negacije.
+                To znači da nam treba još jedan poddokaz, ovaj put s pretpostavkom ∃xPx
+                , koji treba završiti sa ⊥ (u retku koji će na kraju biti označen brojem 6). Sada je ključno pitanje kako dobiti ⊥
+                u 6. retku.
+                ⊥
+                se najčešće dobiva pravilom za isključenje disjunkcije (kao formula R iz tog pravila), ali sada bismo mogli upotrijebiti i novo pravilo za isključenje egzistencijalnog kvantifikatora koje isto tako sadrži proizvoljnu formulu, a označili smo je sa U. Uvjet za primjenu pravila za isključenje disjunkcije bio je da ranije imamo neku disjunkciju, a to nemamo. Uvjet za isključenje egzistencijalnog kvantifikatora bio je da imamo neku formulu gdje je egzistencijalni kvantifikator glavni veznik. Takvu formulu imamo u 2. retku i sada krećemo s idejom da je U iz pravila za isključenje egzistencijalnog kvantifikatora zapravo ⊥
+                .
+                Otvaramo novi poddokaz, s pretpostavkom Pd
+                u 3. retku, pri čemu moramo pripaziti da se term d ne javlja niti u jednoj drugoj aktivnoj premisi. Te druge aktivne premise su u našem slučaju 1. i 2. redak, a u njima nema terma d
+                .
+                Osim toga, moramo paziti da u formuli U
+                isto tako nema terma d. Kako je formula U=⊥
+                , možemo mirno nastaviti jer su ispunjeni svi uvjeti za primjenu pravila za isključenje egzistencijalnog kvantifikatora iz 2. retka.
+                Unutar ovog zadnjeg poddokaza moramo dobiti ⊥
+                , što znači da moramo imati neki Q∧¬Q. U našem je slučaju najizglednije je da ćemo imati Pd i ¬Pd. Uočimo da Pd imamo u 3. retku, a nedostaje nam još ¬Pd. Njega pak lako možemo dobiti iz 1. retka isključenjem univerzalnog kvantifikatora. Sjetimo se da u pravilu za isključenje univerzalnog kvantifikatora nema nikakvih ograničenja, osim što podrazumijevamo da taj neki term postoji. Znamo da nam treba d dolje, odnosno da nam 2. redak kaže kako barem jedan term postoji. Tako smijemo isključiti univerzalni kvantifikator iz 1. retka 1 u 4. redak, koristeći se termom d tako da dobijemo ¬Pd. Time smo dovršili dokaz.
+                Slijedi još jedan sličan, ali ipak malo kompliciraniji dokaz, za formulu
+                ¬∀x¬Px→∃xPx
+              </p>
+              <img src="Prirodna dedukcija u logici prvoga reda_6.png">
+              <p>Ovaj se dokaz malo razlikuje od prethodnih dvaju dokaza. Prije svega, uočite korištenje slobodne varijable y. Ona nam treba da u 3. retku možemo uvesti univerzalni kvantifikator. Cijeli je taj poddokaz zapravo isključenje negacije kojom dobivamo Py u 5. retku. Na njemu primjenjujemo pravilo za uvođenje egzistencijalnog kvantifikatora. To pravilo zahtijeva da t označava bilo koji term. S obzirom na to da je varijabla y
+                term, ovaj korak u dedukciji smijemo napraviti.
+                Pogledajmo još jednu dedukciju:
+              </p>
+              <img src="Prirodna dedukcija u logici prvoga reda_7.png">
+              <p>Prokomentirajmo ovaj dokaz. Prije svega, d je proizvoljni term (možda konstanta), a w je slobodna varijabla. Uočimo da u premisi zadnjeg poddokaza (2. redak) imamo d. U 3. retku imamo Pwd
+                , koji je dobiven iz 2. retka pravilom za isključenje univerzalnog kvantifikatora.
+                To pravilo uvjetuje da moramo imati nešto u domeni, odnosno da domena mora imati barem jedan term, a to već imamo u premisi −
+                taj je term d. Uočimo da to ne znači da moramo uzeti d pri isključenju, baš suprotno, uzimamo najčešće nešto drugo. Ali moramo znati da je domena neprazna i da imamo barem jedan term jer je onda u redu da ∀xPx→∃xPx
+                bude dokazivo. Kao što smo ranije vidjeli, ako pravilo za isključenje univerzalnog kvantifikatora nema zadovoljen ovaj uvjet, onda će ova formula biti dokaziva, ali zbog toga što nema garancije o nepraznosti domene, moguće je da ta formula nije istinita (a u isto je vrijeme dokaziva). Zbog toga je uvjet da mora postojati neki term u domeni nužan. Njime se čuva pouzdanost cijelog sustava.
+                Kada je taj uvjet ispunjen i u domeni nešto postoji (a time je naš dodatni uvjet zadovoljen), nije problem da ∀xPx→∃xPx
+                bude dokazivo jer je ta formula tautologija za sve neprazne domene.
+                Pogledajmo sada kako smo iz 3. retka dobili 4. redak. Nad Pwd
+                primjenjujemo uvođenje egzistencijalnog kvantifikatora nad d
+                (pravilo se primjenjuje bez ograničenja) i dobivamo 4. redak. Na 4. redak primjenjujemo pravilo za uvođenje univerzalnog kvantifikatora i dobivamo 5. redak.
+                Jesmo li smjeli primijeniti ovo pravilo? Jedini je uvjet da w
+                mora biti slobodna varijabla koja nije slobodna niti u jednoj (u tom trenutku aktivnoj) premisi (to su premise ∃y∀xPxy u 1. retku i ∀xPxd u 2. retku − nijedna nema slobodnu varijablu w
+                ). Ostatak dedukcije je jednostavan.
+                Pogledajmo sada i jednu jednostavnu dedukciju u kojoj su u interakciji dva pravila, isključenje disjunkcije i isključenje egzistencijalnog kvantifikatora.
+              </p>
+              <img src="Prirodna dedukcija u logici prvoga reda_8.png">
+              <p>U pravilima za isključenje disjunkcije isključečenje egzistencijalnog kvantifikatora R i U nisu jednako fleksibilni. Za R nema nikakvih uvjeta, a za U postoji uvjet. To znači da je prije − u dubljim poddokazima − bolje koristiti isključenje disjunkcije, a tek na kraju isključenje egzistencijalnog kvantifikatora.</p>
+            
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Primjeri
+<p>Najprije ćemo navesti jedan primjer dedukcije iz logičkog kvadrata. Prisjetimo se sljedećih oblika:
+                ∙
+                SaP, Svi S su P, simbolima ∀x(Sx→Px)
+                ∙ SeP, Nijedan S nije P, simbolima ∀x(Sx→¬Px)
+                ∙ SiP, Neki S su P, simbolima ∃x(Sx∧Px)
+                ∙ SoP, Neki S nisu P, simbolima ∃x(Sx∧¬Px)
+                Kao što smo ranije spomenuli, dijagonalne formule iz logičkog kvadrata su u kontradikciji. Dakle, SaP
+                i SoP su u kontradikciji, kao i SeP i SiP
+                . No, kako bismo to dokazali?
+                Pokažimo da su SaP
+                i SoP, odnosno ∀x(Sx→Px) i ∃x(Sx∧¬Px)
+                u kontradikciji.
+                Mi pak poznajemo samo jednu kontradikciju, a to je P
+                i ¬P za neku formulu P
+                . To znači da bi se svaka od ovih dviju formula pravilima pretvorbe mogla pretvoriti u negaciju druge.
+                Pretpostavimo da od ∃x(Sx∧¬Px)
+                trebamo dobiti negaciju formule ∀x(Sx→Px), odnosno formulu ¬∀x(Sx→Px)
+                .
+                Krenimo dakle s formulom
+                ∃x(Sx∧¬Px).
+                
+                Najprije ju pretvorimo u formulu
+                ¬¬∃x(Sx∧¬Px).
+                Zatim iskoristimo jednu negaciju da dobijemo
+                ¬∀x¬(Sx∧¬Px).
+                Prisjetite se: kada negacija prelazi preko kvantifikatora, kvantifikator se mijenja, u ovom slučaju ¬∃=∀¬. Unutarnju negaciju dalje stavljamo unutar zagrada pa De Morganovim pravilom dobivamo
+                ¬∀x(¬Sx∨¬¬Px),
+                a ukidanjem dvostruke negacije slijedi
+                ¬∀x(¬Sx∨Px).
+                Prisjetimo se na kraju da je P→Q≡¬P∨Q i na taj način vidimo da je dobivena formula zapravo
+                ¬∀x(Sx→Px).
+                Dakle, formule ∃x(Sx∧¬Px)
+                i ¬∀x(Sx→Px)
+                su ekvivalentne. Premda smo pokazali samo kako iz prve formule dobiti drugu, jasno je da se isti postupak može provesti i obrnuto, za dobivanje prve formule iz druge.
+                Nadalje, ako su P
+                i ¬Q ekvivalentne, onda su i ¬P i ¬¬Q ekvivalentne, a kada pokratimo dvije negacije, ova zadnja formula je zapravo samo Q. Tako su ¬∃x(Sx∧¬Px) i ∀x(Sx→Px)
+                isto ekvivalentne.
+                Konačno, ako su P
+                i Q ekvivalentne formule, onda je P→Q tautologija (kao i Q→P). A kako su sve tautologije dokazive prirodnom dedukcijom, dokazat ćemo jedan smjer (ostali idu analogno):
+              </p>
+              <img src="Prirodna dedukcija u logici prvoga reda_9.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Dokaz sa silogizmom
+ <p>Prelazimo sada na silogizme. Najprije pogledajmo dokaz za silogizam Datisi (MaP,MiS⊨SiP) u kojem su premise konjunkcijom pretvorene u jednu formulu:</p>
+              <img src="Prirodna dedukcija u logici prvoga reda_10.png">
+              <p>Ovdje nakon isključenja konjunkcije imamo dvije formule, od kojih jedna ima egzistencijalni, a druga univerzalni kvantifikator. Kao što smo već utvrdili, isključenje je univerzalnog kvantifikatora jednostavna, stoga glavninu dokaza čini isključenje egzistencijalnog kvantifikatora. Sam je poddokaz trivijalan jer iz konjunkcije Md∧Sd i implikacije dobivene isključenjem univerzalnog kvantifikatora lako dobivamo potrebnu formulu Sd∧Pd
+                .
+                Pogledajmo još i dokaz za silogizam Celarent (MeP,SaM⊨SeP
+                ) pretvoren u jednu formulu:
+              </p>
+              <img src="Prirodna dedukcija u logici prvoga reda_11.png">
+              <p>Dokaz je lako razumljiv s obzirom na prethodno dane dokaze, stoga ga nećemo komentirati.</p>

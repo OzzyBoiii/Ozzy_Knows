@@ -1,0 +1,3349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Subject Summary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* GLOBAL STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Asap", sans-serif;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: all 0.5s ease;
+        }
+        /* ============================================
+           SECURITY SYSTEM STYLES
+        ============================================ */
+        .security-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s;
+        }
+
+        .security-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            width: 90%;
+            max-width: 500px;
+            overflow: hidden;
+            animation: slideUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .security-header {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .security-header h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .security-body {
+            padding: 40px;
+        }
+
+        .password-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 20px 60px 20px 25px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            font-size: 18px;
+            transition: all 0.3s;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            font-size: 24px;
+            padding: 10px;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .toggle-password:hover {
+            background: #f5f5f5;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .login-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .login-button:active {
+            transform: translateY(0);
+        }
+
+        .login-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            text-align: center;
+            margin: 15px 0;
+            min-height: 24px;
+            font-size: 15px;
+            padding: 15px;
+            background: #fee;
+            border-radius: 10px;
+            border-left: 5px solid #e74c3c;
+            display: none;
+        }
+
+        .attempts-info {
+            color: #f39c12;
+            text-align: center;
+            margin: 10px 0;
+            font-size: 14px;
+            padding: 12px;
+            background: #fff8e1;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .security-footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #666;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .lockout-screen {
+            text-align: center;
+            padding: 60px 40px;
+        }
+
+        .lockout-icon {
+            font-size: 80px;
+            margin-bottom: 25px;
+            color: #e74c3c;
+            animation: pulse 2s infinite;
+        }
+
+        #lockout-timer {
+            font-size: 48px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin: 25px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* ============================================
+           MAIN DASHBOARD STYLES
+        ============================================ */
+        .dashboard {
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s;
+            display: none;
+        }
+
+        .dashboard.visible {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ============================================
+           POLYPHASIC SCHEDULE STYLES
+        ============================================ */
+        .polyphasic-schedule {
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s;
+        }
+
+        .polyphasic-schedule.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .schedule-type-selector {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .schedule-btn {
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: #1e293b;
+            color: #cbd5e1;
+            border: 2px solid #334155;
+        }
+
+        .schedule-btn.active {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #60a5fa;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .schedule-btn:hover:not(.active) {
+            background-color: #334155;
+            transform: translateY(-2px);
+        }
+
+        .current-schedule-info {
+            background-color: #1e293b;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid #334155;
+        }
+
+        .schedule-status {
+            font-size: 1.4rem;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #334155;
+        }
+
+        /* ============================================
+           ALERT & NOTIFICATION STYLES
+        ============================================ */
+        .stage-alert {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.98);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .stage-alert.active {
+            display: flex;
+        }
+
+        .alert-content {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            border: 3px solid;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        .alert-rest {
+            border-color: #3b82f6;
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.5);
+        }
+
+        .alert-work {
+            border-color: #16a34a;
+            box-shadow: 0 0 50px rgba(22, 163, 74, 0.5);
+        }
+
+        .alert-gaming {
+            border-color: #9333ea;
+            box-shadow: 0 0 50px rgba(147, 51, 234, 0.5);
+        }
+
+        .alert-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f1f5f9;
+        }
+
+        .alert-activity {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .alert-activity.rest {
+            color: #60a5fa;
+            text-shadow: 0 0 20px rgba(96, 165, 250, 0.7);
+        }
+
+        .alert-activity.work {
+            color: #4ade80;
+            text-shadow: 0 0 20px rgba(74, 222, 128, 0.7);
+        }
+
+        .alert-activity.gaming {
+            color: #a855f7;
+            text-shadow: 0 0 20px rgba(168, 85, 247, 0.7);
+        }
+
+        .alert-interval {
+            font-size: 2rem;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            background-color: rgba(15, 23, 42, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #475569;
+        }
+
+        .alert-countdown {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
+
+        .close-alert-btn {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-alert-btn:hover {
+            background-color: #2563eb;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .alert-footer {
+            margin-top: 30px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .stage-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 10px;
+            padding: 15px 20px;
+            border-left: 5px solid;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: none;
+            align-items: center;
+            gap: 15px;
+            z-index: 800;
+            animation: slideInRight 0.5s ease;
+        }
+
+        .stage-notification.active {
+            display: flex;
+        }
+
+        .notification-rest {
+            border-left-color: #3b82f6;
+        }
+
+        .notification-work {
+            border-left-color: #16a34a;
+        }
+
+        .notification-gaming {
+            border-left-color: #9333ea;
+        }
+
+        .notification-icon {
+            font-size: 1.8rem;
+        }
+
+        .notification-content {
+            color: #f1f5f9;
+        }
+
+        .notification-activity {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .notification-interval {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        /* ============================================
+           CONTROL PANEL STYLES
+        ============================================ */
+        .mute-toggle {
+            background-color: #1e293b;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: 2px solid #475569;
+            transition: all 0.3s;
+        }
+
+        .mute-toggle:hover {
+            background-color: #334155;
+            transform: scale(1.1);
+        }
+
+        .mute-toggle.muted {
+            background-color: #7c2d12;
+            border-color: #dc2626;
+        }
+
+        .mute-icon {
+            font-size: 1.8rem;
+            color: #f1f5f9;
+        }
+
+        .next-stage-countdown {
+            background-color: #1e293b;
+            border-radius: 10px;
+            padding: 15px 20px;
+            border: 2px solid #475569;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           ANIMATIONS
+        ============================================ */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* ============================================
+           UTILITY CLASSES
+        ============================================ */
+        .hidden {
+            display: none !important;
+        }
+
+        /* ============================================
+           POLYPHASIC OVERVIEW WINDOW STYLES
+        ============================================ */
+        .polyphasic-overview-window {
+            position: fixed;
+            top: 5%;
+            left: 5%;
+            height: 90%;
+            width: 90%;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border: 2px solid #667eea;
+            display: none;
+            padding: 15px;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .polyphasic-overview-window.active {
+            display: block;
+            animation: popIn 0.5s ease-out;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .polyphasic-window-header {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .polyphasic-window-header h1 {
+            color: #60a5fa;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+
+        .polyphasic-window-content {
+            padding: 20px;
+            height: calc(100% - 120px);
+            overflow-y: auto;
+        }
+
+        .polyphasic-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 10px;
+        }
+
+        /* ============================================
+           OPEN POLYPHASIC BUTTON STYLE
+        ============================================ */
+        .open-polyphasic-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .open-polyphasic-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* ============================================
+           MOBILE RESPONSIVE
+        ============================================ */
+        @media (max-width: 768px) {
+            .security-container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            .security-header h1 {
+                font-size: 24px;
+            }
+
+            .password-input {
+                padding: 15px 50px 15px 20px;
+                font-size: 16px;
+            }
+
+            .login-button {
+                padding: 15px;
+                font-size: 16px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .alert-activity {
+                font-size: 3rem;
+            }
+
+            .alert-interval {
+                font-size: 1.5rem;
+            }
+
+            .schedule-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .polyphasic-overview-window {
+                width: 95%;
+                left: 2.5%;
+            }
+
+            .polyphasic-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        /* FLEXIBLE WEBSITE */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Background */
+        body {
+            margin: 0;
+            height: 100vh;
+            font-weight: 100;
+            background: radial-gradient(#a23982, #1f1013);
+            animation: fadeIn 1s ease-out;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .light {
+            position: absolute;
+            width: 0px;
+            opacity: 0.75;
+            background-color: white;
+            box-shadow: #e9f1f1 0px 0px 20px 2px;
+            top: 100vh;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            margin: auto;
+            z-index: -1;
+        }
+
+        .x1 { animation: floatUp 4s infinite linear; transform: scale(1); }
+        .x2 { animation: floatUp 7s infinite linear; transform: scale(1.6); left: 15%; }
+        .x3 { animation: floatUp 2.5s infinite linear; transform: scale(0.5); left: -15%; }
+        .x4 { animation: floatUp 4.5s infinite linear; transform: scale(1.2); left: -34%; }
+        .x5 { animation: floatUp 8s infinite linear; transform: scale(2.2); left: -57%; }
+        .x6 { animation: floatUp 3s infinite linear; transform: scale(0.8); left: -81%; }
+        .x7 { animation: floatUp 5.3s infinite linear; transform: scale(3.2); left: 37%; }
+        .x8 { animation: floatUp 4.7s infinite linear; transform: scale(1.7); left: 62%; }
+        .x9 { animation: floatUp 4.1s infinite linear; transform: scale(0.9); left: 85%; }
+
+        @keyframes floatUp {
+            0% { top: 100vh; opacity: 0; }
+            25% { opacity: 1; }
+            50% { top: 0vh; opacity: 0.8; }
+            75% { opacity: 1; }
+            100% { top: -100vh; opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* SCROLLING ANIMATION */
+        section .container {
+            margin: 100px;
+        }
+
+        section h1 {
+            font-size: 3rem;
+            margin: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        section h1:hover {
+            color: #64e3ff;
+            transform: scale(1.05);
+        }
+
+        section h2 {
+            font-size: 40px;
+            text-align: center;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 15px 30px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2:hover {
+            background: rgba(100, 227, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .text-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .text-box {
+            background: rgba(0, 194, 203, 0.85);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            max-width: 100%;
+        }
+
+        .text-box:hover {
+            transform: translateY(-10px);
+        }
+
+        @media (max-width: 900px) {
+            section h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
+            .text-container {
+                flex-direction: column;
+            }
+        }
+
+        .reveal {
+            position: relative;
+            opacity: 0;
+        }
+
+        .reveal.active {
+            opacity: 1;
+        }
+
+        .active.fade-bottom {
+            animation: fade-bottom 1s ease-in;
+        }
+
+        .active.fade-left {
+            animation: fade-left 1s ease-in;
+        }
+
+        .active.fade-right {
+            animation: fade-right 1s ease-in;
+        }
+
+        @keyframes fade-bottom {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-left {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-right {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Button */
+        button {
+            animation: shimmer 1.5s ease infinite alternate;
+            background: linear-gradient(90deg, #ffe27d 0%, #64e3ff 30%, #9192ff 85%);
+            background-size: 200% 100%;
+            border: none;
+            border-radius: 6px;
+            box-shadow: -2px -2px 10px rgba(255, 227, 126, 0.5), 2px 2px 10px rgba(144, 148, 255, 0.5);
+            color: #170f1e;
+            cursor: pointer;
+            font-family: "Inter", sans-serif;
+            font-size: 14px;
+            font-weight: 670;
+            line-height: 1.2;
+            padding: 8px 12px;
+            text-decoration: none;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        button:hover { transform: rotate(-3deg); }
+        button:active { transform: scale(0.95) rotate(-3deg); }
+
+        @keyframes shimmer {
+            to { background-size: 100% 100%; box-shadow: -2px -2px 6px rgba(255, 227, 126, 0.5), 2px 2px 6px rgba(144, 148, 255, 0.5); }
+        }
+
+        /* NEW: SUMMARY TEXTBOX STYLES */
+        .summary-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .summary-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            overflow-y: auto;
+            max-height: 400px;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            line-height: 2.2;
+            color: #333;
+            border: 2px solid #ff9800;
+        }
+
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            min-height: 30px;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .summary-content {
+            flex-grow: 1;
+            position: relative;
+            padding-right: 30px; /* Space for status dot */
+        }
+
+        .summary-text {
+            position: relative;
+            z-index: 2;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-family: inherit;
+            font-size: inherit;
+            width: 95%;
+        }
+
+        .summary-dots {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 95%;
+            color: #aaa;
+            z-index: 1;
+            pointer-events: none;
+            letter-spacing: 2px;
+        }
+
+        .summary-number {
+            width: 15%;
+            min-width: 60px;
+            text-align: right;
+            background: rgba(255, 152, 0, 0.1);
+            border: 1px solid #ff9800;
+            outline: none;
+            font-family: inherit;
+            font-size: inherit;
+            padding: 0 10px;
+            border-radius: 4px;
+            color: #e65100;
+            font-weight: bold;
+        }
+
+        .summary-header {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #1a237e;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 3px rgba(0,0,0,0.1);
+            position: relative;
+            padding-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .summary-header:hover {
+            color: #ff9800;
+            transform: scale(1.05);
+        }
+
+        .summary-header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff9800, transparent);
+            border-radius: 3px;
+        }
+
+        .summary-box::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .summary-box::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        .summary-box::-webkit-scrollbar-thumb {
+            background: #ff9800;
+            border-radius: 10px;
+        }
+
+        .summary-box::-webkit-scrollbar-thumb:hover {
+            background: #ff7d00;
+        }
+
+        .summary-hint {
+            text-align: center;
+            margin-top: 15px;
+            color: #5d4037;
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 850px) {
+            .summary-box {
+                padding: 20px;
+                font-size: 16px;
+            }
+
+            .summary-header {
+                font-size: 20px;
+            }
+        }
+
+        /* STATUS INDICATOR STYLES */
+        .section-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .status-indicator {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+            cursor: help;
+        }
+
+        /* Summary status indicators */
+        .summary-status-indicator {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            z-index: 3;
+        }
+
+        .status-green {
+            background-color: #2ecc71;
+            animation: pulse-green 2s infinite;
+        }
+
+        .status-yellow {
+            background-color: #f1c40f;
+            animation: pulse-yellow 2s infinite;
+        }
+
+        .status-red {
+            background-color: #e74c3c;
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+        }
+
+        @keyframes pulse-yellow {
+            0% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(241, 196, 15, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0); }
+        }
+
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+        }
+
+        .status-tooltip {
+            position: absolute;
+            top: -40px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .status-indicator:hover + .status-tooltip {
+            opacity: 1;
+        }
+
+        /* STATUS OVERVIEW WINDOW */
+        .newWindow {
+            position: fixed;
+            top: 5%;
+            left: 5%;
+            height: 90%;
+            width: 90%;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border: 2px solid #ff9800;
+            display: none;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .newWindow.active {
+            display: block;
+            animation: popIn 0.5s ease-out;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .window-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .window-header h3 {
+            font-size: 24px;
+            color: #ffeb3b;
+        }
+
+        .status-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .status-category {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .status-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: white;
+        }
+
+        .status-list {
+            list-style-type: none;
+        }
+
+        .status-list li {
+            padding: 10px;
+            margin: 5px 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-list li span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .close-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .status-overview-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #00c2cb, #64e3ff);
+            color: #0f172a;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,194,203,0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-overview-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,194,203,0.6);
+        }
+
+        /* SEARCH BAR STYLE */
+        .search-bar {
+            width: 100%;
+            max-width: 700px;
+            position: relative;
+        }
+
+        #search {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            border-radius: 50px;
+            border: none;
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        #search:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 20px rgba(100, 200, 255, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #64e3ff;
+        }
+
+        .search-results {
+            margin-top: 20px;
+            background: rgba(10, 15, 35, 0.6);
+            border-radius: 15px;
+            padding: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+
+        .result-item {
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: rgba(30, 40, 80, 0.4);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .result-item:hover {
+            background: rgba(100, 200, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .result-icon {
+            font-size: 1.2rem;
+            color: #64e3ff;
+        }
+
+        .result-type {
+            font-size: 0.8rem;
+            background: rgba(100, 200, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: auto;
+        }
+
+        @media (min-width: 768px) {
+            .content-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .content-section {
+            background: rgba(10, 15, 35, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(100, 200, 255, 0.2);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #64e3ff;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(100, 200, 255, 0.3);
+        }
+
+        .content-item {
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(20, 30, 60, 0.4);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .content-item:hover {
+            background: rgba(30, 45, 90, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .item-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #ffb84d;
+        }
+
+        b, strong {
+            color: #ffb84d;
+            background: rgba(255, 184, 77, 0.1);
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .action-btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #00c2cb, #64e3ff);
+            border: none;
+            border-radius: 50px;
+            color: #0f172a;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(0, 194, 203, 0.4);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 194, 203, 0.6);
+        }
+
+        .highlight {
+            animation: highlight 2s ease;
+            background: rgba(255, 255, 0, 0.3);
+            border-radius: 4px;
+        }
+
+        @keyframes highlight {
+            0% { background: rgba(255, 255, 0, 0.8); }
+            70% { background: rgba(255, 255, 0, 0.8); }
+            100% { background: rgba(255, 255, 0, 0.3); }
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: #ff7e5f;
+            font-style: italic;
+        }
+
+        .search-stats {
+            text-align: center;
+            padding: 10px;
+            color: #64e3ff;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(100, 200, 255, 0.2);
+        }
+
+        .search-results::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .search-results::-webkit-scrollbar-track {
+            background: rgba(10, 15, 35, 0.3);
+            border-radius: 4px;
+        }
+
+        .search-results::-webkit-scrollbar-thumb {
+            background: #64e3ff;
+            border-radius: 4px;
+        }
+
+        /* NEW STYLES FOR TOGGLE FUNCTIONALITY */
+        .summary-line.subheading {
+            display: none;
+        }
+
+        .summary-line.subheading.visible {
+            display: flex;
+        }
+
+        .bracket-letter {
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .bracket-letter.A {
+            color: #FF5733; /* Vibrant orange-red */
+        }
+
+        .bracket-letter.B {
+            color: #33C4FF; /* Bright blue */
+            cursor: pointer;
+        }
+
+        .bracket-letter.C {
+            color: #33FF57; /* Bright green */
+        }
+
+        .bracket-letter.B:hover {
+            text-shadow: 0 0 8px rgba(51, 196, 255, 0.8);
+            transform: scale(1.1);
+        }
+
+        .toggle-indicator {
+            margin-left: 5px;
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-indicator.open {
+            transform: rotate(90deg);
+        }
+
+        /* Debug panel */
+        .debug-panel {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 1000;
+            max-width: 300px;
+            display: none;
+        }
+
+        .debug-panel.active {
+            display: block;
+        }
+
+        .time-details {
+            font-size: 11px;
+            color: #64e3ff;
+            margin-top: 5px;
+        }
+
+        /* NEW: Active section styles */
+        section.active {
+            background: rgba(100, 227, 255, 0.1);
+            border: 2px solid rgba(100, 227, 255, 0.5);
+            box-shadow: 0 0 30px rgba(100, 227, 255, 0.3);
+        }
+
+        section.active h2 {
+            color: #64e3ff;
+            text-shadow: 0 0 10px rgba(100, 227, 255, 0.7);
+            background: rgba(100, 227, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+     <!-- ============================================
+         SECURITY SYSTEM OVERLAY
+         (Always shown on page load)
+    ============================================ -->
+    <div id="security-overlay" class="security-overlay">
+        <div class="security-container" id="login-container">
+            <div class="security-header">
+                <h1><i class="fas fa-lock"></i> Secure Schedule System</h1>
+                <p style="margin-top: 10px; opacity: 0.9;">Authentication Required</p>
+            </div>
+            <div class="security-body">
+                <div class="password-group">
+                    <input type="password" id="password-input" class="password-input"
+                           placeholder="Enter master password" autocomplete="off" autofocus>
+                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <button id="login-button" class="login-button" onclick="checkPassword()">
+                    <i class="fas fa-unlock-alt"></i> Access System
+                </button>
+                <div id="error-message" class="error-message"></div>
+                <div id="attempts-info" class="attempts-info"></div>
+                <div class="security-footer">
+                    <p><i class="fas fa-shield-alt"></i> Secure Access System v2.0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="security-container hidden" id="lockout-container">
+            <div class="lockout-screen">
+                <div class="lockout-icon"><i class="fas fa-lock"></i></div>
+                <h2 style="color: #e74c3c; margin-bottom: 10px;">Security Lockout</h2>
+                <p style="color: #666; margin-bottom: 20px;">Too many failed login attempts</p>
+                <div id="lockout-timer">15:00</div>
+                <p style="color: #999; font-size: 12px; margin-top: 30px;">
+                    <i class="fas fa-exclamation-triangle"></i> System temporarily locked
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         MAIN DASHBOARD
+         (Only shown after successful authentication)
+    ============================================ -->
+    <div class="container">
+        <div class="dashboard" id="dashboard">
+            <div class="header">
+                <h1><i class="fas fa-shield-alt"></i> Secure Schedule System</h1>
+            </div>
+
+            <!-- Button to open Polyphasic Overview -->
+            <button class="open-polyphasic-btn" onclick="toggleWindow('polyphasic-overview-window')">
+                <i class="fas fa-chart-bar"></i> Open Polyphasic Overview
+            </button>
+        </div>
+    </div>
+
+    <!-- ============================================
+         POLYPHASIC OVERVIEW WINDOW
+    ============================================ -->
+    <div class="polyphasic-overview-window" id="polyphasic-overview-window">
+        <div class="polyphasic-window-header">
+            <h1 style="color: #60a5fa; margin-bottom: 10px; font-size: 2.2rem; letter-spacing: 1px;">
+                Polyphasic Schedule Monitor
+            </h1>
+            <p class="subtitle" style="color: #94a3b8; font-size: 1rem; max-width: 800px; margin: 0 auto;">
+                Automated stage alerts for workday and restday schedules
+            </p>
+        </div>
+
+        <div class="polyphasic-window-content">
+            <!-- Polyphasic Schedule Section -->
+            <div class="polyphasic-schedule" id="polyphasic-schedule">
+                <div class="schedule-type-selector">
+                    <button class="schedule-btn active" id="workdayBtn">Workday Schedule</button>
+                    <button class="schedule-btn" id="restdayBtn">Restday Schedule</button>
+                </div>
+
+                <div class="current-schedule-info">
+                    <h2 class="schedule-status" id="scheduleName">Workday Schedule Active</h2>
+                    <p style="color: #94a3b8; margin-bottom: 20px;">
+                        The schedule system is actively monitoring time segments. Stage alerts will appear automatically.
+                    </p>
+                    <p style="color: #60a5fa; font-weight: 500;">
+                        Current status: <span id="currentActivity">Monitoring...</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Control Panel Inside Window -->
+            <div class="polyphasic-controls">
+                <div class="mute-toggle" id="muteToggle">
+                    <div class="mute-icon" id="muteIcon">🔔</div>
+                </div>
+                <div class="next-stage-countdown" id="nextStageCountdown">
+                    Next stage in: <span id="nextStageTime">--:--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         STAGE ALERTS & NOTIFICATIONS
+    ============================================ -->
+    <div class="stage-alert" id="stageAlert">
+        <div class="alert-content" id="alertContent">
+            <h2 class="alert-title">Stage Change</h2>
+            <div class="alert-activity rest" id="alertActivity">REST</div>
+            <div class="alert-interval" id="alertInterval">1:30 - 6:00</div>
+            <div class="alert-countdown" id="alertCountdown">
+                Alert will close in <span id="countdownTimer">5</span> seconds
+            </div>
+            <button class="close-alert-btn" id="closeAlertBtn">Continue</button>
+            <div class="alert-footer">Next stage will start automatically</div>
+        </div>
+    </div>
+
+    <div class="stage-notification" id="stageNotification">
+        <div class="notification-icon" id="notificationIcon">⏰</div>
+        <div class="notification-content">
+            <div class="notification-activity" id="notificationActivity">Rest Stage</div>
+            <div class="notification-interval" id="notificationInterval">1:30 - 6:00</div>
+        </div>
+    </div>
+    <!-- Background lights -->
+    <div class="light x1"></div>
+    <div class="light x2"></div>
+    <div class="light x3"></div>
+    <div class="light x4"></div>
+    <div class="light x5"></div>
+    <div class="light x6"></div>
+    <div class="light x7"></div>
+    <div class="light x8"></div>
+    <div class="light x9"></div>
+
+    <!-- Status Overview Button -->
+    <button class="status-overview-btn" onclick="toggleWindow('statusOverview')">
+        <i class="fas fa-clock"></i> View Status
+    </button>
+
+    <!-- Debug panel -->
+    <div class="debug-panel" id="debugPanel">
+        <strong>Debug Information</strong>
+        <div id="debugContent">Loading...</div>
+    </div>
+
+    <section>
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h1 onclick="toggleDebugPanel()">Content summary</h1>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="search" placeholder="&#x1F50D; Start typing to search..." list="search-suggestions">
+                        <div class="search-results" id="search-results"></div>
+                    </div>
+                    <datalist id="search-suggestions">
+                        <option value="JavaScript"></option>
+                        <option value="CSS"></option>
+                        <option value="Accessibility"></option>
+                        <option value="Web Design"></option>
+                    </datalist>
+                    </div>
+                    <div class="summary-container">
+                        <div class="summary-box">
+                            <div class="summary-header" onclick="toggleWindow('statusOverview')">Subject Summary</div>
+
+                            <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_1"><span class="bracket-letter A">(A)</span> Overheading</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_1"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="42" data-section="Ozzy_1">
+                            </div>
+
+                             <div class="summary-line heading" data-group="group1">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_2"><span class="bracket-letter B">(B)</span> Heading_1 <span class="toggle-indicator">❯</span></a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_2"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="87" data-section="Ozzy_2">
+                            </div>
+
+                             <div class="summary-line subheading" data-group="group1">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_3"><span class="bracket-letter C">(C)</span> Subheading_1</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_3"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="105" data-section="Ozzy_3">
+                            </div>
+
+                             <div class="summary-line subheading" data-group="group1">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_4"><span class="bracket-letter C">(C)</span> Subeading_2</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_4"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="122" data-section="Ozzy_4">
+                            </div>
+
+                             <div class="summary-line subheading" data-group="group1">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_5"><span class="bracket-letter C">(C)</span> Subheading_3</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_5"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="145" data-section="Ozzy_5">
+                            </div>
+
+                             <div class="summary-line heading" data-group="group2">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_6"><span class="bracket-letter B">(B)</span> Heading_2 <span class="toggle-indicator">❯</span></a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_6"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="201" data-section="Ozzy_6">
+                            </div>
+
+                             <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_7"><span class="bracket-letter A">(A)</span> Overheading_2</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_7"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="245" data-section="Ozzy_7">
+                            </div>
+
+                            <div class="summary-hint">Tip: Click on (B) items to toggle subheadings visibility</div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ozzy_1">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Ozzy_1')">Matematika</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_1"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <h3>Mathematics Overview</h3>
+                    <p>Mathematics is the abstract science of number, quantity, and space. It includes algebra, geometry, calculus, and more.</p>
+                    <p>Key concepts include functions, equations, and mathematical proofs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ozzy_2">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Ozzy_2')">Hrvatski</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_2"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <h3>Croatian Language</h3>
+                    <p>Croatian is a South Slavic language spoken primarily in Croatia and by Croatian communities in other countries.</p>
+                    <p>It has three main dialects: Štokavian, Kajkavian, and Čakavian.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ozzy_3">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Ozzy_3')">Biologija</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_3"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <h3>Biology Fundamentals</h3>
+                    <p>Biology is the natural science that studies life and living organisms, including their physical structure, chemical processes, molecular interactions, physiological mechanisms, development, and evolution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ozzy_4">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Ozzy_4')">Kemija</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_4"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <h3>Chemistry Concepts</h3>
+                    <p>Chemistry is the scientific discipline involved with elements and compounds composed of atoms, molecules, and ions: their composition, structure, properties, behavior, and the changes they undergo during a reaction with other substances.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Ozzy_5">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Ozzy_5')">Fizika</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_5"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <h3>Physics Principles</h3>
+                    <p>Physics is the natural science that studies matter, its motion and behavior through space and time, and the related entities of energy and force.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id="Ozzy_6">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Ozzy_6')">Informatika</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_6"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <h3>Computer Science</h3>
+                    <p>Computer science is the study of processes that interact with data and that can be represented as data in the form of programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id="Ozzy_7">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Ozzy_7')">Povijest</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_7"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <h3>History</h3>
+                    <p>History is the study of the past as it is described in written documents. Events occurring before written record are considered prehistory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id="Ozzy_8">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Ozzy_8')">Geografija</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_8"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <h3>Geography</h3>
+                    <p>Geography is a field of science devoted to the study of the lands, features, inhabitants, and phenomena of the Earth and planets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id="Ozzy_9">
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h2 onclick="setActiveSection('Ozzy_9')">Glazbeni</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_9"></div>
+                <div class="status-tooltip">Last visited: Never</div>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <h3>Music Education</h3>
+                    <p>Music education is a field of study associated with the teaching and learning of music.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Status Overview Window -->
+    <div id="statusOverview" class="newWindow">
+        <div class="window-header">
+            <h3>Section Status Overview</h3>
+            <button class="close-btn" onclick="toggleWindow('statusOverview')">Close</button>
+        </div>
+
+        <div class="status-categories">
+            <div class="status-category">
+                <div class="status-title">
+                    <div class="status-indicator status-green"></div>
+                    <h4>Recently Viewed (≤ 3 days)</h4>
+                </div>
+                <ul class="status-list" id="green-list">
+                    <!-- Will be populated by JavaScript -->
+                </ul>
+            </div>
+
+            <div class="status-category">
+                <div class="status-title">
+                    <div class="status-indicator status-yellow"></div>
+                    <h4>Viewed Recently (3-7 days)</h4>
+                </div>
+                <ul class="status-list" id="yellow-list">
+                    <!-- Will be populated by JavaScript -->
+                </ul>
+            </div>
+
+            <div class="status-category">
+                <div class="status-title">
+                    <div class="status-indicator status-red"></div>
+                    <h4>Needs Review (> 7 days)</h4>
+                </div>
+                <ul class="status-list" id="red-list">
+                    <!-- Will be populated by JavaScript -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // SECURITY SYSTEM CONFIGURATION
+        // ============================================
+        const SECURITY_CONFIG = {
+            MASTER_PASSWORD: "cross123!",
+            MAX_ATTEMPTS: 5,
+            LOCKOUT_MINUTES: 1
+        };
+
+        // ============================================
+        // SECURITY SYSTEM STATE
+        // ============================================
+        let securityState = {
+            authenticated: false,
+            failedAttempts: 0,
+            lockoutUntil: 0
+        };
+
+        // ============================================
+        // SCHEDULE SYSTEM CONFIGURATION
+        // ============================================
+        const SCHEDULES = {
+            workday: {
+                name: "Workday Schedule",
+                period1: {
+                    title: "1:30 - 13:30",
+                    segments: [
+                        { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
+                        { activity: "Work", start: "6:00", end: "13:30", duration: 7.5, color: "#16a34a" }
+                    ]
+                },
+                period2: {
+                    title: "13:30 - 1:30",
+                    segments: [
+                        { activity: "Work", start: "13:30", end: "17:00", duration: 3.5, color: "#16a34a" },
+                        { activity: "Rest", start: "17:00", end: "17:45", duration: 0.75, color: "#3b82f6" },
+                        { activity: "Work", start: "17:45", end: "19:50", duration: 2.083, color: "#16a34a" },
+                        { activity: "Rest", start: "19:50", end: "20:35", duration: 0.75, color: "#3b82f6" },
+                        { activity: "Work", start: "20:35", end: "22:40", duration: 2.083, color: "#16a34a" },
+                        { activity: "Rest", start: "22:40", end: "23:25", duration: 0.75, color: "#3b82f6" },
+                        { activity: "Work", start: "23:25", end: "1:30", duration: 2.083, color: "#16a34a" }
+                    ]
+                }
+            },
+            restday: {
+                name: "Restday Schedule",
+                period1: {
+                    title: "1:30 - 13:30",
+                    segments: [
+                        { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
+                        { activity: "Work", start: "6:00", end: "8:30", duration: 2.5, color: "#16a34a" },
+                        { activity: "Rest", start: "8:30", end: "9:25", duration: 0.917, color: "#3b82f6" },
+                        { activity: "Work", start: "9:25", end: "11:55", duration: 2.5, color: "#16a34a" },
+                        { activity: "Rest", start: "11:55", end: "12:50", duration: 0.917, color: "#3b82f6" },
+                        { activity: "Work", start: "12:50", end: "13:30", duration: 0.667, color: "#16a34a" }
+                    ]
+                },
+                period2: {
+                    title: "13:30 - 1:30",
+                    segments: [
+                        { activity: "Work", start: "13:30", end: "15:20", duration: 1.833, color: "#16a34a" },
+                        { activity: "Rest", start: "15:20", end: "16:15", duration: 0.917, color: "#3b82f6" },
+                        { activity: "Work", start: "16:15", end: "18:45", duration: 2.5, color: "#16a34a" },
+                        { activity: "Rest", start: "18:45", end: "19:40", duration: 0.917, color: "#3b82f6" },
+                        { activity: "Gaming", start: "19:40", end: "23:00", duration: 3.333, color: "#9333ea" },
+                        { activity: "Work", start: "23:00", end: "1:30", duration: 2.5, color: "#16a34a" }
+                    ]
+                }
+            }
+        };
+
+        // ============================================
+        // SCHEDULE SYSTEM STATE
+        // ============================================
+        let currentSchedule = 'workday';
+        let isMuted = false;
+        let currentSegmentIndex = -1;
+        let alertTimeout = null;
+        let countdownInterval = null;
+        let stageCheckInterval = null;
+
+        // ============================================
+        // DOM ELEMENT REFERENCES
+        // ============================================
+        // Security elements
+        const passwordInput = document.getElementById('password-input');
+        const loginButton = document.getElementById('login-button');
+        const errorMessage = document.getElementById('error-message');
+        const attemptsInfo = document.getElementById('attempts-info');
+        const securityOverlay = document.getElementById('security-overlay');
+        const loginContainer = document.getElementById('login-container');
+        const lockoutContainer = document.getElementById('lockout-container');
+        const lockoutTimer = document.getElementById('lockout-timer');
+
+        // Dashboard elements
+        const dashboard = document.getElementById('dashboard');
+
+        // Schedule control elements
+        const workdayBtn = document.getElementById('workdayBtn');
+        const restdayBtn = document.getElementById('restdayBtn');
+        const scheduleName = document.getElementById('scheduleName');
+
+        // Alert elements
+        const stageAlert = document.getElementById('stageAlert');
+        const alertContent = document.getElementById('alertContent');
+        const alertActivity = document.getElementById('alertActivity');
+        const alertInterval = document.getElementById('alertInterval');
+        const countdownTimer = document.getElementById('countdownTimer');
+        const closeAlertBtn = document.getElementById('closeAlertBtn');
+
+        // Notification elements
+        const stageNotification = document.getElementById('stageNotification');
+        const notificationActivity = document.getElementById('notificationActivity');
+        const notificationInterval = document.getElementById('notificationInterval');
+        const notificationIcon = document.getElementById('notificationIcon');
+
+        // Control panel elements
+        const muteToggle = document.getElementById('muteToggle');
+        const muteIcon = document.getElementById('muteIcon');
+        const nextStageCountdown = document.getElementById('nextStageCountdown');
+        const nextStageTime = document.getElementById('nextStageTime');
+
+        // Polyphasic overview elements
+        const polyphasicSchedule = document.getElementById('polyphasic-schedule');
+        const currentActivity = document.getElementById('currentActivity');
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔒 Secure Schedule System Initializing...');
+            initializeSecuritySystem();
+            initializeScheduleSystem();
+        });
+
+        // ============================================
+        // SECURITY SYSTEM FUNCTIONS
+        // ============================================
+        function initializeSecuritySystem() {
+            // Always start with login screen
+            showLoginScreen();
+
+            // Load lockout state if exists
+            loadLockoutState();
+
+            // Setup event listeners
+            setupSecurityEventListeners();
+        }
+
+        function loadLockoutState() {
+            try {
+                const savedAttempts = localStorage.getItem('secure_schedule_attempts');
+                const lockoutTime = localStorage.getItem('secure_schedule_lockout');
+
+                if (savedAttempts) {
+                    securityState.failedAttempts = parseInt(savedAttempts);
+                }
+
+                if (lockoutTime) {
+                    securityState.lockoutUntil = parseInt(lockoutTime);
+
+                    // Check if still in lockout period
+                    if (Date.now() < securityState.lockoutUntil) {
+                        showLockoutScreen();
+                        startLockoutTimer();
+                        return;
+                    } else {
+                        // Lockout period expired
+                        securityState.failedAttempts = 0;
+                        securityState.lockoutUntil = 0;
+                        localStorage.removeItem('secure_schedule_lockout');
+                        localStorage.setItem('secure_schedule_attempts', '0');
+                    }
+                }
+
+                // Show attempts info if there are failed attempts
+                if (securityState.failedAttempts > 0) {
+                    updateAttemptsDisplay();
+                }
+
+            } catch (error) {
+                console.error('Error loading security state:', error);
+                resetSecurityState();
+            }
+        }
+
+        function setupSecurityEventListeners() {
+            // Password input enter key
+            passwordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+
+            // Close alert button
+            if (closeAlertBtn) {
+                closeAlertBtn.addEventListener('click', closeStageAlert);
+            }
+
+            // Close alert when clicking outside
+            if (stageAlert) {
+                stageAlert.addEventListener('click', function(e) {
+                    if (e.target === stageAlert) {
+                        closeStageAlert();
+                    }
+                });
+            }
+        }
+
+        function checkPassword() {
+            // Check if locked out
+            if (securityState.lockoutUntil && Date.now() < securityState.lockoutUntil) {
+                showLockoutScreen();
+                return;
+            }
+
+            const password = passwordInput.value.trim();
+            if (errorMessage) errorMessage.style.display = 'none';
+
+            if (!password) {
+                showError('Please enter the master password');
+                return;
+            }
+
+            // Disable button during verification
+            loginButton.disabled = true;
+            loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
+
+            // Simulate verification delay
+            setTimeout(() => {
+                if (password === SECURITY_CONFIG.MASTER_PASSWORD) {
+                    handleLoginSuccess();
+                } else {
+                    handleLoginFailure();
+                }
+
+                // Re-enable button
+                loginButton.disabled = false;
+                loginButton.innerHTML = '<i class="fas fa-unlock-alt"></i> Access System';
+            }, 800);
+        }
+
+        function handleLoginSuccess() {
+            // Reset failed attempts
+            securityState.failedAttempts = 0;
+            securityState.lockoutUntil = 0;
+            securityState.authenticated = true;
+
+            // Clear storage
+            localStorage.removeItem('secure_schedule_attempts');
+            localStorage.removeItem('secure_schedule_lockout');
+
+            // Grant access
+            grantAccess();
+
+            // Clear password field
+            passwordInput.value = '';
+        }
+
+        function handleLoginFailure() {
+            securityState.failedAttempts++;
+
+            // Save to localStorage
+            localStorage.setItem('secure_schedule_attempts', securityState.failedAttempts.toString());
+
+            // Show error
+            showError('<i class="fas fa-times-circle"></i> Invalid master password');
+
+            // Update attempts display
+            updateAttemptsDisplay();
+
+            // Clear password field and refocus
+            passwordInput.value = '';
+            passwordInput.focus();
+
+            // Check for lockout
+            if (securityState.failedAttempts >= SECURITY_CONFIG.MAX_ATTEMPTS) {
+                activateLockout();
+            }
+        }
+
+        function showError(message) {
+            if (errorMessage) {
+                errorMessage.innerHTML = message;
+                errorMessage.style.display = 'block';
+            }
+        }
+
+        function updateAttemptsDisplay() {
+            if (attemptsInfo) {
+                attemptsInfo.textContent = `Attempt ${securityState.failedAttempts} of ${SECURITY_CONFIG.MAX_ATTEMPTS}`;
+                attemptsInfo.style.display = 'block';
+            }
+        }
+
+        function showLoginScreen() {
+            if (loginContainer) loginContainer.classList.remove('hidden');
+            if (lockoutContainer) lockoutContainer.classList.add('hidden');
+            passwordInput.focus();
+        }
+
+        function showLockoutScreen() {
+            if (loginContainer) loginContainer.classList.add('hidden');
+            if (lockoutContainer) lockoutContainer.classList.remove('hidden');
+        }
+
+        function activateLockout() {
+            const lockoutTime = Date.now() + (SECURITY_CONFIG.LOCKOUT_MINUTES * 60 * 1000);
+            securityState.lockoutUntil = lockoutTime;
+
+            // Save to localStorage
+            localStorage.setItem('secure_schedule_lockout', lockoutTime.toString());
+
+            // Show lockout screen
+            showLockoutScreen();
+
+            // Start lockout timer
+            startLockoutTimer();
+        }
+
+        function startLockoutTimer() {
+            const lockoutTime = securityState.lockoutUntil - Date.now();
+            let seconds = Math.floor(lockoutTime / 1000);
+
+            const updateTimer = () => {
+                seconds--;
+
+                if (seconds <= 0) {
+                    clearInterval(interval);
+                    if (lockoutTimer) lockoutTimer.textContent = '00:00';
+
+                    setTimeout(() => {
+                        // Reset lockout
+                        securityState.lockoutUntil = 0;
+                        securityState.failedAttempts = 0;
+                        localStorage.removeItem('secure_schedule_lockout');
+                        localStorage.setItem('secure_schedule_attempts', '0');
+
+                        // Show login screen
+                        showLoginScreen();
+                    }, 1000);
+                    return;
+                }
+
+                const mins = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                if (lockoutTimer) {
+                    lockoutTimer.textContent =
+                        (mins < 10 ? '0' : '') + mins + ':' +
+                        (secs < 10 ? '0' : '') + secs;
+                }
+            };
+
+            // Update immediately
+            updateTimer();
+
+            // Update every second
+            const interval = setInterval(updateTimer, 1000);
+        }
+
+        function grantAccess() {
+            console.log('✅ Authentication successful');
+
+            // Hide security overlay
+            if (securityOverlay) {
+                securityOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    securityOverlay.style.display = 'none';
+                }, 500);
+            }
+
+            // Show dashboard
+            if (dashboard) dashboard.classList.add('visible');
+
+            // Show schedule system
+            if (polyphasicSchedule) polyphasicSchedule.classList.add('visible');
+
+            // Start schedule monitoring
+            startScheduleMonitoring();
+        }
+
+        function togglePasswordVisibility() {
+            const toggleIcon = document.querySelector('.toggle-password i');
+            if (!toggleIcon) return;
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.className = 'fas fa-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.className = 'fas fa-eye';
+            }
+        }
+
+        function resetSecurityState() {
+            securityState = {
+                authenticated: false,
+                failedAttempts: 0,
+                lockoutUntil: 0
+            };
+
+            localStorage.removeItem('secure_schedule_attempts');
+            localStorage.removeItem('secure_schedule_lockout');
+        }
+
+        // ============================================
+        // SCHEDULE SYSTEM FUNCTIONS
+        // ============================================
+        function initializeScheduleSystem() {
+            // Load saved preferences
+            loadSchedulePreferences();
+
+            // Setup event listeners
+            setupScheduleEventListeners();
+        }
+
+        function setupScheduleEventListeners() {
+            // Schedule buttons
+            if (workdayBtn) workdayBtn.addEventListener('click', () => switchSchedule('workday'));
+            if (restdayBtn) restdayBtn.addEventListener('click', () => switchSchedule('restday'));
+
+            // Mute toggle
+            if (muteToggle) muteToggle.addEventListener('click', toggleMute);
+        }
+
+        function loadSchedulePreferences() {
+            const saved = localStorage.getItem('schedule_preferences');
+            if (saved) {
+                try {
+                    const preferences = JSON.parse(saved);
+                    currentSchedule = preferences.currentSchedule || 'workday';
+                    isMuted = preferences.isMuted || false;
+
+                    // Update UI
+                    updateScheduleButtons();
+                    updateMuteToggle();
+
+                } catch (error) {
+                    console.log('Error loading schedule preferences:', error);
+                }
+            }
+        }
+
+        function saveSchedulePreferences() {
+            const preferences = {
+                currentSchedule: currentSchedule,
+                isMuted: isMuted
+            };
+            localStorage.setItem('schedule_preferences', JSON.stringify(preferences));
+        }
+
+        function startScheduleMonitoring() {
+            // Initial check
+            checkCurrentStage();
+
+            // Check every second
+            stageCheckInterval = setInterval(checkCurrentStage, 1000);
+
+            console.log('📅 Schedule monitoring started');
+        }
+
+        function checkCurrentStage() {
+            const now = new Date();
+            const currentTimeInMinutes = now.getHours() * 60 + now.getMinutes();
+
+            const schedule = SCHEDULES[currentSchedule];
+            const allSegments = [...schedule.period1.segments, ...schedule.period2.segments];
+
+            // Find current segment
+            let currentSegment = null;
+            let nextSegment = null;
+
+            for (let i = 0; i < allSegments.length; i++) {
+                const segment = allSegments[i];
+                const startMinutes = timeToMinutes(segment.start);
+                const endMinutes = timeToMinutes(segment.end);
+
+                let isCurrent = false;
+
+                if (endMinutes > startMinutes) {
+                    // Normal case: start and end in same day
+                    isCurrent = currentTimeInMinutes >= startMinutes &&
+                                currentTimeInMinutes < endMinutes;
+                } else {
+                    // Case spanning midnight
+                    isCurrent = currentTimeInMinutes >= startMinutes ||
+                                currentTimeInMinutes < endMinutes;
+                }
+
+                if (isCurrent) {
+                    currentSegment = {
+                        ...segment,
+                        index: i
+                    };
+
+                    // Get next segment (wrap around)
+                    nextSegment = allSegments[(i + 1) % allSegments.length];
+                    break;
+                }
+            }
+
+            // Update display
+            if (currentSegment) {
+                if (currentActivity) {
+                    currentActivity.textContent = `${currentSegment.activity} (${currentSegment.start}-${currentSegment.end})`;
+                }
+
+                // Check if this is a new segment
+                if (currentSegment.index !== currentSegmentIndex) {
+                    currentSegmentIndex = currentSegment.index;
+                    showStageAlert(currentSegment);
+                    showStageNotification(currentSegment);
+                }
+
+                // Update next stage countdown
+                if (nextSegment && nextStageTime) {
+                    updateNextStageCountdown(currentTimeInMinutes, nextSegment);
+                }
+            }
+        }
+
+        function updateNextStageCountdown(currentMinutes, nextSegment) {
+            const nextStartMinutes = timeToMinutes(nextSegment.start);
+            let minutesUntilNext;
+
+            if (nextStartMinutes > currentMinutes) {
+                minutesUntilNext = nextStartMinutes - currentMinutes;
+            } else {
+                // Next segment starts tomorrow
+                minutesUntilNext = (24 * 60 - currentMinutes) + nextStartMinutes;
+            }
+
+            const hours = Math.floor(minutesUntilNext / 60);
+            const minutes = minutesUntilNext % 60;
+
+            let timeText = '';
+            if (hours > 0) timeText += `${hours}h `;
+            timeText += `${minutes}m`;
+
+            if (nextStageTime) {
+                nextStageTime.textContent = timeText;
+            }
+        }
+
+        function switchSchedule(scheduleType) {
+            if (currentSchedule !== scheduleType) {
+                currentSchedule = scheduleType;
+                currentSegmentIndex = -1; // Reset to trigger new alert
+
+                // Update buttons
+                updateScheduleButtons();
+
+                // Update display
+                if (scheduleName) {
+                    scheduleName.textContent = `${SCHEDULES[currentSchedule].name} Active`;
+                }
+
+                // Save preferences
+                saveSchedulePreferences();
+
+                console.log(`🔄 Switched to ${scheduleType} schedule`);
+            }
+        }
+
+        function updateScheduleButtons() {
+            if (workdayBtn && restdayBtn) {
+                if (currentSchedule === 'workday') {
+                    workdayBtn.classList.add('active');
+                    restdayBtn.classList.remove('active');
+                } else {
+                    restdayBtn.classList.add('active');
+                    workdayBtn.classList.remove('active');
+                }
+            }
+        }
+
+        function showStageAlert(segment) {
+            // Clear any existing timeout/interval
+            clearAlertTimers();
+
+            // Update alert content
+            if (alertActivity) {
+                alertActivity.textContent = segment.activity.toUpperCase();
+                alertActivity.className = `alert-activity ${segment.activity.toLowerCase()}`;
+            }
+            if (alertInterval) {
+                alertInterval.textContent = `${segment.start} - ${segment.end}`;
+            }
+
+            // Update alert style
+            if (alertContent) {
+                alertContent.className = `alert-content alert-${segment.activity.toLowerCase()}`;
+            }
+
+            // Reset countdown
+            let countdown = 5;
+            if (countdownTimer) {
+                countdownTimer.textContent = countdown;
+            }
+
+            // Show alert
+            if (stageAlert) {
+                stageAlert.classList.add('active');
+            }
+
+            // Play sound if not muted
+            if (!isMuted) {
+                playAlertSound();
+            }
+
+            // Start countdown
+            countdownInterval = setInterval(() => {
+                countdown--;
+                if (countdownTimer) {
+                    countdownTimer.textContent = countdown;
+                }
+
+                if (countdown <= 0) {
+                    closeStageAlert();
+                }
+            }, 1000);
+
+            // Auto-close after 5 seconds
+            alertTimeout = setTimeout(closeStageAlert, 5000);
+        }
+
+        function closeStageAlert() {
+            if (stageAlert) {
+                stageAlert.classList.remove('active');
+            }
+            clearAlertTimers();
+        }
+
+        function clearAlertTimers() {
+            if (alertTimeout) {
+                clearTimeout(alertTimeout);
+                alertTimeout = null;
+            }
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+                countdownInterval = null;
+            }
+        }
+
+        function showStageNotification(segment) {
+            if (notificationActivity) {
+                notificationActivity.textContent = `${segment.activity} Stage`;
+            }
+            if (notificationInterval) {
+                notificationInterval.textContent = `${segment.start} - ${segment.end}`;
+            }
+
+            // Set icon based on activity
+            let icon = "⏰";
+            if (segment.activity === "Rest") icon = "😴";
+            else if (segment.activity === "Work") icon = "💼";
+            else if (segment.activity === "Gaming") icon = "🎮";
+
+            if (notificationIcon) {
+                notificationIcon.textContent = icon;
+            }
+
+            // Set notification style
+            if (stageNotification) {
+                stageNotification.className = `stage-notification active notification-${segment.activity.toLowerCase()}`;
+            }
+
+            // Auto hide after 3 seconds
+            setTimeout(() => {
+                if (stageNotification) {
+                    stageNotification.classList.remove('active');
+                }
+            }, 3000);
+        }
+
+        function toggleMute() {
+            isMuted = !isMuted;
+            if (muteToggle) {
+                muteToggle.classList.toggle('muted', isMuted);
+            }
+            if (muteIcon) {
+                muteIcon.textContent = isMuted ? '🔕' : '🔔';
+            }
+            saveSchedulePreferences();
+
+            console.log(`🔇 Mute ${isMuted ? 'enabled' : 'disabled'}`);
+        }
+
+        function updateMuteToggle() {
+            if (muteToggle) {
+                muteToggle.classList.toggle('muted', isMuted);
+            }
+            if (muteIcon) {
+                muteIcon.textContent = isMuted ? '🔕' : '🔔';
+            }
+        }
+
+        function playAlertSound() {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                oscillator.frequency.value = 800;
+                oscillator.type = 'sine';
+
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            } catch (error) {
+                console.log("Audio not supported or blocked by browser");
+            }
+        }
+
+        // ============================================
+        // UTILITY FUNCTIONS
+        // ============================================
+        function timeToMinutes(timeStr) {
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            return hours * 60 + minutes;
+        }
+
+        // ============================================
+        // WINDOW MANAGEMENT FUNCTIONS
+        // ============================================
+        function toggleWindow(windowId) {
+            const window = document.getElementById(windowId);
+            if (!window) return;
+
+            if (window.classList.contains('active')) {
+                window.classList.remove('active');
+                document.body.style.overflow = '';
+            } else {
+                document.querySelectorAll('.polyphasic-overview-window.active').forEach(w => {
+                    w.classList.remove('active');
+                });
+                window.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Close windows when clicking outside
+        document.addEventListener('click', function(event) {
+            const windows = document.querySelectorAll('.polyphasic-overview-window.active');
+            windows.forEach(window => {
+                if (!window.contains(event.target) && !event.target.closest('.open-polyphasic-btn')) {
+                    window.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Escape key closes windows
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.polyphasic-overview-window.active').forEach(window => {
+                    window.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+        // Time tracking data for sections
+        const sectionData = {
+            Ozzy_1: { name: "Matematika", lastOpened: null, totalTime: 0, pageNumber: 42 },
+            Ozzy_2: { name: "Hrvatski", lastOpened: null, totalTime: 0, pageNumber: 87 },
+            Ozzy_3: { name: "Biologija", lastOpened: null, totalTime: 0, pageNumber: 105 },
+            Ozzy_4: { name: "Kemija", lastOpened: null, totalTime: 0, pageNumber: 122 },
+            Ozzy_5: { name: "Fizika", lastOpened: null, totalTime: 0, pageNumber: 145 },
+            Ozzy_6: { name: "Informatika", lastOpened: null, totalTime: 0, pageNumber: 201 },
+            Ozzy_7: { name: "Povijest", lastOpened: null, totalTime: 0, pageNumber: 245 },
+            Ozzy_8: { name: "Geografija", lastOpened: null, totalTime: 0, pageNumber: 278 },
+            Ozzy_9: { name: "Glazbeni", lastOpened: null, totalTime: 0, pageNumber: 305 }
+        };
+
+        // Active section tracking
+        let currentlyActiveSection = null;
+        let activeSectionStartTime = null;
+        let lastUnloadTime = null;
+
+        // Updated time thresholds in hours
+        const YELLOW_THRESHOLD = 72;  // 3 days
+        const RED_THRESHOLD = 168;    // 7 days
+
+        // Timer interval for checking status updates
+        let statusCheckInterval = null;
+        let overviewUpdateInterval = null;
+
+        // Toggle debug panel
+        function toggleDebugPanel() {
+            const debugPanel = document.getElementById('debugPanel');
+            debugPanel.classList.toggle('active');
+        }
+
+        // Debug function
+        function updateDebugInfo() {
+            const debugContent = document.getElementById('debugContent');
+            if (!debugContent) return;
+
+            let debugText = `Active Section: ${currentlyActiveSection || 'None'}<br>`;
+            debugText += `Active Start: ${activeSectionStartTime || 'None'}<br>`;
+            debugText += `Last Unload: ${lastUnloadTime || 'None'}<br>`;
+
+            for (const sectionId in sectionData) {
+                const lastOpened = sectionData[sectionId].lastOpened;
+                const timeSinceLastOpened = lastOpened ?
+                    formatDetailedTime((new Date() - lastOpened) / 1000) : 'Never';
+                debugText += `<div>${sectionId}: Page ${sectionData[sectionId].pageNumber}</div>`;
+                debugText += `<div class="time-details">Last: ${timeSinceLastOpened}</div>`;
+            }
+
+            debugContent.innerHTML = debugText;
+        }
+
+        // Format time in days, hours, minutes, seconds
+        function formatDetailedTime(totalSeconds) {
+            const days = Math.floor(totalSeconds / (24 * 60 * 60));
+            const hours = Math.floor((totalSeconds % (24 * 60 * 60)) / (60 * 60));
+            const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+            const seconds = Math.floor(totalSeconds % 60);
+
+            let result = '';
+            if (days > 0) result += `${days}d `;
+            if (hours > 0) result += `${hours}h `;
+            if (minutes > 0) result += `${minutes}m `;
+            result += `${seconds}s`;
+
+            return result;
+        }
+
+        // NEW: Function to set active section when clicking on h2
+        function setActiveSection(sectionId) {
+            // Remove active class from all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Add active class to clicked section
+            const clickedSection = document.getElementById(sectionId);
+            if (clickedSection) {
+                clickedSection.classList.add('active');
+
+                // Scroll to the section
+                clickedSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+
+            // If the same section is already active, do nothing
+            if (currentlyActiveSection === sectionId) {
+                return;
+            }
+
+            // Stop the timer for the current active section
+            if (currentlyActiveSection) {
+                const endTime = new Date();
+                const timeSpent = (endTime - activeSectionStartTime) / (1000 * 60 * 60);
+                sectionData[currentlyActiveSection].totalTime += timeSpent;
+                localStorage.setItem(`totalTime_${currentlyActiveSection}`, sectionData[currentlyActiveSection].totalTime);
+
+                console.log(`Stopped timer for ${currentlyActiveSection}: ${timeSpent.toFixed(2)} hours added`);
+            }
+
+            // Start timer for new active section
+            currentlyActiveSection = sectionId;
+            activeSectionStartTime = new Date();
+            localStorage.setItem('activeSection', currentlyActiveSection);
+
+            // Update the lastOpened time and status indicator
+            sectionData[sectionId].lastOpened = new Date();
+            localStorage.setItem(`lastOpened_${sectionId}`, sectionData[sectionId].lastOpened.getTime());
+            updateStatusIndicator(sectionId);
+
+            // Update debug info
+            updateDebugInfo();
+
+            console.log(`Started timer for ${sectionId} via click`);
+        }
+
+        // Initialize section data from localStorage
+        function initializeSectionData() {
+            // Load last unload time
+            const storedUnloadTime = localStorage.getItem('lastUnloadTime');
+            if (storedUnloadTime) {
+                lastUnloadTime = new Date(parseInt(storedUnloadTime));
+            }
+
+            // Load active section from previous session
+            const storedActiveSection = localStorage.getItem('activeSection');
+
+            for (const sectionId in sectionData) {
+                // Load last opened time
+                const storedTime = localStorage.getItem(`lastOpened_${sectionId}`);
+                if (storedTime) {
+                    sectionData[sectionId].lastOpened = new Date(parseInt(storedTime));
+                }
+
+                // Load total time
+                const storedTotalTime = localStorage.getItem(`totalTime_${sectionId}`);
+                if (storedTotalTime) {
+                    sectionData[sectionId].totalTime = parseFloat(storedTotalTime);
+                }
+
+                // Load page number
+                const storedPageNumber = localStorage.getItem(`pageNumber_${sectionId}`);
+                if (storedPageNumber) {
+                    sectionData[sectionId].pageNumber = parseInt(storedPageNumber);
+                }
+
+                // Update summary number display with page number
+                updateSummaryNumber(sectionId, sectionData[sectionId].pageNumber);
+            }
+
+            // Calculate elapsed time since last unload if there was an active section
+            if (storedActiveSection && sectionData[storedActiveSection] && lastUnloadTime) {
+                const now = new Date();
+                const elapsedHours = (now - lastUnloadTime) / (1000 * 60 * 60);
+
+                // Add elapsed time to the previously active section
+                sectionData[storedActiveSection].totalTime += elapsedHours;
+                localStorage.setItem(`totalTime_${storedActiveSection}`, sectionData[storedActiveSection].totalTime);
+
+                console.log(`Added ${elapsedHours.toFixed(2)} hours to ${storedActiveSection}`);
+            }
+
+            // Update all status indicators
+            updateAllStatusIndicators();
+
+            // Start the status check interval
+            startStatusCheckInterval();
+
+            // Update debug info
+            updateDebugInfo();
+
+            // Set up page number change listeners
+            setupPageNumberListeners();
+
+            // Set up click listeners for h2 elements
+            setupH2ClickListeners();
+        }
+
+        // Set up click listeners for h2 elements
+        function setupH2ClickListeners() {
+            const h2Elements = document.querySelectorAll('section h2');
+            h2Elements.forEach(h2 => {
+                h2.addEventListener('click', function() {
+                    const sectionId = this.closest('section').id;
+                    setActiveSection(sectionId);
+                });
+            });
+        }
+
+        // Set up listeners for page number inputs
+        function setupPageNumberListeners() {
+            const pageInputs = document.querySelectorAll('.summary-number');
+            pageInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    const sectionId = this.getAttribute('data-section');
+                    const pageNumber = parseInt(this.value) || 0;
+
+                    if (sectionId && sectionData[sectionId]) {
+                        sectionData[sectionId].pageNumber = pageNumber;
+                        localStorage.setItem(`pageNumber_${sectionId}`, pageNumber);
+                        console.log(`Updated ${sectionId} page number to ${pageNumber}`);
+                    }
+                });
+            });
+        }
+
+        // Start interval for checking status updates
+        function startStatusCheckInterval() {
+            if (statusCheckInterval) {
+                clearInterval(statusCheckInterval);
+            }
+
+            // Check status every second for real-time updates
+            statusCheckInterval = setInterval(() => {
+                updateAllStatusIndicators();
+                updateDebugInfo();
+            }, 1000);
+        }
+
+        // Start interval for updating overview window
+        function startOverviewUpdateInterval() {
+            if (overviewUpdateInterval) {
+                clearInterval(overviewUpdateInterval);
+            }
+
+            // Update overview every second when it's open
+            overviewUpdateInterval = setInterval(() => {
+                if (document.getElementById('statusOverview').classList.contains('active')) {
+                    populateStatusOverview();
+                }
+            }, 1000);
+        }
+
+        // Stop overview update interval
+        function stopOverviewUpdateInterval() {
+            if (overviewUpdateInterval) {
+                clearInterval(overviewUpdateInterval);
+                overviewUpdateInterval = null;
+            }
+        }
+
+        // Update status indicators based on time elapsed
+        function updateStatusIndicator(sectionId) {
+            const headerIndicator = document.getElementById(`status-indicator-${sectionId}`);
+            const summaryIndicator = document.getElementById(`summary-status-indicator-${sectionId}`);
+            const tooltip = headerIndicator ? headerIndicator.nextElementSibling : null;
+
+            if (!sectionData[sectionId].lastOpened) {
+                if (headerIndicator) headerIndicator.className = "status-indicator status-red";
+                if (summaryIndicator) summaryIndicator.className = "status-indicator summary-status-indicator status-red";
+                if (tooltip) tooltip.textContent = "Never visited";
+                return;
+            }
+
+            const now = new Date();
+            const diffHours = (now - sectionData[sectionId].lastOpened) / (1000 * 60 * 60);
+
+            // Format last visited time
+            const lastVisited = formatLastVisited(diffHours);
+            if (tooltip) tooltip.textContent = `Last visited: ${lastVisited}`;
+
+            // Set indicator color based on time thresholds
+            let statusClass;
+            if (diffHours <= YELLOW_THRESHOLD) {
+                statusClass = "status-green";
+            } else if (diffHours <= RED_THRESHOLD) {
+                statusClass = "status-yellow";
+            } else {
+                statusClass = "status-red";
+            }
+
+            if (headerIndicator) headerIndicator.className = `status-indicator ${statusClass}`;
+            if (summaryIndicator) summaryIndicator.className = `status-indicator summary-status-indicator ${statusClass}`;
+        }
+
+        // Format last visited time for display
+        function formatLastVisited(hours) {
+            if (hours < 1) return "Just now";
+            if (hours < 24) return `${Math.floor(hours)} hours ago`;
+
+            const days = Math.floor(hours / 24);
+            if (days === 1) return "1 day ago";
+            if (days < 7) return `${days} days ago`;
+
+            const weeks = Math.floor(days / 7);
+            if (weeks === 1) return "1 week ago";
+            if (weeks < 4) return `${weeks} weeks ago`;
+
+            const months = Math.floor(days / 30);
+            if (months === 1) return "1 month ago";
+            return `${months} months ago`;
+        }
+
+        // Update all status indicators
+        function updateAllStatusIndicators() {
+            for (const sectionId in sectionData) {
+                updateStatusIndicator(sectionId);
+            }
+        }
+
+        // Update summary number display with page number
+        function updateSummaryNumber(sectionId, pageNumber) {
+            const summaryNumber = document.querySelector(`.summary-content a[href="#${sectionId}"]`)
+                ?.closest('.summary-line')
+                ?.querySelector('.summary-number');
+
+            if (summaryNumber) {
+                summaryNumber.value = pageNumber;
+            }
+        }
+
+        // Populate the status overview window
+        function populateStatusOverview() {
+            const greenList = document.getElementById('green-list');
+            const yellowList = document.getElementById('yellow-list');
+            const redList = document.getElementById('red-list');
+
+            // Clear existing lists
+            greenList.innerHTML = '';
+            yellowList.innerHTML = '';
+            redList.innerHTML = '';
+
+            const now = new Date();
+
+            for (const sectionId in sectionData) {
+                if (!sectionData[sectionId].lastOpened) {
+                    // Never opened - red status
+                    const li = createStatusListItem(sectionId, 'red');
+                    redList.appendChild(li);
+                    continue;
+                }
+
+                const diffHours = (now - sectionData[sectionId].lastOpened) / (1000 * 60 * 60);
+
+                if (diffHours <= YELLOW_THRESHOLD) {
+                    const li = createStatusListItem(sectionId, 'green');
+                    greenList.appendChild(li);
+                } else if (diffHours <= RED_THRESHOLD) {
+                    const li = createStatusListItem(sectionId, 'yellow');
+                    yellowList.appendChild(li);
+                } else {
+                    const li = createStatusListItem(sectionId, 'red');
+                    redList.appendChild(li);
+                }
+            }
+        }
+
+        // Create a list item for the status overview
+        function createStatusListItem(sectionId, status) {
+            const li = document.createElement('li');
+            const indicator = document.createElement('div');
+            indicator.className = `status-indicator status-${status}`;
+
+            const timeSinceLastOpened = sectionData[sectionId].lastOpened ?
+                formatDetailedTime((new Date() - sectionData[sectionId].lastOpened) / 1000) : 'Never';
+
+            li.innerHTML = `
+                <span>
+                    ${indicator.outerHTML}
+                    <a href="#${sectionId}" onclick="toggleWindow('statusOverview')">${sectionData[sectionId].name}</a>
+                </span>
+                <span>Page ${sectionData[sectionId].pageNumber} • (${timeSinceLastOpened})</span>
+            `;
+
+            return li;
+        }
+
+        // Toggle window visibility
+        function toggleWindow(windowId) {
+            const window = document.getElementById(windowId);
+            const isActive = window.classList.contains('active');
+
+            window.classList.toggle('active');
+            document.body.style.overflow = window.classList.contains('active') ? 'hidden' : '';
+
+            if (windowId === 'statusOverview') {
+                if (window.classList.contains('active')) {
+                    populateStatusOverview();
+                    startOverviewUpdateInterval();
+                } else {
+                    stopOverviewUpdateInterval();
+                }
+            }
+        }
+
+        // Scroll reveal animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+
+        // Handle page unload
+        function handlePageUnload() {
+            if (currentlyActiveSection) {
+                const endTime = new Date();
+                const timeSpent = (endTime - activeSectionStartTime) / (1000 * 60 * 60);
+                sectionData[currentlyActiveSection].totalTime += timeSpent;
+                localStorage.setItem(`totalTime_${currentlyActiveSection}`, sectionData[currentlyActiveSection].totalTime);
+                console.log(`On unload: Added ${timeSpent.toFixed(2)} hours to ${currentlyActiveSection}`);
+            }
+
+            // Store unload time and active section
+            localStorage.setItem('lastUnloadTime', new Date().getTime());
+            if (currentlyActiveSection) {
+                localStorage.setItem('activeSection', currentlyActiveSection);
+            }
+            console.log("Saved unload time and active section");
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeSectionData();
+
+            // Initialize scroll event listener for reveal animations only
+            window.addEventListener("scroll", reveal, { passive: true });
+            reveal(); // Initialize sections
+
+            // Set up beforeunload event
+            window.addEventListener('beforeunload', handlePageUnload);
+
+            // Update debug info
+            updateDebugInfo();
+        });
+
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search');
+            const searchResults = document.getElementById('search-results');
+
+            // Sample data for demonstration
+            const elementsWithIds = [
+                { id: 'printBtn', text: 'Print Page Button', type: 'button' },
+                { id: 'themeBtn', text: 'Toggle Theme Button', type: 'button' },
+                { id: 'refreshBtn', text: 'Refresh Content Button', type: 'button' },
+                { id: 'helpBtn', text: 'Get Help Button', type: 'button' },
+                { id: 'shareBtn', text: 'Share Button', type: 'button' },
+                { id: 'downloadBtn', text: 'Download Button', type: 'button' }
+            ];
+
+            // Function to find bold text on the page
+            function findBoldText() {
+                const boldElements = Array.from(document.querySelectorAll('b, strong'));
+                return boldElements.map(el => ({
+                    element: el,
+                    text: el.textContent,
+                    type: 'bold text'
+                }));
+            }
+
+            // Function to search for matching items
+            function searchItems(query) {
+                const results = [];
+                const lowerQuery = query.toLowerCase().trim();
+
+                if (!lowerQuery) return [];
+
+                // Search section names
+                for (const sectionId in sectionData) {
+                    if (sectionData[sectionId].name.toLowerCase().includes(lowerQuery)) {
+                        const element = document.getElementById(sectionId);
+                        if (element) {
+                            results.push({
+                                element: element,
+                                text: sectionData[sectionId].name,
+                                type: 'section'
+                            });
+                        }
+                    }
+                }
+
+                // Search bold text
+                const boldItems = findBoldText();
+                for (const item of boldItems) {
+                    if (item.text.toLowerCase().includes(lowerQuery)) {
+                        results.push({
+                            element: item.element,
+                            text: item.text,
+                            type: 'bold text'
+                        });
+                    }
+                }
+
+                // Search elements with IDs
+                for (const item of elementsWithIds) {
+                    if (item.id.toLowerCase().includes(lowerQuery) ||
+                        item.text.toLowerCase().includes(lowerQuery)) {
+                        const element = document.getElementById(item.id);
+                        if (element) {
+                            results.push({
+                                element: element,
+                                text: item.text,
+                                type: 'element ID'
+                            });
+                        }
+                    }
+                }
+
+                return results;
+            }
+
+            // Function to display search results
+            function displayResults(results, query) {
+                searchResults.innerHTML = '';
+
+                if (results.length === 0) {
+                    searchResults.innerHTML = '<div class="no-results">No results found for "' + query + '"</div>';
+                    searchResults.style.display = 'block';
+                    return;
+                }
+
+                // Show search stats
+                const stats = document.createElement('div');
+                stats.className = 'search-stats';
+                stats.textContent = results.length + ' result' + (results.length !== 1 ? 's' : '') + ' for "' + query + '"';
+                searchResults.appendChild(stats);
+
+                // Add results
+                results.forEach(result => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'result-item';
+
+                    const icon = document.createElement('i');
+                    icon.className = result.type === 'section' ?
+                        'fas fa-book result-icon' :
+                        (result.type === 'bold text' ? 'fas fa-bold result-icon' : 'fas fa-hashtag result-icon');
+
+                    const text = document.createElement('span');
+                    text.textContent = result.text;
+
+                    const type = document.createElement('span');
+                    type.className = 'result-type';
+                    type.textContent = result.type;
+
+                    resultItem.appendChild(icon);
+                    resultItem.appendChild(text);
+                    resultItem.appendChild(type);
+
+                    resultItem.addEventListener('click', () => {
+                        // Highlight the target element
+                        result.element.classList.add('highlight');
+
+                        // Scroll to the element
+                        result.element.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+
+                        // Remove highlight after animation completes
+                        setTimeout(() => {
+                            result.element.classList.remove('highlight');
+                        }, 2000);
+
+                        // Clear search
+                        searchInput.value = '';
+                        searchResults.style.display = 'none';
+                    });
+
+                    searchResults.appendChild(resultItem);
+                });
+
+                searchResults.style.display = 'block';
+            }
+
+            // Event listeners
+            searchInput.addEventListener('input', function() {
+                const query = this.value.trim();
+
+                if (query.length < 2) {
+                    searchResults.style.display = 'none';
+                    return;
+                }
+
+                const results = searchItems(query);
+                displayResults(results, query);
+            });
+
+            searchInput.addEventListener('focus', function() {
+                const query = this.value.trim();
+                if (query.length >= 2) {
+                    const results = searchItems(query);
+                    displayResults(results, query);
+                }
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!searchResults.contains(e.target) && e.target !== searchInput) {
+                    searchResults.style.display = 'none';
+                }
+            });
+        });
+
+        // Functionality to toggle subheadings
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click event listeners to all (B) headings
+            const bHeadings = document.querySelectorAll('.summary-line.heading .bracket-letter.B');
+
+            bHeadings.forEach(heading => {
+                heading.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const parentLine = this.closest('.summary-line');
+                    const group = parentLine.getAttribute('data-group');
+
+                    // Toggle all subheadings with the same group
+                    const subheadings = document.querySelectorAll(`.summary-line.subheading[data-group="${group}"]`);
+                    const toggleIndicator = parentLine.querySelector('.toggle-indicator');
+
+                    subheadings.forEach(subheading => {
+                        subheading.classList.toggle('visible');
+                    });
+
+                    // Rotate the toggle indicator
+                    if (toggleIndicator) {
+                        toggleIndicator.classList.toggle('open');
+                    }
+                });
+            });
+        });
+    (function(){
+      if (window.__pageLocalStubsInserted) return; window.__pageLocalStubsInserted = true;
+      const makeNoop = (name) => { if (!window[name]) window[name] = function(){ console.warn('stubbed', name, arguments); }; };
+      const names = [
+        'toggleDebugPanel','refreshDebugInfo','clearDebugData','toggleStatusOverview','toggleWindow',
+        'startZoom','stopZoom','resetZoom','zoomInText','zoomOutText','resetZoomText','cycleLayout','slideExample',
+        'switchMode','clearSelectedFile','loadSelectedFile','clearAllFiles','loadWebURL','openSelectedFiles','removeSelectedFiles',
+        'openFileInNewTab','removeSingleFile','togglePasswordVisibility','checkPassword','closeMonitor','logout','openMonitor',
+        'openDebugPanel','showSetupInstructions','startEmbeddedServer','exportAllData','testAllConnections','generateReport',
+        'exportTrackingLogs','showServerConsole','switchTab','toggleFavorite','copyToClipboard','toggleNewWindow','scrollToTop',
+        'showShortcuts','closeAllWindows','copyAllLinks','watchStart','watchStop','confirmReset','addLap','filterPortal','searchPortal'
+      ];
+      names.forEach(n=>{ try{ if(!n.includes('.')) makeNoop(n); }catch(e){} });
+      if(!window.DebugSystem) {
+        window.DebugSystem = new Proxy({}, { get: (t,p)=> { if(!(p in t)) t[p]=function(){ console.warn('DebugSystem stub',p); }; return t[p]; } });
+      }
+    })();
+    </script>
+</body>
+</html>

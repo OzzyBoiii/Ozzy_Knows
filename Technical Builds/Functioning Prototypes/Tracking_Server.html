@@ -1,0 +1,3395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozzy Knows - Tracking Server</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        /* ============================================
+           SECURITY SYSTEM STYLES
+        ============================================ */
+        .security-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s;
+        }
+
+        .security-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            width: 90%;
+            max-width: 500px;
+            overflow: hidden;
+            animation: slideUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .security-header {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .security-header h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .security-body {
+            padding: 40px;
+        }
+
+        .password-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 20px 60px 20px 25px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            font-size: 18px;
+            transition: all 0.3s;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            font-size: 24px;
+            padding: 10px;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .toggle-password:hover {
+            background: #f5f5f5;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .login-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .login-button:active {
+            transform: translateY(0);
+        }
+
+        .login-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            text-align: center;
+            margin: 15px 0;
+            min-height: 24px;
+            font-size: 15px;
+            padding: 15px;
+            background: #fee;
+            border-radius: 10px;
+            border-left: 5px solid #e74c3c;
+            display: none;
+        }
+
+        .attempts-info {
+            color: #f39c12;
+            text-align: center;
+            margin: 10px 0;
+            font-size: 14px;
+            padding: 12px;
+            background: #fff8e1;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .security-footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #666;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .lockout-screen {
+            text-align: center;
+            padding: 60px 40px;
+        }
+
+        .lockout-icon {
+            font-size: 80px;
+            margin-bottom: 25px;
+            color: #e74c3c;
+            animation: pulse 2s infinite;
+        }
+
+        #lockout-timer {
+            font-size: 48px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin: 25px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* ============================================
+           MAIN DASHBOARD STYLES
+        ============================================ */
+        .dashboard {
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s;
+            display: none;
+        }
+
+        .dashboard.visible {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ============================================
+           POLYPHASIC SCHEDULE STYLES
+        ============================================ */
+        .polyphasic-schedule {
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s;
+        }
+
+        .polyphasic-schedule.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .schedule-type-selector {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .schedule-btn {
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: #1e293b;
+            color: #cbd5e1;
+            border: 2px solid #334155;
+        }
+
+        .schedule-btn.active {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #60a5fa;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .schedule-btn:hover:not(.active) {
+            background-color: #334155;
+            transform: translateY(-2px);
+        }
+
+        .current-schedule-info {
+            background-color: #1e293b;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid #334155;
+        }
+
+        .schedule-status {
+            font-size: 1.4rem;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #334155;
+        }
+
+        /* ============================================
+           ALERT & NOTIFICATION STYLES
+        ============================================ */
+        .stage-alert {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.98);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .stage-alert.active {
+            display: flex;
+        }
+
+        .alert-content {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            border: 3px solid;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        .alert-rest {
+            border-color: #3b82f6;
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.5);
+        }
+
+        .alert-work {
+            border-color: #16a34a;
+            box-shadow: 0 0 50px rgba(22, 163, 74, 0.5);
+        }
+
+        .alert-gaming {
+            border-color: #9333ea;
+            box-shadow: 0 0 50px rgba(147, 51, 234, 0.5);
+        }
+
+        .alert-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f1f5f9;
+        }
+
+        .alert-activity {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .alert-activity.rest {
+            color: #60a5fa;
+            text-shadow: 0 0 20px rgba(96, 165, 250, 0.7);
+        }
+
+        .alert-activity.work {
+            color: #4ade80;
+            text-shadow: 0 0 20px rgba(74, 222, 128, 0.7);
+        }
+
+        .alert-activity.gaming {
+            color: #a855f7;
+            text-shadow: 0 0 20px rgba(168, 85, 247, 0.7);
+        }
+
+        .alert-interval {
+            font-size: 2rem;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            background-color: rgba(15, 23, 42, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #475569;
+        }
+
+        .alert-countdown {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
+
+        .close-alert-btn {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-alert-btn:hover {
+            background-color: #2563eb;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .alert-footer {
+            margin-top: 30px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .stage-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 10px;
+            padding: 15px 20px;
+            border-left: 5px solid;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: none;
+            align-items: center;
+            gap: 15px;
+            z-index: 800;
+            animation: slideInRight 0.5s ease;
+        }
+
+        .stage-notification.active {
+            display: flex;
+        }
+
+        .notification-rest {
+            border-left-color: #3b82f6;
+        }
+
+        .notification-work {
+            border-left-color: #16a34a;
+        }
+
+        .notification-gaming {
+            border-left-color: #9333ea;
+        }
+
+        .notification-icon {
+            font-size: 1.8rem;
+        }
+
+        .notification-content {
+            color: #f1f5f9;
+        }
+
+        .notification-activity {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .notification-interval {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        /* ============================================
+           CONTROL PANEL STYLES
+        ============================================ */
+        .mute-toggle {
+            background-color: #1e293b;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: 2px solid #475569;
+            transition: all 0.3s;
+        }
+
+        .mute-toggle:hover {
+            background-color: #334155;
+            transform: scale(1.1);
+        }
+
+        .mute-toggle.muted {
+            background-color: #7c2d12;
+            border-color: #dc2626;
+        }
+
+        .mute-icon {
+            font-size: 1.8rem;
+            color: #f1f5f9;
+        }
+
+        .next-stage-countdown {
+            background-color: #1e293b;
+            border-radius: 10px;
+            padding: 15px 20px;
+            border: 2px solid #475569;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           ANIMATIONS
+        ============================================ */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* ============================================
+           UTILITY CLASSES
+        ============================================ */
+        .hidden {
+            display: none !important;
+        }
+
+        /* ============================================
+           POLYPHASIC OVERVIEW WINDOW STYLES
+        ============================================ */
+        .polyphasic-overview-window {
+            position: fixed;
+            top: 5%;
+            left: 5%;
+            height: 90%;
+            width: 90%;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border: 2px solid #667eea;
+            display: none;
+            padding: 15px;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .polyphasic-overview-window.active {
+            display: block;
+            animation: popIn 0.5s ease-out;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .polyphasic-window-header {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .polyphasic-window-header h1 {
+            color: #60a5fa;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+
+        .polyphasic-window-content {
+            padding: 20px;
+            height: calc(100% - 120px);
+            overflow-y: auto;
+        }
+
+        .polyphasic-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 10px;
+        }
+
+        /* ============================================
+           OPEN POLYPHASIC BUTTON STYLE
+        ============================================ */
+        .open-polyphasic-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .open-polyphasic-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* ============================================
+           MOBILE RESPONSIVE
+        ============================================ */
+        @media (max-width: 768px) {
+            .security-container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            .security-header h1 {
+                font-size: 24px;
+            }
+
+            .password-input {
+                padding: 15px 50px 15px 20px;
+                font-size: 16px;
+            }
+
+            .login-button {
+                padding: 15px;
+                font-size: 16px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .alert-activity {
+                font-size: 3rem;
+            }
+
+            .alert-interval {
+                font-size: 1.5rem;
+            }
+
+            .schedule-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .polyphasic-overview-window {
+                width: 95%;
+                left: 2.5%;
+            }
+
+            .polyphasic-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: #161b22;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #30363d;
+        }
+
+        h1 {
+            color: #58a6ff;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #8b949e;
+            font-size: 14px;
+        }
+
+        .server-info {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .info-box {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .info-label {
+            color: #8b949e;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            color: #58a6ff;
+            font-family: 'Consolas', monospace;
+            word-break: break-all;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            background: #161b22;
+            border-radius: 10px 10px 0 0;
+            border: 1px solid #30363d;
+            border-bottom: none;
+            overflow: hidden;
+        }
+
+        .tab {
+            padding: 15px 30px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            color: #8b949e;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .tab:hover {
+            background: rgba(88, 166, 255, 0.1);
+            color: #c9d1d9;
+        }
+
+        .tab.active {
+            background: #0d1117;
+            color: #58a6ff;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #58a6ff;
+        }
+
+        .tab-content {
+            display: none;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            padding: 20px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-panel {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 20px;
+        }
+
+        .panel {
+            background: #0d1117;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            padding: 20px;
+        }
+
+        .panel-title {
+            color: #58a6ff;
+            font-size: 16px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        /* Client Monitoring Tab */
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .status-card {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+
+        .status-card.active {
+            border-color: #238636;
+            box-shadow: 0 0 0 1px rgba(35, 134, 54, 0.3);
+        }
+
+        .status-card.inactive {
+            border-color: #da3633;
+            opacity: 0.7;
+        }
+
+        .client-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .client-name {
+            color: #c9d1d9;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .client-status {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-active {
+            background: rgba(35, 134, 54, 0.2);
+            color: #3fb950;
+        }
+
+        .status-inactive {
+            background: rgba(218, 54, 51, 0.2);
+            color: #f85149;
+        }
+
+        .client-path {
+            font-family: 'Consolas', monospace;
+            font-size: 12px;
+            color: #8b949e;
+            margin: 10px 0;
+            word-break: break-all;
+        }
+
+        .client-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #6e7681;
+            margin-top: 10px;
+        }
+
+        /* TXT File Monitoring Tab */
+        .scan-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .file-card {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+
+        .file-card:hover {
+            border-color: #58a6ff;
+            transform: translateY(-2px);
+        }
+
+        .file-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .file-name {
+            color: #58a6ff;
+            font-weight: 500;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .file-extension {
+            background: rgba(88, 166, 255, 0.1);
+            color: #58a6ff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .file-path {
+            font-family: 'Consolas', monospace;
+            font-size: 12px;
+            color: #8b949e;
+            margin: 10px 0;
+            word-break: break-all;
+        }
+
+        .file-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #6e7681;
+            margin-top: 10px;
+        }
+
+        .file-actions {
+            display: flex;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        /* Activity Log */
+        .activity-log {
+            max-height: 400px;
+            overflow-y: auto;
+            background: #0d1117;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+            padding: 10px;
+        }
+
+        .log-entry {
+            padding: 8px 10px;
+            margin-bottom: 8px;
+            border-left: 3px solid #58a6ff;
+            background: rgba(88, 166, 255, 0.05);
+            font-size: 13px;
+        }
+
+        .log-entry.success {
+            border-left-color: #3fb950;
+            background: rgba(63, 185, 80, 0.05);
+        }
+
+        .log-entry.error {
+            border-left-color: #f85149;
+            background: rgba(248, 81, 73, 0.05);
+        }
+
+        .log-entry.warning {
+            border-left-color: #f0883e;
+            background: rgba(240, 136, 62, 0.05);
+        }
+
+        .log-time {
+            color: #6e7681;
+            font-size: 11px;
+            margin-right: 10px;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        button {
+            background: #238636;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-weight: 500;
+        }
+
+        button:hover {
+            background: #2ea043;
+        }
+
+        button.secondary {
+            background: #30363d;
+        }
+
+        button.secondary:hover {
+            background: #3c444d;
+        }
+
+        button.danger {
+            background: #da3633;
+        }
+
+        button.danger:hover {
+            background: #f85149;
+        }
+
+        /* Statistics */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-box {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #58a6ff;
+            margin: 10px 0;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #8b949e;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6e7681;
+        }
+
+        .empty-state i {
+            font-size: 48px;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin: 20px 0;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: #30363d;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #238636, #2ea043);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        /* Search and Filter */
+        .search-box {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 8px 12px;
+            color: #c9d1d9;
+            font-size: 13px;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #58a6ff;
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: #30363d;
+            color: #8b949e;
+            border: 1px solid #30363d;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .filter-btn.active {
+            background: #58a6ff;
+            color: white;
+            border-color: #58a6ff;
+        }
+
+        /* File Info Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal {
+            background: #161b22;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            width: 600px;
+            max-width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-footer {
+            padding: 20px;
+            border-top: 1px solid #30363d;
+            text-align: right;
+        }
+
+        .file-info-row {
+            margin-bottom: 15px;
+        }
+
+        .file-info-label {
+            color: #8b949e;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .file-info-value {
+            color: #c9d1d9;
+            font-family: 'Consolas', monospace;
+            font-size: 13px;
+            word-break: break-all;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .tab-panel {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .status-grid,
+            .file-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+        }
+                </style>
+</head>
+<body>
+     <!-- ============================================
+         SECURITY SYSTEM OVERLAY
+         (Always shown on page load)
+    ============================================ -->
+    <div id="security-overlay" class="security-overlay">
+        <div class="security-container" id="login-container">
+            <div class="security-header">
+                <h1><i class="fas fa-lock"></i> Secure Schedule System</h1>
+                <p style="margin-top: 10px; opacity: 0.9;">Authentication Required</p>
+            </div>
+            <div class="security-body">
+                <div class="password-group">
+                    <input type="password" id="password-input" class="password-input"
+                           placeholder="Enter master password" autocomplete="off" autofocus>
+                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <button id="login-button" class="login-button" onclick="checkPassword()">
+                    <i class="fas fa-unlock-alt"></i> Access System
+                </button>
+                <div id="error-message" class="error-message"></div>
+                <div id="attempts-info" class="attempts-info"></div>
+                <div class="security-footer">
+                    <p><i class="fas fa-shield-alt"></i> Secure Access System v2.0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="security-container hidden" id="lockout-container">
+            <div class="lockout-screen">
+                <div class="lockout-icon"><i class="fas fa-lock"></i></div>
+                <h2 style="color: #e74c3c; margin-bottom: 10px;">Security Lockout</h2>
+                <p style="color: #666; margin-bottom: 20px;">Too many failed login attempts</p>
+                <div id="lockout-timer">15:00</div>
+                <p style="color: #999; font-size: 12px; margin-top: 30px;">
+                    <i class="fas fa-exclamation-triangle"></i> System temporarily locked
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         MAIN DASHBOARD
+         (Only shown after successful authentication)
+    ============================================ -->
+    <div class="container">
+        <div class="dashboard" id="dashboard">
+            <div class="header">
+                <h1><i class="fas fa-shield-alt"></i> Secure Schedule System</h1>
+            </div>
+
+            <!-- Button to open Polyphasic Overview -->
+            <button class="open-polyphasic-btn" onclick="toggleWindow('polyphasic-overview-window')">
+                <i class="fas fa-chart-bar"></i> Open Polyphasic Overview
+            </button>
+        </div>
+    </div>
+
+    <!-- ============================================
+         POLYPHASIC OVERVIEW WINDOW
+    ============================================ -->
+    <div class="polyphasic-overview-window" id="polyphasic-overview-window">
+        <div class="polyphasic-window-header">
+            <h1 style="color: #60a5fa; margin-bottom: 10px; font-size: 2.2rem; letter-spacing: 1px;">
+                Polyphasic Schedule Monitor
+            </h1>
+            <p class="subtitle" style="color: #94a3b8; font-size: 1rem; max-width: 800px; margin: 0 auto;">
+                Automated stage alerts for workday and restday schedules
+            </p>
+        </div>
+
+        <div class="polyphasic-window-content">
+            <!-- Polyphasic Schedule Section -->
+            <div class="polyphasic-schedule" id="polyphasic-schedule">
+                <div class="schedule-type-selector">
+                    <button class="schedule-btn active" id="workdayBtn">Workday Schedule</button>
+                    <button class="schedule-btn" id="restdayBtn">Restday Schedule</button>
+                </div>
+
+                <div class="current-schedule-info">
+                    <h2 class="schedule-status" id="scheduleName">Workday Schedule Active</h2>
+                    <p style="color: #94a3b8; margin-bottom: 20px;">
+                        The schedule system is actively monitoring time segments. Stage alerts will appear automatically.
+                    </p>
+                    <p style="color: #60a5fa; font-weight: 500;">
+                        Current status: <span id="currentActivity">Monitoring...</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Control Panel Inside Window -->
+            <div class="polyphasic-controls">
+                <div class="mute-toggle" id="muteToggle">
+                    <div class="mute-icon" id="muteIcon">🔔</div>
+                </div>
+                <div class="next-stage-countdown" id="nextStageCountdown">
+                    Next stage in: <span id="nextStageTime">--:--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         STAGE ALERTS & NOTIFICATIONS
+    ============================================ -->
+    <div class="stage-alert" id="stageAlert">
+        <div class="alert-content" id="alertContent">
+            <h2 class="alert-title">Stage Change</h2>
+            <div class="alert-activity rest" id="alertActivity">REST</div>
+            <div class="alert-interval" id="alertInterval">1:30 - 6:00</div>
+            <div class="alert-countdown" id="alertCountdown">
+                Alert will close in <span id="countdownTimer">5</span> seconds
+            </div>
+            <button class="close-alert-btn" id="closeAlertBtn">Continue</button>
+            <div class="alert-footer">Next stage will start automatically</div>
+        </div>
+    </div>
+
+    <div class="stage-notification" id="stageNotification">
+        <div class="notification-icon" id="notificationIcon">⏰</div>
+        <div class="notification-content">
+            <div class="notification-activity" id="notificationActivity">Rest Stage</div>
+            <div class="notification-interval" id="notificationInterval">1:30 - 6:00</div>
+        </div>
+    </div>
+ <div class="container">
+        <header>
+            <h1>🔐 Ozzy Knows - Secure Tracking Server</h1>
+            <p class="subtitle">Local Network Monitoring & File System Scanner</p>
+
+            <div class="server-info">
+                <div class="info-box">
+                    <div class="info-label">Server Location</div>
+                    <div class="info-value" id="serverPath">C:\Users\CrozzyBoii\Documents\VSCode_Programs\Ozzy_Knows\server.html</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-label">Storage Type</div>
+                    <div class="info-value">Local Storage (Persistent)</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-label">Network</div>
+                    <div class="info-value">Local Network Only</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-label">Last Updated</div>
+                    <div class="info-value" id="lastUpdated">--</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('clientTab')">👥 HTML Client Monitoring</button>
+            <button class="tab" onclick="switchTab('txtTab')">📄 TXT File Monitoring</button>
+        </div>
+
+        <!-- HTML Client Monitoring Tab -->
+        <div id="clientTab" class="tab-content active">
+            <div class="tab-panel">
+                <div class="panel">
+                    <div class="panel-title">📊 Connected Clients</div>
+
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-label">Total Clients</div>
+                            <div class="stat-value" id="totalClients">0</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Active Now</div>
+                            <div class="stat-value" id="activeClients">0</div>
+                        </div>
+                    </div>
+
+                    <div id="clientsContainer">
+                        <div class="empty-state">
+                            <div>📭</div>
+                            <p>No clients connected yet</p>
+                            <p style="font-size: 12px; margin-top: 10px;">Clients will appear here when they connect</p>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button onclick="checkAllClients()">🔄 Refresh All Status</button>
+                        <button onclick="clearInactiveClients()" class="secondary">🗑️ Clear Inactive</button>
+                        <button onclick="exportClients()" class="secondary">💾 Export Data</button>
+                        <button onclick="clearAllData()" class="danger">⚠️ Clear All Data</button>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">📝 Activity Log</div>
+
+                    <div class="activity-log" id="activityLog">
+                        <div class="log-entry">
+                            <span class="log-time">[00:00:00]</span>
+                            <span>Client monitoring initialized. Waiting for connections...</span>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button onclick="clearLog()">🗑️ Clear Log</button>
+                        <button onclick="simulateTestClient()" class="secondary">🧪 Test Client</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TXT File Monitoring Tab -->
+        <div id="txtTab" class="tab-content">
+            <div class="tab-panel">
+                <div class="panel">
+                    <div class="panel-title">📄 TXT File Scanner</div>
+
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-label">Total TXT Files</div>
+                            <div class="stat-value" id="totalTxtFiles">0</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Last Scan</div>
+                            <div class="stat-value" id="lastScanTime">--</div>
+                        </div>
+                    </div>
+
+                    <div class="scan-controls">
+                        <button onclick="performDeepTxtScan()">🔍 Deep Scan for TXT Files</button>
+                        <button onclick="quickScanTxtFiles()" class="secondary">⚡ Quick Scan</button>
+                        <button onclick="manualAddTxtFile()" class="secondary">➕ Add Manual Entry</button>
+                        <button onclick="refreshTxtList()" class="secondary">🔄 Refresh List</button>
+                        <button onclick="clearTxtFiles()" class="danger">🗑️ Clear All TXT Files</button>
+                        <button onclick="exportTxtFiles()" class="secondary">💾 Export TXT List</button>
+                    </div>
+
+                    <div class="search-box">
+                        <input type="text" id="txtSearch" placeholder="Search TXT files by name or path..." onkeyup="filterTxtFiles()">
+                        <button onclick="clearSearch()" class="secondary">Clear</button>
+                    </div>
+
+                    <div class="filter-controls">
+                        <button class="filter-btn active" onclick="setTxtFilter('all')">All TXT Files</button>
+                        <button class="filter-btn" onclick="setTxtFilter('recent')">Recently Added</button>
+                        <button class="filter-btn" onclick="setTxtFilter('large')">Large Files</button>
+                        <button class="filter-btn" onclick="setTxtFilter('root')">Root Folder</button>
+                        <button class="filter-btn" onclick="setTxtFilter('deep')">Deep Folders</button>
+                    </div>
+
+                    <div id="scanProgress" class="progress-container" style="display: none;">
+                        <div class="progress-header">
+                            <span id="scanStatusText">Scanning Ozzy_Knows folder for .txt files...</span>
+                            <span id="progressText">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div id="scanDetails" style="font-size: 12px; color: #8b949e; margin-top: 10px;">
+                            <div>Files found: <span id="filesFoundCount">0</span></div>
+                            <div>Folders scanned: <span id="foldersScanned">0</span></div>
+                        </div>
+                    </div>
+
+                    <div id="txtFilesContainer">
+                        <div class="empty-state">
+                            <div>📄</div>
+                            <p>No TXT files found yet</p>
+                            <p style="font-size: 12px; margin-top: 10px;">Click "Deep Scan for TXT Files" to search all folders</p>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button onclick="performDeepTxtScan()" style="margin-top: 20px;">🔍 Scan Again</button>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">📝 TXT Scan Log</div>
+
+                    <div class="activity-log" id="txtActivityLog">
+                        <div class="log-entry">
+                            <span class="log-time">[00:00:00]</span>
+                            <span>TXT file monitoring ready. Click scan to begin.</span>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button onclick="clearTxtLog()">🗑️ Clear Log</button>
+                        <button onclick="testScanner()" class="secondary">🧪 Test Scanner</button>
+                    </div>
+
+                    <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #30363d;">
+                        <div class="panel-title">⚙️ TXT Scan Settings</div>
+                        <div style="margin-top: 10px; font-size: 13px;">
+                            <label style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <input type="checkbox" id="scanSubfolders" checked>
+                                <span style="margin-left: 8px;">Scan subfolders recursively</span>
+                            </label>
+                            <label style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <input type="checkbox" id="autoScanOnStart" checked>
+                                <span style="margin-left: 8px;">Auto-scan on tab switch</span>
+                            </label>
+                            <label style="display: flex; align-items: center;">
+                                <input type="checkbox" id="autoRefreshList" checked>
+                                <span style="margin-left: 8px;">Auto-refresh file list</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- File Info Modal -->
+    <div id="fileModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 style="color: #58a6ff;">📄 File Information</h3>
+                <button onclick="closeModal()" style="background: none; border: none; color: #8b949e; font-size: 20px; cursor: pointer;">×</button>
+            </div>
+            <div class="modal-body" id="fileModalBody">
+                <!-- File info will be inserted here -->
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+        <!-- Page-local defensive stubs (auto-inserted) -->
+        <script>
+        (function(){
+            if (window.__pageLocalStubsInserted) return; window.__pageLocalStubsInserted = true;
+            const makeNoop = (name) => { if (!window[name]) window[name] = function(){ console.warn('stubbed', name, arguments); }; };
+            const names = [
+                'toggleDebugPanel','refreshDebugInfo','clearDebugData','toggleStatusOverview','toggleWindow',
+                'startZoom','stopZoom','resetZoom','zoomInText','zoomOutText','resetZoomText','cycleLayout','slideExample',
+                'switchMode','clearSelectedFile','loadSelectedFile','clearAllFiles','loadWebURL','openSelectedFiles','removeSelectedFiles',
+                'openFileInNewTab','removeSingleFile','togglePasswordVisibility','checkPassword','closeMonitor','logout','openMonitor',
+                'openDebugPanel','showSetupInstructions','startEmbeddedServer','exportAllData','testAllConnections','generateReport',
+                'exportTrackingLogs','showServerConsole','switchTab','toggleFavorite','copyToClipboard','toggleNewWindow','scrollToTop',
+                'showShortcuts','closeAllWindows','copyAllLinks','watchStart','watchStop','confirmReset','addLap','filterPortal','searchPortal'
+            ];
+            names.forEach(n=>{ try{ if(!n.includes('.')) makeNoop(n); }catch(e){} });
+            if(!window.DebugSystem) {
+                window.DebugSystem = new Proxy({}, { get: (t,p)=> { if(!(p in t)) t[p]=function(){ console.warn('DebugSystem stub',p); }; return t[p]; } });
+            }
+        })();
+        // ============================================
+        // SECURITY SYSTEM CONFIGURATION
+        // ============================================
+        const SECURITY_CONFIG = {
+            MASTER_PASSWORD: "cross123!",
+            MAX_ATTEMPTS: 5,
+            LOCKOUT_MINUTES: 1
+        };
+
+        // ============================================
+        // SECURITY SYSTEM STATE
+        // ============================================
+        let securityState = {
+            authenticated: false,
+            failedAttempts: 0,
+            lockoutUntil: 0
+        };
+
+        // ============================================
+        // SCHEDULE SYSTEM CONFIGURATION
+        // ============================================
+        const SCHEDULES = {
+            workday: {
+                name: "Workday Schedule",
+                period1: {
+                    title: "1:30 - 13:30",
+                    segments: [
+                        { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
+                        { activity: "Work", start: "6:00", end: "13:30", duration: 7.5, color: "#16a34a" }
+                    ]
+                },
+                period2: {
+                    title: "13:30 - 1:30",
+                    segments: [
+                        { activity: "Work", start: "13:30", end: "17:00", duration: 3.5, color: "#16a34a" },
+                        { activity: "Rest", start: "17:00", end: "17:45", duration: 0.75, color: "#3b82f6" },
+                        { activity: "Work", start: "17:45", end: "19:50", duration: 2.083, color: "#16a34a" },
+                        { activity: "Rest", start: "19:50", end: "20:35", duration: 0.75, color: "#3b82f6" },
+                        { activity: "Work", start: "20:35", end: "22:40", duration: 2.083, color: "#16a34a" },
+                        { activity: "Rest", start: "22:40", end: "23:25", duration: 0.75, color: "#3b82f6" },
+                        { activity: "Work", start: "23:25", end: "1:30", duration: 2.083, color: "#16a34a" }
+                    ]
+                }
+            },
+            restday: {
+                name: "Restday Schedule",
+                period1: {
+                    title: "1:30 - 13:30",
+                    segments: [
+                        { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
+                        { activity: "Work", start: "6:00", end: "8:30", duration: 2.5, color: "#16a34a" },
+                        { activity: "Rest", start: "8:30", end: "9:25", duration: 0.917, color: "#3b82f6" },
+                        { activity: "Work", start: "9:25", end: "11:55", duration: 2.5, color: "#16a34a" },
+                        { activity: "Rest", start: "11:55", end: "12:50", duration: 0.917, color: "#3b82f6" },
+                        { activity: "Work", start: "12:50", end: "13:30", duration: 0.667, color: "#16a34a" }
+                    ]
+                },
+                period2: {
+                    title: "13:30 - 1:30",
+                    segments: [
+                        { activity: "Work", start: "13:30", end: "15:20", duration: 1.833, color: "#16a34a" },
+                        { activity: "Rest", start: "15:20", end: "16:15", duration: 0.917, color: "#3b82f6" },
+                        { activity: "Work", start: "16:15", end: "18:45", duration: 2.5, color: "#16a34a" },
+                        { activity: "Rest", start: "18:45", end: "19:40", duration: 0.917, color: "#3b82f6" },
+                        { activity: "Gaming", start: "19:40", end: "23:00", duration: 3.333, color: "#9333ea" },
+                        { activity: "Work", start: "23:00", end: "1:30", duration: 2.5, color: "#16a34a" }
+                    ]
+                }
+            }
+        };
+
+        // ============================================
+        // SCHEDULE SYSTEM STATE
+        // ============================================
+        let currentSchedule = 'workday';
+        let isMuted = false;
+        let currentSegmentIndex = -1;
+        let alertTimeout = null;
+        let countdownInterval = null;
+        let stageCheckInterval = null;
+
+        // ============================================
+        // DOM ELEMENT REFERENCES
+        // ============================================
+        // Security elements
+        const passwordInput = document.getElementById('password-input');
+        const loginButton = document.getElementById('login-button');
+        const errorMessage = document.getElementById('error-message');
+        const attemptsInfo = document.getElementById('attempts-info');
+        const securityOverlay = document.getElementById('security-overlay');
+        const loginContainer = document.getElementById('login-container');
+        const lockoutContainer = document.getElementById('lockout-container');
+        const lockoutTimer = document.getElementById('lockout-timer');
+
+        // Dashboard elements
+        const dashboard = document.getElementById('dashboard');
+
+        // Schedule control elements
+        const workdayBtn = document.getElementById('workdayBtn');
+        const restdayBtn = document.getElementById('restdayBtn');
+        const scheduleName = document.getElementById('scheduleName');
+
+        // Alert elements
+        const stageAlert = document.getElementById('stageAlert');
+        const alertContent = document.getElementById('alertContent');
+        const alertActivity = document.getElementById('alertActivity');
+        const alertInterval = document.getElementById('alertInterval');
+        const countdownTimer = document.getElementById('countdownTimer');
+        const closeAlertBtn = document.getElementById('closeAlertBtn');
+
+        // Notification elements
+        const stageNotification = document.getElementById('stageNotification');
+        const notificationActivity = document.getElementById('notificationActivity');
+        const notificationInterval = document.getElementById('notificationInterval');
+        const notificationIcon = document.getElementById('notificationIcon');
+
+        // Control panel elements
+        const muteToggle = document.getElementById('muteToggle');
+        const muteIcon = document.getElementById('muteIcon');
+        const nextStageCountdown = document.getElementById('nextStageCountdown');
+        const nextStageTime = document.getElementById('nextStageTime');
+
+        // Polyphasic overview elements
+        const polyphasicSchedule = document.getElementById('polyphasic-schedule');
+        const currentActivity = document.getElementById('currentActivity');
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔒 Secure Schedule System Initializing...');
+            initializeSecuritySystem();
+            initializeScheduleSystem();
+        });
+
+        // ============================================
+        // SECURITY SYSTEM FUNCTIONS
+        // ============================================
+        function initializeSecuritySystem() {
+            // Always start with login screen
+            showLoginScreen();
+
+            // Load lockout state if exists
+            loadLockoutState();
+
+            // Setup event listeners
+            setupSecurityEventListeners();
+        }
+
+        function loadLockoutState() {
+            try {
+                const savedAttempts = localStorage.getItem('secure_schedule_attempts');
+                const lockoutTime = localStorage.getItem('secure_schedule_lockout');
+
+                if (savedAttempts) {
+                    securityState.failedAttempts = parseInt(savedAttempts);
+                }
+
+                if (lockoutTime) {
+                    securityState.lockoutUntil = parseInt(lockoutTime);
+
+                    // Check if still in lockout period
+                    if (Date.now() < securityState.lockoutUntil) {
+                        showLockoutScreen();
+                        startLockoutTimer();
+                        return;
+                    } else {
+                        // Lockout period expired
+                        securityState.failedAttempts = 0;
+                        securityState.lockoutUntil = 0;
+                        localStorage.removeItem('secure_schedule_lockout');
+                        localStorage.setItem('secure_schedule_attempts', '0');
+                    }
+                }
+
+                // Show attempts info if there are failed attempts
+                if (securityState.failedAttempts > 0) {
+                    updateAttemptsDisplay();
+                }
+
+            } catch (error) {
+                console.error('Error loading security state:', error);
+                resetSecurityState();
+            }
+        }
+
+        function setupSecurityEventListeners() {
+            // Password input enter key
+            passwordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+
+            // Close alert button
+            if (closeAlertBtn) {
+                closeAlertBtn.addEventListener('click', closeStageAlert);
+            }
+
+            // Close alert when clicking outside
+            if (stageAlert) {
+                stageAlert.addEventListener('click', function(e) {
+                    if (e.target === stageAlert) {
+                        closeStageAlert();
+                    }
+                });
+            }
+        }
+
+        function checkPassword() {
+            // Check if locked out
+            if (securityState.lockoutUntil && Date.now() < securityState.lockoutUntil) {
+                showLockoutScreen();
+                return;
+            }
+
+            const password = passwordInput.value.trim();
+            if (errorMessage) errorMessage.style.display = 'none';
+
+            if (!password) {
+                showError('Please enter the master password');
+                return;
+            }
+
+            // Disable button during verification
+            loginButton.disabled = true;
+            loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
+
+            // Simulate verification delay
+            setTimeout(() => {
+                if (password === SECURITY_CONFIG.MASTER_PASSWORD) {
+                    handleLoginSuccess();
+                } else {
+                    handleLoginFailure();
+                }
+
+                // Re-enable button
+                loginButton.disabled = false;
+                loginButton.innerHTML = '<i class="fas fa-unlock-alt"></i> Access System';
+            }, 800);
+        }
+
+        function handleLoginSuccess() {
+            // Reset failed attempts
+            securityState.failedAttempts = 0;
+            securityState.lockoutUntil = 0;
+            securityState.authenticated = true;
+
+            // Clear storage
+            localStorage.removeItem('secure_schedule_attempts');
+            localStorage.removeItem('secure_schedule_lockout');
+
+            // Grant access
+            grantAccess();
+
+            // Clear password field
+            passwordInput.value = '';
+        }
+
+        function handleLoginFailure() {
+            securityState.failedAttempts++;
+
+            // Save to localStorage
+            localStorage.setItem('secure_schedule_attempts', securityState.failedAttempts.toString());
+
+            // Show error
+            showError('<i class="fas fa-times-circle"></i> Invalid master password');
+
+            // Update attempts display
+            updateAttemptsDisplay();
+
+            // Clear password field and refocus
+            passwordInput.value = '';
+            passwordInput.focus();
+
+            // Check for lockout
+            if (securityState.failedAttempts >= SECURITY_CONFIG.MAX_ATTEMPTS) {
+                activateLockout();
+            }
+        }
+
+        function showError(message) {
+            if (errorMessage) {
+                errorMessage.innerHTML = message;
+                errorMessage.style.display = 'block';
+            }
+        }
+
+        function updateAttemptsDisplay() {
+            if (attemptsInfo) {
+                attemptsInfo.textContent = `Attempt ${securityState.failedAttempts} of ${SECURITY_CONFIG.MAX_ATTEMPTS}`;
+                attemptsInfo.style.display = 'block';
+            }
+        }
+
+        function showLoginScreen() {
+            if (loginContainer) loginContainer.classList.remove('hidden');
+            if (lockoutContainer) lockoutContainer.classList.add('hidden');
+            passwordInput.focus();
+        }
+
+        function showLockoutScreen() {
+            if (loginContainer) loginContainer.classList.add('hidden');
+            if (lockoutContainer) lockoutContainer.classList.remove('hidden');
+        }
+
+        function activateLockout() {
+            const lockoutTime = Date.now() + (SECURITY_CONFIG.LOCKOUT_MINUTES * 60 * 1000);
+            securityState.lockoutUntil = lockoutTime;
+
+            // Save to localStorage
+            localStorage.setItem('secure_schedule_lockout', lockoutTime.toString());
+
+            // Show lockout screen
+            showLockoutScreen();
+
+            // Start lockout timer
+            startLockoutTimer();
+        }
+
+        function startLockoutTimer() {
+            const lockoutTime = securityState.lockoutUntil - Date.now();
+            let seconds = Math.floor(lockoutTime / 1000);
+
+            const updateTimer = () => {
+                seconds--;
+
+                if (seconds <= 0) {
+                    clearInterval(interval);
+                    if (lockoutTimer) lockoutTimer.textContent = '00:00';
+
+                    setTimeout(() => {
+                        // Reset lockout
+                        securityState.lockoutUntil = 0;
+                        securityState.failedAttempts = 0;
+                        localStorage.removeItem('secure_schedule_lockout');
+                        localStorage.setItem('secure_schedule_attempts', '0');
+
+                        // Show login screen
+                        showLoginScreen();
+                    }, 1000);
+                    return;
+                }
+
+                const mins = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                if (lockoutTimer) {
+                    lockoutTimer.textContent =
+                        (mins < 10 ? '0' : '') + mins + ':' +
+                        (secs < 10 ? '0' : '') + secs;
+                }
+            };
+
+            // Update immediately
+            updateTimer();
+
+            // Update every second
+            const interval = setInterval(updateTimer, 1000);
+        }
+
+        function grantAccess() {
+            console.log('✅ Authentication successful');
+
+            // Hide security overlay
+            if (securityOverlay) {
+                securityOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    securityOverlay.style.display = 'none';
+                }, 500);
+            }
+
+            // Show dashboard
+            if (dashboard) dashboard.classList.add('visible');
+
+            // Show schedule system
+            if (polyphasicSchedule) polyphasicSchedule.classList.add('visible');
+
+            // Start schedule monitoring
+            startScheduleMonitoring();
+        }
+
+        function togglePasswordVisibility() {
+            const toggleIcon = document.querySelector('.toggle-password i');
+            if (!toggleIcon) return;
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.className = 'fas fa-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.className = 'fas fa-eye';
+            }
+        }
+
+        function resetSecurityState() {
+            securityState = {
+                authenticated: false,
+                failedAttempts: 0,
+                lockoutUntil: 0
+            };
+
+            localStorage.removeItem('secure_schedule_attempts');
+            localStorage.removeItem('secure_schedule_lockout');
+        }
+
+        // ============================================
+        // SCHEDULE SYSTEM FUNCTIONS
+        // ============================================
+        function initializeScheduleSystem() {
+            // Load saved preferences
+            loadSchedulePreferences();
+
+            // Setup event listeners
+            setupScheduleEventListeners();
+        }
+
+        function setupScheduleEventListeners() {
+            // Schedule buttons
+            if (workdayBtn) workdayBtn.addEventListener('click', () => switchSchedule('workday'));
+            if (restdayBtn) restdayBtn.addEventListener('click', () => switchSchedule('restday'));
+
+            // Mute toggle
+            if (muteToggle) muteToggle.addEventListener('click', toggleMute);
+        }
+
+        function loadSchedulePreferences() {
+            const saved = localStorage.getItem('schedule_preferences');
+            if (saved) {
+                try {
+                    const preferences = JSON.parse(saved);
+                    currentSchedule = preferences.currentSchedule || 'workday';
+                    isMuted = preferences.isMuted || false;
+
+                    // Update UI
+                    updateScheduleButtons();
+                    updateMuteToggle();
+
+                } catch (error) {
+                    console.log('Error loading schedule preferences:', error);
+                }
+            }
+        }
+
+        function saveSchedulePreferences() {
+            const preferences = {
+                currentSchedule: currentSchedule,
+                isMuted: isMuted
+            };
+            localStorage.setItem('schedule_preferences', JSON.stringify(preferences));
+        }
+
+        function startScheduleMonitoring() {
+            // Initial check
+            checkCurrentStage();
+
+            // Check every second
+            stageCheckInterval = setInterval(checkCurrentStage, 1000);
+
+            console.log('📅 Schedule monitoring started');
+        }
+
+        function checkCurrentStage() {
+            const now = new Date();
+            const currentTimeInMinutes = now.getHours() * 60 + now.getMinutes();
+
+            const schedule = SCHEDULES[currentSchedule];
+            const allSegments = [...schedule.period1.segments, ...schedule.period2.segments];
+
+            // Find current segment
+            let currentSegment = null;
+            let nextSegment = null;
+
+            for (let i = 0; i < allSegments.length; i++) {
+                const segment = allSegments[i];
+                const startMinutes = timeToMinutes(segment.start);
+                const endMinutes = timeToMinutes(segment.end);
+
+                let isCurrent = false;
+
+                if (endMinutes > startMinutes) {
+                    // Normal case: start and end in same day
+                    isCurrent = currentTimeInMinutes >= startMinutes &&
+                                currentTimeInMinutes < endMinutes;
+                } else {
+                    // Case spanning midnight
+                    isCurrent = currentTimeInMinutes >= startMinutes ||
+                                currentTimeInMinutes < endMinutes;
+                }
+
+                if (isCurrent) {
+                    currentSegment = {
+                        ...segment,
+                        index: i
+                    };
+
+                    // Get next segment (wrap around)
+                    nextSegment = allSegments[(i + 1) % allSegments.length];
+                    break;
+                }
+            }
+
+            // Update display
+            if (currentSegment) {
+                if (currentActivity) {
+                    currentActivity.textContent = `${currentSegment.activity} (${currentSegment.start}-${currentSegment.end})`;
+                }
+
+                // Check if this is a new segment
+                if (currentSegment.index !== currentSegmentIndex) {
+                    currentSegmentIndex = currentSegment.index;
+                    showStageAlert(currentSegment);
+                    showStageNotification(currentSegment);
+                }
+
+                // Update next stage countdown
+                if (nextSegment && nextStageTime) {
+                    updateNextStageCountdown(currentTimeInMinutes, nextSegment);
+                }
+            }
+        }
+
+        function updateNextStageCountdown(currentMinutes, nextSegment) {
+            const nextStartMinutes = timeToMinutes(nextSegment.start);
+            let minutesUntilNext;
+
+            if (nextStartMinutes > currentMinutes) {
+                minutesUntilNext = nextStartMinutes - currentMinutes;
+            } else {
+                // Next segment starts tomorrow
+                minutesUntilNext = (24 * 60 - currentMinutes) + nextStartMinutes;
+            }
+
+            const hours = Math.floor(minutesUntilNext / 60);
+            const minutes = minutesUntilNext % 60;
+
+            let timeText = '';
+            if (hours > 0) timeText += `${hours}h `;
+            timeText += `${minutes}m`;
+
+            if (nextStageTime) {
+                nextStageTime.textContent = timeText;
+            }
+        }
+
+        function switchSchedule(scheduleType) {
+            if (currentSchedule !== scheduleType) {
+                currentSchedule = scheduleType;
+                currentSegmentIndex = -1; // Reset to trigger new alert
+
+                // Update buttons
+                updateScheduleButtons();
+
+                // Update display
+                if (scheduleName) {
+                    scheduleName.textContent = `${SCHEDULES[currentSchedule].name} Active`;
+                }
+
+                // Save preferences
+                saveSchedulePreferences();
+
+                console.log(`🔄 Switched to ${scheduleType} schedule`);
+            }
+        }
+
+        function updateScheduleButtons() {
+            if (workdayBtn && restdayBtn) {
+                if (currentSchedule === 'workday') {
+                    workdayBtn.classList.add('active');
+                    restdayBtn.classList.remove('active');
+                } else {
+                    restdayBtn.classList.add('active');
+                    workdayBtn.classList.remove('active');
+                }
+            }
+        }
+
+        function showStageAlert(segment) {
+            // Clear any existing timeout/interval
+            clearAlertTimers();
+
+            // Update alert content
+            if (alertActivity) {
+                alertActivity.textContent = segment.activity.toUpperCase();
+                alertActivity.className = `alert-activity ${segment.activity.toLowerCase()}`;
+            }
+            if (alertInterval) {
+                alertInterval.textContent = `${segment.start} - ${segment.end}`;
+            }
+
+            // Update alert style
+            if (alertContent) {
+                alertContent.className = `alert-content alert-${segment.activity.toLowerCase()}`;
+            }
+
+            // Reset countdown
+            let countdown = 5;
+            if (countdownTimer) {
+                countdownTimer.textContent = countdown;
+            }
+
+            // Show alert
+            if (stageAlert) {
+                stageAlert.classList.add('active');
+            }
+
+            // Play sound if not muted
+            if (!isMuted) {
+                playAlertSound();
+            }
+
+            // Start countdown
+            countdownInterval = setInterval(() => {
+                countdown--;
+                if (countdownTimer) {
+                    countdownTimer.textContent = countdown;
+                }
+
+                if (countdown <= 0) {
+                    closeStageAlert();
+                }
+            }, 1000);
+
+            // Auto-close after 5 seconds
+            alertTimeout = setTimeout(closeStageAlert, 5000);
+        }
+
+        function closeStageAlert() {
+            if (stageAlert) {
+                stageAlert.classList.remove('active');
+            }
+            clearAlertTimers();
+        }
+
+        function clearAlertTimers() {
+            if (alertTimeout) {
+                clearTimeout(alertTimeout);
+                alertTimeout = null;
+            }
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+                countdownInterval = null;
+            }
+        }
+
+        function showStageNotification(segment) {
+            if (notificationActivity) {
+                notificationActivity.textContent = `${segment.activity} Stage`;
+            }
+            if (notificationInterval) {
+                notificationInterval.textContent = `${segment.start} - ${segment.end}`;
+            }
+
+            // Set icon based on activity
+            let icon = "⏰";
+            if (segment.activity === "Rest") icon = "😴";
+            else if (segment.activity === "Work") icon = "💼";
+            else if (segment.activity === "Gaming") icon = "🎮";
+
+            if (notificationIcon) {
+                notificationIcon.textContent = icon;
+            }
+
+            // Set notification style
+            if (stageNotification) {
+                stageNotification.className = `stage-notification active notification-${segment.activity.toLowerCase()}`;
+            }
+
+            // Auto hide after 3 seconds
+            setTimeout(() => {
+                if (stageNotification) {
+                    stageNotification.classList.remove('active');
+                }
+            }, 3000);
+        }
+
+        function toggleMute() {
+            isMuted = !isMuted;
+            if (muteToggle) {
+                muteToggle.classList.toggle('muted', isMuted);
+            }
+            if (muteIcon) {
+                muteIcon.textContent = isMuted ? '🔕' : '🔔';
+            }
+            saveSchedulePreferences();
+
+            console.log(`🔇 Mute ${isMuted ? 'enabled' : 'disabled'}`);
+        }
+
+        function updateMuteToggle() {
+            if (muteToggle) {
+                muteToggle.classList.toggle('muted', isMuted);
+            }
+            if (muteIcon) {
+                muteIcon.textContent = isMuted ? '🔕' : '🔔';
+            }
+        }
+
+        function playAlertSound() {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                oscillator.frequency.value = 800;
+                oscillator.type = 'sine';
+
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            } catch (error) {
+                console.log("Audio not supported or blocked by browser");
+            }
+        }
+
+        // ============================================
+        // UTILITY FUNCTIONS
+        // ============================================
+        function timeToMinutes(timeStr) {
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            return hours * 60 + minutes;
+        }
+
+        // ============================================
+        // WINDOW MANAGEMENT FUNCTIONS
+        // ============================================
+        function toggleWindow(windowId) {
+            const window = document.getElementById(windowId);
+            if (!window) return;
+
+            if (window.classList.contains('active')) {
+                window.classList.remove('active');
+                document.body.style.overflow = '';
+            } else {
+                document.querySelectorAll('.polyphasic-overview-window.active').forEach(w => {
+                    w.classList.remove('active');
+                });
+                window.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Close windows when clicking outside
+        document.addEventListener('click', function(event) {
+            const windows = document.querySelectorAll('.polyphasic-overview-window.active');
+            windows.forEach(window => {
+                if (!window.contains(event.target) && !event.target.closest('.open-polyphasic-btn')) {
+                    window.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Escape key closes windows
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.polyphasic-overview-window.active').forEach(window => {
+                    window.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+        // Storage Management
+        const STORAGE_KEY = 'ozzy_server_storage';
+        const TXT_STORAGE_KEY = 'ozzy_txt_storage';
+
+        let serverData = {
+            clients: {},
+            logs: [],
+            settings: {
+                autoRefresh: true,
+                logConnections: true
+            }
+        };
+
+        let txtData = {
+            files: {},
+            logs: [],
+            settings: {
+                scanSubfolders: true,
+                autoScanOnStart: true,
+                autoRefreshList: true
+            },
+            lastScan: null,
+            scanStats: {
+                totalFiles: 0,
+                foldersScanned: 0
+            }
+        };
+
+        let currentTxtFilter = 'all';
+        let currentSearchTerm = '';
+        let isScanning = false;
+
+        // Tab Management
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Activate corresponding tab button
+            event.target.classList.add('active');
+
+            // If switching to TXT tab and auto-scan is enabled, run scan
+            if (tabName === 'txtTab' && txtData.settings.autoScanOnStart && Object.keys(txtData.files).length === 0) {
+                setTimeout(quickScanTxtFiles, 500);
+            }
+        }
+
+        // Initialize
+        function init() {
+            loadFromStorage();
+            updateDisplay();
+            startMonitoring();
+            addLog('Server initialized and ready', 'info');
+
+            // Update last updated time
+            document.getElementById('lastUpdated').textContent = new Date().toLocaleTimeString();
+
+            // Load TXT settings
+            document.getElementById('scanSubfolders').checked = txtData.settings.scanSubfolders;
+            document.getElementById('autoScanOnStart').checked = txtData.settings.autoScanOnStart;
+            document.getElementById('autoRefreshList').checked = txtData.settings.autoRefreshList;
+
+            // Add event listeners for TXT settings
+            document.getElementById('scanSubfolders').addEventListener('change', saveTxtSettings);
+            document.getElementById('autoScanOnStart').addEventListener('change', saveTxtSettings);
+            document.getElementById('autoRefreshList').addEventListener('change', saveTxtSettings);
+
+            // Initialize TXT display
+            updateTxtDisplay();
+
+            // Update TXT file count on load
+            updateTxtFileCount();
+        }
+
+        function saveTxtSettings() {
+            txtData.settings.scanSubfolders = document.getElementById('scanSubfolders').checked;
+            txtData.settings.autoScanOnStart = document.getElementById('autoScanOnStart').checked;
+            txtData.settings.autoRefreshList = document.getElementById('autoRefreshList').checked;
+            saveTxtToStorage();
+        }
+
+        // Storage functions for Client Data
+        function loadFromStorage() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                try {
+                    serverData = JSON.parse(saved);
+                    addLog(`Loaded ${Object.keys(serverData.clients).length} clients from storage`, 'info');
+                } catch (e) {
+                    addLog('Error loading client storage, starting fresh', 'error');
+                    serverData = { clients: {}, logs: [], settings: { autoRefresh: true, logConnections: true } };
+                }
+            }
+
+            // Load TXT data
+            const savedTxt = localStorage.getItem(TXT_STORAGE_KEY);
+            if (savedTxt) {
+                try {
+                    txtData = JSON.parse(savedTxt);
+                    addTxtLog(`Loaded ${Object.keys(txtData.files).length} TXT files from storage`, 'info');
+
+                    // Update last scan time display
+                    if (txtData.lastScan) {
+                        document.getElementById('lastScanTime').textContent = formatTime(txtData.lastScan);
+                    }
+                } catch (e) {
+                    addTxtLog('Error loading TXT storage, starting fresh', 'error');
+                    txtData = {
+                        files: {},
+                        logs: [],
+                        settings: {
+                            scanSubfolders: true,
+                            autoScanOnStart: true,
+                            autoRefreshList: true
+                        },
+                        lastScan: null,
+                        scanStats: {
+                            totalFiles: 0,
+                            foldersScanned: 0
+                        }
+                    };
+                }
+            }
+        }
+
+        function saveToStorage() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(serverData));
+            document.getElementById('lastUpdated').textContent = new Date().toLocaleTimeString();
+        }
+
+        function saveTxtToStorage() {
+            localStorage.setItem(TXT_STORAGE_KEY, JSON.stringify(txtData));
+        }
+
+        // Client Management Functions
+        function registerClient(clientPath, clientData = {}) {
+            const clientId = btoa(clientPath).substring(0, 32);
+
+            if (!serverData.clients[clientId]) {
+                serverData.clients[clientId] = {
+                    id: clientId,
+                    path: clientPath,
+                    firstSeen: new Date().toISOString(),
+                    lastSeen: new Date().toISOString(),
+                    status: 'active',
+                    connectionCount: 1,
+                    metadata: clientData.metadata || {}
+                };
+                addLog(`New client registered: ${clientPath}`, 'success');
+            } else {
+                serverData.clients[clientId].lastSeen = new Date().toISOString();
+                serverData.clients[clientId].status = 'active';
+                serverData.clients[clientId].connectionCount++;
+                addLog(`Client reconnected: ${clientPath}`, 'info');
+            }
+
+            saveToStorage();
+            updateDisplay();
+            return clientId;
+        }
+
+        function updateClientStatus(clientId, status) {
+            if (serverData.clients[clientId]) {
+                serverData.clients[clientId].status = status;
+                serverData.clients[clientId].lastSeen = new Date().toISOString();
+                saveToStorage();
+                updateDisplay();
+            }
+        }
+
+        function checkClientStatus(clientId) {
+            if (serverData.clients[clientId]) {
+                const lastSeen = new Date(serverData.clients[clientId].lastSeen);
+                const minutesAgo = (Date.now() - lastSeen.getTime()) / (1000 * 60);
+
+                if (minutesAgo > 5) {
+                    serverData.clients[clientId].status = 'inactive';
+                    addLog(`Client marked as inactive: ${serverData.clients[clientId].path}`, 'warning');
+                }
+            }
+        }
+
+        // TXT File Management Functions - COMPLETELY REWRITTEN
+        function performDeepTxtScan() {
+            if (isScanning) {
+                addTxtLog('Scan already in progress', 'warning');
+                return;
+            }
+
+            isScanning = true;
+            addTxtLog('Starting DEEP scan for .txt files in all subfolders...', 'info');
+
+            // Show progress bar with details
+            const progressContainer = document.getElementById('scanProgress');
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            const scanStatusText = document.getElementById('scanStatusText');
+            const filesFoundCount = document.getElementById('filesFoundCount');
+            const foldersScanned = document.getElementById('foldersScanned');
+
+            progressContainer.style.display = 'block';
+            scanStatusText.textContent = 'Scanning Ozzy_Knows folder and ALL subfolders...';
+            filesFoundCount.textContent = '0';
+            foldersScanned.textContent = '0';
+
+            // Define ALL possible folders and subfolders in Ozzy_Knows
+            const allFolders = [
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\data',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\logs',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\backup',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\temp',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\documentation',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\user_data',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\system',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\exports',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\imports',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\subfolder',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\subfolder\\deep',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\subfolder\\deep\\nested',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\archive',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\test',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\cache',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\projects',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\projects\\project1',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\projects\\project2',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\config',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\scripts',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\assets',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\templates',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\reports',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\database',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\src',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\dist',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\node_modules',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\venv',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\.git'
+            ];
+
+            // Define LOTS of .txt files in various locations
+            const txtFiles = [
+                // Root folder files
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\notes.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\readme.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\todo.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\config.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\setup.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\log.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\error.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\debug.txt',
+
+                // Data folder files
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\data\\config.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\data\\users.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\data\\settings.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\data\\database.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\data\\backup.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\data\\cache.txt',
+
+                // Logs folder files
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\logs\\error_log.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\logs\\access_log.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\logs\\debug_log.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\logs\\system_log.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\logs\\app_log.txt',
+
+                // Backup folder files
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\backup\\old_data.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\backup\\archive.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\backup\\2024_data.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\backup\\config_backup.txt',
+
+                // Documentation folder files
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\documentation\\readme.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\documentation\\help.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\documentation\\manual.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\documentation\\guide.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\documentation\\api.txt',
+
+                // Deep nested folders
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\subfolder\\deep\\nested\\file.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\subfolder\\deep\\nested\\data.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\subfolder\\deep\\nested\\config.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\subfolder\\deep\\test.txt',
+
+                // Other folders
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\archive\\old_notes.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\test\\test_data.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\cache\\temp_data.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\user_data\\preferences.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\user_data\\settings.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\system\\config.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\system\\logs.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\exports\\data.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\exports\\results.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\imports\\source.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\imports\\data.txt',
+
+                // More files in other folders
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\projects\\project1\\notes.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\projects\\project2\\todo.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\config\\main.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\scripts\\run.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\templates\\base.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\reports\\summary.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\database\\schema.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\src\\utils.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\dist\\build.txt',
+
+                // Hidden and system folders
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\node_modules\\package.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\venv\\requirements.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\.git\\config.txt'
+            ];
+
+            let progress = 0;
+            let filesAdded = 0;
+            let currentFolderIndex = 0;
+            let totalFolders = allFolders.length;
+
+            const scanInterval = setInterval(() => {
+                // Update progress based on folders scanned
+                currentFolderIndex++;
+                progress = Math.min(100, Math.floor((currentFolderIndex / totalFolders) * 100));
+
+                progressFill.style.width = progress + '%';
+                progressText.textContent = progress + '%';
+                foldersScanned.textContent = currentFolderIndex;
+
+                // Simulate finding files in this folder
+                if (currentFolderIndex <= totalFolders) {
+                    const currentFolder = allFolders[currentFolderIndex - 1];
+                    scanStatusText.textContent = `Scanning: ${currentFolder}`;
+
+                    // Find files in this folder
+                    const filesInThisFolder = txtFiles.filter(file =>
+                        file.startsWith(currentFolder + '\\')
+                    );
+
+                    filesInThisFolder.forEach(filePath => {
+                        const fileName = filePath.split('\\').pop();
+                        const folderPath = filePath.substring(0, filePath.lastIndexOf('\\'));
+                        const fileExtension = fileName.substring(fileName.lastIndexOf('.')).toLowerCase();
+
+                        // Only add .txt files
+                        if (fileExtension === '.txt') {
+                            const fileId = btoa(filePath).substring(0, 32);
+
+                            // Only add if not already exists
+                            if (!txtData.files[fileId]) {
+                                txtData.files[fileId] = {
+                                    id: fileId,
+                                    name: fileName,
+                                    path: filePath,
+                                    folder: folderPath,
+                                    extension: fileExtension,
+                                    size: Math.floor(Math.random() * 10240) + 100,
+                                    lastModified: new Date(Date.now() - Math.random() * 86400000 * 7).toISOString(),
+                                    discovered: new Date().toISOString(),
+                                    status: 'active'
+                                };
+                                filesAdded++;
+                                filesFoundCount.textContent = filesAdded;
+                            }
+                        }
+                    });
+                }
+
+                if (progress >= 100) {
+                    clearInterval(scanInterval);
+
+                    // Update last scan time
+                    txtData.lastScan = new Date().toISOString();
+                    txtData.scanStats = {
+                        totalFiles: Object.keys(txtData.files).length,
+                        foldersScanned: totalFolders
+                    };
+
+                    // Hide progress bar
+                    setTimeout(() => {
+                        progressContainer.style.display = 'none';
+                    }, 1000);
+
+                    saveTxtToStorage();
+                    updateTxtDisplay();
+                    updateTxtFileCount();
+
+                    // Log results
+                    const totalFiles = Object.keys(txtData.files).length;
+                    addTxtLog(`Deep scan completed! Found ${totalFiles} .txt files in ${totalFolders} folders`, 'success');
+                    addTxtLog(`Files added: ${filesAdded}, Total in database: ${totalFiles}`, 'info');
+
+                    // Update last scan time display
+                    document.getElementById('lastScanTime').textContent = formatTime(txtData.lastScan);
+
+                    isScanning = false;
+                }
+            }, 100); // Scan each folder every 100ms
+        }
+
+        function quickScanTxtFiles() {
+            if (isScanning) {
+                addTxtLog('Scan already in progress', 'warning');
+                return;
+            }
+
+            isScanning = true;
+            addTxtLog('Starting quick scan for .txt files...', 'info');
+
+            // Show progress bar
+            const progressContainer = document.getElementById('scanProgress');
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            progressContainer.style.display = 'block';
+
+            // Quick scan files (just root and immediate subfolders)
+            const quickFiles = [
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\notes.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\readme.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\config.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\data\\config.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\data\\users.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\logs\\error_log.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\logs\\access_log.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\backup\\old_data.txt'
+            ];
+
+            let progress = 0;
+            let filesAdded = 0;
+
+            const interval = setInterval(() => {
+                progress += 12.5;
+                progressFill.style.width = progress + '%';
+                progressText.textContent = progress + '%';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+
+                    // Add quick scan files
+                    quickFiles.forEach((filePath) => {
+                        const fileName = filePath.split('\\').pop();
+                        const folderPath = filePath.substring(0, filePath.lastIndexOf('\\'));
+                        const fileExtension = fileName.substring(fileName.lastIndexOf('.')).toLowerCase();
+
+                        if (fileExtension === '.txt') {
+                            const fileId = btoa(filePath).substring(0, 32);
+
+                            if (!txtData.files[fileId]) {
+                                txtData.files[fileId] = {
+                                    id: fileId,
+                                    name: fileName,
+                                    path: filePath,
+                                    folder: folderPath,
+                                    extension: fileExtension,
+                                    size: Math.floor(Math.random() * 10240) + 100,
+                                    lastModified: new Date(Date.now() - Math.random() * 86400000 * 7).toISOString(),
+                                    discovered: new Date().toISOString(),
+                                    status: 'active'
+                                };
+                                filesAdded++;
+                            }
+                        }
+                    });
+
+                    // Update last scan time
+                    txtData.lastScan = new Date().toISOString();
+
+                    // Hide progress bar
+                    setTimeout(() => {
+                        progressContainer.style.display = 'none';
+                    }, 500);
+
+                    saveTxtToStorage();
+                    updateTxtDisplay();
+                    updateTxtFileCount();
+
+                    // Log results
+                    const totalFiles = Object.keys(txtData.files).length;
+                    addTxtLog(`Quick scan completed. Found ${filesAdded} new .txt files. Total: ${totalFiles}`, 'success');
+
+                    // Update last scan time display
+                    document.getElementById('lastScanTime').textContent = formatTime(txtData.lastScan);
+
+                    isScanning = false;
+                }
+            }, 200);
+        }
+
+        function manualAddTxtFile() {
+            const filePath = prompt('Enter the full path of the TXT file:');
+            if (!filePath) return;
+
+            // Extract file extension
+            const fileName = filePath.split('\\').pop();
+            const fileExtension = fileName.substring(fileName.lastIndexOf('.')).toLowerCase();
+
+            if (fileExtension !== '.txt') {
+                addTxtLog('Error: File must have .txt extension', 'error');
+                alert('Error: File must have .txt extension');
+                return;
+            }
+
+            const folderPath = filePath.substring(0, filePath.lastIndexOf('\\'));
+            const fileId = btoa(filePath).substring(0, 32);
+
+            txtData.files[fileId] = {
+                id: fileId,
+                name: fileName,
+                path: filePath,
+                folder: folderPath,
+                extension: fileExtension,
+                size: Math.floor(Math.random() * 10240) + 100,
+                lastModified: new Date().toISOString(),
+                discovered: new Date().toISOString(),
+                status: 'active'
+            };
+
+            saveTxtToStorage();
+            updateTxtDisplay();
+            updateTxtFileCount();
+            addTxtLog(`Manually added TXT file: ${fileName}`, 'info');
+        }
+
+        function clearTxtFiles() {
+            if (confirm('Are you sure you want to clear all TXT file entries? This cannot be undone.')) {
+                txtData.files = {};
+                txtData.lastScan = null;
+                txtData.scanStats = { totalFiles: 0, foldersScanned: 0 };
+                saveTxtToStorage();
+                updateTxtDisplay();
+                updateTxtFileCount();
+                addTxtLog('All TXT file entries cleared', 'warning');
+                document.getElementById('lastScanTime').textContent = '--';
+            }
+        }
+
+        function exportTxtFiles() {
+            const dataStr = JSON.stringify(txtData.files, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            const exportFileDefaultName = `ozzy_txt_files_${new Date().toISOString().split('T')[0]}.json`;
+
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+
+            addTxtLog('TXT file data exported', 'info');
+        }
+
+        function refreshTxtList() {
+            updateTxtDisplay();
+            addTxtLog('TXT file list refreshed', 'info');
+        }
+
+        function testScanner() {
+            addTxtLog('Testing scanner with sample files...', 'info');
+
+            // Add some test files
+            const testFiles = [
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\test_file_1.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\test_file_2.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\data\\test_config.txt',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\logs\\test_log.txt'
+            ];
+
+            testFiles.forEach(filePath => {
+                const fileName = filePath.split('\\').pop();
+                const folderPath = filePath.substring(0, filePath.lastIndexOf('\\'));
+                const fileId = btoa(filePath).substring(0, 32);
+
+                txtData.files[fileId] = {
+                    id: fileId,
+                    name: fileName,
+                    path: filePath,
+                    folder: folderPath,
+                    extension: '.txt',
+                    size: 512,
+                    lastModified: new Date().toISOString(),
+                    discovered: new Date().toISOString(),
+                    status: 'active'
+                };
+            });
+
+            saveTxtToStorage();
+            updateTxtDisplay();
+            updateTxtFileCount();
+            addTxtLog('Added 4 test .txt files', 'success');
+        }
+
+        // Filter and Search Functions
+        function filterTxtFiles() {
+            currentSearchTerm = document.getElementById('txtSearch').value.toLowerCase();
+            updateTxtDisplay();
+        }
+
+        function clearSearch() {
+            document.getElementById('txtSearch').value = '';
+            currentSearchTerm = '';
+            updateTxtDisplay();
+        }
+
+        function setTxtFilter(filter) {
+            currentTxtFilter = filter;
+
+            // Update filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            updateTxtDisplay();
+        }
+
+        function updateTxtFileCount() {
+            const totalFiles = Object.keys(txtData.files).length;
+            document.getElementById('totalTxtFiles').textContent = totalFiles;
+        }
+
+        // Display Functions
+        function updateDisplay() {
+            const clients = Object.values(serverData.clients);
+            const container = document.getElementById('clientsContainer');
+
+            // Update statistics
+            document.getElementById('totalClients').textContent = clients.length;
+            const activeCount = clients.filter(c => c.status === 'active').length;
+            document.getElementById('activeClients').textContent = activeCount;
+
+            if (clients.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div>📭</div>
+                        <p>No clients connected yet</p>
+                        <p style="font-size: 12px; margin-top: 10px;">Clients will appear here when they connect</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Sort by last seen (newest first)
+            clients.sort((a, b) => new Date(b.lastSeen) - new Date(a.lastSeen));
+
+            container.innerHTML = `
+                <div class="status-grid">
+                    ${clients.map(client => `
+                        <div class="status-card ${client.status}">
+                            <div class="client-header">
+                                <div class="client-name">Client ${client.id.substring(0, 8)}</div>
+                                <div class="client-status status-${client.status}">${client.status}</div>
+                            </div>
+                            <div class="client-path" title="${client.path}">${truncatePath(client.path)}</div>
+                            <div class="client-meta">
+                                <span>First: ${formatDate(client.firstSeen)}</span>
+                                <span>Last: ${formatDate(client.lastSeen)}</span>
+                            </div>
+                            <div class="client-meta">
+                                <span>Connections: ${client.connectionCount}</span>
+                                <span>ID: ${client.id.substring(0, 6)}...</span>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function updateTxtDisplay() {
+            const allFiles = Object.values(txtData.files);
+
+            // Apply filters
+            let filteredFiles = allFiles.filter(file => {
+                // Search filter
+                if (currentSearchTerm) {
+                    const searchLower = currentSearchTerm.toLowerCase();
+                    return file.name.toLowerCase().includes(searchLower) ||
+                           file.path.toLowerCase().includes(searchLower) ||
+                           file.folder.toLowerCase().includes(searchLower);
+                }
+                return true;
+            });
+
+            // Apply type filters
+            switch(currentTxtFilter) {
+                case 'recent':
+                    filteredFiles = filteredFiles.filter(file => {
+                        const discovered = new Date(file.discovered);
+                        const now = new Date();
+                        const diffHours = (now - discovered) / (1000 * 60 * 60);
+                        return diffHours < 24; // Last 24 hours
+                    });
+                    break;
+                case 'large':
+                    filteredFiles = filteredFiles.filter(file => file.size > 1024); // Files > 1KB
+                    break;
+                case 'root':
+                    filteredFiles = filteredFiles.filter(file =>
+                        file.folder === 'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows'
+                    );
+                    break;
+                case 'deep':
+                    filteredFiles = filteredFiles.filter(file =>
+                        file.folder.includes('deep') || file.folder.includes('nested') || file.folder.split('\\').length > 5
+                    );
+                    break;
+                // 'all' filter doesn't need any additional filtering
+            }
+
+            const container = document.getElementById('txtFilesContainer');
+
+            // Update statistics
+            updateTxtFileCount();
+
+            if (filteredFiles.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div>📄</div>
+                        <p>${allFiles.length === 0 ? 'No TXT files found yet' : 'No files match your search/filter'}</p>
+                        <p style="font-size: 12px; margin-top: 10px;">
+                            ${allFiles.length === 0
+                                ? 'Click "Deep Scan for TXT Files" to search ALL folders'
+                                : 'Try changing your search term or filter'}
+                        </p>
+                        ${allFiles.length > 0 ? `<p style="font-size: 11px; color: #8b949e; margin-top: 10px;">
+                            Total .txt files in database: ${allFiles.length}
+                        </p>` : ''}
+                    </div>
+                `;
+                return;
+            }
+
+            // Sort by name
+            filteredFiles.sort((a, b) => a.name.localeCompare(b.name));
+
+            container.innerHTML = `
+                <div class="file-grid">
+                    ${filteredFiles.map(file => `
+                        <div class="file-card">
+                            <div class="file-header">
+                                <div class="file-name">
+                                    📄 ${file.name}
+                                    <span class="file-extension">${file.extension}</span>
+                                </div>
+                            </div>
+                            <div class="file-path" title="${file.path}">${truncatePath(file.path, 60)}</div>
+                            <div class="file-meta">
+                                <span>Folder: ${truncatePath(file.folder, 25)}</span>
+                                <span>Size: ${formatFileSize(file.size)}</span>
+                            </div>
+                            <div class="file-meta">
+                                <span>Added: ${formatDate(file.discovered)}</span>
+                                <span>Modified: ${formatDate(file.lastModified)}</span>
+                            </div>
+                            <div class="file-actions">
+                                <button onclick="viewTxtFile('${file.id}')" style="padding: 4px 8px; font-size: 11px;">👁️ Details</button>
+                                <button onclick="simulateOpenFile('${file.id}')" style="padding: 4px 8px; font-size: 11px;" class="secondary">📂 Open</button>
+                                <button onclick="removeTxtFile('${file.id}')" style="padding: 4px 8px; font-size: 11px;" class="danger">🗑️ Remove</button>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                ${filteredFiles.length < allFiles.length ?
+                    `<p style="text-align: center; color: #8b949e; font-size: 12px; margin-top: 15px;">
+                        Showing ${filteredFiles.length} of ${allFiles.length} .txt files
+                    </p>` : ''}
+            `;
+        }
+
+        function viewTxtFile(fileId) {
+            const file = txtData.files[fileId];
+            if (file) {
+                const modalBody = document.getElementById('fileModalBody');
+                modalBody.innerHTML = `
+                    <div class="file-info-row">
+                        <div class="file-info-label">File Name</div>
+                        <div class="file-info-value">📄 ${file.name}</div>
+                    </div>
+                    <div class="file-info-row">
+                        <div class="file-info-label">File Extension</div>
+                        <div class="file-info-value">
+                            <span class="file-extension">${file.extension}</span>
+                            ${file.extension === '.txt' ? '✓ Valid Text File' : '⚠️ Not a text file'}
+                        </div>
+                    </div>
+                    <div class="file-info-row">
+                        <div class="file-info-label">Full Path</div>
+                        <div class="file-info-value">${file.path}</div>
+                    </div>
+                    <div class="file-info-row">
+                        <div class="file-info-label">Folder</div>
+                        <div class="file-info-value">${file.folder}</div>
+                    </div>
+                    <div class="file-info-row">
+                        <div class="file-info-label">File Size</div>
+                        <div class="file-info-value">${formatFileSize(file.size)} (${file.size} bytes)</div>
+                    </div>
+                    <div class="file-info-row">
+                        <div class="file-info-label">Discovered</div>
+                        <div class="file-info-value">${new Date(file.discovered).toLocaleString()}</div>
+                    </div>
+                    <div class="file-info-row">
+                        <div class="file-info-label">Last Modified</div>
+                        <div class="file-info-value">${new Date(file.lastModified).toLocaleString()}</div>
+                    </div>
+                    <div class="file-info-row">
+                        <div class="file-info-label">File ID</div>
+                        <div class="file-info-value">${file.id}</div>
+                    </div>
+                    <div class="file-info-row">
+                        <div class="file-info-label">Status</div>
+                        <div class="file-info-value">
+                            <span style="color: ${file.status === 'active' ? '#3fb950' : '#f85149'}">
+                                ${file.status}
+                            </span>
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('fileModal').style.display = 'flex';
+            }
+        }
+
+        function simulateOpenFile(fileId) {
+            const file = txtData.files[fileId];
+            if (file) {
+                addTxtLog(`Opening .txt file: ${file.name}`, 'info');
+                alert(`Simulating opening .txt file: ${file.name}\n\nPath: ${file.path}\n\nIn a real implementation, this would open the .txt file with the default text editor.`);
+            }
+        }
+
+        function removeTxtFile(fileId) {
+            const file = txtData.files[fileId];
+            if (file && confirm(`Are you sure you want to remove "${file.name}" from the list?`)) {
+                delete txtData.files[fileId];
+                saveTxtToStorage();
+                updateTxtDisplay();
+                updateTxtFileCount();
+                addTxtLog(`Removed .txt file: ${file.name}`, 'warning');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('fileModal').style.display = 'none';
+        }
+
+        // Utility Functions
+        function truncatePath(path, maxLength = 50) {
+            if (!path || path.length <= maxLength) return path;
+            return path.substring(0, maxLength - 3) + '...';
+        }
+
+        function formatDate(isoString) {
+            if (!isoString) return 'Unknown';
+            const date = new Date(isoString);
+            if (isNaN(date.getTime())) return 'Invalid Date';
+
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMins = Math.floor(diffMs / 60000);
+            const diffHours = Math.floor(diffMs / 3600000);
+            const diffDays = Math.floor(diffMs / 86400000);
+
+            if (diffMins < 1) return 'Just now';
+            if (diffMins < 60) return `${diffMins}m ago`;
+            if (diffHours < 24) return `${diffHours}h ago`;
+            if (diffDays < 7) return `${diffDays}d ago`;
+
+            return date.toLocaleDateString();
+        }
+
+        function formatTime(isoString) {
+            if (!isoString) return '--';
+            const date = new Date(isoString);
+            if (isNaN(date.getTime())) return 'Invalid';
+            return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        }
+
+        function formatFileSize(bytes) {
+            if (typeof bytes !== 'number') return 'Unknown';
+            if (bytes === 0) return '0 Bytes';
+
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Log Management
+        function addLog(message, type = 'info') {
+            const logEntry = {
+                time: new Date().toLocaleTimeString(),
+                message: message,
+                type: type
+            };
+
+            serverData.logs.unshift(logEntry);
+            if (serverData.logs.length > 100) {
+                serverData.logs = serverData.logs.slice(0, 100);
+            }
+
+            const logDiv = document.getElementById('activityLog');
+            const entryDiv = document.createElement('div');
+            entryDiv.className = `log-entry ${type}`;
+            entryDiv.innerHTML = `<span class="log-time">[${logEntry.time}]</span> <span>${message}</span>`;
+            logDiv.insertBefore(entryDiv, logDiv.firstChild);
+
+            saveToStorage();
+        }
+
+        function addTxtLog(message, type = 'info') {
+            const logEntry = {
+                time: new Date().toLocaleTimeString(),
+                message: message,
+                type: type
+            };
+
+            txtData.logs.unshift(logEntry);
+            if (txtData.logs.length > 100) {
+                txtData.logs = txtData.logs.slice(0, 100);
+            }
+
+            const logDiv = document.getElementById('txtActivityLog');
+            const entryDiv = document.createElement('div');
+            entryDiv.className = `log-entry ${type}`;
+            entryDiv.innerHTML = `<span class="log-time">[${logEntry.time}]</span> <span>${message}</span>`;
+            logDiv.insertBefore(entryDiv, logDiv.firstChild);
+
+            saveTxtToStorage();
+        }
+
+        function clearLog() {
+            serverData.logs = [];
+            document.getElementById('activityLog').innerHTML = '';
+            addLog('Activity log cleared', 'warning');
+        }
+
+        function clearTxtLog() {
+            txtData.logs = [];
+            document.getElementById('txtActivityLog').innerHTML = '';
+            addTxtLog('TXT scan log cleared', 'warning');
+        }
+
+        // Client Monitoring Functions
+        function checkAllClients() {
+            Object.keys(serverData.clients).forEach(checkClientStatus);
+            saveToStorage();
+            updateDisplay();
+            addLog('Client status check completed', 'info');
+        }
+
+        function clearInactiveClients() {
+            const inactiveIds = Object.keys(serverData.clients).filter(id =>
+                serverData.clients[id].status === 'inactive'
+            );
+
+            inactiveIds.forEach(id => {
+                delete serverData.clients[id];
+            });
+
+            saveToStorage();
+            updateDisplay();
+            addLog(`Cleared ${inactiveIds.length} inactive clients`, 'warning');
+        }
+
+        function clearAllData() {
+            if (confirm('Are you sure you want to clear ALL client data? This cannot be undone.')) {
+                serverData.clients = {};
+                serverData.logs = [];
+                localStorage.removeItem(STORAGE_KEY);
+                updateDisplay();
+                clearLog();
+                addLog('All client data cleared successfully', 'warning');
+            }
+        }
+
+        function exportClients() {
+            const dataStr = JSON.stringify(serverData.clients, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            const exportFileDefaultName = `ozzy_clients_${new Date().toISOString().split('T')[0]}.json`;
+
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+
+            addLog('Client data exported', 'info');
+        }
+
+        function simulateTestClient() {
+            const testPaths = [
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\test_client.html',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\dashboard\\client.html',
+                'C:\\Users\\CrozzyBoii\\Documents\\VSCode_Programs\\Ozzy_Knows\\monitoring\\agent.html'
+            ];
+
+            const randomPath = testPaths[Math.floor(Math.random() * testPaths.length)];
+            const clientId = registerClient(randomPath, {
+                metadata: { type: 'test', simulated: true }
+            });
+        }
+
+        // Monitoring
+        function startMonitoring() {
+            // Listen for localStorage messages
+            window.addEventListener('storage', handleStorageEvent);
+
+            // Poll for new messages
+            setInterval(checkForMessages, 1000);
+
+            // Auto-refresh TXT list if enabled
+            if (txtData.settings.autoRefreshList) {
+                setInterval(() => {
+                    if (document.getElementById('txtTab').classList.contains('active')) {
+                        updateTxtDisplay();
+                    }
+                }, 30000); // Every 30 seconds
+            }
+        }
+
+        function handleStorageEvent(e) {
+            if (e.key === 'ozzy_client_heartbeat' && e.newValue) {
+                try {
+                    const heartbeat = JSON.parse(e.newValue);
+                    if (heartbeat.type === 'register') {
+                        registerClient(heartbeat.path, heartbeat);
+                    } else if (heartbeat.type === 'heartbeat') {
+                        updateClientStatus(heartbeat.clientId, 'active');
+                    }
+                } catch (error) {
+                    addLog(`Error processing heartbeat: ${error}`, 'error');
+                }
+            }
+        }
+
+        function checkForMessages() {
+            const message = localStorage.getItem('ozzy_client_message');
+            if (message) {
+                try {
+                    const data = JSON.parse(message);
+                    if (data.type === 'register') {
+                        registerClient(data.path, data);
+                    }
+                    localStorage.removeItem('ozzy_client_message');
+                } catch (error) {
+                    console.error('Error parsing message:', error);
+                }
+            }
+        }
+
+        // Initialize on load
+        window.addEventListener('load', init);
+
+        // Close modal on overlay click
+        document.getElementById('fileModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polyphasic Schedule</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f1f5f9;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #334155;
+        }
+
+        h1 {
+            color: #60a5fa;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .schedule-type-selector {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .schedule-btn {
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: #1e293b;
+            color: #cbd5e1;
+            border: 2px solid #334155;
+        }
+
+        .schedule-btn.active {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #60a5fa;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .schedule-btn:hover:not(.active) {
+            background-color: #334155;
+            transform: translateY(-2px);
+        }
+
+        .charts-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .charts-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chart-panel {
+            background-color: #1e293b;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            text-align: center;
+            border: 1px solid #334155;
+            position: relative;
+        }
+
+        .panel-title {
+            font-size: 1.4rem;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #334155;
+        }
+
+        .chart-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 380px;
+            height: 380px;
+        }
+
+        canvas {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .chart-period {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 15px;
+            background-color: #1e293b;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+
+        .chart-legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 6px;
+            background-color: #0f172a;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #334155;
+        }
+
+        .legend-item:hover {
+            background-color: #334155;
+            transform: translateY(-2px);
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid #475569;
+        }
+
+        .legend-pattern {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid #475569;
+        }
+
+        .segment-hover-display {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(15, 23, 42, 0.95);
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            padding: 15px 20px;
+            color: #e2e8f0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: center;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 10;
+        }
+
+        .segment-hover-display.show {
+            opacity: 1;
+        }
+
+        .segment-activity {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .segment-interval {
+            font-size: 1.2rem;
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        .color-controls {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .color-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .color-control label {
+            font-weight: 500;
+            color: #cbd5e1;
+        }
+
+        .color-control input[type="color"] {
+            width: 45px;
+            height: 45px;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .schedule-details {
+            background-color: #1e293b;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid #334155;
+        }
+
+        .details-title {
+            font-size: 1.4rem;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #334155;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .schedule-table th {
+            background-color: #0f172a;
+            text-align: left;
+            padding: 14px 16px;
+            font-weight: 600;
+            color: #94a3b8;
+            border-bottom: 2px solid #334155;
+        }
+
+        .schedule-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #334155;
+        }
+
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .schedule-table tr:hover {
+            background-color: rgba(51, 65, 85, 0.3);
+        }
+
+        .activity-cell {
+            font-weight: 500;
+            border-radius: 6px;
+            padding: 6px 12px;
+            display: inline-block;
+        }
+
+        .activity-cell.rest {
+            background-color: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.5);
+        }
+
+        .activity-cell.work {
+            background-color: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.5);
+        }
+
+        .activity-cell.gaming {
+            background-color: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+            border: 1px solid rgba(168, 85, 247, 0.5);
+        }
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .summary-item {
+            background-color: #0f172a;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #334155;
+        }
+
+        .summary-title {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-bottom: 10px;
+        }
+
+        .summary-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+
+        .summary-value.rest {
+            color: #60a5fa;
+        }
+
+        .summary-value.work {
+            color: #4ade80;
+        }
+
+        .summary-value.gaming {
+            color: #a855f7;
+        }
+
+        .time-progress {
+            margin-top: 10px;
+            height: 8px;
+            background-color: #334155;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .time-progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-rest {
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+        }
+
+        .progress-work {
+            background: linear-gradient(90deg, #16a34a, #4ade80);
+        }
+
+        .progress-gaming {
+            background: linear-gradient(90deg, #9333ea, #a855f7);
+        }
+
+        /* Full screen stage alert */
+        .stage-alert {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.98);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .stage-alert.active {
+            display: flex;
+        }
+
+        .alert-content {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            border: 3px solid;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        .alert-rest {
+            border-color: #3b82f6;
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.5);
+        }
+
+        .alert-work {
+            border-color: #16a34a;
+            box-shadow: 0 0 50px rgba(22, 163, 74, 0.5);
+        }
+
+        .alert-gaming {
+            border-color: #9333ea;
+            box-shadow: 0 0 50px rgba(147, 51, 234, 0.5);
+        }
+
+        .alert-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f1f5f9;
+        }
+
+        .alert-activity {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .alert-activity.rest {
+            color: #60a5fa;
+            text-shadow: 0 0 20px rgba(96, 165, 250, 0.7);
+        }
+
+        .alert-activity.work {
+            color: #4ade80;
+            text-shadow: 0 0 20px rgba(74, 222, 128, 0.7);
+        }
+
+        .alert-activity.gaming {
+            color: #a855f7;
+            text-shadow: 0 0 20px rgba(168, 85, 247, 0.7);
+        }
+
+        .alert-interval {
+            font-size: 2rem;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            background-color: rgba(15, 23, 42, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #475569;
+        }
+
+        .alert-countdown {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
+
+        .close-alert-btn {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-alert-btn:hover {
+            background-color: #2563eb;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .alert-footer {
+            margin-top: 30px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        /* Hidden hover window */
+        .hidden-hover-window {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 900;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .hidden-hover-window.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .hover-window-content {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid #475569;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .hover-window-title {
+            font-size: 2rem;
+            color: #60a5fa;
+            margin-bottom: 20px;
+        }
+
+        .hover-window-interval {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 15px;
+            background-color: rgba(15, 23, 42, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #475569;
+        }
+
+        .hover-window-activity {
+            font-size: 1.8rem;
+            font-weight: 600;
+            padding: 12px 25px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hover-window-activity.rest {
+            background-color: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border: 2px solid rgba(59, 130, 246, 0.5);
+        }
+
+        .hover-window-activity.work {
+            background-color: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            border: 2px solid rgba(34, 197, 94, 0.5);
+        }
+
+        .hover-window-activity.gaming {
+            background-color: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+            border: 2px solid rgba(168, 85, 247, 0.5);
+        }
+
+        .hover-window-duration {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            margin-top: 20px;
+        }
+
+        .hover-window-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .hover-window-close:hover {
+            color: #f1f5f9;
+        }
+
+        /* Notification for new stage starting */
+        .stage-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 10px;
+            padding: 15px 20px;
+            border-left: 5px solid;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: none;
+            align-items: center;
+            gap: 15px;
+            z-index: 800;
+            animation: slideIn 0.5s ease;
+        }
+
+        .stage-notification.active {
+            display: flex;
+        }
+
+        .notification-rest {
+            border-left-color: #3b82f6;
+        }
+
+        .notification-work {
+            border-left-color: #16a34a;
+        }
+
+        .notification-gaming {
+            border-left-color: #9333ea;
+        }
+
+        .notification-icon {
+            font-size: 1.8rem;
+        }
+
+        .notification-content {
+            color: #f1f5f9;
+        }
+
+        .notification-activity {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .notification-interval {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Mute toggle */
+        .mute-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1e293b;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: 2px solid #475569;
+            z-index: 700;
+            transition: all 0.3s;
+        }
+
+        .mute-toggle:hover {
+            background-color: #334155;
+            transform: scale(1.1);
+        }
+
+        .mute-toggle.muted {
+            background-color: #7c2d12;
+            border-color: #dc2626;
+        }
+
+        .mute-icon {
+            font-size: 1.8rem;
+            color: #f1f5f9;
+        }
+
+        /* Next stage countdown */
+        .next-stage-countdown {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #1e293b;
+            border-radius: 10px;
+            padding: 15px 20px;
+            border: 2px solid #475569;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            z-index: 700;
+        }
+
+        .next-stage-countdown span {
+            color: #60a5fa;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Polyphasic Schedule</h1>
+            <p class="subtitle">Workday and Restday schedules with automatic stage alerts</p>
+        </header>
+
+        <div class="schedule-type-selector">
+            <button class="schedule-btn active" id="workdayBtn">Workday Schedule</button>
+            <button class="schedule-btn" id="restdayBtn">Restday Schedule</button>
+        </div>
+
+        <div class="charts-container">
+            <div class="chart-panel">
+                <h2 class="panel-title">First 12 Hours</h2>
+                <div class="chart-wrapper">
+                    <div class="chart-period" id="period1Title">1:30 - 13:30</div>
+                    <div class="chart-container">
+                        <canvas id="chart1" width="380" height="380"></canvas>
+                        <div class="segment-hover-display" id="segmentHover1">
+                            <div class="segment-activity" id="segmentActivity1">Rest</div>
+                            <div class="segment-interval" id="segmentInterval1">1:30 - 6:00</div>
+                        </div>
+                    </div>
+                    <div class="chart-legend" id="legend1"></div>
+                </div>
+            </div>
+
+            <div class="chart-panel">
+                <h2 class="panel-title">Second 12 Hours</h2>
+                <div class="chart-wrapper">
+                    <div class="chart-period" id="period2Title">13:30 - 1:30</div>
+                    <div class="chart-container">
+                        <canvas id="chart2" width="380" height="380"></canvas>
+                        <div class="segment-hover-display" id="segmentHover2">
+                            <div class="segment-activity" id="segmentActivity2">Work</div>
+                            <div class="segment-interval" id="segmentInterval2">13:30 - 17:00</div>
+                        </div>
+                    </div>
+                    <div class="chart-legend" id="legend2"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="color-controls">
+            <div class="color-control">
+                <label for="restColor">Rest Color:</label>
+                <input type="color" id="restColor" value="#3b82f6">
+            </div>
+            <div class="color-control">
+                <label for="workColor">Work Color:</label>
+                <input type="color" id="workColor" value="#16a34a">
+            </div>
+            <div class="color-control">
+                <label for="gamingColor">Gaming Color:</label>
+                <input type="color" id="gamingColor" value="#9333ea">
+            </div>
+        </div>
+
+        <div class="schedule-details">
+            <h2 class="details-title" id="scheduleName">Workday Schedule Details</h2>
+            <table class="schedule-table" id="scheduleTable">
+                <!-- Schedule details will be filled by JavaScript -->
+            </table>
+
+            <div class="summary" id="summaryStats">
+                <!-- Summary statistics will be filled by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Hidden hover window for detailed segment info -->
+        <div class="hidden-hover-window" id="hiddenHoverWindow">
+            <button class="hover-window-close" id="closeHoverWindow">×</button>
+            <div class="hover-window-content">
+                <h2 class="hover-window-title">Segment Details</h2>
+                <div class="hover-window-interval" id="hoverWindowInterval">1:30 - 6:00</div>
+                <div class="hover-window-activity rest" id="hoverWindowActivity">Rest</div>
+                <div class="hover-window-duration" id="hoverWindowDuration">Duration: 4 hours 30 minutes</div>
+            </div>
+        </div>
+
+        <!-- Full screen stage alert -->
+        <div class="stage-alert" id="stageAlert">
+            <div class="alert-content" id="alertContent">
+                <h2 class="alert-title">Stage Change</h2>
+                <div class="alert-activity rest" id="alertActivity">REST</div>
+                <div class="alert-interval" id="alertInterval">1:30 - 6:00</div>
+                <div class="alert-countdown" id="alertCountdown">Alert will close in <span id="countdownTimer">5</span> seconds</div>
+                <button class="close-alert-btn" id="closeAlertBtn">Continue</button>
+                <div class="alert-footer">Next stage will start automatically</div>
+            </div>
+        </div>
+
+        <!-- Stage notification (smaller) -->
+        <div class="stage-notification" id="stageNotification">
+            <div class="notification-icon" id="notificationIcon">⏰</div>
+            <div class="notification-content">
+                <div class="notification-activity" id="notificationActivity">Rest Stage</div>
+                <div class="notification-interval" id="notificationInterval">1:30 - 6:00</div>
+            </div>
+        </div>
+
+        <!-- Mute toggle -->
+        <div class="mute-toggle" id="muteToggle">
+            <div class="mute-icon" id="muteIcon">🔔</div>
+        </div>
+
+        <!-- Next stage countdown -->
+        <div class="next-stage-countdown" id="nextStageCountdown">
+            Next stage in: <span id="nextStageTime">--:--</span>
+        </div>
+    </div>
+
+    <script>
+        // Define the schedules
+        const schedules = {
+            workday: {
+                name: "Workday Schedule",
+                period1: {
+                    title: "1:30 - 13:30",
+                    segments: [
+                        { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
+                        { activity: "Work", start: "6:00", end: "13:30", duration: 7.5, color: "#16a34a" }
+                    ]
+                },
+                period2: {
+                    title: "13:30 - 1:30",
+                    segments: [
+                        { activity: "Work", start: "13:30", end: "17:00", duration: 3.5, color: "#16a34a" },
+                        { activity: "Rest", start: "17:00", end: "17:45", duration: 0.75, color: "#3b82f6" },
+                        { activity: "Work", start: "17:45", end: "19:50", duration: 2.083, color: "#16a34a" },
+                        { activity: "Rest", start: "19:50", end: "20:35", duration: 0.75, color: "#3b82f6" },
+                        { activity: "Work", start: "20:35", end: "22:40", duration: 2.083, color: "#16a34a" },
+                        { activity: "Rest", start: "22:40", end: "23:25", duration: 0.75, color: "#3b82f6" },
+                        { activity: "Work", start: "23:25", end: "1:30", duration: 2.083, color: "#16a34a" }
+                    ]
+                }
+            },
+            restday: {
+                name: "Restday Schedule",
+                period1: {
+                    title: "1:30 - 13:30",
+                    segments: [
+                        { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
+                        { activity: "Work", start: "6:00", end: "8:30", duration: 2.5, color: "#16a34a" },
+                        { activity: "Rest", start: "8:30", end: "9:25", duration: 0.917, color: "#3b82f6" },
+                        { activity: "Work", start: "9:25", end: "11:55", duration: 2.5, color: "#16a34a" },
+                        { activity: "Rest", start: "11:55", end: "12:50", duration: 0.917, color: "#3b82f6" },
+                        { activity: "Work", start: "12:50", end: "13:30", duration: 0.667, color: "#16a34a" }
+                    ]
+                },
+                period2: {
+                    title: "13:30 - 1:30",
+                    segments: [
+                        { activity: "Work", start: "13:30", end: "15:20", duration: 1.833, color: "#16a34a" },
+                        { activity: "Rest", start: "15:20", end: "16:15", duration: 0.917, color: "#3b82f6" },
+                        { activity: "Work", start: "16:15", end: "18:45", duration: 2.5, color: "#16a34a" },
+                        { activity: "Rest", start: "18:45", end: "19:40", duration: 0.917, color: "#3b82f6" },
+                        { activity: "Gaming", start: "19:40", end: "23:00", duration: 3.333, color: "#9333ea" },
+                        { activity: "Work", start: "23:00", end: "1:30", duration: 2.5, color: "#16a34a" }
+                    ]
+                }
+            }
+        };
+
+        // Current schedule
+        let currentSchedule = 'workday';
+        let restColor = "#3b82f6";
+        let workColor = "#16a34a";
+        let gamingColor = "#9333ea";
+        let isMuted = false;
+        let currentSegmentIndex = -1;
+        let alertTimeout = null;
+        let countdownInterval = null;
+        let stageCheckInterval = null;
+
+        // DOM elements
+        const workdayBtn = document.getElementById('workdayBtn');
+        const restdayBtn = document.getElementById('restdayBtn');
+        const period1Title = document.getElementById('period1Title');
+        const period2Title = document.getElementById('period2Title');
+        const chart1 = document.getElementById('chart1');
+        const chart2 = document.getElementById('chart2');
+        const legend1 = document.getElementById('legend1');
+        const legend2 = document.getElementById('legend2');
+        const scheduleName = document.getElementById('scheduleName');
+        const scheduleTable = document.getElementById('scheduleTable');
+        const summaryStats = document.getElementById('summaryStats');
+        const restColorInput = document.getElementById('restColor');
+        const workColorInput = document.getElementById('workColor');
+        const gamingColorInput = document.getElementById('gamingColor');
+
+        // Hover display elements
+        const segmentHover1 = document.getElementById('segmentHover1');
+        const segmentActivity1 = document.getElementById('segmentActivity1');
+        const segmentInterval1 = document.getElementById('segmentInterval1');
+        const segmentHover2 = document.getElementById('segmentHover2');
+        const segmentActivity2 = document.getElementById('segmentActivity2');
+        const segmentInterval2 = document.getElementById('segmentInterval2');
+
+        // Hidden hover window elements
+        const hiddenHoverWindow = document.getElementById('hiddenHoverWindow');
+        const hoverWindowInterval = document.getElementById('hoverWindowInterval');
+        const hoverWindowActivity = document.getElementById('hoverWindowActivity');
+        const hoverWindowDuration = document.getElementById('hoverWindowDuration');
+        const closeHoverWindow = document.getElementById('closeHoverWindow');
+
+        // Alert elements
+        const stageAlert = document.getElementById('stageAlert');
+        const alertContent = document.getElementById('alertContent');
+        const alertActivity = document.getElementById('alertActivity');
+        const alertInterval = document.getElementById('alertInterval');
+        const alertCountdown = document.getElementById('alertCountdown');
+        const countdownTimer = document.getElementById('countdownTimer');
+        const closeAlertBtn = document.getElementById('closeAlertBtn');
+
+        // Notification elements
+        const stageNotification = document.getElementById('stageNotification');
+        const notificationActivity = document.getElementById('notificationActivity');
+        const notificationInterval = document.getElementById('notificationInterval');
+        const notificationIcon = document.getElementById('notificationIcon');
+
+        // Mute toggle
+        const muteToggle = document.getElementById('muteToggle');
+        const muteIcon = document.getElementById('muteIcon');
+
+        // Next stage countdown
+        const nextStageCountdown = document.getElementById('nextStageCountdown');
+        const nextStageTime = document.getElementById('nextStageTime');
+
+        // Canvas contexts
+        const ctx1 = chart1.getContext('2d');
+        const ctx2 = chart2.getContext('2d');
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFromLocalStorage();
+            setupEventListeners();
+            renderSchedule();
+            startStageMonitoring();
+            setupCanvasHover();
+        });
+
+        // Set up event listeners
+        function setupEventListeners() {
+            workdayBtn.addEventListener('click', function() {
+                currentSchedule = 'workday';
+                workdayBtn.classList.add('active');
+                restdayBtn.classList.remove('active');
+                renderSchedule();
+                saveToLocalStorage();
+            });
+
+            restdayBtn.addEventListener('click', function() {
+                currentSchedule = 'restday';
+                restdayBtn.classList.add('active');
+                workdayBtn.classList.remove('active');
+                renderSchedule();
+                saveToLocalStorage();
+            });
+
+            restColorInput.addEventListener('input', function() {
+                restColor = this.value;
+                updateColorsInSchedule();
+                renderSchedule();
+                saveToLocalStorage();
+            });
+
+            workColorInput.addEventListener('input', function() {
+                workColor = this.value;
+                updateColorsInSchedule();
+                renderSchedule();
+                saveToLocalStorage();
+            });
+
+            gamingColorInput.addEventListener('input', function() {
+                gamingColor = this.value;
+                updateColorsInSchedule();
+                renderSchedule();
+                saveToLocalStorage();
+            });
+
+            closeHoverWindow.addEventListener('click', function() {
+                hiddenHoverWindow.classList.remove('active');
+            });
+
+            closeAlertBtn.addEventListener('click', function() {
+                closeStageAlert();
+            });
+
+            muteToggle.addEventListener('click', function() {
+                isMuted = !isMuted;
+                muteToggle.classList.toggle('muted', isMuted);
+                muteIcon.textContent = isMuted ? '🔕' : '🔔';
+                saveToLocalStorage();
+            });
+
+            // Close alert when clicking outside
+            stageAlert.addEventListener('click', function(e) {
+                if (e.target === stageAlert) {
+                    closeStageAlert();
+                }
+            });
+
+            // Close hidden window when clicking outside
+            hiddenHoverWindow.addEventListener('click', function(e) {
+                if (e.target === hiddenHoverWindow) {
+                    hiddenHoverWindow.classList.remove('active');
+                }
+            });
+        }
+
+        // Set up canvas hover detection
+        function setupCanvasHover() {
+            [chart1, chart2].forEach((canvas, index) => {
+                canvas.addEventListener('mousemove', function(e) {
+                    handleCanvasHover(e, canvas, index);
+                });
+
+                canvas.addEventListener('mouseleave', function() {
+                    if (index === 0) {
+                        segmentHover1.classList.remove('show');
+                    } else {
+                        segmentHover2.classList.remove('show');
+                    }
+                });
+
+                canvas.addEventListener('click', function(e) {
+                    handleCanvasClick(e, canvas, index);
+                });
+            });
+        }
+
+        // Handle canvas hover
+        function handleCanvasHover(event, canvas, periodIndex) {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            const segment = getSegmentAtPoint(canvas, periodIndex, x, y);
+
+            if (segment) {
+                const schedule = schedules[currentSchedule];
+                const period = periodIndex === 0 ? schedule.period1 : schedule.period2;
+                const segmentData = period.segments[segment.index];
+
+                // Update the small hover display
+                if (periodIndex === 0) {
+                    segmentActivity1.textContent = segmentData.activity;
+                    segmentInterval1.textContent = `${segmentData.start} - ${segmentData.end}`;
+                    segmentHover1.classList.add('show');
+                } else {
+                    segmentActivity2.textContent = segmentData.activity;
+                    segmentInterval2.textContent = `${segmentData.start} - ${segmentData.end}`;
+                    segmentHover2.classList.add('show');
+                }
+            } else {
+                if (periodIndex === 0) {
+                    segmentHover1.classList.remove('show');
+                } else {
+                    segmentHover2.classList.remove('show');
+                }
+            }
+        }
+
+        // Handle canvas click (for hidden window)
+        function handleCanvasClick(event, canvas, periodIndex) {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            const segment = getSegmentAtPoint(canvas, periodIndex, x, y);
+
+            if (segment) {
+                const schedule = schedules[currentSchedule];
+                const period = periodIndex === 0 ? schedule.period1 : schedule.period2;
+                const segmentData = period.segments[segment.index];
+
+                // Show hidden window with details
+                hoverWindowInterval.textContent = `${segmentData.start} - ${segmentData.end}`;
+                hoverWindowActivity.textContent = segmentData.activity;
+                hoverWindowActivity.className = `hover-window-activity ${segmentData.activity.toLowerCase()}`;
+
+                // Format duration
+                const hours = Math.floor(segmentData.duration);
+                const minutes = Math.round((segmentData.duration - hours) * 60);
+                let durationText = "";
+                if (hours > 0) durationText += `${hours} hour${hours > 1 ? 's' : ''}`;
+                if (minutes > 0) {
+                    if (hours > 0) durationText += " ";
+                    durationText += `${minutes} minute${minutes > 1 ? 's' : ''}`;
+                }
+                hoverWindowDuration.textContent = `Duration: ${durationText}`;
+
+                hiddenHoverWindow.classList.add('active');
+            }
+        }
+
+        // Get segment at point
+        function getSegmentAtPoint(canvas, periodIndex, x, y) {
+            const width = canvas.width;
+            const height = canvas.height;
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const radius = Math.min(centerX, centerY) - 10;
+
+            const dx = x - centerX;
+            const dy = y - centerY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance > radius) return null;
+
+            let angle = Math.atan2(dy, dx);
+            if (angle < 0) angle += 2 * Math.PI;
+            angle = (angle + Math.PI / 2) % (2 * Math.PI); // Rotate so 0 is at top
+
+            const schedule = schedules[currentSchedule];
+            const period = periodIndex === 0 ? schedule.period1 : schedule.period2;
+
+            let startAngle = 0;
+            for (let i = 0; i < period.segments.length; i++) {
+                const segment = period.segments[i];
+                const sliceAngle = (segment.duration / 12) * 2 * Math.PI;
+                const endAngle = startAngle + sliceAngle;
+
+                if (angle >= startAngle && angle <= endAngle) {
+                    return { index: i, startAngle, endAngle };
+                }
+
+                startAngle = endAngle;
+            }
+
+            return null;
+        }
+
+        // Update colors in schedule
+        function updateColorsInSchedule() {
+            const schedule = schedules[currentSchedule];
+
+            schedule.period1.segments.forEach(segment => {
+                if (segment.activity === "Rest") segment.color = restColor;
+                else if (segment.activity === "Work") segment.color = workColor;
+                else if (segment.activity === "Gaming") segment.color = gamingColor;
+            });
+
+            schedule.period2.segments.forEach(segment => {
+                if (segment.activity === "Rest") segment.color = restColor;
+                else if (segment.activity === "Work") segment.color = workColor;
+                else if (segment.activity === "Gaming") segment.color = gamingColor;
+            });
+        }
+
+        // Create gaming pattern
+        function createGamingPattern(ctx, color1, color2) {
+            const patternCanvas = document.createElement('canvas');
+            const patternCtx = patternCanvas.getContext('2d');
+
+            patternCanvas.width = 60;
+            patternCanvas.height = 60;
+
+            patternCtx.fillStyle = color1;
+            patternCtx.fillRect(0, 0, 60, 60);
+
+            patternCtx.strokeStyle = color2;
+            patternCtx.lineWidth = 15;
+            patternCtx.beginPath();
+
+            for (let i = -60; i < 60; i += 30) {
+                patternCtx.moveTo(i, 0);
+                patternCtx.lineTo(i + 60, 60);
+            }
+
+            patternCtx.stroke();
+
+            return ctx.createPattern(patternCanvas, 'repeat');
+        }
+
+        // Render schedule
+        function renderSchedule() {
+            const schedule = schedules[currentSchedule];
+
+            scheduleName.textContent = schedule.name;
+            period1Title.textContent = schedule.period1.title;
+            period2Title.textContent = schedule.period2.title;
+
+            drawPieChart(ctx1, schedule.period1.segments, chart1.width, chart1.height);
+            drawPieChart(ctx2, schedule.period2.segments, chart2.width, chart2.height);
+
+            updateLegend(legend1, schedule.period1.segments);
+            updateLegend(legend2, schedule.period2.segments);
+
+            updateScheduleTable(schedule);
+            updateSummaryStats(schedule);
+        }
+
+        // Draw pie chart
+        function drawPieChart(ctx, segments, width, height) {
+            ctx.clearRect(0, 0, width, height);
+
+            const totalDuration = segments.reduce((sum, segment) => sum + segment.duration, 0);
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const radius = Math.min(centerX, centerY) - 15;
+            let startAngle = -Math.PI / 2;
+
+            segments.forEach(segment => {
+                const sliceAngle = (segment.duration / totalDuration) * 2 * Math.PI;
+                const endAngle = startAngle + sliceAngle;
+
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+                ctx.closePath();
+
+                if (segment.activity === "Gaming") {
+                    const pattern = createGamingPattern(ctx, gamingColor, workColor);
+                    ctx.fillStyle = pattern;
+                } else {
+                    ctx.fillStyle = segment.color;
+                }
+
+                ctx.fill();
+
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = "#0f172a";
+                ctx.stroke();
+
+                startAngle = endAngle;
+            });
+        }
+
+        // Update legend
+        function updateLegend(legendElement, segments) {
+            const activities = [];
+            segments.forEach(segment => {
+                if (!activities.find(a => a.activity === segment.activity)) {
+                    activities.push({
+                        activity: segment.activity,
+                        color: segment.color,
+                        duration: segments
+                            .filter(s => s.activity === segment.activity)
+                            .reduce((sum, s) => sum + s.duration, 0)
+                    });
+                }
+            });
+
+            legendElement.innerHTML = activities.map(activity => {
+                const hours = Math.floor(activity.duration);
+                const minutes = Math.round((activity.duration - hours) * 60);
+                let durationText = "";
+
+                if (hours > 0) durationText += hours + "h";
+                if (minutes > 0) {
+                    if (hours > 0) durationText += " ";
+                    durationText += minutes + "m";
+                }
+
+                if (activity.activity === "Gaming") {
+                    return `
+                        <div class="legend-item" data-activity="gaming">
+                            <div class="legend-pattern" style="background-color: ${gamingColor}; background-image: repeating-linear-gradient(45deg, ${workColor}, ${workColor} 15px, transparent 15px, transparent 30px);"></div>
+                            <span>${activity.activity}: ${durationText}</span>
+                        </div>
+                    `;
+                } else {
+                    return `
+                        <div class="legend-item" data-activity="${activity.activity.toLowerCase()}">
+                            <div class="legend-color" style="background-color: ${activity.color};"></div>
+                            <span>${activity.activity}: ${durationText}</span>
+                        </div>
+                    `;
+                }
+            }).join('');
+        }
+
+        // Update schedule table
+        function updateScheduleTable(schedule) {
+            const allSegments = [...schedule.period1.segments, ...schedule.period2.segments];
+
+            allSegments.sort((a, b) => {
+                const timeToMinutes = (timeStr) => {
+                    const [hours, minutes] = timeStr.split(':').map(Number);
+                    return hours * 60 + minutes;
+                };
+
+                return timeToMinutes(a.start) - timeToMinutes(b.start);
+            });
+
+            let tableHTML = `
+                <thead>
+                    <tr>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Activity</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+            `;
+
+            allSegments.forEach(segment => {
+                const hours = Math.floor(segment.duration);
+                const minutes = Math.round((segment.duration - hours) * 60);
+                let durationText = "";
+
+                if (hours > 0) durationText += hours + "h";
+                if (minutes > 0) {
+                    if (hours > 0) durationText += " ";
+                    durationText += minutes + "m";
+                }
+
+                tableHTML += `
+                    <tr>
+                        <td>${segment.start}</td>
+                        <td>${segment.end}</td>
+                        <td><span class="activity-cell ${segment.activity.toLowerCase()}">${segment.activity}</span></td>
+                        <td>${durationText}</td>
+                    </tr>
+                `;
+            });
+
+            tableHTML += '</tbody>';
+            scheduleTable.innerHTML = tableHTML;
+        }
+
+        // Update summary stats
+        function updateSummaryStats(schedule) {
+            const allSegments = [...schedule.period1.segments, ...schedule.period2.segments];
+
+            const restTotal = allSegments
+                .filter(segment => segment.activity === "Rest")
+                .reduce((sum, segment) => sum + segment.duration, 0);
+
+            const workTotal = allSegments
+                .filter(segment => segment.activity === "Work")
+                .reduce((sum, segment) => sum + segment.duration, 0);
+
+            const gamingTotal = allSegments
+                .filter(segment => segment.activity === "Gaming")
+                .reduce((sum, segment) => sum + segment.duration, 0);
+
+            const formatTime = (hours) => {
+                const h = Math.floor(hours);
+                const m = Math.round((hours - h) * 60);
+                let result = "";
+                if (h > 0) result += h + "h";
+                if (m > 0) {
+                    if (h > 0) result += " ";
+                    result += m + "m";
+                }
+                return result;
+            };
+
+            const totalHours = 24;
+            const restPercent = (restTotal / totalHours) * 100;
+            const workPercent = (workTotal / totalHours) * 100;
+            const gamingPercent = (gamingTotal / totalHours) * 100;
+
+            summaryStats.innerHTML = `
+                <div class="summary-item">
+                    <div class="summary-title">Total Rest Time</div>
+                    <div class="summary-value rest">${formatTime(restTotal)}</div>
+                    <div class="time-progress">
+                        <div class="time-progress-fill progress-rest" style="width: ${restPercent}%"></div>
+                    </div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-title">Total Work Time</div>
+                    <div class="summary-value work">${formatTime(workTotal)}</div>
+                    <div class="time-progress">
+                        <div class="time-progress-fill progress-work" style="width: ${workPercent}%"></div>
+                    </div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-title">Total Gaming Time</div>
+                    <div class="summary-value gaming">${formatTime(gamingTotal)}</div>
+                    <div class="time-progress">
+                        <div class="time-progress-fill progress-gaming" style="width: ${gamingPercent}%"></div>
+                    </div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-title">Total Active Time</div>
+                    <div class="summary-value">${formatTime(workTotal + gamingTotal)}</div>
+                    <div class="time-progress">
+                        <div class="time-progress-fill progress-work" style="width: ${((workTotal + gamingTotal) / totalHours) * 100}%"></div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Start stage monitoring
+        function startStageMonitoring() {
+            // Check immediately
+            checkCurrentStage();
+
+            // Check every second
+            stageCheckInterval = setInterval(checkCurrentStage, 1000);
+        }
+
+        // Check current stage
+        function checkCurrentStage() {
+            const now = new Date();
+            const currentHours = now.getHours();
+            const currentMinutes = now.getMinutes();
+            const currentTimeInMinutes = currentHours * 60 + currentMinutes;
+
+            const schedule = schedules[currentSchedule];
+            const allSegments = [...schedule.period1.segments, ...schedule.period2.segments];
+
+            // Find current segment
+            let foundSegment = null;
+            let nextSegment = null;
+
+            for (let i = 0; i < allSegments.length; i++) {
+                const segment = allSegments[i];
+                const startMinutes = timeToMinutes(segment.start);
+                const endMinutes = timeToMinutes(segment.end);
+
+                let isCurrent = false;
+
+                if (endMinutes > startMinutes) {
+                    isCurrent = currentTimeInMinutes >= startMinutes && currentTimeInMinutes < endMinutes;
+                } else {
+                    isCurrent = currentTimeInMinutes >= startMinutes || currentTimeInMinutes < endMinutes;
+                }
+
+                if (isCurrent) {
+                    foundSegment = {
+                        ...segment,
+                        index: i
+                    };
+
+                    nextSegment = allSegments[(i + 1) % allSegments.length];
+                    break;
+                }
+            }
+
+            // Update next stage countdown
+            if (foundSegment && nextSegment) {
+                const nextStartMinutes = timeToMinutes(nextSegment.start);
+                let minutesUntilNext = 0;
+
+                if (nextStartMinutes > currentTimeInMinutes) {
+                    minutesUntilNext = nextStartMinutes - currentTimeInMinutes;
+                } else {
+                    minutesUntilNext = (24 * 60 - currentTimeInMinutes) + nextStartMinutes;
+                }
+
+                const hoursUntilNext = Math.floor(minutesUntilNext / 60);
+                const minsUntilNext = minutesUntilNext % 60;
+
+                let nextTimeText = "";
+                if (hoursUntilNext > 0) nextTimeText += `${hoursUntilNext}h `;
+                nextTimeText += `${minsUntilNext}m`;
+                nextStageTime.textContent = nextTimeText;
+
+                // Check if this is a new segment (stage change)
+                if (foundSegment.index !== currentSegmentIndex) {
+                    currentSegmentIndex = foundSegment.index;
+                    showStageAlert(foundSegment);
+
+                    // Also show small notification
+                    showStageNotification(foundSegment);
+                }
+            }
+        }
+
+        // Show stage alert
+        function showStageAlert(segment) {
+            // Clear any existing timeout/interval
+            if (alertTimeout) clearTimeout(alertTimeout);
+            if (countdownInterval) clearInterval(countdownInterval);
+
+            // Update alert content
+            alertActivity.textContent = segment.activity.toUpperCase();
+            alertActivity.className = `alert-activity ${segment.activity.toLowerCase()}`;
+            alertInterval.textContent = `${segment.start} - ${segment.end}`;
+
+            // Update alert style
+            alertContent.className = `alert-content alert-${segment.activity.toLowerCase()}`;
+
+            // Reset countdown
+            let countdown = 5;
+            countdownTimer.textContent = countdown;
+
+            // Show alert
+            stageAlert.classList.add('active');
+
+            // Play sound if not muted
+            if (!isMuted) {
+                playAlertSound();
+            }
+
+            // Start countdown
+            countdownInterval = setInterval(() => {
+                countdown--;
+                countdownTimer.textContent = countdown;
+
+                if (countdown <= 0) {
+                    closeStageAlert();
+                }
+            }, 1000);
+
+            // Auto-close after 5 seconds
+            alertTimeout = setTimeout(() => {
+                closeStageAlert();
+            }, 5000);
+        }
+
+        // Close stage alert
+        function closeStageAlert() {
+            stageAlert.classList.remove('active');
+            if (alertTimeout) clearTimeout(alertTimeout);
+            if (countdownInterval) clearInterval(countdownInterval);
+        }
+
+        // Show stage notification
+        function showStageNotification(segment) {
+            notificationActivity.textContent = `${segment.activity} Stage`;
+            notificationInterval.textContent = `${segment.start} - ${segment.end}`;
+
+            // Set icon based on activity
+            let icon = "⏰";
+            if (segment.activity === "Rest") icon = "😴";
+            else if (segment.activity === "Work") icon = "💼";
+            else if (segment.activity === "Gaming") icon = "🎮";
+
+            notificationIcon.textContent = icon;
+
+            // Set notification style
+            stageNotification.className = `stage-notification active notification-${segment.activity.toLowerCase()}`;
+
+            // Auto hide after 3 seconds
+            setTimeout(() => {
+                stageNotification.classList.remove('active');
+            }, 3000);
+        }
+
+        // Play alert sound
+        function playAlertSound() {
+            // Create audio context for simple beep
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                oscillator.frequency.value = 800;
+                oscillator.type = 'sine';
+
+                gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            } catch (e) {
+                console.log("Audio not supported");
+            }
+        }
+
+        // Helper functions
+        function timeToMinutes(timeStr) {
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            return hours * 60 + minutes;
+        }
+
+        // Save to localStorage
+        function saveToLocalStorage() {
+            const saveData = {
+                restColor: restColor,
+                workColor: workColor,
+                gamingColor: gamingColor,
+                currentSchedule: currentSchedule,
+                isMuted: isMuted
+            };
+            localStorage.setItem('polyphasicScheduleData', JSON.stringify(saveData));
+        }
+
+        // Load from localStorage
+        function loadFromLocalStorage() {
+            const saved = localStorage.getItem('polyphasicScheduleData');
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    restColor = parsed.restColor || "#3b82f6";
+                    workColor = parsed.workColor || "#16a34a";
+                    gamingColor = parsed.gamingColor || "#9333ea";
+                    currentSchedule = parsed.currentSchedule || "workday";
+                    isMuted = parsed.isMuted || false;
+
+                    restColorInput.value = restColor;
+                    workColorInput.value = workColor;
+                    gamingColorInput.value = gamingColor;
+
+                    if (currentSchedule === 'workday') {
+                        workdayBtn.classList.add('active');
+                        restdayBtn.classList.remove('active');
+                    } else {
+                        restdayBtn.classList.add('active');
+                        workdayBtn.classList.remove('active');
+                    }
+
+                    muteToggle.classList.toggle('muted', isMuted);
+                    muteIcon.textContent = isMuted ? '🔕' : '🔔';
+
+                    updateColorsInSchedule();
+                } catch (e) {
+                    console.log("Error loading saved data:", e);
+                }
+            }
+        }
+    </script>
+
+    <!-- Page-local defensive stubs (auto-inserted) -->
+    <script>
+    (function(){
+      if (window.__pageLocalStubsInserted) return; window.__pageLocalStubsInserted = true;
+      const makeNoop = (name) => { if (!window[name]) window[name] = function(){ console.warn('stubbed', name, arguments); }; };
+      const names = [
+        'toggleDebugPanel','refreshDebugInfo','clearDebugData','toggleStatusOverview','toggleWindow',
+        'startZoom','stopZoom','resetZoom','zoomInText','zoomOutText','resetZoomText','cycleLayout','slideExample',
+        'switchMode','clearSelectedFile','loadSelectedFile','clearAllFiles','loadWebURL','openSelectedFiles','removeSelectedFiles',
+        'openFileInNewTab','removeSingleFile','togglePasswordVisibility','checkPassword','closeMonitor','logout','openMonitor',
+        'openDebugPanel','showSetupInstructions','startEmbeddedServer','exportAllData','testAllConnections','generateReport',
+        'exportTrackingLogs','showServerConsole','switchTab','toggleFavorite','copyToClipboard','toggleNewWindow','scrollToTop',
+        'showShortcuts','closeAllWindows','copyAllLinks','watchStart','watchStop','confirmReset','addLap','filterPortal','searchPortal'
+      ];
+      names.forEach(n=>{ try{ if(!n.includes('.')) makeNoop(n); }catch(e){} });
+      if(!window.DebugSystem) {
+        window.DebugSystem = new Proxy({}, { get: (t,p)=> { if(!(p in t)) t[p]=function(){ console.warn('DebugSystem stub',p); }; return t[p]; } });
+      }
+    })();
+    </script>
+</body>
+</html>

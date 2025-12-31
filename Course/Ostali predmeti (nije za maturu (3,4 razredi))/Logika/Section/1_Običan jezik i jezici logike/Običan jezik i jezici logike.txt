@@ -1,0 +1,848 @@
+<h2>Rečenica i sud</h2>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Boje
+<p class="zoomable-text">
+                - Sud je istinita ili neistinita veza pojmova kojom se misli (tvrdi ili ustanovljava) neko stanje stvari.<br>
+                - Osnovni se sudovi sastoje od pojmova i imaju svoju nedjeljivu strukturu. <br>
+                - svako povezivanje pojmova ne čini sud (povezujemo ih tako da sud može biti istinit ili neistinit)
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Sud i rečenica
+ <p>
+                - Veza pojmova izražava se izjavnim rečenicama <br>
+                - <i>„Zagreb je glavni grad Hrvatske.“</i> (ima navedeno svojstvo i može biti istinite ili neistinite) <br>
+                - isključne rečenice kojima se ne izriču zapovijedi također je sud <br>
+                - <i>„Počela je škola!“</i> (izražava uvjerenje o početku školske godine (ima svojstvo istinitosti ili neistinitosti (ovisno o činjeničnom stanju)))
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Istinitost izjavnih rečenica
+<p>
+                - Istinitost nekih izjavnih rečenica ovisi o kontekstu izrečenoga. <br>
+                <i>- „Svima želim dobar dan.“</i>(može se tumačiti kao rečenica koja ima svojstvo istinitosne provjerljivosti ili može biti istinita ili neistinita ovisno o iskrenosti ili neiskrenosti onoga tko ju je izjavio ili ne mora biti uopće sud)<br>
+                - Međusobno, Rečenice <i>„Knjige se često posuđuju.“</i> i <i>„Knjige su često posuđivane.“</i> ili rečenice <i>„Pada kiša.“</i>/<i>„It’s raining.“</i> i <i>„Es regnet.“</i> tvrde isto stanje stvari iako se razlikuju.<br>
+                - Rečenica „Svaki pas voli kada mu netko baca lopticu.“ može značiti da svaki pas voli kada se netko igra s njim tako da njemu dobacuje lopticu ili svaki pas voli da netko negdje naprosto baca njegovu lopticu neovisno igra li se s njim ili ne.<br>
+                - Sudovi nisu istovjetni izjavnim rečenicama.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Običan jezik i jezik logike
+---------------------------------------------------------------------------------------------------------------------------------------------------
+prirodni i formalni jezici i jezik logike
+ <p>
+                - prirodni jezik
+                &nbsp;&nbsp;&nbsp;&nbsp; - jezik koji ljudi uče od rođenja i koriste za svoju komunikaciju te na njemu razmišljaju
+                &nbsp;&nbsp;&nbsp;&nbsp; - Kada kažemo „Udala se i preselila u Split.“ pretpostavljamo da se osoba o kojoj je riječ prvo udala, a zatim preselila u Split, dok je obratan slučaj u sudu „Preselila se u Split i udala.“ 
+                &nbsp;&nbsp;&nbsp;&nbsp; - to mogu biti hrvatski, engleski ili neki drugi poznat nam jezik
+                - formalni jezik
+                &nbsp;&nbsp;&nbsp;&nbsp; jezici umjetno stvoreni za davanje naredbi ili sporazumijevanju
+                &nbsp;&nbsp;&nbsp;&nbsp; - pripadaju programski jezici (C-a, Pythona, esperanta, klingonskog, ...)
+                &nbsp;&nbsp;&nbsp;&nbsp; - Tu pripada i jezik logike jer se koristi za preciznije izražavanje rečenica običnoga jezika.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Jedna je od glavnih svrha jednoznačnost (jednom izrazu pridružuje točno jedan sadržaj kako bi se znalo o čemu se govori) 
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Veznici
+<p>
+                - Uloga veznika
+                &nbsp;&nbsp;&nbsp;&nbsp; Udala se i preselila u Split. i Preselila se u Split i udala.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - u običnome jeziku prihvatljivo je da prethodne dvije rečenice imaju različito značenje te je u redu ukoliko veznik povezuje pojmove (Iva i Jakov se vole)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - jezik logike zbog jednoznačnosti stavlja veznike da uvijek znači isto, u kojem se god sudu nalazio.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Ne uzima se u obzir kronološko (ili kakvo drugo) obilježje za razumijevanje značenja nekih rečenica u kojima se veznik pojavljuje. 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Zagreb je glavni grad Republike Hrvatske i ima oko 800000800000 stanovnika. i Zagreb ima oko 800000800000 stanovnika i glavni je grad Republike Hrvatske.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; svejedno je koji je poredak surečenica jer rečenice znače isto.  
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Logika sudova
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Prijevodi izjavnih i uskličnih rečenica na logiku sudova
+ <p>
+                - U logici sudova postoje dvije vrste sudova, jednostavni i složeni. 
+                &nbsp;&nbsp;&nbsp;&nbsp; - Jednostavni sudovi izražavaju neke jednostavne činjenice o svijetu te se zapisuju velikim slovima latiničnog pisma s obzirom na asocijaciju rečenice.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Na primjer:„Pada kiša. (PP)“ ili „Marko kasni. (KK)“
+                &nbsp;&nbsp;&nbsp;&nbsp; - Složeni sud sastavljen je od dvaju ili više jednostavnih sudova povezanih veznicima.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Marko će kasniti i Ana će otići bez njega. Ako Marko bude kasnio, Ana će otići bez njega. Marko neće kasniti ili će Ana otići bez njega.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+ Konjunkcija
+ <p>
+                - Osnovni veznici i negacija sudova te simboli njihovi
+                &nbsp;&nbsp;&nbsp;&nbsp; i, a, ali, pa, iako, već.:∧
+                &nbsp;&nbsp;&nbsp;&nbsp; ∙ako:→
+                &nbsp;&nbsp;&nbsp;&nbsp; ∙ne:¬
+                &nbsp;&nbsp;&nbsp;&nbsp; ∙ili:∨
+                &nbsp;&nbsp;&nbsp;&nbsp; ∙ako i samo ako:↔
+                - konjunkcija
+                &nbsp;&nbsp;&nbsp;&nbsp; svi veznici koji čine složeni sud istinitim ako su svi jednostavni sudovi (konjunkti) istiniti
+                &nbsp;&nbsp;&nbsp;&nbsp; Sud „Marko kasni i Ana je tužna.“ zapisujemo K∧T.
+                <table>
+                  <!--ISTINITOSNA TABLICA ZA KONJUNKCIJU-->
+                  <tr>
+                    <th>P</th>
+                    <th>∧</th>
+                    <th>Q</th>
+                  </tr>
+                  <tr>
+                    <td>I</td>
+                    <td>I</td>
+                    <td>I</td>
+                  </tr>
+                  <tr>
+                    <td>I</td>
+                    <td>N</td>
+                    <td>N</td>
+                  </tr>
+                  <tr>
+                    <td>N</td>
+                    <td>N</td>
+                    <td>I</td>
+                  </tr>
+                </table>
+                - Određivanje broja redaka
+                &nbsp;&nbsp;&nbsp;&nbsp; Za broj jednostavnih sudova n tablica ima 2<sup>n</sup> redaka
+                &nbsp;&nbsp;&nbsp;&nbsp; Ako imamo tri jednostavna suda, odnosno složeni sud:Marko kasni, Ana je tužna i pas cvili. (tri jednostavna suda)
+                &nbsp;&nbsp;&nbsp;&nbsp; (K∧T)∧C(K∧T)∧C ili K∧(T∧C)K∧(T∧C)istinitosna će tablica imati osam redaka. 
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Simboli za istinitost i neistinitost
+<p>
+                - pojam istinitosti (određuje je li sud istinit)
+                &nbsp;&nbsp;&nbsp;&nbsp; Marko kasni i Ana je tužna.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sud je istinit ako je istinito da Marko kasni i također da je Ana tužna. 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ako je samo jedan od tih dvaju jednostavnih sudova istinit ili ako nijedan nije istinit, tada cijeli složeni sud nije istinit. 
+                &nbsp;&nbsp;&nbsp;&nbsp; - Simbol za istinitost (I, ⊤ ili 1)i neistinitost (N, ⊥ ili 0)
+                - Slučajevi kada je sud istinit ili neistinit nazivamo istinitosnim vrijednostima. 
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Negacija suda
+<p>
+                - Negacija jednostavnog suda 
+                &nbsp;&nbsp;&nbsp;&nbsp; „Pas cvili.“ Pas ne cvili. (¬C)
+                <table>
+                  <!--ISTINITOSNA TABLICA ZA NEGACIJU-->
+                  <tr>
+                    <th>P</th>
+                    <th>¬P</th>
+                  </tr>
+                  <tr>
+                    <td>I</td>
+                    <td>N</td>
+                  </tr>
+                  <tr>
+                    <td>N</td>
+                    <td>I</td>
+                  </tr>
+                </table>
+                negacija složenog suda
+                &nbsp;&nbsp;&nbsp;&nbsp; Nije istina da Bruno puno uči i malo spava (¬(U∧S))
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; negacija glavni veznik jer se odnosi na cijelu zagradu, stoga se prvo određuju istinitosne vrijednosti konjunkcije koja se nalazi unutar zagrade, nakon čega se one negiraju kako bi se dobile istinitosne vrijednosti negacije
+                <table>
+                  <!--ISTINITOSNA TABLICA ZA NEGACIJU-->
+                  <tr>
+                    <th>¬</th>
+                    <th>(U</th>
+                    <th>∧</th>
+                    <th>S)</th>
+                  </tr>
+                  <tr>
+                    <td>N</td>
+                    <td>I</td>
+                    <td>I</td>
+                    <td>I</td>
+                  </tr>
+                  <tr>
+                    <td>I</td>
+                    <td>I</td>
+                    <td>N</td>
+                    <td>N</td>
+                  </tr>
+                  <tr>
+                    <td>I</td>
+                    <td>N</td>
+                    <td>N</td>
+                    <td>I</td>
+                  </tr>
+                  <tr>
+                    <td>I</td>
+                    <td>N</td>
+                    <td>N</td>
+                    <td>N</td>
+                  </tr>
+                </table>
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Disjunkcija (logičko ili)
+ <p>
+                - Uključna/inkluzivna Disjunkcija
+                &nbsp;&nbsp;&nbsp;&nbsp; Veznik koji čini složeni sud istinitim ukoliko je barem jedan Jednostavni sud (disjunkt) istninit 
+                &nbsp;&nbsp;&nbsp;&nbsp; „Želiš li kavu ili sok?“ (očekujemo odabir jednog od ponuđenog iako se oba napitaka mogu odabrati). 
+                &nbsp;&nbsp;&nbsp;&nbsp; "Ljeto će mi biti uspješno ako odem na more ili kod prijatelja u Švicarsku" (ljeto će biti uspješno i u slučaju istinitosti obaju disjunkta ili jednog od njih)
+                <table>
+                  <!--Istinitosna tablica za uključnu disjunkciju-->
+                  <tr>
+                    <th>P</th>
+                    <th>∧</th>
+                    <th>Q</th>
+                  </tr>
+                  <tr>
+                    <td>I</td>
+                    <td>I</td>
+                    <td>I</td>
+                  </tr>
+                  <tr>
+                    <td>I</td>
+                    <td>I</td>
+                    <td>N</td>
+                  </tr>
+                  <tr>
+                    <td>N</td>
+                    <td>I</td>
+                    <td>I</td>
+                  </tr>
+                  <tr>
+                    <td>N</td>
+                    <td>N</td>
+                    <td>N</td>
+                  </tr>
+                </table>
+                - isključna/ekskluzivna disjunkcija 
+                &nbsp;&nbsp;&nbsp;&nbsp; zapisuje se kao ⊻.
+                &nbsp;&nbsp;&nbsp;&nbsp; Učenici mogu izabrati ili kolač ili puding. (učenici ne mogu izabrati dva deserta (u tom je slučaju disjunkcija neistinita))
+                <table>
+                  <!--Istinitosna tablica za isključnu disjunkciju-->
+                  <tr>
+                    <th>P</th>
+                    <th>⊻</th>
+                    <th>Q</th>
+                  </tr>
+                  <tr>
+                    <td>I</td>
+                    <td>N</td>
+                    <td>I</td>
+                  </tr>
+                  <tr>
+                    <td>I</td>
+                    <td>I</td>
+                    <td>N</td>
+                  </tr>
+                  <tr>
+                    <td>N</td>
+                    <td>I</td>
+                    <td>I</td>
+                  </tr>
+                  <tr>
+                    <td>N</td>
+                    <td>N</td>
+                    <td>N</td>
+                  </tr>
+                </table>
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Implikacija
+<p>
+                - Implikacija, pogodba, kondicional
+                &nbsp;&nbsp;&nbsp;&nbsp; opisuje sud s logičkim veznikom ako
+                &nbsp;&nbsp;&nbsp;&nbsp; sud je istinit u svim slučajevima, osim kada je jednostavni sud kojem prethodi ako (antecedensom) istinit, a drugi jednostavni sud (konsekvensom) neistinit
+                &nbsp;&nbsp;&nbsp;&nbsp; pa antecedensu i konsekvensu ne možemo proizvoljno mijenjati mjesta u rečenici
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ako čitam puno knjiga, onda sam na ljetnim praznicima.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ako sam na ljetnim praznicima, onda čitam puno knjiga. (sudovi nisu međusobno ekvivalentni)
+                &nbsp;&nbsp;&nbsp;&nbsp; Primjer: Ako je prosinac, hladno je.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Implikacija je istinita u svim slučajevima osim kada je prosinac, a nije hladno.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1. nije prosinac i hladno je ili
+                &nbsp;&nbsp;&nbsp;&nbsp; moguće je raditi i imverzije moguću inverziju, pa se sljedeći sudovi prevode na jezik logike na jednak način:
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ako pada kiša, ulice su mokre.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ulice su mokre ako pada kiša. (K→M)
+                <table>
+                  <!--Istinitosna tablica za Implikaciju-->
+                  <tr>
+                    <th>P</th>
+                    <th>→</th>
+                    <th>Q</th>
+                  </tr>
+                  <tr>
+                    <td>I</td>
+                    <td>I</td>
+                    <td>I</td>
+                  </tr>
+                  <tr>
+                    <td>I</td>
+                    <td>N</td>
+                    <td>N</td>
+                  </tr>
+                  <tr>
+                    <td>N</td>
+                    <td>I</td>
+                    <td>I</td>
+                  </tr>
+                  <tr>
+                    <td>N</td>
+                    <td>I</td>
+                    <td>N</td>
+                  </tr>
+                </table>
+                - OBRNUTA IMPLIKACIJA
+                &nbsp;&nbsp;&nbsp;&nbsp; Ako imamo sudove PP i QQ, obrnuta implikacija ima smjer od QQ prema PP i glasi P←Q (Q samo ako P) 
+                &nbsp;&nbsp;&nbsp;&nbsp; neistinita je samo u slučaju kada je antecedens istinit, a konsekvens neistinit, samo je kod nje njihov redoslijed obrnut.
+                &nbsp;&nbsp;&nbsp;&nbsp; inverzija kod obrnute implikacije
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P→Q
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P implicira Q; ako P, onda Q; ako P, Q; Q ako P; P samo ako Q; P je dovoljan uvjet za QQ; QQ je nužan uvjet za P 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P←Q 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Q implicira P; samo ako P, onda Q; samo ako P, Q; Q samo ako P; Q je dovoljan uvjet za P; P je nužan uvjet za Q.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ¬Q→P
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P osim ako Q; P ako ne Q.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Ekvivalencija
+  <p>
+                - Ekvivalencija/ dvopogodba
+                &nbsp;&nbsp;&nbsp;&nbsp; Ako vrijedi implikacija u oba smjera (P implicira Q i Q implicira P)
+                &nbsp;&nbsp;&nbsp;&nbsp; konjunkcija dviju implikacija((P→Q)∧(Q→P))
+                &nbsp;&nbsp;&nbsp;&nbsp; obični jezik: P ako i samo ako Q; P je ekvivalentno Q, P je nužan i dovoljan uvjet za Q. 
+                &nbsp;&nbsp;&nbsp;&nbsp; istinita je kada su oba jednostavna suda istinita ili kada su oba jednostavna suda neistinita.
+                &nbsp;&nbsp;&nbsp;&nbsp; oznaka je ↔
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ako je trokut jednakostraničan, svi su mu kutovi jednaki (J→K)
+              </p>
+              <img src="Logika sudova_1.png">
+              <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sukladno istinitosnoj tablici za implikaciju J→K je neistinito samo u slučaju da je trokut jednakostraničan, a nisu mu svi kutovi jednaki. Međutim, ako trokut nije jednakostraničan, a svi su mu kutovi jednaki, J→KJ→K je prema istinitosnoj tablici istinito.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dakle, ovdje nam umjesto implikacije treba ekvivalencija: J↔K
+                <table>
+                  <!--Istinitosna tablica za Implikaciju-->
+                  <tr>
+                    <th>P</th>
+                    <th>↔</th>
+                    <th>Q</th>
+                  </tr>
+                  <tr>
+                    <td>I</td>
+                    <td>I</td>
+                    <td>I</td>
+                  </tr>
+                  <tr>
+                    <td>I</td>
+                    <td>N</td>
+                    <td>N</td>
+                  </tr>
+                  <tr>
+                    <td>N</td>
+                    <td>N</td>
+                    <td>I</td>
+                  </tr>
+                  <tr>
+                    <td>N</td>
+                    <td>I</td>
+                    <td>N</td>
+                  </tr>
+                </table>
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Formule
+ <p>
+                Formule (psf (pravilno sastavljene formule))
+                &nbsp;&nbsp;&nbsp;&nbsp;Svi sudovi pravilno zapisani logičkim jezikom 
+                &nbsp;&nbsp;&nbsp;&nbsp; Uvjeti pri sastavljanju logičkih formula:
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ∙ Formule označavamo velikim slovima (F, G, ...) 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ∙ Negacija formule jest pravilno sastavljena formula (ako je formula F pravilno sastavljena formula, onda je i njezina negacija (¬F) također).
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ∙ Ako su formule F i G pravilno sastavljene formule, onda su i F∧G, F∨G, F→G i F↔G (Ništa drugo nije pravilno sastavljena formula.)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ∙ Dvije se formule mogu povezati samo jednim veznikom, primjerice F∧G, dok F∧∨G nije pravilno sastavljena formula.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ∙ Više negacija može se nalaziti u nizu, primjerice ¬¬¬F, pri čemu se dvije negacije poništavaju
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ∙ Veznik se uvijek nalazi između formula, a negacija ispred.
+                &nbsp;&nbsp;&nbsp;&nbsp; Ako Lea uči, a Ana sluša glazbu, onda pada kiša. ((U∧S)→K)
+                &nbsp;&nbsp;&nbsp;&nbsp; Kada se složeni sud sastoji od triju ili više jednostavnih sudova, oni trebaju biti grupirani u zagrade kako bi se znalo koji je logički veznik glavni.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Logika prvog reda
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Konstante, varijable i predikati
+ <p>
+                - Logika prvog reda
+                &nbsp;&nbsp;&nbsp;&nbsp; Ukoliko želimo opisati predmete koji imaju određena svojstva ili stoje u određenim odnosima ("biti viši od'', ''biti logičar'', ''biti čovjek''), koristimo konstante i varijable, a svojstva ili odnosi čine predikatima.
+                &nbsp;&nbsp;&nbsp;&nbsp; Ukoliko želimo izraziti na što se predikat odnosi i koliko odnosa ima, služimo se kvantifikatori.
+                &nbsp;&nbsp;&nbsp;&nbsp; Koristi negaciju i veznike logike sudova
+                - Elementi logike prvog reda
+                &nbsp;&nbsp;&nbsp;&nbsp; Konstante
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; označavaju pojedinačna bića na koja se nešto odnosi (Maja, Luka, Sandro,)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; zapisuju se malim slovima latiničnog pisma (m, l, s)
+                &nbsp;&nbsp;&nbsp;&nbsp; Varijable
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; označavaju bilo koji element domene 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; zapisuju se malim slovima (x, y, z)
+                &nbsp;&nbsp;&nbsp;&nbsp; Domena ili predmetno područje
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; obuhvaća sve predmete na koje se neko svojstvo ili odnos može odnositi. 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Na primjer, za svojstvo "x<sup>2</sup> je veći od x", x je varijabla koja ćini neki skup brojeva.
+                &nbsp;&nbsp;&nbsp;&nbsp; Predikati
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; označavaju svojstva ili odnose između predmeta koji ne mogu stajati samostalno već uz varijable ili konstante
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; zapisuju se velikim latiničnim slovima (je lijep (L)). 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Predikati imaju mjesnost te mogu biti jednomjesni ili višemjesni . 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Jednomjesni predikati izražavaju svojstva (Pb∧Db=Bruno je pametan i duhovit.)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Višemjesni predikati izražavaju odnose (Pig→Pgi=Ako je Ines prijateljica Gabrieli, onda je Gabriela prijateljica Ines)
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Kvantifikatori
+<p>
+                - Kvantifikatori 
+                &nbsp;&nbsp;&nbsp;&nbsp; označavaju na koju se skupinu unutar domene odnosi predikat. 
+                &nbsp;&nbsp;&nbsp;&nbsp; Postoje dva kvantifikatora, univerzalni i egzistencijalni.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Univerzalni kvantifikator (∀) čita se „za svaki“, „svaki“, „sve“ ili „svi“. 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Egzistencijalni kvantifikator (∃) čita se „postoji“ ili „neki“.
+                &nbsp;&nbsp;&nbsp;&nbsp; imaju značenje beskonačne konjunkcije ili disjunkcije u slučaju beskonačne domene,  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ako je domena jedna četveročlana obitelj, a predikat Px−x ima plavu kosu, onda ∀xPxznači da je Px1∧Px2∧Px3∧Px4, dok ∃xPx znači da je Px1∨Px2∨Px3∨Px4.
+                &nbsp;&nbsp;&nbsp;&nbsp; Kvantifikatori mogu biti i negirani te im negacija može prethoditi ili slijediti nakon njih, 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FxFx = biti filozof, a domena su ljudi:
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ∙ ¬∀xFx nisu svi filozofi (odnosno neki nisu)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ∙ ∀x¬Fx svi (su takvi da) nisu filozofi (odnosno nijedan nije)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ∙ ¬∃xFx ne postoji xx takav da je filozof (odnosno nitko nije filozof)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ∙ ∃x¬Fx postoji xx koji nije filozof (odnosno nisu svi filozofi)
+                Uočite da je prvi zapis negacija četvrtoga. Negacija univerzalnog kvantifikatora postaje egzistencijalni kvantifikator, a negacija egzistencijalnog kvantifikatora postaje univerzalni kvantifikator. Na primjer:
+                Nisu svi učenici naučili logiku.
+                ¬∀x(Ux→Lx)¬∀x(Ux→Lx)znači isto što i
+                Neki učenici nisu naučili logiku.∃x(Ux∧¬Lx)∃x(Ux∧¬Lx) 
+                Za sve učenike vrijedi da nisu naučili logiku.∀x(Ux→¬Lx)∀x(Ux→¬Lx)znači isto što i
+                Ne postoji učenik koji je naučio logiku.¬∃x(Ux∧Lx)¬∃x(Ux∧Lx)
+                U logici prvoga reda možemo izraziti da nečega ima točno određeni broj, najmanje neki broj ili najviše neki broj. Krenimo do izraza ''najmanje jedan''. Kada kažemo da ''Postoji xx takav da je filozof.'', to zapravo znači da postoji barem jedan xx koji ispunjava to svojstvo. Dakle,
+                Postoji barem jedan filozof. možemo zapisati kao ∃xFx∃xFx.
+                Koja je razlika između ''Postoji točno jedan filozof.'' i ''Postoji najviše jedan filozof.''?
+                Ako postoji točno jedan filozof, to znači da ne može biti nula filozofa, dok ako postoji najviše jedan filozof, to znači da može postojati jedan ili nula filozofa.
+                Postoji točno jedan filozof.izrazit ćemo tako da u prethodni zapis još dodamo to da sve drugo, ako bi bilo filozof, mora biti jednako xx-u koji je filozof. Ovdje uvodimo jedan poseban predikat, a to je predikat identiteta.∃x(Fx∧∀y(Fy→y=x))∃x(Fx∧∀y(Fy→y=x)).
+                Rekli smo da kod ''Postoji najviše jedan filozof.'' može biti slučaj i da je nula filozofa. Stoga nećemo koristiti egzistencijalni kvantifikator jer on uvjetuje postojanje, nego univerzalni koji ga ne uvjetuje. To ćemo zapisati na sljedeći način:∀x(Fx→∀y(Fy→y=x))∀x(Fx→∀y(Fy→y=x))
+                Ovdje je glavni veznik implikacija, a ne konjunkcija kao u slučaju egzistencijalnih kvantifikatora, stoga je ona istinita i ako je antecedens istinit, odnosno ako nema nijednog filozofa.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Složen Primjer
+ <p>
+                Pogledajmo još jedan malo složeniji primjer, možemo reći da postoje točno dva dementora. 
+                Kako bismo to izrazili, bit će nam potreban i znak jednakosti i nejednakosti.
+                Što znači da postoje točno dva dementora? 
+                To znači da postoji xx koji je dementor i da postoji yy koji je dementor te da su xx i yy različiti (da nisu, moglo bi se raditi o jednom te istom dementoru). 
+                No, to nam nije dovoljno jer ne smije postojati više od dvaju dementora pa još moramo dodati da za sve ostalo, ako je dementor, vrijedi da je jednako xx ili jednako yy. 
+                Zapis je sljedeći:
+                ∃x∃y(Dx∧Dy∧x≠y∧∀z(Dz→(z=x∨z=y))∃x∃y(Dx∧Dy∧x≠y∧∀z(Dz→(z=x∨z=y)).
+                Zapis u logici prvoga reda najbolje je učiti na primjerima, stoga evo još nekoliko jednostavnijih i složenijih primjera.
+                <!--PRIMJER 1-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Podjela sudova
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Hipotetični ili pogodbeni sud
+<p>
+                odnos
+                Ako se sami sudovi nalaze u nekoj vrsti odnosa, onda se radi ili o svojevrsnom uvjetovanju ili o izboru. No, stanimo malo! Jesmo li upravo različite sudove doveli u neki odnos? Čini se da jesmo. I ove odnose izražavate i o njima mislite svakodnevno. Pogledajmo o kakvim je odnosima među sudovima riječ i kako ih prepoznati.
+                Prvim smo dijelom rečenice „Ako se sami sudovi nalaze u nekoj vrsti odnosa, onda se radi...“ izrazili posljedični odnos dvaju sudova. Naime, ostvari li se prvi sud, mora se ostvariti i drugi. Jesmo li upravo ponovno izrazili isti posljedični odnos? Jesmo! Riječ je o hipotetičnom ili pogodbenom sudu jer smo njime izrazili pogodbu, tj. implikaciju.
+                Hipotetični ili pogodbeni sud
+                Hipotetični ili pogodbeni sud općenito se može izraziti kaoAko p, onda q,Ako p, onda q,pri čemu pp i qq stoje za sudove u tom odnosu.
+                Primijetite da se ovdje radi o implikaciji pa dio u kojem se izražava uvjet nazivamo antecedensom, a dio u kojemu se izražava njegova posljedica nazivamo konsekvensom.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Redoslijed u rečenici
+<p>Ponovimo i da se opći oblik „ako, onda“ može izraziti i drugim pogodbenim formulacijama koje svakodnevno koristimo poput ukoliko 
+                −utoliko, pod uvjetom da, kad bi, u slučaju da itd.
+                Upozorenje
+                Osim različitih mogućnosti formuliranja pogodbenog suda valja obratiti pažnju i na njihovo mjesto u rečenici i samom sudu.
+                Moguće je, dakako, sud „Ostvari li se prvi sud, mora se ostvariti i drugi.“ preoblikovati u „Drugi se sud mora ostvariti ostvari li se prvi sud.“ No je li njihova zamjena mjesta u rečenici promijenila sam sud? Zapravo nije. Antecedens (p) je još uvijek onaj dio kojim je izražen uvjet, a konsekvens (q) onaj dio kojim je izražena posljedica ostvarivanja tog uvjeta.
+                Upozorenje
+                Ostvarivanje antecedensa nužno vodi ostvarivanju konsekvensa, ali ne i obrnuto.
+                U sudu „Ako odem u trgovinu, kupit ću čokoladu.“ jasno je da će odlazak u trgovinu rezultirati kupnjom čokolade jer je u suprotnom sud nužno neistinit zbog kršenja izrečenog. Međutim, sud je i dalje istinit i ništa nije prekršeno u slučaju neodlaska u trgovinu i kupnje čokolade jer o tom slučaju baš ništa nismo rekli, a čokoladu smo mogli kupiti i na nekom drugom mjestu (tržnici, kiosku itd.).
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Disjuktivni sud
+ <p>Drugim dijelom ranije navedene rečenice „radi se ili o svojevrsnom uvjetovanju ili o izboru“ u odnos smo ponovno doveli dva suda, ali ovog puta smo izrazili mogućnost izbora.
+                Disjunktivni sud
+                Sud koji nudi mogućnost ostvarivanja suda pp, suda qq ili obaju sudova, naziva se disjunktivnim sudom.
+                U tradicionalnoj logici disjunktivni se sud uvijek razmatra u isključnom smislu. To znači da ostvarivanje suda pp isključuje ostvarivanje suda qq i obrnuto, tj. da se može ostvariti samo sud pp ili samo sud qq, ali nikako i oba suda. U tradicionalnoj je logici, stoga, opći oblik suda izražen kao
+                ili pp ili qq.
+                Tako je sudom „Popit ću ili kavu ili čaj.“ moguće ostvariti samo jedan od njegovih dijelova.
+                Opći oblik isključnog disjunktivnog suda može se zamijeniti bilo kojim drugim izrazom koji stoji za međusobno isključenje disjunktivnih sudova.
+                U modernoj se logici disjunktivni sud, osim ako je izričito drukčije navedeno, uvijek razmatra u uključnom smislu. To znači da ostvarivanje suda pp ne isključuje ostvarivanje suda qq i obrnuto, tj. da se može ostvariti samo sud pp, samo sud qq, ali i oba suda.
+                U modernoj je logici, stoga, opći oblik suda izražen kao pp ili qq.
+                Tako je sudom „Popit ću kavu ili čaj.“ moguće ostvariti samo jedan ili oba njegova dijela.
+                Opći oblik uključnog disjunktivnog suda može se zamijeniti bilo kojim drugim izrazom koji odgovara mogućnosti da se ostvari bilo koji pojedinačni dio ili oba dijela.
+                Upozorenje
+                Pri rješavanju zadataka uvijek obratite pažnju na to radi li se o disjunktivnom sudu u isključnom ili uključnom smislu.
+                Za razliku od hipotetičnog suda, redoslijed pp i qq jednostavnih sudova u složenom sudu ovdje nije važan jer ni na koji način ne utječe na cjelokupni sud..
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Kategorični sud
+<p>Kategorični sudovi
+                Kategorični sudovi izražavaju odnos subjekta i predikata unutar jednog suda. Subjekt je ono o čemu nešto tvrdimo. Predikatom se neko obilježje tvrdi o subjektu ili se ono negira, a jasan je izraz toga potvrdni ili negirani pomoćni glagol biti koji nazivamo sponom ili kopulom (jest/nije, je/nije, jesu/nisu itd.).
+                Takvi su sudovi npr. „Svi su patuljci ratoborni.“, „Neki su orci preplašeni.“, „Nijedan vilenjak nije izgubio svoj luk.“ i „Neki su čarobnjaci zli.“
+                Kada bismo uključili i neke od ostalih kriterija podjele sudova i potom pažljivo pročitali ove sudove, mogli bismo primijetiti da svaki od njih ima izraženu kvalitetu i kvantitetu, tj. oni su potvrdni (afirmativni), niječni (negativni), opći (univerzalni) i posebni (partikularni). Isprepletemo li kriterije kvalitete i kvantitete, dobit ćemo četiri različite vrste kategoričnih sudova. Odmah dajemo i njihov zapis u jeziku logike prvoga reda.
+                Vrste kategoričnih sudova
+                ∙∙ opće-potvrdni ili univerzalno-afirmativni sud(skraćeno a-sud, prema prvom samoglasniku od affirmo - potvrđujem); npr. „Svi ljudi su dobri.“ ∀x(Cx→Dx)∀x(Cx→Dx)
+                ∙∙ opće-niječni ili univerzalno-negativni sud(skraćeno e-sud, prema prvom samoglasniku od nego - niječem); npr. „Nijedan čovjek nije dobar.“ ∀x(Cx→¬Dx)∀x(Cx→¬Dx)
+                ∙∙ posebno-potvrdni ili partikularno-afirmativni sud(skraćeno i-sud}, prema drugom samoglasniku od affirmo - potvrđujem); npr. „Neki ljudi su dobri.“ ∃x(Cx∧Dx)∃x(Cx∧Dx)
+                ∙∙ posebno-niječni ili partikularno-negativni sud(skraćeno o-sud, prema drugom samoglasniku od nego - niječem); npr. „Neki ljudi nisu dobri.“ ∃x(Cx∧¬Dx)∃x(Cx∧¬Dx)
+                Označimo li subjekt sa SS, a predikat s PP i uzmemo li kraće varijante sudova kako bismo ih formalno zapisali, dolazimo do zapisa koji se rabi u tradicionalnoj logici te imamo četiri vrste suda: SaP, SeP, SiP i SoP.
+                Upozorenje
+                Transformacija jednog suda u drugi (npr. a-sud „Svi ljudi su dobri.“ prebačen u e-sud treba glasiti „Nijedan čovjek nije dobar.“) često izaziva nesporazume oko jezičnog izraza kojim će se zapisati sud. Budući da se koristimo običnim jezikom, slobodno mijenjajte glagolske oblike, padeže i broj onako kako od vas to traži jezična situacija.
+                Opisan je samo jedan mali dio kategoričnih sudova. Kategorični bi sudovi trebali biti svi sudovi koji nisu ni hipotetični ni disjunktivni, a to bi bili i sudovi koji tvrde nešto o odnosu između stvari. Tako u kategorične sudove spadaju i sudovi s kojima smo se susreli u prvom poglavlju, primjerice „Netko je svakome otac.“ ili „Svatko je lukaviji od onih koji su od njega naivniji.“
+                Na kraju ponovimo:
+                Vrste sudova
+                ∙∙ Prema odnosu sudove dijelimo na hipotetične, disjunktivne i kategorične.
+                ∙∙ Kategorične sudove formalno kraće zapisujemo kao SaPSaP (ili a-sud), SePSeP (ili e-sud), SiPSiP (ili i-sud) i SoPSoP (ili o-sud) i time izražavamo njihovu kvalitetu i kvantitetu.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Zaključak (POTREBNO UREDITI)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Zaključivanje
+ <p>Svi pingvini su crno-bijeli.
+                Neki su stari televizori crno-bijeli.
+                Dakle, neki su stari televizori pingvini.
+              </p>
+              <img src="Zaključak_4.png">
+              <p>
+                -Je li prethodni zaključak valjan? Zdrav nam razum kaže da nije, ali čini se da ima neke elemente valjanog zaključka ili tako barem izgleda. Takva su se pitanja (ali, naravno, ne s primjerom televizora) javljala još u staroj Grčkoj, pa ih je Aristotel odlučio riješiti tako da popiše sve oblike valjanih zaključaka. Podijelio ih je u četiri skupine i nazvao silogizmima.
+                Mnogo je puta do sada svatko od nas bio suočen s potrebom zaključivanja. I zasigurno, kao ljudska bića koja odlikuje racionalnost, svatko od nas gotovo neprestano zaključuje na temelju podataka koji su mu dostupni i jasni u manjoj ili većoj mjeri.
+                Ono u čemu nam logika pomaže pri zaključivanju jest osiguravanje mehanizama kojima na formalan i precizan način možemo provjeriti zaključujemo li valjano ili ne. Znači li to da valjano zaključujemo samo kad to radimo na formalne načine poput onih koji će na sljedećim stranicama biti pokazani i objašnjeni? Naravno da ne! I ovime smo nešto zaključili, a da tome nismo pristupili formalno. To je i najbolji pokazatelj kako, zapravo, naše zaključivanje u značajnoj mjeri odgovara logičkom zaključivanju, a da toga i nismo svjesni.
+                - Primijetite da, za razliku od sudova, za zaključivanje nismo koristili izraze istinito i neistinito, već valjano i nevaljano. Razlog toj promjeni jest u tome što nas u zaključivanju prije svega zanima jesmo li zaključili ono što smo ispravno mogli zaključiti na temelju dostupnih informacija.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Aristotel
+<p>Aristotel (384. −322. pr. n. e.) grčki je filozof koji se smatra ocem tradicionalne logike. On je prvi sveobuhvatno proučavao i popisao pravila ispravnoga logičkog zaključivanja, a njegova su učenja o logici bila dominantna sve do devetnaestoga stoljeća kada je započeo razvoj suvremene logike. Aristotelova je logika i dalje važno oruđe za učenje logičkih vještina.</p>
+              <img src="Zaključak_3.png">
+              <p>
+                <!--PRIMJER IDE OVDJE
+                Anja je nakon sjajnog uspjeha i rada na fakultetu dobila priliku raditi kao inženjer u međunarodnoj svemirskoj agenciji. Zadužena je za konstrukciju trupa nove svemirske letjelice koja bi trebala zamijeniti popularne Space Shuttleove koji opskrbljuju svemirske postaje i prevoze ljudske posade na postaje i natrag na Zemlju.Od svih su se dostupnih materijala karbonska vlakna pokazala kao najisplativija, a znanstvenici zaduženi za promatranje objekata koji velikim brzinama prolaze pravcima kojima lete i Space Shuttleovi uvjerili su Anju da na putanji probnog leta ne postoji objekt koji bi karbonska vlakna mogao oštetiti.Budući da su Anjini poslodavci zahtijevali najisplativiju konstrukciju, Anja se odlučuje za konstrukciju trupa sačinjenog od karbonskih vlakana. Na probnom letu prema jednoj od svemirskih postaja novu je svemirsku letjelicu udario i oborio neki objekt. Za nj očito nije vrijedilo ono što su znanstvenici o njima tvrdili. (IMG ZAKLJUČAK_2 HERE)-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Valjanost zaključka
+<p>Zaključak se, kao logički oblik, sastoji od dijelova. Budući da je zaključak zapravo oblik uporabe suda, baš kao što je i sud uporaba pojmova, dijelove zaključka čine upravo sudovi. Sve ono na temelju čega sudimo, tj. sudove na temelju kojih sudimo, nazivamo premisama. Sve ono što slijedi iz premisa, nazivamo konkluzijama. Premise i konkluziju u zaključku zapisivat ćemo odijeljeno crtom koju čitamo kao „dakle“ (od lat. ergo).
+                Valjanost zaključka
+                Zaključak je valjan ako je valjana forma zaključka, a forma je valjana ako pri svakoj interpretaciji iz istinitih premisa slijedi istinita konkluzija.
+                Valjanost zaključka možemo slično definirati za logiku sudova i za logiku prvoga reda. U logici sudova zaključak je valjan ako nije moguće da su premise istinite, a konkluzija neistinita.
+                Zaključak odgovara logičkom vezniku implikacije koja se nalazi između premisa i konkluzije, dok su premise međusobno povezane veznikom konjunkcije. Takva se implikacija naziva korespondentnim kondicionalom.
+                Korespondentni kondicional
+                Korespondentni kondicional nekog zaključka jest kondicional čiji je antecedens konjunkcija premisa, a konzekvens konkluzija tog zaključka.
+                Na primjer, zaključak:
+                Ako je u Zagrebu jutro, u Washingtonu je noć.U Zagrebu je jutro.
+                Dakle, u Washingtonu je noć.možemo zapisati:J→N
+                <div class="fraction">
+                  <span class="fup">J</span>
+                  <span class="bar">/</span>
+                  <span class="fdn">N</span>
+                </div>
+                odnosno ((J→N)∧J)→N.
+                Sada vidimo iz čega proizlazi naša definicija valjanosti: kako bi implikacija bila istinita, premise ne smiju biti istinite, a konkluzija neistinita.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Opći oblik zaključivanja
+ <p>
+                Opći oblik zaključka prikazan je ispod
+                <div class="fraction">
+                  <span class="fup">premisa 1<br>premisa 2<br>...<br>premisa n</span>
+                  <span class="bar">/</span>
+                  <span class="fdn">
+                    <div class="fraction">
+                      <span class="fup">"dakle"</span>
+                      <span class="bar">/</span>
+                      <span class="fdn">konkluzija</span>
+                  </div></span>
+                </div>
+                No, prema istinitosnim vrijednostima za implikaciju znamo da je ona istinita i kada je antecedens neistinit, što znači da je zaključak valjan i kada je konjunkcija premisa neistinita. Valjan zaključak s istinitim premisama naziva se pouzdanim. Dakle, kod pouzdanog zaključka istinite su i premise i konkluzija.
+                Upozorenje
+                Pripazite na razlikovanje pojmova valjanost i pouzdanost.
+                Zaključke bismo općenito mogli podijeliti na sljedeći način:
+              </p>
+              <img src="Zaključak_1.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+ <h2>Pojam</h2>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Pojam
+<p>- oblik mišljenja koji obuhvaća sve predmete određenih zajedničkih svojstva koji pod njega potpadaju kako bismo mogli razlikovati od svega ostaloga<br>
+                - Kod gotovo svih pojmova (osim matematičkih) dolazi do problema subjektivnog određivanja graničnih svojstava predmeta.<br>
+                -<i>tablet i pametni telefon</i> (određivanje gornje granice veličine pametnih telefona)
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Opseg i sadržaj Pojma
+ <p>- Opseg pojma čine svi predmeti koji potpadaju pod određeni pojam.<br>
+                - Sadržaj (intenziju) pojma čine sva obilježja koja neki pojam čine upravo tim pojmom.
+                - Što pojam ima veći opseg (pojam sisavac ima veći opseg od pojma mačka jer obuhvaća puno više jedinki), njegov je sadržaj manji jer može uključivati puno manje razlikovnih obilježja.<br>
+                - Tako u sadržaj pojma mačka ulazi da je to sisavac koji se glasa mijaukanjem, rađa žive mlade, ima četiri noge itd., dok sadržaj pojma sisavac ne može uključivati prvo i treće obilježje jer postoje sisavci koji ne mijauču i koji nemaju četiri noge.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Vennovi dijagrami
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Prikaz Vennovih dijagrama
+<p>Vennovi se dijagrami sastoje od djelomično preklopljenih kružnica. Vennovim dijagramima grafički prikazujemo sudove, ali ih koristimo i za iščitavanje sudova, ispravno zaključivanje te prikazivanje odnosa među pojmovima.
+                Kada njima prikazujemo kategorične sudove, zapravo govorimo o odnosu subjekta i predikata u tim sudovima pa se u slučaju tih sudova Vennovi dijagrami sastoje od dviju djelomično preklopljenih kružnica. Pritom je jedna kružnica skup koji predstavlja opseg subjekta, a druga opseg predikata. Zbog toga jednu kružnicu označavamo sa S, a drugu s P.
+              </p>
+              <img src="Vennovi dijagrami_1.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Područja u Vennovim dijagramima
+ <p>područje 1 predstavlja skup onih predmeta koji jesu S, ali nisu P∙ područje 2 predstavlja skup onih predmeta koji su i S i P∙ područje 3 predstavlja skup onih predmeta koji nisu S, ali jesu P
+                ∙ područje 4 predstavlja skup onih predmeta koji nisu ni S ni P
+                .Četvrto područje predstavlja predmete koji ne pripadaju ni skupu S ni skupu P. Za kategorične sudove to nije važno jer u tom slučaju govorimo samo o odnosu pojmova iz skupova S i P pa, prema tome, ti sudovi ne govore ništa o predmetima koji ne pripadaju nijednom od tih skupova. Zbog toga se kružnice Vennova dijagrama često prikazuju bez domene (D), tj. smještaju se u beskonačnu ravninu.
+                Međutim, o tim predmetima ipak možemo govoriti i često govorimo, a čak i kada o njima ne znamo ništa, u Vennovu dijagramu za njih stoji upravo ta informacija -- o njima ne znamo ništa. Stoga je ovakav njihov prikaz zapravo precizniji i potpuniji.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Označavanje u Vennovim dijagramima
+<p>Da bismo kategorične sudove uspješno grafički prikazali, moramo znati kako u dijagrame ispravno upisati dostupne informacije. Zato imamo svojevrsnu legendu koja će nam u tome pomoći:
+                a.	Možemo u kružnicu upisati XX kao oznaku za neprazan razred. Time pokazujemo da u označenom skupu postoji barem jedan predmet.
+                b.	Možemo osjenčati kružnicu kako bismo označili prazan razred. Time pokazujemo da u označenom skupu ne postoji ni jedan predmet.
+                c.	Možemo ne označiti kružnicu. Time pokazujemo da ne znamo ništa o postojanju ili nepostojanju predmeta toga skupa.
+                Označavanje
+                Neprazan je razred onaj u kojem postoji barem jedan predmet, a prazan je onaj razred u kojem ne postoji ni jedan predmet.
+                U Vennovu dijagramu u područje upisujemo znak XX za neprazan razred, sjenčamo područje da bismo označili prazan razred ili ostavljamo prazno kada nemamo informacija.
+                Znak XX u Vennovu dijagramu univerzalnih sudova znači tradicionalno označavanje kojim se podrazumijeva postojanje barem jednog predmeta u skupu, dok se u modernom označavanju taj XX ne piše jer se ne pretpostavlja njegovo egzistiranje.
+                rugim riječima, prema shvaćanju tradicionalne logike nema puno smisla govoriti o svojstvima onoga što možda i ne egzistira. Međutim, uistinu možemo izražavati i takve sudove pa se moderno shvaćanje ipak smatra preciznijim i više u skladu s mogućnostima našeg mišljenja i jezika.
+                Upozorenje
+                U tradicionalnoj logici podrazumijevamo nepostojanje praznog skupa, a u modernoj dozvoljavamo njegovo postojanje.
+                Ta će se razlika u grafičkom prikazu pokazati u univerzalnim sudovima pa valja biti oprezan pri označavanju. Uvijek s nastavnikom provjerite o kojem se shvaćanju radi i kakav prikaz imate pred sobom.
+                Također, moguće je da za predmet ne znamo pripada li samo skupu SS ili i skupu SS i skupu PP. U tom slučaju ta dva područja možemo povezati crticom.
+                Da bismo u potpunosti ovladali Vennovim dijagramima, sve ćemo kategorične sudove ponovno prevesti u jezik logike prvoga reda kako bismo još preciznije utvrdili što se izražava svakim od tih sudova. Tako ćemo prevedene sve kategorične sudove prikazati grafički.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Opće-potvrdni, univerzalno-afirmativni ili a-sud
+ <p>Općenito, ovaj sud glasi „Svi SS su PP.“, a može se kraće izraziti kao SaPSaP sud. Njime se iskazuje da svi koji pripadaju skupu SS pripadaju i skupu PP. Drugim riječima, ne postoji neki SS koji ne bi ujedno bio i PP.
+                Taj bismo sud jezikom logike prvoga reda mogli zapisati kao:∀x(Sx→Px)∀x(Sx→Px).
+                Primijetite da u jeziku logike prvoga reda imamo strelicu koja označava implikaciju. To znači da smo zapravo simbolički zapisali rečenicu:
+                Za svaki predmet vrijedi da ako je SS, onda je on ujedno PP.ili Ako je predmet SS onda je i PP. ili naprosto Svaki SS je PP.
+                No, svako čitanje te rečenice otkriva nam kondicioniranost ili uvjetovanost koja u njoj postoji. Naime, ništa nam u rečenici ne otkriva da barem jedan predmet u skupu SS uistinu postoji, već samo da kada bi postojao, bio bi ujedno i PP.
+                Zato grafički prikaz univerzalno-afirmativnog ili a-suda izgleda kao na slici.
+              </p>
+              <img src="Vennovi dijagrami_2.png">
+              <p>Rekonstruirajmo sada kako smo došli do ovog grafičkog prikaza.
+                Budući da smo rekli da se a-sudom tvrdi „Svi SS su PP.“, to ujedno znači da „Ni za jedan SS ne može vrijediti da je nePP.“ Prema tome, ne može postojati predmet koji bi bio samo SS. Drugim riječima, područje koje pripada samo skupu SS mora biti prazan razred, tj. razred bez predmeta.
+                Ako provjerimo i ponovimo kako označavamo prazan razred, vidjet ćemo da područje koje označavamo moramo osjenčati da bismo istaknuli kako ovdje nema predmeta. Tvrdili smo i da su svi predmeti koji se nalaze u skupu SS, ako postoje, ujedno i članovi skupa PP. To bi nas moglo navesti da u presjek skupova SS i PP upišemo znak XX, ali zapamtite da bi to bilo tradicionalno tumačenje kojim se podrazumijeva postojanje predmeta o kojima govorimo. Međutim, istaknuli smo da se u modernoj logici to postojanje ne podrazumijeva, a razlog tome vidjeli smo u čitanju a-suda. To je postojanje mogućnost, ali ne i nužnost. Zato presjek tih skupova ostavljamo praznim u modernoj logici, dok u tradicionalnoj upravo ovdje upisujemo znak XX.
+                Predmetima iz skupa SS pridali smo neko svojstvo izraženo predikatom kategoričnog suda, odnosno svojstvo PP. To, međutim, znači još nešto. O svemu onome što bi moglo pripadati skupu PP ne znamo ništa. U to ćemo se uvjeriti pogledamo li dijagram. Cijela kružnica koja označava ono što može pripadati skupu PP potpuno je neoznačena, tj. o cijelom tom skupu nemamo nikakvih informacija. Dakako, isto vrijedi i za sve ono što ne pripada ni skupu SS ni skupu PP.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Opće-niječni, univerzalno-negativni ili e-sud
+<p>Općenito, ovaj sud glasi „Nijedan SS nije PP.“, a može se kraće izraziti kao SePSeP sud. Njime se iskazuje da nema takvog predmeta koji pripada skupu SS, a koji bi pripadao i skupu PP. Drugim riječima, ne postoji neki SS koji bi ujedno bio i PP.
+                Taj bismo sud jezikom logike prvoga reda mogli zapisati kao:∀x(Sx→¬Px)∀x(Sx→¬Px).
+                Primijetite da se u jeziku logike prvoga reda ponovno pojavljuje strelica koja označava implikaciju. To znači da smo zapravo simbolički zapisali rečenicu:
+                Za svaki predmet vrijedi da ako je SS, onda nije PP.ili Ako je predmet SS onda nije PP. ili naprosto Nijedan SS nije PP.
+                No, svako čitanje ove rečenice otkriva nam kondicioniranost ili uvjetovanost koja u njoj postoji jer nam ništa u rečenici ne otkriva da barem jedan predmet u skupu SS uistinu postoji. Kada bi postojao, zasigurno ne bi bio i PP.
+                Zato grafički prikaz univerzalno-negativnog ili e-suda izgleda kao na slici ispod.
+              </p>
+              <img src="Vennovi dijagrami_3.png">
+              <p>Rekonstruirajmo kako smo došli do ovog grafičkog prikaza.
+                Budući da smo rekli da se e-sudom tvrdi „Nijedan SS nije PP.“, to ujedno znači da bi svi SS koji bi možda postojali bili nePP. Dakle, ne može postojati predmet koji je i SS i PP. Zato područje koje pripada skupu SS i skupu PP mora biti prazan razred, tj. razred bez predmeta.
+                Ako ponovno provjerimo kako označavamo prazan razred, vidjet ćemo da područje koje moramo označiti kao prazan razred moramo osjenčati da bismo istaknuli da ovdje nema predmeta. Slično kao i u slučaju a-suda, ponovno smo sudom zapravo samo rekli kako postoji mogućnost da predmeti u skupu SS postoje i da, ako postoje, sigurno ne pripadaju i skupu PP. Zato ćemo područje koje pripada samo skupu PP ostaviti bez upisanih informacija, tj. nećemo ga ni sjenčati niti ćemo u njega staviti znak XX. Ali, zbog toga što u tradicionalnoj logici podrazumijevamo postojanje predmeta u skupu SS, u tradicionalnom bismo prikazu u to područje stavili znak XX.
+                O svemu onome što bi moglo pripadati samo skupu PP ponovno ne znamo ništa. U to ćemo se uvjeriti pogledamo li ponovno dijagram. No, sada znamo da ne može postojati predmet koji bi pripadao i skupu SS i skupu PP. Dio kružnice koji označava samo skup PP potpuno je neoznačen, tj. o tom skupu nemamo nikakvih informacija. Dakako, isto vrijedi i za sve ono što ne pripada ni skupu SS ni skupu PP. Primijetite da je, za razliku od prethodnog, ovaj sud simetričan i da bi zamjenom mjesta subjekta i predikata sud i dalje vrijedio.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Posebno-potvrdni, partikularno-afirmativni ili i-sud
+ <p>Općenito, ovaj sud glasi „Neki SS su PP.“, a može se kraće izraziti kao SiPSiP sud. Njime se iskazuje da postoji takav predmet koji pripada skupu SS, ali i skupu PP. Drugim riječima, postoji barem jedan SS koji je ujedno i PP.
+                Taj bismo sud jezikom logike prvoga reda mogli zapisati kao:∃x(Sx∧Px)∃x(Sx∧Px).
+                Primijetite da se u jeziku logike prvoga reda više ne pojavljuje strelica koja označava implikaciju te da je ona zamijenjena simbolom konjunkcije. Možete li obrazložiti zašto?
+                Vjerojatno ste ispravno zaključili da je to zato što sada tvrdimo postojanje predmeta u skupu SS koji ujedno pripada i skupu PP. U konačnici to znači da ne postoji razlika u tradicionalnom i modernom grafičkom prikazu i-suda.
+                Simbolički smo zapisali rečenicu:
+                Postoji neki predmet za koji vrijedi da je SS i da je PP.
+                ili Za barem jedan predmet vrijedi da je SS i PP.
+                ili naprosto Neki SS su PP.
+                Kondicioniranost ili uvjetovanost postojanja predmeta skupa SS iz prethodnih dvaju sudova ovdje je nestala.
+                Zato grafički prikaz partikularno-afirmativnog ili i-suda izgleda kao na slici dolje
+              </p>
+              <img src="Vennovi dijagrami_4.png">
+              <p>Rekonstruirajmo kako smo došli do ovog grafičkog prikaza. Budući da smo rekli da se i-sudom tvrdi „Neki SS su PP.“, to znači da barem jedan predmet skupa SS mora biti i PP.
+                Dakle, mora postojati predmet koji je i SS i PP. Zato u područje koje pripada skupu SS i skupu PP moramo staviti znak XX kojim označavamo postojanje barem jednog takvog predmeta, tj. neprazan razred. Njih, dakako, može biti i beskonačno mnogo, ali to nam nije važno jer smo već sa samo jednim takvim predmetom ispunili uvjet rečenice. Budući da i dalje ne znamo ništa o predmetima koji bi pripadali samo skupu SS, samo skupu PP ili nijednom od tih skupova, sve ostalo u dijagramu moramo ostaviti prazno i time jasno pokazati da o tome nemamo nikakvih informacija.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Posebno-niječni, partikularno-negativni ili o-sud
+ <p>Općenito ovaj sud glasi „Neki SS nisu PP.“, a može se kraće izraziti kao SoPSoP sud. Njime se iskazuje da postoji takav predmet koji pripada skupu SS, ali ne i skupu PP. Drugim riječima, postoji neki SS koji nije ujedno i PP.
+                Taj bismo sud jezikom logike prvoga reda mogli zapisati kao:∃x(Sx∧¬Px)∃x(Sx∧¬Px).
+                Primijetite da se u jeziku logike prvoga reda i dalje ne pojavljuje strelica koja označava implikaciju i da se ponovno koristimo simbolom konjunkcije. Ovdje ponovno tvrdimo postojanje predmeta u skupu SS, ali koji ne pripada i skupu PP. Stoga ni za ovaj sud ne postoji razlika u tradicionalnom i modernom grafičkom prikazu. Simbolički smo zapisali rečenicu:
+                Postoji neki predmet za koji vrijedi da je SS i da nije PP.
+                ili Za barem jedan predmet vrijedi da je SS, ali ne i PP.
+                ili naprosto Neki SS nisu PP.
+                Zato grafički prikaz partikularno-negativnog ili o-suda izgleda kao na slici ispod.
+              </p>
+              <img src="Vennovi dijagrami_5.png">
+              <p>Do ovog grafičkog prikaza došli smo slijedeći pravila i upute kao i za prethodne sudove.
+                Budući da smo rekli da se o-sudom tvrdi „Neki SS nisu PP.“, barem jedan predmet skupa SS mora postojati i ne biti i PP. Dakle, mora postojati predmet koji je SS, ali koji nije PP. Zato u područje koje pripada skupu SS moramo staviti znak XX kojim označavamo postojanje barem jednog takvog predmeta, tj. neprazan razred.
+                Njih, naravno, ponovno može biti i beskonačno mnogo, ali to nam i dalje nije važno jer smo već samo jednim takvim predmetom ispunili uvjet rečenice kao i u prethodnom slučaju. Budući da dalje ne znamo ništa o onim predmetima koji bi pripadali i skupu SS i skupu PP, samo skupu PP ili nijednom od tih skupova, sve ostalo u dijagramu moramo ostaviti prazno i time jasno pokazati da o tome nemamo nikakvih informacija.
+                Upozorenje
+                Ponovimo da sudom „Neki SS su PP.“ ne podrazumijevamo kako zato neki SS nisu PP, kao ni da sudom „Neki SS nisu PP.“ ne podrazumijevamo kako neki SS jesu PP.
+                Uvijek imajmo na umu da postoji razlika u tradicionalnom i modernom prikazu univerzalnih sudova jer u prvom podrazumijevamo nepraznost skupa SS, dok u drugom to ne podrazumijevamo.
+                Kao što sudove možemo prikazivati grafički, iz grafičkog prikaza na jednak način možemo iščitati sudove.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Odnosi među pojmovima
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Teorija skupova
+<p>Teorija skupova
+                Teorija skupova je grana matematike koja se bavi svojstvima kolekcija predmeta koji mogu, ali ne moraju biti matematičke prirode. Teoriju je razvio njemački matematičar i logičar Georg Cantor između 1874. i 1897. godine, a danas se naziva naivnom teorijom skupova.
+                S obzirom na to da će nam ključni pojmovi naivne teorije skupova biti potrebni kada budemo govorili o pojmovima, ovdje ćemo ih pojasniti.
+                Element ili član skupa je svaki predmet koji pripada skupu. Kako bismo naveli da neki predmet xx pripada skupu AA, pišemo x∈Ax∈A.
+                Skup može biti konačan ili beskonačan. U konačnom skupu možemo navesti sve njegove članove, pa primjerice skup koji sadrži prirodne brojeve veće od pet, a manje od devet označavamo {6,7,8}{6,7,8}, a skup koji sadrži prirodne brojeve veće od pet označavamo {6,7,8,...}{6,7,8,...} jer se sada radi o beskonačnom skupu (na što upućuju tri točke).
+                Prazan skup nema nijednog člana i on je ujedno podskup svakoga skupa. Označava se ∅∅.
+                Skup AA je podskup skupa BB ako su svi elementi skupa AA ujedno i elementi skupa BB. To se označava A⊆BA⊆B.
+                Također, svaki je skup podskup samoga sebe.
+                Ako skupovi AA i BB imaju iste elemente, onda su oni isti skup i pišemo A=BA=B.
+                Na skupovima su definirane operacije unije, presjeka i razlike.
+                A unija B (A∪BA∪B) jest skup koji sadrži sve elemente skupa AA i sve elemente skupa BB. Unija odgovara logičkom vezniku disjunkcije jer je dovoljno da je neki predmet element jednoga skupa kako bi se našao u uniji dvaju skupova. Ako skup AA ima elemente 1, 2 i 3, a skup BB ima elemente 2, 3 i 4, njihova će unija imati elemente 1, 2, 3 i 4.
+                A presjek B (A∩BA∩B) jest skup koji sadrži one i samo one elemente koji su zajednički skupu AA i skupu BB. Ako skup AA ima elemente 1, 2 i 3, a skup BB ima elemente 2, 3 i 4, njihov će presjek imati elemente 2 i 3. Presjek odgovara logičkom vezniku konjunkcije jer se neki predmet mora nalaziti u oba skupa kako bi bio u njihovu presjeku, kao što je i konjunkcija istinita jedino u slučaju kada su oba konjunkta istinita.
+                A razlika B (A∖BA∖B) jest skup koji sadrži one elemente skupa AA koji ujedno nisu elementi skupa BB. Ako skup AA ima elemente 1, 2 i 3, a skup BB ima elemente 2, 3 i 4, A∖BA∖B će imati element 1.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Teorija skupova
+<p>Odnosi među pojmovima
+                Ekvipolentni pojmovi
+                Ekvipolentni pojmovi su oni pojmovi koji imaju potpuno isti opseg.
+                Na primjer, „drugi planet Sunčeva sustava“ i “planet koji se prvi pojavljuje na jutarnjem nebu” su ekvipolentni pojmovi. U opseg pojma ulazi jedan te isti planet i samo on.
+                Ako opsege pojmova promatramo kao skupove AA i BB, svi elementi skupa AA ujedno su i elementi skupa BB i obrnuto, tj. skupovi AA i BB su jednaki.
+                Interferentni pojmovi
+                Dva su pojma interferentna ako im se jedan dio opsega preklapa, ali svaki od njih ima i drugi dio opsega koji ne pripada ovom drugom pojmu. Oni imaju zajednički nadređeni pojam, odnosno podskupovi su istoga skupa.
+                Rečeno jezikom teorije skupova, presjek dvaju skupova AA i BB može biti neprazan te nijedan od tih dvaju skupova ne smije biti podskup drugoga.
+                Kod interferentnih je pojmova moguće da je njihov presjek prazan skup (kada se promatraju ekstenzionalno), ali postoji mogućnost da je on neprazan zbog svojstava tih dvaju pojmova koji se u određenoj mjeri preklapaju. Primjerice, pojmovi „nosi naočale” i „učenik 3. b razreda III. gimnazije Osijek” jesu interferentni jer može postojati takav učenik, ali ne mora.. 
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Subordinirani i superodrinirani pojmovi
+<p>Subordinirani i superordinirani pojmovi
+                Pojam je subordiniran ili podređen drugom pojmu ako njegov opseg posve pripada opsegu drugoga pojma. U skladu s tim, pojam je superordiniran ili nadređen drugom pojmu ako u njegov opseg posve ulazi opseg drugoga pojma.
+                Rečeno jezikom teorije skupova, pojam BB je podređen pojmu AA ako je skup BB podskup skupa AA, a u istom je slučaju pojam AA nadređen pojmu BB. Na primjer, pojam mačka podređen je pojmu sisavac, dok je pojam sisavac nadređen pojmu mačka.Važno je naglasiti da podređeni pojam uvijek ima veći sadržaj od nadređenog pojma. Primjerice, pojam mačka u svom sadržaju ima i karakteristiku „glasa se mijaukanjem“, „prede“ itd., što pojam sisavac u svome sadržaju nema jer postoje sisavci koji se ne glasaju mijaukanjem i ne predu. Općenito, pojam koji ima veći sadržaj uvijek ima manji opseg i obrnuto.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Disparatni i koordinirani pojmovi
+<p>Disparatni ili razdvojeni pojmovi
+                Disparatni ili razdvojeni pojmovi uobičajeno se definiraju kao oni pojmovi koji nemaju zajednički opseg, sadržaji su im često vrlo udaljeni po smislu, a često postoji nešto što ne potpada ni pod jedan od tih dvaju pojmova.
+                U jeziku teorije skupova disparatni su pojmovi oni kod kojih je presjek opsega tih dvaju pojmova prazan skup, a da postoje i entiteti koji nisu elementi unije tih dvaju skupova. Ovakvi se skupovi nazivaju disjunktnima.
+                Disparatni bi pojmovi bili primjerice prazan skup i stroj za šivanje. Disparatni se pojmovi mogu definirati samo opsegovno jer nije moguće pronaći pojmove koji ne dijele barem dio sadržaja.
+                Međutim, vidjeli smo da svaki pojam dijeli dio svog sadržaja sa svim nadređenim pojmovima, samo se taj dio smanjuje što je pojam nadređeniji (jer je njegov sadržaj sve uži).
+                Stoga, kad god je za dva pojma moguće pronaći zajednički nadređeni pojam, oni uvijek imaju djelomično zajednički sadržaj. Ako bismo iz gornje definicije izbacili dio koji govori o nemanju zajedničkoga sadržaja, tada bi se radilo o koordiniranim pojmovima.
+                Koordinirani pojmovi
+                Koordinirani pojmovi definiraju se kao oni pojmovi koji nemaju zajednički opseg, ali imaju zajednički neposredno nadređeni pojam, pa i zajednički dio sadržaja.
+                Pojmovi koji naočigled nemaju zajednički sadržaj jesu primjerice plavo i narančasto, ali dio sadržaja koji im je ipak zajednički jest „boja“.
+                Tu bi spadali primjerice mačka i pas, šaran i smuđ, kisik i vodik, vilica i nož.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Kontrarni i kontradiktorni pojmovi
+ <p>Ovdje ćemo spomenuti i kontrarne ili suprotne pojmove koje opet u nekim slučajevima nije lako razlikovati od disparatnih i koordiniranih.
+                Kontrarni ili suprotni pojmovi
+                Kontrarni ili suprotni pojmovi su pojmovi čiji opsezi pripadaju istom nadređenom pojmu, ali su oni na posve suprotnim krajevima nekog spektra.
+                Primjerice, takvi su pojmovi jedno i mnogo, pozitivni i negativni brojevi (jer je između nula koja nije ni pozitivan ni negativan broj), istina i neistina u viševrijednosnoj logici (gdje osim istine i neistine postoji jedna ili više istinitosnih vrijednosti).
+                Kontradiktorni pojmovi
+                Kontradiktorni su pojmovi takvi da je jedan negacija drugog. Iako imaju zajednički nadređeni pojam, a time i zajednički dio sadržaja, posjeduju dio sadržaja koji je kontradiktoran, odnosno koji čini to da ništa ne može pripadati opsegu obaju pojmova, ali sve mora pripadati jednom od njih.
+                Takvi su primjerice pojmovi prirodno i umjetno, materijalno i nematerijalno, moguće i nemoguće, istinito i neistinito. Rečeno jezikom teorije skupova, presjek takvih skupova jest prazan, ali svaki je entitet element jednoga od tih skupova. Također, svaki je od tih skupova komplement drugog skupa.
+                Upozorenje
+                Primijetite da je često slučaj da neki pojmovi mogu istovremeno pripadati većem broju odnosa. Također, moguće je da ćete u nekim drugim udžbenicima pronaći donekle različite definicije odnosa među pojmovima.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Definicija
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Ekstenzionalna i intenzionalna definicija
+ <p>Kako smo već napomenuli, pojmovi su zapravo isto što i skupovi. Jedina razlika je u tome što se pojmovi definiraju na poseban način, s pomoću svojstva. Primjerice, zamislimo da želimo opisati pojam „x je kanta.“ ili Kx
+                . Ako gledamo na kante kao na skup, onda skup tih predmeta možemo definirati na dva načina.
+                Jedan je način da navedemo sve članove skupa, poput {kanta1,kanta2,kanta3,…,kantan}
+                , što se naziva ekstenzionalnom definicijom. Ekstenzionalna je definicija pogodna za pojmove čiji opseg nije prevelik, kao na primjer pojam kontinenta.
+              </p>
+              <img src="Definicija_1.png">
+              <p>Drugi je način definiranje s pomoću obilježja (svojstva), što se naziva intenzionalnom definicijom. Tako skup svih kanta definiramo kao {x∣x je kanta}
+                odnosno
+                {x∣Kx}.
+                Formalno, to je skup svih x-eva takvih da je x
+                kanta.
+                Iako je ova definicija pojma prihvatljiva (premda je blizu cirkularnosti), vjerojatno bismo htjeli da nam definicija daje više informacija od „skup svih x
+                -eva takvih da je x
+                kanta“.
+                Htjeli bismo da kaže nešto drukčije, da nam kaže na primjer „Kanta je posuda koja ima ručku.“ Bez obzira što ovo možda nije dobra definicija u stvarnom svijetu, zamislimo radi jednostavnosti da su kante jedine posude koje imaju ručku i da sve kante imaju ručku, odnosno da je ova zdravorazumska definicija točna. 
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Tradicionalna definicija
+ <p>Odavde nadalje, radi jednostavnosti, smatrat ćemo da je činjenično dobra definicija kante sljedeća: sve kante imaju ručku (ako je izgube više nisu kante, nego recimo zdjele) i svaka posuda koja ima ručku automatski postaje kanta, kakva god bila ta posuda ili ručka. Dakle, sve što kanti treba jest da je posuda i da ima ručku. Naravno da ovakva definicija ne odražava dobro stvarnost jer je primjerice standardna šalica također posuda s ručkom. Međutim, to ovdje zanemarujemo jer nam nije cilj dati preciznu definiciju koja vrijedi u stvarnome svijetu, nego dati jednostavnu definiciju na kojoj možemo ilustrirati sve pojmove i ideje koje želimo. Ovo je važno jer nam takav pogled na stvari znatno pojednostavljuje nastavak teksta. Ono što nam ovdje treba, odgovara tradicionalnoj definiciji definicije.
+                Tradicionalna definicija
+                Tradicionalna definicija nekog pojma P
+                je oblika „P je ... “. Drugim riječima, rečenica uobičajeno počinje pojmom koji definiramo, a koji se naziva definiendum, nakon čega slijedi kopula je, a s desne strane dio rečenice koji određuje pojam P
+                naziva se definiens.
+                Definiens
+                Definiens se dijeli na genus proximus (nadređeni pojam) i differentia specifica (ono što čini definirani pojam različitim, odnosno ključna razlika).
+                Primjer bi mogao biti „Čekić je alat koji služi za udaranje.“, pri čemu je „čekić“ definiendum, a ostatak rečenice definiens. Pritom je u definiensu „alat“ genus proximus (pojam „čekić“ je podpojam pojma „alat“), a „služi za udaranje“ je differentia specifica, koja razlikuje čekiće od ostalih alata. Uočimo da je intenzionalna definicija upravo tradicionalna definicija zapisana modernom notacijom, pa bismo mogli definiciju čekića zapisati kao {x|x služi za udaranje}
+                pri čemu x obuhvaća sve alate, ili pak {y|y je alat∧y služi za udaranje}, ako y obuhvaća sve predmete.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h2>Divizija</h2>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Divizija
+<p>Kod tradicionalne smo definicije za definiranje koristili viši pojam i ključnu razliku.
+                Na primjer, u definiciji pojma ruby čokolade, „Ruby je čokolada koja je prirodno ružičaste boje i kiselkasto-slatkastog okusa.“, viši je pojam čokolada. 
+                Može nas zanimati kakve sve vrste čokolade postoje, stoga želimo znati koji su sve pojmovi neposredno podređeni pojmu čokolada. Tako se pojam čokolada dijeli na mliječnu, tamnu, bijelu i ruby, a takvu podjelu nazivamo divizijom.
+                Divizija
+                Divizija (dioba) metoda je podjele koja pokriva cijeli opseg pojma, ali bez preklapanja, stoga su pojmovi dobiveni divizijom koordinirani. Kako bi divizija bila ispravno provedena, mora biti iscrpna.
+                Divizija ima nekoliko elemenata. Kada je riječ o diviziji čokolade na mliječnu, tamnu, bijelu i ruby, čokolada predstavlja diobenu cjelinu, dok se mliječna, tamna, bijela i ruby čokolada nazivaju članovima diobe. Diobena cjelina prisutna je u svim članovima diobe.
+                Ako bismo čokoladu podijelili na bijelu, čokoladu s lješnjacima, čokoladu s keksom i ruby, ta divizija ne bi bila iscrpna jer postoje i mnoge vrste čokolade koje ovdje nisu uključene.
+                Također, kako bi divizija bila potpuna, potrebno je rabiti jednako načelo, pa ne možemo miješati podjelu na mliječnu, bijelu, tamnu i ruby čokoladu s onom na čokoladu u čvrstom stanju i tekuću čokoladu.
+              </p>
+              <img src="Divizija_1.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Ljestvica pojmova
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Ljestvica pojmova
+ <p>Ljestvica pojmova jest način grafičkog prikaza viših i nižih pojmova tako da je najviši pojam (koji u svom opsegu sadržava sve druge navedene pojmove) na vrhu ljestvice, a ispod njega slijede niži pojmovi na način da je pojam najmanjega opsega na dnu ljestvice.
+                Kod ljestvice pojmova važno je pripaziti da se kao niži ne uključuju oni pojmovi čiji se opseg samo djelomično podudara s opsegom višega pojma. Primjerice, vlak nije niži pojam pojmu električno vozilo jer postoje vlakovi koji su na dizelski ili parni pogon. Također, uočite da će za neke pojmove biti moguće izraditi različite ljestvice pojmova, što ne znači da je jedna točna, a druge nisu.
+              </p>
+              <img src="Ljestvica pojmova_1.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h2>Piramida pojmova</h2>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Teorija skupova
+<p>Za razliku od ljestvice pojmova u kojoj smo tražili samo jedan niži pojam izravno podređen nekom drugom pojmu, kod piramide pojmova (koja se naziva i klasifikacijom) tražimo sve takve pojmove koji su međusobno usporedni ili koordinirani. Ponekad, ako se ne radi o nekoj strogo ograničenoj domeni, kao što su matematički likovi, teško možemo znati jesmo li iscrpili sve usporedne pojmove, ali nastojimo piramide napraviti što obuhvatnijima.
+                Primjer takve piramide pojmova koja nikako nije konačna jest: 
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h2>Tautološki, kontradiktorni i zadovoljivi sudovi</h2>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Uvod
+<p>Zamislite da gledate vremensku prognozu jer sutra idete na izlet i zanima vas kakvo će biti vrijeme. Ovisno o vremenu, odjenut ćete različitu odjeću i planirati različite aktivnosti. No, na vaše potpuno iznenađenje, meteorolog izgovara sljedeću rečenicu:
+                Sutra će padati kiša ili neće padati kiša. 
+                Mijenjate program jer vam treba informacija i trenutačno vam nije do šale, ali i na drugoj vremenskoj prognozi zatečeni ste rečenicom:
+                Sutra će padati kiša i neće padati kiša. 
+                U obje vas prognoze zbunjuje nedostatak informativnosti s kojom ste suočeni. Naime, niste dobili informaciju koja bi vam pomogla u odabiru odjeće i aktivnosti za predviđeni izlet. 
+              </p>
+              <img src="Tautološki, kontradiktorni i zadovoljivi sudovi_1.png">
+              <p>Nedostatak informativnosti s kojim ste suočeni proizlazi iz činjenice da njihovu istinitost ili neistinitost ne trebate provjeravati ili verificirati u stvarnom svijetu. Naime, navedene su rečenice uvijek istinite ili neistinite i zbog toga prilično neupotrebljive izvan formalno-logičkog sustava.
+                Rečenicu „Sutra će padati kiša ili neće padati kiša.“ možemo prevesti s
+                P∨¬P
+                ,
+                a istinitosne vrijednosti oba disjunkta uvijek će biti suprotne jer imamo sud i njegovu negaciju. S
+                obzirom na to da je veznik u sudu disjunkcija, a ona je istinita kad god je barem jedan od rečeničnih dijelova istinit, ovaj će isud uvijek biti istinit.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Tautologija
+<p>Tautologija
+                Sudove koji su istiniti za svako istinitosno vrednovanje nazivamo tautologijama ili (opće)valjanim sudovima.
+                Valjan i nevaljan sud
+                Valjani su sudovi tautologije, a nevaljani su sudovi svi sudovi koji nisu tautologije, odnosno svi sudovi koji su barem u jednom tumačenju neistiniti.
+                Kod tautoloških sudova svi redci istinitosne tablice imat će vrijednost istina.
+                Primjerice, napravimo li istinitosnu tablicu za sud „Sutra će padati kiša ili neće padati kiša.“, vidjet ćemo da je on istinit u svim redcima.
+              </p>
+              <img src="Tautološki, kontradiktorni i zadovoljivi sudovi_3.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Kontradikcija
+<p>S druge strane, rečenica „Sutra će padati kiša i neće padati kiša.“ također u sebi sadrži rečenične dijelove suprotnih istinitosnih vrijednosti, ali se kao logički veznik u njoj javlja konjunkcija. Za nju znamo da je istinita ako i samo ako su oba konjunkta istinita. A kako to ovdje ne može biti slučaj, polazna će rečenica uvijek biti neistinita.
+                Kontradikcija
+                Sudove koji su neistiniti za svako istinitosno vrednovanje nazivamo kontradikcijama.
+                Kod kontradiktornih sudova svi redci istinitosne tablice imat će vrijednost neistina, pa će naš sud „Sutra će padati kiša i neće padati kiša.“ imati istinitosnu tablicu prikazanu zdesna.
+              </p>
+              <img src="Tautološki, kontradiktorni i zadovoljivi sudovi_4.png">
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Zadovoljiv sud
+ <p>Takva je zapravo velika većina sudova kojima se svakodnevno služimo. Pogledajmo sud „Pada kiša ili nije sunčano.“ Možemo ga prevesti s K∨¬S koji je sam po sebi istinit ili neistinit te sigurno nije ni tautologija ni kontradikcija</p>
+              <img src="Tautološki, kontradiktorni i zadovoljivi sudovi_5.png">
+              <p>Prethodni je sud zadovoljiv jer je istinit u trima redcima istinitosne tablice (postoje tri tumačenja za koja je istinit), dok je za jedno tumačenje (u trećem retku) neistinit.
+                Zadovoljiv (konzistentan) sud
+                Sudove koji mogu biti istiniti za jedno istinitosno vrednovanje, a neistiniti za drugo nazivamo zadovoljivim ili konzistentnim sudovima.
+                Zaključno, poigramo li se stečenim informacijama u obliku neposrednog deduktivnog zaključka, možemo reći da su sve tautologije zadovoljivi sudovi, dok su samo neki zadovoljivi sudovi ujedno i tautologije. Sve kontradikcije su nezadovoljivi sudovi, kao što su i svi nezadovoljivi sudovi kontradikcije, a nijedan zadovoljiv sud nije kontradikcija i obrnuto.
+                Valjanost zaključka može se provjeravati na različite načine. Neke od metoda za provjeru valjanosti jesu istinitosne tablice, reductio ad absurdum i istinitosna stabla. Ako zaključak nije valjan, to se može utvrditi navođenjem protuprimjera, odnosno pronalaženjem tumačenja u kojem su premise istinite, a konkluzija neistinita.
+              </p>
