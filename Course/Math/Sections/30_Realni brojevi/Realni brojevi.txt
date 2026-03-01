@@ -1,596 +1,408 @@
-<h3>Faktorijele i binomni koeficijenti</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Faktorijele
-<p class="zoomable-text">
-                                    Koliko različitih telefonskih brojeva postoji ako su brojevi šesteroznamenkasti, a prva znamenka nije jednaka nuli?
-                                    Koliko se može napisati peteroznamenkastih brojeva s različitim znamenkama? Na koliko se načina deset predmeta može
-                                    podijeliti na deset osoba? Na koliko se načina može izvući sedam brojeva od 39 u igri LOTO?
-                                    
-                                    Kombinatorika je grana matematike koja se bavi prebrojavanjem konačnih skupova. Ma koliko je brojenje svakodnevan posao,
-                                    prebrojavanje elemenata nekog skupa može biti iznimno teško. Zato je važno shvatiti temeljne principe kombinatorike koji
-                                    će nam olakšati taj posao.
-                                    Umnožak prvih n prirodnih brojeva označavamo ovako2: n!:=1⋅2⋅3⋅...⋅(n−1)⋅n .
-                                    Broj n! čitamo „en faktorijela”. Tako, primjerice, vrijedi: 1!=1,2!=1⋅2=2,3!=1⋅2⋅3=6,4!=1⋅2⋅3⋅4=24,5!=1⋅2⋅3⋅4⋅5=120.
-                                    Korisno je definirati i vrijednost 0!. Stavljamo: 0!:=1
-                                    
-                                    .
-                                    
-                                    Vidimo da faktorijele zadovoljavaju rekurzivnu formulu n!=n⋅(n−1)!
-                                    uz početnu vrijednost 0!=1. Tako je, primjerice: 6!=6⋅5!=6⋅120=720, 7!=7⋅6!=7⋅720=5040
-                                    
-                                    itd.
-                                    
-                                    Funkcija faktorijela raste izuzetno brzo. Njezine vrijednosti možemo očitavati na svakom boljem džepnom računalu, ali
-                                    samo za umjerene vrijednosti broja n
-                                    , obično za n≤69, 69!≈1.711⋅1098 ili izuzetno za n≤253, 253!≈5.173⋅10499
-                                    
-                                    .
-                                    
-                                    2
-                                    Simbol := čitaj: „po definiciji jednako”. Time se naznačava da se izraz s lijeve strane definira\/ da bude jednak onome
-                                    s desne strane. Ta se oznaka naročito rabi u različitim programskim jezicima, gdje su moguće i konstrukcije oblika
-                                    n:=n+1 i njima slične.
-                                    <!--PRIMEJR 1-->
-                                    <img src="faktorijele_i_binarni_koeficijenti_1">
-                                </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Binarni koeficijenti
- <p class="zoomable-text">
-                                    Neka je n prirodan broj i k prirodan broj ili 0, k≤n. Binomni koeficijent označavamo izrazom (nk) i definiramo ga ovako:
-                                    (nk):=n(n−1)⋅...⋅(n−k+1)1⋅2⋅...⋅k, za k≥1, dok za k=0 po definiciji stavljamo: (n0):=1. Izraz (nk) čita se: „n povrh
-                                    (ili iznad) k”. U brojniku ovog nazivnika nalazi se k uzastopnih opadajućih prirodnih brojeva počevši od broja n, a u
-                                    nazivniku umnožak od k prvih prirodnih brojeva.
-                                    <!--PRIMJER 2-->
-                                    <!--PRIMJER 3-->
-                                    <!--PRIMJER 4-->
-                                    Računanje binomnih koeficijenata
-                                    Vrijednosti binomnog koeficijenta (nk)
-                                    za male brojeve n i k računamo tako da najprije u nazivniku ispišemo umnožak svih brojeva od 1 do k u rastućem poretku,
-                                    a u brojniku umnožak brojeva u padajućem poretku počevši s n do (n−k+1). Faktora u brojniku ima jednako kao u nazivniku.
-                                    Prije računanja brojnik se skrati s nazivnikom.
-                                </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Binomni poučak
-Naziv binomnih koeficijenata i vrijednosti ispisane u Pascalovu trokutu sugeriraju vezu između tih brojeva i prikaza potencije binoma (a+b)n. Za male vrijednosti broja n dobro su nam poznate formule za potencije binoma: (a+b)1=1⋅a+1⋅b(a+b)2=1⋅a2+2⋅ab+1⋅b2(a+b)3=1⋅a3+3⋅a2b+3⋅ab2+1⋅b3.
-
-
-Posljednje dvije nazivaju se kvadrat i kub binoma. Koeficijenti u ovim izrazima upravo su binomni koeficijenti.
-
-Množenjem izraza za kub binoma s a+b
-dobit ćemo sljedeću jednakost: (a+b)4=(a3+3a2b+3ab2+b3)(a+b)=a4+3a3b+3a2b2+ab3+a3b+3a2b2+3ab3+b4=a4+4a3b+6a2b2+4ab3+b4.
-
-Uočimo da je zbroj eksponenata u svakom pribrojniku jednak eksponentu u potenciji binoma. Nadalje, koeficijenti u ovom izrazu binomni su koeficijenti iz jednog retka Pascalova trokuta.
-
-Binomni poučak
-Za svaki a,b∈R
-, n∈N vrijedi: (a+b)n=(n0)anb0+(n1)an−1b1+(n2)an−2b2+(n3)an−3b3+…+(nn−1)a1bn−1+(nn)a0bn.
-
-Dokaz poučka može se provesti  s pomoću matematičke indukcije. Za n=1
-
-, 2, 3 i 4 pokazali smo da formula vrijedi.
-
-Korak indukcije, prijelaz s n
-na n+1 dokazuje se na  identičan način poput ovog koji ćemo napraviti (radi jednostavnijeg zapisivanja) za prijelaz  s n=4 na n+1=5
-
-.
-
-Pretpostavimo da je tvrdnja istinita za broj n=4
-: (a+b)4=(40)a4+(41)a3b+(42)a2b2+(43)ab3+(44)b4. Pomnožimo tu jednakost s a+b. Dobivamo: (a+b)4(a+b)==[(40)a4+(41)a3b1+(42)a2b2+(43)ab3+(44)b4](a+b)=a5+(41)a4b+(42)a3b2+(43)a2b3+(44)ab4+a4b+(41)a3b2+(42)a2b3+(43)ab4+(44)b5.
-
-Koristeći rekurzivnu formulu za binomne koeficijente, grupirajući članove ove sume uz identične potencije, dobivamo: (a+b)5=(50)a5+(51)a4b+(52)a3b2+(53)a2b3+(54)ab4+(55)b5.
-(PRIMJER 2)
----------------------------------------------------------------------------------------------------------------------------------------------------
-Znak sumacije. Opći član u razvoju binoma
-  Zapisivanje binomne formule možemo pojednostavniti korištenjem znaka za sumaciju ∑. Taj znak je grčko slovo Σ koje odgovara latinskom slovu S, i početno je slovo latinske riječi summa koju smo preuzeli i u hrvatskom jeziku. Znak sumacije koristi se za jednostavnije zapisivanje različitih suma. Primjerice,
-5∑k=11k=1+12+13+14+15.
-Varijablu k nazivamo indeksom sumacije, a ispod i iznad znaka sumacije nalaze se granice unutar kojih treba izvršiti zbrajanje: k mijenja se od 1 do 5
-
-, uzimajući za vrijednosti prirodne brojeve.
-
-Broj pribrojnika može biti neodređen. Primjerice, n∑k=1k2
-označava zbroj kvadrata prvih n prirodnih brojeva: n∑k=1k2=1+22+32+...+n2. Izraz k2
-
-nakon znaka sumacije naziva se opći član.
-
-Zapišimo binomnu formulu s pomoću znaka sumacije. Prvi član u razvoju binoma ima oblik (n0)anb0
-, drugi (n1)an−1b1
-
-.
-
-Opći član u razvoju binoma
-Opći član u razvoju binoma je (k+1)
--vi po redu i glasi (nk)akbn−k. Stavljajući k=0, k=1, ..., k=n, dobit ćemo redom sve članove u binomnoj formuli: (a+b)n=n∑k=0(nk)an−kbk.
-(PRIMEJR 3
-)
-(PRIMJER 4)
-(PRIMJER 5)
-(PRIMEJR 6)
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
- <h3>Prirodni i cijeli brojevi</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+________________________________________
+________________________________________
+________________________________________
+Prirodni i cijeli brojevi
+________________________________________
 Teorem o dijeljenju
- <p>
-                  Relacija djeljivosti u skupu cijelih brojeva
-
+Relacija djeljivosti u skupu cijelih brojeva
 Još od samih početaka školovanja naučili smo koristiti sljedeći teorem.
-
 Teorem 1. Teorem o dijeljenju
-Za svaka dva cijela broja a
-, b, različita od nule, postoje jednoznačno određeni cijeli brojevi k i r takvi da vrijedi a=kb+r,0≤r<b.
+Za svaka dva cijela broja a,b, različita od nule, postoje jednoznačno određeni cijeli brojevi k i r takvi da vrijedi
+a=kb+r,0≤r<b.
 
-Količnik k
-i ostatak r ovog dijeljenja mogu se iskazati formulama
-k=a/b,r=a−kb.
-Dakle, k je najveći cijeli dio kvocijenta a/b. Kad odredimo k, onda je lako izračunati r
+Količnik k i ostatak r ovog dijeljenja mogu se iskazati formulama
+k=⌊a/b⌋,r=a-kb.
 
-.
+Dakle, k je najveći cijeli dio kvocijenta a/b. Kad odredimo k, onda je lako izračunati r.
+U ovom odjeljku proučavamo relaciju djeljivosti na skupu cijelih brojeva pa će u nastavku oznake a,b,c označavati uvijek cijele brojeve.
+PRIMJER 1
+Ako je ostatak dijeljenja r=0, kažemo da je a djeljiv brojem b, odnosno da b dijeli a.
+Relacija djeljivosti ∣ u skupu cijelih brojeva
+Na skupu cijelih brojeva definirana je relacija biti djeljiv, označavamo ju s ∣, na način
+b∣a"  "⟺"  "(∃k∈Z)" 						" a=k⋅b.
 
-U ovom odjeljku proučavamo relaciju djeljivosti na skupu cijelih brojeva pa će u nastavku oznake a
-, b, c označavati uvijek cijele brojeve.
-(PRIMEJR 1)
-Ako je ostatak dijeljenja r=0, kažemo da je a djeljiv brojem b, odnosno b dijeli a
-
-.
-
-Relacija djeljivosti ∣
-
-u skupu cijelih brojeva
-Na skupu cijelih brojeva definirana je relacija biti djeljiv, označavamo ju s ∣
-, na način b∣a⟺(postoji k∈Z) a=k⋅b. Kažemo da je a djeljiv s b, odnosno da b dijeli a. Broj a nazivamo još višekratnikom od b, dok je b djelitelj ili mjera od a
-.
-
+Kažemo da je a djeljiv s b, odnosno da b dijeli a. Broj a nazivamo još višekratnikom od b, dok je b djelitelj ili mjera od a.
 Primjerice,
-3∣−12
-jer je −12=(−4)⋅3. Broj 15 nije djeljiv s 4. To zapisujemo ovako: 4∤15
+3∣-12
 
-.
-
-Broj 0
-ima poseban status: on je djeljiv sa svakim cijelim brojem b jer je 0=0⋅b za svaki b
-
-.
-
+jer je -12=(-4)⋅3. Broj 15 nije djeljiv s 4. To zapisujemo ovako: 4∤15.
+Broj 0 ima poseban status: on je djeljiv sa svakim cijelim brojem b jer je 0=0⋅b za svaki b.
 Relativno prosti brojevi
-Cijeli brojevi a
-i b su relativno prosti ako nemaju zajednički djelitelj veći od 1.
-(PRIMJER 2)
-(PRIMJER 3
-)
-(PRIMJER 4)
-(PRIMER 5)
----------------------------------------------------------------------------------------------------------------------------------------------------
+Cijeli brojevi a i b su relativno prosti ako nemaju zajednički djelitelj veći od 1 (tj. njihova najveća zajednička mjera je 1).
+PRIMJER 2
+PRIMJER 3
+PRIMJER 4
+PRIMJER 5
+________________________________________
 Svojstva operacije djeljivosti
- Teorem 2. Svojstva operacije djeljivosti
+Teorem 2. Svojstva operacije djeljivosti
 Relacija djeljivosti na skupu cijelih brojeva ima sljedeća svojstva.
-1) a∣a
-i 1∣a za svaki a∈Z.
-2) Ako b∣a i c∣b, onda c∣a.
-3) Ako b∣a, onda b∣ac za svaki c∈Z.
-4) bc∣ac onda i samo onda ako b∣a.
-5) Ako b∣a i a∣b, onda je b=a ili b=−a.
-6) Ako c∣a i c∣b, onda c∣a+b i c∣a−b.
+	a∣a i 1∣a za svaki a∈Z.
+	Ako b∣a i c∣b, onda c∣a.
+	Ako b∣a, onda b∣ac za svaki c∈Z.
+	bc∣ac onda i samo onda ako b∣a (za c≠0).
+	Ako b∣a i a∣b, onda je b=a ili b=-a.
+	Ako c∣a i c∣b, onda c∣a+b i c∣a-b.
 Najveća zajednička mjera
-Najveća zajednička mjera cijelih brojeva a1,…,an
-je najveći broj koji dijeli sve te brojeve. Označavamo ga s M(a1,…,an).
-Spomenimo da je M(0,n)=n za svaki prirodni broj n jer je 0 djeljiva s n. Također M(0,−n)=n za svaki prirodni n.
-(PRIMJER 6)
+Najveća zajednička mjera cijelih brojeva a_1,…,a_n je najveći broj koji dijeli sve te brojeve. Označavamo ga s M(a_1,…,a_n) ili gcd⁡(a_1,…,a_n).
+Spomenimo da je M(0,n)=n za svaki prirodni broj n jer je 0 djeljiva s n. Također M(0,-n)=n za svaki prirodni n.
+PRIMJER 6
 Ovaj način određivanja mjere povezan je s prikazom brojeva 48 i 72 koristeći se njihovim prostim faktorima:
-48=24⋅3,72=23⋅32.
+48=2^4⋅3,72=2^3⋅3^2.
+
 Mjera dvaju brojeva je umnožak zajedničkih prostih faktora potenciranih manjim eksponentom:
-M(48,72)=23⋅3.
+M(48,72)=2^3⋅3.
 
 Određivanje najveće zajedničke mjere, a onda i najmanjeg zajedničkog višekratnika, uči se još u osnovnoj školi jer služi pri skraćivanju razlomaka kada se izvode elementarne računske operacije zbrajanja i množenja razlomaka.
-
 Primjena cijelih brojeva daleko nadmašuje ove potrebe. Danas je račun s cijelim brojevima sastavni dio svakog računalnog programa. Brojevi koji se javljaju u nekim važnim primjenama neusporedivo su veći od ovih u primjeru i navedeni postupak je potpuno neprimjeren, uglavnom stoga što je u tim slučajevima vrlo teško odrediti faktore cijelog broja.
-(PRIMJER 7)
+PRIMJER 7
 Brojevi u ovom primjeru nisu preveliki. Oni koji se javljaju u praksi imaju više od stotinu znamenaka. Zato nam je važno shvatiti principe djeljivosti u skupu cijelih brojeva.
----------------------------------------------------------------------------------------------------------------------------------------------------
+________________________________________
 Teorem 3. o dijeljenju cijelih brojeva i svojstvo mjere
 Teorem 3. Teorem o dijeljenju cijelih brojeva i svojstvo mjere
-Pri dijeljenju broja a
-brojem b: a=kb+r vrijedi M(a,b)=M(b,r).
+Pri dijeljenju broja a brojem b: a=kb+r vrijedi
+M(a,b)=M(b,r).
 
-Ovaj teorem daje efikasan algoritam za računanje mjere dvaju brojeva. Dovoljno je postupak dijeljenja nastaviti do njegova završetka.
-(PRIMJER 8)
+Ovaj teorem daje efikasan algoritam za računanje mjere dvaju brojeva. Dovoljno je postupak dijeljenja nastaviti do njegova završetka (Euklidov algoritam).
+PRIMJER 8
 Pri računanju dovoljno je navesti samo postupak dijeljenja i zapamtiti da je tražena mjera posljednji ostatak različit od nule.
-(PRIMJER 9)
+PRIMJER 9
 Prosti brojevi
+Svaki prirodni broj n umnožak je prostih faktora:
+n=p_1 p_2⋯p_m.
 
-Svaki prirodni broj n
-umnožak je prostih faktora:
-n=p1p2⋯pm.
-Poredamo li faktore po veličini: p1≤p2≤⋯≤pm
-
-, onda je prikaz jednoznačno određen.
-
-Dokaz postojanja faktorizacije je egzistencijalne naravi, nije nam poznat niti jedan efikasan algoritam za određivanje faktorizacije po volji uzetog prirodnog broja.
-
-Za malene brojeve faktorizaciju je lako odrediti. Primjerice, 15=3⋅5
-, 42=2⋅3⋅7, 90=2⋅3⋅3⋅5
+Poredamo li faktore po veličini: p_1≤p_2≤⋯≤p_m, onda je prikaz jednoznačno određen (osnovni teorem aritmetike).
+Dokaz postojanja faktorizacije je egzistencijalne naravi; nije nam poznat niti jedan efikasan algoritam za određivanje faktorizacije po volji uzetog prirodnog broja (za velike brojeve faktorizacija je računski teška).
+Za malene brojeve faktorizaciju je lako odrediti. Primjerice,
+15=3⋅5,42=2⋅3⋅7,90=2⋅3⋅3⋅5
 
 i sl. Ovdje neki od njegovih faktora mogu biti jednaki, pa ćemo ih grupirati.
-
 Faktorizacija prirodnog broja
-Svaki prirodni broj n>1
-može se na jednoznačan način prikazati u obliku umnoška prostih faktora: n=pr11pr22⋅...⋅prkk pri čemu su p1,p2,…
-različiti prosti brojevi.
+Svaki prirodni broj n>1 može se na jednoznačan način prikazati u obliku umnoška prostih faktora:
+n=p_1^(r_1 ) p_2^(r_2 )⋯p_k^(r_k ),
 
-Primjerice, 90=2⋅32⋅5
-, 96=25⋅3 i sl.
-(PRIMJER 10)
-(PRIMJR 11)
+pri čemu su p_1,p_2,…,p_k različiti prosti brojevi.
+Primjerice,
+90=2⋅3^2⋅5,96=2^5⋅3
+
+i sl.
+PRIMJER 10
+PRIMJER 11
 Beskonačnost skupa prostih brojeva
 Prostih brojeva ima beskonačno mnogo.
+Dokaz. Jednostavan dokaz ove činjenice bio je poznat još starim Grcima (Euklidov dokaz). Dokazujemo pretpostavivši suprotno: skup P prostih brojeva je konačan. Neka su mu elementi P={p_1,p_2,…,p_m}. Načinimo broj
+n=p_1 p_2⋯p_m+1.
 
-Dokaz. Jednostavan dokaz ove činjenice bio je poznat još starim Grcima. Dokazujemo pretpostavivši suprotno: skup P
-prostih brojeva je konačan. Neka su mu elementi P=p1,p2,…,pm}. Načinimo broj n=p1p2⋅…⋅pm+1. On je veći od svih brojeva p1,…,pm i zato mora biti složen. To znači da je djeljiv s nekim prostim brojem pj iz skupa P. Kako je istim brojem djeljiv i umnožak p1p2⋅…⋅pm, iz toga slijedi da je s pj djeljiva i razlika n−p1p2⋅…⋅pm=1, što je nemoguće. Dobili smo proturječje s pretpostavkom da je skup P konačan.
----------------------------------------------------------------------------------------------------------------------------------------------------
-Kongruencije I SOJSTVA
-  Neka cijeli brojevi a i b daju isti ostatak pri dijeljenju s prirodnim brojem m: a=k1m+r,b=k2m+r.
-Tada vrijedi a−b=(k1−k2)m pa m dijeli razliku a−b
+On je veći od svih brojeva p_1,…,p_m i zato mora biti složen (ili prost, ali u svakom slučaju ima prosti djelitelj). To znači da je djeljiv s nekim prostim brojem p_j iz skupa P. Kako je istim brojem djeljiv i umnožak p_1 p_2⋯p_m, iz toga slijedi da je s p_j djeljiva i razlika
+n-p_1 p_2⋯p_m=1,
 
-.  U ovoj situaciji uvodimo sljedeću definiciju.
+što je nemoguće. Dobili smo proturječje s pretpostavkom da je skup P konačan.
+________________________________________
+Kongruencije i svojstva
+Neka cijeli brojevi a i b daju isti ostatak pri dijeljenju s prirodnim brojem m:
+a=k_1 m+r,b=k_2 m+r.
 
+Tada vrijedi
+a-b=(k_1-k_2)m
+
+pa m dijeli razliku a-b.
+U ovoj situaciji uvodimo sljedeću definiciju.
 Kongruencija modulo m
+Ako broj m dijeli razliku a-b, onda kažemo da je a kongruentan s b modulo m i pišemo
+a≡b(modm).
 
-Ako broj m
-dijeli razliku a−b, onda kažemo da je a kongruentan s b modulo m i pišemo a=b(modm).
-(PRIMJER 12)
+PRIMJER 12
 S pomoću kongruencija moći ćemo na jednostavan način dokazivati djeljivosti brojeva. Pritom koristimo svojstva kongruencija iz sljedećeg teorema.
-
-
-
 Teorem 6. Svojstva kongruencija
-Neka je a=b(modm),c=d(modm).
+Neka je
+a≡b(modm),c≡d(modm).
+
 Tada imamo:
-1) Zbrajanje i oduzimanje kongruencija a+c=b+d(modm),(1)a−c=b−d(modm).(2)
-2) Množenje kongruencija ac=bd(modm).(3)
-3) Množenje kongruencije brojem. Za svaki cijeli broj e vrijedi ae=be(modm).(4)
-4) Potenciranje kongruencije. Za svaki prirodni n vrijedi an=bn(modm).(5)
+	Zbrajanje i oduzimanje kongruencija
+■(&a+c≡b+d(modm),&&"(1)" )
+■(&a-c≡b-d(modm).&&"(2)" )
 
+	Množenje kongruencija
+■(&ac≡bd(modm).&&"(3)" )
 
+	Množenje kongruencije brojem. Za svaki cijeli broj e vrijedi
+■(&ae≡be(modm).&&"(4)" )
 
-
+	Potenciranje kongruencije. Za svaki prirodni n vrijedi
+■(&a^n≡b^n (modm).&&"(5)" )
 
 Dokaz. Dokažimo 2). 1) i 3) se dokazuju na isti način.
+Prema pretpostavci postoje cijeli brojevi k_1 i k_2 takvi da vrijedi
+a=k_1 m+b,c=k_2 m+d.
 
-Prema pretpostavci postoje cijeli brojevi k1
-i k2 takvi da vrijedi a=k1m+b,c=k2m+d.
-Odatle ac=(k1m+b)(k2m+d)=(k1k2m+k1d+k2b)m+bd.
-Dakle, m dijeli razliku ac−bd
+Odatle
+ac=(k_1 m+b)(k_2 m+d)=(k_1 k_2 m+k_1 d+k_2 b)m+bd.
 
-pa tvrdnja vrijedi.
+Dakle, m dijeli razliku ac-bd, pa tvrdnja vrijedi.
+	Slijedi iz 2). Stavimo li a=c i b=d, imamo
+a^2≡b^2 (modm).
 
-4) Slijedi iz 2). Stavimo li a=c
-i b=d, imamoa2=b2(modm).Sad se lako primijeni indukcija.
-(PRIMJER 13)
-(PRIMEJR 14)
-(PRIMJER 15)
-(PRIMEJR 16)
-(PRIMJER 17)
-(PRIMJER 18)
-(PRIMJER 19)
-(PRIMJER 20)
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Racionalni brojevi</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Sad se lako primijeni indukcija.
+PRIMJER 13
+PRIMJER 14
+PRIMJER 15
+PRIMJER 16
+PRIMJER 17
+PRIMJER 18
+PRIMJER 19
+PRIMJER 20
+________________________________________
+________________________________________
+________________________________________
+Racionalni brojevi
+________________________________________
 Cijeli brojevi – proširenje skupa prirodnih brojeva
->
-                  Cijeli brojevi – proširenje skupa prirodnih brojeva
-
-Operacije zbrajanja (+
-) i množenja (⋅) definirane su u skupu prirodnih brojeva N
-
-. To znači da je zbroj prirodnih brojeva ponovno  prirodan broj, kao i umnožak dvaju takvih brojeva.
-
+Cijeli brojevi – proširenje skupa prirodnih brojeva
+Operacije zbrajanja (+) i množenja (⋅) definirane su u skupu prirodnih brojeva N. To znači da je zbroj prirodnih brojeva ponovno prirodan broj, kao i umnožak dvaju takvih brojeva.
 Operacije oduzimanja i dijeljenja nisu definirane u skupu prirodnih brojeva. To znači da ne možemo uvijek oduzeti ili podijeliti dva po volji odabrana prirodna broja tako da i rezultat bude prirodan broj. Zato vrlo jednostavna jednadžba
 x+n=m
-u kojoj su n i m prirodni brojevi, ne mora imati rješenje u skupu N. Takva je jednadžba primjerice x+5=2
 
-.
+u kojoj su n i m prirodni brojevi, ne mora imati rješenje u skupu N. Takva je jednadžba, primjerice,
+x+5=2.
 
-Da bi ovakve jednadžbe bile rješive, moramo skup N
-proširiti nulom i negativnim cijelim brojevima. Na taj način dobivamo skup Z cijelih brojeva:
-Z={...−3,−2,−1,0,1,2,3...}.
+Da bi ovakve jednadžbe bile rješive, moramo skup N proširiti nulom i negativnim cijelim brojevima. Na taj način dobivamo skup Z cijelih brojeva:
+Z={…,-3,-2,-1,0,1,2,3,…}.
 
-Broj 0
-ima posebno svojstvo: x+0=x za svaki cijeli broj x
-
-.
-
-Za svaki cijeli broj x
-u skupu Z možemo pronaći broj koji zbrojen s x daje rezultat 0. Taj ćemo broj označavati s −x. Nazivamo ga suprotnim brojem broja x
-
-.
-
-Ako je x
-pozitivan, onda je −x negativni broj iste apsolutne vrijednosti. Ako je x negativan, onda je −x pozitivni broj iste apsolutne vrijednosti. Nadalje, broj suprotan suprotnom broju jednak je početnom broju: −(−x)=x
-
-.
-
+Broj 0 ima posebno svojstvo: x+0=x za svaki cijeli broj x.
+Za svaki cijeli broj x u skupu Z možemo pronaći broj koji zbrojen s x daje rezultat 0. Taj ćemo broj označavati s -x. Nazivamo ga suprotnim brojem broja x.
+Ako je x pozitivan, onda je -x negativni broj iste apsolutne vrijednosti. Ako je x negativan, onda je -x pozitivan broj iste apsolutne vrijednosti. Nadalje, broj suprotan suprotnom broju jednak je početnom broju: -(-x)=x.
 Korištenjem pojma suprotnog broja u skup cijelih brojeva uvodimo izvedenu operaciju oduzimanja:
-y−x:=y+(−x).
+y-x:=y+(-x).
 
-To znači da je y−x samo dogovorni jednostavniji zapisza zbrajanje broja y s brojem suprotnim broju x
-
-.
-
+To znači da je y-x samo dogovorni jednostavniji zapis za zbrajanje broja y s brojem suprotnim broju x.
 Definicija operacije oduzimanja
-Oduzimanje dvaju brojeva je zbrajanje prvog broja i broja suprotnog drugom broju: y−x:=y+(−x)
-.
+Oduzimanje dvaju brojeva je zbrajanje prvog broja i broja suprotnog drugom broju:
+y-x:=y+(-x).
 
-Ovo nam svojstvo osigurava da je jednadžba x+n=m
-u kojoj su n i m cijeli brojevi, rješiva u skupu Z. Njezino je rješenje cijeli broj m+(−n)=m−n.
----------------------------------------------------------------------------------------------------------------------------------------------------
-Racionalni brojevi i operacija dijelejenja
+Ovo nam svojstvo osigurava da je jednadžba
+x+n=m
+
+u kojoj su n i m cijeli brojevi, rješiva u skupu Z. Njezino je rješenje cijeli broj m+(-n)=m-n.
+________________________________________
+Racionalni brojevi i operacija dijeljenja
 Skup racionalnih brojeva
-
-Ako su n
-i m cijeli brojevi, jednadžba nx=m
+Ako su n i m cijeli brojevi, jednadžba
+nx=m
 
 nema uvijek rješenje u skupu cijelih brojeva. Da obuhvatimo rješenja te jednadžbe, moramo skup cijelih brojeva proširiti razlomcima.
-
-Racionalni broj je broj oblika mn
-, pri čemu je m cijeli, a n prirodan broj. Skup svih racionalnih brojeva označavamo s Q. Očito je Z⊂Q
-
-.
-
+Racionalni broj je broj oblika m/n, pri čemu je m cijeli, a n prirodan broj. Skup svih racionalnih brojeva označavamo s Q. Očito je Z⊂Q.
 Isti racionalni broj može biti zapisan na različite načine.
-
 Jednakost racionalnih brojeva
-Dva su racionalna broja a=mn
-i b=pq jednaka ako je ispunjeno sljedeće: mn=pq⟺mq=pn.
+Dva su racionalna broja a=m/n i b=p/q jednaka ako je ispunjeno sljedeće:
+m/n=p/q "  "⟺"  " mq=pn.
 
-Primjerice: 23=69=238357
-. Također, vrijedi−23=−812,−23=−23.
+Primjerice:
+2/3=6/9=238/357.
+
+Također, vrijedi
+-2/3=-8/12,-2/3=(-2)/3.
+
 Racionalne smo brojeve definirali kao kvocijent cijelog i prirodnog broja. Međutim, često u računu dobivamo negativni broj u nazivniku razlomka, pa s tim u vezi pišemo:
-m−n=−mn
+m/(-n)=-m/n,
+
 i ova je jednakost u skladu s definicijom jednakosti racionalnih brojeva. Onda naravno vrijede sva uobičajena pravila, poput:
-−m−n=mn,m−n=−mn.
+-m/(-n)=m/n,m/(-n)=-m/n.
 
-Ako je a≠0
-, jednadžba ax=1 rješiva je u skupu racionalnih brojeva. Njezino rješenje a′, broj sa svojstvom aa′=1 nazivamo recipročnim brojem broja a
+Ako je a≠0, jednadžba
+ax=1
 
-.
+rješiva je u skupu racionalnih brojeva. Njezino rješenje a^', broj sa svojstvom
+aa^'=1
 
-Primjerice, iz 23x=1
-vidimo da je broj recipročan broju 23 jednak 32
+nazivamo recipročnim brojem broja a.
+Primjerice, iz
+2/3 x=1
 
-.
+vidimo da je broj recipročan broju 2/3 jednak 3/2.
+Recipročni broj označavamo još s a^(-1) ili s 1/a.
+Postupak rješavanja jednadžbe
+a⋅x=b,
 
-Recipročni broj označavamo još s a−1
-ili s 1a.
-Postupak rješavanja jednadžbe a⋅x=b,
-gdje su a≠0 i b racionalni brojevi, možemo opisati ovako. Množimo lijevu i desnu stranu jednadžbe recipročnim brojem a′ i koristimo uobičajena svojstva operacije množenja (asocijativnost):
-a′⋅(a⋅x)=a′⋅b(a′⋅a)⋅x=a′⋅b1⋅x=a′⋅bx=a′⋅b.
+gdje su a≠0 i b racionalni brojevi, možemo opisati ovako. Množimo lijevu i desnu stranu jednadžbe recipročnim brojem a^' i koristimo uobičajena svojstva operacije množenja (asocijativnost):
+a^'⋅(a⋅x)=a^'⋅b
+(a^'⋅a)⋅x=a^'⋅b
+1⋅x=a^'⋅b
+x=a^'⋅b.
+
 Primjerice, rješenje jednadžbe
-23x=14
+2/3 x=1/4
+
 prema napisanoj formuli je
-x=32⋅14=38.
+x=3/2⋅1/4=3/8.
+
 Navikli smo do rješenja dolaziti ovako:
-x=1423.
+x=(1/4)/(2/3).
+
 Sad ovaj dvojni razlomak prevodimo u racionalni broj koristeći poznata pravila:
-x=1⋅32⋅4=38.
+x=1⋅3/2⋅1/4=3/8.
 
-Time smo zapravo definirali novu operaciju, dijeljenje u skupu racionalnih brojeva: količnik dvaju racionalnih brojeva (s djeliteljem različitim od nule) ponovno je racionalan broj. Dijeljenje broja b
-racionalnim brojem a zapravo se svodi na množenje broja b brojem recipročnim broju a
-
-.
-
+Time smo zapravo definirali novu operaciju, dijeljenje u skupu racionalnih brojeva: količnik dvaju racionalnih brojeva (s djeliteljem različitim od nule) ponovno je racionalan broj. Dijeljenje broja b racionalnim brojem a zapravo se svodi na množenje broja b brojem recipročnim broju a.
 Definicija operacije dijeljenja
-Dijeljenje je množenje recipročnim brojem, ba=a−1⋅b
-.
+Dijeljenje je množenje recipročnim brojem,
+b/a=a^(-1)⋅b.
 
-Stoga, kad ističemo definiciju skupa Q
-, spominjemo samo dvije operacije na tom skupu: zbrajanje i množenje. Druge dvije elementarne operacije, oduzimanje i dijeljenje, izvedene su operacije iz množenja i zbrajanja i predstavljaju samo jednostavniji zapis za zbrajanje sa suprotnim brojem, odnosno množenje  recipročnim brojem.
----------------------------------------------------------------------------------------------------------------------------------------------------
-Uređeni skup Q i Decimalni prikaz racionalnog broja
-<p>
-                  Q je uređeni skup
-
-U skupu racionalnih brojeva možemo definirati relaciju poretka <
-ovako:
-mn<pq⟺0<pq−mn.(1)
+Stoga, kad ističemo definiciju skupa Q, spominjemo samo dvije operacije na tom skupu: zbrajanje i množenje. Druge dvije elementarne operacije, oduzimanje i dijeljenje, izvedene su operacije iz množenja i zbrajanja i predstavljaju samo jednostavniji zapis za zbrajanje sa suprotnim brojem, odnosno množenje recipročnim brojem.
+________________________________________
+Uređeni skup Q i decimalni prikaz racionalnog broja
+Q je uređeni skup
+U skupu racionalnih brojeva možemo definirati relaciju poretka < ovako:
+■(&m/n<p/q "  " ⟺"  " 0<p/q-m/n.&&"(1)" )
 
 Računajući razliku (1) zaključujemo:
-mn<pq⟺0<np−mqnq⟺mq<np.(2)
+■(&m/n<p/q "  " ⟺"  " 0<(np-mq)/nq "  " ⟺"  " mq<np.&&"(2)" )
 
-(Prisjetimo se da su nazivnici u zapisu racionalnih brojeva prirodni, dakle, pozitivni brojevi.) Tako, primjerice, vrijedi: 712<35 jer je 7⋅5<3⋅12
+(Prisjetimo se da su nazivnici u zapisu racionalnih brojeva prirodni, dakle, pozitivni brojevi.) Tako, primjerice, vrijedi:
+7/12<3/5
 
-.
-
-Češće promatramo sličnu relaciju poretka ≤
-
-a≤b⟺(a=b ili a<b).
+jer je 7⋅5<3⋅12.
+Češće promatramo sličnu relaciju poretka ≤:
+a≤b"  "⟺"  "(a=b" ili " a<b).
 
 Izdvajamo sljedeća svojstva ove relacije:
-
 Svojstva relacije poretka
-1) Svaka dva racionalna broja su usporediva, vrijedi a≤b
-ili b≤a ili je a=b.
-2) Ako je a≤b i b≤a, onda vrijedi a=b.
-3) Ako je a≤b i b≤c, onda je a≤c.
-4) Ako je a≤b, onda za svaki racionalan broj c vrijedi a+c≤b+c.
-5) Ako je 0≤a i 0≤b, onda je 0≤ab
-.
+	Svaka dva racionalna broja su usporediva, vrijedi a≤b ili b≤a.
+	Ako je a≤b i b≤a, onda vrijedi a=b.
+	Ako je a≤b i b≤c, onda je a≤c.
+	Ako je a≤b, onda za svaki racionalan broj c vrijedi a+c≤b+c.
+	Ako je 0≤a i 0≤b, onda je 0≤ab.
+Kažemo da je skup racionalnih brojeva uređeni skup: za svaka dva racionalna broja možemo reći jesu li oni jednaki ili je jedan od njih veći (i koji je to). Međutim, to nije uvijek jednostavno učiniti.
+PRIMJER 1
+Drugi način usporedbe ovih brojeva jest napisati ih u decimalnom zapisu koji dobivamo direktnim dijeljenjem brojnika nazivnikom:
+a=0.6666…,b=0.625,c=0.57143…
 
-Kažemo da je skup racionalnih brojeva uređeni skup: za svaka dva racionalna broja možemo reći jesu li oni jednaki ili je jedan od njih veći (i koji je to). Međutim, to nije uvijek jednostavno učiniti, vidi Kutak plus.
-(PRIMJER 1)
-Drugi način usporedbe ovih brojeva jest napisati ih u decimalnom zapisu koji dobivamo direktnim dijeljenjem brojnika nazivnikom: a=0.6666…b=0.625,c=0.57143…
 Decimalni prikaz racionalnog broja
+Pozicijski dekadski zapis brojeva može se proširiti i na racionalne brojeve. Takav prikaz broja nazivamo decimalnim prikazom. Tako, primjerice, broj 1/2 ima decimalni prikaz 0.5, broj 11/8 ima decimalni prikaz 1.375, 1/100=0.01 itd. Ove prikaze dobivamo dijeljenjem brojnika s nazivnikom.
+Što je s brojem 1/3? Njegov decimalni prikaz nije konačan. Dijeleći brojnik s nazivnikom, dobivamo za međurezultate dijeljenja brojeve 0.3, 0.33, 0.333, 0.3333 itd. Dakle
+1/3=0.333333…,
 
-Pozicijski dekadski zapis brojeva može se proširiti i na racionalne brojeve. Takav prikaz broja nazivamo decimalnim prikazom. Tako, primjerice, broj 12
-ima decimalni prikaz 0.5, broj 118 ima decimalni prikaz 1.375, 1100=0.01
-
-itd. Ove prikaze dobivamo dijeljenjem brojnika s nazivnikom.
-
-Što je s brojem 13
-? Njegov decimalni prikaz nije konačan. Dijeleći brojnik s nazivnikom, dobivamo za međurezultate dijeljenja brojeve 0.3, 0.33, 0.333, 0.3333 itd. Dakle je 13=0.333333…
-a znamenka 3 ponavlja se u beskonačnost. Ovaj broj zapisujemo još na  način 0.˙3, gdje točka iznad broja pokazuje da se znamenka 3
-
-ponavlja.
-
-Prikaz racionalnih brojeva može biti beskonačan decimalni broj sa znamenkama koje se ponavljaju i na složenije načine. Primjerice, broj 17
-ima prikaz:
-17=0.1428571428571428⋯=0.˙14285˙7.
-
+a znamenka 3 ponavlja se u beskonačnost. Ovaj broj zapisujemo još na način 0.3 ̇, gdje točka iznad broja pokazuje da se znamenka 3 ponavlja.
+Prikaz racionalnih brojeva može biti beskonačan decimalni broj sa znamenkama koje se ponavljaju i na složenije načine. Primjerice, broj 1/7 ima prikaz:
+1/7=0.1428571428571428…=0.(14285) ̇7 ̇.
 
 Ovdje se ponavlja skupina od šest znamenaka. Kažemo da ovaj decimalni prikaz ima period duljine 6, a počinje neposredno iza decimalne točke. Točku stavljamo na početnu i završnu znamenku perioda. Ovakav se broj naziva čisto periodični decimalni broj.
-
-Period ne mora početi neposredno nakon decimalne točke:3714=2.6428571428571428⋯=2.6˙42857˙1.
+Period ne mora početi neposredno nakon decimalne točke:
+37/14=2.6428571428571428…=2.6(42857) ̇1 ̇.
 
 Za takav broj kažemo da ima mješovito periodični decimalni prikaz. Opći oblik takvog prikaza je:
-x=ak…a0cjelobrojni dio.b1…brpredperiod˙c1…˙cpperiod
+x=(ak…a_0 ) ‾." " (b_1…b_r ) ‾" " (c_1…(c_p ) ̇ ) ̇,
 
+gdje je (ak…a_0 ) ‾ cjelobrojni dio, (b_1…b_r ) ‾ predperiod, a (c_1…c_p ) ‾ period.
 U postupku dijeljenja dvaju prirodnih brojeva ostataka može biti samo konačno mnogo jer su manji od djelitelja. Zato postupak dijeljenja ili završava u konačno mnogo koraka (kad se dobije ostatak nula) ili se od nekog trenutka ponavlja.
-
 Decimalni prikaz racionalnih brojeva
 Svaki racionalni broj ima konačan ili beskonačan periodični decimalni prikaz.
-
-Vrijedi li i obratni zaključak? Odgovara li svakom periodičnom decimalnom broju racionalni broj? Odgovor je potvrdan. Pogledajmo najprije poseban slučaj kad je cjelobrojni dio jednak nuli, a decimalni dio čisto periodičan. Neka je x=0.˙20˙5
-.
-x=0.˙20˙5=0.205205…,103⋅x=205.205205⋯=205+0.205205⋯=205+x,(1000x−x)=205⟹x=205999.
+Vrijedi li i obratni zaključak? Odgovara li svakom periodičnom decimalnom broju racionalni broj? Odgovor je potvrdan. Pogledajmo najprije poseban slučaj kad je cjelobrojni dio jednak nuli, a decimalni dio čisto periodičan. Neka je
+x=0.(20) ̇5 ̇.
+x=0.(20) ̇5 ̇=0.205205…,
+10^3⋅x=205.205205…=205+0.205205…=205+x,
+(1000x-x)=205⟹x=205/999.
 
 Decimalni prikaz racionalnih brojeva, obrat
-Vrijedi sljedeći prikaz: 0.˙c1…˙cp=c1…cp10p−1=c1…cp99…9(3)
+Vrijedi sljedeći prikaz:
+■(&0.(c_1…c_p ) ̇=(c_1…c_p)/(10^p-1)=(c_1…c_p)/(99…9).&&"(3)" )
+
 Svaki periodičan decimalni zapis odgovara racionalnom broju.
-(PRIMEJR 2)
-(PRIMJER 3)
-(PRIMJER 4)
-(PRIMJER 5)
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
+PRIMJER 2
+PRIMJER 3
+PRIMJER 4
+PRIMJER 5
+________________________________________
+________________________________________
+________________________________________
 Realni brojevi
----------------------------------------------------------------------------------------------------------------------------------------------------
+________________________________________
 Iracionalni brojevi
- U svakodnevnom računu obično se koristimo prirodnim, cijelim i ponekad racionalnim brojevima (u obliku razlomka ili decimalnog broja). Međutim, mnoga računanja imaju za rezultat novu vrstu brojeva, koje su ljudi u prošlosti nazvali iracionalnim. Tako primjerice, površina kruga kojemu je duljina promjera prirodan broj nije racionalan broj.  Isto vrijedi i za njegov opseg.
-
-Još od starogrčke matematike poznato je da je dijagonala kvadrata nesumjerljiva s njegovom stranicom. Zapišemo li to brojkama, iskazujemo tvrdnju da  je dijagonala kvadrata kojemu je stranica 1 iracionalan broj. Uistinu, ta dijagonala iznosi √2
-, a dobro je poznato da taj broj nije racionalan.
-(PRIMJER 1)
-(PRIMJER 2)
-Realne brojeve dobivamo upotpunjujući skup racionalnih brojeva − dodajući mu iracionalne brojeve −
-
-ali tako da na novom skupu vrijede sva svojstva algebarskih operacija koja su vrijedila među racionalnim brojevima. Postoje dva jednostavna načina na koja možemo intuitivno pojmiti realne brojeve:
-
+U svakodnevnom računu obično se koristimo prirodnim, cijelim i ponekad racionalnim brojevima (u obliku razlomka ili decimalnog broja). Međutim, mnoga računanja imaju za rezultat novu vrstu brojeva, koje su ljudi u prošlosti nazvali iracionalnim. Tako primjerice, površina kruga kojemu je duljina promjera prirodan broj nije racionalan broj. Isto vrijedi i za njegov opseg.
+Još od starogrčke matematike poznato je da je dijagonala kvadrata nesumjerljiva s njegovom stranicom. Zapišemo li to brojkama, iskazujemo tvrdnju da je dijagonala kvadrata kojemu je stranica 1 iracionalan broj. Uistinu, ta dijagonala iznosi √2, a dobro je poznato da taj broj nije racionalan.
+PRIMJER 1
+PRIMJER 2
+Realne brojeve dobivamo upotpunjujući skup racionalnih brojeva – dodajući mu iracionalne brojeve – ali tako da na novom skupu vrijede sva svojstva algebarskih operacija koja su vrijedila među racionalnim brojevima.
+Postoje dva jednostavna načina na koja možemo intuitivno pojmiti realne brojeve:
 Opis skupa realnih brojeva
-1. Geometrijski opis. Skup realnih brojeva možemo poistovjetiti s brojevnim pravcem: svakom realnom broju odgovara jedna točka brojevnog pravca i obratno - svakoj točki s brojevnog pravca odgovara jedan realni broj.
-2. Algebarski opis. Skup realnih brojeva sadrži sve decimalne brojeve oblika ±a0.b1b2b3…bn…
-pri čemu je a0 neki prirodan broj (cjelobrojni dio), a b1, b2,…
-znamenke decimalnog prikaza.
+	Geometrijski opis. Skup realnih brojeva možemo poistovjetiti s brojevnim pravcem: svakom realnom broju odgovara jedna točka brojevnog pravca i obratno – svakoj točki s brojevnog pravca odgovara jedan realni broj.
+	Algebarski opis. Skup realnih brojeva sadrži sve decimalne brojeve oblika
+±a_0.b_1 b_2 b_3…b_n…
 
-Zapamtimo da svaki racionalni broj ima konačan ili  beskonačan periodični decimalni zapis.  Prema tome, broj zapisan beskonačnim neperiodičnim decimalnim prikazom mora biti iracionalan.
----------------------------------------------------------------------------------------------------------------------------------------------------
-Intervali, suepremum i infernum skupova
-<p>
+pri čemu je a_0 neki prirodan broj (cjelobrojni dio), a b_1,b_2,… znamenke decimalnog prikaza.
+Zapamtimo da svaki racionalni broj ima konačan ili beskonačan periodični decimalni zapis. Prema tome, broj zapisan beskonačnim neperiodičnim decimalnim prikazom mora biti iracionalan.
+________________________________________
+Intervali, supremum i infimum skupova
 Intervali. Omeđeni i neomeđeni skupovi
-
 Najjednostavniji podskupovi brojevnog pravca su intervali. Postoje četiri tipa intervala:
-[a,b]={x∈R:a≤x≤b}(zatvoreni  interval − segment),⟨a,b⟩={x∈R:a<x<b}(otvoreni  interval),[a,b⟩={x∈R:a≤x<b}(poluotvoreni  interval),⟨a,b]={x∈R:a<x≤b}(poluotvoreni  interval).
+[a,b]={x∈R:a≤x≤b}"  (zatvoreni interval - segment)",
+⟨a,b⟩={x∈R:a<x<b}"  (otvoreni interval)",
+[a,b⟩={x∈R:a≤x<b}"  (poluotvoreni interval)" ,
+⟨a,b]={x∈R:a<x≤b}"  (poluotvoreni interval)".
 
-Interval I određen je svojim rubnim točkama a i b. a je početak ili donji rub intervala, a b je završetak ili gornji rub tog intervala. Ovdje je a<b. Samo se u zatvorenom intervala može dopustiti da vrijedi a=b, pri čemu je interval [a,a] zapravo skup {a} koji sadrži samo točku a
+Interval I određen je svojim rubnim točkama a i b. a je početak ili donji rub intervala, a b je završetak ili gornji rub tog intervala. Ovdje je a<b. Samo se u zatvorenom intervalu može dopustiti da vrijedi a=b, pri čemu je interval [aⓜ,a] zapravo skup {a} koji sadrži samo točku a.
+Ovaj zapis intervala uključuje i slučaj kad je interval polupravac, pa čak i čitav pravac. Primjerice, pisat ćemo
+[a,∞⟩={x∈R:x≥a},
 
-.
+a također i
+⟨-∞,b⟩={x∈R:x<b}.
 
-Ovaj zapis intervala uključuje i slučaj kad je interval polupravac, pa čak i čitav pravac. Primjerice, pisat ćemo [a,∞⟩={x∈R:a≤x}
-,  a također i ⟨−∞,b⟩={x∈R:x<b}. I čitav skup R je interval: ⟨−∞,∞⟩=R. Primijetite da moramo pisati [a,∞⟩ a ne [a,∞] jer je ∞
+I čitav skup R je interval:
+⟨-∞,∞⟩=R.
 
-simbol, a ne broj.
-
-S vrstom rubnih točaka povezan je pojam omeđenosti intervala. Interval je omeđen ako su mu rubovi a
-i b
-
-konačni realni brojevi.
-
-Svaki broj m≤a
-naziva se donja međa, a svaki broj M≥b naziva se gornja međa intervala I.
+Primijetite da moramo pisati [aⓜ,∞⟩, a ne [aⓜ,∞] jer je ∞ simbol, a ne broj.
+S vrstom rubnih točaka povezan je pojam omeđenosti intervala. Interval je omeđen ako su mu rubovi a i b konačni realni brojevi.
+Svaki broj m≤a naziva se donja međa, a svaki broj M≥b naziva se gornja međa intervala I.
 (SLIKA 2)
-Ako je neki od rubova intervala jednak −∞ ili ∞, onda je interval neomeđen. Tako je, primjerice, interval
+Ako je neki od rubova intervala jednak -∞ ili ∞, onda je interval neomeđen. Tako je, primjerice, interval
 [1,∞⟩={x∈R:x≥1}
-neomeđen jer nije omeđen odozgo. Interval ⟨−∞,−2⟩={x∈R:x<−2}
 
-je neomeđen  jer nije omeđen odozdo.
+neomeđen jer nije omeđen odozgo. Interval
+⟨-∞,-2⟩={x∈R:x<-2}
 
+je neomeđen jer nije omeđen odozdo.
 Pojmovi omeđenosti te donje i gornje međe proširuju se i na po volji uzete podskupove brojevnog pravca.
-
-Donja međa skupa S
-je svaki broj m manji ili jednak bilo kojem elementu skupa S. Gornja međa skupa S je svaki broj M veći ili jednak bilo kojem elementu skupa S
-
-.
-
+Donja međa skupa S je svaki broj m manji ili jednak bilo kojem elementu skupa S. Gornja međa skupa S je svaki broj M veći ili jednak bilo kojem elementu skupa S.
 Naglasimo odmah da, kao i za intervale, donja i gornja međa nekog skupa ne moraju postojati.
-
-
-
 Omeđeni skupovi
-Neprazan podskup S
-brojevnog pravca je omeđen ako postoje brojevi m i M takvi da za svaki x∈S vrijedi m≤x≤M. Dakle, svaki omeđeni skup ima konačnu donju i gornju među. U protivnom za skup kažemo da je neomeđen.
+Neprazan podskup S brojevnog pravca je omeđen ako postoje brojevi m i M takvi da za svaki x∈S vrijedi
+m≤x≤M.
+
+Dakle, svaki omeđeni skup ima konačnu donju i gornju među. U protivnom za skup kažemo da je neomeđen.
 Minimum, maksimum, supremum i infimum skupa
-
 Međe mogu, ali ne moraju pripadati skupu. S tim u vezi definiramo pojmove supremuma i maksimuma nekog skupa.
-
-
-
 Supremum skupa
-Supremum skupa S
-jest broj β sa svojstvima:
-
-1) β je gornja međa skupa S
-2) β je najmanja gornja međa.
-
-Pišemo β=supS. Ako skup nije omeđen odozgo, onda supremum ne postoji pa stavljamo supS=∞.
-
-Ako supremum β pripada skupu S, onda za njega kažemo da je maksimum skupa S i pišemo β=maxS
-.
-
+Supremum skupa S jest broj β sa svojstvima:
+	β je gornja međa skupa S.
+	β je najmanja gornja međa.
+Pišemo β=sup⁡S. Ako skup nije omeđen odozgo, onda supremum ne postoji pa stavljamo sup⁡S=∞.
+Ako supremum β pripada skupu S, onda za njega kažemo da je maksimum skupa S i pišemo β=max⁡S.
 Analogno ovom, definira se pojam infimuma i minimuma skupa:
-
 Infimum skupa
-Infimum skupa S
-jest broj α sa svojstvima
-
-1) α je donja međa skupa S.
-2) α je najveća donja međa.
-
-Pišemo α=infS. Ako skup nije omeđen odozdo, onda stavljamo infS=−∞.
-
-Ako α pripada skupu S, onda za njega kažemo da je minimum skupa S i pišemo α= minS.
-(PRIMJER 3)
-(PRIMJER 4)
-(PRIMJER 5)
-A
----------------------------------------------------------------------------------------------------------------------------------------------------
-aksiom potpunosti
+Infimum skupa S jest broj α sa svojstvima:
+	α je donja međa skupa S.
+	α je najveća donja međa.
+Pišemo α=inf⁡S. Ako skup nije omeđen odozdo, onda stavljamo inf⁡S=-∞.
+Ako α pripada skupu S, onda za njega kažemo da je minimum skupa S i pišemo α=min⁡S.
+PRIMJER 3
+PRIMJER 4
+PRIMJER 5
+________________________________________
+Aksiom potpunosti
 Po čemu se skup realnih brojeva razlikuje od skupa racionalnih?
-
 Skupovi realnih i racionalnih brojeva razlikuju se samo u jednom svojstvu:
-
 Potpunosti skupa realnih brojeva
-U skupu R
-svaki omeđeni podskup ima infimum i supremum koji su realni brojevi. Kažemo da je skup R potpun.
-
-Supremum i infimum omeđenog podskupa racionalnih brojeva ne mora biti racionalan broj. Kažemo da skup Q
-nije potpun.
-
+U skupu R svaki omeđeni podskup ima infimum i supremum koji su realni brojevi. Kažemo da je skup R potpun.
+Supremum i infimum omeđenog podskupa racionalnih brojeva ne mora biti racionalan broj. Kažemo da skup Q nije potpun.
 Ilustracija za to je sljedeći skup racionalnih brojeva
-{x∈Q:x2<2}.
+{x∈Q:x^2<2}.
 
-Njegov infimum je broj −√2, a supremum √2
-
-i to nisu racionalni brojevi.
-
-Zorno to zamišljamo prihvaćajuchi da unutar skupa racionalnih brojeva (shvaćenih kao točke brojevnog pravca) postoje šupljine. Te šupljine upravo su iracionalni brojevi. S druge je strane skup realnih brojeva potpun, on nema šupljina. To zamišljamo tako da svakoj točki brojevnog pravca odgovara neki realni broj.
+Njegov infimum je broj -√2, a supremum √2, i to nisu racionalni brojevi.
+Zorno to zamišljamo prihvaćajući da unutar skupa racionalnih brojeva (shvaćenih kao točke brojevnog pravca) postoje šupljine. Te šupljine upravo su iracionalni brojevi. S druge je strane skup realnih brojeva potpun, on nema šupljina. To zamišljamo tako da svakoj točki brojevnog pravca odgovara neki realni broj.
 Svojstvo padajućih intervala
 (SLIKA 3)
 Svojstvo potpunosti skupa realnih brojeva povezano je s decimalnim zapisom realnih brojeva.
-(primjer 6)
+PRIMJER 6
 Za svaki prikaz realnog broja vezan je padajući niz intervala (svaki sljedeći možemo izabrati da bude deset puta manji) koji se stežu oko zadanog realnog broja. Intervali koji određuju decimale broja √2=1.414213562… su:
-I1=[1,2]I2=[1.4,1.5]I3=[1.41,1.42]I4=[1.414,1.415]I5=[1.4142,1.4143]I6=[1.41421,1.41422]I7=[1.414213,1.414214] itd.
+I_1=[1,2],I_2=[1.4,1.5],I_3=[1.41,1.42],I_4=[1.414,1.415],
+I_5=[1.4142,1.4143],I_6=[1.41421,1.41422],I_7=[1.414213,1.414214]," itd." 
 
-U presjeku svih tih intervala nalazi se samo broj √2
-. Vidimo da je za pripadne intervale u skupu Q presjek prazan.
+U presjeku svih tih intervala nalazi se samo broj √2. Vidimo da je za pripadne intervale u skupu Q presjek prazan.

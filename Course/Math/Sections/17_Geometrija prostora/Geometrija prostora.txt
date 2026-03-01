@@ -1,436 +1,300 @@
-<h3>Točke,pravci, ravnine (U RADU)</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Točke, pravci, ravnine (U RADU)
+________________________________________
 Aksiomi geometrije prostora
- <p>Točka, pravac i ravnina osnovni su pojmovi geometrije prostora i oni se ne definiraju. Umjesto definicije njihova svojstva opisujemo aksiomima, tvrdnjama koje se ne dokazuju, već se prihvaćaju kao točne bez dvojbe. Aksiomi geometrije prostora uvažavaju i izriču osnovne i očite činjenice i oni su temelj na kojem se gradi geometrija prostora.
-
-                Teoremi ili poučci su tvrdnje koje se moraju dokazati. Pri njihovom dokazu pozivamo se na aksiome ili već prethodno dokazane teoreme.
-                
-                Izdvojimo nekoliko aksioma koji opisuju neka osnovna svojstva točaka, pravaca i ravnina.
-                
-                Aksiomi geometrije prostora
-                
-                (A1)
-                
-                Kroz dvije različite točke prolazi točno jedan pravac.
-                
-                (A2)
-                
-                Kroz tri točke koje ne leže na jednom pravcu prolazi točno jedna ravnina.
-                
-                (A3)
-                
-                Pravac koji prolazi kroz dvije različite točke ravnine leži u toj ravnini.
-                
-                (A4)
-                
-                Ako dvije različite ravnine imaju zajedničku točku, onda se sijeku u pravcu.
-                
-                (A5)
-                Kroz svaku točku može se povući točno jedna paralela sa zadanim pravcem.
-              </p>
-              <img src="Toče, pravci, ravnine_1.png">
----------------------------------------------------------------------------------------------------------------------------------------------------
+Točka, pravac i ravnina osnovni su pojmovi geometrije prostora i oni se ne definiraju. Umjesto definicije njihova svojstva opisujemo aksiomima, tvrdnjama koje se ne dokazuju, već se prihvaćaju kao točne bez dvojbe. Aksiomi geometrije prostora uvažavaju i izriču osnovne i očite činjenice i oni su temelj na kojem se gradi geometrija prostora.
+Teoremi ili poučci su tvrdnje koje se moraju dokazati. Pri njihovom dokazu pozivamo se na aksiome ili već prethodno dokazane teoreme.
+Izdvojimo nekoliko aksioma koji opisuju neka osnovna svojstva točaka, pravaca i ravnina.
+Aksiomi geometrije prostora
+(A1) Kroz dvije različite točke prolazi točno jedan pravac.
+(A2) Kroz tri točke koje ne leže na jednom pravcu prolazi točno jedna ravnina.
+(A3) Pravac koji prolazi kroz dvije različite točke ravnine leži u toj ravnini.
+(A4) Ako dvije različite ravnine imaju zajedničku točku, onda se sijeku u pravcu.
+(A5) Kroz svaku točku može se povući točno jedna paralela sa zadanim pravcem.
+(Toče, pravci, ravnine_1.png)
+________________________________________
 Međusobni položaj dvaju pravaca
- <p>Pravac je određen dvjema svojim točkama. O tome govori aksiom (A1).
-                Za točke koje pripadaju jednom pravcu kažemo da su kolinearne. Točke A, B, M na slici su kolinearne, ali A, B i P nisu.
-              </p>
-              <img src="Toče, pravci, ravnine_2.png">
-              <p>Paralelnost pravaca (definicija)
-                Za dva pravca koja leže u istoj ravnini kažemo da su paralelna (usporedna) ako se ne sijeku ili ako se podudaraju. Pišemo: p∥q
-                .
-                Teorem. Dva pravca koja nisu identična, a sijeku se, imaju samo jednu presječnu točku. Postoji točno jedna ravnina koja ih sadrži.
-                Dokaz. Označimo pravce s p
-                i q, a presječnu točku s A. Ako bi postojala još jedna presječna točka B, tada bi točke A i B pripadale pravcima p i q
-                .
-                Međutim, po aksiomu (A1)postoji točno jedan pravac koji sadrži dvije zadane točke. Zato mora biti p=q, što je suprotno pretpostavci. Dakle, ne postoji druga presječna točka. Uzmimo sad uz presječnu točku A=p∩q  još jednu točku B s pravca p i točku C s pravca q, različite od A. Prema aksiomu (A2) postoji samo jedna ravnina koja je određena tim točkama. Po aksiomu (A3), ona sadrži i pravac p i pravac q  jer sadrži dvije njihove točke. Time je teorem dokazan.
-                Uzmimo sad uz presječnu točku A=p∩q  još jednu točku B s pravca p i točku C s pravca q, različite od A. Prema aksiomu (A2) postoji samo jedna ravnina koja je određena tim točkama. Po aksiomu (A3), ona sadrži i pravac p i pravac q
-                jer sadrži dvije njihove točke. Time je teorem dokazan.
-               
-               
-              Položaj dvaju pravaca
-              Položaje dvaju pravaca razlikujemo prema sljedećem
-                      1. pravci leže u istoj ravnini
-                      2. pravci ne leže u istoj ravnini.
-              Ako pravci leže u istoj ravnini, oni su ili paralelni, ili se sijeku u jednoj točki. Pri tom paralelnost uključuje i slučaj kad su pravci identični. Ako se pravci p
-              i q sijeku u točki A, onda pišemo: p∩q=A . Govorimo još da su pravci p i q
-                ukršteni.
-              Ako dva pravca ne leže u istoj ravnini, za njih kažemo da su mimoilazna (mimosmjerna).
-              sadrži i pravac p i pravac q  jer sadrži dvije njihove točke. Time je teorem dokazan.
-            </p>
-            <img src="Točke,pravci,ravnine_3.png">
-            <p>O položaju dvaju pravaca koji se sijeku ili su paralelni imamo jasan geometrijski zor jer se ta situacija zbiva u jednoj ravnini. S mimoilaznim pravcima nije takav slučaj. Mimoilazne pravce možemo lako uočiti u našem trodimenzionalnom prostoru. Međutim, kad trodimenzionalne slike predočavamo crtežom u ravnini, potrebno je puno vježbe da bi se točno uočio njihov položaj. Pravci AC i BD na slici su mimoilazni. Navedi još dva para mimoilaznih paraca određenih tim točkama.</p>
-            <img src="Točke,pravci,ravnine_4.png">
----------------------------------------------------------------------------------------------------------------------------------------------------
+Pravac je određen dvjema svojim točkama. O tome govori aksiom (A1).
+Za točke koje pripadaju jednom pravcu kažemo da su kolinearne. Točke A, B, M na slici su kolinearne, ali A, B i P nisu.
+(Toče, pravci, ravnine_2.png)
+Paralelnost pravaca (definicija)
+Za dva pravca koja leže u istoj ravnini kažemo da su paralelna (usporedna) ako se ne sijeku ili ako se podudaraju. Pišemo: p∥q.
+Teorem. Dva pravca koja nisu identična, a sijeku se, imaju samo jednu presječnu točku. Postoji točno jedna ravnina koja ih sadrži.
+Dokaz. Označimo pravce s p i q, a presječnu točku s A. Ako bi postojala još jedna presječna točka B, tada bi točke A i B pripadale pravcima p i q. Međutim, po aksiomu (A1) postoji točno jedan pravac koji sadrži dvije zadane točke. Zato mora biti p=q, što je suprotno pretpostavci. Dakle, ne postoji druga presječna točka.
+Uzmimo sad uz presječnu točku A=p∩q još jednu točku B s pravca p i točku C s pravca q, različite od A. Prema aksiomu (A2) postoji samo jedna ravnina koja je određena tim točkama. Po aksiomu (A3), ona sadrži i pravac p i pravac q jer sadrži dvije njihove točke. Time je teorem dokazan.
+Položaj dvaju pravaca
+Položaje dvaju pravaca razlikujemo prema sljedećem:
+	pravci leže u istoj ravnini
+	pravci ne leže u istoj ravnini.
+Ako pravci leže u istoj ravnini, oni su ili paralelni, ili se sijeku u jednoj točki. Pri tom paralelnost uključuje i slučaj kad su pravci identični.
+Ako se pravci p i q sijeku u točki A, onda pišemo: p∩q=A. Govorimo još da su pravci p i q ukršteni.
+Ako dva pravca ne leže u istoj ravnini, za njih kažemo da su mimoilazna (mimosmjerna).
+(Točke,pravci,ravnine_3.png)
+O položaju dvaju pravaca koji se sijeku ili su paralelni imamo jasan geometrijski zor jer se ta situacija zbiva u jednoj ravnini. S mimoilaznim pravcima nije takav slučaj. Mimoilazne pravce možemo lako uočiti u našem trodimenzionalnom prostoru. Međutim, kad trodimenzionalne slike predočavamo crtežom u ravnini, potrebno je puno vježbe da bi se točno uočio njihov položaj. Pravci AC i BD na slici su mimoilazni. Navedi još dva para mimoilaznih pravaca određenih tim točkama.
+(Točke,pravci,ravnine_4.png)
+________________________________________
 Kriterij mimoilaznosti pravaca
-<img src="Točke,pravci,ravnine_5.png">
-              <p>Ako jedan pravac leži u ravnini, a drugi pravac siječe tu ravninu u jednoj točki koja ne pripada prvom pravcu, onda su oni mimoilazni.</p>
-            
----------------------------------------------------------------------------------------------------------------------------------------------------
+(Točke,pravci,ravnine_5.png)
+Ako jedan pravac leži u ravnini, a drugi pravac siječe tu ravninu u jednoj točki koja ne pripada prvom pravcu, onda su oni mimoilazni.
+________________________________________
 Odnos pravca i ravnine
-<p>Pravac i ravnina mogu se nalaziti u tri različita položaja. Oni se međusobno isključuju, a jedan od njih mora se dogoditi</p>
-              <img src="Točke,pravci,ravnine_6.png">
-              <p>1. Pravac leži u ravnini, p⊂π
-                .
-                2. Pravac i ravnina se sijeku, pri čemu pravac ne leži u ravnini.
-                Dokažimo da je presjek pravca p
-                i ravnine π  jedna  točka. Neka pravac siječe ravninu u točki A. Ako bi osim u točki A pravac sjekao ravninu i u točki B, tada bi po aksiomu (A3) on cijeli ležao u ravnini. Točka A
-                naziva se sjecište ili probodište pravca i ravnine.
-                3. Pravac i ravnina nemaju presječnih točaka. Tada kažemo da su oni paralelni i pišemo: p∥π
-                . Kao i u odnosima između pravaca, držat ćemo da je pravac koji leži u ravnini paralelan s njom.
-                 
-                Pravac i ravnina u prostoru
-                Pravac i ravnina su ili paralelni ili se sijeku u jednoj točki. Pritom paralelnost uključuje i slučaj kad pravac leži u ravnini.
-              </p>
-              <img src="Točke,pravci,ravnine_7.png">
-              <p>Pravac je paralelan s ravninom ako i samo ako je paralelan s nekim pravcem koji leži u toj ravnini.</p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Pravac i ravnina mogu se nalaziti u tri različita položaja. Oni se međusobno isključuju, a jedan od njih mora se dogoditi.
+(Točke,pravci,ravnine_6.png)
+	Pravac leži u ravnini, p⊂π.
+	Pravac i ravnina se sijeku, pri čemu pravac ne leži u ravnini.
+Dokažimo da je presjek pravca p i ravnine π jedna točka. Neka pravac siječe ravninu u točki A. Ako bi osim u točki A pravac sjekao ravninu i u točki B, tada bi po aksiomu (A3) on cijeli ležao u ravnini. Točka A naziva se sjecište ili probodište pravca i ravnine.
+	Pravac i ravnina nemaju presječnih točaka. Tada kažemo da su oni paralelni i pišemo: p∥π. Kao i u odnosima između pravaca, držat ćemo da je pravac koji leži u ravnini paralelan s njom.
+Pravac i ravnina u prostoru
+Pravac i ravnina su ili paralelni ili se sijeku u jednoj točki. Pritom paralelnost uključuje i slučaj kad pravac leži u ravnini.
+(Točke,pravci,ravnine_7.png)
+Pravac je paralelan s ravninom ako i samo ako je paralelan s nekim pravcem koji leži u toj ravnini.
+________________________________________
 Odnosi među ravninama
-<p>Ravnina je određena trima točkama koje ne leže na jednom pravcu, dakle, koje nisu kolinearne. Tvrdnja je sadržaj aksioma (A2)
-                .
-                Za točke koje leže u jednoj ravnini kažemo da su komplanarne. Tri nekolinearne točke uvijek su komplanarne. A četiri po volji odabrane točke prostora (ili više njih) općenito nisu komplanarne. Četiri točke A
-                , B, C, D s baze piramide na slici su komplanarne, ali točka P nije komplanarna s njima. 
-              </p>
-              <img src="Točke,pravci,ravnine_8.png">
-              <p>Ravnina može biti zadana:
-                1. trima točkama koje ne leže na jednom pravcu
-                2. pravcem i točkom koja ne leži na njemu
-                3. dvama pravcima koji se sijeku
-                4. dvama paralelnim pravcima koji se ne podudaraju.
-              </p>
-              <img src="Točke,pravci,ravnine_9.png">
-              <p>Dvije ravnine mogu se nalaziti u jednom od sljedeća tri položaja
-                1. one se podudaraju
-                2. one se sijeku po nekom pravcu
-                3. one se ne sijeku.
-                Kažemo da su dvije ravnine paralelne (usporedne) ako se ne sijeku ili ako se podudaraju.
-                Dakle, dvije su ravnine ili paralelne, ili se sijeku po nekom pravcu.
-              </p>
-              <img src="Točke,pravci,ravnine_10.png">
-              <p>
-                <!--PRIMJER 1-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Ravnina je određena trima točkama koje ne leže na jednom pravcu, dakle, koje nisu kolinearne. Tvrdnja je sadržaj aksioma (A2).
+Za točke koje leže u jednoj ravnini kažemo da su komplanarne. Tri nekolinearne točke uvijek su komplanarne. A četiri po volji odabrane točke prostora (ili više njih) općenito nisu komplanarne. Četiri točke A, B, C, D s baze piramide na slici su komplanarne, ali točka P nije komplanarna s njima.
+(Točke,pravci,ravnine_8.png)
+Ravnina može biti zadana:
+	trima točkama koje ne leže na jednom pravcu
+	pravcem i točkom koja ne leži na njemu
+	dvama pravcima koji se sijeku
+	dvama paralelnim pravcima koji se ne podudaraju.
+(Točke,pravci,ravnine_9.png)
+Dvije ravnine mogu se nalaziti u jednom od sljedeća tri položaja:
+	one se podudaraju
+	one se sijeku po nekom pravcu
+	one se ne sijeku.
+Kažemo da su dvije ravnine paralelne (usporedne) ako se ne sijeku ili ako se podudaraju. Dakle, dvije su ravnine ili paralelne, ili se sijeku po nekom pravcu.
+(Točke,pravci,ravnine_10.png)
+<!--PRIMJER 1-->
+________________________________________
 Tri ravnine u prostoru
- <p>Tri različite ravnine u prostoru mogu biti u jednom od pet položaja:
-                1. Postoji samo jedna točka zajednička za sve tri ravnine.
-                2. Sijeku se duž jednog pravca.
-                3. Po dvije ravnine sijeku se u trima paralelnim pravcima.
-                4. Dvije su ravnine paralelne, a treća ih siječe duž dvaju paralelnih pravaca.
-                5. Sve su tri ravnine paralelne.
-              </p>
-              <img src="Točke,pravci,ravnine_11.png" title="Prikazan je opći položaj triju ravnina. Svake dvije ravnine sijeku se duž jednog pravca, a sve tri ravnine imaju jednu zajedničku točku.Tri se ravnine sijeku duž jednog pravca.Svake se dvije ravnine sijeku duž jednog pravca. Presječni pravci su paralelni pa ne postoji presječna točka svih triju ravnina.Dvije su ravnine paralelne. Treća ih siječe duž dvaju pravaca. Ta dva pravca moraju biti paralelna jer se ne smiju sjeći (prve se dvije ravnine ne sijeku, pa se ne sijeku niti pravci koji leže u njima).Sve su tri ravnine paralelne.">
-              <p>
-                <!--PRIMJER 2-->
-                <!--PRIMJER 3-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Okomitost pravca i ravnine (U RADU)</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Tri različite ravnine u prostoru mogu biti u jednom od pet položaja:
+	Postoji samo jedna točka zajednička za sve tri ravnine.
+	Sijeku se duž jednog pravca.
+	Po dvije ravnine sijeku se u trima paralelnim pravcima.
+	Dvije su ravnine paralelne, a treća ih siječe duž dvaju paralelnih pravaca.
+	Sve su tri ravnine paralelne.
+(Točke,pravci,ravnine_11.png)
+<!--PRIMJER 2--> <!--PRIMJER 3-->
+________________________________________
+________________________________________
+________________________________________
+Okomitost pravca i ravnine (U RADU)
+________________________________________
 Okomitost pravaca i ravnina
- <p>Neka je točka T probodište pravca p i ravnine π. Pravac p okomit je na ravninu π ako je okomit na svaki od pravaca koji leže u ravnini π i koji prolaze točkom T. Pišemo: p⊥π.</p>
-              <img src="Okomitost pravaca na ravninu_1.png">
-              <p>Da bi pravac p bio okomit na ravninu π, dovoljno je zahtijevati da bude okomit na dva pravca te ravnine koji prolaze probodištem T
-
-                .
-                
-                Primijetimo kako nije dovoljno da pravac p
-                bude okomit na jedan pravac ravnine koji prolazi probodištem. Naime, svaki je pravac koji probada ravninu okomit na neki pravac te ravnine koji prolazi probodištem.
-              </p>
-              <img src="Okomitost pravaca na ravninu_2.png">
----------------------------------------------------------------------------------------------------------------------------------------------------
-Paralelnost i okomitost<
- <p>Relacija okomitosti čuva se među paralelnim pravcima i ravninama. Iskažimo neke tvrdnje čiji je zor potpuno jasan pa ih nećemo strogo dokazivati.
-                1. Ako je p⊥π
-                i q∥p, onda je q⊥π
-                .
-                2. Ako je p⊥π
-                i q⊥π, onda je p∥q
-                .
-                3. Ako je p⊥π
-                i π∥ρ, onda je p⊥ρ.
-              </p>
-              <img src="Okomitost pravaca na ravninu_3.png">
-              <p>Paralelnost i okomitost
-
-                1. Ako je pravac okomit na ravninu, onda je svaki pravac paralelan s njim okomit na ravninu.
-                
-                2. Dva pravca okomita na ravninu su paralelna.
-                
-                3. Pravac okomit na ravninu okomit je na svaku ravninu paralelnu s njom.
-                <!--PRIMJER 1-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Neka je točka T probodište pravca p i ravnine π. Pravac p okomit je na ravninu π ako je okomit na svaki od pravaca koji leže u ravnini π i koji prolaze točkom T. Pišemo: p⊥π.
+(Okomitost pravaca na ravninu_1.png)
+Da bi pravac p bio okomit na ravninu π, dovoljno je zahtijevati da bude okomit na dva pravca te ravnine koji prolaze probodištem T.
+Primijetimo kako nije dovoljno da pravac p bude okomit na jedan pravac ravnine koji prolazi probodištem. Naime, svaki je pravac koji probada ravninu okomit na neki pravac te ravnine koji prolazi probodištem.
+(Okomitost pravaca na ravninu_2.png)
+________________________________________
+Paralelnost i okomitost
+Relacija okomitosti čuva se među paralelnim pravcima i ravninama. Iskažimo neke tvrdnje čiji je zor potpuno jasan pa ih nećemo strogo dokazivati.
+	Ako je p⊥π i q∥p, onda je q⊥π.
+	Ako je p⊥π i q⊥π, onda je p∥q.
+	Ako je p⊥π i π∥ρ, onda je p⊥ρ.
+(Okomitost pravaca na ravninu_3.png)
+Paralelnost i okomitost
+	Ako je pravac okomit na ravninu, onda je svaki pravac paralelan s njim okomit na ravninu.
+	Dva pravca okomita na ravninu su paralelna.
+	Pravac okomit na ravninu okomit je na svaku ravninu paralelnu s njom.
+<!--PRIMJER 1-->
+________________________________________
 Okomitost ravnina
-<p>Najprije iskažimo uvjet okomitosti dviju ravnina.
-
-                Okomitost dviju ravnina
-                Ravnina π
-                okomita je na ravninu σ ako sadrži pravac koji je okomit na ravninu σ. Pišemo π⊥σ.
-              </p>
-              <img src="Okomitost pravaca na ravninu_4.png">
-              <p>Neka je ravnina π okomita na ravninu σ i neka je b pravac u ravnini π okomit na σ. Označimo s p presječni pravac tih ravnina. Neka je a pravac u ravnini σ okomit na presječni pravac p. Kako je b okomit na svaki pravac ravnine σ, on je okomit na pravac a. Zato je pravac a okomit na dva pravca u ravnini π: na pravac b i na presječni pravac p, pa je okomit na ravninu π. Zaključujemo da je ravnina σ okomita na ravninu π
-                .
-                Svojstvo okomitosti
-                Ako je ravnina π
-                okomita na ravninu σ, onda je i ravnina σ okomita na ravninu π. Kraće kažemo da su te dvije ravnine okomite.
-                <!--PRIMJER 2-->
-                <!--PRIMJER 3-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Udaljenost točke od ravnine (U RADU)</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Najprije iskažimo uvjet okomitosti dviju ravnina.
+Okomitost dviju ravnina
+Ravnina π okomita je na ravninu σ ako sadrži pravac koji je okomit na ravninu σ. Pišemo π⊥σ.
+(Okomitost pravaca na ravninu_4.png)
+Neka je ravnina π okomita na ravninu σ i neka je b pravac u ravnini π okomit na σ. Označimo s p presječni pravac tih ravnina. Neka je a pravac u ravnini σ okomit na presječni pravac p. Kako je b okomit na svaki pravac ravnine σ, on je okomit na pravac a. Zato je pravac a okomit na dva pravca u ravnini π: na pravac b i na presječni pravac p, pa je okomit na ravninu π. Zaključujemo da je ravnina σ okomita na ravninu π.
+Svojstvo okomitosti
+Ako je ravnina π okomita na ravninu σ, onda je i ravnina σ okomita na ravninu π. Kraće kažemo da su te dvije ravnine okomite.
+<!--PRIMJER 2--> <!--PRIMJER 3-->
+________________________________________
+________________________________________
+________________________________________
+Udaljenost točke od ravnine (U RADU)
+________________________________________
 Projekcija točke na ravninu
-<p>Pojam okomitosti omogućuje nam da definiramo jedno važno preslikavanje točaka u prostoru zvano ortogonalna projekcija na ravninu.</p>
-              <img src="Udaljenost točke od ravnine_1.png">
-              <p>Odaberimo po volji ravninu π i točku A u prostoru. Postavimo pravac p kroz točku A tako da bude okomit na ravninu. On siječe ravninu u jednoj točki. Označimo tu točku s A′. Kažemo da je točka A′ ortogonalna projekcija točke A na ravninu π
-                .
-                Preslikavanje A↦A′
-                nazivamo ortogonalno projiciranje (ili ortogonalna projekcija) na ravninu π.
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Pojam okomitosti omogućuje nam da definiramo jedno važno preslikavanje točaka u prostoru zvano ortogonalna projekcija na ravninu.
+(Udaljenost točke od ravnine_1.png)
+Odaberimo po volji ravninu π i točku A u prostoru. Postavimo pravac p kroz točku A tako da bude okomit na ravninu. On siječe ravninu u jednoj točki. Označimo tu točku s A^'. Kažemo da je točka A^' ortogonalna projekcija točke A na ravninu π.
+Preslikavanje A↦A^' nazivamo ortogonalno projiciranje (ili ortogonalna projekcija) na ravninu π.
+________________________________________
 Projekcija pravca na ravninu
-<p>Neka je p po volji uzet pravac. Preslikavši svaku njegovu točku ortogonalnom projekcijom, dobit ćemo njegovu sliku p′
-                koja leži u ravnini.
-                Projekciju p′
-                dobivamo na sljedeći način.
-                1.	Ako pravac p
-                •  leži u ravnini, podudara se sa svojom projekcijom, jer pri ortogonalnom projiciranju točke ravnine ostaju na svom mjestu. 
-                •  Ako se pravac p i ravnina π sijeku u točki T, tada je T′=T. Dovoljno je uzeti još jednu točku, A∈p i preslikati je u ravninu. Neka je A′ njezina projekcija. Točkama T, A i A′ određena je ravnina ρ. Presjek te ravnine i ravnine π projekcija je p′ pravca p.
-                •  •  Ako je pravac p paralelan s ravninom π, tada moramo uzeti dvije njegove točke, A i B i odrediti njihove slike A′, B′ kojima je određen i pravac p′. Pravci AA′ i BB′ okomiti su na ravninu π pa su paralelni. Zato postoji ravnina ρ koja ih sadrži. Ta je ravnina okomita na π i presijeca π u pravcu p′. Primijetimo da su u ovom slučaju p i p′ paralelni.
-              </p>
-              <img src="Udaljenost točke od ravnine_2.png">
-              <p>Ako je pravac p okomit na ravninu π, onda je njegova ortogonalna projekcija samo jedna točka T (sjecište pravca i ravnine).
-                Neka je dana dužina AB¯¯¯¯¯¯¯¯. Ortogonalne projekcije krajnjih točaka te dužine, točke A′ i B′ na ravninu projekcije određuju dužinu A′B′¯¯¯¯¯¯¯¯¯¯ koja je ortogonalna projekcija dužine AB¯¯¯¯¯¯¯¯
-                . Duljina ortogonalne projekcije uvijek je kraća od duljine same dužine.
-                Ako je dužina okomita na ravninu, njezina je ortogonalna projekcija točka A′=B′.
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Neka je p po volji uzet pravac. Preslikavši svaku njegovu točku ortogonalnom projekcijom, dobit ćemo njegovu sliku p^' koja leži u ravnini.
+Projekciju p^' dobivamo na sljedeći način.
+	Ako pravac p leži u ravnini, podudara se sa svojom projekcijom, jer pri ortogonalnom projiciranju točke ravnine ostaju na svom mjestu.
+	Ako se pravac p i ravnina π sijeku u točki T, tada je T^'=T. Dovoljno je uzeti još jednu točku, A∈p i preslikati je u ravninu. Neka je A^' njezina projekcija. Točkama T, A i A^' određena je ravnina ρ. Presjek te ravnine i ravnine π projekcija je p^' pravca p.
+	Ako je pravac p paralelan s ravninom π, tada moramo uzeti dvije njegove točke, A i B, i odrediti njihove slike A^', B^' kojima je određen i pravac p^'. Pravci AA^' i BB^' okomiti su na ravninu π pa su paralelni. Zato postoji ravnina ρ koja ih sadrži. Ta je ravnina okomita na π i presijeca π u pravcu p^'. Primijetimo da su u ovom slučaju p i p^' paralelni.
+(Udaljenost točke od ravnine_2.png)
+Ako je pravac p okomit na ravninu π, onda je njegova ortogonalna projekcija samo jedna točka T (sjecište pravca i ravnine).
+Neka je dana dužina (AB) ‾. Ortogonalne projekcije krajnjih točaka te dužine, točke A^' i B^' na ravninu projekcije određuju dužinu (A^' B^' ) ‾ koja je ortogonalna projekcija dužine (AB) ‾. Duljina ortogonalne projekcije uvijek je kraća od duljine same dužine.
+Ako je dužina okomita na ravninu, njezina je ortogonalna projekcija točka A^'=B^'.
+________________________________________
 Udaljenost točke od ravnine
-<p>Udaljenost točke A od ravnine π najmanja je od svih udaljenosti |AB| točke A do neke po volji uzete točke B iz ravnine π
-                .
-                Tvrdimo da se najmanja udaljenost |AB|
-                postiže kad je B=A′, tj. kad je B ortogonalna projekcija točke A na ravninu π
-                .
-                Udaljenost točke od ravnine
-                Udaljenost točke od ravnine jednaka je udaljenosti točke od njezine ortogonalne projekcije na ravninu.
-              </p>
-              <img src="Udaljenost točke od ravnine_3.png">
-              <p>Dokažimo tu tvrdnju. Neka je A′ ortogonalna projekcija točke A na ravninu π, i B≠A po volji uzeta točka ravnine π. Pravac AA′ okomit je na ravninu pa je okomit i na pravac A′B koji leži u ravnini π. To znači da je trokut A′BA pravokutan, s pravim kutom pri vrhu A′, te je |AB|>|AA′| jer je AB¯¯¯¯¯¯¯¯ njegova hipotenuza.
-                <!--PRIMJER 1-->
-                <!--PRIMJER 2-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
- <h3>Preslikavanja prostora (U RADU)</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Udaljenost točke A od ravnine π najmanja je od svih udaljenosti ∣AB∣ točke A do neke po volji uzete točke B iz ravnine π.
+Tvrdimo da se najmanja udaljenost ∣AB∣ postiže kad je B=A^', tj. kad je B ortogonalna projekcija točke A na ravninu π. 
+Udaljenost točke od ravnine
+Udaljenost točke od ravnine jednaka je udaljenosti točke od njezine ortogonalne projekcije na ravninu.
+(Udaljenost točke od ravnine_3.png)
+Dokažimo tu tvrdnju. Neka je A^' ortogonalna projekcija točke A na ravninu π, i B≠A po volji uzeta točka ravnine π. Pravac AA^' okomit je na ravninu pa je okomit i na pravac A^' B koji leži u ravnini π. To znači da je trokut A^' BA pravokutan, s pravim kutom pri vrhu A^', te je ∣AB∣>∣AA^'∣ jer je (AB) ‾ njegova hipotenuza.
+<!--PRIMJER 1--> <!--PRIMJER 2-->
+________________________________________
+________________________________________
+________________________________________
+Preslikavanja prostora (U RADU)
+________________________________________
 Simetralna ravnina i zrcalna simetrija
-<p>Neka je AB¯¯¯¯¯¯¯¯ zadana dužina. Simetralna ravnina dužine AB¯¯¯¯¯¯¯¯ ravnina je koja prolazi polovištem S te dužine i okomita je na pravac AB.</p>
-              <img src="Preslikavanja prostora_1.png">
-              <p>Pokažimo da je svaka točka te ravnine jednako udaljena od krajnjih točaka dužine AB¯¯¯¯¯¯¯¯. Neka je T po volji uzeta točka ravnine. Trokuti TSA i TSB su sukladni, jer se podudaraju u dvjema stranicama (katetama trokuta) i pravom kutu. Zato im se podudaraju i hipotenuze, odnosno vrijedi |TA|=|TB|
-                .
-                Pretpostavimo sada da imamo obratnu situaciju. Neka je π
-                zadana ravnina. Točki A pridružujemo točku A1, njoj zrcalnu s obzirom na ravninu π. Ona leži na pravcu p koji prolazi točkom A, a okomit je na ravninu π, tako da je udaljenost točke A1 do ravnine jednaka udaljenosti točke A do ravnine: |A1A′|=|AA′|. Time je definirano preslikavanje A↦A1
-                koje nazivamo zrcalna simetrija.
-                Primijetimo da je u zrcalnoj simetriji pravac AA1
-                okomit na ravninu, a njegov je presjek s ravninom točka A′ koja je polovište dužine AA1
-                .
-              </p>
-              <img src="Preslikavanja prostora_2.png">
-              <p>Zrcalna simetrija ne mijenja udaljenost između točaka. To znači da za svake dvije točke A i B vrijedi |A1B1|=|AB|. Uvjerite se u to tako da pokažete da su trapezi AA′B′B i A1A′B′B1 sukladni: podudaraju se u trima stranicama i dvama pravim kutovima. Svako preslikavanje s tim svojstvom nazivamo izometrija. Dakle, zrcalna simetrija primjer je izometrije.
-                <!--Primjer 1-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Neka je (AB) ‾ zadana dužina. Simetralna ravnina dužine (AB) ‾ ravnina je koja prolazi polovištem S te dužine i okomita je na pravac AB.
+(Preslikavanja prostora_1.png)
+Pokažimo da je svaka točka te ravnine jednako udaljena od krajnjih točaka dužine (AB) ‾. Neka je T po volji uzeta točka ravnine. Trokuti TSA i TSB su sukladni, jer se podudaraju u dvjema stranicama (katetama trokuta) i pravom kutu. Zato im se podudaraju i hipotenuze, odnosno vrijedi ∣TA∣=∣TB∣.
+Pretpostavimo sada da imamo obratnu situaciju. Neka je π zadana ravnina. Točki A pridružujemo točku A_1, njoj zrcalnu s obzirom na ravninu π. Ona leži na pravcu p koji prolazi točkom A, a okomit je na ravninu π, tako da je udaljenost točke A_1 do ravnine jednaka udaljenosti točke A do ravnine: ∣A_1 A^'∣=∣AA^'∣. Time je definirano preslikavanje A↦A_1 koje nazivamo zrcalna simetrija.
+Primijetimo da je u zrcalnoj simetriji pravac AA_1 okomit na ravninu, a njegov je presjek s ravninom točka A^' koja je polovište dužine (AA_1 ) ‾.
+(Preslikavanja prostora_2.png)
+Zrcalna simetrija ne mijenja udaljenost između točaka. To znači da za svake dvije točke A i B vrijedi ∣A_1 B_1∣=∣AB∣. Uvjerite se u to tako da pokažete da su trapezi AA′B′B i A_1 A^' B^' B_1 sukladni: podudaraju se u trima stranicama i dvama pravim kutovima. Svako preslikavanje s tim svojstvom nazivamo izometrija. Dakle, zrcalna simetrija primjer je izometrije. 
+<!--PRIMJER 1-->
+________________________________________
 Osna simetrija i centralna simetrija
- <p>Zrcalnu simetriju definirali smo koristeći projekciju točke na ravninu. Slično tome možemo definirati osnu simetriju koristeći projekciju točke na pravac.
-                Neka je p
-                zadani pravac i A po volji uzeta točka prostora. Točki A pridružimo točku A1 koja joj je simetrična s obzirom na pravac p. Do nje dolazimo tako da točkom A postavimo ravninu π okomitu na pravac i odredimo presječnu točku A′: ortogonalnu projekciju točke A na pravac (slika lijevo). Na pravcu AA′ odaberemo točku A1 za koju je |A1A′|=|AA′|, odnosno A′ je polovište dužine AA1. Za točku A1 kažemo da je osnosimetrična točki A s obzirom na pravac p. Taj pravac zovemo os simetrije, a preslikavanje A↦A1 nazivamo osna simetrija. 
-              </p>
-              <img src="Preslikavanja prostora_3.png">
-              <p>Prikazana je osna simetrija. Pravac p je os simetrije. I osna je simetrija izometrija: dužine AB¯¯¯¯¯¯¯¯ i A1B1¯¯¯¯¯¯¯¯¯¯¯¯
-                jednake su duljine (lijevo). Slika kvadra (desno), koji je osnosimetričan, pomaže zoru.
-                Primijetimo ponovno da je pravac AA1
-                okomit na pravac p, te da je A′ polovište dužine AA1¯¯¯¯¯¯¯¯¯¯
-                .
-                I osna je simetrija izometrija. Za nju također vrijedi |A1B1|=|AB|
-                za svaki par točaka A i B.
-                pomenimo još jednu izometriju prostora, centralnu simetriju. Točka A preslikava se u točku A1 simetričnu s obzirom na istaknutu točku O prostora koju nazivamo središte simetrije.
-              </p>
-              <img src="Preslikavanja prostora_4.png">
----------------------------------------------------------------------------------------------------------------------------------------------------
+Zrcalnu simetriju definirali smo koristeći projekciju točke na ravninu. Slično tome možemo definirati osnu simetriju koristeći projekciju točke na pravac.
+Neka je p zadani pravac i A po volji uzeta točka prostora. Točki A pridružimo točku A_1 koja joj je simetrična s obzirom na pravac p. Do nje dolazimo tako da točkom A postavimo ravninu π okomitu na pravac i odredimo presječnu točku A^': ortogonalnu projekciju točke A na pravac (slika lijevo). Na pravcu AA^' odaberemo točku A_1 za koju je ∣A_1 A^'∣=∣AA^'∣, odnosno A^' je polovište dužine (AA_1 ) ‾. Za točku A_1 kažemo da je osnosimetrična točki A s obzirom na pravac p. Taj pravac zovemo os simetrije, a preslikavanje A↦A_1 nazivamo osna simetrija. 
+(Preslikavanja prostora_3.png)
+Prikazana je osna simetrija. Pravac p je os simetrije. I osna je simetrija izometrija: dužine (AB) ‾ i (A_1 B_1 ) ‾ jednake su duljine (lijevo). Slika kvadra (desno), koji je osnosimetričan, pomaže zoru.
+Primijetimo ponovno da je pravac AA_1 okomit na pravac p, te da je A^' polovište dužine (AA_1 ) ‾.
+I osna je simetrija izometrija. Za nju također vrijedi ∣A_1 B_1∣=∣AB∣ za svaki par točaka A i B.
+Spomenimo još jednu izometriju prostora, centralnu simetriju. Točka A preslikava se u točku A_1 simetričnu s obzirom na istaknutu točku O prostora koju nazivamo središte simetrije.
+(Preslikavanja prostora_4.png)
+________________________________________
 Homotetija
-<p>Još je jedno preslikavanje od velike koristi u primjenama. Riječ je o preslikavanju koje zadane likove (i tijela) preslikava u likove istog oblika, ali u drugom mjerilu, umanjenom ili uvećanom. Opišimo ga.
+Još je jedno preslikavanje od velike koristi u primjenama. Riječ je o preslikavanju koje zadane likove (i tijela) preslikava u likove istog oblika, ali u drugom mjerilu, umanjenom ili uvećanom. Opišimo ga.
+Neka su zadane dvije paralelne ravnine π i π_1 te točka S koja ne leži na njima. Svakoj točki A ravnine π pridružujemo točku A_1 u ravnini π_1 koja se dobiva kao presjek ravnine π_1 s pravcem SA. Time je definirano preslikavanje A↦A_1 koje nazivamo homotetija ili centralna sličnost. Točka S naziva se središte homotetije.
+(Preslikavanja prostora_5.png)
+Točkom S povucimo pravac okomit na ravnine. Označimo s B i B_1 sjecišta tog pravca s ravninama, s d udaljenost točke S od ravnine π, a s d_1 udaljenost od ravnine π_1. Trokuti SAB i SA_1 B_1 su slični (podudaraju im se kutovi). To znači da su im stranice proporcionalne, pa vrijedi
+(∣A_1 B_1∣)/(∣AB∣)=(∣SA_1∣)/(∣SA∣)=(∣SB_1∣)/(∣SB∣)=d_1/d=k.
 
-                Neka su zadane dvije paralelne ravnine π
-                i π1 te točka S koja ne leži na njima. Svakoj točki A ravnine π pridružujemo točku A1 u ravnini π1 koja se dobiva kao presjek ravnine π1 s pravcem SA. Time je definirano preslikavanje A↦A1 koje nazivamo homotetija ili centralna sličnost. Točka S naziva se središte homotetije.
-              </p>
-              <img src="Preslikavanja prostora_5.png">
-              <p>Točkom S povucimo pravac okomit na ravnine. Označimo s B i B1 sjecišta tog pravca s ravninama, s d udaljenost točke S od ravnine π, a s d1 udaljenost od ravnine π1. Trokuti SAB i SA1B1 su slični (podudaraju im se kutovi). To znači da su im stranice proporcionalne, pa vrijedi 
-                |A1B1||AB|=|SA1||SA|=|SB1||SB|=d1d=k.
-                Broj k
-                nazivamo koeficijentom homotetije (koeficijentom sličnosti).
-                Neka je sad C
-                po volji uzeta točka ravnine π, a C1 njoj pridružena točka. Trokuti SAC i SA1C1 također su slični jer su im stranice AC i A1C1 paralelne. Zato je: 
-                |A1C1||AC|=|SA1||SA|=k.
-                Dakle, vrijedi: 
-                |A1C1|=k⋅|AC|.
-                Time smo provjerili da je omjer udaljenosti po volji uzetih točaka ravnine π
-                i njihovih slika uvijek konstantan.
-                Trokut ABC
-                sličan je trokutu A1B1C1 jer su im stranice proporcionalne. Za njihove površine vrijedi: 
-                PA1B1C1PABC=k2,
-                jer se površine sličnih likova odnose kao kvadrati koeficijenta sličnosti. Isto vrijedi i za bilo koji drugi par trokuta, pa i za bilo koji par likova koji se homotetijom preslikavaju jedan u drugi. Neka je B po volji uzet lik u ravnini π. (Obično je u nama zanimljivim primjenama B mnogokut ili krug.) Neka je B1 njegova slika u ravnini π1. Onda za omjer površina vrijedi: 
-                PB1PB=k2.
-              </p>
-              <img src="Preslikavanja prostora_6.png">
-              <p></p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Broj k nazivamo koeficijentom homotetije (koeficijentom sličnosti).
+Neka je sad C po volji uzeta točka ravnine π, a C_1 njoj pridružena točka. Trokuti SAC i SA_1 C_1 također su slični jer su im stranice AC i A_1 C_1 paralelne. Zato je:
+(∣A_1 C_1∣)/(∣AC∣)=(∣SA_1∣)/(∣SA∣)=k.
+
+Dakle, vrijedi:
+∣A_1 C_1∣=k⋅∣AC∣.
+
+Time smo provjerili da je omjer udaljenosti po volji uzetih točaka ravnine π i njihovih slika uvijek konstantan.
+Trokut ABC sličan je trokutu A_1 B_1 C_1 jer su im stranice proporcionalne. Za njihove površine vrijedi:
+P_(A_1 B_1 C_1 )/P_ABC =k^2,
+
+jer se površine sličnih likova odnose kao kvadrati koeficijenta sličnosti. Isto vrijedi i za bilo koji drugi par trokuta, pa i za bilo koji par likova koji se homotetijom preslikavaju jedan u drugi. Neka je B po volji uzet lik u ravnini π. (Obično je u nama zanimljivim primjenama B mnogokut ili krug.) Neka je B_1 njegova slika u ravnini π_1. Onda za omjer površina vrijedi:
+P_(B_1 )/P_B =k^2.
+
+(Preslikavanja prostora_6.png)
+________________________________________
 Homotetija
- <p>Homotetiju smo promatrali kao preslikavanje s ravnine π u ravninu π1
-                . Međutim, ona se može promatrati i kao preslikavanje na čitavu prostoru.
-                Pokazuje se da je u opisu homotetije prostora prikladnije dopustiti da koeficijent homotetije (sličnosti) može biti i negativan broj. Zato kao ishodišnu uzimamo relaciju 
-                |A1C1|=|k|⋅|AC|,
-                koja će vrijediti za svaki par A, A1
-                pridruženih točaka.
-                Predznak koeficijenta k
-                govori o položaju točaka A i A1 prema središtu simetrije S. Ako se točke A i A1 nalaze u istom polupravcu određenom sa S, onda je k>0; a ako su te točke u različitim polupravcima, onda vrijedi k<0
-              </p>
-              <img src="Preslikavanja prostora_7.png">
-              <p>Primijetimo da je homotetija s koeficijentom k=−1 upravo centralna simetrija. To je, uz identično preslikavanje u kojem je k=1, jedina izometrija među homotetijama. Inače, za |k|<1 udaljenosti se točaka smanjuju (kažemo da se likovi i tijela sažimaju), a za |k|>1
+Homotetiju smo promatrali kao preslikavanje s ravnine π u ravninu π_1. Međutim, ona se može promatrati i kao preslikavanje na čitav prostor.
+Pokazuje se da je u opisu homotetije prostora prikladnije dopustiti da koeficijent homotetije (sličnosti) može biti i negativan broj. Zato kao ishodišnu uzimamo relaciju
+∣A_1 C_1∣=∣k∣⋅∣AC∣,
 
-                te se udaljenosti povećavaju.
-                
-                Homotetija u prostoru
-                
-                Neka je S
-                istaknuta točka u prostoru (središte homotetije). Homotetija je preslikavanje koje točki A pridružuje točku A1
-                
-                takvu da vrijedi
-                
-                 
-                
-                    točke S
-                
-                , A i A1
-                su kolinearne,
-                |SA1|=|k|⋅|SA|,
-                za k>0
-                točke A i A1 leže u istom polupravcu određenom točkom S, a za k<0 u različitim polupravcima. Broj k naziva se koeficijent homotetije (ili koeficijent sličnosti).
-              </p>
-              <img src="Preslikavanja prostora_8.png">
-              <p>Napomena. Homotetični su likovi i tijela slični, zato je homotetija poseban slučaj sličnosti: dva su homotetična lika ili tijela uvijek slična, dok obratno ne mora vrijediti. Stoga i koeficijent homotetije nazivamo, ponešto neprecizno, koeficijentom sličnosti. Razlika je među njima samo u tome što koeficijent homotetije smije biti negativan, dok je koeficijent sličnosti uvijek pozitivan. Dakle, ako je k koeficijent homotetije, onda je |k| koeficijent sličnosti.</p>
-            
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Kut pravca i ravnine. Kut dviju ravnina(U RADU)</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Kut pravaca i ravnine
-<p>Prisjetimo se definicije kuta što ga zatvaraju dva pravca p i q koja se sijeku. Od dvaju suplementnih kutova određenih polupravcima, manji nazivamo kutom između pravaca p i q. Opišimo sad kut koji zatvaraju pravac i ravnina.</p>
-              <img src="Kut pravca i ravnine, kut dviju ravnina_1.png">
-              <p>Kut α između pravca p i ravnine π
-                definira se na sljedeći način:
-                1.	α=0∘
-                •  , ako je pravac paralelan s ravninom 
-                •  α=90∘
-                2.	, ako je pravac okomit na ravninu
-                3.	u ostalim slučajevima to je kut između pravca i njegove ortogonalne projekcije na ravninu.
-                 
-                Kut pravca i ravnine
-                Kut pravca i ravnine je kut između pravca i njegove ortogonalne projekcije na ravninu.
-              </p>
-              <img src="Kut pravca i ravnine, kut dviju ravnina_2.png">
-              <p><!--PRIMJER 1--></p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+koja će vrijediti za svaki par A, A_1 pridruženih točaka.
+Predznak koeficijenta k govori o položaju točaka A i A_1 prema središtu simetrije S. Ako se točke A i A_1 nalaze u istom polupravcu određenom sa S, onda je k>0; a ako su te točke u različitim polupravcima, onda vrijedi k<0.
+(Preslikavanja prostora_7.png)
+Primijetimo da je homotetija s koeficijentom k=-1 upravo centralna simetrija. To je, uz identično preslikavanje u kojem je k=1, jedina izometrija među homotetijama. Inače, za ∣k∣<1 udaljenosti se točaka smanjuju (kažemo da se likovi i tijela sažimaju), a za ∣k∣>1 te se udaljenosti povećavaju. 
+Homotetija u prostoru
+Neka je S istaknuta točka u prostoru (središte homotetije). Homotetija je preslikavanje koje točki A pridružuje točku A_1 takvu da vrijedi:
+	točke S, A i A_1 su kolinearne
+	∣SA_1∣=∣k∣⋅∣SA∣
+	za k>0 točke A i A_1 leže u istom polupravcu određenom točkom S, a za k<0 u različitim polupravcima.
+Broj k naziva se koeficijent homotetije (ili koeficijent sličnosti).
+(Preslikavanja prostora_8.png)
+Napomena. Homotetični su likovi i tijela slični, zato je homotetija poseban slučaj sličnosti: dva su homotetična lika ili tijela uvijek slična, dok obratno ne mora vrijediti. Stoga i koeficijent homotetije nazivamo, ponešto neprecizno, koeficijentom sličnosti. Razlika je među njima samo u tome što koeficijent homotetije smije biti negativan, dok je koeficijent sličnosti uvijek pozitivan. Dakle, ako je k koeficijent homotetije, onda je ∣k∣ koeficijent sličnosti. 
+________________________________________
+________________________________________
+________________________________________
+Kut pravca i ravnine. Kut dviju ravnina (U RADU)
+________________________________________
+Kut pravca i ravnine
+Prisjetimo se definicije kuta što ga zatvaraju dva pravca p i q koja se sijeku. Od dvaju suplementnih kutova određenih polupravcima, manji nazivamo kutom između pravaca p i q. Opišimo sad kut koji zatvaraju pravac i ravnina.
+(Kut pravca i ravnine, kut dviju ravnina_1.png)
+Kut α između pravca p i ravnine π definira se na sljedeći način:
+	α=0^∘, ako je pravac paralelan s ravninom
+	α=90^∘, ako je pravac okomit na ravninu
+	u ostalim slučajevima to je kut između pravca i njegove ortogonalne projekcije na ravninu.
+Kut pravca i ravnine
+Kut pravca i ravnine je kut između pravca i njegove ortogonalne projekcije na ravninu.
+(Kut pravca i ravnine, kut dviju ravnina_2.png)
+<!--PRIMJER 1-->
+________________________________________
 Kut dviju ravnina
-<p>Pogledajmo dvije ravnine, π i ρ koje se sijeku duž pravca p. Objasnimo kako se definira kut između tih ravnina. Taj je kut lako uočiti pogledamo li ravnine duž presječnog pravca (slika dolje lijevo). Koliki je taj kut promatramo li ravnine određene nekim četirima nekomplanarnim točkama (slika dolje desno)?</p>
-              <img src="Kut pravca i ravnine, kut dviju ravnina_3.png">
-              <p>Kut između ravnina definiramo s pomoću kuta između dvaju posebno odabranih pravaca koji leže u po jednoj od tih ravnina.
-
-                Izaberimo bilo koju točku T
-                s presječnice p zadanih ravnina i povucimo pravce a i b tako da pravac a leži u ravnini π i okomit je na p, a b leži u ravnini ρ i okomit je na p (slika dolje). Kut između ravnina jest kut koji zatvaraju pravci a i b.
-              </p>
-              <img src="Kut pravca i ravnine, kut dviju ravnina_4.png">
-              <p>
-                <!--PRIMJER 2-->
-                <!--PRIMJER 3-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Pogledajmo dvije ravnine, π i ρ, koje se sijeku duž pravca p. Objasnimo kako se definira kut između tih ravnina. Taj je kut lako uočiti pogledamo li ravnine duž presječnog pravca (slika dolje lijevo). Koliki je taj kut promatramo li ravnine određene nekim četirima nekomplanarnim točkama (slika dolje desno)?
+(Kut pravca i ravnine, kut dviju ravnina_3.png)
+Kut između ravnina definiramo s pomoću kuta između dvaju posebno odabranih pravaca koji leže u po jednoj od tih ravnina.
+Izaberimo bilo koju točku T s presječnice p zadanih ravnina i povucimo pravce a i b tako da pravac a leži u ravnini π i okomit je na p, a b leži u ravnini ρ i okomit je na p (slika dolje). Kut između ravnina jest kut koji zatvaraju pravci a i b.
+(Kut pravca i ravnine, kut dviju ravnina_4.png)
+<!--PRIMJER 2--> <!--PRIMJER 3-->
+________________________________________
 Površina projiciranog lika
- <p>Pri ortogonalnom projiciranju smanjuje se udaljenost točaka. Naime, ako su dane dvije točke A i B i ako su A′ i B′ njihove ortogonalne projekcije na ravninu π, onda je |A′B′|≤|AB|. Znak jednakosti vrijedi kada točke A i B pripadaju pravcu koji je paralelan s ravninom. Neka su A′ i B′ ortogonalne projekcije točaka A i B na ravninu π i neka pravac AB s ravninom π zatvara kut φ.</p>
-              <img src="Kut pravca i ravnine, kut dviju ravnina_5.png">
-              <p>Tada je sasvim općenito:|A′B′|=|AB|⋅cosφ
+Pri ortogonalnom projiciranju smanjuje se udaljenost točaka. Naime, ako su dane dvije točke A i B i ako su A^' i B^' njihove ortogonalne projekcije na ravninu π, onda je ∣A^' B^'∣≤∣AB∣. Znak jednakosti vrijedi kada točke A i B pripadaju pravcu koji je paralelan s ravninom. 
+Neka su A^' i B^' ortogonalne projekcije točaka A i B na ravninu π i neka pravac AB s ravninom π zatvara kut φ.
+(Kut pravca i ravnine, kut dviju ravnina_5.png)
+Tada je sasvim općenito:
+∣A^' B^'∣=∣AB∣⋅cos⁡φ.
 
-                .
-                
-                U točnost ove tvrdnje uvjerite se promatrajući sliku.
-                <!--PRIMJER 4-->
-                Kao što se pri ortogonalnom projiciranju mijenja udaljenost točaka, tako se mijenja površina nekog lika. Kako?
-              </p>
-              <img src="Kut pravca i ravnine, kut dviju ravnina_6.png">
-              <p>1. Pođimo najprije od trokuta ABC, čija je jedna stranica, primjerice, ¯¯¯¯¯¯¯¯BC paralelna ravnini projekcije. Jednostavnosti radi, ravninu možemo zamijeniti paralelnom ravninom koja prolazi stranicom ¯¯¯¯¯¯¯¯BC
+U točnost ove tvrdnje uvjerite se promatrajući sliku.
+<!--PRIMJER 4-->
+Kao što se pri ortogonalnom projiciranju mijenja udaljenost točaka, tako se mijenja površina nekog lika. Kako?
+(Kut pravca i ravnine, kut dviju ravnina_6.png)
+	Pođimo najprije od trokuta ABC, čija je jedna stranica, primjerice, (BC) ‾ paralelna ravnini projekcije. Jednostavnosti radi, ravninu možemo zamijeniti paralelnom ravninom koja prolazi stranicom (BC) ‾. Pritom se ne mijenja niti površina projekcije niti kut među ravninama.
+Ortogonalna projekcija trokuta ABC na ravninu π je trokut A^' BC. Neka je (AH) ‾ visina trokuta ABC. Onda je (A^' H) ‾ visina trokuta A^' BC, a kut φ=∠AHA^' jest kut između ravnine π i ravnine trokuta ABC. Ako je P površina trokuta ABC, a P^' površina trokuta A^' BC, onda je:
+P^'=(∣BC∣⋅∣HA^'∣)/2=(∣BC∣⋅∣HA∣⋅cos⁡φ)/2=(∣BC∣⋅∣HA∣)/2⋅cos⁡φ=P⋅cos⁡φ.
 
-                . Pritom se ne mijenja niti površina projekcije niti kut među ravninama.
-                
-                Ortogonalna projekcija trokuta ABC
-                na ravninu π je trokut A′BC. Neka je ¯¯¯¯¯¯¯¯¯AH visina trokuta ABC. Onda je ¯¯¯¯¯¯¯¯¯¯A′H visina trokuta A′BC, a kut φ=<)AHA′ jest kut između ravnine π i ravnine trokuta ABC. Ako je P površina trokuta ABC, a P′ površina trokuta A′BC, onda je: P′=|BC|⋅|HA′|2=|BC|⋅|HA|⋅cosφ2=|BC|⋅|HA|2⋅cosφ=P⋅cosφ.
-              </p>
-              <img src="Kut pravca i ravnine, kut dviju ravnina_7.png">
-              <p>2. Pretpostavimo sada da niti jedna stranica trokuta nije paralelna ravnini projekcije. Položimo ravninu paralelno ravnini projekcije, ali tako da prolazi vrhom C trokuta. Produžimo stranicu AB do presjecišta D s ravninom π (slika). Po prvom slučaju vrijedi: PA′CD=PACD⋅cosϕ, PB′CD=PBCD⋅cosϕ. } Oduzimanjem ovih jednakosti slijedi: PA′B′C=PA′CD−PB′CD=(PACD−PBCD)cosϕ=PABCcosϕ. Dakle, i u ovom slučaju vrijedi: P′=Pcosϕ. Ako pak ravnina projekcije prolazi točkom C
-                i siječe trokut tako da se dijelovi trokuta nalaze s raznih strana ravnine, rezultat je isti, samo što će se površine zbrajati, a ne oduzimati.
-                 
-                3. Projekcija mnogokuta. Svaki se mnogokut može razbiti na trokute. U situaciji kao na slici bit će: P′1=P1cosϕ,P′2=P2cosϕ,P′3=P3cosϕ,
-                pa zbrajanjem ovih površina dobivamo P′=Pcosϕ.
-              </p>
-              <img src="Kut pravca i ravnine, kut dviju ravnina_8.png">
-              <p>Površina projekcije
-                Neka je P
-                površina mnogokuta, P′ površina njegove ortogonalne projekcije, a ϕ kut koji zatvara ravnina lika s ravninom projekcije. Onda vrijedi P′=Pcosϕ.
-                <!--PRIMJER 5-->
-                <!--PRIMJER 6-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Poliedri (U RADU)</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+(Kut pravca i ravnine, kut dviju ravnina_7.png)
+	Pretpostavimo sada da niti jedna stranica trokuta nije paralelna ravnini projekcije. Položimo ravninu paralelno ravnini projekcije, ali tako da prolazi vrhom C trokuta. Produžimo stranicu AB do presjecišta D s ravninom π (slika). Po prvom slučaju vrijedi:
+P_(A^' CD)=P_ACD⋅cos⁡φ,P_(B^' CD)=P_BCD⋅cos⁡φ.
+
+Oduzimanjem ovih jednakosti slijedi:
+P_(A^' B^' C)=P_(A^' CD)-P_(B^' CD)=(P_ACD-P_BCD)cos⁡φ=P_ABC cos⁡φ.
+
+Dakle, i u ovom slučaju vrijedi: P^'=Pcos⁡φ. Ako pak ravnina projekcije prolazi točkom C i siječe trokut tako da se dijelovi trokuta nalaze s raznih strana ravnine, rezultat je isti, samo što će se površine zbrajati, a ne oduzimati.
+	Projekcija mnogokuta. Svaki se mnogokut može razbiti na trokute. U situaciji kao na slici bit će:
+P_1^'=P_1 cos⁡φ,P_2^'=P_2 cos⁡φ,P_3^'=P_3 cos⁡φ,
+
+pa zbrajanjem ovih površina dobivamo P^'=Pcos⁡φ.
+(Kut pravca i ravnine, kut dviju ravnina_8.png)
+Površina projekcije
+Neka je P površina mnogokuta, P^' površina njegove ortogonalne projekcije, a φ kut koji zatvara ravnina lika s ravninom projekcije. Onda vrijedi
+P^'=Pcos⁡φ.
+<!--PRIMJER 5--> <!--PRIMJER 6-->
+________________________________________
+________________________________________
+________________________________________
+Poliedri (U RADU)
+________________________________________
 Konveksni skupovi
-<p>Skup S je konveksan ako sa svake svoje dvije točke sadrži i njihovu spojnicu: iz A, B∈S slijedi ¯¯¯¯¯¯¯¯AB⊂S.</p>
-              <img src="Poliedri_1.png">
-              <p>Trokut je najmanji konveksan skup koji sadrži tri točke A, B, i C neke ravnine (sadržava spojnice tih točaka (stranice trokuta) i spojnice vrha s bilo kojom točkom nasuprotne stranice)
-                Ako neke točke u konačanom skupu točaka u ravnini nisu kolinearne, najmanji konveksan skup koji ih sadrži je konveksni mnogokut.  
-              </p>
-              <img src="Poliedri_2.png">
----------------------------------------------------------------------------------------------------------------------------------------------------
+Skup S je konveksan ako sa svake svoje dvije točke sadrži i njihovu spojnicu: iz A,B∈S slijedi (AB) ‾⊂S.
+(Poliedri_1.png)
+Trokut je najmanji konveksan skup koji sadrži tri točke A, B i C neke ravnine (sadržava spojnice tih točaka (stranice trokuta) i spojnice vrha s bilo kojom točkom nasuprotne stranice).
+Ako neke točke u konačnom skupu točaka u ravnini nisu kolinearne, najmanji konveksan skup koji ih sadrži je konveksni mnogokut.
+(Poliedri_2.png)
+________________________________________
 Konveksni poliedri
-<p>Ako su A, B, C, D četiri nekolinearne točke u prostoru, onda je najmanji konveksni skup koji sadrži te točke tetraedar ABCD
-                Zbog konveksnosti, tetraedar mora sadržavati sve bridove i sve strane. Ako je točka T bilo koja točka na spojnici DM, ona onda mora pripadati tetraedru.
-                Konveksan poliedar
-                Neka je A, B, C, ...  konačan skup točaka u prostoru koje nisu komplanarne. Konveksan poliedar je najmanji konveksan skup koji sadrži te točke.
-              </p>
-              <img src="Poliedri_3.png">
----------------------------------------------------------------------------------------------------------------------------------------------------
+Ako su A, B, C, D četiri nekolinearne točke u prostoru, onda je najmanji konveksni skup koji sadrži te točke tetraedar ABCD.
+Zbog konveksnosti, tetraedar mora sadržavati sve bridove i sve strane. Ako je točka T bilo koja točka na spojnici DM, ona onda mora pripadati tetraedru.
+Konveksan poliedar
+Neka je A, B, C, ... konačan skup točaka u prostoru koje nisu komplanarne. Konveksan poliedar je najmanji konveksan skup koji sadrži te točke.
+(Poliedri_3.png)
+________________________________________
 Elementi poliedra
-<img src="Poliedri_4.png">
-              <p>Strana poliedra je konveksan mnogokut.
-                Brid je dio poliedra u kojem se sastaju dvije strane.
-                Vrh je krajnja točka brida. To je zajednička točka triju ili više strana.
-                Brojevi strana, bridova i vrhova nekog poliedra nisu međusobno neovisni. Oni moraju zadovoljavati Eulerovu formulu:
-                V (broj vrhova)+S (broj strana)=B (broj bridova) +2,
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+(Poliedri_4.png)
+Strana poliedra je konveksan mnogokut. Brid je dio poliedra u kojem se sastaju dvije strane. Vrh je krajnja točka brida. To je zajednička točka triju ili više strana.
+Brojevi strana, bridova i vrhova nekog poliedra nisu međusobno neovisni. Oni moraju zadovoljavati Eulerovu formulu:
+V+S=B+2,
+
+gdje je V broj vrhova, S broj strana, a B broj bridova.
+________________________________________
 Pravilni poliedri
- <p>Pravilan tetraedar (piramida) pravilan je poliedar sa stranama koje su sukladni jednakostranični trokuti. Ima četiri strane, šest (jednako dugih) bridova i četiri vrha</p>
-              <img src="Poliedri_5.png">
-              <p>Pravilan heksaedar (kocka) pravilan je poliedar sa stranama koje su sukladni kvadrati. Ima šest strana, dvananaest (jednako dugih) bridova i osam vrhova.</p>
-              <img src="Poliedri_6.png">
-              <p>Pravilan oktaedar pravilan je poliedar sa stranama koje su sukladni jednakostranični trokuti. Ima osam strana, dvanaest (jednako dugih) bridova i šest vrhova</p>
-              <img src="Poliedri_7.png">
-              <p>Pravilan dodekaedar pravilan je poliedar sa stranama koje su sukladni pravilni peterokuti. Ima dvanaest strana, trideset (jednako dugih) bridova i dvadeset vrhova</p>
-              <img src="Poliedri_8.png">
-              <p>Pravilan ikosaedar pravilan je poliedar sa stranama koje su sukladni jednakostranični trokuti. Ima dvadeset strana, trideset (jednako dugih) bridova i dvanaest vrhova.</p>
-              <img src="Poliedri_9.png">
+Pravilan tetraedar (piramida) pravilan je poliedar sa stranama koje su sukladni jednakostranični trokuti. Ima četiri strane, šest (jednako dugih) bridova i četiri vrha.
+(Poliedri_5.png)
+Pravilan heksaedar (kocka) pravilan je poliedar sa stranama koje su sukladni kvadrati. Ima šest strana, dvanaest (jednako dugih) bridova i osam vrhova.
+(Poliedri_6.png)
+Pravilan oktaedar pravilan je poliedar sa stranama koje su sukladni jednakostranični trokuti. Ima osam strana, dvanaest (jednako dugih) bridova i šest vrhova.
+(Poliedri_7.png)
+Pravilan dodekaedar pravilan je poliedar sa stranama koje su sukladni pravilni peterokuti. Ima dvanaest strana, trideset (jednako dugih) bridova i dvadeset vrhova.
+(Poliedri_8.png)
+Pravilan ikosaedar pravilan je poliedar sa stranama koje su sukladni jednakostranični trokuti. Ima dvadeset strana, trideset (jednako dugih) bridova i dvanaest vrhova.
+(Poliedri_9.png)

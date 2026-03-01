@@ -1,240 +1,356 @@
-<h3>Eksplicitni i implicitni oblik jednadžbe pravca</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Eksplicitni i implicitni oblik jednadžbe pravca
+________________________________________
 Pravac
- <p>
-                U prvom smo razredu razmatrali problem rješavanja linearne jednadžbe s dvjema nepoznanicama oblika Ax+By+C=0. Ova jednadžba ima beskonačno mnogo rješenja, uređenih parova realnih brojeva (x,y). Sva ta rješenja prikazana u koordinatnom sustavu pripadaju pravcu pa za jednadžbu Ax+By+C=0 kažemo još i da je jednadžba pravca.
-                Pravac
-                Pravac je skup svih točaka (x,y) u ravnini čije koordinate zadovoljavaju jednadžbu Ax+By+C=0, pri čemu je barem jedan od koeficijenata A, B različit od nule. Ova se jednadžba naziva implicitni oblik jednadžbe pravca.
-                Kako se crta pravac zadan nekom linearnom jednadžbom?
-                Dovoljno je odrediti dvije točke koje leže na tom pravcu, uzimajući po volji dvije vrijednosti za nepoznanicu x ili za nepoznanicu y.
-                <!--PRIMJER 1-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+U prvom smo razredu razmatrali problem rješavanja linearne jednadžbe s dvjema nepoznanicama oblika
+Ax+By+C=0.
+
+Ova jednadžba ima beskonačno mnogo rješenja, uređenih parova realnih brojeva (xⓜ,y). Sva ta rješenja prikazana u koordinatnom sustavu pripadaju pravcu, pa za jednadžbu Ax+By+C=0 kažemo još i da je jednadžba pravca.
 Pravac
- <p>
-                </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Eksplicitni i implicitni oblik jednadžbe pravca</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Pravac je skup svih točaka (xⓜ,y) u ravnini čije koordinate zadovoljavaju jednadžbu
+Ax+By+C=0,
+
+pri čemu je barem jedan od koeficijenata A,B različit od nule. Ova se jednadžba naziva implicitni oblik jednadžbe pravca.
+Kako se crta pravac zadan nekom linearnom jednadžbom?
+Dovoljno je odrediti dvije točke koje leže na tom pravcu, uzimajući po volji dvije vrijednosti za nepoznanicu x ili za nepoznanicu y.
+PRIMJER 1
+________________________________________
 Pravac
- <p>
-                U prvom smo razredu razmatrali problem rješavanja linearne jednadžbe s dvjema nepoznanicama oblika Ax+By+C=0. Ova jednadžba ima beskonačno mnogo rješenja, uređenih parova realnih brojeva (x,y). Sva ta rješenja prikazana u koordinatnom sustavu pripadaju pravcu pa za jednadžbu Ax+By+C=0
-                kažemo još i da je jednadžba pravca.
-                Pravac
-                Pravac je skup svih točaka (x,y) u ravnini čije koordinate zadovoljavaju jednadžbu Ax+By+C=0, pri čemu je barem jedan od koeficijenata A, B različit od nule. Ova se jednadžba naziva implicitni oblik jednadžbe pravca.
-                Kako se crta pravac zadan nekom linearnom jednadžbom?
-                Dovoljno je odrediti dvije točke koje leže na tom pravcu, uzimajući po volji dvije vrijednosti za nepoznanicu x ili za nepoznanicu y.
-                <!--PRIMJER 1-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+________________________________________
+________________________________________
+________________________________________
+Eksplicitni i implicitni oblik jednadžbe pravca
+________________________________________
+Pravac
+U prvom smo razredu razmatrali problem rješavanja linearne jednadžbe s dvjema nepoznanicama oblika
+Ax+By+C=0.
+
+Ova jednadžba ima beskonačno mnogo rješenja, uređenih parova realnih brojeva (xⓜ,y). Sva ta rješenja prikazana u koordinatnom sustavu pripadaju pravcu, pa za jednadžbu Ax+By+C=0 kažemo još i da je jednadžba pravca.
+Pravac
+Pravac je skup svih točaka (xⓜ,y) u ravnini čije koordinate zadovoljavaju jednadžbu
+Ax+By+C=0,
+
+pri čemu je barem jedan od koeficijenata A,B različit od nule. Ova se jednadžba naziva implicitni oblik jednadžbe pravca.
+Kako se crta pravac zadan nekom linearnom jednadžbom?
+Dovoljno je odrediti dvije točke koje leže na tom pravcu, uzimajući po volji dvije vrijednosti za nepoznanicu x ili za nepoznanicu y.
+PRIMJER 1
+________________________________________
 Pravci paralelni s koordinatnim osima
-<p>
-                Ako je u općoj jednadžbi pravca A=0, onda ona glasi By+C=0.
-                Tu jednadžbu zadovoljavaju sve točke (x,y) ravnine za koje vrijedi y=−CB. Te se točke nalaze na pravcu koji prolazi točkom (0,−CB) i paralelan je s osi apscisa.
-                Ako je u općoj jednadžbi B=0, onda ona glasi Ax+C=0.
-                Tu jednadžbu zadovoljavaju sve točke (x,y) ravnine za koje vrijedi x=−CA. Te se točke nalaze na pravcu koji prolazi točkom (−CA,0) i paralelan je s osi ordinata.
-                </p>
-                <img src="Eksplicitni_i_implicitni_oblik_jednadžbe_pravca_1.png">
-                <p><!--PRIMJER 2--></p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Ako je u općoj (implicitnoj) jednadžbi pravca A=0, onda ona glasi
+By+C=0.
+
+Tu jednadžbu zadovoljavaju sve točke (xⓜ,y) ravnine za koje vrijedi
+y=-C/B.
+
+Te se točke nalaze na pravcu koji prolazi točkom (0,-C/B) i paralelan je s osi apscisa (os x).
+Ako je u općoj jednadžbi B=0, onda ona glasi
+Ax+C=0.
+
+Tu jednadžbu zadovoljavaju sve točke (xⓜ,y) ravnine za koje vrijedi
+x=-C/A.
+
+Te se točke nalaze na pravcu koji prolazi točkom (-C/A,0) i paralelan je s osi ordinata (os y).
+(Eksplicitni_i_implicitni_oblik_jednadžbe_pravca_1.png)
+PRIMJER 2
+________________________________________
 Eksplicitni oblik jednadžbe pravca
- <p>
-                    Ako je B≠0, jednadžbu Ax+By+C=0 dijeljenjem s koeficijentom B prevodimo u jednadžbu oblika y=−ABx−CB.
-                    Stavimo li k=−AB i l=−CB, dobit ćemo jednadžbu pravca u obliku y=kx+l.
-                    Eksplicitni oblik jednadžbe pravca
-                    Ako pravac nije paralelan s osi ordinata, njegova se jednadžba može napisati u obliku y=kx+l.
-                    Tu jednadžbu zovemo eksplicitni oblik jednadžbe pravca.
-                    Koeficijent k u eksplicitnoj jednadžbi pravca zovemo nagib ili koeficijent smjera.
-                    Koeficijent l nazivamo odsječak na osi ordinata.
-                    Koeficijent smjera k može biti bilo koji realan broj. Ako je k=0, tad jednadžba pravca glasi y=l i on je paralelan s osi apscisa.
-                    Stavimo li u eksplicitnu jednadžbu pravca x=0 , dobit ćemo y=k⋅0+l=l. To znači da pravac prolazi točkom (0,l) na osi ordinata. Zato se l nazivaodsječak na osi ordinata. Ako je l=0, pravac prolazi ishodištem.
-                  <!--PRIMJER 3-->  
-                  </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Ako je B≠0, jednadžbu
+Ax+By+C=0
+
+dijeljenjem s koeficijentom B prevodimo u jednadžbu oblika
+y=-A/B x-C/B.
+
+Stavimo li k=-A/B i l=-C/B, dobit ćemo jednadžbu pravca u obliku
+y=kx+l.
+
+Eksplicitni oblik jednadžbe pravca
+Ako pravac nije paralelan s osi ordinata, njegova se jednadžba može napisati u obliku
+y=kx+l.
+
+Tu jednadžbu zovemo eksplicitni oblik jednadžbe pravca. Koeficijent k u eksplicitnoj jednadžbi pravca zovemo nagib ili koeficijent smjera. Koeficijent l nazivamo odsječak na osi ordinata.
+Koeficijent smjera k može biti bilo koji realan broj. Ako je k=0, tad jednadžba pravca glasi y=l i on je paralelan s osi apscisa.
+Stavimo li u eksplicitnu jednadžbu pravca x=0, dobit ćemo
+y=k⋅0+l=l.
+
+To znači da pravac prolazi točkom (0ⓜ,l) na osi ordinata. Zato se l naziva odsječak na osi ordinata. Ako je l=0, pravac prolazi ishodištem.
+PRIMJER 3
+________________________________________
 Koeficijent smjera i jednadžbe pravca
- <p>
-                    Kako glasi jednadžba pravca koji prolazi točkom A(x1,y1) i ima zadani koeficijent smjera k? Napišimo njegovu eksplicitnu jednadžbu: y=kx+l.
-                    Točka A leži na pravcu pa njezine koordinate zadovoljavaju tu jednadžbu: y1=kx1+l.
-                    Oduzimanjem ovih dviju jednadžbi dobivamo: y−y1=k(x−x1)
-                    (1) i to je tražena jednadžba.
-                    ***
-                    Znamo također da je pravac određen dvjema svojim točkama. Da bismo odredili jednadžbu pravca koji prolazi točkama A(x1,y1) i B(x2,y2), možemo iskoristiti jednadžbu (1) jer taj pravac prolazi točkom A. Koeficijent k odredit ćemo iz uvjeta da i druga točka B leži na pravcu: y2−y1=k(x2−x1)⟹k=y2−y1x2−x1. Tražena jednadžba glasi y−y1=y2−y1x2−x1(x−x1).
-                    </p>
-                    <img src="Eksplicitni_i_implicitni_oblik_jednadžbe_pravca_2.png">
-                    <p>
-                      Pogledajmo koje je geometrijsko značenje koeficijenta smjera k. Označimo s φ kut koji pravac zatvara s pozitivnim smjerom osi apscisa. Taj kut uvijek možemo izabrati u granicama 0∘≤φ je manje od 180∘. Iz pravokutnog trokuta na slici vidimo da vrijedi tg φ=y2−y1x2−x1. Prema tome, koeficijent smjera pravca jednak je tangensu priklonog kuta φ.
-                    <!--PRIMJER 4-->
-                    Pravac koji prolazi točkom A(x1,y1) i ima poznati koeficijent smjera k ima jednadžbu y−y1=k(x−x1). Ako on prolazi i točkom B(x2,y2), tada koeficijent smjera glasi k=y2−y1x2−x1. Jednadžba pravca koji prolazi točkama A(x1,y1), B(x2,y2) glasi y−y1=y2−y1x2−x1(x−x1). Za koeficijent smjera vrijedi k=tg φ, gdje je φ kut koji pravac zatvara s pozitivnim dijelom osi apscisa.
-                    <!--PRIMJER 5-->
-                    <!--PRIMJER 6-->
-                    <!--PRIMJER 7-->  
-                  </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Segmentni oblik jednadžbe pravca</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Kako glasi jednadžba pravca koji prolazi točkom A(x_1,y_1) i ima zadani koeficijent smjera k?
+Napišimo njegovu eksplicitnu jednadžbu:
+y=kx+l.
+
+Točka A leži na pravcu pa njezine koordinate zadovoljavaju tu jednadžbu:
+y_1=kx_1+l.
+
+Oduzimanjem ovih dviju jednadžbi dobivamo
+■(&y-y_1=k(x-x_1),&&"(1)" )
+
+i to je tražena jednadžba.
+________________________________________
+Znamo također da je pravac određen dvjema svojim točkama. Da bismo odredili jednadžbu pravca koji prolazi točkama A(x_1,y_1) i B(x_2,y_2), možemo iskoristiti jednadžbu (1), jer taj pravac prolazi točkom A. Koeficijent k odredit ćemo iz uvjeta da i druga točka B leži na pravcu:
+y_2-y_1=k(x_2-x_1)⟹k=(y_2-y_1)/(x_2-x_1 ).
+
+Tražena jednadžba glasi
+y-y_1=(y_2-y_1)/(x_2-x_1 )(x-x_1).
+
+(Eksplicitni_i_implicitni_oblik_jednadžbe_pravca_2.png)
+Pogledajmo koje je geometrijsko značenje koeficijenta smjera k. Označimo s φ kut koji pravac zatvara s pozitivnim smjerom osi apscisa. Taj kut uvijek možemo izabrati u granicama 0^∘≤φ<180^∘. Iz pravokutnog trokuta na slici vidimo da vrijedi
+tan⁡φ=(y_2-y_1)/(x_2-x_1 ).
+
+Prema tome, koeficijent smjera pravca jednak je tangensu priklonog kuta φ.
+Pravac koji prolazi točkom A(x_1,y_1) i ima poznati koeficijent smjera k ima jednadžbu
+y-y_1=k(x-x_1).
+
+Ako on prolazi i točkom B(x_2,y_2), tada koeficijent smjera glasi
+k=(y_2-y_1)/(x_2-x_1 ).
+
+Jednadžba pravca koji prolazi točkama A(x_1,y_1), B(x_2,y_2) glasi
+y-y_1=(y_2-y_1)/(x_2-x_1 )(x-x_1).
+
+Za koeficijent smjera vrijedi k=tan⁡φ, gdje je φ kut koji pravac zatvara s pozitivnim dijelom osi apscisa.
+PRIMJER 4
+PRIMJER 5
+PRIMJER 6
+PRIMJER 7
+________________________________________
+________________________________________
+________________________________________
 Segmentni oblik jednadžbe pravca
- <p>
-                <!--PRIMEJR 1-->
-                Izvest ćemo još jedan oblik jednadžbe pravca određen odsječcima (segmentima) pravca na koordinatnim osima. Krenimo od implicitne jednadžbe pravca: (1) Ax+By+C=0.
-                Izdvojimo najprije tri posebne situacije.
-                1. C=0
-                . Jednadžba pravca glasi Ax+By=0 i nju zadovoljava točka (0,0). Dakle, pravac prolazi ishodištem. Dakako da vrijedi i obrat: ako pravac prolazi ishodištem, onda mora biti C=0.
-                2. A=0. Sad je jednadžba By+C=0
-                . Ovaj je pravac paralelan s osi apscisa.
-                3. B=0. Jednadžba pravca je Ax+C=0 i on je paralelan s osi ordinata.
-                Pretpostavimo sada da su svi koeficijenti A, B i C različiti od nule. Tada pravac nije paralelan niti s jednom koordinatnom osi i ne prolazi ishodištem. On zato siječe obje koordinatne osi u točkama koje nisu ishodište.
-                Podijelimo jednadžbu (1) s C: ACx+BCy+1=0, odnosno x−CA+y−CB=1.
-                Označimo brojeve u nazivnicima s m i n. Dobili smo jednadžbu oblika xm+yn=1.
-                Nazivamo je segmentni oblik jednadžbe pravca1.
-                </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+________________________________________
+Segmentni oblik jednadžbe pravca
+PRIMJER 1
+Izvest ćemo još jedan oblik jednadžbe pravca određen odsječcima (segmentima) pravca na koordinatnim osima. Krenimo od implicitne jednadžbe pravca
+(1)Ax+By+C=0.
+
+Izdvojimo najprije tri posebne situacije.
+	C=0. Jednadžba pravca glasi
+Ax+By=0
+
+i nju zadovoljava točka (0ⓜ,0). Dakle, pravac prolazi ishodištem. Dakako da vrijedi i obrat: ako pravac prolazi ishodištem, onda mora biti C=0.
+	A=0. Sad je jednadžba
+By+C=0.
+
+Ovaj je pravac paralelan s osi apscisa.
+	B=0. Jednadžba pravca je
+Ax+C=0
+
+i on je paralelan s osi ordinata.
+Pretpostavimo sada da su svi koeficijenti A,B,C različiti od nule. Tada pravac nije paralelan niti s jednom koordinatnom osi i ne prolazi ishodištem. On zato siječe obje koordinatne osi u točkama koje nisu ishodište.
+Podijelimo jednadžbu (1) s C:
+A/C x+B/C y+1=0,
+
+odnosno
+x/(-C/A)+y/(-C/B)=1.
+
+Označimo brojeve u nazivnicima s m i n. Dobili smo jednadžbu oblika
+x/m+y/n=1.
+
+Nazivamo je segmentni oblik jednadžbe pravca.
+________________________________________
 Geometrijsko značenje brojeva m i n
-<p>
-                Koja su geometrijska značenja brojeva m i n? Potražimo presjeke pravca p s koordinatnim osima. Presjek s osi apscisa dobivamo za y=0:xm+0n=1⟹x=m.
-                Dakle, koordinate presječne točke su (m,0), pa je m jednak apscisi presjeka pravca s Ox-osi.
-              </p>
-              <img src="Segmentni_oblik_jednadžbe_pravca_1.png">
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-h3>Kut dvaju pravaca. Paralelnost i okomitost pravaca</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Koja su geometrijska značenja brojeva m i n? Potražimo presjeke pravca p s koordinatnim osima.
+Presjek s osi apscisa dobivamo za y=0:
+x/m+0=1⟹x=m.
+
+Dakle, koordinate presječne točke su (mⓜ,0), pa je m jednak apscisi presjeka pravca s osi Ox.
+(Segmentni_oblik_jednadžbe_pravca_1.png)
+Slično, presjek s osi ordinata dobivamo za x=0:
+0+y/n=1⟹y=n,
+
+pa je n ordinata presjeka pravca s osi Oy.
+________________________________________
+________________________________________
+________________________________________
+Kut dvaju pravaca. Paralelnost i okomitost pravaca
+________________________________________
 Kut između pravaca
- <p>
-                Dva pravca koja se sijeku određuju dva suplementarna neorijentirana kuta. Ako pravci nisu okomiti, mjera jednog od kutova manja je od 90∘, a drugog je veća od 90∘. Kut φ između pravaca definiramo kao manji od tih dvaju kutova. Dakle, uvijek je 0∘<φ≤90∘. Kut između paralelnih pravaca ima mjeru φ=0∘.
-              </p>
-              <img src="Kut_dvaju_pravaca._Paralelnost_i_okomitost_pravaca_1.png">
-              <p>
-                Pokažimo kako se računa kut između pravaca zadanih eksplicitnim jednadžbama: p...y=k1x+l1,q...y=k2x+l2. kutove koje ti pravci zatvaraju s pozitivnim dijelom osi apscisa. Onda je tg ϕ1=k1, tg ϕ2=k2.
-              </p>
-              <img src="Kut_dvaju_pravaca._Paralelnost_i_okomitost_pravaca_2.png">
-              <p>
-                Neka je α kut za koji treba zarotirati pravac p da bi prešao u pravac q. Onda je α=ϕ2−ϕ1, pa se taj kut računa iz formule tg α=tg (ϕ2−ϕ1)=tg ϕ2−tg ϕ11+tg ϕ1tg ϕ2=k2−k11+k1k2.
-              </p>
-              <img src="Kut_dvaju_pravaca._Paralelnost_i_okomitost_pravaca_3.png">
-              <p>
-                Koja je veza kuta α i kuta φ između pravaca p i q? Ako je α šiljast ili pravi, onda je φ=α (slika lijevo). Ako je α tup, onda vrijedi φ=180∘−α (slika desno). Tada je tg α negativan, a za tg φ vrijedi tg φ=tg (180∘−α)=−tg α=|tg α|.
-                Tako oba slučaja možemo obuhvatiti istom formulom.
-                Kut između pravaca
-                Kut φ između pravaca p...y=k1x+l1, q...y=k2x+l2 računa se iz formule tg φ=∣∣k2−k11+k1k2∣∣.
-                <!--PRIMEJR 1-->
-                <!--PRIMEJR 2-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Dva pravca koja se sijeku određuju dva suplementarna neorijentirana kuta. Ako pravci nisu okomiti, mjera jednog od kutova manja je od 90^∘, a drugog je veća od 90^∘. Kut φ između pravaca definiramo kao manji od tih dvaju kutova. Dakle, uvijek je
+0^∘<φ≤90^∘.
+
+Kut između paralelnih pravaca ima mjeru φ=0^∘.
+(Kut_dvaju_pravaca._Paralelnost_i_okomitost_pravaca_1.png)
+Pokažimo kako se računa kut između pravaca zadanih eksplicitnim jednadžbama:
+p:" 						" y=k_1 x+l_1,q:" 						" y=k_2 x+l_2.
+
+Neka su φ_1 i φ_2 kutovi koje ti pravci zatvaraju s pozitivnim dijelom osi apscisa. Onda je
+tan⁡φ_1=k_1,tan⁡φ_2=k_2.
+
+(Kut_dvaju_pravaca._Paralelnost_i_okomitost_pravaca_2.png)
+Neka je α kut za koji treba zarotirati pravac p da bi prešao u pravac q. Onda je
+α=φ_2-φ_1,
+
+pa se taj kut računa iz formule
+tan⁡α=tan⁡(φ_2-φ_1)=(tan⁡φ_2-tan⁡φ_1)/(1+tan⁡φ_1 tan⁡φ_2 )=(k_2-k_1)/(1+k_1 k_2 ).
+
+(Kut_dvaju_pravaca._Paralelnost_i_okomitost_pravaca_3.png)
+Koja je veza kuta α i kuta φ između pravaca p i q?
+Ako je α šiljast ili pravi, onda je φ=α (slika lijevo). Ako je α tup, onda vrijedi φ=180^∘-α (slika desno). Tada je tan⁡α negativan, a za tan⁡φ vrijedi
+tan⁡φ=tan⁡(180^∘-α)=-tan⁡α=∣tan⁡α∣.
+
+Tako oba slučaja možemo obuhvatiti istom formulom.
+Kut između pravaca
+Kut φ između pravaca
+p:" 						" y=k_1 x+l_1,q:" 						" y=k_2 x+l_2
+
+računa se iz formule
+tan⁡φ=∣(k_2-k_1)/(1+k_1 k_2 )∣.
+
+PRIMJER 1
+PRIMJER 2
+________________________________________
 Uvjet paralelnosti pravaca
- <p>
-                Dva su pravca paralelna ako je kut između njih 0∘. Tada je tg φ=0, pa iz k2−k11+k1k2=0 vidimo da mora biti k1=k2. Korisno je znati kriterij za paralelnost pravaca napisanih jednadžbama u implicitnom obliku. Neka su jednadžbe pravaca p1...A1x+B1y+C1=0,p2...A2x+B2y+C2=0.
-                Pretpostavimo da su koeficijenti A1,A2,B1,B2 različiti od nule. 2 Koeficijenti smjera ovih pravaca su k1=−A1B1,k2=−A2B2.
-                Iz k1=k2 slijedi −A1B1=−A2B2,tj.A1A2=B1B2.
-                Kriteriji paralelnosti pravaca
-                Dva pravca zadana svojim jednadžbama u eksplicitnom ili implicitnom obliku, p1...y=k1x+l1...A1x+B1y+C1=0,p2...y=k2x+l2...A2x+B2y+C2=0, paralelna su onda i samo onda ako vrijedi k1=k2, odnosno A1A2=B1B2.
-                Ako taj uvjet nije ispunjen, onda je pravac paralelan s nekom koordinatnom osi.
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Dva su pravca paralelna ako je kut između njih 0^∘. Tada je tan⁡φ=0, pa iz
+(k_2-k_1)/(1+k_1 k_2 )=0
+
+vidimo da mora biti k_1=k_2.
+Korisno je znati kriterij za paralelnost pravaca napisanih jednadžbama u implicitnom obliku. Neka su jednadžbe pravaca
+p_1:" 						" A_1 x+B_1 y+C_1=0,p_2:" 						" A_2 x+B_2 y+C_2=0.
+
+Pretpostavimo da su koeficijenti A_1,A_2,B_1,B_2 različiti od nule. Koeficijenti smjera ovih pravaca su
+k_1=-A_1/B_1 ,k_2=-A_2/B_2 .
+
+Iz k_1=k_2 slijedi
+-A_1/B_1 =-A_2/B_2 ,
+
+tj.
+A_1/A_2 =B_1/B_2 .
+
+Kriteriji paralelnosti pravaca
+Dva pravca zadana svojim jednadžbama u eksplicitnom ili implicitnom obliku,
+p_1:" 						" y=k_1 x+l_1 " 						"…" 						" A_1 x+B_1 y+C_1=0,
+p_2:" 						" y=k_2 x+l_2 " 						"…" 						" A_2 x+B_2 y+C_2=0,
+
+paralelna su onda i samo onda ako vrijedi k_1=k_2, odnosno
+A_1/A_2 =B_1/B_2 .
+
+Ako taj uvjet nije ispunjen, onda pravci nisu paralelni; mogu se sjeći ili jedan od njih može biti paralelan s nekom koordinatnom osi.
+________________________________________
 Uvjet okomitosti pravaca
-<p>
-                Ako su dva pravca okomita, onda je kut između njih 90∘, pa je tg φ=±∞. To znači da nazivnik izraza tg φ=k2−k11+k1k2 mora biti jednak nuli: 1+k1k2=0⟹k2=−1k1. Izvedimo i kriterij za okomitost pravaca napisanih jednadžbama u implicitnom obliku. Uvrstimo li izraz za koeficijente smjera tih pravaca, dobivamo −A2B2=B1A1\qq tj.\qqA1A2+B1B2=0.
-                Kriteriji okomitosti pravaca
-                Dva pravca zadana jednadžbama u eksplicitnom ili implicitnom obliku, p1...y=k1x+l1...A1x+B1y+C1=0,p2...y=k2x+l2...A2x+B2y+C2=0, okomita su onda i samo onda ako vrijedi k1k2=−1, odnosno A1A2+B1B2=0.
-                <!--PRIMEJR 3-->
-                <!--PRIMEJR 4-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
- <h3>Udaljenost točke od pravca. Simetrala kuta</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
->Udaljenost točke od pravca
- <img id="image1" src="Udaljenost_točke_od_pravca._Simetrala_kuta_1.png" class="zoomable-image">
-<img id="image2" src="Udaljenost_točke_od_pravca._Simetrala_kuta_2.png" class="zoomable-image">
- <p class="zoomable-text">
-                    Kako odrediti udaljenost točke T od pravca p?
-                    Po definiciji, to je najkraća od svih udaljenosti točke T i neke točke pravca p.
-                    Iz točke T treba položiti okomicu na pravac p, odrediti sjecište P te okomice i pravca, a tražena je udaljenost jednaka udaljenosti |TP| točaka T i P.
-                    Neka su u koordinatnoj ravnini zadani točka T(x0,y0) i pravac Ax+By+C=0.
-                    Neka je P nožište okomice položene iz točke T na pravac. Udaljenost točke T od pravca p jednaka je udaljenosti d točaka T i P.
-                    Udaljenost točke od pravca
-                    Udaljenost točke T(x0,y0) od pravca p…Ax+By+C=0 računa se formulom 
-                    <div class="eq-c">
-                        d=
-                        <div class="fraction">
-                        <span class="fup">IAx<sub>0</sub>+By<sub>0</sub>+C</span>
-                        <span class="bar">/</span>
-                        <span class="fdn"><span class="radical"><span class="n-root">2</span>A<sup>2</sup>+B<sup>2</sup></span><span class="radicand">g</span></span>
-                        </div>
-                    </div>
-                    Ovu formulu možemo provjeriti na više načina no svaki od njih dug je u zapisu i pomalo nezgrapan. Ipak, prikažimo jedan koji se temelji na računanju površine. 
-                    Pravac p siječe koordinatne osi u točkama M(−CA,0) i N(0,−CB). Površina trokuta MTN jeP=12∣∣∣−CA(−CB−y0)+x0⋅CB∣∣∣=12∣∣∣CAB(Ax0+By0+C)∣∣∣.
-                    S druge strane, površina istog trokuta je P=12|MN|⋅d=12m2+n2−−−−−−−√⋅d=12⋅C2A2+C2B2−−−−−−−−√⋅d.
-                    Izjednačimo dobivene vrijednosti za površinu:
-                    12⋅∣∣∣CAB∣∣∣⋅|Ax0+By0+C|=12⋅∣∣∣CAB∣∣∣⋅A2+B2−−−−−−−√⋅d.
-                    Iz posljednje jednakosti izravno proistječe formula koju smo provjeravali.
-                    <!--PRIMJER 1-->                
-                </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Ako su dva pravca okomita, onda je kut između njih 90^∘, pa je tan⁡φ=±∞. To znači da nazivnik izraza
+tan⁡φ=(k_2-k_1)/(1+k_1 k_2 )
+
+mora biti jednak nuli:
+1+k_1 k_2=0⟹k_2=-1/k_1 .
+
+Izvedimo i kriterij za okomitost pravaca napisanih jednadžbama u implicitnom obliku. Uvrstimo li izraz za koeficijente smjera tih pravaca, dobivamo
+k_1=-A_1/B_1 ,k_2=-A_2/B_2 ,
+
+pa je
+k_1 k_2=(A_1 A_2)/(B_1 B_2 ).
+
+Uvjet k_1 k_2=-1 tada daje
+(A_1 A_2)/(B_1 B_2 )=-1⟹A_1 A_2+B_1 B_2=0.
+
+Kriteriji okomitosti pravaca
+Dva pravca zadana jednadžbama u eksplicitnom ili implicitnom obliku,
+p_1:" 						" y=k_1 x+l_1 " 						"…" 						" A_1 x+B_1 y+C_1=0,
+p_2:" 						" y=k_2 x+l_2 " 						"…" 						" A_2 x+B_2 y+C_2=0,
+
+okomita su onda i samo onda ako vrijedi
+k_1 k_2=-1,
+
+odnosno
+A_1 A_2+B_1 B_2=0.
+
+PRIMJER 3
+PRIMJER 4
+________________________________________
+________________________________________
+________________________________________
+Udaljenost točke od pravca. Simetrala kuta
+________________________________________
+Udaljenost točke od pravca
+(Udaljenost_točke_od_pravca._Simetrala_kuta_1.png)
+(Udaljenost_točke_od_pravca._Simetrala_kuta_2.png)
+Kako odrediti udaljenost točke T od pravca p?
+Po definiciji, to je najkraća od svih udaljenosti točke T i neke točke pravca p. Iz točke T treba položiti okomicu na pravac p, odrediti sjecište P te okomice i pravca, a tražena je udaljenost jednaka udaljenosti ∣TP∣ točaka T i P. 
+Neka su u koordinatnoj ravnini zadani točka T(x_0,y_0) i pravac
+Ax+By+C=0.
+
+Neka je P nožište okomice položene iz točke T na pravac. Udaljenost točke T od pravca p jednaka je udaljenosti d točaka T i P.
+Udaljenost točke od pravca
+Udaljenost točke T(x_0,y_0) od pravca
+p:" 						" Ax+By+C=0
+
+računa se formulom
+d=(∣Ax_0+By_0+C∣)/√(A^2+B^2 ).
+
+Ovu formulu možemo provjeriti na više načina, no svaki od njih dug je u zapisu i pomalo nezgrapan. Ipak, prikažimo jedan koji se temelji na računanju površine.
+Pravac p siječe koordinatne osi u točkama
+M(-C/A,0),N(0,-C/B).
+
+Površina trokuta MTN je
+P=1/2∣" "-C/A (ⓜ-C/Bⓜ-y_0 )+x_0⋅(ⓜ-C/B)∣=1/2∣C/AB(Ax_0+By_0+C)∣.
+
+S druge strane, površina istog trokuta je
+P=1/2∣MN∣⋅d=1/2 √(m^2+n^2 ) " " d=1/2 √(C^2/A^2 +C^2/B^2 ) " " d=1/2⋅(∣C∣)/√(A^2+B^2 ) " " d.
+
+Izjednačimo dobivene vrijednosti za površinu:
+1/2∣C/AB∣⋅∣Ax_0+By_0+C∣=1/2∣C/√(A^2+B^2 )∣⋅d.
+
+Iz posljednje jednakosti izravno proistječe formula koju smo provjeravali.
+PRIMJER 1
+________________________________________
 Simetrala kuta
-<p class="zoomable-text">
-                    Simetrala kuta je pravac kojem je svaka točka jednako udaljena od obaju krakova kuta. Dva pravca koji se sijeku određuju dva suplementarna kuta. Simetralu bilo kojeg od tih kutova možemo odrediti rabeći formulu za udaljenost točke od pravca. Neka su jednadžbe zadanih pravaca
-                    p1p2…A1x+B1y+C1=0,…A2x+B2y+C2=0.
-                    Sad iskoristimo uvjet da je svaka točka simetrale jednako udaljena od obaju pravaca. Dakle, mora biti
-                    d(T,p1)=d(T,p2),
-                    gdje je T(x,y) bilo koja točka tražene simetrale. Odavde slijedi:
-                    |A1x+B1y+C1|A21+B21−−−−−−−√=|A2x+B2y+C2|A22+B22−−−−−−−√.
-                    Eliminacijom znaka apsolutne vrijednosti u ovoj jednadžbi dobit ćemo jednadžbe dvaju međusobno okomitih pravaca: simetrala obaju suplementarnih kutova koje određuju dva početna pravca.
-                    <!--PRIMJER 2-->
-                </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Pravac regresije</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Simetrala kuta je pravac kojem je svaka točka jednako udaljena od obaju krakova kuta. Dva pravca koji se sijeku određuju dva suplementarna kuta. Simetralu bilo kojeg od tih kutova možemo odrediti rabeći formulu za udaljenost točke od pravca.
+Neka su jednadžbe zadanih pravaca
+p_1:" 						" A_1 x+B_1 y+C_1=0,p_2:" 						" A_2 x+B_2 y+C_2=0.
+
+Sad iskoristimo uvjet da je svaka točka simetrale jednako udaljena od obaju pravaca. Dakle, mora biti
+d(T,p_1)=d(T,p_2),
+
+gdje je T(x,y) bilo koja točka tražene simetrale. Odavde slijedi
+(∣A_1 x+B_1 y+C_1∣)/√(A_1^2+B_1^2 )=(∣A_2 x+B_2 y+C_2∣)/√(A_2^2+B_2^2 ).
+
+Eliminacijom znaka apsolutne vrijednosti u ovoj jednadžbi dobit ćemo jednadžbe dvaju međusobno okomitih pravaca: simetrala obaju suplementarnih kutova koje određuju dva početna pravca.
+PRIMJER 2
+________________________________________
+________________________________________
+________________________________________
 Pravac regresije
-  <p class="zoomable-text">              
-                    to više učimo, bolje ćemo znati. Uloženo vrijeme i rezultati su korelirane veličine. Visina i težina pojedinca također su korelirane veličine, ali ta veza nije obična proporcionalnost: viša osoba obično je i teža od druge, no tu naravno postoje iznimke. U ovom ćemo poglavlju promatrati veličine među kojima postoji linearna povezanost, odnosno, veće ili manje odstupanje od takve linearne veze. Linearnu povezanost dviju varijabli opisat ćemo s pomoću koeficijenta korelacije.
-                    <!--PRIMEJR 1-->
-                    <!--PRIMJER 2-->
-                    Jednadžba pravca regresije glasi y=a+bx. Ovdje je b=σyσx r,a=¯¯¯y−b¯¯¯x.
-                    Da bi se ovi podatci dobili, dovoljno je unijeti podatke (x1,y1),…,(xn,yn)
-                    u džepno računalo. Tada se pritiskom na odgovarajuću tipku mogu dobiti svi spomenuti koeficijenti.
-                    Simbolička džepna računala posjeduju i programiranu tipku za ispis konačnog rezultata, pravca korelacije u obliku y=a+bx
-                    . To je svakako najjednostavniji način računanja pravca korelacije za uzorke umjerenih veličina.
-                    Postupak računanja pravca regresije sastoji se od sljedećih dvaju koraka
-                    1. Pritiskom tipke MENU odabere se (unosom odgovarajućeg broja) statistički mod, a zatim se odabere računanje pravca regresije označenog formulom y=a+bx
-                    . Time se na zaslonu pojavljuje prazna tablica s dva stupca u koje treba upisati podatke.
-                    2. Nakon unosa podataka pritisne se tipka OPTN i odabere 4: računanje pravca regresije. Rezultat se pokazuje na sljedećem zaslonu.
-                    <!--PRIMJER 4-->
-                </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
->Koeficijent korelacije
-<img id="image1" src="Pravac_regresije_2.png" class="zoomable-image">
-<img id="image1" src="Pravac_regresije_1.png" class="zoomable-image">
-<img id="image1" src="Pravac_regresije_3.png" class="zoomable-image">
-p class="zoomable-text">
-                    Dva niza podataka mogu pokazivati čvršću ili slabiju linearnu ovisnost. Ta se ovisnost opisuje koeficijentom korelacije r. Koeficijent korelacije je broj unutar intervala [−1,1]. Za podatke koji se nalaze na jednom pravcu je |r|=1, pa je r=1 ili r=−1. Tako na primjer, koeficijent korelacije u Primjeru 1. iznosi r=−1 jer su podatci linearno ovisni. Koeficijent je negativan zato što varijabla y opada s porastom varijable x.
-                    U ovisnosti o iznosu koeficijenta korelacije, koristit ćemo se sljedećim opisom
-                    Na sljedećim dijagramima skicirani su nizovi podataka koji odgovaraju tim vrijednostima koeficijenta korelacije.
-                    Računanje koeficijenta korelacije
-                    Zadan je niz podataka volumena n: (x1,y1), (x2,y2),…,(xn,yn). Koeficijent korelacije varijabli x i y određen je formulom r=1n(x1y1+⋯+xnyn)−¯¯¯x¯¯¯yσxσy Tu je sredina ¯¯¯x=x1+⋯+xnnsredina ¯¯¯y=y1+⋯+ynndisperzija σ2x=x21+⋯+x2nn−¯¯¯x2disperzija σ2y=y21+⋯+y2nn−¯¯¯y2
-                    Važno je napomenuti da koeficijent korelacije uvijek računamo s pomoću džepnog računala ili nekog tabličnog kalkulatora, tako da su ove formule samo informacije radi, kako bi se vidjela veza koeficijenta sa statističkim parametrima uzorka.
-                    Da bismo dobili koeficijent korelacije, potrebno je unijeti sve podatke o varijablama x i y u džepni kalkulator i pročitati dobivene vrijednosti.
-                    Detaljnije upute o računanju dat ćemo nakon obrade sljedeće teme jer se koeficijent korelacije određuje u sklopu računanja pravca regresije.
-                    <!--PRIMJER 3-->
-                </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+________________________________________
 Pravac regresije
- <p class="zoomable-text">
-                    Jednadžba pravca regresije glasi y=a+bx. Ovdje je b=σyσx r,a=¯¯¯y−b¯¯¯x.
-                    Da bi se ovi podatci dobili, dovoljno je unijeti podatke (x1,y1),…,(xn,yn)
-                    u džepno računalo. Tada se pritiskom na odgovarajuću tipku mogu dobiti svi spomenuti koeficijenti.
-                    Simbolička džepna računala posjeduju i programiranu tipku za ispis konačnog rezultata, pravca korelacije u obliku y=a+bx
-                    . To je svakako najjednostavniji način računanja pravca korelacije za uzorke umjerenih veličina.
-                    Postupak računanja pravca regresije sastoji se od sljedećih dvaju koraka
-                    1. Pritiskom tipke MENU odabere se (unosom odgovarajućeg broja) statistički mod, a zatim se odabere računanje pravca regresije označenog formulom y=a+bx
-                    . Time se na zaslonu pojavljuje prazna tablica s dva stupca u koje treba upisati podatke.
-                    2. Nakon unosa podataka pritisne se tipka OPTN i odabere 4: računanje pravca regresije. Rezultat se pokazuje na sljedećem zaslonu.
-                    <!--PRIMJER 4-->
-                </p>
+Što više učimo, bolje ćemo znati. Uloženo vrijeme i rezultati su korelirane veličine. Visina i težina pojedinca također su korelirane veličine, ali ta veza nije obična proporcionalnost: viša osoba obično je i teža od druge, no tu naravno postoje iznimke. U ovom ćemo poglavlju promatrati veličine među kojima postoji linearna povezanost, odnosno veće ili manje odstupanje od takve linearne veze. Linearnu povezanost dviju varijabli opisat ćemo s pomoću koeficijenta korelacije.
+PRIMJER 1
+PRIMJER 2
+Jednadžba pravca regresije glasi
+y=a+bx.
+
+Ovdje je
+b=σ_y/σ_x  r,a=y ˉ-bx ˉ,
+
+gdje su x ˉ,y ˉ aritmetičke sredine, σ_x,σ_y standardne devijacije, a r koeficijent korelacije.
+Da bi se ovi podatci dobili, dovoljno je unijeti podatke (x_1,y_1),…,(x_n,y_n ) u džepno računalo. Tada se pritiskom na odgovarajuću tipku mogu dobiti svi spomenuti koeficijenti. Simbolička džepna računala posjeduju i programiranu tipku za ispis konačnog rezultata, pravca korelacije u obliku y=a+bx. To je najjednostavniji način računanja pravca korelacije za uzorke umjerenih veličina.
+Postupak računanja pravca regresije sastoji se od sljedećih dvaju koraka:
+	Pritiskom tipke MENU odabere se (unosom odgovarajućeg broja) statistički mod, a zatim se odabere računanje pravca regresije označenog formulom y=a+bx. Time se na zaslonu pojavljuje prazna tablica s dva stupca u koje treba upisati podatke.
+	Nakon unosa podataka pritisne se tipka OPTN i odabere 4: računanje pravca regresije. Rezultat se pokazuje na sljedećem zaslonu.
+PRIMJER 4
+________________________________________
+Koeficijent korelacije
+(Pravac_regresije_2.png)
+(Pravac_regresije_1.png)
+(Pravac_regresije_3.png)
+Dva niza podataka mogu pokazivati čvršću ili slabiju linearnu ovisnost. Ta se ovisnost opisuje koeficijentom korelacije r. Koeficijent korelacije je broj unutar intervala [-1,1]. Za podatke koji se nalaze na jednom pravcu je ∣r∣=1, pa je r=1 ili r=-1. Tako na primjer, koeficijent korelacije u jednom linearnom primjeru iznosi r=-1 jer su podatci linearno ovisni. Koeficijent je negativan zato što varijabla y opada s porastom varijable x. 
+U ovisnosti o iznosu koeficijenta korelacije, koristit ćemo se sljedećim opisom (slike prikazuju različite slučajeve: jaka pozitivna, slaba pozitivna, nulta, slaba negativna, jaka negativna korelacija).
+Na sljedećim dijagramima skicirani su nizovi podataka koji odgovaraju tim vrijednostima koeficijenta korelacije.
+Računanje koeficijenta korelacije
+Zadan je niz podataka volumena n:
+(x_1,y_1),(x_2,y_2),…,(x_n,y_n ). Koeficijent korelacije varijabli x i y određen je formulom
+r=(1/n(x_1 y_1+⋯+x_n y_n)-x ˉ" " y ˉ)/(σ_x σ_y ),
+
+gdje su
+x ˉ=(x_1+⋯+x_n)/n,y ˉ=(y_1+⋯+y_n)/n,
+σ_x^2=(x_1^2+⋯+x_n^2)/n-x ˉ^2,σ_y^2=(y_1^2+⋯+y_n^2)/n-y ˉ^2.
+
+Važno je napomenuti da koeficijent korelacije uvijek računamo s pomoću džepnog računala ili nekog tabličnog kalkulatora, tako da su ove formule dane radi informacije, kako bi se vidjela veza koeficijenta sa statističkim parametrima uzorka.
+Da bismo dobili koeficijent korelacije, potrebno je unijeti sve podatke o varijablama x i y u džepni kalkulator i pročitati dobivene vrijednosti. Detaljnije upute o računanju obično se daju u sklopu računanja pravca regresije.
+PRIMJER 3
+________________________________________
+Pravac regresije (sažetak formule)
+Jednadžba pravca regresije glasi
+y=a+bx,
+
+pri čemu je
+b=r" "  σ_y/σ_x ,a=y ˉ-bx ˉ.
+
+PRIMJER 4

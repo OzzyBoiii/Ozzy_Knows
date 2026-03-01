@@ -1,102 +1,89 @@
-<h3>Algebarski izrazi</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Konstante i varijable
- <p>Pri računanju najčešće rabimo posebne brojeve. Zovemo ih konstantama. Želimo li, međutim, iskazati neko opće matematičko pravilo, neku zakonitost, neko svojstvo ili zapisati neku formulu, koristimo se općim brojevima ili varijablama.</p>
-           
----------------------------------------------------------------------------------------------------------------------------------------------------
 Algebarski izraz
-<p>Algebarski izraz je bilo koji izraz koji sačinjavaju varijable i konstante povezane osnovnim algebarskim operacijama. Najjednostavniji algebarski izraz je monom. Monom je jednočlan, on je umnožak konstanti i varijabli. Evo nekoliko primjera monoma:2x,12a2b,−3abc,r2π.2x,12a2b,−3abc,r2π.U monomu 2x2x broj 2 je konstanta ili koeficijent, a xx je varijabla. U monomu 12a2b12a2b broj 1212 je koeficijent, aa i bb su varijable.</p>
-            
----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Algebarski izraz je bilo koji izraz koji sačinjavaju varijable i konstante povezane osnovnim algebarskim operacijama. Najjednostavniji algebarski izraz je monom. Monom je jednočlan, on je umnožak konstanti i varijabli. Evo nekoliko primjera monoma: 2x, 12a^2 b, -3abc, r^2 π.
+U monomu 2x broj 2 je konstanta ili koeficijent, a x je varijabla. U monomu 12a^2 b broj 12 je koeficijent, a i b su varijable.
+
 Binom, trinom, polinom
-  <p>Zbroj dvaju monoma je binom. Izrazia2+b2,3xy+2z,x3−1a2+b2,3xy+2z,x3−1primjeri su binoma, dvočlanih algebarskih izraza.
-                Tročlani izraz, kao što je izraz 3xy2−2xy−13xy2−2xy−1 zove se trinom. Općenito, višečlani algebarski izrazi zovu se polinomi.
-                S polinomima računamo primjenjujući poznata svojstva računskih operacija. Pritom se osobita pozornost posvećuje množenju. Ono se zasniva na svojstvu distributivnosti množenja prema zbrajanju realnih brojeva:a⋅(b+c)=a⋅b+a⋅c.a⋅(b+c)=a⋅b+a⋅c.Ovo svojstvo primjenjujemo i pri množenju višečlanih algebarskih izraza. Evo kako to izgleda kad množimo dva binoma:(a+b)⋅(c+d)=(a+b)⋅c+(a+b)⋅d=a⋅c+b⋅c+a⋅d+b⋅d.(a+b)⋅(c+d)=(a+b)⋅c+(a+b)⋅d=a⋅c+b⋅c+a⋅d+b⋅d.Svaki član prvog pomnožili smo sa svakim članom drugog binoma. Ovo pravilo proširuje se na umnožak dvaju višečlanih izraza. Primjerice:(x2−2x+3)⋅(2x−5)=2x3−5x2−4x2+10x+6x−15=2x3−9x2+16x−15.
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Potenciranje binoma</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Zbroj dvaju monoma je binom. Izrazi a^2+b^2, 3xy+2z, x^3-1 primjeri su binoma, dvočlanih algebarskih izraza. Tročlani izraz, kao što je izraz 3xy^2-2xy-1, zove se trinom. Općenito, višečlani algebarski izrazi zovu se polinomi.
+S polinomima računamo primjenjujući poznata svojstva računskih operacija. Pritom se osobita pozornost posvećuje množenju. Ono se zasniva na svojstvu distributivnosti množenja prema zbrajanju realnih brojeva: a⋅(b+c)=a⋅b+a⋅c. Ovo svojstvo primjenjujemo i pri množenju višečlanih algebarskih izraza. Evo kako to izgleda kad množimo dva binoma:
+(a+b)⋅(c+d)=(a+b)⋅c+(a+b)⋅d=ac+bc+ad+bd.
+Svaki član prvog pomnožili smo sa svakim članom drugog binoma. Ovo pravilo proširuje se na umnožak dvaju višečlanih izraza. Primjerice:
+(x^2-2x+3)⋅(2x-5)=2x^3-5x^2-4x^2+10x+6x-15=2x^3-9x^2+16x-15. .
 Potenciranje binoma
-<p>Vidjeli smo kako se potencira umnožak više realnih brojeva. Vrijedi (a⋅b)n=an⋅bn(a⋅b)n=an⋅bn. Ova se jednakost proširuje na potenciranje umnoška bilo koliko faktora pa općenito vrijedi:Umnožak potenciramo tako da potenciramo svaki pojedini faktor umnoška.(a1⋅a2⋅a3⋅…⋅am)n=an1⋅an2⋅an3⋅…⋅anm.(a1⋅a2⋅a3⋅…⋅am)n=a1n⋅a2n⋅a3n⋅…⋅amn. Kako potencirati višečlani algebarski izraz? Potražimo odgovor na ovo pitanje za najjednostavniji slučaj, za kvadriranje dvočlana izraza, za kvadriranje binoma.Koliko je dakle (a+b)2(a+b)2? Imamo redom:(a+b)2=(a+b)⋅(a+b)=a2+ab+ab+b2=a2+2ab+b2.(a+b)2=(a+b)⋅(a+b)=a2+ab+ab+b2=a2+2ab+b2. Kvadrat binomaZa svaka dva realna broja aa i bb vrijedi:(a+b)2=a2+2ab+b2.(a+b)2=a2+2ab+b2.Za kvadriranje razlike dvaju realnih brojeva onda vrijedi:(a−b)2=(a+(−b))2=a2+2a⋅(−b)+(−b)2=a2−2ab+b2.</p>
-              <img src="Potenciranje binoma_1.png">
-              <img src="Potenciranje binoma_2.png">
-              <!--PRIMJER 1-->
-              <img src="Potenciranje binoma_3.png">
----------------------------------------------------------------------------------------------------------------------------------------------------
-kub binoma
- <p>U ovom dijelu gradiva, a i kasnije tijekom školovanja, često ćemo pri postupanju s raznim algebarskim izrazima rabiti riječ identitet. Identitet je jednakost koja je ispunjena za svaki broj iz nekog istaknutog skupa brojeva. Tako je jednakost (a+b)2=a2+2ab+b2(a+b)2=a2+2ab+b2 primjer identiteta u skupu realnih brojeva. Ona je točna za svaka dva realna broja aa i bb. U nastavku ćemo upoznati čitav niz algebarskih identiteta.
-                Kako se dvočlani izraz potencira eksponentom koji je veći od 2? Izračunajmo (a+b)3(a+b)3:(a+b)3=(a+b)2⋅(a+b)=(a2+2ab+b2)⋅(a+b)=a3+a2b+2a2b+2ab2+ab2+b3=a3+3a2b+3ab2+b3.(a+b)3=(a+b)2⋅(a+b)=(a2+2ab+b2)⋅(a+b)=a3+a2b+2a2b+2ab2+ab2+b3=a3+3a2b+3ab2+b3.U slobodnijem izražavanju obično kažemo da smo kubirali binom, u ovom slučaju zbroj dvaju realnih brojeva.Koristeći se prethodnim identitetom, možemo odrediti i kub razlike dvaju brojeva:(a−b)3=(a+(−b))3=a3+3a2⋅(−b)+3a⋅(−b)2+(−b)3=a3−3a2b+3ab2−b3.(a−b)3=(a+(−b))3=a3+3a2⋅(−b)+3a⋅(−b)2+(−b)3=a3−3a2b+3ab2−b3. Kub binomaZa svaka dva realna broja aa i bb vrijedi:(a±b)3=a3±3a2b+3ab2±b3.
-                <!--PRIMJER 2-->
-              </p>
-              <img src="Potenciranje binoma_4.png">
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-        <h3>Razlika i zbroj potencija</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Vidjeli smo kako se potencira umnožak više realnih brojeva. Vrijedi (a⋅b)^n=a^n⋅b^n ┤. Ova se jednakost proširuje na potenciranje umnoška bilo koliko faktora pa općenito vrijedi:
+(a_1⋅a_2⋅a_3⋅⋯⋅a_m )^n=a_1^n⋅a_2^n⋅a_3^n⋅⋯⋅a_m^n.┤
+Umnožak potenciramo tako da potenciramo svaki pojedini faktor umnoška.
+Kako potencirati višečlani algebarski izraz? Potražimo odgovor na ovo pitanje za najjednostavniji slučaj, za kvadriranje dvočlana izraza, za kvadriranje binoma. Koliko je dakle (aⓜ+b)^2 ┤? Imamo redom:
+(a+b)^2=(a+b)⋅(a+b)=a^2+ab+ab+b^2=a^2+2ab+b^2.
+Kvadrat binoma
+Za svaka dva realna broja a i b vrijedi:
+(a+b)^2=a^2+2ab+b^2.┤
+Za kvadriranje razlike dvaju realnih brojeva onda vrijedi:
+(a-b)^2=(a+(-b))^2=a^2+2a⋅(-b)+(-b)^2=a^2-2ab+b^2. .
+Primjer 1: Izračunaj (2xⓜ+3)^2 ┤:
+(2x+3)^2=(2x)^2+2⋅2x⋅3+3^2=4x^2+12x+9.┤
+Kub binoma
+U ovom dijelu gradiva, a i kasnije tijekom školovanja, često ćemo pri postupanju s raznim algebarskim izrazima rabiti riječ identitet. Identitet je jednakost koja je ispunjena za svaki broj iz nekog istaknutog skupa brojeva. Tako je jednakost (a+b)^2=a^2+2ab+b^2 ┤ primjer identiteta u skupu realnih brojeva. Ona je točna za svaka dva realna broja a i b.
+Kako se dvočlani izraz potencira eksponentom koji je veći od 2? Izračunajmo (aⓜ+b)^3 ┤:
+(a+b)^3=(a+b)^2⋅(a+b)=(a^2+2ab+b^2)⋅(a+b)=a^3+a^2 b+2a^2 b+2ab^2+ab^2+b^3=a^3+3a^2 b+3ab^2+b^3.
+U slobodnijem izražavanju obično kažemo da smo kubirali binom, u ovom slučaju zbroj dvaju realnih brojeva.
+Koristeći se prethodnim identitetom, možemo odrediti i kub razlike dvaju brojeva:
+(a-b)^3=(a+(-b))^3=a^3+3a^2⋅(-b)+3a⋅(-b)^2+(-b)^3=a^3-3a^2 b+3ab^2-b^3.
+Kub binoma
+Za svaka dva realna broja a i b vrijedi:
+(a±b)^3=a^3±3a^2 b+3ab^2±b^3.┤ .
+Primjer 2: Izračunaj (xⓜ-1)^3 ┤:
+(x-1)^3=x^3-3x^2⋅1+3x⋅1^2-1^3=x^3-3x^2+3x-1.┤
+Razlika i zbroj potencija
 Razlika kvadrata
-<p>Množenjem dvaju višečlanih algebarskih izraza od kojih jedan ima mm, a drugi nn članova dobijemo višečlani izraz s ukupno m⋅nm⋅n pribrojnika. Neki od tih pribrojnika ponekad se mogu zbrojiti ili oduzeti. Jedan poseban primjer u tom smislu je umnožak razlike i zbroja dvaju brojeva:(a−b)⋅(a+b)=a2+ab−ab−b2=a2−b2.(a−b)⋅(a+b)=a2+ab−ab−b2=a2−b2.Rezultat množenja je dvočlan, on je razlika kvadrata brojeva aa i bb. Razlika kvadrataZa svaka dva realna broja aa i bb vrijedi jednakost(a−b)⋅(a+b)=a2−b2.
-                <!--PRIMJER 1-->
-              </p>
-              <img src="Razlika i zbroj potencija_1.png">
-              <p>
-                <!--PRIMJER 2-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
-žRazlika kubova
- <p>Za razliku trećih potencija (kubova) vrijedi identitet koji je poopćenje razlike kvadrata.
-                Razlika kubovaZa svaka dva realna broja aa i bb vrijedi sljedeća jednakost:a3−b3=(a−b)⋅(a2+ab+b2)a3−b3=(a−b)⋅(a2+ab+b2)Identitet možemo jednostavno provjeriti provedemo li množenje naznačeno na desnoj strani. Učini to!I ovaj se identitet može iščitati dvojako. Slijeva u desno prikazujemo razliku kubova kao umnožak dvaju polinoma. Gledamo li zdesna u lijevo, riječ je o „skraćenom” množenju.
-                <!--PRIMJER 3-->
-              </p>
-              <img src="Razlika i zbroj potencija_2.png">
----------------------------------------------------------------------------------------------------------------------------------------------------
+Množenjem dvaju višečlanih algebarskih izraza od kojih jedan ima m, a drugi n članova dobijemo višečlani izraz s ukupno m⋅n pribrojnika. Neki od tih pribrojnika ponekad se mogu zbrojiti ili oduzeti. Jedan poseban primjer u tom smislu je umnožak razlike i zbroja dvaju brojeva:
+(a-b)⋅(a+b)=a^2+ab-ab-b^2=a^2-b^2.
+Razlika kvadrata
+Za svaka dva realna broja a i b vrijedi jednakost
+(a-b)⋅(a+b)=a^2-b^2. .
+Primjer 1: Rastavi x^2-16: x^2-16=(x-4)(x+4).
+Razlika kubova
+Za razliku trećih potencija (kubova) vrijedi identitet koji je općenje razlike kvadrata.
+Razlika kubova
+Za svaka dva realna broja a i b vrijedi sljedeća jednakost:
+a^3-b^3=(a-b)⋅(a^2+ab+b^2).
+Identitet možemo jednostavno provjeriti provedemo li množenje naznačeno na desnoj strani.
+Primjer 3: Rastavi 8x^3-27: 8x^3-27=(2x-3)(4x^2+6x+9).
 Zbroj kubova
-<p>Iz izraza za razliku kubova lako se izvede novi identitet – zbroj kubova:a3+b3=a3−(−b)3=(a−(−b))⋅(a2+a⋅(−b)+(−b)2)=(a+b)⋅(a2−ab+b2).a3+b3=a3−(−b)3=(a−(−b))⋅(a2+a⋅(−b)+(−b)2)=(a+b)⋅(a2−ab+b2).
-                Zbroj kubovaZa svaka dva realna broja aa i bb vrijedi jednakost:a3+b3=(a+b)⋅(a2−ab+b2).
-                <!--PRIMJER 4-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
- <h3>Rastavljanje na faktore</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
-svojstvo distributivnosti
- <p>Jedno od svojstava koje vrijedi za računanje s realnim brojevima jest svojstvo distributivnosti množenja prema zbrajanju. Za svaka tri realna broja aa, bb i cc vrijedi:a⋅(b+c)=a⋅b+a⋅c.Ovo se svojstvo može „čitati” i zdesna u lijevoa⋅b+a⋅c=a⋅(b+c).a⋅b+a⋅c=a⋅(b+c).Kažemo tada da smo dvočlani izraz a⋅b+a⋅ca⋅b+a⋅c zapisali u obliku umnoška, odnosno da smo ga rastavili na faktore.
-                <!--PRIMJER 1-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Iz izraza za razliku kubova lako se izvede novi identitet – zbroj kubova:
+a^3+b^3=a^3-(-b)^3=(a-(-b))⋅(a^2+a⋅(-b)+(-b)^2)=(a+b)⋅(a^2-ab+b^2).
+Zbroj kubova
+Za svaka dva realna broja a i b vrijedi jednakost:
+a^3+b^3=(a+b)⋅(a^2-ab+b^2). .
+Primjer 4: Rastavi x^3+8: x^3+8=(x+2)(x^2-2x+4).
+Rastavljanje na faktore
+Svojstvo distributivnosti
+Jedno od svojstava koje vrijedi za računanje s realnim brojevima jest svojstvo distributivnosti množenja prema zbrajanju. Za svaka tri realna broja a, b i c vrijedi:
+a⋅(b+c)=a⋅b+a⋅c.
+Ovo se svojstvo može „čitati” i zdesna u lijevo
+a⋅b+a⋅c=a⋅(b+c).
+Kažemo tada da smo dvočlani izraz a⋅b+a⋅c zapisali u obliku umnoška, odnosno da smo ga rastavili na faktore.
 Izlučivanje
-   <p>Svojstvo distributivnosti množenja prema zbrajanju realnih brojeva može se primijeniti i u ovom množenju:a⋅(b+c+d)=a⋅b+a⋅c+a⋅d.
-                <!--PRIMJER 2-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Svojstvo distributivnosti množenja prema zbrajanju realnih brojeva može se primijeniti i u ovom množenju:
+a⋅(b+c+d)=a⋅b+a⋅c+a⋅d. .
+Primjer: Rastavi 3x+6y: 3x+6y=3(x+2y).
 Grupiranje
- <p>Ovaj postupak proveden zdesna u lijevo primijenit ćemo pri nekim rastavljanjima na faktore četveročlanih izraza. Evo jednog primjera:
-                Rastavimo na faktore polinom 2ab+10a+3b+152ab+10a+3b+15.
-                Imamo redom:2ab+10a+3b+15=(2ab+10a)+(3b+15)=2a(b+5)+3(b+5)=(2a+3)(b+5).2ab+10a+3b+15=(2ab+10a)+(3b+15)=2a(b+5)+3(b+5)=(2a+3)(b+5).Najprije smo združili (grupirali) po dva od četiriju članova i iz svakog od njih izlučili zajednički faktor. Tako smo dobili dvočlani izraz u kojem je (b+5)(b+5) faktor u svakom od obaju pribrojnika.
-                <!--PRIMJER 3-->
-                <!--PRIMJER 4-->
-                <!--PRIMJER 5-->
-                <!--PRIMJER 6-->
-                <!--PRIMJER 7-->
-                <!--PRIMJER 8-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Algebarski razlomci</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Jedankost, skraćivanje i proširivanje algebarskih razlomaka
-<p>S algebarskim razlomcima postupamo jednako kao što smo postupali s običnim razlomcima – racionalnim brojevima.
-                Podsjetimo se kako smo tada obradili i pojmove jednakosti dvaju razlomaka te proširivanja i skraćivanja razlomaka za racionalne brojeve (u lekciji Racionalni brojevi iz poglavlja Brojevi). Ponovimo ukratko:Za jednakost dvaju razlomaka vrijedi:Jednakost razlomakaab=cd⟺a⋅d=b⋅c.ab=cd⟺a⋅d=b⋅c. Odatle proistječe sljedeća važna jednakost: a⋅mb⋅m=aba⋅mb⋅m=ab, pri čemu je m≠0m≠0.Zaključujemo: postoji li u brojniku i nazivniku algebarskog razlomka zajednički faktor, možemo ga ispustiti. Kažemo da smo razlomak skratili. No promatramo li istu jednakost zdesna u lijevo, reći ćemo da smo razlomak proširili.
-                <!--PRIMJER 1-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Ovaj postupak proveden zdesna u lijevo primijenit ćemo pri nekim rastavljanjima na faktore četveročlanih izraza. Evo jednog primjera:
+Rastavimo na faktore polinom 2ab+10a+3b+15.
+Imamo redom:
+2ab+10a+3b+15=(2ab+10a)+(3b+15)=2a(b+5)+3(b+5)=(2a+3)(b+5).
+Najprije smo združili (grupirali) po dva od četiriju članova i iz svakog od njih izlučili zajednički faktor. Tako smo dobili dvočlani izraz u kojem je (bⓜ+5) faktor u svakom od obaju pribrojnika.
+Primjer: Rastavi ax+ay+bx+by=(a+b)(x+y).
+Algebarski razlomci
+Jednakost, skraćivanje i proširivanje algebarskih razlomaka
+S algebarskim razlomcima postupamo jednako kao što smo postupali s običnim razlomcima – racionalnim brojevima. Podsjetimo se kako smo tada obradili i pojmove jednakosti dvaju razlomaka te proširivanja i skraćivanja razlomaka za racionalne brojeve. Ponovimo ukratko:
+Za jednakost dvaju razlomaka vrijedi:
+a/b=c/d "  "⟺"  " a⋅d=b⋅c.
+Odatle proistječe sljedeća važna jednakost: (a⋅m)/(b⋅m)=a/b, pri čemu je m≠0.
+Zaključujemo: postoji li u brojniku i nazivniku algebarskog razlomka zajednički faktor, možemo ga ispustiti. Kažemo da smo razlomak skratili. No promatramo li istu jednakost zdesna u lijevo, reći ćemo da smo razlomak proširili.
+Primjer 1: Skrati (2x^2+4x)/2x=x+2 (za x≠0).
 Računanje s algebarskim razlomcima
-              <button class="button-87" role="button" value="Unlock" onclick="toggleWindow('newWindow_74');unlock()">X</button>
-<p>Za računanje s algebarskim razlomcima vrijede sva pravila koja smo upoznali već ranije, pri računanju s racionalnim brojevima zapisanim u obliku razlomka.
-                <!--PRIMJER 2-->
-                <!--PRIMJER 3-->
-              </p>
+Za računanje s algebarskim razlomcima vrijede sva pravila koja smo upoznali već ranije, pri računanju s racionalnim brojevima zapisanim u obliku razlomka.
+Primjer 2: (x+1)/(x-1)⋅(x-1)/(x+2)=(x+1)/(x+2).
+Primjer 3: 1/(x+1)+1/(x-1)=((x-1)+(x+1))/((x+1)(x-1) )=2x/(x^2-1).
+

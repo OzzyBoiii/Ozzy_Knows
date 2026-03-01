@@ -1,135 +1,157 @@
-<h3>Definicija i opis vektora (U RADU)</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Definicija i opis vektora (U RADU)
 Što je vektor?
-<p>Veličine, kao što su duljina, površina, masa i mnoge druge izražavaju se iznosom, količinom, brojem. Kažemo da su to skalarne veličine ili jednostavno skalari. Neke druge veličine osim iznosa imaju i dodatnu bitnu osobinu −
-                smjer djelovanja. Takve su primjerice brzina, ubrzanje, sila. Za njih kažemo da su vektorske veličine.Ako su Ai B dvije različite točke ravnine, njima je određena dužina ¯¯¯¯¯¯¯¯AB. Zapisom ¯¯¯¯¯¯¯¯BA dana je ista dužina. Dužina ¯¯¯¯¯¯¯¯AB (ili ¯¯¯¯¯¯¯¯BA) ima svoju duljinu. Duljina dužine skalarna je veličina i zapisuje se kao |AB|.Ako su Ai B dvije točke ravnine kojima je određena dužina, ali pritom razlikujemo redoslijed pa je točka A prva, početna točka (hvatište), a točka B druga, završna točka (kraj) dužine, tada za dužinu kažemo da je usmjerena dužina ili vektor.
-              </p>
-              <img src="Definicija i opis vektora_1.png">
-              <p>Usmjerenost dužine odražava se i u oznaci pa umjesto oznake ¯¯¯¯¯¯¯¯AB, koja se rabi za zapis dužine, pišemo −−→AB. Time je naznačeno da je točka A početna, a točka B
-                završna točka tog vektora.
-                Ponekad se vektor zapisuje malim slovom nad koje se stavi strelica. Tako možemo pisati →v=−−→AB
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Veličine kao što su duljina, površina, masa i mnoge druge izražavaju se iznosom, količinom, brojem. Kažemo da su to skalarne veličine ili jednostavno skalari. Neke druge veličine osim iznosa imaju i dodatnu bitnu osobinu – smjer djelovanja. Takve su, primjerice, brzina, ubrzanje, sila. Za njih kažemo da su vektorske veličine.
+Ako su A i B dvije različite točke ravnine, njima je određena dužina (AB) ‾. Zapisom (BA) ‾ dana je ista dužina. Dužina (AB) ‾ (ili (BA) ‾) ima svoju duljinu. Duljina dužine skalarna je veličina i zapisuje se kao ∣AB∣. 
+Ako su A i B dvije točke ravnine kojima je određena dužina, ali pritom razlikujemo redoslijed pa je točka A prva, početna točka (hvatište), a točka B druga, završna točka (kraj) dužine, tada za dužinu kažemo da je usmjerena dužina ili vektor.
+Usmjerenost dužine odražava se i u oznaci pa umjesto oznake (AB) ‾, koja se rabi za zapis dužine, pišemo (AB) ⃗. Time je naznačeno da je točka A početna, a točka B završna točka tog vektora.
+Ponekad se vektor zapisuje malim slovom nad koje se stavi strelica. Tako možemo pisati v ⃗=(AB) ⃗.
+________________________________________
 Duljina, smjer i orijentacija vektora
-<p>Svaki je vektor potpuno određen duljinom, smjerom i orijentacijom. Opišimo ova tri važna pojma.
-                •	Duljina vektora −−→AB
-                je udaljenost njegove početne i završne točke. Dakle, to je duljina dužine ¯¯¯¯¯¯¯¯AB. Duljinu vektora označavamo s |−−→AB| te je |−−→AB|=|AB|.
-                •  •  Kažemo da pravac p koji prolazi točkama A i B sadrži vektor −−→AB ili da vektor −−→AB leži na pravcu p. Pravac p, ali i svaki pravac koji mu je paralelan određuje smjer vektora −−→AB
-                •  . Za vektore koji imaju isti smjer reći ćemo da su kolinearni. 
-                •  Duljinom i smjerom vektor još uvijek nije određen. Moramo zadati njegov početak i njegov kraj. Time je određena orijentacija vektora. U zapisu vektora orijentacija je istaknuta redoslijedom navođenja početne i završne točke. Na crtežu vektora orijentacija se razabire iz strelice koja se uvijek crta pri završnoj točki. Tako iz zapisa −−→AB vidimo da je ovaj vektor orijentiran od A prema B. Uvedimo još i pojam suprotni vektori. Za dva vektora kažemo da su suprotni ako imaju istu duljinu i smjer, ali suprotnu orijentaciju. Suprotni vektor vektoru →a pišemo kao −→a. Vektor suprotan vektoru −−→AB je vektor −−→BA..
-              </p>
-              <img src="Definicija i opis vektora_2.png">
-              <p>Promotrimo gornju sliku. Vektori →u, →v i →w imaju isti smjer. Vektori →u i →v, kao i vektori →v i →w suprotne su orijentacije, a vektori →u i →w imaju istu orijentciju. Vektori →a →b i →c imaju isti smjer i istu orijentaciju. Vektori →m, →n i →p imaju isti smjer, istu orijentaciju i istu duljinu, oni su jednaki.
-                <!--PRIMJER 1-->
-                Vektor je određen duljinom, smjerom i orijentacijom.Dva su vektora jednaka ako imaju istu duljinu, isti smjer i istu orijentaciju.
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Množenje vektora realnim brojem (U RADU)</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Definicija homotetije
-<p>Jedna od jednostavnih i prirodnih računskih operacija je množenje vektora realnim brojem. Što bi, primjerice, za zadani vektor →a značilo 3→a ili −12→a?Vektor 3→aje vektor istog smjera i orijentacije kao i vektor →a, ali tri puta veće duljine.Vektor −12→aje vektor istog smjera, suprotne orijentacije kao i vektor →a te je upola kraći od vektora →a.Množenje vektora realnim brojemNeka je dan vektor →vi neka je x realan broj različit od nule. Tada je umnožak x⋅→v vektor sa sljedećim svojstvima:1) |x⋅→v|=|x|⋅|→v|.Riječima: Vektor x⋅→v je |x| puta dulji od vektora →v.2) Smjer vektora x⋅→v isti je kao i smjer vektora →v.3) Orijentacija vektora x⋅→v za x>0 jednaka je orijentaciji vektora →v, a suprotna orijentaciji vektora →v ako je x<0.
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Vrste vektors
- <p>Nul-vektorVektor kojem se podudaraju početna i završna točka zove se nul-vektor. Označavamo ga s →0. Duljina nul-vektora jednaka je nuli i to je jedini vektor s ovim svojstvom. Nema smisla govoriti o smjeru i orijentaciji nul-vektora, a po dogovoru se uzima da je nul-vektor kolinearan sa svakim vektorom. Za umnožak 0⋅→v vrijedi: |0⋅→v|=|0|⋅|→v|=0,pa je 0⋅→vnul-vektor, jer samo nul-vektor ima duljinu jednaku nuli.Jedinični vektorZa vektor →vkažemo da je jedinični vektor ako je njegova duljina jednaka 1, dakle ako je |→v|=1.Podijelimo li bilo koji vektor →v(osim nul-vektora) njegovom duljinom, dobit ćemo jedinični vektor →v0: →v0=→v|→v|.Ovako definiran jedinični vektor kolinearan je s vektorom →v
-                , ima dakle isti smjer kao i →v, a ima i jednaku orijentaciju kao i vektor →v. Jediničnim se zove jer mu je duljina jednaka 1. Provjerimo: |→v0|=∣∣∣→v|→v|∣∣∣=|→v||→v|=1.
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Zbrajanje vektora (U RADU)</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Primjer
-<img src="Zbrajanje vektora_1.png">
-              <p>Vratimo se sada problemu plova čamca pri prijelazu rijeke. Neka čamac plovi brzinom od 2 m/s okomito na njezin tok, a brzina riječnog toka neka je 1 m/s. Kako izgleda put kojim plovi čamac?
-                Ovaj problem dakako nije nov, nije novo ni njegovo rješenje. Znali su ga još stari Grci.
-                Predočimo vektorima →v1i →v2 brzine gibanja čamca i rijeke. Vektori su međusobno okomiti, a prvi je dvostruko dulji, jer je i brzina čamca dva puta veća. Čamac će se kretati po pravcu kojem pripada dijagonala pravokutnika koji je određen sa →v1 i →v2.
-                Iznos te brzine jednak je duljini dijagonale pravokutnika. Izračunat ćemo je primjenom Pitagorina poučka: |→v|=√|→v1|2+|→v2|2=√5≈2.24  m/s.
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Zbroj dvaju vektora - pravilo paralelograma
- <img src="Zbrajanje vektora_2.png">
-              <p>Zbroj dvaju vektora −−→OA i −−→OB s istim početkom O je vektor −−→OC takav da je ¯¯¯¯¯¯¯¯OC dijagonala paralelograma OACB:−−→OA+−−→OB=−−→OC.Kako ćemo zbrajati vektore →ai →bkoji imaju početke u različitim točkama?Neka je O
-                početna točka vektora →a i neka je A završna točka istog vektora. Konstruirajmo vektor jednak vektoru →b s početkom u točki O (vidi sliku gore). Zbroj vektora −−→OA+−−→OB je vektor →c=−−→OC. A kako je −−→OB=→b, onda je →a+→b=→c.
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Zbroj dvaju vektora - pravilo trokuta
-<img src="Zbrajanje vektora_3.png">
-              <p>Očito je −−→OB=→b=−−→AC. Vidimo da zbrajanje vektora →a i →b možemo protumačiti na sljedeći način: kraj vektora →a početak je vektora →b. Njihov je zbroj vektor kojemu je početak u početku vektora →a, a kraj u kraju vektora →b.
-                Za vektore kod kojih se završetak jednoga podudara s početkom drugog kažemo da su ulančani ili da se nadovezuju.
-                Zbroj dvaju vektora - pravilo trokutaVektori →ai →b su ulančani ako se završetak prvoga podudara s početkom drugoga.
-                Zbroj dvaju ulančanih vektora −−→AB i −−→BC je vektor −−→AC koji spaja početnu točku prvog sa završnom točkom drugog vektora.
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Svojstva zbrajanja vektora
- <p>Zbrajanje vektora ima svojstva koja su slična svojstvima računskih operacija s brojevima.
-                (1) Za svaka dva vektora →ai →b vrijedi svojstvo komutativnosti: →a+→b=→b+→a.Uvjeri se u točnost ove tvrdnje oslanjajući se na pravilo paralelograma pri zbrajanju vektora.
-                (2) Za svaka tri vektora →a, →b i →c vrijedi svojstvo asocijativnosti: (→a+→b)+→c=→a+(→b+→c).
-              </p>
-              <img src="Zbrajanje vektora_4.png">
-              <p>Neka su dana tri vektora →a, →b i →c. Dovedimo ih u ulančan položaj: početak vektora →b je u završetku vektora →a, a početak vektora →c u završetku vektora →b. Označimo još: →a=−−→AB, →b=−−→BC, →c=−−→CD. Onda vrijedi: (→a+→b)+→c=(−−→AB+−−→BC)+−−→CD=−−→AC+−−→CD=−−→AD. Zbrajajući u drugom poretku, imamo: →a+(→b+→c)=−−→AB+(−−→BC+−−→CD)=−−→AB+−−→BD=−−→AD. Vrijedi dakle (→a+→b)+→c=→a+(→b+→c).
-                <!--PRIMJER 1-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Oduzimanje vektora
- <p>Oduzimanje vektora svodi se na zbrajanje vektora. Ako su dana dva vektora →a i →b, tada je po definiciji: →a−→b=→a+(−→b).
-                Dva se vektora oduzimaju tako da se prvom vektoru pribroji suprotan drugi vektor.
-                Opišimo kako se za zadane vektore →ai →b konstruira njihova razlika, vektor →a−→b. Neka ta dva vektora imaju zajednički početak: točku A i neka je →a=−−→AB i →b=−−→AC. Onda je −−→CA=−→b i imamo: →a+(−→b)=−→b+→a=−−→CA+−−→AB=−−→CB.
-              </p>
-              <img src="Zbrajanje vektora_5.png">
-              <p>Oduzimanje vektora
-                Razlika dvaju vektora →a−→b
-                jest vektor koji je zbroj vektora →a i suprotnog vektora vektoru →b: →a−→b=→a+(−→b).
-              <!--PRIMEJR 3-->
-              <!--PRIMJER 4-->  
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Rastav vektora u komponente (U RADU)</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Rastav vektora u komponente
- <p>Neka je zadan vektor →v i neka su →a i →bdva nekolinearna vektora.Prikažimo vektor →vkao zbroj dvaju vektora, jednog koji ima isti smjer kao i vektor →a i drugog čiji je smjer isti kao i smjer vektora →b. Kažemo da vektor →v treba rastaviti u komponente po vektorima →a i →b.
+Svaki je vektor potpuno određen duljinom, smjerom i orijentacijom. Opišimo ova tri važna pojma.
+	Duljina vektora (AB) ⃗ je udaljenost njegove početne i završne točke. Dakle, to je duljina dužine (AB) ‾. Duljinu vektora označavamo s ∣(AB) ⃗∣ te je ∣(AB) ⃗∣=∣AB∣. 
+	Kažemo da pravac p koji prolazi točkama A i B sadrži vektor (AB) ⃗ ili da vektor (AB) ⃗ leži na pravcu p. Pravac p, ali i svaki pravac koji mu je paralelan, određuje smjer vektora (AB) ⃗. Za vektore koji imaju isti smjer reći ćemo da su kolinearni.
+	Duljinom i smjerom vektor još uvijek nije određen. Moramo zadati njegov početak i njegov kraj. Time je određena orijentacija vektora. U zapisu vektora orijentacija je istaknuta redoslijedom navođenja početne i završne točke. Na crtežu vektora orijentacija se razabire iz strelice koja se uvijek crta pri završnoj točki. Tako iz zapisa (AB) ⃗ vidimo da je ovaj vektor orijentiran od A prema B.
+Uvedimo još i pojam suprotni vektori. Za dva vektora kažemo da su suprotni ako imaju istu duljinu i smjer, ali suprotnu orijentaciju. Suprotni vektor vektoru a ⃗ pišemo kao -a ⃗. Vektor suprotan vektoru (AB) ⃗ je vektor (BA) ⃗.
+Promotrimo gornju sliku. Vektori u ⃗, v ⃗ i w ⃗ imaju isti smjer. Vektori u ⃗ i v ⃗, kao i vektori v ⃗ i w ⃗, suprotne su orijentacije, a vektori u ⃗ i w ⃗ imaju istu orijentaciju. Vektori a ⃗, b ⃗ i c ⃗ imaju isti smjer i istu orijentaciju. Vektori m ⃗, n ⃗ i p ⃗ imaju isti smjer, istu orijentaciju i istu duljinu – oni su jednaki.
+Vektor je određen duljinom, smjerom i orijentacijom. Dva su vektora jednaka ako imaju istu duljinu, isti smjer i istu orijentaciju.
+PRIMJER 1
+________________________________________
+________________________________________
+________________________________________
+Množenje vektora realnim brojem (U RADU)
+Množenje vektora realnim brojem
+Jedna od jednostavnih i prirodnih računskih operacija je množenje vektora realnim brojem. Što bi, primjerice, za zadani vektor a ⃗ značilo 3a ⃗ ili -1/2 a ⃗?
+Vektor 3a ⃗ je vektor istog smjera i orijentacije kao i vektor a ⃗, ali tri puta veće duljine. Vektor -1/2 a ⃗ je vektor istog smjera, suprotne orijentacije kao i vektor a ⃗ te je upola kraći od vektora a ⃗.
+Množenje vektora realnim brojem
+Neka je dan vektor v ⃗ i neka je x realan broj različit od nule. Tada je umnožak x⋅v ⃗ vektor sa sljedećim svojstvima:
+	∣x⋅v ⃗∣=∣x∣⋅∣v ⃗∣.
+Riječima: vektor x⋅v ⃗ je ∣x∣ puta dulji od vektora v ⃗.
+	Smjer vektora x⋅v ⃗ isti je kao i smjer vektora v ⃗.
+	Orijentacija vektora x⋅v ⃗ za x>0 jednaka je orijentaciji vektora v ⃗, a suprotna orijentaciji vektora v ⃗ ako je x<0.
+________________________________________
+Vrste vektora
+Nul-vektor
+Vektor kojem se podudaraju početna i završna točka zove se nul-vektor. Označavamo ga s 0 ⃗. Duljina nul-vektora jednaka je nuli i to je jedini vektor s ovim svojstvom. Nema smisla govoriti o smjeru i orijentaciji nul-vektora, a po dogovoru se uzima da je nul-vektor kolinearan sa svakim vektorom.
+Za umnožak 0⋅v ⃗ vrijedi:
+∣0⋅v ⃗∣=∣0∣⋅∣v ⃗∣=0,
 
-              </p>
-              <img src="Rastav vektora u komponente_1.png">
-              <p>Postavimo vektore →v, →a i →b tako da imaju zajednički početak O i neka je T kraj vektora →v. Konstruirajmo paralelogram OATB.Vektor −−→OAkolinearan je s vektorom →a pa postoji broj α takav da je −−→OA=α⋅→a.Jednako tako vektor −−→OBkolinearan je s vektorom →b pa postoji broj β takav da je −−→OB=β⋅→b. Tako je konačno →v=α→a+β→b.
-                Iz opisanog postupka vidimo da je rastav nekog vektora po danim komponentama uvijek provediv.Rastav vektora na komponenteNeka su →ai →b nekolinearni vektori. Svaki se vektor →v može prikazati u obliku →v=α→a+β→b. Kažemo da smo vektor →v rastavili u komponente po vektorima →a i →b. Za dana tri vektora taj je prikaz jedinstven. Kažemo još da smo vektor →v prikazali kao linearnu kombinaciju vektora →a i →b.
-                <!--PRIMJER 1-->
-                <!--PRIMJER 2-->  
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Vektori u koordinatnom sustavu (U RADU)</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+pa je 0⋅v ⃗ nul-vektor, jer samo nul-vektor ima duljinu jednaku nuli.
+Jedinični vektor
+Za vektor v ⃗ kažemo da je jedinični vektor ako je njegova duljina jednaka 1, dakle ako je ∣v ⃗∣=1. 
+Podijelimo li bilo koji vektor v ⃗ (osim nul-vektora) njegovom duljinom, dobit ćemo jedinični vektor v ⃗_0:
+v ⃗_0=v ⃗/(∣v ⃗∣).
+
+Ovako definiran jedinični vektor kolinearan je s vektorom v ⃗, ima dakle isti smjer kao i v ⃗, a ima i jednaku orijentaciju kao i vektor v ⃗. Jediničnim se zove jer mu je duljina jednaka 1. Provjerimo:
+∣v ⃗_0∣=∣v ⃗/(∣v ⃗∣)∣=(∣v ⃗∣)/(∣v ⃗∣)=1.
+
+________________________________________
+________________________________________
+________________________________________
+Zbrajanje vektora (U RADU)
+Primjer
+Vratimo se sada problemu plova čamca pri prijelazu rijeke. Neka čamac plovi brzinom od 2 m/s okomito na njezin tok, a brzina riječnog toka neka je 1 m/s. Kako izgleda put kojim plovi čamac?
+Ovaj problem dakako nije nov, nije novo ni njegovo rješenje. Znali su ga još stari Grci. Predočimo vektorima v ⃗_1 i v ⃗_2 brzine gibanja čamca i rijeke. Vektori su međusobno okomiti, a prvi je dvostruko dulji, jer je i brzina čamca dva puta veća. Čamac će se kretati po pravcu kojem pripada dijagonala pravokutnika koji je određen s v ⃗_1 i v ⃗_2.
+Iznos te brzine jednak je duljini dijagonale pravokutnika. Izračunat ćemo je primjenom Pitagorina poučka:
+∣v ⃗∣=√(∣v ⃗_1 ∣^2+∣v ⃗_2 ∣^2 )=√(2^2+1^2 )=√5≈2,24" m/s".
+
+________________________________________
+Zbroj dvaju vektora – pravilo paralelograma
+Zbroj dvaju vektora (OA) ⃗ i (OB) ⃗ s istim početkom O je vektor (OC) ⃗ takav da je (OC) ‾ dijagonala paralelograma OACB:
+(OA) ⃗+(OB) ⃗=(OC) ⃗.
+
+Kako ćemo zbrajati vektore a ⃗ i b ⃗ koji imaju početke u različitim točkama? Neka je O početna točka vektora a ⃗ i neka je A završna točka istog vektora. Konstruirajmo vektor jednak vektoru b ⃗ s početkom u točki O (vidi sliku gore). Zbroj vektora (OA) ⃗+(OB) ⃗ je vektor c ⃗=(OC) ⃗. A kako je (OB) ⃗=b ⃗, onda je a ⃗+b ⃗=c ⃗.
+________________________________________
+Zbroj dvaju vektora – pravilo trokuta
+Očito je (OB) ⃗=b ⃗=(AC) ⃗. Vidimo da zbrajanje vektora a ⃗ i b ⃗ možemo protumačiti na sljedeći način: kraj vektora a ⃗ početak je vektora b ⃗. Njihov je zbroj vektor kojemu je početak u početku vektora a ⃗, a kraj u kraju vektora b ⃗.
+Za vektore kod kojih se završetak jednoga podudara s početkom drugog kažemo da su ulančani ili da se nadovezuju.
+Zbroj dvaju vektora – pravilo trokuta
+Vektori a ⃗ i b ⃗ su ulančani ako se završetak prvoga podudara s početkom drugoga. Zbroj dvaju ulančanih vektora (AB) ⃗ i (BC) ⃗ je vektor (AC) ⃗ koji spaja početnu točku prvog sa završnom točkom drugog vektora.
+________________________________________
+Svojstva zbrajanja vektora
+Zbrajanje vektora ima svojstva koja su slična svojstvima računskih operacija s brojevima.
+(1) Za svaka dva vektora a ⃗ i b ⃗ vrijedi svojstvo komutativnosti:
+a ⃗+b ⃗=b ⃗+a ⃗.
+
+Uvjeri se u točnost ove tvrdnje oslanjajući se na pravilo paralelograma pri zbrajanju vektora.
+(2) Za svaka tri vektora a ⃗, b ⃗ i c ⃗ vrijedi svojstvo asocijativnosti:
+(a ⃗+b ⃗)+c ⃗=a ⃗+(b ⃗+c ⃗).
+
+Neka su dana tri vektora a ⃗, b ⃗ i c ⃗. Dovedimo ih u ulančan položaj: početak vektora b ⃗ je u završetku vektora a ⃗, a početak vektora c ⃗ u završetku vektora b ⃗. Označimo još: a ⃗=(AB) ⃗, b ⃗=(BC) ⃗, c ⃗=(CD) ⃗. Onda vrijedi:
+(a ⃗+b ⃗)+c ⃗=((AB) ⃗+(BC) ⃗)+(CD) ⃗=(AC) ⃗+(CD) ⃗=(AD) ⃗.
+
+Zbrajajući u drugom poretku, imamo:
+a ⃗+(b ⃗+c ⃗)=(AB) ⃗+((BC) ⃗+(CD) ⃗)=(AB) ⃗+(BD) ⃗=(AD) ⃗.
+
+Vrijedi dakle (a ⃗+b ⃗)+c ⃗=a ⃗+(b ⃗+c ⃗ ).
+PRIMJER 1
+________________________________________
+Oduzimanje vektora
+Oduzimanje vektora svodi se na zbrajanje vektora. Ako su dana dva vektora a ⃗ i b ⃗, tada je po definiciji:
+a ⃗-b ⃗=a ⃗+(-b ⃗).
+
+Dva se vektora oduzimaju tako da se prvom vektoru pribroji suprotan drugi vektor.
+Opišimo kako se za zadane vektore a ⃗ i b ⃗ konstruira njihova razlika, vektor a ⃗-b ⃗. Neka ta dva vektora imaju zajednički početak: točku A i neka je a ⃗=(AB) ⃗ i b ⃗=(AC) ⃗. Onda je (CA) ⃗=-b ⃗ i imamo:
+a ⃗+(-b ⃗)=-b ⃗+a ⃗=(CA) ⃗+(AB) ⃗=(CB) ⃗.
+
+Oduzimanje vektora
+Razlika dvaju vektora a ⃗-b ⃗ jest vektor koji je zbroj vektora a ⃗ i suprotnog vektora vektoru b ⃗:
+a ⃗-b ⃗=a ⃗+(-b ⃗).
+
+PRIMJER 3
+PRIMJER 4
+________________________________________
+________________________________________
+________________________________________
+Rastav vektora u komponente (U RADU)
+Rastav vektora u komponente
+Neka je zadan vektor v ⃗ i neka su a ⃗ i b ⃗ dva nekolinearna vektora. Prikažimo vektor v ⃗ kao zbroj dvaju vektora, jednog koji ima isti smjer kao i vektor a ⃗ i drugog čiji je smjer isti kao i smjer vektora b ⃗. Kažemo da vektor v ⃗ treba rastaviti u komponente po vektorima a ⃗ i b ⃗.
+Postavimo vektore v ⃗, a ⃗ i b ⃗ tako da imaju zajednički početak O i neka je T kraj vektora v ⃗. Konstruirajmo paralelogram OATB. Vektor (OA) ⃗ kolinearan je s vektorom a ⃗ pa postoji broj α takav da je (OA) ⃗=α⋅a ⃗. Jednako tako, vektor (OB) ⃗ kolinearan je s vektorom b ⃗ pa postoji broj β takav da je (OB) ⃗=β⋅b ⃗. Tako je konačno
+v ⃗=αa ⃗+βb ⃗.
+
+Iz opisanog postupka vidimo da je rastav nekog vektora po danim komponentama uvijek provediv.
+Rastav vektora na komponente
+Neka su a ⃗ i b ⃗ nekolinearni vektori. Svaki se vektor v ⃗ može prikazati u obliku v ⃗=αa ⃗+βb ⃗. Kažemo da smo vektor v ⃗ rastavili u komponente po vektorima a ⃗ i b ⃗. Za dana tri vektora taj je prikaz jedinstven. Kažemo još da smo vektor v ⃗ prikazali kao linearnu kombinaciju vektora a ⃗ i b ⃗.
+PRIMJER 1
+PRIMJER 2
+________________________________________
+________________________________________
+________________________________________
+Vektori u koordinatnom sustavu (U RADU)
 Vektori u koordinatnom sustavu
-              <p>Vektori se mogu vezati uz koordinatni sustav. Tada se svaki vektor ravnine prikazuje kao linearna kombinacija dvaju jediničnih vektora kojima je smjer određen koordinatnim osima.Prvom, koji označavamo s ı⃗ , početna je točka ishodište koordinatnog sustava, a kraj točka (1,0). Drugom jediničnom vektoru, označavamo ga s ȷ⃗ , početak je ishodište, a završetak točka (0,1).
-<p>Vektori se mogu vezati uz koordinatni sustav. Tada se svaki vektor ravnine prikazuje kao linearna kombinacija dvaju jediničnih vektora kojima je smjer određen koordinatnim osima.Prvom, koji označavamo s ı⃗ , početna je točka ishodište koordinatnog sustava, a kraj točka (1,0). Drugom jediničnom vektoru, označavamo ga s ȷ⃗ , početak je ishodište, a završetak točka (0,1).
-                Uzmimo sada bilo koji vektor OT−→−s početkom u ishodištu i krajem u točki T(x,y) i rastavimo ga na komponente po vektorima ı⃗  i ȷ⃗ .
-                Nacrtajmo pravokutnik OT1TT2
-              </p>
-              <img src="Vektori u koordinatnom sustavu_1.png">
-              <p>Vektor OT1−→− je kolinearan s vektorom ı⃗  i ima duljinu |x|. Možemo ga zapisati u obliku OT1−→−=x⋅ı⃗ .Analogno, vektor OT2−→−je kolinearan s vektorom ȷ⃗  i ima duljinu |y|. Možemo ga zapisati u obliku OT2−→−=y⋅ȷ⃗ .
-                Konačno je OT−→−=xı⃗ +yȷ⃗ .Neka je sada T1T2−→−−neki vektor u koordinatnoj ravnini kojem je početna točka T1(x1,y1), a završna T2(x2,y2).Očito je T1T2−→−−=OT2−→−−OT1−→−
-              </p>
-              <img src="Vektori u koordinatnom sustavu_2.png">
-              <p>No OT2−→−=x2ı⃗ +y2ȷ⃗  i OT1−→−=x1ı⃗ +y1ȷ⃗  pa imamo: OT−→−=(x2ı⃗ +y2ȷ⃗ )−(x1ı⃗ +y1ȷ⃗ )=(x2−x1)ı⃗ +(y2−y1)ȷ⃗ .Dakle, OT−→−=(x2−x1)ı⃗ +(y2−y1)ȷ⃗ .
-                <!--PRIMJER 1-->
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Vektori se mogu vezati uz koordinatni sustav. Tada se svaki vektor ravnine prikazuje kao linearna kombinacija dvaju jediničnih vektora kojima je smjer određen koordinatnim osima. Prvom, koji označavamo s i ⃗, početna je točka ishodište koordinatnog sustava, a kraj točka (1ⓜ,0). Drugom jediničnom vektoru, označavamo ga s j ⃗, početak je ishodište, a završetak točka (0ⓜ,1).
+Uzmimo sada bilo koji vektor (OT) ⃗ s početkom u ishodištu i krajem u točki T(x,y) i rastavimo ga na komponente po vektorima i ⃗ i j ⃗. Nacrtajmo pravokutnik OT_1 TT_2.
+Vektor (OT_1 ) ⃗ je kolinearan s vektorom i ⃗ i ima duljinu ∣x∣. Možemo ga zapisati u obliku
+(OT_1 ) ⃗=x⋅i ⃗.
+
+Analogno, vektor (OT_2 ) ⃗ je kolinearan s vektorom j ⃗ i ima duljinu ∣y∣. Možemo ga zapisati u obliku
+(OT_2 ) ⃗=y⋅j ⃗.
+
+Konačno je
+(OT) ⃗=xi ⃗+yj ⃗.
+
+Neka je sada (T_1 T_2 ) ⃗ neki vektor u koordinatnoj ravnini kojem je početna točka T_1 (x_1,y_1), a završna T_2 (x_2,y_2). Očito je
+(T_1 T_2 ) ⃗=(OT_2 ) ⃗-(OT_1 ) ⃗.
+
+No (OT_2 ) ⃗=x_2 i ⃗+y_2 j ⃗ i (OT_1 ) ⃗=x_1 i ⃗+y_1 j ⃗, pa imamo:
+(T_1 T_2 ) ⃗=(x_2 i ⃗+y_2 j ⃗)-(x_1 i ⃗+y_1 j ⃗)=(x_2-x_1)i ⃗+(y_2-y_1)j ⃗.
+
+Dakle,
+(T_1 T_2 ) ⃗=(x_2-x_1)i ⃗+(y_2-y_1)j ⃗.
+
 Vektor u koordinatnom sustavu
- <p>Za svaku točku T(x,y) vektor OT−→−, kojem je početak ishodište koordinatnog sustava može se prikazati u obliku OT−→−=xı⃗ +yȷ⃗ .
-                Vektor T1T2−→−− s početkom u točki T1(x1,y1) i završetkom u točki T2(x2,y2) ima prikaz T1T2−→−−=(x2−x1)ı⃗ +(y2−y1)ȷ⃗ .
-                Dva su vektora v1→=x1ı⃗ +y1ȷ⃗  i v2→=x2ı⃗ +y2ȷ⃗  jednaka ako i samo ako je x1=x2 i y1=y2...
-                <!--PRIMJER 2-->  
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Duljina vektora<
-<img src="Vektori u koordinatnom sustavu_3.png">
-              <p>Kolika je duljina vektora kojemu su krajnje točke T1(x1,y1) i T2(x2,y2)?
-                Rastavimo vektor T1T2−→−−u komponente paralelne koordinatnim osima. Duljine tih komponenata jednake su |x2−x1| i |y2−y1|. Primijenimo li sada na pravokutni trokut Pitagorin poučak, dobit ćemo|T1T2−→−−|=(x2−x1)2+(y2−y1)2−−−−−−−−−−−−−−−−−−√.
-                <!--PRIMJER 3-->
-              </p>
+Za svaku točku T(x,y) vektor (OT) ⃗, kojem je početak ishodište koordinatnog sustava, može se prikazati u obliku
+(OT) ⃗=xi ⃗+yj ⃗.
+
+Vektor (T_1 T_2 ) ⃗ s početkom u točki T_1 (x_1,y_1) i završetkom u točki T_2 (x_2,y_2) ima prikaz
+(T_1 T_2 ) ⃗=(x_2-x_1)i ⃗+(y_2-y_1)j ⃗.
+
+Dva su vektora v ⃗_1=x_1 i ⃗+y_1 j ⃗ i v ⃗_2=x_2 i ⃗+y_2 j ⃗ jednaka ako i samo ako je x_1=x_2 i y_1=y_2.
+PRIMJER 2
+________________________________________
+Duljina vektora
+Kolika je duljina vektora kojemu su krajnje točke T_1 (x_1,y_1) i T_2 (x_2,y_2)?
+Rastavimo vektor (T_1 T_2 ) ⃗ u komponente paralelne koordinatnim osima. Duljine tih komponenata jednake su ∣x_2-x_1∣ i ∣y_2-y_1∣. Primijenimo li sada na pravokutni trokut Pitagorin poučak, dobit ćemo
+∣(T_1 T_2 ) ⃗∣=√((x_2-x_1 )^2+(y_2-y_1 )^2 ┤ ).
+
+PRIMJER 3
+

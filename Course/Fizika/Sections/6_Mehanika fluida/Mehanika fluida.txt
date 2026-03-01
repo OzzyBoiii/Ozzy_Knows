@@ -1,559 +1,433 @@
-<h2>Tlak</h2>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Tlak
+________________________________________
 Teorija
-<img src="Tlak_1.png" class="zoomable-image" data-row="1">
-                <img src="Tlak_2.png" class="zoomable-image" data-row="1">
-<p class="zoomable-text">
-                <b>Tlak</b> 
-                &nbsp;&nbsp;&nbsp;&nbsp; - omjer okomite komponente sile i površine plohe na koju je ta komponenta okomita:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp; - oznaka je T, a mjerna jedinica Pa (paskal) i bar (1 bar je 105 Pa)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp; - Pascalov zakon <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Tlak kojim izvana djelujemo na zatvoreni idealni fluid prenosi se nesmanjen u svaki dio fluida i stjenke posude u kojoj se nalazi (kad fluid miruje, on je u ravnoteži, ali ako na negdjedjelujemo dodatnom silom, ona će se prenijeti u svim smjerovima jednako)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - primjer: stiskanje tube paste za zube, rad hidrauličnih strojeva<br>
-                &nbsp;&nbsp;&nbsp;&nbsp; vrste tlakova<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Atmosferski tlak <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - tlak koji pritišće Zemljinu površinu zbog svoje atmosfere (ukupna težina molekula zraka)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - iznosi: p<sub>0</sub>= 101325 Pa pri standardnim uvjetima<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - smanjuje se s povećanjem nadmorske visine 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hidrostatski tlak <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - tlak koji se povećava s dubinom a jednako iznosi u svim smjerovima na istoj dubini<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - p(h)=gqh 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - zakon spojenih posuda (ako je fluid u ravnoteži i miruje, tlakovi na jednakim dubinama morajubiti jednaki)
-                &nbsp;&nbsp;&nbsp;&nbsp; - uređaje za mjerenje tlaka nazivamo barometar/manometar (registriraju razlike tlakova između sustava i okoline) 
-              </p>
-<img src="Tlak_3.png" class="zoomable-image" data-row="2">
----------------------------------------------------------------------------------------------------------------------------------------------------
+(Tlak_1.png)
+(Tlak_2.png)
+Tlak
+	omjer okomite komponente sile i površine plohe na koju je ta komponenta okomita:
+p=F_⊥/A
+
+	oznaka je p, a mjerna jedinica Pa (paskal) i bar (1 bar je 10^5 " Pa" )
+Pascalov zakon
+	Tlak kojim izvana djelujemo na zatvoreni idealni fluid prenosi se nesmanjen u svaki dio fluida i stjenke posude u kojoj se nalazi (kad fluid miruje, on je u ravnoteži, ali ako negdje djelujemo dodatnom silom, ona će se prenijeti u svim smjerovima jednako).
+	primjer: stiskanje tube paste za zube, rad hidrauličnih strojeva
+Vrste tlakova
+Atmosferski tlak
+	tlak koji pritišće Zemljinu površinu zbog svoje atmosfere (ukupna težina molekula zraka)
+	iznosi p_0=101325" Pa"  pri standardnim uvjetima
+	smanjuje se s povećanjem nadmorske visine
+Hidrostatski tlak
+	tlak koji se povećava s dubinom, a jednako iznosi u svim smjerovima na istoj dubini
+	izraz za hidrostatski tlak u tekućini je:
+p(h)=ρgh
+
+	ukupni tlak u tekućini na dubini h (uključujući atmosferski) je:
+p_"uk" =p_0+ρgh
+
+	zakon spojenih posuda (ako je fluid u ravnoteži i miruje, tlakovi na jednakim dubinama moraju biti jednaki)
+	uređaje za mjerenje tlaka nazivamo barometar/manometar (registriraju razlike tlakova između sustava i okoline)
+(Tlak_3.png)
+________________________________________
 Zadatci
-<p>
-                1. Valjkasta posuda visine 2 m ima kružni otvor polumjera 3 cm na visini 60 cm od dna posude. Kolika sila djeluje na čep stavljen u kružni otvor ako je posuda do vrha napunjena vodom? 
-                2. Izračunaj koliki je ukupni tlak u jezeru na dubini 5,5 metara. 
-                3. Izračunaj koliki je tlak (u barima)na oceanskom dnu na dubini 3000 m. Gustoća morske vode je 1024kg/m3 . 
-                4. U U-cijev, u kojoj se nalazila voda, doliveno je uljenepoznate gustoće. Mjereno od razine na kojoj se voda i ulje dodiruju,stupac ulja ima visinu 5 cm, a stupac vode 37 mm. Kolika je gustoćaulja? 
-                5. Na slici su prikazana posuda u koju ulijevamo vodu. Nakon štose uspostavi ravnoteža i voda se smiri kakva će biti razina vode upojedinim posudama i tlak u naznačenim točkama? Zaokružite točneodgovore. - a) Razina vode u svim djelovima posude A, B C i D je jednakakako je prikazano slikom. - b) Slika ne prikazuje točnu situaciju već jenajviša je razina u D, a najmanja u B. - c) Tlak u svim točkama od 1 do5 je jednak. - d) Najveći je tlak u točki 3 jer se iznad nje nalazinajveća masa vode. a), c) 
-                6. Na slici je prikazana posuda ispunjenavodom. Kako se odnose tlakovi u pojedinim točkama posude A, B i C? a) pA= pB = pC b) pA = pC < pB c) pA = pC > pB d) pA > pB > pC e) pA < pB <pC 
-                7. Olovna i aluminijska homogena kugla obješene su na vagu jednakihkrakova i kada su u zraku nalaze se u ravnoteži (crtež). Pritom sugustoće: Pb > Al > zraka. Ako cijeli sustav smjestimo pod staklenozvono iz kojeg isišemo zrak što će se dogoditi? Zaokružite točanodgovor! a) Preteže aluminijska kugla. b) Preteže olovna kugla. c)Sustav i dalje ostaje u ravnoteži. 
-                8. Tri posude a), b) i c) potpunojednakih dimenzija potpuno su napunjene vodom i stave se na vagu. Uprvoj je samo voda, dok se u druge dvije nalaze patkice različitihtežina (crtež). 1) Najveću težinu pokazuje vaga a) 2) Najveću težinupokazuje vaga b) 3) Najveću težinu pokazuje vaga c) 4) Sve tri vagepokazuju jednako. 
-                9. . Dva homogena tijela, prvo izrađeno od hrastovinegustoće 0,8 g/cm3 i drugo izrađeno iz aluminija gustoće 2,7 g/cm3 bačenasu u vodu gustoće 1 g/cm3 . Oba tijela imaju jednaku masu od 1 g. Kojiod predloženih odgovora je ispravan nakon što se tijela smire? a) Većasila uzgona djeluje na tijelo izrađeno od aluminija. b) Veća sila uzgonadjeluje na tijelo izrađeno od hrastovine. c) Sila uzgona jednaka je naoba tijela. d) Na tijelo od hrastovine ne djeluje sila uzgona jer onopliva na vodi. e) Na tijelo od hrastovine ne djeluje sila uzgona jer onotone. 
-                10. . U automobilskoj gumi nadtlak (tlak iznad atmosferskog tlaka)iznosi 2*105Pa. Ako je dodirna površina svake od četiri gume automobilas tlom 0,024m2 kolika je masa automobila? - Rješenje - 480kg 
-                11.Normirani atmosferski tlak odgovara stupcu žive od 76cm (slika). Kolikibi stupac vode odgovarao tom tlaku ako znamo da je gustoća žive 13,6puta veća od gustoće vode? - rješenje - 9.792 m 
-                12. U-cijev na slicinapunjena je vodom i uljem (slika) i cijeli sustav se nalazi u ravnotežiprema podacima sa slike. Ako je gustoća vode 103 kg/m3 kolika je gustoćaulja? 
-                13. Plastična vrećica na slici sadrži otopinu glukoze gustoće1,2*103 kg/m3 . Ako je tlak u arteriji čovjeka na slici 1,33*104 Paiznad atmosferskog kolika mora biti najmanja visina h na kojoj držimovrećicu pa da otopina ulazi u arteriju? - rješenje
-                14. U automobilskoj gumi nadtlak (tlak iznad atmosferskog tlaka) iznosi 2105Pa. Ako je dodirna površina svake od četiri gume automobila s tlom 0,024m2 kolika je masa automobila?
-                4. Normirani atmosferski tlak odgovara stupcu žive od 76cm (slika).
-Koliki bi stupac vode odgovarao tom tlaku ako znamo da je gustoća
-žive 13,6 puta veća od gustoće vode?
-<img src="Tlak_ZADATCI_1.png">
-6. Plastična vrećica na slici sadrži otopinu glukoze gustoće 1,2103kg/m3.
-Ako je tlak u arteriji čovjeka na slici 1,33104 Pa iznad atmosferskog
-kolika mora biti najmanja visina h na kojoj držimo vrećicu pa da
-otopina ulazi u arteriju?
-<img src="Tlak_ZADATCI_2.png">
-13. Olovna i aluminijska homogena kugla obješene su na vagu jednakih
-krakova i kada su u zraku nalaze se u ravnoteži (crtež). Pritom su
-gustoće: Pb > Al > zraka. Ako cijeli sustav smjestimo pod stakleno
-zvono iz kojeg isišemo zrak što će se dogoditi? Zaokružite točan
-odgovor!
+	Valjkasta posuda visine 2 m ima kružni otvor polumjera 3 cm na visini 60 cm od dna posude. Kolika sila djeluje na čep stavljen u kružni otvor ako je posuda do vrha napunjena vodom?
+	Izračunaj koliki je ukupni tlak u jezeru na dubini 5,5 metara.
+	Izračunaj koliki je tlak (u barima) na oceanskom dnu na dubini 3000 m. Gustoća morske vode je 1024" 					" 〖"kg/m" 〗^3.
+	U U-cijev, u kojoj se nalazila voda, doliveno je ulje nepoznate gustoće. Mjereno od razine na kojoj se voda i ulje dodiruju, stupac ulja ima visinu 5 cm, a stupac vode 37 mm. Kolika je gustoća ulja?
+	Na slici su prikazana posuda u koju ulijevamo vodu. Nakon što se uspostavi ravnoteža i voda se smiri, kakva će biti razina vode u pojedinim posudama i tlak u naznačenim točkama? Zaokružite točne odgovore.
+	a) Razina vode u svim dijelovima posude A, B, C i D je jednaka kako je prikazano slikom.
+	b) Slika ne prikazuje točnu situaciju već je najviša razina u D, a najmanja u B.
+	c) Tlak u svim točkama od 1 do 5 je jednak.
+	d) Najveći je tlak u točki 3 jer se iznad nje nalazi najveća masa vode.
+	a), c)
+	Na slici je prikazana posuda ispunjena vodom. Kako se odnose tlakovi u pojedinim točkama posude A, B i C?
+a) p_A=p_B=p_C
+b) p_A=p_C<p_B
+c) p_A=p_C>p_B
+d) p_A>p_B>p_C
+e) p_A<p_B<p_C
+	Olovna i aluminijska homogena kugla obješene su na vagu jednakih krakova i kada su u zraku nalaze se u ravnoteži (crtež). Pritom su gustoće: ρ_"Pb" >ρ_"Al" >ρ_"zraka" . Ako cijeli sustav smjestimo pod stakleno zvono iz kojeg iščepamo zrak, što će se dogoditi? Zaokružite točan odgovor!
 a) Preteže aluminijska kugla.
 b) Preteže olovna kugla.
 c) Sustav i dalje ostaje u ravnoteži.
-d) Ne može se odgovoriti jer ima premalo podataka.
-<img src="Tlak_ZADATCI_4.png">
-1. Kada je potpuno uronjeno u tekućinu, tijelo mase 1,5 kg istisne 0,8 kg tekućine. Što od navedenoga vrijedi za
-silu uzgona na tijelo? (lj 2011.)
-A. Sila uzgona iznosi 7 N i usmjerena je prema gore.
-B. Sila uzgona iznosi 7 N i usmjerena je prema dolje.
-C. Sila uzgona iznosi 8 N i usmjerena je prema gore.
-D. Sila uzgona iznosi 8 N i usmjerena je prema dolje.
-1. (2 boda) U staklenoj se posudi nalazi voda do visine 10 cm. Posuda se nalazi u dizalu. Koliki će biti
-hidrostatski tlak na dno posude ako na dizalu pukne užad i ono počinje slobodno padati? Gustoća
-vode je 1000 kgm-3. Obrazloži svoj odgovor.
-a) 1000 Pa
-b) 2000 Pa
-c) 100 Pa
-d) 0 Pa
-5. 4. (4 boda) Ako se sila na membranu tympani (bubnjić) poveća za 1,5 N iznad sile kojom atmosferski tlak
-djeluje na nju, to može dovesti do oštećenja membrane. Kada biste išli roniti u more bez ronilačkog
-odijela, nakon koje bi dubine moglo doći do oštećenja bubnjića? Tipičan promjer bubnjića je 8,2 mm.
-Gustoća morske vode iznosi 1,03 g/cm3.
-1. Tlak (konceptualni zadatak)
-Primjer zadatka: (2 boda) Na dubini h u jezeru ukupni tlak iznosi 3 p0, gdje je p0 atmosferski tlak. Koliki je tlak u
-tom jezeru na dubini 2 h? Obrazloži svoj odgovor.
-a. p0
-b. 6 p0
-c. 3 p0
-d. 5 p0
-4. Tlak (numerički zadatak)
-Primjer zadatka: ( 5 bodova) U laboratoriju iz fizike su učenici trebali odrediti gustoću nepoznate tekućine. U
-pokusu su koristili U-cijev, vodu, mjernu vrpcu i nepoznatu tekućinu.
-a. (1 bod) Skiciraj kako će izgledati razine tekućina u U-cijevi nakon ulijevanja vode i nepoznate tekućine.
-b. (2 boda) Izvedi izraz iz kojeg ćeš odrediti gustoću nepoznate tekućine.
-c. (2 boda) Rezultati mjerenja učenika u laboratoriju su:
-<img src="Tlak_ZADATCI_5.png">
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h2>Uzgon</h2>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Teorija
-<p class="zoomable-text">
-                <b>Uzgon</b>
-                &nbsp;&nbsp;&nbsp;&nbsp; - sila u fluidima koja prividno smanjuje težinu tijela uronjenog u fluid onoliko koliko iznosi težina istisnute tekućine (Arhimedov zakon) 
-                &nbsp;&nbsp;&nbsp;&nbsp; - uzgon postoji i u plinovima, ali je najčešće zanemariv (navedite primjer kad ne možemo zanemariti uzgon u zraku) 
-                &nbsp;&nbsp;&nbsp;&nbsp; - formula za uzgon je: F<sub>u</sub>=q(tekućine)*g*V(uronjenog tijela)<br> 
-                &nbsp;&nbsp;&nbsp;&nbsp; - kad tijelo ubacimo u tekućinu ono može raditi sljedeće:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - tijelo tone ako je F<sub>g</sub> > F<sub>u</sub> ili ρ<sub>tijela</sub>>ρ<sub>tekućine</sub><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - tijelo lebdi ako je F<sub>g</sub>=F<sub>u</sub> ili ρ<sub>tijela</sub>=ρ<sub>tekućine</sub><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - tijelo izranja ako je F<sub>g</sub> < F<sub>u</sub> ili ρ<sub>tijela</sub> < ρ<sub>tekućine</sub><br>
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Zadatci
-<p>
-                1. Kroz vodu podižeš veći kamen kojega želiš izvući na obalu. Koju promjenu osjećaš dok kamen izvlačiš iz vode? Je li kamen bilo lakše podizati dok je bio cijeli u vodi? 
-                2. U čašu sa vodom na površinu spusti kuglicu plastelina. Skiciraj i opiši što uočavaš. 
-                3. Kuglicu plastelina preoblikuj u malu lađicu i ponovno ju pusti na površinu vode. Skiciraj i opiši što sad opažaš objasni. 
-                4. Silu kojom tekućina djeluje na uronjeno tijelo nazivamo... 
-                5. a) U čašu s vodom stavi kokošje jaje. Opiši i skiciraj što si opazila. b) Dodaj 3 velike žlice soli i dobro promiješaj. Ponovno stavi jaje u vodu. Skiciraj i opiši što uočavaš. Opiši kako to objašnjavaš ? 
-                6. Tijelo A ima masu 200 g i volumen 1 L, a tijelo B ima masu 100 g i volumen 10 cm3 . Što će se dogoditi s tijelima kad ih stavimo u vodu gustoće 1000 kg/m3 . 
-                7. Tijelo mase 200 g i obujma 200 dm3 je polovicom svojega volumena uronjeno u vodu gustoće 1000 kg/m3 . a) Kolika sila uzgona djeluje na tijelo? b) Kolika sila teža djeluje na tijelo? c) Hoće li to tijelo, kad se stavi u vodu, tonuti, lebdjeti ili izranjati? d) Kolika bi bila prividna težina tog tijela u vodi?
-                8. Na slici su prikazana posuda u koju ulijevamo vodu. Nakon što se
-                uspostavi ravnoteža i voda se smiri kakva će biti razina vode u
-                pojedinim posudama i tlak u naznačenim točkama? Zaokružite
-                točne odgovore.
-                a) Razina vode u svim djelovima posude A, B C i D je jednaka
-                kako je prikazano slikom.
-                b) Slika ne prikazuje točnu situaciju već je najviša je razina u D,
-                a najmanja u B.
-                c) Tlak u svim točkama od 1 do 5 je jednak.
-                d) Najveći je tlak u točki 3 jer se iznad nje nalazi najveća masa
-                vode.
-                e) Nema točnih odgovora već za razine i tlakove vrijedi:_______________________
-                <img src="Uzgon_ZADATCI_1.png">
-                3. Na slici je prikazana posuda ispunjena vodom. Kako se odnose tlakovi u pojedinim
-točkama posude A, B i C?
-a) pA = pB = pC
-b) pA = pC < pB
-c) pA = pC > pB
-d) pA > pB > pC
-e) pA < pB < pC
-<img src="Uzgon_ZADATCI_2.png">
-5. U-cijev na slici napunjena je vodom i uljem (slika) i cijeli sustav se nalazi u ravnoteži prema podacima sa slike.
-Ako je gustoća vode 103 kg/m3 kolika je gustoća ulja?
-<img src="Uzgon_ZADATCI_4.png">
-7. Konzerva volumena 1200cm3 i mase 130g pliva na vodi. Koliku najveću masu olova gustoće 11,4g/cm3
-možemo staviti u konzervu a da ona ne potone?
-8. U posudi je živa, a iznad nje voda. Homogena željezna kugla pliva na
-granici između žive i vode, te je potpuno prekrivena vodom. Koliki je dio
-ukupnog volumena kugle u živi, a koliki u vodi?
-(gustoća žive = 13600 kg/m3 ; željeza = 7900 kg/m3; vode = 1000 kg/m3)
-<img src="Uzgon_ZADATCI_3.png">
-9. Predmet je ovješen o dinamometar. Sila koju pokazuje dinamometar kada je predmet u zraku iznosi 30N, kada
-je potpuno potopljen u vodi gustoće 1000kg/m3 iznosi 20N, a kada je potpuno potopljen u tekućini nepoznate
-gustoće iznosi 24N. Kolika je gustoća nepoznate tekućine? Zanemarite uzgon u zraku.
-10. Šuplja kugla unutarnjeg polmjera 8cm, a vanjskog 9cm pluta na tekućini gustoće 800kg/m3 tako da se polovica
-kugle nalazi u tekućini a polovica u zraku (crtež).
-Napomena: volumen kugle je 4r3/3.
-a) Kolika je masa kugle?
-b) Kolika je gustoća materijala iz kojeg je kugla načinjena?
-<img src="Uzgon_ZADATCI_5.png">
-11. Staklena čaša nalazi se u sudoperu napunjenim vodom (crtež). Čaša je
-do polovine napunjena vodom. Unutarnji volumen čaše je 500cm3, a
-njena masa kada je prazna iznosi 390g. Ako oduzmemo samo malo vode
-iz čaše ona će plutati, a ako dolijemo samo malo vode u polupunu čašu
-ona će pritiskati na dno sudopera. Kolika je gustoća stakla, ako je
-gustoća vode 1000 kg/m3?
-<img src="Uzgon_ZADATCI_6.png">
-12. Lagana opruga konstante elastičnosti 90N/m zanemarive mase pričvršćena je za pod
-(slika) Na oprugu se pričvrsti balon volumena 5m3 punjen helijem. Ukupna masa balona
-i helija u njemu iznosi 0,897kg. Ako je gustoća okolnog zraka 1,29kg/m3 izračunajte
-maksimalno produljenje opruge y.
-<img src="Uzgon_ZADATCI_7.png">
-14. Tri posude a), b) i c) potpuno jednakih dimenzija potpuno su napunjene vodom i stave se na vagu. U prvoj je
-samo voda, dok se u druge dvije nalaze patkice različitih težina (crtež).
-1) Najveću težinu pokazuje vaga a)
-2) Najveću težinu pokazuje vaga b)
-3) Najveću težinu pokazuje vaga c)
-4) Sve tri vage pokazuju jednako.
-5) Nema dovoljno podataka pa se ne može ništa zaključiti.
-<img src="Uzgon_ZADATCI_8.png">
-15. Dva homogena tijela, prvo izrađeno od hrastovine gustoće 0,8 g/cm3 i drugo izrađeno iz aluminija gustoće
-2,7 g/cm3 bačena su u vodu gustoće 1 g/cm3. Oba tijela imaju jednaku masu od 1 g. Koji od predloženih
-odgovora je ispravan nakon što se tijela smire?
+	Tri posude a), b) i c) potpuno jednakih dimenzija potpuno su napunjene vodom i stave se na vagu. U prvoj je samo voda, dok se u druge dvije nalaze patkice različitih težina (crtež).
+	Najveću težinu pokazuje vaga a)
+	Najveću težinu pokazuje vaga b)
+	Najveću težinu pokazuje vaga c)
+	Sve tri vage pokazuju jednako.
+	Dva homogena tijela, prvo izrađeno od hrastovine gustoće 0,8" 					" 〖"g/cm" 〗^3 i drugo izrađeno iz aluminija gustoće 2,7" 					" 〖"g/cm" 〗^3, bačena su u vodu gustoće 1" 					" 〖"g/cm" 〗^3. Oba tijela imaju jednaku masu od 1 g. Koji od predloženih odgovora je ispravan nakon što se tijela smire?
 a) Veća sila uzgona djeluje na tijelo izrađeno od aluminija.
 b) Veća sila uzgona djeluje na tijelo izrađeno od hrastovine.
 c) Sila uzgona jednaka je na oba tijela.
 d) Na tijelo od hrastovine ne djeluje sila uzgona jer ono pliva na vodi.
 e) Na tijelo od hrastovine ne djeluje sila uzgona jer ono tone.
-16. Lopticu za stolni tenis mase 5 g i volumena 1,410−5 m3 uronimo
-u vodu na dubinu 35 cm. kada lopticu ispustimo ona odskoči na
-visinu 15 cm iznad razine vode. Koliko je energije pritom prešlo
-u toplinu zbog otpora vode ako zanemarimo otpor u zraku?
-<img src="Uzgon_ZADATCI_9.png">
-3. Dvije kugle jednakih volumena, jedna od zlata, a druga od bakra ovješene su o niti, kao što je
-prikazano na crtežu. Tako se ovješene kugle urone u vodu. Zbog toga se iznos sile napetosti niti na koju
-je ovješena kugla od zlata smanji za ∆FAu, a kod kugle od bakra za ∆FCu. Koji odnos vrijedi za ∆FAu i ∆FCu?
-(j 2013.)
-A. ∆FAu<∆FCu
-B. ∆FAu=∆FCu
-C. ∆FAu>∆FCu
-<img src="Uzgon_ZADATCI_10.png">
-4. Graf prikazuje ovisnost hidrostatskoga tlaka p o dubini h za četiri tekućine označene brojevima 1, 2, 3 i 4 koje
-su različitih gustoća. Kojim je grafom prikazana tekućina najmanje gustoće? (ni 2008.)
+	U automobilskoj gumi nadtlak (tlak iznad atmosferskog tlaka) iznosi 2⋅10^5 " Pa" . Ako je dodirna površina svake od četiri gume automobila s tlom 0,024" 					" "m" ^2, kolika je masa automobila?
+Rješenje: 480 kg
+	Normirani atmosferski tlak odgovara stupcu žive od 76 cm (slika). Koliki bi stupac vode odgovarao tom tlaku ako znamo da je gustoća žive 13,6 puta veća od gustoće vode?
+Rješenje: 9,792 m
+	U-cijev na slici napunjena je vodom i uljem (slika) i cijeli sustav se nalazi u ravnoteži prema podacima sa slike. Ako je gustoća vode 10^3 " 					" 〖"kg/m" 〗^3 kolika je gustoća ulja?
+	Plastična vrećica na slici sadrži otopinu glukoze gustoće 1,2⋅10^3 " 					" 〖"kg/m" 〗^3. Ako je tlak u arteriji čovjeka na slici 1,33⋅10^4 " Pa"  iznad atmosferskog, kolika mora biti najmanja visina h na kojoj držimo vrećicu pa da otopina ulazi u arteriju?
+Rješenje
+	U automobilskoj gumi nadtlak (tlak iznad atmosferskog tlaka) iznosi 2⋅10^5 " Pa" . Ako je dodirna površina svake od četiri gume automobila s tlom 0,024" 					" "m" ^2, kolika je masa automobila?
+	Normirani atmosferski tlak odgovara stupcu žive od 76 cm (slika).
+Koliki bi stupac vode odgovarao tom tlaku ako znamo da je gustoća žive 13,6 puta veća od guste vode?
+(Tlak_ZADATCI_1.png)
+	Plastična vrećica na slici sadrži otopinu glukoze gustoće 1,2⋅10^3 " 					" 〖"kg/m" 〗^3. Ako je tlak u arteriji čovjeka na slici 1,33⋅10^4 " Pa"  iznad atmosferskog, kolika mora biti najmanja visina h na kojoj držimo vrećicu pa da otopina ulazi u arteriju?
+(Tlak_ZADATCI_2.png)
+	Olovna i aluminijska homogena kugla obješene su na vagu jednakih krakova i kada su u zraku nalaze se u ravnoteži (crtež). Pritom su gustoće: ρ_"Pb" >ρ_"Al" >ρ_"zraka" . Ako cijeli sustav smjestimo pod stakleno zvono iz kojeg isišemo zrak, što će se dogoditi? Zaokružite točan odgovor!
+a) Preteže aluminijska kugla.
+b) Preteže olovna kugla.
+c) Sustav i dalje ostaje u ravnoteži.
+d) Ne može se odgovoriti jer ima premalo podataka.
+(Tlak_ZADATCI_4.png)
+	Kada je potpuno uronjeno u tekućinu, tijelo mase 1,5 kg istisne 0,8 kg tekućine. Što od navedenoga vrijedi za silu uzgona na tijelo? (lj 2011.)
+A. Sila uzgona iznosi 7 N i usmjerena je prema gore.
+B. Sila uzgona iznosi 7 N i usmjerena je prema dolje.
+C. Sila uzgona iznosi 8 N i usmjerena je prema gore.
+D. Sila uzgona iznosi 8 N i usmjerena je prema dolje.
+	(2 boda) U staklenoj se posudi nalazi voda do visine 10 cm. Posuda se nalazi u dizalu. Koliki će biti hidrostatski tlak na dno posude ako na dizalu pukne užad i ono počinje slobodno padati? Gustoća vode je 1000" 					" 〖"kg/m" 〗^3. Obrazloži svoj odgovor.
+a) 1000 Pa
+b) 2000 Pa
+c) 100 Pa
+d) 0 Pa
+	
+	(4 boda) Ako se sila na membranu tympani (bubnjić) poveća za 1,5 N iznad sile kojom atmosferski tlak djeluje na nju, to može dovesti do oštećenja membrane. Kada biste išli roniti u more bez ronilačkog odijela, nakon koje bi dubine moglo doći do oštećenja bubnjića? Tipičan promjer bubnjića je 8,2 mm. Gustoća morske vode iznosi 1,03" 					" 〖"g/cm" 〗^3.
+	Tlak (konceptualni zadatak)
+Primjer zadatka: (2 boda) Na dubini h u jezeru ukupni tlak iznosi 3p_0, gdje je p_0 atmosferski tlak. Koliki je tlak u tom jezeru na dubini 2h? Obrazloži svoj odgovor.
+a) p_0
+b) 6p_0
+c) 3p_0
+d) 5p_0
+	Tlak (numerički zadatak)
+Primjer zadatka: (5 bodova) U laboratoriju iz fizike su učenici trebali odrediti gustoću nepoznate tekućine. U pokusu su koristili U-cijev, vodu, mjernu vrpcu i nepoznatu tekućinu.
+a) (1 bod) Skiciraj kako će izgledati razine tekućina u U-cijevi nakon ulijevanja vode i nepoznate tekućine.
+b) (2 boda) Izvedi izraz iz kojeg ćeš odrediti gustoću nepoznate tekućine.
+c) (2 boda) Rezultati mjerenja učenika u laboratoriju su:
+(Tlak_ZADATCI_5.png)
+________________________________________
+Uzgon
+________________________________________
+Teorija
+Uzgon
+	sila u fluidima koja prividno smanjuje težinu tijela uronjenog u fluid onoliko koliko iznosi težina istisnute tekućine (Arhimedov zakon)
+	uzgon postoji i u plinovima, ali je najčešće zanemariv (navedite primjer kad ne možemo zanemariti uzgon u zraku)
+	formula za uzgon je:
+F_u=ρ_("teku" "c"  ˊ"ine" ) gV_"uronjenog tijela" 
+
+	kad tijelo ubacimo u tekućinu ono može raditi sljedeće:
+	tijelo tone ako je F_g>F_u ili ρ_"tijela" >ρ_("teku" "c"  ˊ"ine" )
+	tijelo lebdi ako je F_g=F_u ili ρ_"tijela" =ρ_("teku" "c"  ˊ"ine" )
+	tijelo izranja ako je F_g<F_u ili ρ_"tijela" <ρ_("teku" "c"  ˊ"ine" )
+________________________________________
+Zadatci
+	Kroz vodu podižeš veći kamen kojega želiš izvući na obalu. Koju promjenu osjećaš dok kamen izvlačiš iz vode? Je li kamen bilo lakše podizati dok je bio cijeli u vodi?
+	U čašu s vodom na površinu spusti kuglicu plastelina. Skiciraj i opiši što uočavaš.
+	Kuglicu plastelina preoblikuj u malu lađicu i ponovno ju pusti na površinu vode. Skiciraj i opiši što sad opažaš, objasni.
+	Silu kojom tekućina djeluje na uronjeno tijelo nazivamo...
+	a) U čašu s vodom stavi kokošje jaje. Opiši i skiciraj što si opazila.
+b) Dodaj 3 velike žlice soli i dobro promiješaj. Ponovno stavi jaje u vodu. Skiciraj i opiši što uočavaš. Opiši kako to objašnjavaš?
+	Tijelo A ima masu 200 g i volumen 1 L, a tijelo B ima masu 100 g i volumen 10" 					" 〖"cm" 〗^3. Što će se dogoditi s tijelima kad ih stavimo u vodu gustoće 1000" 					" 〖"kg/m" 〗^3?
+	Tijelo mase 200 g i obujma 200" 					" 〖"dm" 〗^3 je polovicom svojega volumena uronjeno u vodu gustoće 1000" 					" 〖"kg/m" 〗^3.
+a) Kolika sila uzgona djeluje na tijelo?
+b) Kolika sila teža djeluje na tijelo?
+c) Hoće li to tijelo, kad se stavi u vodu, tonuti, lebdjeti ili izranjati?
+d) Kolika bi bila prividna težina tog tijela u vodi?
+	Na slici su prikazana posuda u koju ulijevamo vodu. Nakon što se uspostavi ravnoteža i voda se smiri, kakva će biti razina vode u pojedinim posudama i tlak u naznačenim točkama? Zaokružite točne odgovore.
+a) Razina vode u svim dijelovima posude A, B, C i D je jednaka kako je prikazano slikom.
+b) Slika ne prikazuje točnu situaciju već je najviša razina u D, a najmanja u B.
+c) Tlak u svim točkama od 1 do 5 je jednak.
+d) Najveći je tlak u točki 3 jer se iznad nje nalazi najveća masa vode.
+e) Nema točnih odgovora već za razine i tlakove vrijedi: _______________________
+(Uzgon_ZADATCI_1.png)
+	Na slici je prikazana posuda ispunjena vodom. Kako se odnose tlakovi u pojedinim točkama posude A, B i C?
+a) p_A=p_B=p_C
+b) p_A=p_C<p_B
+c) p_A=p_C>p_B
+d) p_A>p_B>p_C
+e) p_A<p_B<p_C
+(Uzgon_ZADATCI_2.png)
+	U-cijev na slici napunjena je vodom i uljem (slika) i cijeli sustav se nalazi u ravnoteži prema podacima sa slike. Ako je gustoća vode 10^3 " 					" 〖"kg/m" 〗^3 kolika je gustoća ulja?
+(Uzgon_ZADATCI_4.png)
+	Konzerva volumena 1200" 					" 〖"cm" 〗^3 i mase 130 g pliva na vodi. Koliku najveću masu olova gustoće 11,4" 					" 〖"g/cm" 〗^3 možemo staviti u konzervu a da ona ne potone?
+	U posudi je živa, a iznad nje voda. Homogena željezna kugla pliva na granici između žive i vode, te je potpuno prekrivena vodom. Koliki je dio ukupnog volumena kugle u živi, a koliki u vodi?
+(gustoća žive =13600" 					" 〖"kg/m" 〗^3; ρ_("z"  ̌"eljeza" )=7900" 					" 〖"kg/m" 〗^3; ρ_"vode" =1000" 					" 〖"kg/m" 〗^3)
+(Uzgon_ZADATCI_3.png)
+	Predmet je ovješen o dinamometar. Sila koju pokazuje dinamometar kada je predmet u zraku iznosi 30 N, kada je potpuno potopljen u vodi gustoće 1000" 					" 〖"kg/m" 〗^3 iznosi 20 N, a kada je potpuno potopljen u tekućini nepoznate gustoće iznosi 24 N. Kolika je gustoća nepoznate tekućine? Zanemarite uzgon u zraku.
+	Šuplja kugla unutarnjeg polumjera 8 cm, a vanjskog 9 cm pluta na tekućini gustoće 800" 					" 〖"kg/m" 〗^3 tako da se polovica kugle nalazi u tekućini, a polovica u zraku (crtež).
+Napomena: volumen kugle je 4πr^3/3.
+a) Kolika je masa kugle?
+b) Kolika je gustoća materijala iz kojeg je kugla načinjena?
+(Uzgon_ZADATCI_5.png)
+	Staklena čaša nalazi se u sudoperu napunjenom vodom (crtež). Čaša je do polovine napunjena vodom. Unutarnji volumen čaše je 500" 					" 〖"cm" 〗^3, a njena masa kada je prazna iznosi 390 g. Ako oduzmemo samo malo vode iz čaše ona će plutati, a ako dolijemo samo malo vode u polupunu čašu ona će pritiskati na dno sudopera. Kolika je gustoća stakla, ako je gustoća vode 1000" 					" 〖"kg/m" 〗^3?
+(Uzgon_ZADATCI_6.png)
+	Lagana opruga konstante elastičnosti 90 N/m zanemarive mase pričvršćena je za pod (slika). Na oprugu se pričvrsti balon volumena 5" 					" "m" ^3 punjen helijem. Ukupna masa balona i helija u njemu iznosi 0,897 kg. Ako je gustoća okolnog zraka 1,29" 					" 〖"kg/m" 〗^3 izračunajte maksimalno produljenje opruge y.
+(Uzgon_ZADATCI_7.png)
+	Tri posude a), b) i c) potpuno jednakih dimenzija potpuno su napunjene vodom i stave se na vagu. U prvoj je samo voda, dok se u druge dvije nalaze patkice različitih težina (crtež).
+	Najveću težinu pokazuje vaga a)
+	Najveću težinu pokazuje vaga b)
+	Najveću težinu pokazuje vaga c)
+	Sve tri vage pokazuju jednako.
+	Nema dovoljno podataka pa se ne može ništa zaključiti.
+(Uzgon_ZADATCI_8.png)
+	Dva homogena tijela, prvo izrađeno od hrastovine gustoće 0,8" 					" 〖"g/cm" 〗^3 i drugo izrađeno iz aluminija gustoće 2,7" 					" 〖"g/cm" 〗^3 bačena su u vodu gustoće 1" 					" 〖"g/cm" 〗^3. Oba tijela imaju jednaku masu od 1 g. Koji od predloženih odgovora je ispravan nakon što se tijela smire?
+a) Veća sila uzgona djeluje na tijelo izrađeno od aluminija.
+b) Veća sila uzgona djeluje na tijelo izrađeno od hrastovine.
+c) Sila uzgona jednaka je na oba tijela.
+d) Na tijelo od hrastovine ne djeluje sila uzgona jer ono pliva na vodi.
+e) Na tijelo od hrastovine ne djeluje sila uzgona jer ono tone.
+	Lopticu za stolni tenis mase 5 g i volumena 1,4⋅10^(-5) " 					" "m" ^3 uronimo u vodu na dubinu 35 cm. Kada lopticu ispustimo ona odskoči na visinu 15 cm iznad razine vode. Koliko je energije pritom prešlo u toplinu zbog otpora vode ako zanemarimo otpor u zraku?
+(Uzgon_ZADATCI_9.png)
+	Dvije kugle jednakih volumena, jedna od zlata, a druga od bakra ovješene su o niti, kao što je prikazano na crtežu. Tako se ovješene kugle urone u vodu. Zbog toga se iznos sile napetosti niti na koju je ovješena kugla od zlata smanji za ΔF_"Au" , a kod kugle od bakra za ΔF_"Cu" . Koji odnos vrijedi za ΔF_"Au"  i ΔF_"Cu" ? (j 2013.)
+A. ΔF_"Au" <ΔF_"Cu" 
+B. ΔF_"Au" =ΔF_"Cu" 
+C. ΔF_"Au" >ΔF_"Cu" 
+(Uzgon_ZADATCI_10.png)
+	Graf prikazuje ovisnost hidrostatskoga tlaka p o dubini h za četiri tekućine označene brojevima 1, 2, 3 i 4 koje su različitih gustoća. Kojim je grafom prikazana tekućina najmanje gustoće? (ni 2008.)
 A. 1
 B. 2
 C. 3
 D. 4
-<img src="Uzgon_ZADATCI_11.png">
-5. Balon mase 90 kg pada kroz zrak. Na balon djeluju sila otpora zraka od 300 N i sila uzgona od 60 N.
-Kolikom akceleracijom pada balon? (lj 2011., 2)
-6. Kamen mase 15 kg spustimo u vodu. Koliko iznosi rezultantna sila na kamen dok tone i dok je cijelim
-obujmom ispod površine vode (kao što je prikazano na crtežu) prije nego što dotakne dno? Gustoća kamena
-je 2 500 kgm-3, a vode 1 000 kgm-3. Zanemarite viskoznost vode. (lj 2013., 4)
-<img src="Uzgon_ZADATCI_12.png">
-7. Preko učvršćene koloture prebačen je konop. Na jednome kraj u konopa visi uteg mase m=5kg, uronjen u
-vodu, a na drugome kraju visi uteg mase m2=4 kg. Kolotura je u ravnoteži. Kolika sila uzgona djeluje na uteg u
-vodi? (ni 2008., 4)
-<img src="Uzgon_ZADATCI_13.png">
-8. Uteg mase 1 kg ovješen je na dinamometar i uronjen u tekućinu gustoće 1 kg/dm3. Dinamometar pokazuje
-silu iznosa 8 N. Koliki je obujam toga utega? (lj 2015., 4)
-9. Prazna plastična čaša mase 100 g pliva na vodi tako da je ¼ volumena čaše uronjena u vodu. Koliki se
-volumen ulja može uliti u čašu da ona još uvijek ne potone? Gustoća ulja iznosi 900 kg/m3, a gustoća vode
-1000 kg/m3. (lj 2017., 4)
-2. (2 boda) Tijelo pluta na površini vode tako da je 3/4 volumena tijela uronjeno u vodu gustoće 1000 kg/m3.
-Kada se u posudu nadolije tekućina gustoće 800 kg/m3 tako da pokrije tijelo, što će se dogoditi?
-Obrazloži svoj odgovor.
+(Uzgon_ZADATCI_11.png)
+	Balon mase 90 kg pada kroz zrak. Na balon djeluju sila otpora zraka od 300 N i sila uzgona od 60 N. Kolikom akceleracijom pada balon? (lj 2011., 2)
+	Kamen mase 15 kg spustimo u vodu. Koliko iznosi rezultantna sila na kamen dok tone i dok je cijelim obujmom ispod površine vode (kao što je prikazano na crtežu) prije nego što dotakne dno? Gustoća kamena je 2500" 					" 〖"kg/m" 〗^3, a vode 1000" 					" 〖"kg/m" 〗^3. Zanemarite viskoznost vode. (lj 2013., 4)
+(Uzgon_ZADATCI_12.png)
+	Preko učvršćene koloture prebačen je konop. Na jednome kraju konopa visi uteg mase m=5" kg" , uronjen u vodu, a na drugome kraju visi uteg mase m_2=4" kg" . Kolotura je u ravnoteži. Kolika sila uzgona djeluje na uteg u vodi? (ni 2008., 4)
+(Uzgon_ZADATCI_13.png)
+	Uteg mase 1 kg ovješen je na dinamometar i uronjen u tekućinu gustoće 1" 					" 〖"kg/dm" 〗^3. Dinamometar pokazuje silu iznosa 8 N. Koliki je obujam toga utega? (lj 2015., 4)
+	Prazna plastična čaša mase 100 g pliva na vodi tako da je 1/4 volumena čaše uronjena u vodu. Koliki se volumen ulja može uliti u čašu da ona još uvijek ne potone? Gustoća ulja iznosi 900" 					" 〖"kg/m" 〗^3, a gustoća vode 1000" 					" 〖"kg/m" 〗^3. (lj 2017., 4)
+	(2 boda) Tijelo pluta na površini vode tako da je 3/4 volumena tijela uronjeno u vodu gustoće 1000" 					" 〖"kg/m" 〗^3. Kada se u posudu nadolije tekućina gustoće 800" 					" 〖"kg/m" 〗^3 tako da pokrije tijelo, što će se dogoditi? Obrazloži svoj odgovor.
 a) Tijelo će ostati na prijašnjem mjestu.
 b) Tijelo će se malo pomaknuti prema gore, ali neće isplivati na površinu.
 c) Tijelo će potonuti na dno.
 d) Tijelo će isplivati na površinu.
-13. U komad parafina mase 170 g umetnut je komad aluminija. Kolika je masa aluminija ako takvo
-tijelo lebdi u vodi? Gustoća vode je 1 g/cm3, parafina 0,9 g/cm3, a aluminija 2,7 g/cm3
-5. Uzgon (numerički zadatak)
-Primjer zadatka: (5 bodova) Kada je predmet uronjen u vodu dinamometar pokazuje 60 N, a u benzinu 90 N. Kolika
-je masa predmeta ako su gustoće vode vode = 1000 kg/m3 i bezina benzina = 700 kg/m3? Gustoća materijala od
-kojeg je izrađen predmet veća je od gustoće vode.
-2. Uzgon (konceptualni zadatak)
-Primjer zadatka: (2 boda) U fluid gustoće ρ uroni se tijelo obujma V i težine G te na njega djeluje sila uzgona U.
-Kolika je sila uzgona na isto tijelo koje je u tekućini 20% manje gustoće uronjeno sa 90% obujma? Obrazloži
-svoj odgovor.
-a. 0,8 U
-b. 0,9 U
-c. 0,18 U
-d. 0,72 U
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
- <h2>Fluidi u gibanju</h2>
----------------------------------------------------------------------------------------------------------------------------------------------------
+	U komad parafina mase 170 g umetnut je komad aluminija. Kolika je masa aluminija ako takvo tijelo lebdi u vodi? Gustoća vode je 1" 					" 〖"g/cm" 〗^3, parafina 0,9" 					" 〖"g/cm" 〗^3, a aluminija 2,7" 					" 〖"g/cm" 〗^3.
+	Uzgon (numerički zadatak)
+Primjer zadatka: (5 bodova) Kada je predmet uronjen u vodu dinamometar pokazuje 60 N, a u benzinu 90 N. Kolika je masa predmeta ako su gustoće vode ρ_"vode" =1000" 					" 〖"kg/m" 〗^3 i benzina ρ_"benzina" =700" 					" 〖"kg/m" 〗^3? Gustoća materijala od kojeg je izrađen predmet veća je od gustoće vode.
+	Uzgon (konceptualni zadatak)
+Primjer zadatka: (2 boda) U fluid gustoće ρ uroni se tijelo obujma V i težine G te na njega djeluje sila uzgona U. Kolika je sila uzgona na isto tijelo koje je u tekućini 20% manje gustoće uronjeno sa 90% obujma? Obrazloži svoj odgovor.
+a) 0,8 U
+b) 0,9 U
+c) 0,18 U
+d) 0,72 U
+________________________________________
+________________________________________
+________________________________________
+Fluidi u gibanju
+________________________________________
 Teorija
-img src="Fluidi u gibanju_1.png" url="načini gibanja" class="zoomable-image" data-row="1">
-<p class="zoomable-text">
-                - promatramo idealne fluide (u njima nema unutrašnjeg trenja)<br>
-                <b>- Gibanje fluida</b><br>
-                &nbsp;&nbsp;&nbsp;&nbsp; - gibanje fluida može biti laminarno ili vrtložno <br>
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - laminarno gibanje<br>
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - pojavljuje pri malim brzinama<br> 
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - može se predočiti pomoću strujnica (crta kojima se tangenta u svakoj točki podudara sa smjerom brzine gibanja) <br>
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - strujnice su za laminarno gibanje neprekinute krivulje <br>
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; turbulentno gibanje
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - brzina fluida postane veća od neke kritične brzine,slojevi fluida se miješaju, čestice prelaze iz jednog sloja u drugi i nastaju vrtlozi)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - vrtložno gibanje 
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - dijelovi se fluida gibaju po kružnim i vrtložnim stazama <br>
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;- strujnice zavinute prekinute krivulje<br>
-                <b>Strujanje fluida</b><br>
-                &nbsp;&nbsp;&nbsp;&nbsp; - strujanje može biti stacionarno i nestacionarno <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - stacionarno gibanje<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pri gibanju strujnice ostaju nepromijenjene tijekom vremena <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ukoliko fluid teče kroz cijev, volumni protok iznosi:<br>
-                <div class="eq-c">
-                q=
-                <div class="fraction">
-                  <span class="fup">V<SUB>korisna</SUB></span>
-                  <span class="bar">/</span>
-                  <span class="fdn">t<sub>uložena</sub></span>
-                </div>
-                =S*v
-                </div>
-                <!---->
-                &nbsp;&nbsp;&nbsp;&nbsp; - ako fluid protječe kroz cijev različitog presjeka, vrijedi jednadžba kontinuiteta:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; q<sub>1</sub>=q<sub>2</sub><br>
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; S<sub>1</sub>v<sub>1</sub>=S<sub>2</sub>v<sub>2</sub><br>
-                &nbsp;&nbsp;&nbsp;&nbsp; - primijenimo zakon očuvanja energije na fluid unutar cijev<br>
-                <b>- Bernoullijeva formula</b>
-                &nbsp;&nbsp;&nbsp;&nbsp; - tlak p je tlak vanjskih sila (statički tlak), <br>
-                &nbsp;&nbsp;&nbsp;&nbsp; - srednji član je hidrostatski tlak, <br>
-                &nbsp;&nbsp;&nbsp;&nbsp; - zadnji je dinamički tlak koji nastaje zbog gibanja fluida <br>
-                &nbsp;&nbsp;&nbsp;&nbsp; - ukoliko se u nekoj posudi nalazi tekućina i na visini h ispod površine vode probušimo rupu u posudi, tekućina će istjecati brzinom (Torricellijev zakon): <br>
-                <div class="eq-c">
-                  v=
-                  <span class="radical"><span class="n-root"></span>&radic;</span><span class="radicand">2*g*h</span>
-                </div>
-                &nbsp;&nbsp;&nbsp;&nbsp; - ako je cijev na nekom mjestu osobito uska tada brzina u tom dijelu cijevi postaje vrlo velika pri čemu raste dinamički tlak te on možepostati veći od ukupnog tlaka <br> 
-                &nbsp;&nbsp;&nbsp;&nbsp; - da bi ukupni tlak ostao isti, statički tlak p mora postati negativan (pritom sila djeluje u suprotnom smjeru → prema unutra, a ne prema van) (rad raspršivača) <br>
-                PRIMJENE BERNOULIJEVE JEDNADŽBE
-              </p>
-              <img src="Fluidi u gibanju_4.png" class="zoomable-image" data-row="2">
-              <img src="Fluidi u gibanju_5.png" class="zoomable-image" data-row="2">
----------------------------------------------------------------------------------------------------------------------------------------------------
+(Fluidi u gibanju_1.png – načini gibanja)
+	promatramo idealne fluide (u njima nema unutarnjeg trenja)
+Gibanje fluida
+	gibanje fluida može biti laminarno ili vrtložno
+	laminarno gibanje
+	pojavljuje se pri malim brzinama
+	može se predočiti pomoću strujnica (crta kojima se tangenta u svakoj točki podudara sa smjerom brzine gibanja)
+	strujnice su za laminarno gibanje neprekinute krivulje
+	turbulentno gibanje
+	brzina fluida postane veća od neke kritične brzine, slojevi fluida se miješaju, čestice prelaze iz jednog sloja u drugi i nastaju vrtlozi
+	vrtložno gibanje
+	dijelovi se fluida gibaju po kružnim i vrtložnim stazama
+	strujnice su zavinute, prekinute krivulje
+Strujanje fluida
+	strujanje može biti stacionarno i nestacionarno
+	stacionarno gibanje
+	pri gibanju strujnice ostaju nepromijenjene tijekom vremena
+	ukoliko fluid teče kroz cijev, volumni protok iznosi
+q=V/t=Sv
+
+gdje je q volumni protok, V volumen, t vrijeme, S površina presjeka cijevi, v brzina fluida.
+	ako fluid protječe kroz cijev različitog presjeka, vrijedi jednadžba kontinuiteta
+q_1=q_2
+S_1 v_1=S_2 v_2
+
+(za nestlačivu tekućinu)
+	primijenimo zakon očuvanja energije na fluid unutar cijevi
+Bernoullijeva formula
+	za idealni, nestlačivi fluid pri stacionarnom strujanju vrijedi Bernoullijeva jednadžba
+p+ρgh+1/2 ρv^2="konst." 
+
+gdje je p statički tlak, ρgh hidrostatski tlak, a 1/2 ρv^2 dinamički tlak.
+	tlak p je tlak vanjskih sila (statički tlak)
+	srednji član je hidrostatski tlak
+	zadnji je dinamički tlak koji nastaje zbog gibanja fluida
+	ukoliko se u nekoj posudi nalazi tekućina i na visini h ispod površine vode probušimo rupu u posudi, tekućina će istjecati brzinom (Torricellijev zakon):
+v=√2gh
+
+	ako je cijev na nekom mjestu osobito uska tada brzina u tom dijelu cijevi postaje vrlo velika pri čemu raste dinamički tlak te on može postati veći od ukupnog tlaka
+	da bi ukupni tlak ostao isti, statički tlak p mora postati negativan (pritom sila djeluje u suprotnom smjeru – prema unutra, a ne prema van) (rad raspršivača)
+PRIMJENE BERNOULLIJEVE JEDNADŽBE
+(Fluidi u gibanju_4.png)
+(Fluidi u gibanju_5.png)
+________________________________________
 Zadatci
-<p>
-                1. Cijev kroz koju protječe benzin na širem dijelu ima promjer 5 cm, a na užem 2,5 cm. Kolike su brzine protjecanja benzina u a) širem dijelu cijevi, b) užem dijelu cijevi ako je maseni protok 17,5 kg/min? Gustoća benzina je 700 kg/m3 . 
-                2. Za koliko se vremena napuni posuda volumena 0,72 m3 koja se puni vodom kroz cijev površine poprečnog presjeka 1 cm2 ako voda izlazi iz cijevi brzinom 2 m/s? 
-                3. Voda struji kroz horizontalno postavljenu cijev čije su dimenzije dane na slici. Brzina kojom voda istječe iz užeg dijela cijevi je v2= 15 m/s. Koliki volumen vode prođe kroz cijev tijekom 10 minuta? Kolika je brzina vode u širem dijelu cijevi? Kolika je razlika statičkih tlakova između šireg i užeg dijela cijevi?
-              </p>
-              <img src="Fluidi u gibanju_7.png" />
-              <p>
-                4. Mlazovi vode koji izlaze iz dviju malih rupica smještenih na udaljenosti 5 cm i 12 cm od dna posude napunjene vodom udaraju o pod na istom mjestu (crtež). Kolika je visina vode u posudi?
-              </p>
-              <img src="Fluidi u gibanju_8.png" />
-              <p>
-                1. Tijelo A mase mA i tijelo B mase mB miruju u tekućini gustoće ρ kao što je prikazano na slici. U
-kakvome su odnosu mase tih tijela? (j 2018.)
-A. mA < mB
-B. mA > mB
-C. mA = mB
-<img src="Fluidi_u_gibanju_ZADATCI_1.png">
-2. Tijela A i B uronjena su u potpunosti u tekućinu gustoće ρ. Za mase tijela vrijedi mA= 2mB, a za
-njihove gustoće vrijedi ρA= ρB/3. Kako se odnose sile uzgona FUA i FUB na ta dva tijela? (lj 2019.)
-A.
-2 3
-UA
-UB
-F F
-=
-B. UA 1
-UB
-F F
-=
-C.
-3 2
-UA
-UB
-F F
-=
-D. UA 6
-UB
-F F
-=
-3. Nastavnik je u razred donio dva balona jednakih volumena, jedan napunjen helijem, a drugi
-napunjen zrakom. Koja od navedenih tvrdnja vrijedi za iznos sile uzgona na pojedini balon? (j 2019.)
+	Cijev kroz koju protječe benzin na širem dijelu ima promjer 5 cm, a na užem 2,5 cm. Kolike su brzine protjecanja benzina u a) širem dijelu cijevi, b) užem dijelu cijevi ako je maseni protok 17,5 kg/min? Gustoća benzina je 700" 					" 〖"kg/m" 〗^3.
+	Za koliko se vremena napuni posuda volumena 0,72" 					" "m" ^3 koja se puni vodom kroz cijev površine poprečnog presjeka 1" 					" 〖"cm" 〗^2 ako voda izlazi iz cijevi brzinom 2 m/s?
+	Voda struji kroz horizontalno postavljenu cijev čije su dimenzije dane na slici. Brzina kojom voda istječe iz užeg dijela cijevi je v_2=15" m/s" . Koliki volumen vode prođe kroz cijev tijekom 10 minuta? Kolika je brzina vode u širem dijelu cijevi? Kolika je razlika statičkih tlakova između šireg i užeg dijela cijevi?
+(Fluidi u gibanju_7.png)
+	Mlazovi vode koji izlaze iz dviju malih rupica smještenih na udaljenosti 5 cm i 12 cm od dna posude napunjene vodom udaraju o pod na istom mjestu (crtež). Kolika je visina vode u posudi?
+(Fluidi u gibanju_8.png)
+	Tijelo A mase m_A i tijelo B mase m_B miruju u tekućini gustoće ρ kao što je prikazano na slici. U kakvome su odnosu mase tih tijela? (j 2018.)
+A. m_A<m_B
+B. m_A>m_B
+C. m_A=m_B
+(Fluidi_u_gibanju_ZADATCI_1.png)
+	Tijela A i B uronjena su u potpunosti u tekućinu gustoće ρ. Za mase tijela vrijedi m_A=2m_B, a za njihove gustoće vrijedi ρ_A=ρ_B/3. Kako se odnose sile uzgona F_UA i F_UB na ta dva tijela? (lj 2019.)
+A. F_UA/F_UB =2/3
+B. F_UA/F_UB =1
+C. F_UA/F_UB =3/2
+D. F_UA/F_UB =6
+	Nastavnik je u razred donio dva balona jednakih volumena, jedan napunjen helijem, a drugi napunjen zrakom. Koja od navedenih tvrdnja vrijedi za iznos sile uzgona na pojedini balon? (j 2019.)
 A. Iznos sile uzgona veći je na balon napunjen helijem.
 B. Iznos sile uzgona veći je na balon napunjen zrakom.
 C. Iznos sile uzgona jednak je na oba balona.
 D. Sila uzgona ne djeluje na balon napunjen zrakom.
-4. U posudi se nalazi voda na čijoj površini pluta kuglica tako da je polovina obujma kuglice uronjena
-u vodu. Koja je od navedenih tvrdnja ispravna ako se na površinu vode dolije ulje? Pretpostavite da
-se voda i ulje ne miješaju. Gustoća kuglice veća je od gustoće ulja, a manja od gustoće vode. (lj 2020.)
+	U posudi se nalazi voda na čijoj površini pluta kuglica tako da je polovina obujma kuglice uronjena u vodu. Koja je od navedenih tvrdnja ispravna ako se na površinu vode dolije ulje? Pretpostavite da se voda i ulje ne miješaju. Gustoća kuglice veća je od gustoće ulja, a manja od gustoće vode. (lj 2020.)
 A. Više od polovine obujma kuglice uronjeno je u vodu.
 B. Polovina obujma kuglice uronjena je u vodu.
 C. Manje od polovine obujma kuglice uronjeno je u vodu.
-5. U cijevi se nalazi voda gustoće 1000 kg/m3 i tekućina nepoznate gustoće:
-<img src="Fluidi_u_gibanju_ZADATCI_2.png">
-Mjerenja visine stupca vode h1 i visine stupca nepoznate tekućine h2 dana su u tablici:
-<img src="Fluidi_u_gibanju_ZADATCI_3.png">
-Na označenom presjeku A hidrostatski tlak nepoznate tekućine u lijevom kraku jednak je
-hidrostatskom tlaku vode u desnom kraku cijevi. Kolike su srednja vrijednost i maksimalna apsolutna
-pogreška gustoće nepoznate tekućine? (ni 2007., 4)
-6. Komad pluta obujma 500 cm3 pliva na vodi. Pluto pritisnemo rukom tako da ono potpuno uroni u
-vodu. Gustoća pluta iznosi 300 kgm-3, a vode 1000 kgm-3. Kolikom silom uzgona djeluje voda na pluto
-kada je pluto potpuno uronjeno u vodu? Kolikom silom trebamo djelovati na pluto da bi ono mirovalo
-ispod površine vode? (pm 2009., 4)
-7. Balon mase 90 kg pada kroz zrak. Na balon djeluju sila otpora zraka od 300 N i sila uzgona od 60 N.
-Kolikom akceleracijom pada balon? (lj 2011., 2)
-8. Uteg mase 1 kg ovješen je na dinamometar i uronjen u tekućinu gustoće 1 kg/dm3. Dinamometar
-pokazuje silu iznosa 8 N. Koliki je obujam toga utega? (lj 2015., 4)
-9. Čamac pluta na jezeru. Koliki će obujam vode dodatno istisnuti čamac nakon što u njega uđe
-čovjek mase 70 kg? Gustoća vode iznosi 1000 kg/m3. (j 2015., 2)
-10. . Koliki tlak stvara čovjek mase 76 kg na površinu 0,048 m2? (lj 2016., 2)
-11. Na kojoj dubini h tlak u vodi iznosi 5pa? (  vode = 1000 kg/m3, pa = 1013 hPa) (j 2016., 2)
-12. Prazna plastična čaša mase 100 g pliva na vodi tako da je ¼ volumena čaše uronjena u vodu. Koliki
-se volumen ulja može uliti u čašu da ona još uvijek ne potone? Gustoća ulja iznosi 900 kg/m3, a
-gustoća vode 1000 kg/m3. (lj 2017., 4)
-13. Kroz horizontalnu cijev različitih poprečnih presjeka protječe voda. Poprečni je presjek užega
-dijela cijevi 5 cm2, a širega dijela cijevi 20 cm2. Kolike su brzine protjecanja vode u užemu i širemu
-dijelu cijevi ako je razlika statičkih tlakova ∆p = 3∙104 Pa? Gustoća vode iznosi 1000 kg/m3. (j 2017., 4)
-14. Kroz uži dio horizontalno položene cijevi polumjera 1 cm teče voda brzinom 2 m/s pri statičkome
-tlaku 2∙105 Pa. Koliki je statički tlak u širemu dijelu te cijevi polumjera 1,73 cm? Gustoća vode je 1000
-kgm-3. (lj 2018., 3)
-15. Kroz uži dio horizontalno položene cijevi polumjera 1 cm teče voda brzinom 15 m/s pri statičkome
-tlaku 2∙105 Pa. Koliki je polumjer širega dijela te cijevi ako je u tome dijelu statički tlak 3∙105 Pa?
-Gustoća vode je 1000 kgm‒3. (j 2018., 3)
-16. Kada neko tijelo ubacimo u tekućinu A gustoće ρA = 1,2 g/cm3, ono pluta na površini tako da je
-jedna četvrtina volumena tijela iznad površine tekućine. Kada isto tijelo ubacimo u tekućinu B, ono
-pluta na površini tako da je jedna trećina volumena tijela iznad površine tekućine. Kolika je gustoća ρB
-tekućine B? ( j 2020., 4)
-17. Koliki se dio volumena drvenoga čamca nalazi iznad površine morske vode ako je gustoća vode u
-kojoj se nalazi čamac 1030 kgm‒3? Gustoća drvenoga čamca iznosi 770 kgm‒3. (j 2021., 3)
-18. Čovjek stoji na dasci za stojeće veslanje volumena 185 litara. Jedna polovina volumena daske
-iznad je površine vode gustoće 1030 kg/m3. Kolika je ukupna težina čovjeka i daske? (oi 2022., 3)19. U čaši se nalazi voda na koju se pažljivo nalije ulje tako da se ne miješa s vodom. U čašu se potom
-stavi tijelo nepoznate gustoće tako da pluta između tekućina i potpuno je u njih uronjeno. Kolika je
-gustoća tijela ako se 45 % njegova volumena nalazi u vodi? (lj 2022., 3)
-ρvode = 1000 kg/m3, ρulja = 900 kg/m3
-20. Dječak drži pod vodom komad drva gustoće 800 kg/m3. Otpor vode je zanemariv. Gustoća vode
-iznosi 1000 kg/m3. Kojom će se akceleracijom komad drva početi gibati prema površini kada ga dječak
-otpusti? (j 2022., 3)
-21. Na horizontalnu cijev promjera 4 cm spojena je druga horizontalna cijev promjera 2 cm iz koje
-istječe voda u bačvu volumena 50 litara. Razlika je statičkih tlakova vode u tim dvjema cijevima 500
-Pa. Koliko je vremena potrebno kako bi se u potpunosti napunila prazna bačva u koju utječe voda iz
-cijevi? Hidrostatski tlak u cijevi je zanemariv. Gustoća vode iznosi 1000 kg/m3. (lj 2023., 4)
-22. Kroz širi dio horizontalno postavljene cijevi promjera 5 cm protječe tekućina brzinom v1 = 15
-cm/s. Kroz uži dio iste cijevi brzina protjecanja tekućine je v2 = 4v1. Koliki je promjer užega dijela cijevi
-i kolika je gustoća tekućine ako je razlika statičkih tlakova između širega i užega dijela cijevi 155 Pa?
-Hidrostatski tlak u cijevi je zanemariv. (j 2023., 4)
-2. Kroz vodoravno postavljenu cijev promjenjivog presjeka stacionarno teče voda. Kako se odnose statički
-tlakovi na presjecima S1 i S2 ako je S1>S2? (j 2011.)
-A. p1>p2
-B. p1=p2
-C. p1 je manje id p2
-10. Kroz horizontalnu cijev različitih poprečnih presjeka protječe voda. Poprečni je presjek užega dijela cijevi 5
-cm2, a širega dijela cijevi 20 cm2. Kolike su brzine protjecanja vode u užemu i širemu dijelu cijevi ako je razlika
-statičkih tlakova ∆p = 3∙104 Pa? Gustoća vode iznosi 1000 kg/m3. (j 2017., 4)
-3. (2 boda) Unutar cijevi na slici teče stalan tok vode. Voda se širi iz užeg u širi dio cijevi. Koja tvrdnja vrijedi
-za tlak i brzinu u točkama A i B? Obrazloži svoj odgovor.
-a) vA>vB; pA>pB
-b) vA<vB; pA>pB
-c) vA>vB; pA je manje od pB
-d) vA je manje od vB; pA je manje od pB
-<img src="Fluidi_u_gibanju_ZADATCI_4.png">
-6. (4 boda) Liječnik treba odrediti koliki je postotak presjeka pacijentove arterije obložen plakom. Kako bi to
-odredio, liječnik mjeri krvni tlak neposredno prije blokiranog područja protjecanja, te je izmjerio da on
-iznosi 12 kPa. Također, izmjereni krvni tlak u blokiranom području iznosi 11,5 kPa. Liječnik je odredio da
-je brzina protjecanja krvi prije blokiranog područja 30 cm/s te da je gustoća pacijentove krvi 1,06
-g/cm3. Koliki je postotak poprečnog presjeka pacijentove arterije obložen plakom?
-Primjer zadatka: (2 boda) Kroz cijev promjera R protječe fluid brzinom v. Kolika je brzina tog fluida u dijelu cijevi
-polumjera 3 R? Obrazloži svoj odgovor.
-a. v/3
-b. v/6
-c. v/36
-d. v
-6. Fluidi u gibanju (numerički zadatak)
-Primjer zadatka: ( 6 bodova) Horizontalno postavljena cijev ima na širem dijelu presjek 40 cm2, a na užem dijelu
-10 cm2. Voda protječe kroz cijev tako da u svakoj sekundi prođe 510–3 m3 vode, tzv. volumni protok. Izračunajte:
-a) brzinu vode u širem i užem dijelu cijevi. b) Razliku statičkih tlakova na tim mjestima.
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h2>Primjene Bernoullijeve jednadžbe</h2>
----------------------------------------------------------------------------------------------------------------------------------------------------
+	U cijevi se nalazi voda gustoće 1000" 					" 〖"kg/m" 〗^3 i tekućina nepoznate gustoće:
+(Fluidi_u_gibanju_ZADATCI_2.png)
+Mjerenja visine stupca vode h_1 i visine stupca nepoznate tekućine h_2 dana su u tablici:
+(Fluidi_u_gibanju_ZADATCI_3.png)
+Na označenom presjeku A hidrostatski tlak nepoznate tekućine u lijevom kraku jednak je hidrostatskom tlaku vode u desnom kraku cijevi. Kolike su srednja vrijednost i maksimalna apsolutna pogreška gustoće nepoznate tekućine? (ni 2007., 4)
+	Komad pluta obujma 500" 					" 〖"cm" 〗^3 pliva na vodi. Pluto pritisnemo rukom tako da ono potpuno uroni u vodu. Gustoća pluta iznosi 300" 					" 〖"kg/m" 〗^3, a vode 1000" 					" 〖"kg/m" 〗^3. Kolikom silom uzgona djeluje voda na pluto kada je pluto potpuno uronjeno u vodu? Kolikom silom trebamo djelovati na pluto da bi ono mirovalo ispod površine vode? (pm 2009., 4)
+	Balon mase 90 kg pada kroz zrak. Na balon djeluju sila otpora zraka od 300 N i sila uzgona od 60 N. Kolikom akceleracijom pada balon? (lj 2011., 2)
+	Uteg mase 1 kg ovješen je na dinamometar i uronjen u tekućinu gustoće 1" 					" 〖"kg/dm" 〗^3. Dinamometar pokazuje silu iznosa 8 N. Koliki je obujam toga utega? (lj 2015., 4)
+	Čamac pluta na jezeru. Koliki će obujam vode dodatno istisnuti čamac nakon što u njega uđe čovjek mase 70 kg? Gustoća vode iznosi 1000" 					" 〖"kg/m" 〗^3. (j 2015., 2)
+	Koliki tlak stvara čovjek mase 76 kg na površinu 0,048" 					" "m" ^2? (lj 2016., 2)
+	Na kojoj dubini h tlak u vodi iznosi 5 bar? (ρ_"vode" =1000" 					" 〖"kg/m" 〗^3, p_a=1013" hPa" ) (j 2016., 2)
+	Prazna plastična čaša mase 100 g pliva na vodi tako da je 1/4 volumena čaše uronjena u vodu. Koliki se volumen ulja može uliti u čašu da ona još uvijek ne potone? Gustoća ulja iznosi 900" 					" 〖"kg/m" 〗^3, a gustoća vode 1000" 					" 〖"kg/m" 〗^3. (lj 2017., 4)
+	Kroz horizontalnu cijev različitih poprečnih presjeka protječe voda. Poprečni je presjek užega dijela cijevi 5" 					" 〖"cm" 〗^2, a širega dijela cijevi 20" 					" 〖"cm" 〗^2. Kolike su brzine protjecanja vode u užem i širem dijelu cijevi ako je razlika statičkih tlakova Δp=3⋅10^4 " Pa" ? Gustoća vode iznosi 1000" 					" 〖"kg/m" 〗^3. (j 2017., 4)
+	Kroz uži dio horizontalno položene cijevi polumjera 1 cm teče voda brzinom 2 m/s pri statičkom tlaku 2⋅10^5 " Pa" . Koliki je statički tlak u širem dijelu te cijevi polumjera 1,73 cm? Gustoća vode je 1000" 					" 〖"kg/m" 〗^3. (lj 2018., 3)
+	Kroz uži dio horizontalno položene cijevi polumjera 1 cm teče voda brzinom 15 m/s pri statičkom tlaku 2⋅10^5 " Pa" . Koliki je polumjer šireg dijela te cijevi ako je u tome dijelu statički tlak 3⋅10^5 " Pa" ? Gustoća vode je 1000" 					" 〖"kg/m" 〗^3. (j 2018., 3)
+	Kada neko tijelo ubacimo u tekućinu A gustoće ρ_A=1,2" 					" 〖"g/cm" 〗^3, ono pluta na površini tako da je jedna četvrtina volumena tijela iznad površine tekućine. Kada isto tijelo ubacimo u tekućinu B, ono pluta na površini tako da je jedna trećina volumena tijela iznad površine tekućine. Kolika je gustoća ρ_B tekućine B? (j 2020., 4)
+	Koliki se dio volumena drvenog čamca nalazi iznad površine morske vode ako je gustoća vode u kojoj se nalazi čamac 1030" 					" 〖"kg/m" 〗^3? Gustoća drvenog čamca iznosi 770" 					" 〖"kg/m" 〗^3. (j 2021., 3)
+	Čovjek stoji na dasci za stojeće veslanje volumena 185 litara. Jedna polovina volumena daske iznad je površine vode gustoće 1030" 					" 〖"kg/m" 〗^3. Kolika je ukupna težina čovjeka i daske? (oi 2022., 3)
+	U čaši se nalazi voda na koju se pažljivo nalije ulje tako da se ne miješa s vodom. U čašu se potom stavi tijelo nepoznate gustoće tako da pluta između tekućina i potpuno je u njih uronjeno. Kolika je gustoća tijela ako se 45% njegova volumena nalazi u vodi? (lj 2022., 3)
+ρ_"vode" =1000" 					" 〖"kg/m" 〗^3, ρ_"ulja" =900" 					" 〖"kg/m" 〗^3
+	Dječak drži pod vodom komad drva gustoće 800" 					" 〖"kg/m" 〗^3. Otpor vode je zanemariv. Gustoća vode iznosi 1000" 					" 〖"kg/m" 〗^3. Kojom će se akceleracijom komad drva početi gibati prema površini kada ga dječak otpusti? (j 2022., 3)
+	Na horizontalnu cijev promjera 4 cm spojena je druga horizontalna cijev promjera 2 cm iz koje istječe voda u bačvu volumena 50 litara. Razlika je statičkih tlakova vode u tim dvjema cijevima 500 Pa. Koliko je vremena potrebno kako bi se u potpunosti napunila prazna bačva u koju utječe voda iz cijevi? Hidrostatski tlak u cijevi je zanemariv. Gustoća vode iznosi 1000" 					" 〖"kg/m" 〗^3. (lj 2023., 4)
+	Kroz širi dio horizontalno postavljene cijevi promjera 5 cm protječe tekućina brzinom v_1=15" cm/s" . Kroz uži dio iste cijevi brzina protjecanja tekućine je v_2=4v_1. Koliki je promjer užeg dijela cijevi i kolika je gustoća tekućine ako je razlika statičkih tlakova između šireg i užeg dijela cijevi 155 Pa? Hidrostatski tlak u cijevi je zanemariv. (j 2023., 4)
+	Kroz vodoravno postavljenu cijev promjenjivog presjeka stacionarno teče voda. Kako se odnose statički tlakovi na presjecima S_1 i S_2 ako je S_1>S_2? (j 2011.)
+A. p_1>p_2
+B. p_1=p_2
+C. p_1<p_2
+	Kroz horizontalnu cijev različitih poprečnih presjeka protječe voda. Poprečni je presjek užeg dijela cijevi 5" 					" 〖"cm" 〗^2, a šireg dijela cijevi 20" 					" 〖"cm" 〗^2. Kolike su brzine protjecanja vode u užem i širem dijelu cijevi ako je razlika statičkih tlakova Δp=3⋅10^4 " Pa" ? Gustoća vode iznosi 1000" 					" 〖"kg/m" 〗^3. (j 2017., 4)
+	(2 boda) Unutar cijevi na slici teče stalan tok vode. Voda se širi iz užeg u širi dio cijevi. Koja tvrdnja vrijedi za tlak i brzinu u točkama A i B? Obrazloži svoj odgovor.
+a) v_A>v_B; p_A>p_B
+b) v_A<v_B; p_A>p_B
+c) v_A>v_B; p_A<p_B
+d) v_A<v_B; p_A<p_B
+(Fluidi_u_gibanju_ZADATCI_4.png)
+	(4 boda) Liječnik treba odrediti koliki je postotak presjeka pacijentove arterije obložen plakom. Kako bi to odredio, liječnik mjeri krvni tlak neposredno prije blokiranog područja protjecanja, te je izmjerio da on iznosi 12 kPa. Također, izmjereni krvni tlak u blokiranom području iznosi 11,5 kPa. Liječnik je odredio da je brzina protjecanja krvi prije blokiranog područja 30 cm/s te da je gustoća pacijentove krvi 1,06" 					" 〖"g/cm" 〗^3. Koliki je postotak poprečnog presjeka pacijentove arterije obložen plakom?
+Primjer zadatka: (2 boda) Kroz cijev promjera R protječe fluid brzinom v. Kolika je brzina tog fluida u dijelu cijevi polumjera 3R? Obrazloži svoj odgovor.
+a) v/3
+b) v/6
+c) v/36
+d) v
+	Fluidi u gibanju (numerički zadatak)
+Primjer zadatka: (6 bodova) Horizontalno postavljena cijev ima na širem dijelu presjek 40" 					" 〖"cm" 〗^2, a na užem dijelu 10" 					" 〖"cm" 〗^2. Voda protječe kroz cijev tako da u svakoj sekundi prođe 5⋅10^(-3) " 					" "m" ^3 vode, tzv. volumni protok. Izračunajte:
+a) brzinu vode u širem i užem dijelu cijevi.
+b) razliku statičkih tlakova na tim mjestima.
+________________________________________
+________________________________________
+________________________________________
+Primjene Bernoullijeve jednadžbe
+________________________________________
 Teorija
-<p>
-                Pojave i principi rada nekih uređaja koji se mogu objasniti
-                Bernoullijevom jednadžbom
-              </p>
-              <img src="Fluidi u gibanju_9.png" />
-              <img src="Fluidi u gibanju_10.png" />
-              <img src="Fluidi u gibanju_11.png" />
-              <img src="Fluidi u gibanju_12.png" />
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
+Pojave i principi rada nekih uređaja koji se mogu objasniti Bernoullijevom jednadžbom:
+(Fluidi u gibanju_9.png)
+(Fluidi u gibanju_10.png)
+(Fluidi u gibanju_11.png)
+(Fluidi u gibanju_12.png)
+________________________________________
+________________________________________
+________________________________________
+________________________________________
+Temperature (POTREBNO DORADITI ODAVDJE)
+Teorija
+	proučavamo plinove; zamislimo plin u boci → sudari čestica sa stjenkama → tlak
+Brownovo gibanje
+	dokaz kaotičnog gibanja
+	uzrok takvog gibanja su sudari čestica vode s česticama peluda
+	ako posipamo čestice peluda po površini vode, uočit ćemo da se one kaotično gibaju
+Difuzija
+	za razliku od plinova i kapljevina, gdje toplinsko gibanje čestica (molekula, iona, koloidnih čestica) uzrokuje međusobno miješanje dviju ili više tvari, u čvrstim tvarima atomi i ioni difuzijom mijenjaju mjesta u kristalnoj rešetki
+	najbrža je u plinovima, sporija u kapljevinama, a najsporija u čvrstim tvarima
+	brzina difuzije neke tvari općenito se povećava s porastom temperature (jer se čestice gibaju brže) i smanjuje porastom gustoće
+	kapljevine različitih molekularnih masa koje se međusobno mogu miješati (npr. voda i alkohol) difundirat će jedna u drugu, dok će ioni ili molekule čvrstih tvari otopljenih u otapalu (npr. sol ili šećer u vodi) difundirati dok se ne postigne njihova jednolika koncentracija u otopini
+	dva metala u dodiru pokazuju malu ali jasnu tendenciju međusobne difuzije
+	difuzija je moguća i kroz polupropusnu membranu (pri osmozi i dijalizi)
+	brzina kemijske reakcije često je određena brzinom difuzije reagirajućih čestica, posebno u reakcijama čvrstih tvari
+	na difuziji se temelje i mnoge tehnološke operacije (proizvodnja elektroničkih elemenata u mikroelektronici i poluvodičkoj tehnici, modificiranje svojstava površinskih slojeva u metalurgiji, djelovanje difuzijskih vakuumskih pumpi i dr.)
+	srednja brzina molekula plina može se odrediti formulom
+v_"srednja" =(v_1+v_2+⋯+v_N)/N
 
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h2>Temperature (POTREBNO DORADITI ODAVDJE)</h2>
-Teorija
- <p>
-                - proučavamo plinove; zamislimo plin u boci → sudari čestica sa stjenkama→ tlak Brownovo gibanje - dokaz kaotičnom gibanju - uzrok takvog gibanja su sudari čestica vode s česticama peluda 
-                - ako posipamo čestice peluda po površini vode, uočit ćemo da se one kaotično gibaju - za razliku od plinova i kapljevina, gdje toplinsko gibanje čestica (molekula, iona, koloidnih čestica) uzrokuje međusobno miješanje dviju ili više tvari, u čvrstim tvarima atomi i ioni difuzijom mijenjaju mjesta u kristalnoj rešetki difuzija 
-                - najbrža u plinovima, sporija u kapljevinama, a najsporija u čvrstim tvarima. 
-                - Brzina difuzije neke tvari općenito se povećava s porastom temperature (jer se čestice gibajubrže) i smanjuje porastom gustoće 
-                - kapljevine različitih molekularnih masa koje se međusobno mogu miješati (npr. voda i alkohol) difundirat će jedna u drugu dok će ioni ili molekule čvrstih tvari otopljenih u otapalu (npr. sol ili šećer u vodi) difundirat dok se ne postigne njihova jednolika koncentracija u otopini 
-                - dva metala u dodiru pokazuju malu ali jasnu tendenciju međusobne difuzije 
-                - moguća je i kroz polupropusnu membranu (pri osmozi i dijalizi) 
-                - brzina kemijske reakcije često je određena brzinom difuzije reagirajućih čestica, posebno u reakcijama čvrstih tvari 
-                - na difuziji se temelje i mnoge tehnološke operacije, proizvodnja elektroničkih elemenata u mikroelektronici i poluvodičkoj tehnici, modificiranje svojstava površinskih slojeva u metalurgiji, djelovanje difuzijskih vakuumskih pumpi i dr. 
-                - srednja brzina molekula plina može se odrediti formulom
-                <div class="eq-c">
-                  v(srednja)=
-                  <div class="fraction">
-                    <span class="fup">v<sub>1</sub>+...+v<sub>n</sub></span>
-                    <span class="bar">/</span>
-                    <span class="fdn">N</span><br>
-                  </div>
-                  =problem?
-                </div>
-                - važnija veličina od srednje brzine je srednja kvadratna brzina ili efektivna brzina:
-                <div class="eq-c">
-                  v<sub>ef</sub>=<div class="eq-c">
-                    <span class="radical"><span class="n-root">2</span>&radic;</span<span class="radicand"><div class="fraction">
-                      <span class="fup">v<sub>1</sub><sup>2</sup>+...+v<sub>n</sub><sup>2</sup></span>
-                      <span class="bar">/</span>
-                      <span class="fdn">N</span><br>
-                    </div></span>
-                  </div>
-                  - općenito vrijedi ef v v  - o čemu ovisi tlak plina u posudi?
-                  <div class="eq-c">
-                    p=
-                    <div class="fraction">
-                      <span class="fup">N</span>
-                      <span class="bar">/</span>
-                      <span class="fdn">V</span><br>
-                    </div>
-                    m<sub>1</sub>*v<sub>ef</sub><sup>2</sup>=
-                    <div class="fraction">
-                      <span class="fup">N</span>
-                      <span class="bar">/</span>
-                      <span class="fdn">V</span><br>
-                    </div>
-                    E<sub>k<sub>1</sub></sub>(srednja)
-                  </div>
-                </div>
-                <b>Temperatura</b>
-                &nbsp;&nbsp;&nbsp;&nbsp; - fizička veličina kojom iskazujemo koliko jedno tijelo odstupa od toplinske ravnoteže s drugim tijelom 
-                &nbsp;&nbsp;&nbsp;&nbsp; - povezana je uz srednju kinetičku energiju plina:
-                <div class="eq-c">
-                  <div class="fraction">
-                    <span class="fup">3</span>
-                    <span class="bar">/</span>
-                    <span class="fdn">2</span><br>
-                  </div>
-                  k<sub>B</sub>*T
-                </div>
-                &nbsp;&nbsp;&nbsp;&nbsp; - ukupna srednja kinetička energija svih molekula plina je E<sub>k</sub>(srednja)=N*E<sub>k1</sub>(srednja)
-                &nbsp;&nbsp;&nbsp;&nbsp; - Boltzmanova konstanta je k<sub>b</sub>=1.38*10<sup>-23</sup>JK<sup>-1</sup><br>
-                &nbsp;&nbsp;&nbsp;&nbsp; - temperaturu mjerimo termometrima 
-                &nbsp;&nbsp;&nbsp;&nbsp; - najvažnije temperaturnie ljestvice su Kelvinova, Celsiusova Fahrenheitova <br>
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - njihov međusobni odnos <br>
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; T(K)=t(celzijus)+273.15<br>
-                <div class="eq-c">
-                  t(fahren)=
-                  <div class="fraction">
-                    <span class="fup">9</span>
-                    <span class="bar">/</span>
-                    <span class="fdn">5</span><br>
-                  </div>
-                  t(celzijus)+32<br>
-                </div>
-                - ovdje je važno uočiti da je ∆t(°C)=∆T(K) 
-                &nbsp;&nbsp;&nbsp;&nbsp; - temperaturu od 0 K (apsolutna nula) nije moguće postići uređajem ili termodinamičkim procesom, već se može samo približiti 
-                &nbsp;&nbsp;&nbsp;&nbsp;- na apsolutnoj nuli molekule u tijelima imaju najnižu moguću energiju
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+	važnija veličina od srednje brzine je srednja kvadratna brzina ili efektivna brzina
+v_"ef" =√((v_1^2+v_2^2+⋯+v_N^2)/N)
+
+	općenito vrijedi v_"ef" >v_"srednja" 
+	o čemu ovisi tlak plina u posudi?
+Za idealni plin vrijedi (kinetička teorija)
+p=N/V m_1 v_"ef" ^2=N/V E_(k1("srednja" ))
+
+(ovdje je m_1 masa jedne molekule, a E_(k1("srednja" )) srednja kinetička energija jedne molekule)
+Temperatura
+	fizička veličina kojom iskazujemo koliko jedno tijelo odstupa od toplinske ravnoteže s drugim tijelom
+	povezana je uz srednju kinetičku energiju plina:
+E_(k1("srednja" ))=3/2 k_B T
+
+	ukupna srednja kinetička energija svih molekula plina je
+E_k ("srednja")=N" " E_(k1("srednja" ))
+
+	Boltzmannova konstanta je k_B=1,38⋅10^(-23) " 					" 〖"J K" 〗^(-1)
+	temperaturu mjerimo termometrima
+	najvažnije temperaturne ljestvice su Kelvinova, Celsiusova i Fahrenheitova
+	njihov međusobni odnos
+T("K")=t(" " 〖^∘〗"C")+273,15
+t(" " 〖^∘〗"F")=9/5 t(" " 〖^∘〗"C")+32
+
+	ovdje je važno uočiti da je Δt(^∘ "C")=ΔT("K")
+	temperaturu od 0 K (apsolutna nula) nije moguće postići uređajem ili termodinamičkim procesom, već se može samo približiti
+	na apsolutnoj nuli molekule u tijelima imaju najnižu moguću energiju
+________________________________________
 Zadatci
- <p>
-                1. Temperaturu od 12 °C iskaži u °F i K! 
-                2. Kolika je srednja kinetičkaenergija translatornog gibanja molekula helija i argona pri temperaturi1200 K? 
-                3. Pet čestica idealnog plina helija ima brzine iskazane u m/s:500, 600, 700, 800 i 900. Izračunajte: - a) srednju brzinu, - b)efektivnu brzinu po čestici, - c) temperaturu plina ako je molarna masaplina 4 g/mol. 
-                4. Pri kojoj će temperaturi termometri koji mjere u °C i°F pokazivati istu vrijednost? 
-                5. Kolika je srednja kinetička energija iefektivna brzina molekule kisika u zraku pri temperaturi 20°C? Masamolekule kisika iznosi 5,3∙10-26 kg. 
-                6. Odredite temperaturu pri kojojatom helija (m=6,63∙10-27 kg) ima brzinu 3000 m/s 1. U cilindru senalazi 10m3 kisika [M(O2)=32g/mol] pri standardnim uvjetima. Kolika jeto količina tvari iskazana molima? Kolika je masa kisika? 2. U cilindruse nalazi 25,5mol helija temperature 10C i tlaka 1,35atm. Koliki jevolumen helija? 3. Zatvoreni cilindar sadrži zrak na temperaturi 100 C.Na kojoj bi temperaturi trebao biti zrak u posudi da tlak bude dva putaveći? 4. Idealni plin mase m zatvoren u cilindru volumena V imatemperaturu T i tlak p. Ako se masa plina poveća na 3m, temperaturasnizi na T/3 i volumen smanji na V/3 tlak plina u cilindru će biti: a) p/ 3 b) p c) 3 p d) 9 p e) 27 p 5. U zatvorenoj posudi nalazi se plin natemperaturi 27 C i tlaku p0. Ako se plin zagrije na temperaturu 327Ctlak će biti: a) p0 / 2 b) 3 p0 c) 4 p0 d) 2 p0 e) p0 6. Mjehurićidealnog plina poveća svoj volumen kada se s dna jezera penje premapovršini dva puta. Kolika je dubina jezera pod pretpostavkom da jetemperatura vode jednaka na svim dubinama? (g10m/s2 ; vode=103kg/m3 ;patmos.=105Pa) 
-                7. Određena masa plina ima temperaturu 27C, tlak 1,7bara pri volumenu 6,5 litara. Kolika će biti temperatura plina ako setlak poveća na 3,5 bara, a volumen smanji na 4,2 litre? 
-                8. Temperatura usobi volumena 50 m3 povisi se od 10 C na 20 C. Pri tom je tlak stalani iznosi 105 Pa. Za koliko se promijeni masa zraka u sobi? (Mzraka = 29g/ mol) 
-                9. Tlak u žarulji pri temperaturi 20C iznosi 0,9·105 Pa. Kolikije tlak u žarulji kad se zrak u njoj ugrije na 127C? 
-                10. Kolika jetemperatura plina u zatvorenoj posudi ako mu se tlak povećao za 1% pripromjeni temperature za 3 K?
-                4. (3 boda) Grafički prikaz ovisnosti volumena etanola o temperaturi je na donjoj slici. Gustoća etanola na
-                0oC je 800 kg/m3. Izračunajte gustoću etanola na temperaturi 4,2oC.
-                <img src="Temperatura_ZADATCI_1.png">
-                5. Balon sadrži 500 m3 helija na temperaturi 27 °C i tlaku 105 Pa. Izračunajte volumen balona na visini
-6000 m gdje je tlak 0,5·105 Pa, a temperatura -3 °C.
-3. (2 boda) Idealnom plinu, koji se nalazi u zatvorenoj posudi, povećamo temperaturi za 3 K, pri čemu mu se
-tlak poveća za 5 %. Kolika je bila početna temperatura tog idealnog plina?
+	Temperaturu od 12 °C iskaži u °F i K!
+	Kolika je srednja kinetička energija translatornog gibanja molekula helija i argona pri temperaturi 1200 K?
+	Pet čestica idealnog plina helija ima brzine iskazane u m/s: 500, 600, 700, 800 i 900. Izračunajte:
+a) srednju brzinu,
+b) efektivnu brzinu po čestici,
+c) temperaturu plina ako je molarna masa plina 4 g/mol.
+	Pri kojoj će temperaturi termometri koji mjere u °C i °F pokazivati istu vrijednost?
+	Kolika je srednja kinetička energija i efektivna brzina molekule kisika u zraku pri temperaturi 20 °C? Masa molekule kisika iznosi 5,3⋅10^(-26) " kg" .
+	Odredite temperaturu pri kojoj atom helija (m=6,63⋅10^(-27) " kg" ) ima brzinu 3000 m/s.
+	U cilindru se nalazi 10" 					" "m" ^3 kisika [M("O" _2)=32" g/mol" ] pri standardnim uvjetima. Kolika je to količina tvari iskazana molima? Kolika je masa kisika?
+	U cilindru se nalazi 25,5 mol helija temperature 10 °C i tlaka 1,35 atm. Koliki je volumen helija?
+	Zatvoreni cilindar sadrži zrak na temperaturi 100 °C. Na kojoj bi temperaturi trebao biti zrak u posudi da tlak bude dva puta veći?
+	Idealni plin mase m zatvoren u cilindru volumena V ima temperaturu T i tlak p. Ako se masa plina poveća na 3m, temperatura snizi na T/3 i volumen smanji na V/3 tlak plina u cilindru će biti:
+a) p/3
+b) p
+c) 3p
+d) 9p
+e) 27p
+	U zatvorenoj posudi nalazi se plin na temperaturi 27 °C i tlaku p_0. Ako se plin zagrije na temperaturu 327 °C tlak će biti:
+a) p_0/2
+b) 3p_0
+c) 4p_0
+d) 2p_0
+e) p_0
+	Mjehurić idealnog plina poveća svoj volumen kada se s dna jezera penje prema površini dva puta. Kolika je dubina jezera pod pretpostavkom da je temperatura vode jednaka na svim dubinama?
+(g≈10" 					" 〖"m/s" 〗^2; ρ_"vode" =10^3 " 					" 〖"kg/m" 〗^3; p_"atmos." =10^5 " Pa" )
+	Određena masa plina ima temperaturu 27 °C, tlak 1,7 bara pri volumenu 6,5 litara. Kolika će biti temperatura plina ako se tlak poveća na 3,5 bara, a volumen smanji na 4,2 litre?
+	Temperatura u sobi volumena 50" 					" "m" ^3 povisi se od 10 °C na 20 °C. Pri tom je tlak stalan i iznosi 10^5 " Pa" . Za koliko se promijeni masa zraka u sobi? (M_"zraka" =29" g/mol" )
+	Tlak u žarulji pri temperaturi 20 °C iznosi 0,9⋅10^5 " Pa" . Koliki je tlak u žarulji kad se zrak u njoj ugrije na 127 °C?
+	Kolika je temperatura plina u zatvorenoj posudi ako mu se tlak povećao za 1% pri promjeni temperature za 3 K?
+	(3 boda) Grafički prikaz ovisnosti volumena etanola o temperaturi je na donjoj slici. Gustoća etanola na 0 °C je 800" 					" 〖"kg/m" 〗^3. Izračunajte gustoću etanola na temperaturi 4,2 °C.
+(Temperatura_ZADATCI_1.png)
+	Balon sadrži 500" 					" "m" ^3 helija na temperaturi 27 °C i tlaku 10^5 " Pa" . Izračunajte volumen balona na visini 6000 m gdje je tlak 0,5⋅10^5 " Pa" , a temperatura –3 °C.
+	(2 boda) Idealnom plinu, koji se nalazi u zatvorenoj posudi, povećamo temperaturu za 3 K, pri čemu mu se tlak poveća za 5%. Kolika je bila početna temperatura tog idealnog plina?
 a) 3,15 K
 b) 2,86 K
 c) 60 K
 d) 273,15 K
-4. (3 boda) Čelična šipka ima promjer 3.000 cm na 25 °C. Prsten od mesinga ima unutarnji promjer od
-2.992 cm na 25 °C. Pronađi najnižu temperaturu pri kojoj će štap stati u prsten.
-(αčelik=11·10-6 °C-1; αmesing=19·10-6 °C-1)
-              </p>
+	(3 boda) Čelična šipka ima promjer 3,000 cm na 25 °C. Prsten od mesinga ima unutarnji promjer od 2,992 cm na 25 °C. Pronađi najnižu temperaturu pri kojoj će štap stati u prsten.
+α_("c"  ̌"elik" )=11⋅10^(-6) 〖" 							" 〗^∘ "C" ^(-1); α_"mesing" =19⋅10^(-6) 〖" 							" 〗^∘ "C" ^(-1).

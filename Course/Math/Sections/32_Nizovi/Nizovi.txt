@@ -1,2786 +1,629 @@
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
+________________________________________
+________________________________________
+________________________________________
 Pojam niza, zadavanje niza
-----------------------------------------------------------------------------------------
+________________________________________
 Definicija niza
 Lekcija 3.1.
 Pojam niza. Zadavanje niza
-Pogledaj zadatke
 Uvod
-Pojam niza blizak je pojmu prebrojavanja.
-Riječ nizati iz koje se izvodi i riječ niz sinonim je za brojiti po redu.
-U običnom jeziku pod nizom podrazumijevamo poredanu skupinu bilo kakvih (obično svojstvima sličnih) objekata, poput niza bisera, niza kuća, niza sunčanih dana i slično.
-Pritom imamo u vidu poredak tih objekata; biseri su nanizani jedan za drugim (inače bismo govorili o hrpi), kuće su označene i poredane svojim brojevima, a svaki dan ima svoj nadnevak.
-
-Ispisujući redom elemente nekog skupa S: a₁, a₂, a₃...
-dobivamo niz u skupu S.
-Tako su 2, 4, 6, 8, 10… i 15, 9, 3, 1, 2, 4…
+Pojam niza blizak je pojmu prebrojavanja. Riječ nizati iz koje se izvodi i riječ niz sinonim je za brojiti po redu. U običnom jeziku pod nizom podrazumijevamo poredanu skupinu bilo kakvih (obično svojstvima sličnih) objekata, poput niza bisera, niza kuća, niza sunčanih dana i slično. Pritom imamo u vidu poredak tih objekata; biseri su nanizani jedan za drugim (inače bismo govorili o hrpi), kuće su označene i poredane svojim brojevima, a svaki dan ima svoj nadnevak.
+Ispisujući redom elemente nekog skupa S: a_1,a_2,a_3,… dobivamo niz u skupu S. Tako su
+2,4,6,8,10,… i 15,9,3,1,2,4,…
 dva različita niza u skupu prirodnih brojeva.
-
 Definicija niza
+Niz u skupu S je svaka funkcija
+a:N→S.
 
-Niz u skupu S je svaka funkcija a: N → S.
-Ona prirodnom broju n pridružuje element aₙ skupa S.
-Element aₙ nazivamo općim ili n-tim članom niza, a sam niz označavamo simbolom (aₙ).
-Niz ima beskonačno mnogo članova: a₁, a₂, ..., aₙ...
-(PRIMEJR 1)
-Ako je S⊂R, govorimo o nizu u skupu R ili kraće, o nizu realnih brojeva. Mi ćemo se baviti isključivo nizovima kojima su članovi brojevi.
-Najjednostavnije je zadati niz formulom za njegov opći član.
-(PRIMJER 2)
-(PRIMJER 3)
-(PRIMJER 4)
+Ona prirodnom broju n pridružuje element a_n skupa S. Element a_n nazivamo općim ili n-tim članom niza, a sam niz označavamo simbolom (a_n ). Niz ima beskonačno mnogo članova: a_1,a_2,…,a_n,….
+PRIMJER 1
+Ako je S⊂R, govorimo o nizu u skupu R ili kraće, o nizu realnih brojeva. Mi ćemo se baviti isključivo nizovima kojima su članovi brojevi. Najjednostavnije je zadati niz formulom za njegov opći član.
+PRIMJER 2
+PRIMJER 3
+PRIMJER 4
 Konačni niz
+Svako preslikavanje
+a:{1,2,…,n}→S
 
-Svako preslikavanje a: {1, 2, ..., n} → S definira konačni niz u skupu S.
-Taj niz ima n članova: a₁, a₂, ..., aₙ.
-----------------------------------------------------------------------------------------
+definira konačni niz u skupu S. Taj niz ima n članova: a_1,a_2,…,a_n.
+________________________________________
 Nizovi zadani rekurzivnim formulama
 Nizove možemo zadavati s pomoću rekurzivnih formula u kojima se članovi niza zadaju s pomoću već prije definiranih.
-(PRIMJER 5)
-(PRIMJER 6)
-(PRIMJER 7)
+PRIMJER 5
+PRIMJER 6
+PRIMJER 7
 Grafičko predočavanje nizova
-Niz grafički predočavamo na dva načina.
-Prvi se zasniva na tome da je niz funkcija definirana u prirodnim brojevima, pa joj vrijednosti možemo ucrtavati u koordinatnom sustavu.
+Niz grafički predočavamo na dva načina. Prvi se zasniva na tome da je niz funkcija definirana u prirodnim brojevima, pa joj vrijednosti možemo ucrtavati u koordinatnom sustavu.
 (SLIKA 1)
-Druga mogućnost prikazivanja nizova jest da naznačimo njihov položaj na brojevnom pravcu.
-Taj je način manje očit, ali se rabi u situacijama kad niz tek naznačuje točke u kojima će biti definirana neka druga funkcija ili kad sugerira gomilanje članova niza oko nekog broja.
+Druga mogućnost prikazivanja nizova jest da naznačimo njihov položaj na brojevnom pravcu. Taj je način manje očit, ali se rabi u situacijama kad niz tek naznačuje točke u kojima će biti definirana neka druga funkcija ili kad sugerira gomilanje članova niza oko nekog broja.
 (SLIKA 2)
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
+________________________________________
+________________________________________
+________________________________________
 Aritmetički niz
-----------------------------------------------------------------------------------------
+________________________________________
 Koje je svojstvo zajedničko sljedećim nizovima:
-1
-,
-
-2
-,
-
-3
-,
-
-4
-,
-
-5
-…
-4
-,
-
-6
-,
-
-8
-,
-
-10
-,
-
-12
-…
-8
-,
-
-5
-,
-
-2
-,
-
-−
-1
-,
-
-−
-4
-…
-100
-,
-
-90
-,
-
-80
-,
-
-70
-,
-
-60
-…
-?
+1,2,3,4,5,…
+4,6,8,10,12,…
+8,5,2,-1,-4,…
+100,90,80,70,60,…?
 
 Aritmetički niz
+Niz je aritmetički ako je razlika bilo kojeg člana (osim prvog) i njegova prethodnika stalna i iznosi d:
+a_n-a_(n-1)=d,n≥2.
 
-Niz je aritmetički ako je razlika bilo kojeg člana (osim prvog) i njegova prethodnika stalna i iznosi d: aₙ − aₙ₋₁ = d, n ≥ 2.
-Broj d naziva se razlika (diferencija) aritmetičkog niza.
-Kaže se: članovi aritmetičkog niza vezani su rekurzivnom formulom aₙ = aₙ₋₁ + d, n ≥ 2. (1)
+Broj d naziva se razlika (diferencija) aritmetičkog niza. Kaže se: članovi aritmetičkog niza vezani su rekurzivnom formulom
+■(&a_n=a_(n-1)+d,n≥2.&&"(1)" )
 
-Da bi niz bio određen, dovoljno je da znamo prvi član niza a₁ i broj d.
-Nekoliko prvih članova niza su
-a₁, a₁ + d, a₁ + 2d...
+Da bi niz bio određen, dovoljno je da znamo prvi član niza a_1 i broj d. Nekoliko prvih članova niza su
+a_1," 						" a_1+d," 						" a_1+2d,…
 
-Primjerice, ako je a₁ = −5 i d = 3, dobivamo niz brojeva −5, −2, 1, 4, 7…
+Primjerice, ako je a_1=-5 i d=3, dobivamo niz brojeva
+-5,-2,1,4,7,…
 
-U nizu 8, 5, 2, −1, −4…
-je a₁ = 8 i d = −3.
-(PRIMJER 1)
+U nizu
+8,5,2,-1,-4,…
+
+je a_1=8 i d=-3.
+PRIMJER 1
 O podrijetlu imena
 Zbog čega se ovaj niz naziva aritmetičkim? Iz
-a
-n
-−
-a
-n
-−
-1
-=
-a
-n
-+
-1
-−
-a
-n
- slijedi
-a
-n
-=
-a
-n
-+
-1
-+
-a
-n
-−
-1
-2
-.
+a_n-a_(n-1)=a_(n+1)-a_n
 
-Svaki član aritmetičkog niza (osim prvog) aritmetička je sredina dvaju svojih susjednih članova. Odatle nizu ime.
+slijedi
+a_n=(a_(n+1)+a_(n-1))/2.
+
+Svaki član aritmetičkog niza (osim prvog i posljednjeg) aritmetička je sredina dvaju svojih susjednih članova. Odatle nizu ime.
 Opći član aritmetičkog niza
 Formula za opći član aritmetičkog niza određuje se iz
-a₂ = a₁ + d
-a₃ = a₂ + d = a₁ + 2d
-a₄ = a₃ + d = a₁ + 3d
-⋮
-aₙ = aₙ₋₁ + d = a₁ + (n−1)d.
+a_2=a_1+d
+a_3=a_2+d=a_1+2d
+a_4=a_3+d=a_1+3d
+⋮⬆
+a_n=a_(n-1)+d=a_1+(n-1)d.
 
 Opći član aritmetičkog niza
+Aritmetički niz s prvim članom a_1 i razlikom d ima opći član
+■(&a_n=a_1+(n-1)d.&&"(2)" )
 
-Aritmetički niz s prvim članom
-a
-1
- i razlikom
-d
- ima opći član
-a
-n
-=
-a
-1
-+
-(
-n
-−
-1
-)
-d
-.
-(
-2
-)
-(PRIMJER 2)
-
-----------------------------------------------------------------------------------------
+PRIMJER 2
+________________________________________
 Zbroj prvih n članova niza
-U mnogim primjenama aritmetičkog niza nije nam važan samo njegov opći član, već i zbroj prvih nekoliko njegovih članova.
-Zbrajajući redom njegove članove, dobit ćemo novi niz na sljedeći način:
-S₁ := a₁
-S₂ := a₁ + a₂
-S₃ := a₁ + a₂ + a₃
-⋮
-Sₙ := a₁ + ... + aₙ.
+U mnogim primjenama aritmetičkog niza nije nam važan samo njegov opći član, već i zbroj prvih nekoliko njegovih članova. Zbrajajući redom njegove članove, dobit ćemo novi niz na sljedeći način:
+S_1:=a_1
+S_2:=a_1+a_2
+S_3:=a_1+a_2+a_3
+⋮⬆
+S_n:=a_1+⋯+a_n.
 
-Broj Sₙ jednak je zbroju prvih n članova aritmetičkog niza.
-On se naziva n-ta parcijalna suma aritmetičkog niza, a niz (Sₙ) naziva se niz parcijalnih suma.
-
-Odredimo formulu za zbroj Sₙ.
-
+Broj S_n jednak je zbroju prvih n članova aritmetičkog niza. On se naziva n-ta parcijalna suma aritmetičkog niza, a niz (S_n ) naziva se niz parcijalnih suma.
+Odredimo formulu za zbroj S_n.
 Primijetimo da prvih n članova aritmetičkog niza
-a₁, a₂, ..., aₙ₋₁, aₙ,
+a_1,a_2,…,a_(n-1),a_n,
 
 napisanih u suprotnom poretku:
-aₙ, aₙ₋₁, ..., a₂, a₁
+a_n,a_(n-1),…,a_2,a_1
 
-ponovno čini aritmetički niz, kojem je prvi član aₙ, a razlika −d. Pogledajmo na primjeru nizova:
-5, 8, 11, 14, 17, 20
-20, 17, 14, 11, 8, 5.
+ponovno čini aritmetički niz, kojem je prvi član a_n, a razlika -d. Pogledajmo na primjeru nizova:
+5,8,11,14,17,20
+20,17,14,11,8,5.
 
-Zato se Sₙ može napisati na dva načina:
-Sₙ = a₁ + (a₁ + d) + (a₁ + 2d) + ... + [a₁ + (n−1)d]
-Sₙ = aₙ + (aₙ − d) + (aₙ − 2d) + ... + [aₙ − (n−1)d].
+Zato se S_n može napisati na dva načina:
+S_n=a_1+(a_1+d)+(a_1+2d)+⋯+[a_1+(n-1)d]
+S_n=a_n+(a_n-d)+(a_n-2d)+⋯+[a_n-(n-1)d].
 
 Zbrajajući ove jednakosti, dobit ćemo
-2Sₙ = n(a₁ + aₙ).
+2S_n=n(a_1+a_n).
 
-Zbroj prvih
-n
- članova aritmetičkog niza
+Zbroj prvih n članova aritmetičkog niza
+Zbroj prvih n članova aritmetičkog niza dan je formulom:
+■(&S_n=n/2(a_1+a_n).&&"(3)" )
 
-Zbroj prvih
-n
- članova aritmetičkog niza dan je formulom:
-S
-n
-=
-n
-2
-(
-a
-1
-+
-a
-n
-)
-.
-(
-3
-)
 Iskoristimo li (2), možemo napisati i
-S
-n
-=
-n
-a
-1
-+
-n
-(
-n
-−
-1
-)
-2
-d
-.
-(PRIMJER 3)
-(PRIMJER 4)
-(PEIMJER 5)
-----------------------------------------------------------------------------------------
+S_n=na_1+(n(n-1))/2 d.
+
+PRIMJER 3
+PRIMJER 4
+PRIMJER 5
+________________________________________
 Interpolacija aritmetičkog niza
 Poznajemo li dva uzastopna člana aritmetičkog niza, njihovim oduzimanjem dobit ćemo razliku niza, čime je niz određen. Tu razliku možemo izračunati ako su nam poznata ma koja dva člana niza, ne nužno uzastopna.
-
-Problem određivanja članova niza u tom se slučaju naziva interpolacija. Ime dolazi odatle što između zadanih članova niza moramo interpolirati (umetnuti) nekoliko članova niza tako da on bude aritmetički.
-Postavimo problem.
-
+Problem određivanja članova niza u tom se slučaju naziva interpolacija. Ime dolazi odatle što između zadanih članova niza moramo interpolirati (umetnuti) nekoliko članova niza tako da on bude aritmetički. Postavimo problem.
 Između dvaju zadanih brojeva a i b treba interpolirati r brojeva tako da dobiveni niz bude aritmetički, u kojem je a prvi, a b posljednji član niza.
-Neka je a₁ = a prvi član dobivenog niza, a aₙ
-=
-b
- njegov posljednji član. Članova niza ima ukupno
-n
-=
-r
-+
-2
-. Stoga je
-a
-n
-=
-a
-1
-+
-(
-n
-−
-1
-)
-d
-⟹
-b
-=
-a
-+
-(
-r
-+
-1
-)
-d
-,
-odakle dobivamo
-d
-=
-b
-−
-a
-r
-+
-1
-.
-(
-6
-)
-(PRIMJER 6)
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-Geometrijski niz
-----------------------------------------------------------------------------------------
-Koje je svojstvo zajedničko sljedećim nizovima:
-3, 6, 12, 24, 48…
-2, 6, 18, 54, 162…
-18, 6, 2, 2/3, 2/9…
-−1, 2, −4, 8, −16…
-?
+Neka je a_1=a prvi član dobivenog niza, a
+a_n=b
 
-U aritmetičkom je nizu razlika svakih dvaju susjednih članova konstantna.
-Ovdje vidimo primjere nizova u kojima je količnik dvaju uzastopnih članova konstantan.
-Opći član tih nizova (aₙ) zadovoljava rekurzivnu formulu aₙ = q⋅aₙ₋₁.
+njegov posljednji član. Članova niza ima ukupno
+n=r+2.
+
+Stoga je
+a_n=a_1+(n-1)d⟹b=a+(r+1)d,
+
+odakle dobivamo
+■(&d=(b-a)/(r+1).&&"(6)" )
+
+PRIMJER 6
+________________________________________
+________________________________________
+________________________________________
+Geometrijski niz
+________________________________________
+Koje je svojstvo zajedničko sljedećim nizovima:
+3,6,12,24,48,…
+2,6,18,54,162,…
+18,6,2,2/3,2/9,…
+-1,2,-4,8,-16,…?
+
+U aritmetičkom je nizu razlika svakih dvaju susjednih članova konstantna. Ovdje vidimo primjere nizova u kojima je količnik dvaju uzastopnih članova konstantan. Opći član tih nizova (a_n ) zadovoljava rekurzivnu formulu
+a_n=q⋅a_(n-1).
 
 Cijelo će poglavlje nalikovati prethodnom kako bismo istaknuli zajedničku ideju u definiciji ovih dviju vrsta nizova.
-
 Geometrijski niz
+Niz je geometrijski ako je omjer svakog člana i njegova prethodnika stalan, odnosno ako za svaki n≥2 vrijedi:
+■(&a_n/a_(n-1) =:q.&&"(1)" )
 
-Niz je geometrijski ako je omjer svakog člana i njegova prethodnika stalan, odnosno ako za svaki n ≥ 2 vrijedi:
-aₙ/aₙ₋₁ =: q.
-.
-(
-1
-)
-Broj q naziva se kvocijent ili količnik geometrijskog niza.
-Količnik niza ne može biti 0 jer je onda definicija besmislena.
-Ako je q = 1, onda je aₙ = aₙ₋₁ za svaki n i niz je konstantan.
-(PRIMJER 1)
+Broj q naziva se kvocijent ili količnik geometrijskog niza. Količnik niza ne može biti 0 jer je onda definicija besmislena. Ako je q=1, onda je a_n=a_(n-1) za svaki n i niz je konstantan.
+PRIMJER 1
 O podrijetlu imena
-Zbog čega se ovaj niz naziva geometrijskim?
-Vrijedi, za svaki n > 1:
-aₙ/aₙ₋₁ = q = aₙ₊₁/aₙ.
-.
+Zbog čega se ovaj niz naziva geometrijskim? Vrijedi, za svaki n>1:
+a_n/a_(n-1) =q=a_(n+1)/a_n .
 
 Ako su članovi niza pozitivni, onda slijedi:
-aₙ = √(aₙ₊₁·aₙ₋₁).
-.
+a_n=√(a_(n+1)⋅a_(n-1) ).
 
 Svaki član geometrijskog niza (osim prvog) s pozitivnim članovima geometrijska je sredina dvaju svojih susjednih članova. Odatle nizu ime.
 Opći član geometrijskog niza
 Formula za opći član geometrijskog niza određuje se iz:
-a₂ = a₁⋅q
-a₃ = a₂⋅q = a₁⋅q²
-a₄ = a₃⋅q = a₁⋅q³
-.
+a_2=a_1⋅q
+a_3=a_2⋅q=a_1⋅q^2
+a_4=a_3⋅q=a_1⋅q^3
 
+⋮⬆
 Indukcijom dobivamo:
-
 Opći član geometrijskog niza
+Geometrijski niz s prvim članom a_1 i kvocijentom q ima opći član
+■(&a_n=a_1⋅q^(n-1).&&"(2)" )
 
-Geometrijski niz s prvim članom
-a
-1
- i kvocijentom
-q
- ima opći član
-a
-n
-=
-a
-1
-⋅
-q
-n
-−
-1
-.
-(
-2
-)
-(PRIMEJR 2)
-----------------------------------------------------------------------------------------
+PRIMJER 2
+________________________________________
 Zbroj prvih n članova niza
-Odredimo sad formulu za opći član niza parcijalnih suma
-(
-S
-n
-)
- geometrijskog niza:
-S
-n
-=
-a
-1
-+
-a
-2
-+
-.
-.
-.
-+
-a
-n
-.
+Odredimo sad formulu za opći član niza parcijalnih suma (S_n ) geometrijskog niza:
+S_n=a_1+a_2+⋯+a_n.
 
 Iskoristimo formulu za opći član geometrijskog niza:
-S
-n
-=
-a
-1
-+
-a
-1
-q
-+
-a
-1
-q
-2
-+
-.
-.
-.
-+
-a
-1
-q
-n
-−
-1
+S_n=a_1+a_1 q+a_1 q^2+⋯+a_1 q^(n-1)
 
-i pomnožimo obje strane jednakosti s kvocijentom niza
-q
-:
-q
-S
-n
-=
-a
-1
-q
-+
-a
-1
-q
-2
-+
-a
-1
-q
-3
-+
-.
-.
-.
-+
-a
-1
-q
-n
-.
+i pomnožimo obje strane jednakosti s kvocijentom niza q:
+qS_n=a_1 q+a_1 q^2+a_1 q^3+⋯+a_1 q^n.
 
 Oduzimanjem ovih dviju jednakosti dobivamo:
-S
-n
-−
-q
-S
-n
-=
-a
-1
-−
-a
-1
-q
-n
-,
+S_n-qS_n=a_1-a_1 q^n,
 
-odakle slijedi za
-q
-≠
-1
+odakle slijedi za q≠1
+S_n=a_1  (q^n-1)/(q-1).
 
-S
-n
-=
-a
-1
-q
-n
-−
-1
-q
-−
-1
-.
+Ako je pak q=1, onda je niz konstantan i vrijedi S_n=n⋅a_1.
+Zbroj prvih n članova niza
+Zbroj prvih n članova geometrijskog niza s kvocijentom q≠1 iznosi:
+■(&S_n=a_1  (q^n-1)/(q-1).&&"(3)" )
 
-Ako je pak q = 1, onda je niz konstantan i vrijedi Sₙ = n·a₁.
-.
-
-Zbroj prvih
-n
- članova niza
-
-Zbroj prvih n članova geometrijskog niza s kvocijentom q ≠ 1 iznosi:
-Sₙ = a₁(qⁿ − 1)/(q − 1).
-.
-(
-3
-)
-(PRIMJER 4)
-(PRIMJER 5)
+PRIMJER 4
+PRIMJER 5
 Interpolacija geometrijskog niza
-Neka su zadana dva člana geometrijskog niza, a i b.
-Trebamo odrediti r brojeva koji zajedno s a i b (kao prvim i posljednjim članom niza) čine geometrijski niz.
-Niz će biti određen ako mu znamo kvocijent.
-Njegov prvi član je a₁ = a, a posljednji,
-n
--ti
-a
-n
-=
-b
-. Kako je
-n
-=
-r
-+
-2
-, vrijedi:
-a
-n
-=
-a
-1
-q
-n
-−
-1
-⟹
-b
-=
-q
-r
-+
-1
-a
-,
+Neka su zadana dva člana geometrijskog niza, a i b. Trebamo odrediti r brojeva koji zajedno s a i b (kao prvim i posljednjim članom niza) čine geometrijski niz. Niz će biti određen ako mu znamo kvocijent. Njegov prvi član je a_1=a, a posljednji, n-ti
+a_n=b.
+
+Kako je
+n=r+2,
+
+vrijedi:
+a_n=a_1 q^(n-1)⟹b=q^(r+1) a,
 
 te je
-q
-=
-r
-+
-1
-√
-b
-a
-.
-(
-4
-)
+■(&q=√(r+1&b/a).&&"(4)" )
 
 Formula za zbroj članova geometrijskog niza može se napisati i u drugom obliku. Kako je
-a
-n
-=
-a
-1
-q
-n
-−
-1
-, vrijedi:
-S
-Sₙ = aₙq − a₁/(q − 1),
+a_n=a_1 q^(n-1),
+
+vrijedi:
+S_n=a_1  (q^n-1)/(q-1)=(a_n q-a_1)/(q-1),
 
 što dalje možemo napisati ovako:
-Sₙ = (aₙ₊₁ − a₁)/(q − 1).
-.
-(
-6
-)
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-3.4. Limes niza. Teoremi o limesima
-----------------------------------------------------------------------------------------
-Najčešće pitanje koje se postavlja pri promatranju beskonačnog niza (xₙ) jest: što se događa s njegovim članovima xₙ za velike vrijednosti broja n?
-(PRIMJER 1)
-(PRIMJER 2)
-Tvrdnju da članovi niza teže nuli označavamo na sljedeći način:
-lim xₙ = 0 kad n → ∞
+■(&S_n=(a_(n+1)-a_1)/(q-1).&&"(6)" )
 
-(čita se: limes niza (xₙ) jednak je nuli kad n teži u beskonačnost), ili
-lim(n→∞) xₙ = 0,
+________________________________________
+________________________________________
+________________________________________
+3.4. Limes niza. Teoremi o limesima
+________________________________________
+Najčešće pitanje koje se postavlja pri promatranju beskonačnog niza (x_n ) jest: što se događa s njegovim članovima x_n za velike vrijednosti broja n?
+PRIMJER 1
+PRIMJER 2
+Tvrdnju da članovi niza teže nuli označavamo na sljedeći način:
+(lim⁡)┬(n→∞) x_n=0
+
+(čita se: limes niza (x_n ) jednak je nuli kad n teži u beskonačnost), ili
+(lim⁡)┬(n→∞) x_n=0,
 
 ili kratko:
-xₙ → 0 (kad n → ∞).
-.
-(PRIMJER 3)
-Pojam limesa jedan je od temeljnih pojmova matematičke analize.
-Iako je intuitivno jasan, potrebno ga je precizno definirati da bi se ispravno shvatio.
+x_n→0" (kad " n→∞")".
 
+PRIMJER 3
+Pojam limesa jedan je od temeljnih pojmova matematičke analize. Iako je intuitivno jasan, potrebno ga je precizno definirati da bi se ispravno shvatio.
 Limes niza
+Kažemo da je realni broj a limes niza (x_n ) ako za svaki (ma kako malen) realni broj ε>0 postoji prirodni broj n_0 takav da za sve n>n_0 vrijedi
+■(&∣x_n-a∣<ε.&&"(1)" )
 
-Kažemo da je realni broj
-a
- limes niza
-(
-x
-n
-)
- ako za svaki (ma kako malen) realni broj
-ε
->
-0
- postoji prirodni broj
-n
-0
- takav da za sve
-n
->
-n
-0
- vrijedi
-|
-x
-n
-−
-a
-|
-<
-ε
-.
-(
-1
-)
 Pišemo
-a
-=
-lim
-n
-→
-∞
-x
-n
- i kažemo da niz
-(
-x
-n
-)
- konvergira (ili teži) prema realnom broju
-a
-.
+a=(lim⁡)┬(n→∞) x_n
 
-Niz je konvergentan ako ima limes.
-Inače je divergentan.
-Konvergentan niz ima samo jedan limes, broj a u ovoj definiciji jednoznačno je određen.
+i kažemo da niz (x_n ) konvergira (ili teži) prema realnom broju a.
+Niz je konvergentan ako ima limes. Inače je divergentan. Konvergentan niz ima samo jedan limes, broj a u ovoj definiciji jednoznačno je određen.
 (SLIKA 1)
 Provjerimo da niz
-(
-n
-−
-1
-n
-)
- uistinu ima limes 1. To činimo na sljedeći način. Zamislimo po volji malen broj
-ε
- i napišimo nejednakost (1). Radi jednostavnosti u prvom ćemo primjeru uzeti konkretnu vrijednost broja
-ε
-, recimo
-ε
-=
-0
-.001
+((n-1)/n)
 
-|xₙ − 1| = |n − 1/n − 1| = |−1/n| = 1/n < 0.001.
+uistinu ima limes 1. To činimo na sljedeći način. Zamislimo po volji malen broj ε i napišimo nejednakost (1). Radi jednostavnosti u prvom ćemo primjeru uzeti konkretnu vrijednost broja ε, recimo ε=0.001:
+∣x_n-1∣=∣(n-1)/n-1∣=∣(-1)/n∣=1/n<0.001.
 
-Pitamo se za koje je prirodne brojeve n ona ispunjena?
-Stavimo n₀ = 1000.
-Čim je n > n₀, imamo:
-n > 1000 ⟺ 1/n < 0.001
+Pitamo se za koje je prirodne brojeve n ona ispunjena? Stavimo n_0=1000. Čim je n>n_0, imamo:
+n>1000⟺1/n<0.001,
 
-i za takve n ispunjena je nejednakost (1).
-Dakle, udaljenost broja 1 do članova niza je, počevši od člana x₁₀₀₁, manja od
+i za takve n ispunjena je nejednakost (1). Dakle, udaljenost broja 1 do članova niza je, počevši od člana x_1001, manja od ε.
 (SLIKA 2)
-Smanjimo li ε, morat ćemo otići dalje u nizu da bi nejednakost (1) vrijedila.
-Primjerice, ako je ε = 0.00001, tada će |xₙ − 1| biti ispunjeno tek za n > n₀ = 100000.
-Općenito, za po volji uzet ε vrijedit će |xₙ − 1| < ε tek za n >
-n
-0
-=
-⌊
-1
-/
-ε
-⌋
-(PRIMJER 4)
-(PRIMJER 5)
-Pojam niza koji teži nuli je važan jer se svaki konvergentni niz može svesti na takav niz.
-Naime, ako niz (x_n) ima limes a, onda po samoj definiciji limesa vrijedi
-|
-x
-n
-−
-a
-|
-→
-0
-kad
-n
-→
-∞
-,
-no to znači da
-(
-x
-n
-−
-a
-)
- teži k nuli. Ovo temeljno svojstvo možemo zapisati na još jedan način koji je koristan pri nalaženju limesa niza.
+Smanjimo li ε, morat ćemo otići dalje u nizu da bi nejednakost (1) vrijedila. Primjerice, ako je ε=0.00001, tada će ∣x_n-1∣ biti ispunjeno tek za n>n_0=100000. Općenito, za po volji uzet ε vrijedit će ∣x_n-1∣<ε tek za
+n>n_0=⌊1/ε⌋.
 
+PRIMJER 4
+PRIMJER 5
+Pojam niza koji teži nuli je važan jer se svaki konvergentni niz može svesti na takav niz. Naime, ako niz (x_n ) ima limes a, onda po samoj definiciji limesa vrijedi
+∣x_n-a∣→0" kad " n→∞,
 
-
+no to znači da (x_nⓜ-a) teži k nuli. Ovo temeljno svojstvo možemo zapisati na još jedan način koji je koristan pri nalaženju limesa niza.
 Svojstvo limesa
+Za konvergentni niz (x_n ) vrijedi
+■(&a=(lim⁡)┬(n→∞) x_n⟺(lim⁡)┬(n→∞)∣x_n-a∣=0.&&"(2)" )
 
-Za konvergentni niz
-(
-x
-n
-)
- vrijedi
-a
-=
-lim
-n
-→
-∞
+Kažemo da niz (x_n ) neograničeno raste (ili da teži u +∞) ako su mu članovi, počevši od nekog, veći od unaprijed zadanog broja. Primjer neograničeno rastućeg niza je
+x_n=n^2.
 
-⟺
-lim
-n
-→
-∞
+Za nj vrijedi:
+x_n>100" 						" "c"  ̌"im je " n>10
+x_n>1000" 						" "c"  ̌"im je " n>31
+x_n>10000" 						" "c"  ̌"im je " n>100
+x_n>100000" 						" "c"  ̌"im je " n>316
 
-|
-x
-n
-−
-a
-|
-=
-0.
-(
-2
-)
-Kažemo da niz
-(
-x
-n
-)
- neograničeno raste (ili da teži u
-+
-∞
-) ako su mu članovi, počevši od nekog, veći od unaprijed zadanog broja. Primjer neograničeno rastućeg niza je
-x
-n
-=
-n
-2
-. Za nj vrijedi:
-x
-n
->
-100 čim je n > 10
-xₙ > 1000 čim je n > 31
-xₙ > 10000 čim je n > 100
-xₙ > 100000 čim je n > 316 itd.
-
+itd.
 Općenito, za ma kako velik realni broj M vrijedit će:
-xₙ > M čim je n > √M.
-.
+x_n>M" 						" "c"  ̌"im je " n>√M.
 
 Neograničeno rastući nizovi
+Niz (x_n ) neograničeno raste ako za svaki realni broj M>0 postoji prirodan broj n_0 takav da je x_n>M čim je n>n_0. Niz koji neograničeno raste ne konvergira. Međutim, po dogovoru pišemo:
+(lim⁡)┬(n→∞) x_n=+∞
 
-Niz (xₙ) neograničeno raste ako za svaki realni broj M > 0 postoji prirodan broj n₀ takav da je xₙ > M čim je n > n₀.
-Niz koji neograničeno raste ne konvergira.
-Međutim, po dogovoru pišemo:
-lim(n→∞) xₙ = +∞
-
-i kažemo da niz (xₙ) teži u beskonačnost.
+i kažemo da niz (x_n ) teži u beskonačnost.
 Teoremi o limesima
-Kombinirajući dva ili više nizova, dobivamo složenije nizove čiji limes nije jednostavno računati po definiciji.
-No, tu su nam od velike koristi teoremi o limesima.
-Njihov strogi dokaz ostavit ćemo visokoškolskoj matematici, ali ćemo ih ilustrirati nizom primjera.
-
-Definicija
-
-Neka su (xₙ)
-)
- i
-(
-y
-n
-)
- konvergentni nizovi. Tada vrijedi
-
+Kombinirajući dva ili više nizova, dobivamo složenije nizove čiji limes nije jednostavno računati po definiciji. No, tu su nam od velike koristi teoremi o limesima. Njihov strogi dokaz ostavit ćemo visokoškolskoj matematici, ali ćemo ih ilustrirati nizom primjera.
+Definicija (teoremi o limesima)
+Neka su (x_n ) i (y_n ) konvergentni nizovi. Tada vrijedi:
 teorem o limesu zbroja (razlike):
-lim
-n
-→
-∞
+■(&(lim⁡)┬(n→∞) (x_n±y_n)=(lim⁡)┬(n→∞) x_n±(lim⁡)┬(n→∞) y_n;&&"(3)" )
 
-n
-(
-x
-n
-±
-y
-n
-)
-=
-lim
-n
-→
-∞
-
-x
-n
-±
-lim
-n
-→
-∞
-
-y
-n
-,
-(
-3
-)
 teorem o limesu umnoška:
-lim
-n
-→
-∞
+(lim⁡)┬(n→∞) (x_n y_n)=((lim⁡)┬(n→∞) x_n )⋅((lim⁡)┬(n→∞) y_n );
 
-(
-x
-n
-y
-n
-)
-=
-(
-lim
-n
-→
-∞
+teorem o limesu kvocijenta: ako je y_n≠0 za svaki n i 〖lim⁡〗_(n→∞) y_n≠0, onda je:
+(lim⁡)┬(n→∞)  x_n/y_n =((lim⁡)┬(n→∞) x_n)/((lim⁡)┬(n→∞) y_n );
 
-x
-n
-)
-⋅
-(
-lim
-n
-→
-∞
+teorem o limesu potencije: ako je 〖lim⁡〗_(n→∞) x_n≠0, onda je:
+(lim⁡)┬(n→∞) (x_n^(" " y_n ))=((lim⁡)┬(n→∞) x_n )^((lim⁡)┬(n→∞) y_n );
 
-y
-n
-)
-,
-
-teorem o limesu kvocijenta. Ako je yₙ ≠ 0 za svaki n i lim(n→∞) yₙ ≠ 0, onda je:
-lim(n→∞) (xₙ/yₙ) = [lim(n→∞) xₙ] / [lim(n→∞) yₙ]
-
-teorem o limesu potencije. Ako je lim(n→∞) xₙ ≠ 0, onda je:
-lim(n→∞) (xₙ^yₙ) = [lim(n→∞) xₙ]^[lim(n→∞) yₙ]
-
-monotonost limesa. Ako je xₙ ≤ yₙ ili xₙ < yₙ
- za svaki
-n
-, onda je:
-lim
-n
-→
-∞
-
-x
-n
-≤
-lim
-n
-→
-∞
-
-y
-n
-.
-(
-7
-)
-
+monotonost limesa: ako je x_n≤y_n (ili x_n<y_n) za svaki n, onda je:
+■(&(lim⁡)┬(n→∞) x_n≤(lim⁡)┬(n→∞) y_n.&&"(7)" )
 
 Dokažimo sljedeću tvrdnju koju ćemo koristiti u mnogim primjerima:
-
-Definicija
-
 Ako je
-lim
-n
-→
-∞
+(lim⁡)┬(n→∞) x_n=∞,
 
-x
-n
-=
-∞
-, onda vrijedi
-lim
-n
-→
-∞
+onda vrijedi
+(lim⁡)┬(n→∞)  1/x_n =0.
 
-1
-x
-n
-=
-0
-.
-Dokaz. Neka je
-ε
->
-0
- po volji malen realni broj i stavimo
-M
-=
-1
-ε
-. Budući da je niz
-(
-x
-n
-)
- neograničeno rastući, postoji broj
-n
-0
- takav da za
-n
->
-n
-0
- vrijedi
-x
-n
->
-M
-. No, tada je
-1
-x
-n
-<
-1
-M
-=
-ε
-, što znači da je
-lim
-n
-→
-∞
+Dokaz. Neka je ε>0 po volji malen realni broj i stavimo
+M=1/ε.
 
-1
-x
-n
-=
-0
-.
-(PRIMJER 6)
-(PRIMJER 7)
+Budući da je niz (x_n ) neograničeno rastući, postoji broj n_0 takav da za n>n_0 vrijedi x_n>M. No, tada je
+1/x_n <1/M=ε,
+
+što znači da je
+(lim⁡)┬(n→∞)  1/x_n =0.
+
+PRIMJER 6
+PRIMJER 7
 (SLIKA 3)
-Za geometrijski niz (qⁿ) vrijedi:
+Za geometrijski niz (q^n ) vrijedi:
+Limes geometrijskog niza
+(lim⁡)┬(n→∞) q^n={■(+∞,&q>1,@1,&q=1,@0,&-1<q<1,@"ne postoji" ,&q≤-1.)┤
 
-Limes geometrijskog niza:
+Dokaz. Najprije promotrimo slučaj q>1. Napišimo q=1+h, gdje je h>0. Po Bernoullijevoj nejednakosti vrijedi:
+q^n=(1+h)^n≥1+nh>nh.
 
-lim(n→∞) qⁿ = {
-    +∞, za q > 1
-    1, za q = 1
-    0, za −1 < q < 1
-    ne postoji, za q ≤ −1
-}
+Kad n→∞, imamo nh→∞. Zato je
+(lim⁡)┬(n→∞) q^n=+∞.
 
-Dokaz. Najprije promotrimo slučaj q > 1. Napišimo q = 1 + h, gdje je h > 0. Po Bernoullijevoj nejednakosti vrijedi:
-qⁿ = (1 + h)ⁿ ≥ 1 + nh > nh.
-
-Kad n → ∞
-, imamo
-n
-h
-→
-∞
-. Zato je
-lim
-n
-→
-∞
-q
-n
-=
-+
-∞
-.
-
-Neka je sad
-0
-<
-q
-<
-1
-. Stavimo
-p
-=
-1
-q
->
-1
-, pa vrijedi
-lim
-n
-→
-∞
-
-q
-n
-=
-lim
-n
-→
-∞
-
-1
-p
-n
-=
-1
-lim
-n
-→
-∞
-
-p
-n
-=
-0
+Neka je sad 0<q<1. Stavimo p=1/q>1, pa vrijedi
+(lim⁡)┬(n→∞) q^n=(lim⁡)┬(n→∞)  1/p^n =1/((lim⁡)┬(n→∞) p^n )=0,
 
 jer niz u nazivniku neograničeno raste.
+Za q=0 i q=1 niz je konstantan i limes mu je 0, odnosno 1.
+Za -1<q<0 vrijedi 0<∣q∣<1 i
+∣q^n∣=∣q∣^n,
 
-Za
-q
-=
-0
- i
-q
-=
-1
- niz je konstantan i limes mu je 0, odnosno 1.
+pa kako (∣q∣^n ) teži nuli, odatle slijedi da i (q^n ) teži nuli.
+Ako je q=-1, niz izgleda ovako:
+-1,1,-1,1,…
 
-Za
-−
-1
-<
-q
-<
-0
- vrijedi
-0
-<
-|
-q
-|
-<
-1
- i
-|
-q
-n
-|
-=
-|
-q
-|
-n
-, pa kako
-(
-|
-q
-|
-n
-)
- teži nuli, odatle slijedi da i
-(
-q
-n
-)
- teži nuli.
+Ako je q<-1, onda ∣q^n∣→+∞, a sam niz divergira jer su mu uzastopni članovi različitih predznaka. Na primjer, za q=-2 prvih nekoliko članova niza su
+-2,4,-8,16,…
 
-Ako je
-q
-=
-−
-1
-, niz izgleda ovako:
-−
-1
-,
-1
-,
-−
-1
-,
-1
-
-Ako je
-q
-<
-−
-1
-, onda
-|
-q
-n
-|
-→
-+
-∞
-, a sam niz divergira jer su mu uzastopni članovi različitih predznaka. Na primjer, za
-q
-=
-−
-2
- prvih nekoliko članova niza su
-−
-2
-,
-4
-,
-−
-8
-,
-16
- itd.
-----------------------------------------------------------------------------------------
+________________________________________
 Računanje limesa
 Ilustrirajmo na nekoliko primjera kako se računaju limesi.
-(PRIMJER 8)
-(PRIMJER 9)
-(PRIMJER 10)
-(PRIMJER 11)
+PRIMJER 8
+PRIMJER 9
+PRIMJER 10
+PRIMJER 11
 Limes monotonih nizova
-U mnogim se primjerima limes niza ne može jednostavno izračunati, čak niti primjenom teorema o limesima.
-Postoje također situacije kad nas ne zanima koliki je neki limes, već samo postoji li on.
-Stoga je korisno upoznati uvjete uz koje smo sigurni da će neki niz imati limes.
-
+U mnogim se primjerima limes niza ne može jednostavno izračunati, čak niti primjenom teorema o limesima. Postoje također situacije kad nas ne zanima koliki je neki limes, već samo postoji li on. Stoga je korisno upoznati uvjete uz koje smo sigurni da će neki niz imati limes.
 Najjednostavniji su primjeri takvih nizova monotoni omeđeni nizovi.
 Monotoni i omeđeni nizovi
 Rastući i padajući nizovi
+Za niz (x_n ) kažemo da je rastući ako za svaki n vrijedi
+x_n≤x_(n+1).
 
-Za niz
-(
-x
-n
-)
- kažemo da je rastući ako za svaki
-n
- vrijedi
-x
-n
-≤
-x
-n
-+
-1
-.
-
-Niz
-(
-x
-n
-)
- je padajući ako za svaki
-n
- vrijedi
-x
-n
-≥
-x
-n
-+
-1
-.
+Niz (x_n ) je padajući ako za svaki n vrijedi
+x_n≥x_(n+1).
 
 Rastuće i padajuće nizove jednim imenom zovemo monotonim nizovima.
-(PRIMJER 12)
+PRIMJER 12
 Omeđeni nizovi
+Niz (x_n ) je omeđen ako postoje realni brojevi m i M takvi da za svaki n vrijedi
+m≤x_n≤M.
 
-Niz
-(
-x
-n
-)
- je omeđen ako postoje realni brojevi
-m
- i
-M
- takvi da za svaki
-n
- vrijedi
-m
-≤
-x
-n
-≤
-M
-.
-Broj
-M
- naziva se gornja, a broj
-m
- donja međa.
+Broj M naziva se gornja, a broj m donja međa.
 (SLIKA 13)
-----------------------------------------------------------------------------------------
+________________________________________
 Limes monotonih nizova
 Monotoni nizovi imaju vrlo jednostavno ponašanje. Promotrimo slučaj rastućeg niza (za padajući vrijedi identično razmišljanje).
+Ako je niz (x_n ) rastući, tada su moguće samo dvije situacije:
+	Niz nije omeđen. Tada on neograničeno raste pa je
+(lim⁡)┬(n→∞) x_n=∞.
 
-Ako je niz
-(
-x
-n
-)
- rastući, tada su moguće samo dvije situacije:
-
-1. Niz nije omeđen. Tada on neograničeno raste pa je
-lim
-n
-→
-∞
-x
-n
-=
-∞
-.
 (SLIKA 5)
-2. Niz je omeđen. U tom slučaju postoji gornja međa
-M
- skupa
-S
-=
-{
-x
-n
-,
+	Niz je omeđen. U tom slučaju postoji gornja međa M skupa
+S={x_n:n∈N},
 
-n
-∈
-N
-}
-, koju ne može premašiti nijedan član niza. Budući da su njegovi članovi rastući, oni moraju težiti nekom broju. Taj je broj upravo najmanja gornja međa
-L
-, odnosno supremum skupa
-S
-. članovi ne mogu premašiti među
-M
-.
-(SLIKA 6)
-Tvrdimo da je limes rastućeg monotonog niza jednak supremumu skupa
-S
-. (Slično tome, padajući omeđeni niz ima limes koji je jednak infimumu skupa
-S
-.)
+koju ne može premašiti nijedan član niza. Budući da su njegovi članovi rastući, oni moraju težiti nekom broju. Taj je broj upravo najmanja gornja međa L, odnosno supremum skupa S.
+Tvrdimo da je limes rastućeg monotonog niza jednak supremumu skupa S. (Slično tome, padajući omeđeni niz ima limes koji je jednak infimumu skupa S.)
+Dokažimo to. Neka je L supremum skupa S. Budući da je L najmanja gornja međa, za bilo koji ε>0 broj L-ε više nije gornja međa skupa S. To znači da postoji član niza x_(n_0 ) za koji vrijedi
+x_(n_0 )>L-ε,
 
-Dokažimo to. Neka je
-L
- supremum skupa
-S
-. Budući da je
-L
- najmanja gornja međa, za bilo koji
-ε
->
-0
- broj
-L
-−
-ε
- više nije gornja međa skupa
-S
-. To znači da postoji član niza
-x
-n
-0
- za koji vrijedi
-x
-n
-0
->
-L
-−
-ε
-, tj.
-L
-−
-x
-n
-0
-<
-ε
-. Sad iskoristimo dvije činjenice:
+tj.
+L-x_(n_0 )<ε.
 
-1. niz je rastući, pa je
-x
-n
-0
-<
-x
-n
- za svaki
-n
->
-n
-0
-,
+Sad iskoristimo dvije činjenice:
+	niz je rastući, pa je x_(n_0 )<x_n za svaki n>n_0;
+	niz je omeđen i L mu je gornja međa, pa je x_n<L za svaki n.
+Zaključujemo da se za svaki n>n_0 članovi niza nalaze uklopljeni između x_(n_0 ) i L, pa vrijedi
+∣x_n-L∣=L-x_n<L-x_(n_0 )<ε,
 
-2. niz je omeđen i
-L
- mu je gornja međa, pa je
-x
-n
-<
-L
- za svaki
-n
-.
-
-Zaključujemo da se za svaki
-n
->
-n
-0
- članovi niza nalaze uklopljeni između
-x
-n
-0
- i
-L
-, pa vrijedi
-|
-x
-n
-−
-L
-|
-=
-L
-−
-x
-n
-<
-L
-−
-x
-n
-0
-<
-ε
-,
-
-što pokazuje da je
-L
- limes niza
-(
-x
-n
-)
-.
-
+što pokazuje da je L limes niza (x_n ).
 Time smo dokazali sljedeći važan teorem.
-
 Konvergencija monotonih nizova
-
 Ako je niz monoton i omeđen, onda on konvergira.
 Pokažimo kolika je snaga ove tvrdnje o konvergenciji monotonog i omeđenog niza. Vidjet ćemo da s pomoću nje možemo ne samo dokazivati konvergenciju, već i računati limese nekih nama korisnih nizova.
-(PRIMJER 14)
-(PRIMJER 15)
-Baza prirodnog logaritma - broj e
+PRIMJER 14
+PRIMJER 15
+Baza prirodnog logaritma – broj e
 Niz kojemu je opći član
-x
-n
-=
-(
-1
-+
-1
-n
-)
-n
+x_n=(1ⓜ+1/n)^n
 
-vrlo je važan u različitim primjenama. Njegov limes definira broj
-e
-, bazu prirodnog logaritma.
-
+monoton je i omeđen, pa ima limes. Taj se limes označava s e i naziva se baza prirodnog logaritma.
+vrlo je važan u različitim primjenama. Njegov limes definira broj e, bazu prirodnog logaritma.
 Ispišimo približne vrijednosti nekih članova ovog niza.
+Neka je
+x_n=(1ⓜ+1/n)^n.
+■(n&x_n@1&2@2&2,25@3&2,37@10&2,59@100&2,704@1000&2,7169@10000&2,71814@10^6&2,718280@10^9&2,71828182832)
 
-n
-x
-n
-1
-2
-2
-2.25
-3
-2.37
-10
-2.59
-100
-2.704
-1000
-2.7169
-10000
-2.71814
-10
-6
-2.718280
-10
-9
-2.71828182832
-Po ponašanju ovih članova pretpostavljamo da je niz rastući i omeđen odozgo, dakle
-−
- konvergentan je. Njegov limes ne možemo računati na neki jednostavan način, poput limesa u prije promatranim primjerima. Nakon što se uvjerimo da niz konvergira, limes ćemo označiti posebnim  simbolom
-e
- i na taj način definirati broj
-e
-. To je iracionalan broj s vrijednošću
-e
-=
-2
-.71828182846
-…
+Po ponašanju ovih članova pretpostavljamo da je niz rastući i omeđen odozgo, dakle konvergentan je. Njegov limes ne možemo računati na neki jednostavan način, poput limesa u prije promatranim primjerima. Nakon što se uvjerimo da niz konvergira, limes ćemo označiti posebnim simbolom e i na taj način definirati broj e. To je iracionalan broj s vrijednošću
+e=2,71828182846…
 
 Monotonost i omeđenost niza slijedi iz Bernoullijeve nejednakosti:
-(
-1
-+
-h
-)
-α
-≥
-1
-+
-α
-h
-,
-čim je
-h
->
-0
- i
-α
->
-1
-.
-(
-2
-)
+(1+h)^α≥1+αh,
 
+čim je h>0 i α>1. \tag{2}
 Stavimo u (2)
-α
-=
-n
-+
-1
-n
-,
-h
-=
-1
-n
-+
-1
-:
-(
-1
-+
-1
-n
-+
-1
-)
-n
-+
-1
-n
->
-1
-+
-n
-+
-1
-n
-⋅
-1
-n
-+
-1
-=
-1
-+
-1
-n
-.
+α=(n+1)/n,h=1/(n+1):
+(1ⓜ+1/(n+1))^((n+1)/n)>1+(n+1)/n⋅1/(n+1)=1+1/n.
 
-Uzimajući
-n
--tu potenciju obiju strana u ovoj nejednakosti, dobivamo
-x
-n
-+
-1
-=
-(
-1
-+
-1
-n
-+
-1
-)
-n
-+
-1
->
-(
-1
-+
-1
-n
-)
-n
-=
-x
-n
-,
+Uzimajući n-tu potenciju obiju strana u ovoj nejednakosti, dobivamo
+x_(n+1)=(1ⓜ+1/(n+1))^(n+1)>(1ⓜ+1/n)^n=x_n,
 
-te je niz
-(
-x
-n
-)
- rastući.
-
+te je niz (x_n ) rastući.
 Iskoristimo Bernoullijevu nejednakost na još jedan način:
-4
-1
-n
-=
-2
-2
-n
-=
-1
-2
-⋅
-2
-1
-+
-2
-n
-=
-1
-2
-(
-1
-+
-1
-)
-1
-+
-2
-n
->
-1
-2
-(
-1
-+
-1
-+
-2
-n
-)
-=
-1
-+
-1
-n
-.
+4^(1/n)=2^(2/n)=1/2⋅2^(1+2/n)=1/2(1+1)^(1+2/n)>1/2 (1ⓜ+1ⓜ+2/n)=1+1/n.
 
 Ponovno potencirajući, dobivamo
-4
->
-(
-1
-+
-1
-n
-)
-n
-=
-x
-n
-,
+4>(1ⓜ+1/n)^n=x_n,
 
-te je niz
-(
-x
-n
-)
- omeđen odozgo brojem
-4
-.
+te je niz (x_n ) omeđen odozgo brojem 4.
+Time smo pokazali da je niz rastući i omeđen, pa je konvergentan. Njegov limes označit ćemo s e. U ovom trenutku ne znamo koliki je iznos tog broja!
+Za svaki realni broj a vrijedi
+(lim⁡)┬(n→∞) (1ⓜ+a/n)^n=e^a.
 
-Time smo pokazali da je niz rastući i omeđen, pa je konvergentan. Njegov limes označit ćemo s
-e
-. U ovom trenutku ne znamo koliki je iznos tog broja!
+Tu formulu možemo pokušati opravdati tako da uvedemo zamjenu m=n/a:
+(lim⁡)┬(n→∞) (1ⓜ+a/n)^n=(lim⁡)┬(n→∞) (1ⓜ+a/n)^(n/a⋅a)=[(lim⁡)┬(m→∞) (1ⓜ+1/m)^m ]^a=e^a.
 
-Za svaki realni broj
-a
- vrijedi
-lim
-n
-→
-∞
-
-(
-1
-+
-a
-n
-)
-n
-=
-e
-a
-.
-
-Tu formulu možemo pokušati opravdati tako da uvedemo zamjenu
-m
-=
-n
-/
-a
-:
-lim
-n
-→
-∞
-
-(
-1
-+
-a
-n
-)
-n
-=
-lim
-n
-→
-∞
-
-(
-1
-+
-a
-n
-)
-n
-a
-⋅
-a
-=
-[
-lim
-m
-→
-∞
-
-(
-1
-+
-1
-m
-)
-m
-]
-a
-=
-e
-a
-.
-
-Rezultat je istinit, ali ovaj račun nije potpuno opravdan jer
-m
- ne mora biti prirodan broj.
-(PRIMJER 16)
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
+Rezultat je istinit, ali ovaj račun nije potpuno opravdan jer m ne mora biti prirodan broj.
+PRIMJER 16
+________________________________________
+________________________________________
+________________________________________
 Geometrijski red
-----------------------------------------------------------------------------------------
-S pojmom niza povezan je i pojam reda.
-Zbrajajući članove niza (x_n), dobivamo novi niz parcijalnih suma (S_n), definiran na ovaj način
-S
-1
-:=
-x
-1
-S
-2
-:=
-x
-1
-+
-x
-2
-S
-3
-:=
-x
-1
-+
-x
-2
-+
-x
-3
-⋮
-S
-n
-:=
-x
-1
-+
-x
-2
-+
-.
-.
-.
-+
-x
-n
-⋮
+________________________________________
+S pojmom niza povezan je i pojam reda. Zbrajajući članove niza (x_n ), dobivamo novi niz parcijalnih suma (S_n ), definiran na ovaj način:
+S_1:=x_1
+S_2:=x_1+x_2
+S_3:=x_1+x_2+x_3
+⋮⬆
+S_n:=x_1+x_2+⋯+x_n
+⋮⬆
 
 Možemo zamisliti da se postupak zbrajanja nastavlja u beskonačnost:
-x
-1
-+
-x
-2
-+
-.
-.
-.
-+
-x
-n
-+
-.
-.
-.
+x_1+x_2+⋯+x_n+⋯
 
 Osnovno pitanje koje postavljamo promatrajući ovaj zbroj jest: je li on konačan?
-
 Definicija reda
-
 Izraz oblika
-x
-1
-+
-x
-2
-+
-.
-.
-.
-+
-x
-n
-+
-.
-.
-.
+x_1+x_2+⋯+x_n+⋯
+
 nazivamo redom i označavamo sa
-∞
-∑
-n
-=
-1
+∑_(n=1)^∞▒x_n .
 
-x
-n
-. Njegova
-n
--ta parcijalna suma je
-S
-n
-=
-n
-∑
-k
-=
-1
+Njegova n-ta parcijalna suma je
+S_n=∑_(k=1)^n▒x_k =x_1+x_2+⋯+x_n.
 
-x
-k
-=
-x
-1
-+
-x
-2
-+
-.
-.
-.
-+
-x
-n
-.
-Kažemo da je red konvergentan ako je konvergentan niz
-(
-S
-n
-)
- njegovih parcijalnih suma. U tom je slučaju suma reda jednaka limesu niza parcijalnih suma:
-S
-=
-lim
-n
-→
-∞
+Kažemo da je red konvergentan ako je konvergentan niz (S_n ) njegovih parcijalnih suma. U tom je slučaju suma reda jednaka limesu niza parcijalnih suma:
+S=(lim⁡)┬(n→∞) S_n.
 
-S
-n
-.
-(PRIMJER 1)
-(PRIMJER 2)
+PRIMJER 1
+PRIMJER 2
 Geometrijski red
-Ako je
-(
-a
-n
-)
- geometrijski niz, tada red oblika
-∞
-∑
-n
-=
-1
+Ako je (a_n ) geometrijski niz, tada red oblika
+∑_(n=1)^∞▒a_n =a_1+a_2+a_3+⋯=a_1+a_1 q+a_1 q^2+⋯
 
-a
-n
-=
-a
-1
-+
-a
-2
-+
-a
-3
-+
-.
-.
-.
-=
-a
-1
-+
-a
-1
-q
-+
-a
-1
-q
-2
-+
-.
-.
-.
+nazivamo geometrijski red. Ovdje su a_1 i q zadani realni brojevi različiti od nule.
+Mi poznajemo izraz za njegovu n-tu parcijalnu sumu:
+S_n=a_1  (q^n-1)/(q-1).
 
-nazivamo geometrijski red. Ovdje su
-a
-1
- i
-q
- zadani realni brojevi različiti od nule.
+Vidimo da će o limesu niza (S_n ) odlučivati 〖lim⁡〗_(n→∞) q^n. Sljedeće su mogućnosti.
+	∣q∣>1. U ovom slučaju niz (q^n ) ne konvergira jer nije omeđen. Zato ne postoji niti limes niza S_n. Primjerice, sljedeći zbrojevi nisu konačni:
+2+4+8+16+32+⋯
+3-6+12-24+48-⋯
 
-Mi poznajemo izraz za njegovu
-n
--tu parcijalnu sumu:
-S
-n
-=
-a
-1
-q
-n
-−
-1
-q
-−
-1
-.
-
-Vidimo da će o limesu niza
-(
-S
-n
-)
- odlučivati
-lim
-n
-→
-∞
-
-q
-n
-.
-
-Sljedeće su mogućnosti.
-
-1.
-|
-q
-|
->
-1
-. U ovom slučaju niz
-(
-q
-n
-)
- ne konvergira jer nije omeđen. Zato ne postoji niti limes niza
-S
-n
-. Primjerice, sljedeći zbrojevi nisu konačni:
-2
-+
-4
-+
-8
-+
-16
-+
-32
-+
-.
-.
-.
-3
-−
-6
-+
-12
-−
-24
-+
-48
-−
-.
-.
-.
-
-2.
-q
-=
-1
-. Geometrijski niz je konstantan, a red glasi
-a
-1
-+
-a
-1
-+
-a
-1
-+
-.
-.
-.
+	q=1. Geometrijski niz je konstantan, a red glasi
+a_1+a_1+a_1+⋯
 
 te mu zbroj očito nije konačan.
+	q=-1. Red ima oblik
+a_1-a_1+a_1-a_1+⋯
 
-3.
-q
-=
-−
-1
-. Red ima oblik
-a
-1
-−
-a
-1
-+
-a
-1
-−
-a
-1
-+
-.
-.
-.
+Niz parcijalnih suma ovog reda izgleda ovako:
+S_1=a_1,S_2=0,S_3=a_1,S_4=0,S_5=a_1,…
 
-Niz parcijalnih suma ovog niza izgleda ovako:
-S
-1
-=
-a
-1
-,
-S
-2
-=
-0
-,
-S
-3
-=
-a
-1
-,
-S
-4
-=
-0
-,
-S
-5
-=
-a
-1
-.
-.
-.
-
-i on nema limes jer ne teži nijednom broju (jer je uvijek
-a
-1
-≠
-0
-).
-
-4.
-|
-q
-|
-<
-1
-. U ovom slučaju limes niza
-(
-q
-n
-)
- postoji i jednak je 0, te zato postoji i limes niza
-(
-S
-n
-)
-:
-lim
-n
-→
-∞
-
-S
-n
-=
-lim
-n
-→
-∞
-
-a
-1
-q
-n
-−
-1
-q
-−
-1
-=
-a
-1
-lim
-n
-→
-∞
-
-q
-n
-−
-1
-q
-−
-1
-=
-a
-1
-1
-−
-q
-.
+i on nema limes jer ne teži nijednom broju (jer je uvijek a_1≠0).
+	∣q∣<1. U ovom slučaju limes niza (q^n ) postoji i jednak je 0, te zato postoji i limes niza (S_n ):
+(lim⁡)┬(n→∞) S_n=(lim⁡)┬(n→∞) a_1  (q^n-1)/(q-1)=a_1  (lim⁡)┬(n→∞)  (q^n-1)/(q-1)=a_1  (0-1)/(q-1)=a_1/(1-q).
 
 Definicija
-
 Geometrijski red
-∞
-∑
-n
-=
-1
+∑_(n=1)^∞▒a_1  q^(n-1)=a_1+a_1 q+a_1 q^2+⋯
 
-a
-1
-q
-n
-=
-a
-1
-+
-a
-1
-q
-+
-a
-1
-q
-2
-+
-.
-.
-.
-konvergentan je onda i samo onda ako vrijedi
-|
-q
-|
-<
-1
-. Njegova je suma jednaka:
-S
-=
-a
-1
-1
-−
-q
-.
-(
-1
-)
-(PRIMJER 3)
-(PRIMJER 4)
-(PRIMJER 5)
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
+konvergentan je onda i samo onda ako vrijedi ∣q∣<1. Njegova je suma jednaka:
+■(&S=a_1/(1-q).&&"(1)" )
+
+PRIMJER 3
+PRIMJER 4
+PRIMJER 5
+________________________________________
 Kamatni račun
-----------------------------------------------------------------------------------------
+________________________________________
 Uvod
-Jedna od vrlo važnih primjena geometrijskog niza i eksponencijalne funkcije jest kamatni račun.
-S njim se susrećemo u svakidašnjem životu, pri ulaganju, štednji, pozajmicama.
-U ovoj ćemo točki opisati samonajjednostavnije primjere, ne promatrajući složenije situacije koje se proučavaju u srednjim školama i fakultetima gospodarskog usmjerenja.
-
-Spomenimo najprije temeljne pojmove kojima se služimo ukamatnom računu.
-Iznos novca koji želimoulozziti u danom trenutku nazivamo glavnica (kapital).
-Označavamo ga s C.
-Po isteku roka posuđena će glavnica donijeti kamatu, čiji iznos ovisi o vremenu posuđivanja, načinu obračuna i kamatnoj stopi.
-
+Jedna od vrlo važnih primjena geometrijskog niza i eksponencijalne funkcije jest kamatni račun. S njim se susrećemo u svakidašnjem životu, pri ulaganju, štednji, pozajmicama. U ovoj ćemo točki opisati samo najjednostavnije primjere, ne promatrajući složenije situacije koje se proučavaju u srednjim školama i fakultetima gospodarskog usmjerenja.
+Spomenimo najprije temeljne pojmove kojima se služimo u kamatnom računu. Iznos novca koji želimo uložiti u danom trenutku nazivamo glavnica (kapital). Označavamo ga s C. Po isteku roka posuđena će glavnica donijeti kamatu, čiji iznos ovisi o vremenu posuđivanja, načinu obračuna i kamatnoj stopi.
 Jednostavno ukamaćivanje
-100
+100" €"  oročenih na jednu godinu uz kamatnu stopu od p=5% donijet će na kraju razdoblja 5" €"  kamate. Ovdje je riječ o jednostavnom ukamaćivanju po kojem se početna vrijednost glavnice C_0 po isteku razdoblja uvećava za kamatu u iznosu
+C_0⋅p/100,
 
-€
- oročenih na jednu godinu uz kamatnu stopu od
-p
-=
-5
-
-%
- donijet će na kraju razdoblja
-5
-
-€
- kamate. Ovdje je riječ o jednostavnom ukamaćivanju po kojem se početna vrijednost glavnice
-C
-0
- po isteku razdoblja uvećava za kamatu u iznosu
-C
-0
-⋅
-p
-100
-, tako da je njezina vrijednost na kraju razdoblja
-C
-1
-=
-C
-0
-+
-C
-0
-⋅
-p
-100
-=
-C
-0
-(
-1
-+
-p
-100
-)
-.
+tako da je njezina vrijednost na kraju razdoblja
+C_1=C_0+C_0⋅p/100=C_0 (1ⓜ+p/100).
 
 Iznos kamate za razdoblja različita od jedne godine računa se po formuli
-C
-0
-⋅
-p
-100
-⋅
-t
+C_0⋅p/100⋅t
 
-i ova se vrijednost dodaje glavnici. Ovdje je
-t
- vrijeme posudbe izraženo u godinama.
-(PRIMJER 1)
-----------------------------------------------------------------------------------------
+i ova se vrijednost dodaje glavnici. Ovdje je t vrijeme posudbe izraženo u godinama.
+PRIMJER 1
+________________________________________
 Složeni kamatni račun
-Oročava li se novac na duži rok, tada je prirodno da se po isteku jedne godine i kamate pripisuju glavnici.
-Na taj će se način u sljedećim vremenskim intervalima uvećavati i sama kamata (jer se obračunava i kamata na kamatu).
-(PRIMJER 2)
+Oročava li se novac na duži rok, tada je prirodno da se po isteku jedne godine i kamate pripisuju glavnici. Na taj će se način u sljedećim vremenskim intervalima uvećavati i sama kamata (jer se obračunava i kamata na kamatu).
+PRIMJER 2
 U svakoj sljedećoj godini glavnica se uvećava za isti postotak:
-C
-1
-=
-C
-0
-(
-1
-+
-p
-100
-)
-C
-2
-=
-C
-1
-(
-1
-+
-p
-100
-)
-=
-C
-0
-(
-1
-+
-p
-100
-)
-2
-C
-3
-=
-C
-2
-(
-1
-+
-p
-100
-)
-=
-C
-0
-(
-1
-+
-p
-100
-)
-3
-⋮
+C_1=C_0 (1ⓜ+p/100)
+C_2=C_1 (1ⓜ+p/100)=C_0 (1ⓜ+p/100)^2
+C_3=C_2 (1ⓜ+p/100)=C_0 (1ⓜ+p/100)^3
+⋮⬆
 
-Prema tome, niz
-(
-C
-n
-)
- je geometrijski niz.
-
-
-
+Prema tome, niz (C_n ) je geometrijski niz.
 Definicija
+Glavnica C_0 oročena na n godina uz kamatnu stopu od p% porast će na svotu
+C_n=C_0 (1ⓜ+p/100)^n.
 
-Glavnica
-C
-0
- oročena na
-n
- godina uz kamatnu stopu od
-p
-
-%
- porast će na svotu
-C
-n
-=
-C
-0
-(
-1
-+
-p
-100
-)
-n
-.
 Ovdje je
-1
-+
-p
-100
- kamatni faktor za koji se povećava glavnica u roku od jedne godine.
-(PRIMEJR 3)
-Napomena. Potencija
-1
-.04
-10
- računa se na džepnom računalu s pomoću tipke
-y
-x
-:
+1+p/100
 
-1
-.04
+kamatni faktor za koji se povećava glavnica u roku od jedne godine.
+PRIMJER 3
+Napomena. Potencija 〖1,04〗^10 računa se na džepnom računalu s pomoću tipke y^x:
+1,04"  " y^x "  " 10=1,4802.
 
-y
-x
+Mnoga računala ne posjeduju tipku y^x. Tada se mogu koristiti svojstva eksponencijalne i logaritamske funkcije:
+y^x=10^(xlog⁡y)
 
-10
+ili isto to za bazu prirodnog logaritma:
+y^x=e^(xln⁡y);〖1,04〗^10=10^(10log⁡1,04)=10^0,17033=1,4802.
 
-=
-(
-1
-.4802
-)
-.
+PRIMJER 4
+PRIMJER 5
+Pri štednji su rijetke situacije u kojima se velike svote oročavaju na duže razdoblje. Češće se javlja situacija u kojoj se manji iznosi uplaćuju u redovitim vremenskim intervalima i oročavaju do nekog datuma. Takav način štednje naziva se obročna štednja.
+Opišimo sljedeću situaciju. Isti iznos S uplaćuje se na početku svake godine i oročava na vrijeme od n godina. Godišnja kamatna stopa je p%. Kolikom ćemo svotom raspolagati po isteku desete godine?
+Svota uplaćena na početku prve godine donijet će, zajedno s kamatama i kamatama na kamate, iznos od S⋅r^n, gdje je
+r=1+p/100
 
-Mnoga računala ne posjeduju tipku
-y
-x
-. Tada se mogu koristiti svojstva eksponencijalne i logaritamske funkcije:
-y
-x
-=
-10
-x
-log
-y
- ili isto to za bazu prirodnog logaritma:
-y
-x
-=
-e
-x
-ln
-y
-;
-1
-.04
-10
-=
-10
-10
-log
-1
-.04
-=
-10
-0
-.17033
-=
-1
-.4802
-.
-(PRIMJER 4)
-(PRIMJER 5)
-Pri štednji su rijetke situacije u kojima se velike svote oročavaju na duže razdoblje.
-Češće se javlja situacija u kojoj se manji iznosi uplaćuju u redovitim vremenskim intervalima i oročavaju do nekog datuma.
-Takav način štednje naziva se obročna štednja.
+kamatni faktor. Svota uplaćena na početku druge godine donijet će iznos od S⋅r^(n-1) itd. Svota uplaćena na početku posljednje godine vrijedit će na kraju S⋅r. U tom trenutku ukupna svota iznosi:
+S_n=Sr^n+Sr^(n-1)+⋯+Sr=Sr(1+r+r^2+⋯+r^(n-1))=Sr⋅(r^n-1)/(r-1).
 
-Opišimo sljedeću situaciju. Isti iznos
-S
- uplaćuje se na početku svake godine i oročava na vrijeme od
-n
- godina. Godišnja kamatna stopa je
-p
-
-%
-. Kolikom ćemo svotom raspolagati po isteku desete godine?
-
-Svota uplaćena na početku prve godine donijet će, zajedno s kamatama i kamatama na kamate iznos od
-S
-⋅
-r
-n
-, gdje je
-r
-=
-1
-+
-p
-100
- kamatni faktor. Svota uplaćena na početku druge godine donijet će iznos od
-S
-⋅
-r
-n
-−
-1
- itd. Svota uplaćena na početku posljednje godine vrijedit će na kraju
-S
-⋅
-r
-. U tom trenutku ukupna svota iznosi:
-S
-n
-=
-S
-r
-n
-+
-S
-r
-n
-−
-1
-+
-.
-.
-.
-+
-S
-r
-=
-S
-r
-(
-1
-+
-r
-+
-r
-2
-+
-.
-.
-.
-+
-r
-n
-−
-1
-)
-=
-S
-r
-r
-n
-−
-1
-r
-−
-1
-.
-(PRIMJER 6)
-Temeljni vremenski rok od jedne godine za pripis kamata u većini je novčarskih poslovanja predug.
-Poznato je da se novac može oročiti i na kraće vremensko razdoblje, od, recimo, samo sedam dana.
-Nakon toga se glavnici pripisuje kamata koja se i sama može ponovno oročiti.
-Jasno je da će se uz istu kamatnu stopu na kraju godine dobiti veća svota.
-(PRIMJER 7)
-Opišimo općenitu situaciju. Ako se ukamaćivanje obavlja
-m
- puta godišnje, onda je iznos glavnice na kraju prvog razdoblja:
-C
-0
-(
-1
-+
-p
-100
-m
-)
-,
+PRIMJER 6
+Temeljni vremenski rok od jedne godine za pripis kamata u većini je novčarskih poslovanja predug. Poznato je da se novac može oročiti i na kraće vremensko razdoblje, od, recimo, samo sedam dana. Nakon toga se glavnici pripisuje kamata koja se i sama može ponovno oročiti. Jasno je da će se uz istu kamatnu stopu na kraju godine dobiti veća svota.
+PRIMJER 7
+Opišimo općenitu situaciju. Ako se ukamaćivanje obavlja m puta godišnje, onda je iznos glavnice na kraju prvog razdoblja:
+C_0 (1ⓜ+p/100m),
 
 na kraju drugog razdoblja:
-C
-0
-(
-1
-+
-p
-100
-m
-)
-2
-,
+C_0 (1ⓜ+p/100m)^2,
 
 a na kraju godine:
-C
-1
-=
-C
-0
-(
-1
-+
-p
-100
-m
-)
-m
-.
+C_1=C_0 (1ⓜ+p/100m)^m.
 
-Produži li se razdoblje kroz više godina, na kraju
-n
--te godine glavnica će iznositi:
-C
-n
-=
-C
-0
-(
-1
-+
-p
-100
-m
-)
-m
-n
-.
+Produži li se razdoblje kroz više godina, na kraju n-te godine glavnica će iznositi:
+■(&C_n=C_0 (1ⓜ+p/100m)^mn.&&"(*)" )
 
-Usporedimo vrijednosti glavnice
-C
-1
- za
-p
-=
-100
- i za različite brojeve
-m
-.
+Usporedimo vrijednosti glavnice C_1 za p=100 i za različite brojeve m.
+■("ukama" "c"  ˊ"ivanje" &m&r=(1ⓜ+1/m)^m@"jednom godi" "s"  ̌"nje" &1&2@"polugodi" "s"  ̌"nje" &2&2,25@"tromjese" "c"  ̌"no" &4&2,441@"mjese" "c"  ̌"no" &12&2,6130@"tjedno" &52&2,69260@"dnevno" &365&2,714567@"svaki sat" &8766&2,7181269@"svake minute" &529" " 960&2,71827226@"svake sekunde" &31" " 557" " 600&2,718281785)
 
-ukamaćivanje
-m
-r
-jednom godišnje	1	2
-polugodišnje	2	2.25
-tromjesečno	4	2.441
-mjesečno	12	2.6130
-tjedno	52	2.69260
-dnevno	365	2.714567
-svaki sat	8766	2.7181269
-svake minute	529 960	2.71827226
-svake sekunde	31 557 600	2.718281785
-Povećanjem broja
-m
- ovaj postotak ne može premašiti broj
-2
-.72
-. Zapravo, radi se o rastućem nizu brojeva s limesom
-lim
-m
-→
-∞
+Povećanjem broja m ovaj postotak ne može premašiti broj 2,72. Zapravo, radi se o rastućem nizu brojeva s limesom
+(lim⁡)┬(m→∞) (1ⓜ+1/m)^m=e=2,718281828…
 
-(
-1
-+
-1
-m
-)
-m
-=
-e
-=
-2
-.718281828
-…
-
-Ukamaćivanje svake sekunde nije besmislica!
-Upravo se na taj način ponašaju mnoge prirodne pojave.
-----------------------------------------------------------------------------------------
+Ukamaćivanje svake sekunde nije besmislica! Upravo se na taj način ponašaju mnoge prirodne pojave.
+________________________________________
 Neprekinuto ukamaćivanje
 Ako se ukamaćivanje obavlja svakog trenutka, tada će glavnica na kraju godine biti
-C
-1
-=
-lim
-m
-→
-∞
+C_1=(lim⁡)┬(m→∞) C_0 (1ⓜ+p/100m)^m=C_0  (lim⁡)┬(m→∞) (1ⓜ+p/100m)^(100m/p⋅p/100)=C_0 e^(p/100),
 
-C
-0
-(
-1
-+
-p
-100
-m
-)
-m
-=
-C
-0
-lim
-m
-→
-∞
+a po isteku n godina:
+■(&C_n=(lim⁡)┬(m→∞) C_0 (1ⓜ+p/100m)^mn=C_0 e^(np/100).&&"(1)" )
 
-(
-1
-+
-p
-100
-m
-)
-100
-m
-p
-⋅
-p
-100
-=
-C
-0
-e
-p
-100
-,
-
-a po isteku
-n
- godina:
-C
-n
-=
-lim
-m
-→
-∞
-
-C
-0
-(
-1
-+
-p
-100
-m
-)
-m
-n
-=
-C
-0
-e
-n
-p
-100
-.
-(
-1
-)
-
-Očito, rok ne mora biti cijeli broj godina. U svakom trenutku
-t
- (koji se mjeri u godinama, ali ne mora biti cijeli broj) vrijednost glavnice bit će
-C
-t
-=
-C
-0
-⋅
-e
-p
-t
-100
-.
-(
-2
-)
+Očito, rok ne mora biti cijeli broj godina. U svakom trenutku t (koji se mjeri u godinama, ali ne mora biti cijeli broj) vrijednost glavnice bit će
+■(&C_t=C_0⋅e^(pt/100).&&"(2)" )
 
 Prema ovom zakonu računa se, recimo, prirast biljne mase (na primjer, drva u šumi), prirast stanovništva nekog (velikog) grada ili države itd.
-(PRIMJER 8)
+PRIMJER 8
 
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------

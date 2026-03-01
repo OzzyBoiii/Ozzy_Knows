@@ -1,54 +1,64 @@
-<h3>Pojam potencije (U RADU)</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Pojam potencije (U RADU)
 Pojam potencije
-<p id="potencije"> - Potencija (an)
-                - umnožak n jednakih faktora gdje je a neki realni broj
-                - an=a*a*a* … *a.
-                - broj a je osnovica (baza potencije, a prirodni broj n je njezin eksponent
-                - zbog toga jest a=a1 te a0=1 
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
-potencije suprotnih brojeva
-<p>Potencije suprotnih brojeva istim parnim eksponentom jednake su. Potencije suprotnih brojeva istim neparnim eksponentom suprotni su brojevi.         	(−a)2=(−a)⋅(−a)=a2(−a)3=(−a)⋅(−a)⋅(−a)=−a3(−a)4=(−a)⋅(−a)⋅(−a)⋅(−a)=a4 Ako je a>0 bilo koji realan broj, a n prirodni broj, tada vrijedi (−a)2n=a2n,(−a)2n−1=−a2n−1</p>
-            
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Računanje s potencijama</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
-zbrajanje i oduzimanje potencija
- <p> pri računanju s njima vrijede sva pravila koja vrijede i za računske operacije s realnim brojevima</p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Potencija a^n je zapis umnoška n jednakih faktora, gdje je a neki realni broj.
+Vrijedi
+a^n=a⋅a⋅a⋅⋯⋅a (ukupno n faktora).
+Broj a zovemo osnovica (baza) potencije, a prirodni broj n njezin eksponent.
+Zbog toga vrijedi a=a^1, a za a≠0 definiramo a^0=1.
+________________________________________
+Potencije suprotnih brojeva
+Potencije suprotnih brojeva istim parnim eksponentom jednake su, a istim neparnim eksponentom suprotni su brojevi.
+(-a)^2=(-a)⋅(-a)=a^2
+(-a)^3=(-a)⋅(-a)⋅(-a)=-a^3
+(-a)^4=(-a)⋅(-a)⋅(-a)⋅(-a)=a^4.
+Ako je a>0 bilo koji realan broj, a n prirodni broj, tada vrijedi
+(-a)^2n=a^2n,(-a)^(2n-1)=-a^(2n-1).┤
+________________________________________
+________________________________________
+________________________________________
+Računanje s potencijama
+Zbrajanje i oduzimanje potencija
+Pri računanju s potencijama vrijede ista osnovna pravila kao i za računske operacije s realnim brojevima.
+Zbrajati i oduzimati možemo samo jednake potencije (ista baza i isti eksponent) tako da zbrojimo ili oduzmemo koeficijente, a potenciju prepišemo, npr.
+3⋅2^4+5⋅2^4=8⋅2^4.
+________________________________________
 Množenje potencija jednakih baza
- <p>umnožak je potencija s istom bazom 3 i s eksponentom koji je zbroj eksponenata potencija koje se množe 37⋅35=(3⋅3⋅3⋅3⋅3⋅3⋅3)⋅(3⋅3⋅3⋅3⋅3)=312
-                Općenito vrijedi:
-              </p>
-              <img src="Računanje s potencijama_1.png">
-              <p>Množenje potencija jednakih bazaUmnožak dviju potencija jednakih baza jest potencija iste baze kojoj je eksponent zbroj eksponenata potencija koje množimo:am⋅an=am+n.Pravilo za množenje dviju potencija jednakih baza možemo proširiti. Za svaka tri prirodna broja k, m i n vrijedi:ak⋅am⋅an=ak+m+n. Dokažimo tu jednakost:ak⋅am⋅an=(ak⋅am)⋅an=ak+m⋅an=ak+m+n.Iskaži riječima ovo pravilo te obrazloži njegov navedeni dokaz. Vrijedi li poopćenje pravila na umnožak bilo kojeg broja potencija jednakih baza?
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
-Množenje potencija jednakih baza
- <p>umnožak je potencija s istom bazom 3 i s eksponentom koji je zbroj eksponenata potencija koje se množe 37⋅35=(3⋅3⋅3⋅3⋅3⋅3⋅3)⋅(3⋅3⋅3⋅3⋅3)=312
-                Općenito vrijedi:
-              </p>
-              <img src="Računanje s potencijama_1.png">
-              <p>Množenje potencija jednakih bazaUmnožak dviju potencija jednakih baza jest potencija iste baze kojoj je eksponent zbroj eksponenata potencija koje množimo:am⋅an=am+n.Pravilo za množenje dviju potencija jednakih baza možemo proširiti. Za svaka tri prirodna broja k, m i n vrijedi:ak⋅am⋅an=ak+m+n. Dokažimo tu jednakost:ak⋅am⋅an=(ak⋅am)⋅an=ak+m⋅an=ak+m+n.Iskaži riječima ovo pravilo te obrazloži njegov navedeni dokaz. Vrijedi li poopćenje pravila na umnožak bilo kojeg broja potencija jednakih baza?
-              </p>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Umnožak potencija jednakih baza opet je potencija iste baze, s eksponentom koji je zbroj eksponenata potencija koje se množe.
+Primjer:
+3^7⋅3^5=(3⋅3⋅3⋅3⋅3⋅3⋅3)⋅(3⋅3⋅3⋅3⋅3)=3^12.
+Općenito vrijedi:
+a^m⋅a^n=a^(m+n).
+Pravilo za množenje dviju potencija jednakih baza možemo proširiti. Za svaka tri prirodna broja k, m i n vrijedi
+a^k⋅a^m⋅a^n=a^(k+m+n).
+Dokaz:
+a^k⋅a^m⋅a^n=(a^k⋅a^m)⋅a^n=a^(k+m)⋅a^n=a^(k+m+n).
+Riječima: kod množenja više potencija istih baza bazu prepišemo, a sve eksponente zbrojimo.
+________________________________________
 Potenciranje potencije
- <p>Potenciranjem potencije dobijemo novu potenciju iste baze čiji je eksponent umnožak dvaju eksponenata:</p>
-              <img src="Računanje s potencijama_2.png">
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h3>Znanstveni zapis realnog broja</h3>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Potenciranjem potencije dobijemo novu potenciju iste baze čiji je eksponent umnožak dvaju eksponenata.
+Pravilo glasi
+(a^m )^nⓜ=a^(m⋅n).┤
+Primjer:
+(2^3 )^4ⓜ=2^(3⋅4)ⓜ=2^12.┤
+________________________________________
+________________________________________
+________________________________________
 Znanstveni zapis realnog broja
-<p>Znanstveni zapis realnog broja rr je zapis oblikar=a.bcd⋅10n.r=a.bcd⋅10n.Pritom je aa jednoznamenkast cijeli broj različit od nule, bb, cc i dd su prve tri decimalne znamenke broja rr, a nn je cijeli broj. Broj decimala u znanstvenom zapisu broja ponekad je i veći od 3, ali cijelo je mjesto samo jedno. Primijetimo da je znanstveni zapis nekog broja najčešće njegova približna vrijednost.
-                <!--PRIMJER 1-->
-                <!--PRIMJER 2-->
-                <!--PRIMJER 3-->
-                <!--PRIMJER 4-->
-                <!--PRIMJER 5-->
-                <!--PRIMJER 6-->
-              </p>
+Znanstveni zapis realnog broja
+Znanstveni zapis realnog broja r je zapis oblika
+r=a⋅10^n.
+Pri tome je a realan broj takav da 1≤a<10, a n je cijeli broj.
+Često se piše i detaljnije, npr.
+r=a,bcd⋅10^n,
+gdje je a jednoznamenkasti cijeli broj različit od nule, a b,c,d su prve tri decimalne znamenke broja r.
+Broj decimala u znanstvenom zapisu broja može biti i veći od 3, ali cijeli dio čini samo jedna znamenka. Znanstveni zapis nekog broja najčešće je njegova približna vrijednost.
+Primjeri (možeš ih uvrstiti gdje želiš u svoju lekciju):
+	3" " 500" " 000=3,5⋅10^6
+	0,0042=4,2⋅10^(-3)
+	1,234567≈1,235⋅10^0 (zaokruženo na tri decimale)
+	Brzina svjetlosti: c≈3,00⋅10^8 " m/s" 
+	Avogadrov broj: N_A≈6,02⋅10^23
+
+ 
+
+

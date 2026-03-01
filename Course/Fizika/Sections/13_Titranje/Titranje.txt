@@ -1,541 +1,302 @@
-<h2>Harmonijsko titranje</h2>
----------------------------------------------------------------------------------------------------------------------------------------------------
+Harmonijsko titranje
+________________________________________
 Teorija
-<img src="Harmonijsko titranje_1.png" class="zoomable-image" data-row="1">
- <p class="zoomable-text">
-                  &bull; harmonijsko titranje <br>
-                  &bull; gibanje materijalne točke oko položaja ravnoteže opisano određenim veličinama<br>
-                  &bull; primjeri titranja tijela: titranje atoma i molekula, žice instrumenata, tijela ovješena na oprugu, električni titrajni krug<br>
-                  &bull; svako titranje uzrokuje sila koja nastoji sustav vratiti u položaj ravnoteže<br>
-                  &bull; određene veličine:<br>
-                ➢ period (T): trajanje jednog potpunog titraja (tijelo u tom vremenu dvaput prijeđe kroz položaj ranoteže)<br>
-                ➢ frekvencija (f): broj titraja u jednoj sekundi (
-                  <div class="eq-c">
-                  f=
-                  <div class="fraction">
-                    <span class="fup">1</span>
-                    <span class="bar">/</span>
-                    <span class="fdn">T</span>
-                  </div>
-                </div>)<br>
-                ➢ elongacija (x): bilo koji pomak materijalne točke od položaja ravnoteže<br>
-                ➢ amplituda (A): najveći pomak materijale točke od položaja ravnoteže<br>
-                  &bull; harmonijsko titranje
-                  &bull; najjednostavnije titranje koje uzrokuje elastična sila (F<sub>EL</sub>=(-)k*x)
-                  &bull; sustav koji titra u harmonijskom titranju nazivamo jednostavni harmonički oscilator
-                - uočimo u gornjem izrazu jedan konstantan dio ( k/m) pomoću kojeg opisujemo period titranja:
-                T=2*&phi;*<div class="eq-c">
-                  <div class="fraction">
-                    <span class="fup"><span class="sqrt">m</span></span>
-                    <span class="bar">/</span>
-                    <span class="fdn"><span class="sqrt">k</span></span>
-                  </div>
-                </div>
-                &bull; titranje tijela moguće je predočiti trigonometrijskim funkcijama:
-                x=A*sin(w*t+&phi;)
-                v=A*w*cos(w*t+&phi;)
-                a=-A*w<sup>2</sup>*sin(w*t+&phi;)
-                ZADATCI
-                2. Harmonijsko titranje (konceptualni zadatak)
-Primjer zadatka: (2 boda) Dvije zavojnice jednake duljine i konstanti elastičnosti k1 = 2 k2 spoje se prvo u seriju, a
-onda u paralelu. U svakom spoju se na njih stvari uteg mase 50 g i sustav se zatitra. Koliki je omjer frekvencija
-titranja tih opruga fserija/fparalela?
-Primjer zadatka: Titranje tijela opisano je jednadžbom( )
-1
-30 cm sin πts πx −
-= − .
-a) (2 boda) Kolika je maksimalna brzina titranja tijela? U kojem će položaju tijelo imati taj
-maksimalni iznos brzine?
+(Harmonijsko_titranje_1.png)
+	harmonijsko titranje
+	gibanje materijalne točke oko položaja ravnoteže opisano određenim veličinama
+	primjeri titranja tijela: titranje atoma i molekula, žice instrumenata, tijela ovješena na oprugu, električni titrajni krug
+	svako titranje uzrokuje sila koja nastoji sustav vratiti u položaj ravnoteže
+određene veličine:
+➢ period (T): trajanje jednog potpunog titraja (tijelo u tom vremenu dvaput prijeđe kroz položaj ravnoteže)
+➢ frekvencija (f): broj titraja u jednoj sekundi
+f=1/T
+
+➢ elongacija (x): bilo koji pomak materijalne točke od položaja ravnoteže
+➢ amplituda (A): najveći pomak materijalne točke od položaja ravnoteže
+	harmonijsko titranje – najjednostavnije titranje koje uzrokuje elastična sila
+F_"el" =-kx
+
+	sustav koji titra u harmonijskom titranju nazivamo jednostavni harmonički oscilator
+uočimo u izrazu za dinamiku titranja omjer k/m, pomoću kojeg opisujemo period titranja:
+ω=√(k/m)=2π/T
+T=2π√(m/k)
+
+.
+titranje tijela moguće je predočiti trigonometrijskim funkcijama (uz kutnu frekvenciju ω i početnu fazu φ):
+x(t)=Asin⁡(ωt+φ)
+v(t)=Aωcos⁡(ωt+φ)
+a(t)=-Aω^2 sin⁡(ωt+φ)
+
+________________________________________
+Zadatci
+	Harmonijsko titranje (konceptualni zadatak)
+PRIMJER 1: (2 boda) Dvije opruge jednake duljine i konstanti elastičnosti k_1=2k_2 spoje se prvo u seriju, a onda u paralelu. U svakom spoju se na njih stavi uteg mase 50 g i sustav se zatitra. Koliki je omjer frekvencija titranja tih opruga f_"serija" /f_"paralela" ?
+PRIMJER 2: Titranje tijela opisano je jednadžbom
+x=-1/30 " cm"⋅sin⁡(π t/"s" ⓜ-π).
+
+a) (2 boda) Kolika je maksimalna brzina titranja tijela? U kojem će položaju tijelo imati taj maksimalni iznos brzine?
 b) (3 boda) Ako je masa tijela 20 g, koliki je maksimalni iznos sile na to tijelo?
 c) (2 boda) Prikaži grafički titranje tijela.
 d) (2 boda) Koliki put prijeđe tijelo za 10 s?
-6. Harmonijsko titranje (numerički zadatak)
-Primjer zadatka: (6 bodova) Čestica mase 1 g harmonijski titra s amplitudom 1 m. U trenutku kad se čestica nalazi
-na udaljenosti 0,4 m od ravnotežnog položaja, njezina brzina je 0,5 m/s. Kolika sila djeluje na česticu u točki u
-kojoj je njezina potencijalna energija dva puta veća od kinetičke energije?
-2. (2 boda) Dvije opruge jednake duljine i različitih konstanti elastičnosti spoje se prvo u seriju, a onda u
-paralelu. U svakom spoju se na njih stvari uteg mase 50 g i sustav se zatitra. Ako je omjer frekvencija
-titranja tih opruga fparalela/fserija = 2, kakav je odnos njihovih konstanti elastičnosti?
-5. Titranje tijela opisano je jednadžbom1 π
-20 dm sin 2ts 2
-x − 
-= − + 
-  .
+	Harmonijsko titranje (numerički zadatak)
+PRIMJER 3: (6 bodova) Čestica mase 1 g harmonijski titra s amplitudom 1 m. U trenutku kad se čestica nalazi na udaljenosti 0,4 m od ravnotežnog položaja, njezina brzina je 0,5 m/s. Kolika sila djeluje na česticu u točki u kojoj je njezina potencijalna energija dva puta veća od kinetičke energije?
+	(2 boda) Dvije opruge jednake duljine i različitih konstanti elastičnosti spoje se prvo u seriju, a onda u paralelu. U svakom spoju se na njih stavi uteg mase 50 g i sustav se zatitra. Ako je omjer frekvencija titranja tih opruga f_"paralela" /f_"serija" =2, kakav je odnos njihovih konstanti elastičnosti?
+	Titranje tijela opisano je jednadžbom
+x=-1/20 " dm"⋅sin⁡(2π t/"s" ⓜ-π/2).
+
 a) (2 boda) Kolika je maksimalna brzina titranja tijela?
-b) (4 boda) Ako je masa tijela 20 g, koliki je maksimalni iznos sile na to tijelo? U kojem će položaju
-na tijelo djelovati maksimalna sila?
+b) (4 boda) Ako je masa tijela 20 g, koliki je maksimalni iznos sile na to tijelo? U kojem će položaju na tijelo djelovati maksimalna sila?
 c) (2 boda) Prikaži grafički titranje tijela.
 d) (2 boda) Za koje će vrijeme tijelo prijeći 1 m?
-<img src="Harmonijsko titranje_5.png">
-6. (5 bodova) Tijelo mase m=1 kg spojeno je na dvije opruge konstanti opiranja
-k1 =100 N/m i k2 =200 N/m kao na crtežu. Tijelo pomaknemo iz ravnotežnog
-položaja za 1cm u horizontalnom smjeru i pustimo.
-a) Koliki je period titranja tog sustava zanemarimo li trenje?
+(Harmonijsko_titranje_5.png)
+	(5 bodova) Tijelo mase m=1" kg"  spojeno je na dvije opruge konstanti elastičnosti k_1=100" N/m"  i k_2=200" N/m"  kao na crtežu. Tijelo pomaknemo iz ravnotežnog položaja za 1 cm u horizontalnom smjeru i pustimo.
+a) Koliki je period titranja tog sustava, zanemarimo li trenje?
 b) Kolika je ukupna energija sustava?
-<img src="Harmonijsko titranje_6.png">
-2. (2 boda) Dvije opruge konstanti elastičnosti k1 = 3 k2 imaju jednake duljine. Opruge spojimo prvo serijski, a
-onda paralelno. Koliko iznosi omjer elastičnih potencijalnih energija paralelnog i serijskog spoja tih
-opruga, kad se na njih ovjesi isti uteg mase m i u oba slučaja se uteg pomakne iz ravnotežnog položaja
-za iznos A?
-5. Titranje tijela opisano je jednadžbom
-a) (3 boda) Kolika je maksimalna akceleracija titranja tijela? U kojem će položaju akceleracija tijela
-koje titra biti maksimalna?
+(Harmonijsko_titranje_6.png)
+	(2 boda) Dvije opruge konstanti elastičnosti k_1=3k_2 imaju jednake duljine. Opruge spojimo prvo serijski, a onda paralelno. Koliko iznosi omjer elastičnih potencijalnih energija paralelnog i serijskog spoja tih opruga, kad se na njih ovjesi isti uteg mase m i u oba slučaja se uteg pomakne iz ravnotežnog položaja za iznos A?
+	Titranje tijela opisano je jednadžbom
+x=3/2 " dm"⋅cos⁡(2π t/"s" ⓜ-π/2).
+
+a) (3 boda) Kolika je maksimalna akceleracija titranja tijela? U kojem će položaju akceleracija tijela koje titra biti maksimalna?
 b) (3 boda) Ako je masa tijela 20 g, kolika je maksimalna energija tijela pri titranju?
 c) (2 boda) Prikaži grafički titranje tijela.
 d) (2 boda) Za koje će vrijeme tijelo prijeći 81 cm?
-<img src="Harmonijsko titranje_7.png">
-. (6 bodova) Tijelo je vezano za zid oprugom i harmonijski titra oko položaja ravnoteže kružnom
-frekvencijom ω=1Hz. Tijelo je na horizontalnoj podlozi i giba se bez trenja. a.) U jednom trenutku,
-sustav se zaustavi. Opruga se razreže na 4 jednaka dijela i tijelo se razreže na 4 jednaka dijela. Na jedan
-takav dio opruge se za zid spoji jedan dio tijela i pusti da titra. Kolika je kružna frekvencija titranja? Kako
-rezultat ovisi o amplitudi? b.) Umjesto na 4, opruga se razreže na N jednakih dijelova, a tijelo na M
-jednakih dijelova. Postoje li N i M takvi da je nova kružna frekvencija titranja jednaka √7 Hz? Ako da,
-koji? Ako ne, zašto?
-1. Prikaži grafički harmonijsko titranje tijela opisano jednadžbom
-𝑥 = 2 dm 𝑠𝑖𝑛 (4π𝑡
-𝑠 − π
-2)
-2. Harmonijsko titranje tijela mase 20 g opisano je jednadžbom
-𝑥 = −2 cm 𝑠𝑖𝑛 (2π𝑡
-𝑠 − π).
+(Harmonijsko_titranje_7.png)
+	(6 bodova) Tijelo je vezano za zid oprugom i harmonijski titra oko položaja ravnoteže kružnom frekvencijom ω=1" Hz" . Tijelo je na horizontalnoj podlozi i giba se bez trenja.
+a) U jednom trenutku sustav se zaustavi. Opruga se razreže na 4 jednaka dijela i tijelo se razreže na 4 jednaka dijela. Na jedan takav dio opruge se za zid spoji jedan dio tijela i pusti da titra. Kolika je kružna frekvencija titranja? Kako rezultat ovisi o amplitudi?
+b) Umjesto na 4, opruga se razreže na N jednakih dijelova, a tijelo na M jednakih dijelova. Postoje li N i M takvi da je nova kružna frekvencija titranja jednaka √7 " Hz" ? Ako da, koji? Ako ne, zašto?
+	Prikaži grafički harmonijsko titranje tijela opisano jednadžbom
+x=2" dm"⋅sin⁡(4π t/"s" ⓜ-π/2).
+
+	Harmonijsko titranje tijela mase 20 g opisano je jednadžbom
+x=-2" cm"⋅sin⁡(2π t/"s" ⓜ-π).
+
 a) Kolika je maksimalna brzina tog tijela pri titranju?
 b) Koliki je maksimalni iznos sile koja djeluje na to tijelo pri titranju?
-c) Gdje se nalazi tijelo u trenutku t = 4 s?
-3. U x(t) grafu prikazano je harmonijsko titranje tijela mase 100 dag:
+c) Gdje se nalazi tijelo u trenutku t=4" s" ?
+	U x(t) grafu prikazano je harmonijsko titranje tijela mase 100 dag:
+(Harmonijsko_titranje_8.png)
 a) Kolika je amplituda harmonijskog titranja toga tijela?
 b) Koliki je period titranja tijela?
-c) U kojem se položaju nalazi to tijelo u trenutku t = 9 s?
-d) Kolika je konstanta elastične opruge na koju je ovješeno to tijelo dok
-harmonijski titra?
-<img src="Harmonijsko titranje_8.png">
-1. Tijelo harmonijski titra amplitudom y0 i periodom T. Koliko dugo tijelo titra
-kada prijeđe put od 6y0?
-A. 0.5T
-B. 0.75T
-C. 1.25T
-D. 1.5T
-2. Kolika je razlika u fazi ako jedno titranje za drugim kasni za T/4?
+c) U kojem se položaju nalazi to tijelo u trenutku t=9" s" ?
+d) Kolika je konstanta elastične opruge na koju je ovješeno to tijelo dok harmonijski titra?
+	Tijelo harmonijski titra amplitudom y_0 i periodom T. Koliko dugo tijelo titra kada prijeđe put od 6y_0?
+A. 0,5 T
+B. 0,75 T
+C. 1,25 T
+D. 1,5 T
+	Kolika je razlika u fazi ako jedno titranje za drugim kasni za T/4?
 A. 45°
 B. 90°
 C. 120°
 D. 240°
-3. Tijelo mase 10 g, pričvršćeno za oprugu, harmonijski titra. Ukupna energija
-titranja tijela iznosi 5 J. Kolika je elastična potencijalna energija tijela u trenutku
-prolaska kroz ravnotežni položaj?
+	Tijelo mase 10 g, pričvršćeno za oprugu, harmonijski titra. Ukupna energija titranja tijela iznosi 5 J. Kolika je elastična potencijalna energija tijela u trenutku prolaska kroz ravnotežni položaj?
 A. 5 J
-B. 2.5 J
+B. 2,5 J
 C. 0 J
 D. 1 J
-4. Kada se amplituda harmonijskog oscilatora poveća dva puta, koja se od
-navedenih veličina najviše promijeni?
+	Kada se amplituda harmonijskog oscilatora poveća dva puta, koja se od navedenih veličina najviše promijeni?
 A. Frekvencija.
 B. Maksimalna brzina.
 C. Maksimalna akceleracija.
 D. Ukupna mehanička energija.
-5. Tijelo mase m ovješeno je o dvije opruge, jednakih konstanti elastičnosti k.
-Jednom je ovješeno tako da su opruge u ''seriji'', a drugi put tako da su opruge u
-''paraleli''. Periodi titranja T tijela u ta dva slučaja zadovoljavaju izraz:
-A. Tserije=Tparalele
-B. Tserije=2Tparalele
-C. Tserije=1/2 Tparalele
-D. Tserije=4Tparalele
-6. Tijelo harmonijski titra. Na crtežima je prikazana ovisnost kinetičke i
-potencijalne energije u ovisnosti o udaljenosti od ravnotežnog položaja x. Koji
-crtež približno prikazuje tu ovisnost?
-<img src="Harmonijsko titranje_9.png">
-7. Na elastičnu oprugu je ovješeno tijelo mase m. Koji od navedenih omjera
-ostaje stalan tijekom titranja zanemarimo li trenje?
+	Tijelo mase m ovješeno je o dvije opruge, jednakih konstanti elastičnosti k. Jednom je ovješeno tako da su opruge u „seriji“, a drugi put tako da su opruge u „paraleli“. Periodi titranja T tijela u ta dva slučaja zadovoljavaju izraz:
+A. T_"serije" =T_"paralele" 
+B. T_"serije" =2T_"paralele" 
+C. T_"serije" =1/2 T_"paralele" 
+D. T_"serije" =4T_"paralele" 
+	Tijelo harmonijski titra. Na crtežima je prikazana ovisnost kinetičke i potencijalne energije u ovisnosti o udaljenosti od ravnotežnog položaja x. Koji crtež približno prikazuje tu ovisnost?
+(Harmonijsko_titranje_9.png)
+	Na elastičnu oprugu je ovješeno tijelo mase m. Koji od navedenih omjera ostaje stalan tijekom titranja, zanemarimo li trenje?
 A. elongacija/frekvencija
 B. elongacija/brzina
 C. elongacija/period
 D. elongacija/akceleracija
 E. brzina/akceleracija
-8. Neko tijelo titra s amplitudom 10 cm i u 12 s učini jedan potpuni titraj. Za koje
-će vrijeme tijelo postići elongaciju 5 cm?
-9. Koje je vrijeme potrebno točki koja harmonijski titra da iz položaja ravnoteže
-dođe u elongaciju jednaku polovici amplitude? Vrijeme jednog titraja iznosi 24 s.
-10. Materijalna točka titra okomito na x os. U trenutku kad je točka počela titrati
-bila je 4 cm udaljena od položaja ravnoteže i gibala se prema gore. Nađi njezinu
-početnu fazu ako je amplituda titranja 8 cm.
-11. Koliki put prevali u jednoj sekundi čestica žice koja titra frekvencijom 300 Hz
-ako je amplituda titranja 0,5 mm?
-12. Čestica mase 5 g harmonijski titra prema jednadžbi 𝑥 = 6 cm 𝑠𝑖𝑛 (π𝑡
-2𝑠 + π
-4).
+	Neko tijelo titra s amplitudom 10 cm i u 12 s učini jedan potpuni titraj. Za koje će vrijeme tijelo postići elongaciju 5 cm?
+	Koje je vrijeme potrebno točki koja harmonijski titra da iz položaja ravnoteže dođe u elongaciju jednaku polovici amplitude? Vrijeme jednog titraja iznosi 24 s.
+	Materijalna točka titra okomito na x-os. U trenutku kad je točka počela titrati bila je 4 cm udaljena od položaja ravnoteže i gibala se prema gore. Nađi njezinu početnu fazu ako je amplituda titranja 8 cm.
+	Koliki put prevali u jednoj sekundi čestica žice koja titra frekvencijom 300 Hz ako je amplituda titranja 0,5 mm?
+	Čestica mase 5 g harmonijski titra prema jednadžbi
+x=6" cm"⋅sin⁡(π/2  t/"s" ⓜ+π/4).
+
 Nađi najveću silu koja djeluje na česticu.
-13. Čestica mase 1 g titra frekvencijom 30 Hz. Kolika je najveća kinetička energija
-te čestice ako je amplituda titranja 3 mm?
-14. Na elastičnu oprugu obješen je uteg od 5 kg. Koliko je vrijeme jednog titraja
-spiralne opruge ako znamo da se pod djelovanjem sile 15 N opruga produži 3
-cm?
-15. Tijelo titra harmonijski. Kad je elongacija tijela 4 cm, njegova je brzina 3 cm/s,
-a kad je elongacija 3 cm, tada tijelo ima brzinu 4 cm/s. Kolike su amplituda i
-period titranja?
-1. Kad na oprugu ovjesimo tijelo težine 20N njena duljina iznosi 40cm. Ako na istu oprugu ovjesimo tijelo
-težine 10N njezina duljina je tada 35cm. Kolika je konstanta elastičnosti opruge? Kolika je duljina
-neopterećene opruge?
-12. Tijelo mase 1kg harmonijski titra prema jednadžbi
-y=0,32sin(7,4
-t ) (sve jedinice su u SI sustavu).
-Odredite:
+	Čestica mase 1 g titra frekvencijom 30 Hz. Kolika je najveća kinetička energija te čestice ako je amplituda titranja 3 mm?
+	Na elastičnu oprugu obješen je uteg od 5 kg. Koliko je vrijeme jednog titraja spiralne opruge ako znamo da se pod djelovanjem sile 15 N opruga produži 3 cm?
+	Tijelo titra harmonijski. Kad je elongacija tijela 4 cm, njegova je brzina 3 cm/s, a kad je elongacija 3 cm, tada tijelo ima brzinu 4 cm/s. Kolike su amplituda i period titranja?
+	Kad na oprugu ovjesimo tijelo težine 20 N njezina duljina iznosi 40 cm. Ako na istu oprugu ovjesimo tijelo težine 10 N, njezina duljina je tada 35 cm. Kolika je konstanta elastičnosti opruge? Kolika je duljina neopterećene opruge?
+	Tijelo mase 1 kg harmonijski titra prema jednadžbi
+y=0,3" m"⋅sin⁡(7,4" 						" t)
+
+(sve jedinice su u SI sustavu). Odredite:
 a) amplitudu titranja
 b) frekvenciju titranja
 c) kinetičku i potencijalnu energiju kad je tijelo udaljeno 0,26 m od ravnotežnog položaja.
-17. Kad je na oprugu je ovješena masa
-m ona titra frekvencijom 0,8 Hz. Ako toj masi dodamo uteg od 0,5 kg
-tada opruga titra frekvencijom 0,4 Hz. Koliki je iznos mase
-m?
-56. Spiralna opruga duga 20cm pričvršćena je jednim svojim krajem za horizontalnu podlogu. S visine 30cm
-od podloge ispusti se na oprugu gruda od meke gline. Pri padu glina sabije oprugu na 5cm. Koju će duljinu
-imati opruga s glinom na vrhu nakon što se smiri?
-a) 10 cm b) 15,5 cm c) 7 cm d) 18 cm e) 12,5 cm
-78. Na oprugu je pričvršćeno tijelo mase
-M=10kg. Metak mase
-m=10g giba se
-horizontalno brzinom
-v=500m/s (crtež). Metak udari o tijelo i ostane u njemu.
-Pritom se tijelo zajedno s metkom otkloni od ravnotežnog položaja za 10cm.
-Kolika je perioda titranja tog sustava zanemarimo li trenje s podlogom?
-<img src="Harmonijsko titranje_10.png">
-6. . Crtež prikazuje tijelo mase
-m ovješeno o oprugu. Oprugu rastegnemo za 5cm i pustimo titrati pa ono
-titra periodom 2s .
-a) Napišite jednadžbu titranja tijela
-y=
-f(
-t) ako se u trenutku
-t = 0 tijelo
-nalazilo u točki B te se gibalo prema točki
-A:____________________________________
-b) Napišite jednadžbu titranja tijela
-y=
-f(
-t) ako se u trenutku
-t = 0 tijelo
-nalazilo u točki A:______________________________
-c) Napišite jednadžbu titranja tijela
-y=
-f(
-t) ako se u trenutku
-t = 0 tijelo
-nalazilo u točki C:______________________________
+	Kad je na oprugu ovješena masa m ona titra frekvencijom 0,8 Hz. Ako toj masi dodamo uteg od 0,5 kg tada opruga titra frekvencijom 0,4 Hz. Koliki je iznos mase m?
+	Spiralna opruga duga 20 cm pričvršćena je jednim svojim krajem za horizontalnu podlogu. S visine 30 cm od podloge ispusti se na oprugu gruda od meke gline. Pri padu glina sabije oprugu na 5 cm. Koju će duljinu imati opruga s glinom na vrhu nakon što se smiri?
+a) 10 cm
+b) 15,5 cm
+c) 7 cm
+d) 18 cm
+e) 12,5 cm
+	Na oprugu je pričvršćeno tijelo mase M=10" kg" . Metak mase m=10" g"  giba se horizontalno brzinom v=500" m/s"  (crtež). Metak udari o tijelo i ostane u njemu. Pritom se tijelo zajedno s metkom otkloni od ravnotežnog položaja za 10 cm. Kolika je perioda titranja tog sustava, zanemarimo li trenje s podlogom?
+(Harmonijsko_titranje_10.png)
+	Crtež prikazuje tijelo mase m ovješeno o oprugu. Oprugu rastegnemo za 5 cm i pustimo titrati pa ono titra periodom 2 s.
+a) Napišite jednadžbu titranja tijela y=f(t) ako se u trenutku t=0 tijelo nalazilo u točki B te se gibalo prema točki A: ____________________
+b) Napišite jednadžbu titranja tijela y=f(t) ako se u trenutku t=0 tijelo nalazilo u točki A: ____________________
+c) Napišite jednadžbu titranja tijela y=f(t) ako se u trenutku t=0 tijelo nalazilo u točki C: ____________________
 d) Brzina tijela je najveća na mjestu označenom točkom: __________
-e) Akceleracija tijela je najveća na mjestu označenom točkama:
-__________
+e) Akceleracija tijela je najveća na mjestu označenom točkama: __________
 f) Kinetička energija tijela je najveća na mjestu označenom točkom: __________
 g) Potencijalna energija je najveća na mjestu označenom točkama: __________
-<img src="Harmonijsko titranje_11.png">
-7. Tijelo mase 0,4 kg ovješeno o oprugu titra frekvencijom 2 Hz i amplitudom 20 cm.
-a) Napišite jednadžbu titranja, odnosno ovisnost elongacije o vremenu, ako je u trenutku
-t=0 tijelo
-bilo u ravnotežnom položaju i gibalo se u pozitivnom smjeru
-y osi. Nacrtajte graf
-y=
-f(
-t).
-b) Napišite jednadžbu titranja ako je u trenutku
-t=0 elongacija tijela bila –20 cm. Nacrtajte graf
-y=
-f(
-t).
+(Harmonijsko_titranje_11.png)
+	Tijelo mase 0,4 kg ovješeno o oprugu titra frekvencijom 2 Hz i amplitudom 20 cm.
+a) Napišite jednadžbu titranja, odnosno ovisnost elongacije o vremenu, ako je u trenutku t=0 tijelo bilo u ravnotežnom položaju i gibalo se u pozitivnom smjeru y-osi. Nacrtajte graf y=f(t).
+b) Napišite jednadžbu titranja ako je u trenutku t=0 elongacija tijela bila −20 cm. Nacrtajte graf y=f(t).
 c) Izračunajte brzinu tijela kad prolazi kroz ravnotežni položaj.
-d) Napišite jednadžbu za brzinu titranja tijela u ovisnosti o vremenu za slučaj a) i b). Nacrtajte
-grafove
-u=
-f (
-t ).
+d) Napišite jednadžbu za brzinu titranja tijela u ovisnosti o vremenu za slučaj a) i b). Nacrtajte grafove u=f(t).
 e) Izračunajte brzinu tijela kad je od ravnotežnog položaja udaljeno za 10 cm.
-f) Napišite jednadžbu za akceleraciju tijela u ovisnosti o vremenu za slučaj a) i b). Nacrtajte grafove
-a =
-f (
-t ).
+f) Napišite jednadžbu za akceleraciju tijela u ovisnosti o vremenu za slučaj a) i b). Nacrtajte grafove a=f(t).
 g) Izračunajte ukupnu energiju koju ima titrajni sustav.
 h) Izračunajte najveću silu koja djeluje na tijelo.
-i) U kojem položaju tijelo ima najveću brzinu, a u kojem najveću akceleraciju. Koliki je omjer
-akceleracije i brzine tijela u svakom trenutku? Mijenja li se taj odnos tijekom vremena?
-j) Koliki je omjer akceleracije i elongacije tijela u svakom trenutku? Mijenja li se taj omjer tijekom
-vremena?
-k) Nacrtajte graf ovisnosti brzine titranja
-u o elongaciji
-y. tzv.
-u=
-f (
-y )
-5. Titranje tijela opisano je jednadžbom12 3π
-2 dm cos ts
-π 2
-x − 
-= − + 
-  .
-a) (3 boda) Kolika je maksimalna akceleracija titranja tijela? U kojem će položaju akceleracija tijela
-koje titra biti maksimalna?
+i) U kojem položaju tijelo ima najveću brzinu, a u kojem najveću akceleraciju? Koliki je omjer akceleracije i brzine tijela u svakom trenutku? Mijenja li se taj odnos tijekom vremena?
+j) Koliki je omjer akceleracije i elongacije tijela u svakom trenutku? Mijenja li se taj omjer tijekom vremena?
+k) Nacrtajte graf ovisnosti brzine titranja u o elongaciji y, tzv. u=f(y).
+	Titranje tijela opisano je jednadžbom
+x=3/2 " dm"⋅cos⁡(2π t/"s" ⓜ-π/2).
+
+a) (3 boda) Kolika je maksimalna akceleracija titranja tijela? U kojem će položaju akceleracija tijela koje titra biti maksimalna?
 b) (3 boda) Ako je masa tijela 20 g, kolika je maksimalna energija tijela pri titranju?
 c) (2 boda) Prikaži grafički titranje tijela.
 d) (2 boda) Za koje će vrijeme tijelo prijeći 81 cm?
-6. (6 bodova) Tijelo je vezano za zid oprugom i harmonijski titra oko položaja ravnoteže kružnom
-frekvencijom ω=1Hz. Tijelo je na horizontalnoj podlozi i giba se bez trenja. a.) U jednom trenutku,
-sustav se zaustavi. Opruga se razreže na 4 jednaka dijela i tijelo se razreže na 4 jednaka dijela. Na jedan
-takav dio opruge se za zid spoji jedan dio tijela i pusti da titra. Kolika je kružna frekvencija titranja? Kako
-rezultat ovisi o amplitudi? b.) Umjesto na 4, opruga se razreže na N jednakih dijelova, a tijelo na M
-jednakih dijelova. Postoje li N i M takvi da je nova kružna frekvencija titranja jednaka √7 Hz? Ako da,
-koji? Ako ne, zašto?
-<!---->
-                &bull; Grafički prikaz titranja (primjer)
-                <div class="CONTAINER" id="CONTAINER_1">
-                  <div class="slider" id="slider">
-                      <!-- Window 1 -->
-                      <div class="window">
-                        <li>primjer: Prikaži grafički titranje tijela zadanog jednadžbom</li>
-                      </div>
-                      <!-- Window 2 -->
-                      <div class="window">
-                              <li>
-                                usporedimo zadanu jednadžbu s jednadžbom za x i uočimo da je A ono što piše ispred funkcije sinus → A=2cm
-                                nadimo na isti način period:
-                                <div class="eq-c">
-                                  <div class="fraction">
-                                    <span class="fup"><span class="sqrt">&phi;*t</span></span>
-                                    <span class="bar">/</span>
-                                    <span class="fdn"><span class="sqrt">2s</span></span>
-                                  </div>
-                                  =<div class="eq-c">
-                                    <div class="fraction">
-                                      <span class="fup"><span class="sqrt">2*&phi;*t</span></span>
-                                      <span class="bar">/</span>
-                                      <span class="fdn"><span class="sqrt">T</span></span>
-                                    </div>
-                                    =4s
-                                  </div>
-                                </div>
-                                podijelimo period na 4 jednaka dijela (4:4= 1) i napravimo tabelu:
-                                <table>
-                                  <tr>
-                                    <th>t(s)</th>
-                                    <td>0</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                  </tr>
-                                  <tr>
-                                    <th>x(cm)</th>
-                                    <td>0</td>
-                                    <td>-2</td>
-                                    <td>0</td>
-                                    <td>2</td>
-                                    <td>0</td>
-                                  </tr>
-                              </li>
-                      </div>
-          
-                      <!-- Window 3 -->
-                      <div class="window">
-                          <img src="Harmonijsko titranje_2.png">
-                          </div>
-                          </div>
-                          </div>
-                        </p>
-              <div class="button-CONTAINER">
-                <button class="slide-button" onclick="slidePrevious('CONTAINER_1')">Previous</button>
-                <button class="slide-button" onclick="slideNext('CONTAINER_1')">Next</button>
-              </div>
-<img src="Harmonijsko titranje_2.png" class="zoomable-image" data-row="2">
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h2>Matematičko njihalo</h2>
----------------------------------------------------------------------------------------------------------------------------------------------------
+	(6 bodova) Tijelo je vezano za zid oprugom i harmonijski titra oko položaja ravnoteže kružnom frekvencijom ω=1" Hz" . Tijelo je na horizontalnoj podlozi i giba se bez trenja.
+a) U jednom trenutku sustav se zaustavi. Opruga se razreže na 4 jednaka dijela i tijelo se razreže na 4 jednaka dijela. Na jedan takav dio opruge se za zid spoji jedan dio tijela i pusti da titra. Kolika je kružna frekvencija titranja? Kako rezultat ovisi o amplitudi?
+b) Umjesto na 4, opruga se razreže na N jednakih dijelova, a tijelo na M jednakih dijelova. Postoje li N i M takvi da je nova kružna frekvencija titranja jednaka √7 " Hz" ? Ako da, koji? Ako ne, zašto?
+	Grafički prikaz titranja (primjer)
+PRIMJER 4: Prikaži grafički titranje tijela zadanog jednadžbom (kao u tekstu iznad).
+usporedimo zadanu jednadžbu s općom jednadžbom za x i uočimo da je A ono što piše ispred funkcije sinus → A=2" cm"  itd. (u nastavku ide tablica vremena i elongacije i graf):
+(Harmonijsko_titranje_2.png)
+________________________________________
+Matematičko njihalo
+________________________________________
 Teorija
-<img src="Matematičko_njihalo_1.png"  url="" class="zoomable-image" data-row="1">
-<p class="zoomable-text">
-                      &bull; Matematičko njihalo <br>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&bull; njihanje sitnoga tijela mase m na nerastezljivoj niti duljine l i zanemarive mase<br>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&bull; gibanje matematičkog njihala promatramo kao titranje (ukoliko je pomak njihala iz položaja ravnoteže manji od 10°)<br>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&bull; SLIKA 1: Ne odvija se njihanje<br>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&bull; SLIKA 2: Njihanje se odvija<br>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; <span class="sy"><i>F<sub>g</sub></i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>F<sub>N</sub></i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>F<sub>t</sub></i><span class="oncapital">&rarr;</span></span> <br>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; <span class="sy"><i>F<sub>N</sub></i><span class="oncapital">&rarr;</span></span>= <span class="sy"><i>F<sub>n</sub></i><span class="oncapital">&rarr;</span></span>=m<span class="sy"><i>g</i><span class="onsmall">&rarr;</span></span>*cos(&phi;) <br>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; iz sličnosti trokuta slijedi: <br>
-                      <div class="eq-c">
-                        <div class="fraction">
-                          <span class="fup">-F<sub>t</sub></span>
-                          <span class="bar">/</span>
-                          <span class="fdn">mg</span>
-                        </div>
-                        =
-                      </div>
-                      <div class="eq-c">
-                        <div class="fraction">
-                          <span class="fup">s</span>
-                          <span class="bar">/</span>
-                          <span class="fdn">l</span>
-                        </div>
-                      </div>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Iz čega proizlazi F<sub>t</sub>=
-                      <div class="eq-c">
-                        -mg*
-                        <div class="fraction">
-                          <span class="fup">s</span>
-                          <span class="bar">/</span>
-                          <span class="fdn">l</span>
-                        </div>
-                        minus se koristi jer je smjer sile suprotan otklonu
-                      </div>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; 2NZ: ma=-mg
-                      <div class="eq-c">
-                        <div class="fraction">
-                          <span class="fup">s</span>
-                          <span class="bar">/</span>
-                          <span class="fdn">l</span>
-                        </div>
-                      </div>
-                      Iz čega slijedi da je 
-                      <div class="eq-c">
-                        a=
-                        <div class="fraction">
-                          <span class="fup">-gs</span>
-                          <span class="bar">/</span>
-                          <span class="fdn">l</span>
-                        </div>
-                      </div>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Iz sličnosti s izrazom za harmoničko gibanje analogijom dobivamo: 
-                      <div class="eq-c">
-                        T=2&phi;*
-                        <div class="fraction">
-                          <span class="fup"><span class="radical"><span class="n-root">2</span>&radic;</span><span class="radicand">l</span></span>
-                          <span class="bar">/</span>
-                          <span class="fdn"><span class="radical"><span class="n-root">2</span>&radic;</span><span class="radicand">g</span></span>
-                        </div>
-                      </div>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; u ravnotežnom položaju vrijedi: <span class="sy"><i>F<sub>N</sub></i><span class="oncapital">&rarr;</span></span>=<span class="sy"><i>F<sub>g</sub></i><span class="oncapital">&rarr;</span></span>+<span class="sy"><i>F<sub>ef</sub></i><span class="oncapital">&rarr;</span></span> <br>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; primjenimo Z.O.E za gibanje<br>
-                    </p>
-<img src="Matematičko_njihalo_2.png" class="zoomable-image" data-row="2">
----------------------------------------------------------------------------------------------------------------------------------------------------
+(Matematičko_njihalo_1.png)
+	Matematičko njihalo
+	njihanje sitnoga tijela mase m na nerastezljivoj niti duljine l i zanemarive mase
+	gibanje matematičkog njihala promatramo kao titranje (ukoliko je pomak njihala iz položaja ravnoteže manji od oko 10°)
+	SLIKA 1: Ne odvija se njihanje
+	SLIKA 2: Njihanje se odvija
+	sile na tijelo:
+(F_g ) ⃗=(F_N ) ⃗+(F_t ) ⃗
+
+	normalna (centripetalna) komponenta:
+F_N=F_n=mgcos⁡φ
+
+	iz sličnosti trokuta vrijedi:
+(-F_t)/mg=s/l
+
+odakle
+F_t=-mg s/l
+
+(znak minus jer je smjer sile suprotan otklonu).
+Drugi Newtonov zakon u tangencijalnom smjeru:
+ma=-mg s/l
+a=-g/l s
+
+što je oblik jednadžbe harmonijskog gibanja s kutnom frekvencijom:
+ω=√(g/l)
+
+pa je period matematičkog njihala:
+T=2π√(l/g)
+
+(za male kutove otklona).
+u ravnotežnom položaju vrijedi:
+F_N=F_g+F_"ef" 
+
+(ukupna sila daje centripetalno ubrzanje za trenutni prolaz kroz ravnotežu).
+(Matematičko_njihalo_2.png)
+________________________________________
 Zadatci
-<img src="Matematičko_njihalo_1.png" url="" class="zoomable-image" data-row="1">
-<p class="zoomable-text">
-                  1. Kuglicu koja visi na niti dugoj 4 m otklonimo iz položaja ravnoteže za kut 8°. Koliku će brzinu imati
-                  kuglica u trenutku prolaska kroz položaj ravnoteže?
-                  2. U mjestu B (g=9,81 m/s2) ura njihalica ima period titranja 1 s. Kad uru prenesemo u mjesto A, ona u
-                  24 h zaostaje 35 s. Kolika je akceleracija slobodnog pada u mjestu A (zaokružite konačni rezultat na tri
-                  decimale)?
-                  3. Jedno njihalo učini 15, a drugo 18 njihaja u sekundi. Kako se odnose njihove duljine?
-                  4. Na niti dugoj 2 m visi uteg. Uteg gurnemo iz položaja ravnoteže brzinom 0,3 m/s. Za koliko se uteg
-                  udaljio iz položaja ravnoteže?
-                  5. Koliko je vrijeme jednog titraja njihala dugog 1 m, obješenog o strop dizala koje se giba vertikalno
-                  gore akceleracijom 50 cm/s2?
-                  Primjer zadatka: (2 boda) Matematičko njihalo sastoji se od sitnog tijela mase m koje je ovješeno o nerastezljivu
-                  nit duljine l. Kad se tijelo odmakne od ravnotežnog položaja za kut α<7°, period njihala je T. Koliki bi bio period
-                    njihala koji se sastoji od sitnog tijela mase 2m i duljine niti 4l pri odmaku tijela od ravnotežnog položaja za isti
-                    kut α? Obrazloži svoj odgovor.
-                    1. (2 boda) Matematičko njihalo sastoji se od nerastezljive niti duljine l na koju je ovješeno sitno tijelo mase m.
-Kad se tijelo odmakne iz ravnotežnog položaja za kut α = 2°, tijelo harmonijski titra periodom T te prolazi
-kroz ravnotežni položaj brzinom v. Kolikom bi brzinom prolazilo to tijelo kroz ravnotežni položaj kad bi se
-odmaknulo iz ravnotežnog položaja za kut 2α ? Obrazloži svoj odgovor.
-2. (2 boda) Nit mase m i duljine l privezana je za električno zvono koje titra frekvencijom f. Nit je napeta silom F
-te na njoj nastaju 3 čvora stojnog vala. Valna duljina tog vala je λ. Ako se na isto električno zvono priveže
-druga nit duplo manje mase i dvostruke duljine, na niti nastaju 3 trbuha stojnog vala. Kolikom je silom
-napeta nova nit? Obrazloži svoj odgovor.
-3. Longitudinalni val širi se kroz metalnu šipku prema jednadžbi: y(x,t)=0.05 m cos (40πts-1−8πxm-1).
+(Matematičko_njihalo_1.png)
+	Kuglicu koja visi na niti dugoj 4 m otklonimo iz položaja ravnoteže za kut 8°. Koliku će brzinu imati kuglica u trenutku prolaska kroz položaj ravnoteže?
+	U mjestu B (g=9,81" 					" 〖"m/s" 〗^2) ura njihalica ima period titranja 1 s. Kad uru prenesemo u mjesto A, ona u 24 h zaostaje 35 s. Kolika je akceleracija slobodnog pada u mjestu A (zaokružite konačni rezultat na tri decimale)?
+	Jedno njihalo učini 15, a drugo 18 njihaja u sekundi. Kako se odnose njihove duljine?
+	Na niti dugoj 2 m visi uteg. Uteg gurnemo iz položaja ravnoteže brzinom 0,3 m/s. Za koliko se uteg udaljio iz položaja ravnoteže?
+	Koliko je vrijeme jednog titraja njihala dugog 1 m, obješenog o strop dizala koje se giba vertikalno gore akceleracijom 50 cm/s²?
+PRIMJER 5: (2 boda) Matematičko njihalo sastoji se od sitnog tijela mase m koje je ovješeno o nerastezljivu nit duljine l. Kad se tijelo odmakne od ravnotežnog položaja za kut α<7^∘, period njihala je T. Koliki bi bio period njihala koje se sastoji od sitnog tijela mase 2m i duljine niti 4l pri odmaku tijela od ravnotežnog položaja za isti kut α? Obrazloži svoj odgovor.
+	(2 boda) Matematičko njihalo sastoji se od nerastezljive niti duljine l na koju je ovješeno sitno tijelo mase m. Kad se tijelo odmakne iz ravnotežnog položaja za kut α=2^∘, tijelo harmonijski titra periodom T te prolazi kroz ravnotežni položaj brzinom v. Kolikom bi brzinom prolazilo to tijelo kroz ravnotežni položaj kad bi se odmaknulo iz ravnotežnog položaja za kut 2α? Obrazloži svoj odgovor.
+	(2 boda) Nit mase m i duljine l privezana je za električno zvono koje titra frekvencijom f. Nit je napeta silom F te na njoj nastaju 3 čvora stojnog vala. Valna duljina tog vala je λ. Ako se na isto električno zvono priveže druga nit duplo manje mase i dvostruke duljine, na niti nastaju 3 trbuha stojnog vala. Kolikom je silom napeta nova nit? Obrazloži svoj odgovor.
+	Longitudinalni val širi se kroz metalnu šipku prema jednadžbi:
+y(x,t)=0,05" m"⋅cos⁡(40π" 								" "s" ^(-1) tⓜ-8π" 								" "m" ^(-1) x).
+
 a) (1 bod) Kolika je amplituda vala?
 b) (2 boda) Koliki je period vala?
 c) (2 boda) Kolika je valna duljina vala?
 d) (2 boda) Kolika je brzina širenja vala?
-e) (2 boda) Nacrtaj graf vala u trenutku t = 0,2 s od početka širenja vala.
-4. Jedan komarac koji se nalazi 10m od uha stvara zvuk razine 0dB.
+e) (2 boda) Nacrtaj graf vala u trenutku t=0,2" s"  od početka širenja vala.
+	Jedan komarac koji se nalazi 10 m od uha stvara zvuk razine 0 dB.
 a) (3 boda) Kolika je snaga zvuka koji proizvodi komarac na toj udaljenosti?
 b) (2 boda) Kolika se energija prenosi zvukom tijekom svake sekunde?
 c) (3 boda) Koliko bi komaraca na toj udaljenosti stvorilo zvuk razine 30 dB?
-5. ( 3 boda) Ribarski brod plovi brzinom 10 m/s prema istraživačkom brodu. Istraživački brod ispod
-površine mora šalje ultrazvučne signale frekvencije 40 kHz prema ribarskom brodu. Signali se
-reflektiraju od ribarskog broda i vraćaju se s frekvencijom 41,2 kHz. Kolika je brzina ribarskog
-broda? Brzina zvuka u moru iznosi 1500 m/s. Približava li se ribarski brod istraživačkom brodu ili
-se udaljava od njega? Obrazloži svoj odgovor.
-6. Svirala (cijev) otvorena na jednom kraju duga je 0,75 m. Brzina zvuka u zraku je 340 m/s.
+	(3 boda) Ribarski brod plovi brzinom 10 m/s prema istraživačkom brodu. Istraživački brod ispod površine mora šalje ultrazvučne signale frekvencije 40 kHz prema ribarskom brodu. Signali se reflektiraju od ribarskog broda i vraćaju se s frekvencijom 41,2 kHz. Kolika je brzina ribarskog broda? Brzina zvuka u moru iznosi 1500 m/s. Približava li se ribarski brod istraživačkom brodu ili se udaljava od njega? Obrazloži svoj odgovor.
+	Svirala (cijev) otvorena na jednom kraju duga je 0,75 m. Brzina zvuka u zraku je 340 m/s.
 a) (3 boda) Izračunaj frekvenciju osnovnog tona (prvog harmonika) koji može nastati u toj svirali.
-b) (2 boda) Izračunaj frekvencije sljedeća dva višestruka tona (drugi i treći harmonik) koji mogu
-nastati u toj svirali.
+b) (2 boda) Izračunaj frekvencije sljedeća dva višestruka tona (drugi i treći harmonik) koji mogu nastati u toj svirali.
 c) (3 boda) Skiciraj raspored čvorova i trbuha za prva tri harmonika.
-d) (2 boda) Ako skratiš sviralu na pola duljine, što se događa s frekvencijom osnovnog tona?
-Obrazloži svoj odgovor.
-                </p>
-<img src="Matematičko_njihalo_2.png" class="zoomable-image" data-row="2">
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h2>Elektromagnetski titraji</h2>
----------------------------------------------------------------------------------------------------------------------------------------------------
+d) (2 boda) Ako skratiš sviralu na pola duljine, što se događa s frekvencijom osnovnog tona? Obrazloži svoj odgovor.
+(Matematičko_njihalo_2.png)
+________________________________________
+Elektromagnetski titraji
+________________________________________
 Teorija
-<img src="Elektromagnetski_titraji_1.png"  url="" class="zoomable-image" data-row="1">
-<p class="zoomable-text">
-                      &bull; shema LC titrajnog kruga: (SLIKA 1)<br>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&bull; Razlog postojanja elektromagnetskih titraja<br>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;ako nabijemo kondenzator i zatvorimo prekidač, dolazi do slobodnih električnih titraja<br>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; u početnom trenutku nabijeni kondenzator sadržava električnu energiju<br>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; kondenzator potom izbijanjem stvara struju koja u zavojnici stvara magnetsku energiju<br>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; ta struja onda nabija kondenzator suprotnim nabojima od početnih, pretvarajući magnetsku energiju opet u električnu i cjelokupni se proces ponavlja (SLIKA 2)<br>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&bull; ako poznajemo kapacitet kondenzatora i induktivitet zavojnice, iz Thomsonove formule možemo odrediti rezonantnu frekvenciju električnog titrajnog kruga:<br>
-                      <div class="eq-c">
-                        f=
-                        <div class="fraction">
-                          <span class="fup">1</span>
-                          <span class="bar">/</span>
-                          <span class="fdn">2&phi;*<span class="radical"><span class="n-root">2</span>&radic;</span><span class="radicand">L*C</span></span>
-                        </div>
-                      </div>
-                    </p>
- <img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
----------------------------------------------------------------------------------------------------------------------------------------------------
+(Elektromagnetski_titraji_1.png)
+	shema LC titrajnog kruga (SLIKA 1) – idealni električni titrajni krug sastavljen od zavojnice induktiviteta L i kondenzatora kapaciteta C
+Razlog postojanja elektromagnetskih titraja:
+	ako nabijemo kondenzator i zatvorimo prekidač, dolazi do slobodnih električnih titraja
+	u početnom trenutku nabijeni kondenzator sadržava električnu energiju
+E_E=1/2 CU^2
+
+	kondenzator potom izbijanjem stvara struju koja u zavojnici stvara magnetsku energiju
+E_B=1/2 LI^2
+
+	ta struja onda nabija kondenzator suprotnim nabojima od početnih, pretvarajući magnetsku energiju opet u električnu i cjelokupni se proces ponavlja (SLIKA 2)
+	ako poznajemo kapacitet kondenzatora i induktivitet zavojnice, iz Thomsonove formule možemo odrediti rezonantnu frekvenciju električnog titrajnog kruga:
+f=1/(2π√LC)
+
+(Elektromagnetski_titraji_2.png)
+________________________________________
 Zadatci
-<img src="Elektromagnetski_titraji_1.png" url="" class="zoomable-image" data-row="1">
-<p class="zoomable-text">
-                      1. U krug izmjenične struje serijski su spojeni otpornik, zavojnica i kondenzator. Pri frekvenciji 100 Hz je
-                      induktivni otpor četiri puta veći od kapacitivnog. Pri kojoj će frekvenciji nastupiti rezonancija u tom
-                      strujnom krugu?
-                      2. Zatvoreni titrajni krug sastoji se od zavojnice i pločastog kondenzatora i ima rezonantnu frekvenciju
-                      80MHz. Ako se između ploča umetne materijal relativne permitivnosti 4 kolika će biti rezonantna
-                      frekvencija titrajnog kruga?
-                      3. U titrajnom krugu nalazi se kondenzator kapaciteta 1 μF i zavojnica induktiviteta 4 μH. Odredite najveću
-                      struju u krugu ako je najveći napon na kondenzatoru 1,2 V?
-                      4. Dva titrajna kruga treba dovesti u rezonanciju. Prvi titrajni krug se sastoji od kondenzatora kapaciteta 12
-                      pF i zavojnice induktiviteta 4,2 nH. Koliki mora biti kapacitet drugog titrajnog kruga, ako mu je
-                      induktivitet 6 nH?
-                    </p>
-<img src="Elektromagnetski_titraji_2.png" class="zoomable-image" data-row="2">
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------
-<h2>Prigušeno i prisilno titranje</h2>
----------------------------------------------------------------------------------------------------------------------------------------------------
+(Elektromagnetski_titraji_1.png)
+	U krug izmjenične struje serijski su spojeni otpornik, zavojnica i kondenzator. Pri frekvenciji 100 Hz je induktivni otpor četiri puta veći od kapacitivnog. Pri kojoj će frekvenciji nastupiti rezonancija u tom strujnom krugu?
+	Zatvoreni titrajni krug sastoji se od zavojnice i pločastog kondenzatora i ima rezonantnu frekvenciju 80 MHz. Ako se između ploča umetne materijal relativne permitivnosti 4, kolika će biti rezonantna frekvencija titrajnog kruga?
+	U titrajnom krugu nalazi se kondenzator kapaciteta 1 μF i zavojnica induktiviteta 4 μH. Odredite najveću struju u krugu ako je najveći napon na kondenzatoru 1,2 V.
+	Dva titrajna kruga treba dovesti u rezonanciju. Prvi titrajni krug se sastoji od kondenzatora kapaciteta 12 pF i zavojnice induktiviteta 4,2 nH. Koliki mora biti kapacitet drugog titrajnog kruga, ako mu je induktivitet 6 nH?
+(Elektromagnetski_titraji_2.png)
+________________________________________
+Prigušeno i prisilno titranje
+________________________________________
 Teorija
-<img src="Prigušeno_i_prisilno_titranje_1.png"  url="" class="zoomable-image" data-row="1">
-                    <img src="Prigušeno_i_prisilno_titranje_3.png"  url="" class="zoomable-image" data-row="1">
-<p class="zoomable-text">
-                      &bull; Prigušeno titranje
-                      kod prigušenog titranja postoje gubici energije te se amplituda titranja s vremenom smanjuje te na kraju i prestaje (SLIKA 1)
-                      prigušeno titranje možemo dobiti kad uteg koji titra na opruzi uronimo u neku viskoznu tekućinu (npr. motorno ulje)
-                      - prigušenje smanjuje frekvenciju titranja
-                      - ako je trenje preveliko, sustav se i ne zatitra – prigušenje je tada toliko veliko da se zatitrano tijelo, dosegnuvši određenu amplitudu, umjesto da titra, vraća u ravnotežni položaj to je aperiodično titranje (SLIKA 2)
-                      kritično gušenje je primjer aperiodičnog titranja kada se zatitrani sustav najbrže vraća u ravnotežni položaj bez da titra
-                      - kritični titrajni sustavi se upotrebljavaju kod ovjesa vozila kao amortizeri kojima se sprečava titranje vozila; prigušenjem nastojimo postići da gibanje kazaljki instrumenata bude kritički aperiodično
-                      - prisilno titranje nastaje kada vanjska periodična sila djeluje na sustav koji titra te se pomoću nje nadoknađuje energija izgubljena zbog trenja i otpora zraka
-                      - prisilni oscilator: (SLIKA 3)
-                      - sva tijela imaju svoje prirodne frekvencije titranja koje ovise o masi tijela, sastavu tijela i geometrijskim obilježjima tijela
-                      - tijelo vrlo brzo i jako počinje titrati ako na njega djeluje periodična vanjska sila bliske ili jednake vlastitoj frekvenciji tijela – tu pojavu nazivamo rezonancija
-                      - primjene rezonancije: električna rezonancija koristi se pri traženju stanica na radio uređaju i televizoru;
-                      akustičkom rezonancijom se ugađaju glazbeni instrumenti; rezonancija je štetna jer može u materijalima izazvati prevelika naprezanja te time oštećenja ili lom tog materijala
-                      - krivulja rezonancije: (SLIKA 4)
-                      DODATAK (neće biti na usmenom odgovaranju):
-                      - kod prigušenog titranja amplituda se eksponencijalno smanjuje u vremenu, ovisno o faktoru gušenja δ, pri čemu je omjer uzastopnih amplituda je najčešće stalan:
-                      <div class="eq-c">
-                        <div class="fraction">
-                          <span class="fup">A<sub>n</sub></span>
-                          <span class="bar">/</span>
-                          <span class="fdn">A<sub>n+1</sub></span>
-                        </div>
-                        =e<sup>−&phi;T</sup>
-                      </div>
-                    </p>
-<img src="Prigušeno_i_prisilno_titranje_2.png" class="zoomable-image" data-row="2">
-                    <img src="Prigušeno_i_prisilno_titranje_4.png" class="zoomable-image" data-row="2">
+(Prigušeno_i_prisilno_titranje_1.png)
+(Prigušeno_i_prisilno_titranje_3.png)
+	Prigušeno titranje – kod prigušenog titranja postoje gubici energije te se amplituda titranja s vremenom smanjuje te na kraju i prestaje (SLIKA 1)
+	prigušeno titranje možemo dobiti kad uteg koji titra na opruzi uronimo u neku viskoznu tekućinu (npr. motorno ulje)
+	prigušenje smanjuje frekvenciju titranja
+	ako je trenje preveliko, sustav se i ne zatitra – prigušenje je tada toliko veliko da se zatitrano tijelo, dosegnuvši određenu amplitudu, umjesto da titra, vraća u ravnotežni položaj → to je aperiodično titranje (SLIKA 2)
+	kritično gušenje je primjer aperiodičnog titranja kada se zatitrani sustav najbrže vraća u ravnotežni položaj bez da titra
+	kritični titrajni sustavi se upotrebljavaju kod ovjesa vozila kao amortizeri kojima se sprečava titranje vozila; prigušenjem nastojimo postići da gibanje kazaljki instrumenata bude kritički aperiodično
+	prisilno titranje nastaje kada vanjska periodična sila djeluje na sustav koji titra te se pomoću nje nadoknađuje energija izgubljena zbog trenja i otpora zraka
+	prisilni oscilator (SLIKA 3) – sustav pod utjecajem periodične pobude (vanjske sile ili pobudnog momenta)
+	sva tijela imaju svoje prirodne frekvencije titranja koje ovise o masi tijela, sastavu tijela i geometrijskim obilježjima tijela
+	tijelo vrlo brzo i jako počinje titrati ako na njega djeluje periodična vanjska sila bliske ili jednake vlastitoj frekvenciji tijela – tu pojavu nazivamo rezonancija
+	primjene rezonancije:
+– električna rezonancija koristi se pri traženju stanica na radio uređaju i televizoru;
+– akustičkom rezonancijom se ugađaju glazbeni instrumenti;
+– rezonancija je štetna jer može u materijalima izazvati prevelika naprezanja te time oštećenja ili lom tog materijala.
+	krivulja rezonancije (SLIKA 4) – prikazuje ovisnost amplitude prisilnog titranja o frekvenciji pobude.
+DODATAK (neće biti na usmenom odgovaranju):
+	kod prigušenog titranja amplituda se eksponencijalno smanjuje u vremenu, ovisno o faktoru gušenja δ, pri čemu je omjer uzastopnih amplituda najčešće stalan:
+A_n/A_(n+1) =e^(-δT)
+
+(Prigušeno_i_prisilno_titranje_2.png)
+(Prigušeno_i_prisilno_titranje_4.png)
+
