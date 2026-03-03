@@ -1,0 +1,225 @@
+Hranjive tvari i osnovne uloge
+
+- Hranjiva tvar (nutrijent): tvar koju organizam koristi da bi preživio, rastao i razmnožavao se.​
+- Glavne skupine hranjivih tvari:
+- ugljikohidrati
+- proteini (bjelančevine; građeni od aminokiselina)
+- lipidi (masti; građeni od glicerola i višemasnih kiselina)
+- vitamini
+- minerali
+- voda.​​
+- Uloga hranjivih tvari: izvor energije za stanično disanje, izgradnja i obnova tkiva, regulacija metabolizma, održavanje homeostaze.​
+- Energija za rad stanica i organizma pohranjena je u kemijskim vezama hranjivih tvari.​
+
+Tipovi prehrane: autotrofi i heterotrofi
+
+- Autotrofni organizmi: mogu pretvarati svjetlosnu ili kemijsku energiju u kemijsku energiju pohranjenu u organskim tvarima (npr. ugljikohidratima).​
+- fotosinteza je najpoznatiji autotrofni proces.
+- autotrofi: arheje, dio bakterija, alge, većina biljaka.​
+- Heterotrofni organizmi: dobivaju energiju i organske tvari hranjenjem drugim organizmima ili njihovim ostacima.​​
+- heterotrofi: životinje, većina gljiva, većina bakterija i neke biljke.​
+
+Tipovi heterotrofa prema načinu prehrane:
+
+- Predatori: ubijaju druge organizme i hrane se njima; mogu biti mesojedi, biljojedi ili svejedi.​
+- Saprofagi (razlagači): hrane se uginulim organizmima ili organskim ostacima; ključni u kruženju tvari.​
+- većina gljiva, mnoge bakterije i dio biljaka i životinja.​
+- Paraziti: crpe hranjive tvari iz živog domaćina, često mu štete; postoje u svim carstvima živoga svijeta.​
+
+Energetske krize i stanja mirovanja
+
+- Kada organizam troši više energije nego što prima (npr. ekstremne temperature, suša, nestašica hrane), aktiviraju se stanja usporenog metabolizma.​​
+
+Torpor (mirovanje):
+
+- fiziološko stanje smanjene tjelesne temperature i usporenog metabolizma radi štednje energije.​​
+- može trajati od nekoliko sati do dana (kratkotrajno mirovanje).​​
+- primjer kratkotrajnog torpora: san kod čovjeka i nekih drugih kralježnjaka.​
+
+Hibernacija (zimski san):
+
+- dugotrajno mirovanje tijekom zime, uz znatno sniženu tjelesnu temperaturu i usporen rad srca i disanje.​​
+- omogućuje preživljavanje razdoblja niske temperature i nedostatka hrane.​
+- primjer: puh orašar i određene zeljaste biljke (npr. visibaba – podanak preživljava zimu).​
+
+Estivacija (ljetni san):
+
+- dugotrajno mirovanje tijekom vrućih i suhih razdoblja, uz smanjenu brzinu metabolizma.​​
+- štiti od pregrijavanja i dehidracije.​
+- primjeri: puževi roda Otala na livadama, afrička dvodihalica koja se ukapa u tlo i oblaže sluzi te može mirovati mjesecima.​
+
+Probava u životinja – tipovi i evolucija probavnog sustava
+
+Tipovi probave
+
+- Unutarstanična probava: hrana se unosi u stanice i razgrađuje enzimima unutar njih.​
+- javlja se u jednostavnijih životinja (npr. spužve, žarnjaci).​
+- Izvanstanična probava: razgradnja hrane u probavnoj šupljini ili cijevi, uz enzime izlučene iz stanica u lumen.​​
+- prisutna u većine životinja s probavnim sustavom.​
+
+Razvoj probavnog sustava
+
+- Neprohodno probavilo: jedan otvor (usno–analni) za ulazak hrane i izlazak neprobavljenih ostataka; probavilo ne prolazi cijelim tijelom.​
+- primjeri: plošnjaci (virnjaci) – probavilo razgranato, zauzima veliku površinu jer nema optjecajnog sustava.​
+- Prohodno probavilo: poseban usni otvor i analni otvor; probavni kanal prolazi kroz tijelo.​
+- prvi put se javlja kod oblića; sve kasnije skupine životinja (uključujući čovjeka) imaju prohodno probavilo.​
+- Mekušci: prvi razvijaju prepoznatljiv želudac kao proširenje probavnog trakta.​
+- osnovni dijelovi: usta, ždrijelo, jednjak, želudac, crijevo.​
+- Kralježnjaci: probavni sustav se dalje diferencira i produžuje, posebno crijevo.​
+- glavna podjela: prednji dio probavila (usta, ždrijelo, jednjak, želudac) – mehanička i kemijska razgradnja;  
+    tanko crijevo – apsorpcija hranjivih tvari;  
+    debelo crijevo – reapsorpcija vode i formiranje izmeta.​
+
+Povećanje apsorpcijske površine
+
+- Omjer oplošja i volumena: što je površina u odnosu na volumen veća, to je apsorpcija učinkovitija.​
+- Hrskavičnjače: prvi imaju spiralni zalistak u tankom crijevu za povećanje apsorpcijske površine.​
+- Kasnije kralježnjaci (uključujući čovjeka): razvijaju crijevne resice s mikrovilima.​
+- resice + mikrovili višestruko povećavaju površinu za apsorpciju.​
+
+Specifičnosti biljojeda (preživača)
+
+- Biljojedi: duži probavni trakt od mesojeda zbog teže probavljive biljne hrane s puno celuloze.​
+- Brojni mikroorganizmi (bakterije) u probavilu razgrađuju celulozu.​
+- Želudac preživača: 4 komore – 3 predželuca (burag, kapura, knjižavci) + pravi želudac (sirište).​
+- Preživanje: proces višestrukog žvakanja.
+- hrana prvo u predželuce, gdje mikroorganizmi razgrađuju celulozu,
+- kruti dijelovi se vraćaju u usta na ponovno žvakanje,
+- zatim opet u predželudce (knjižavce) i dalje u pravi želudac gdje djeluju enzimi.​
+
+Probavni sustav čovjeka – osnovni princip
+
+Građa probavnog sustava
+
+- Probavni sustav: probavna cijev (~9 m) + probavne žlijezde.​
+- Dijelovi probavne cijevi: usna šupljina → ždrijelo → jednjak → želudac → tanko crijevo → debelo crijevo → crijevni (analni) otvor.​
+- Glavne probavne žlijezde:
+- žlijezde slinovnice
+- gušterača
+- jetra (sa žučnim mjehurom).​
+
+Probava u pojedinim dijelovima
+
+Usna šupljina:
+
+- Mehanička razgradnja: zubi usitnjavaju hranu, jezik miješa.​
+- Slina: vlaži i podmazuje hranu, sadrži enzim ptijalin (α-amilaza).​​
+- ptijalin razgrađuje škrob na jednostavnije ugljikohidrate (maltroza, dekstrini, glukoza).​​
+
+Jednjak:
+
+- Cjevasti mišićni organ (~25 cm); izlučuje sluz koja olakšava prolazak hrane.​
+- Peristaltika: naizmjenično stezanje i širenje kružnih mišića potiskuje hranu prema želucu.​
+
+Želudac:
+
+- Rastezljiv organ građen od glatkog mišićja; volumen do 2 L.​
+- Sfinkter na ulazu: sprječava povrat hrane u jednjak.​
+- Želučani sok: sadrži pepsin i klorovodičnu kiselinu (HCl).​​
+- pepsin razgrađuje bjelančevine na kraće peptide.​​
+- HCl stvara kiselu sredinu (pH oko 2) i uništava mnoge mikroorganizme.​
+- Sluz na stijenci štiti želudac od autodigestije.​
+- Sfinkter na izlazu zadržava sadržaj u želucu do dovoljne razgradnje.​
+
+Tanko crijevo:
+
+- Ukupna duljina: 5–6 m.​
+- Početni dio – dvanaesnik: ulijevaju se probavni sokovi gušterače, žuč iz jetre i sok žlijezda sluznice dvanaesnika.​
+- Sok gušterače: sadrži enzime za razgradnju bjelančevina do aminokiselina, ugljikohidrata do glukoze i masti do masnih kiselina i glicerola.​
+- lužnat (alkalan) – neutralizira kiselinu iz želuca i stvara optimalan pH za enzime u tankom crijevu.​
+- Žuč: nastaje u jetri, pohranjuje se u žučnom mjehuru; emulgira masti (razbija ih u sitne kapljice) i time povećava površinu za djelovanje lipaze.​
+- Apsorpcija:
+- sluznica ima nabore i brojne crijevne resice s gustim kapilarnama.​
+- resice drastično povećavaju površinu crijeva za upijanje hranjivih tvari.​
+- apsorbirana hranjiva krv prenosi u jetru, koja ih dalje preradjuje (metabolizira).​
+
+Debelo crijevo:
+
+- Duljina oko 2 m.​
+- Početni dio: slijepo crijevo (cecum) s crvuljkom.​
+- Funkcija: reapsorpcija vode i minerala; formiranje izmeta.​
+- Izmet: sadrži neprobavljene tvari, mrtve stanice sluznice i bakterije.​
+- Pražnjenje (defekacija): izbacivanje izmeta kroz anus, obično 1–2 puta dnevno.​
+
+Mineralna prehrana biljaka
+
+- Biljke su uglavnom autotrofne (ugljikohidrate dobivaju fotosintezom), ali za rast trebaju minerale, vodu i ponekad aminokiseline – mineralna prehrana.​
+- Nefotosintetske biljke: dobivaju hranjive tvari parazitiranjem na drugim biljkama ili preko mikoriznih gljiva.​
+
+Ulazak i uloga minerala:
+
+- Minerali ulaze u biljku uglavnom kao ioni preko korijena, strujanjem vode u ksilemu.​
+- Ugljik ulazi kao CO₂ kroz puči.​
+- Asimilacija: ugradnja mineralnih elemenata u organske molekule u biljci.​​
+- Najvažniji elementi za biljke: N, O, H, C, S, P, K.​
+- Bez dovoljno minerala biljka ne može završiti životni ciklus.​
+
+Dušik i mesojedne biljke:
+
+- Biljke ne mogu koristiti molekularni dušik iz zraka direktno; ovise o dušikovom ciklusu i razlagačima u tlu.​
+- U tlima siromašnima dostupnim dušikom razvijaju se mesojedne biljke.​
+- listovi preobraženi u klopke za kukce; luče probavne enzime, razgrađuju plijen i upijaju dušikove spojeve.​
+- unatoč hvatanju životinja ostaju autotrofi jer i dalje provode fotosintezu.​
+- primjeri: venerina muholovka, rosika, tustica.​
+
+Mahunarke i dušik-fiksirajuće bakterije:
+
+- Mutualistički odnos biljaka mahunarki s bakterijama koje fiksiraju dušik.​
+- Korijenove kvržice (nodule) sadrže bakterije koje atmosferski dušik pretvaraju u amonijak, koji biljke mogu koristiti.​
+- Time obogaćuju tlo dušikom.​
+
+Energetske potrebe čovjeka
+
+- Prehrana izravno utječe na zdravlje, radnu sposobnost, učenje i rizik od bolesti srčanožilnog sustava.​
+- Neadekvatna prehrana uključuje neuhranjenost i pretilost; obje su ozbiljan zdravstveni problem.​​
+
+Mjerne jedinice energije:
+
+- osnovna jedinica: džul (J).​
+- kalorija (cal): 1 cal = 4,184 J.​
+- u praksi: kilodžul (kJ) i kilokalorija (kcal).​
+
+Čimbenici koji određuju dnevnu potrebu za energijom:
+
+- dob, spol
+- tjelesna težina
+- razina tjelesne aktivnosti
+- fiziološka stanja (pubertet, trudnoća, dojenje)
+- patološka stanja (bolesti).​​
+
+BMR i PAL – formula za dnevnu potrebu za energijom:
+
+- BMR (Basal Metabolic Rate): energija potrebna za održavanje homeostaze tijela u mirovanju; ovisi o težini i spolu.​​
+- PAL (Physical Activity Level): faktor tjelesne aktivnosti (viši kod aktivnijih osoba).​​
+- Ukupna dnevna energija:  
+    "​​."![](data:image/png;base64,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)
+- Primjer iz teksta: dječak 65 kg, BMR = 7020 kJ, PAL = 1,45 →  
+    "​."![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABSIAAAAoCAIAAABl6ROxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABqoSURBVHhe7d17eBNV2gDwd9SQ7GL64SVhP0r7wKZLBLa4IFQgWWSiFIpYqIuIIEt5mriAwKZ+UC1YQSoILWsDW4XdBCgCS0EExEsRMIPYcGlZEbAotaEVKdpWuhh0GxPc+f6Y+2SSJqUIZd/fP9C5nDnnzEyfvjnvOSFomgaEEEIIIYQQQgi1h1vkGxBCCCGEEEIIIdRWGGYjhBBCCCGEEELtBsNshBBCCCGEEEKo3WCYLUJlE0Q2Jd96rcV6VSqbMLu8AF6XOfJ5XpeZOfIauJZl39yw5xBCCCGEELrJRRFmU9mEWNjIzusyR9iriMomriLkuLqzb0RRtYic5QRbMUUV28A5i5TvjZnXZebvLXdt2S1vtUptE/4qXJ1CnyZ2D3esuPJtr6isFGlRolqKiw+zWVpYaP0jiSIAb+1dZPZLN0dRbFSYhoVcUo5tP39c+LscntdljvJIhBBCCCGEbkBRhNkAAHY3zXDbHZbW/9S+0cQ6YNya9opc2sZg3eCstFgqnRusBvm+GFHZRJJtEHdz6XJRgfwtl25uZ6IHy2NLEt8jk8kEjt2ym+alSjwmk0myzeSsYYqocYK0iGgZrOV8W2marnGawJRJGpgbbXGwdaxxgi2Juetel9kCbM2lV6Wyk2zAVugavSsR3kVqt8Nut4d221XzusxEks0j3xzK65pqG2S3y7bG+iwZrOWi3kYIIYQQQqiDiTLM5pGznArRDwAXrBTFNLxKFkX5d7eiqzv7RhRtiwzW8ugOjMzrynOYnDWx3bNrhEy3A1R6RWFVZr7T5MiTBFpUsc1jz8wUbREzWPPbI8Skim0ee77VwP3XzfaPwZpvB08J5WX6n+s1A5lp4irOdCj36UeEd6VdyMv3uvIc9vSiWU5TO1/U65pq89jdtFsePodgUizS5ZvbACNthBBCCCHUccUaZgMAgKlvIjMSanZRoiRe0ZgxM3+Yzxc1u7yiZFphAE46yqyUh+t1mYlsit0jGxkUxpSlWb/Sv8ypbIKwOAAcFnERStcSE6etSo/lBvY8tiTlNGuhvPC5r8Lh0tHIVvtD2lhhc5hjeVS2/Frs0DAzantVxGVL70SYyiihdju4IWROIplpYsJa4RhTpDx5r7dSvim0Rq3UyuvKc4A9nQS2POZZZ5DpdvBUnRMfLnWuygODDHwbxBG4IqW7EiOhfl6qxGNPJ8FAZkYfZ0fVO9F+gEZlWxzsBxTtwWAtp92D2paggBBCCCGE0HUUa5hNFdtEoZnHZqnKD5MK6rEl7U5nsmpNHlsSkcQcWeM0OSwKfzhT2YSlkkv/lf5x7bDk9a2h6Qh/6fNZv247yIM1sojZzCSuFpGRrwXAxB5JtkFuplVUNp82TNPlVoPBWs6kFTtruIZ7XWa2hkzy81R5nCIlyUTum2dxyA+ACHUUZyXXZJYUU0yBEa/PlSXrv3NVHhhUVSzEV5JuYD6WCNksJylbVDm2ixQeDAn+KhYHhERoBjLT5LEVs5f3uvIcET8VoIptntAwXJYRTtPKjyvLS5UIZZyriiJNWvRGKIb5YYW5K9GTvotclM10mywNIKzYeiciryvPwQ/9S0X5LCkgi2g3XIvUe4QQQgghhK6dKMNsIRqqlIROYf6sBhDtM5CZJuBzk8OM8FG7xWEWKUl8FdJwW0FlW0Q5u2FFuhYTY5dkSqOfVgYHDdZyvk/IdCGzVjm3WxLJGazliqm44eoo2W6wlheREa4PwEZzwH5kEMoB6WxwVeM0OSzsQCZZxMdc4s0hZGV7vZX8hxwGMtMUceSXIczaDZ1pLE0D91IlXC63FJNWQBCRmhktUcJ4dKJ85EJEvisRKb+LQpTN9r04DeDnEG5JviieJVEqhgImFUXhNIQQQgghhG5QUYbZQjTUlsAgSsKYV3TLLcnEFPGEvZbDJrs0WcREgErZtDxRoKA8OC0jyiwOT6GO8jRmTtjre2y2sPVJ7GsSFcZMPQ4JjA3WDc4wMVtI2QbDIHbyMvthgkJNwyKL3Aozq8l0diNVbOPDSCl2CbRwMVxUadEMccI4sB0UiddlljxyBsMg+SHKQnouForvopcq8QgPTJLNw9+IyGLonYiiyhcP9yyJInEFTCrKNfy9gxBCCCGEUDuLMsz+WYjWI6YjpYgriinIjnAtuzt0xWo2DFBILwfgoi3R+s/y/QpCh/MVKNTRYBgUGgpHur7JWUO77YrxJwCAuLDYUp7Dls0OLifZBrVLaESm28GR53K1Mi2bi+H4FHPR9mjTokOSzuW9Te12CJ9LeF3mJBtI0+IT+0oyNbxUiWSuNk+5564Cs1abqIU1ivFsqOh7JyKvt1I6AQAcltgzxEN5XWbCAu4YfxcghBBCCCF0fd0oYTYbTbUeFyiLIsgWwp/WrmWwlkcRA0mjXS768rryhHFK5SXQJDOOvS6z4vB3uDpKtntdZi6SUbw+iywK+eAAgK2IMH4sBJlel1moNLPKdNhxSknZ1G4H/+1a4o8uvK4ovlFdPpTMIWc5TR6bLfK0bABZinkbKCzCJuvtPD5hXynGlt/a0LBdIvSuiBdQi6rLeNRuedf9PHnjFPc979JonVsKoYiM6VmS4zoZY2yEEEIIIdTB3ChhNpBFtHsQN8s21tRVardDNEc3NDxhQrUkblfr1xJiIFFWrYVf4YkJ6CzsmQbrBiewxU2FfGfkTGM+jCcIgiCSqvJrFE8IV0e2ZszJJZmzSGYcN/L1w3xwIK6IaKavgczkimNGpSMOJorKJotqMktEVQ69ESGExPiwFzKQmSYIXR9NSbgPJ6IgDqIFkt4WKkgV2zziB45vapgeVcb33GYm5V94vmIUGmXLI35xVeVPQRTYOQnCgv1RlxHbsyQS5oMMhBBCCCGEOgCCpmn5tp8PuxBUlH953/w6dn9wC7Rz1edak+gyJ1Xld9RWXRfeDtFlVDaR1/daBMIYYyOEEEIIoQ7tuo5mh1vQ67/VTdAfoupzc72pYtugto3S/tfqEF3mdeVVRp6n0WbKS/QjhBBCCCHUQVy30Wwqm7A4AOwdduy2nd0U/eF1mcXrtnfsxiCEEEIIIYRQW1y3MBshhBBCCCGEELr5XNekcYQQQgghhBBC6OaCYTZCCCGEEEIIIdRuMMxGCCGEEEIIIYTaDYbZCCGEEEIIIYRQu8EwGyGEEEIIIYQQajcYZrdBXel4vYYgzC6vfA9qJ8Hjy/54E3bvoSXd4wiCyKbkOzq+dmmarBAqm/k/968Mlc28hFQ2QWRsbZDvRgghhBBC6DppPcw+tEivIQRx3e9/dOmeWr/8sP8mPSZuL3ekyLdeU16XWXQTCIIgCI21zMfsDDZ+tHRk9ziCIOK6j5y/76sgf5q/9oBrDrNLox8wzXW8WSjSf3rztAF6jcKeqxFs/GjpkFGtRsjBapdFIwmdpC3sNCD3rPh4sWD1+lFxhCZp8ubToscwWLH+7x//W3ychP/05slJOfJQrZU+UGoMlS2qJqPfqtPMvubjLqY4QqMfME1SPcbQBaf/MUW+EUD0msWNLa2T7wMAgGYqJ0lDxA1Z+lGjcH+h/r1X31I6PthYtXPpo0xd5A8Fd0jILQg2HtvMPi1EXPeRc96q5k/y1+7hitPoBzy68rC8qyI0LQahhZj6JgIk9jVJNrLijSkwyGAAAIAe+q7y3QghhBBCCF0nrYfZQxeVO1LA5KyhaZpuaa7YNFm1Ju3XvbKpkD+0O57qNfcrjZJF4dbbVPJN19TF+k4vf9xCs85vSoPkl+Y8FAcAAN4Njw5b02d9TYBuOfJ88JXUh1eeZMKjuvWjey++NGl9jY8O+CoXd9liG/nKYTZy8lG5w7O+fOrAJTpwbvMDH9iG2N8JvaHeTWPHuoRYi9FM5TxSqBjQ+k9vntw7cdiCI9/L98gEq9dOn3XoR/lm7iljlFuZAEomWLE07/tXGgPnVscvHDyar13w2G53566/lB8NXLCs7/vkP7yylkTsgzCNaWi8MGVHQ4CtY+DQAp16ytIn+wBA8OSK4QNWxb/yySWaDjR98NSXWcNzKfaDEEFc57vkmwAAYOiiw8UmgJlvbp/YQ74PAOq3ztttOXS55UjWwYcH5vDvXv2BLV/r42XHAsDBBYlp7/Ze/mG9n26p3/bYZy+n/mlbveQIhVtwcEHioxS5psZH0y31u6d9/ddx0zcxIXzd+tG9CzrN31PvpwO+Uyt6vGcnlx0UnwoQoWkxiaWQW29TpRjjARL7mkx9E+V7EUIIIYQQul5aD7MlIaXmjnuGz9m030k2Oh7nI7YOy1d9qEK+7QaVstD9XH8N8/9ghSu3LO3ZJ/qpAACCh9fP94wrfG6EXgWaPtOX5epOFew8DgAAPaa5/e65g7tpAFTa5EnPTICmA1XnAACg/u1CB+Qum95HAyr9iOcKx/24ce2+kLTbxNRZv17cb6Qo0m6msn+Xdmzs2OTQgPZowfhNd7306cnVrY3zN1M5o7dNcmTJt0fFt7/kh+nT+2hU+hEFFW/du3jgI6uONQb9p9c4VLMnKASccH67/dkzqW817p0p3xOpD8I2puvjW1/P0LMvRP2OghUwd8bIOwEAju8sODVlac5wtrunL8sFx/qDIXF2ZJ2UP745/ea+IbNG6VWaPta3j71wYmzKzJ21/mDjnhXuMTOGKJwxrMB/zpXxG60KQNNt1LQ5Rig7Vi3ar3gLmJN6agBA08007Peg1sX9AoB/kAbqVQAq7W8Gp94L+i63S869NkSj2GHi6G53/A8AAPz6Vzr5LoQQQgghhK6XaMJsOVWvCc9MgKa/7z0umqZ8/Lhr2m/jCEKTNHmrKCpjtxIa/XAm25WdfanRjy+tEyZjxo0tLY9YkiifNe6300RXYNSVjmXmdDYfXjpcr5EdFPxq33whF5ZNoK0rndRn0kYAh4UgCIIwu7z8xFCukGyKPXk4k3z7W3ke8I+nNzNV1Q9fyqfRtlJVAOXMY0Er4+vN7xe/7F+Qx8WUtSf2NRlNvbmU2f5DH4OmfScVkrabvjkLuuFMtBI8fagMRt13D7ura/+RKbDrCJv6LFDpRxTs36Bb/NCTW6uDAM1UTsrYEy+cfN/aSyG0uz/nnaWjempaG+dvpvLng3O71dhJvicqzYEHx5vZK9xJFhx7d9gWS1dtYu7t+fNTFC/cffyr660D9Zrb5NeL2AfRNCZ4csuSXZYiLs794VITaNVMXAoAcFd8Lzj7TZPoBBk2TzxuyHxKOtIc4t/++EdJdmxf1cv63pEXv5vX+xd3WQ6mFz6u9NGCVPBifR2kDezFb4h8C4KXmz4/sOqpFf92Hl79B2kmtv9fdSd2zp+988G9nnkDJHtkZE1rPr55DvMOERp90pJDAJI8dMnrI2awlpdbDcK/obt3Pt4VwGAtf30Mk9mBEEIIIYTQjUBI0g2rxmmSpvPS9JnVKQB2N03TNH2i0AjJD2Svq2qhAw1lM3WgW3SUPXEdqU6wl9W30IGGj55PVo8rPc8m2sK40m/Yok4UGk2rzwQillS7caQ6+fmPGgLyK4i47QAJg3N3nG2h6Zaz26boIHllFU3T9HcfzktQk6tP+gI03XJ2R1YCJCw6ymT9uu18K2iapunv3p4Cxikzclce/uxwIam2u8Unt5zdkKHmTq1xmkBnmLSysiFABxoqXzaBzu7+LsqqXpWqlclcy2iabYP47sh/Zl102xMS7O6LzE81TpOk5fKfJQJn1o3UJmStfJHU9l90iC0hLIWnReR86TgDUwt533+zK1On1RnitQCg1j2Qu/ccl5ktd/HjlSO1oDZM2lTFp9HTdODoutc/FR8mI79eSJvlP3PbwjXmu/ey1Oqs977jfv5m+wQ195wFfOc+2TBFp3SuUI/AmdWkqEOVri8InHt7hkEN2sFLDvIp6zRNn3933fvcm6QscMZJakkn84bREW8BVwkA0PbNWCK7A247AHNvZm/6WPEpCNM04dcA3VK1ysQc4snVqjM2nOW2Cb8QFCqFEEIIIYRQx9KW0WyZzl3uhl9MnD6tjwZU+lHjJ0PTpR8AAODkzuVUWuFzo7ppQKU3T5l57653j/sAVEPSn9bt2rC/HgAgeHjb62n5k5jR0bAl9Xhyj/9kvlmvkm2XG77guYyeGgBNz8fm5hhP7TpaB+A76Cr05y6bnqxVAWh6Zrz4ctpXr5YxWdVycZ3vgjOBEXPnDL5n8Fy3v4gUn6zp+cSMrK+2HPyMO/rO6c/OGahXgUo/cNrscU2bD34eQ1XbyFf2Sk511vLMPvIdEQWrXeNtFwr3F5B3yndFQdVr2q7d43f8eeF/HG8uHNKWEljBalfW+offE9ci+GXJaGb0vuvY9Y2+xprzPjrQUJ5zyyupD68OGV0HAAhW/HUZoTw3+5Yu8oOvodMlz67tVfBMGj+K2jX9r/te+M8Lg+I6EXE9xxd+euXuX4JOGya3Otj40dIx828rPhRlh9bvWPRBuuLcbK82UgHNVM7o1x54fzuXfxDxFjADxDQd8J3bm3lpcepvssTz9ckimqZbmj/5W9KuJwcMX8HO/w8lb9rJncspy8tzR3XTAGj6zC6ni0gAGLrU59/xx54aAE2f0ZkmaLrc2oR+hBBCCCGEOoq2hdm+6kMVkGIU8lVVt90qOQAAAC7Wn4FdE3/FpkIbZ1RwObQpjz2fXLb8zdMA9dvyD8yZRYoSPhVLgmBj1c6VT00cZbk/SZ/mkO/l3dWZL6lzl7sh8NNPTK50r3hhXaX4bsbIse//dhFCkKZvzkLTovvZJnRKfQ3O1F/kdt7dpTP33676HlyhUVW1rUnj3m1L1sbNzWLXPgMAgM5ddFAtVAoAADrdKurEYPX6Rx498gy16XEh1ft2rQ6grlEyGVutUup5JjQbPWr7VGfhLTMfuKqV78pX295/32bsRBAEQVgcAA5Lpx7TyuSHqfQD/5ybBae2HVJIfW/Y8ZdLMc3NDiumPpDzUc6XTqU9+wfxxx0q/e/nH2j00zTtO//+quHqz79MJpMV1792WDp1Hbbgw2ZQfNgVVLhKY5qbzWimcoYtj39jvyiUj+oWqLQJg+eucaT8uPGDE9I9oLnjnozVa2fCqV0VzCR/udCmXaw/A8ZuIbfGX3vANf+PGaPMv+ve3+aR70UIIYQQQqgDa1OYXV+2dhskTx4mzPZU1LmLDqa8zSfVihaP7vOHZ9NOvfTG4QrXX4z5E0InXcr4Di4YSO7vs6x0j/toTWMZk7yq5OIP/IpTP1z6lhlLvF2rg+o64UuQGhrrwCgKuyO6XasDY+EJUROYsTgAAAhe+Yn7L19olFUli8RFyghXkAkeXj/fk8ZPBmbcc98oaDr6BTe79+Q/y8A4+j5+tepmKmeqZ1bZ6jEJKoDqNaNfrAAA6NrbZATPqbPcsuOfHfTAhGG/404SCVZvffKhxfe+fazAOnc7lfXh2PErQr73KlqSVgvJweHaK/mwgHMlbsoTMc3NDiv6PghV/3ahA4T58aGCFa5cN7sEeSi7mw407J1RY3tIGJiOxKe5b06sc7OD1a5Jy/Ub/zG3/50AwX1PM18sHf0tCD8tXRUyzV0ktGmdu+jELybDu3507+evZK7duaf8k/PH2Ux1hBBCCCGEbg7RhNk/XeFj1ODlr464Jj8wtWyoc/sMNoT44dK3QsQZvBLgo93+aU8nbJxfcOCCHyB4+YudMyeu+4ItJ/6R2Vm+Vx8f/06mTTSUHa6kpupDX935qzt+CeC/cODVDUd0EBCqJLZt3a5aPwD4a19f9HzduInmrgBdzRPH+VYsWHmsMQjgv7Bn2bxdprkZ/QAA4FaVGirPVAeD1a5n1n0B4PvhIkjK7mqeOK6uYGHJqctBAP+FI6vGP+fmk1srNu041hgECDbuWzZvV7I1tXcMVW2D+h0FK3xZsx+RBlZxw6bZdWW5K/Y1BsF/4Z2/FdSNe/EJpnkQrHaNzzduYGJsCFa7N/nYDxj6Zcw1Na1YsPa0H4KXT21YtjFh0ayRIatIBb96Z8ZD87SveQpG6FUAdw5ZuP+te1cNGR/yJV+CoO/bb+Hbb32iA6rX3E8wQZ5I8EpA0tVUNpGYveeCHwD8F46sfHmtetyfUhW+2io+bYwonFbpfz//sI/2N741TWlVNpHmS18DfH1JHNS23gcKjQE2hi5Lfn6S8jiy/1+f78m5/6GNE8scY0LzubnHWqUfUbDfmbQ6LVJncuL6jeGibAAATZ/Jm2v8tO/TpWEnATRTOROP/x8TYwM0H9j1RugXS0e8BXuKF3sS5mXcB8B8p7nGsubU5SBA8PKpNfmr1WSWuEKMME3rn/Z0wsZlr7Hv35EVY59xfw/nTlI/dr+rC0Dw8qmtr7/l49978S8QJVR25HwPhBBCCCGEbgCiwS1lnoU6tXC4Nt6YOtv5kbA4kidXCwCg1i300HTtlnTRTzQdOFOa2V+nBgBt30xnpXjtJvkCUhFLuujO7avlVsbaawcAbfqWWuFUmlv6awJzObWuf6ZTWKbp4sdOthqyHYEz69J1alAbJpWeCdC1G0eqmTa+5OGLpS8eWpLKr8tVdpZddKvGSZIvOnOZPdr4VH7Frmiq2ja160jJ2meClqpNom4WmsetZyUirMkVaDgoapjygmM16yZNKhUWz6JpmqYDDXvnjVlyVJykwPK8ZDQa2IdFrTMYjWw31jhNoiXv2EPjtdKu/vSNqalGZiNo41Nnvyle3uyq1G55wsiVDNp4o/EJ/n5E6INwjaFpmv5wnuzRFfxzSYI2PiVjCf+gSHGPmHrkxlr+kVfrDC95WlsCLSbfue0h328lLzn0FrScLVuSkcJ2R3/xEmiBhspNs1OZ7tDGpyougRahafyvAaGX2TePeWA/dprYN11WiAK3XaEtCCGEEEII3VAImqblf5B3TFQ2YQG3Uvoruq6ad07s9nqGd2fY9GYEwAwZJ5Vk1ih9cxVCCCGEEEKoA4kmabxDCF4JAJyoq5NvR9fX9weK3hh6eC3G2JH5Lxx5o8STMKJfonwPQgghhBBCqIO5SUaz60rH9nti92VQ6xa6GxcNle9G6IbWsHXyg3vIkuVTB+oV53sjhBBCCCGEOo6bJMxGCCGEEEIIIYRuBDdN0jhCCCGEEEIIIXT9/T+YsBh3rsNqWwAAAABJRU5ErkJggg==)
+
+BMI – indeks tjelesne mase:
+
+- Formula:  
+    .​​![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABSIAAAAzCAIAAAAM+OHpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAz8SURBVHhe7d19WJR1vsfx7302cKyc3WXXsV1aQhmhRV0vO8guMHUastJjSoqrZBnYQsdHdoaSPZUkho+tBzAfT44lyia6oqXWpiXjIRhbSk1NC2PWWTzsXuKRPFBJDFxz/phh5mbEhTh0xcP79Y9z/76/333jn5/r96S4XC4BAAAAAADd4Z/8GwAAAAAAQFcRswEAAAAA6DbEbAAAAAAAug0xGwAAAACAbtPzY7bVrChmq38rAAAAAAA9UCdittWstEHmBQAAAACgfZ2I2SIiphKXV57RvwoAAAAAAKTzMRsAAAAAAHTs/xGz7RZDeyvJrWbFYLG6awaLXewWg2K2+jqbrap16AaL3TdM9RK7xaCq+ai/2eaTrGUHAAAAAPQAXY3ZdotBnza2dSl5iSk/XpVzy9Piz+a4XC5XWWqYiIjkxydLgbuj5McrStaIKvdTeVpyO2H6Rqxmvfu9LlfVlrj8eJI1AAAAAKBn6WTMzo/3TiIbLHYRu3VbedyWBa27tI15JSbJ3+9NvaaSthu447YUuAO3cbJJxFTiid/GySYpP1ut7vkPGfO8G8PDjClx6na2jAMAAAAAeoBOxmzVEWhlqWEi1WfLZWyYe6paRERCRvhS77dHtWZcn1buXwUAAAAA4DvWyZjtL2REnHxgVy33rj777adeq1mfJluqvKvG/esAAAAAAHzHuhizw4wpceVp61tXiVvN8fmqNeRdETIizrvs3Gq+4Vx16xS6db2qB0egAQAAAAB6hi7GbAlLLSsxeXdsx3+wpar1uLMuCkst2BLneWHWiJL25qqNeb5P7p9cYvKvAwAAAADwHVNcLpd/GwAAAAAA6JKuzmYDAAAAAIDrELMBAAAAAOg2xGwAAAAAALoNMRsAAAAAgG5DzAYAAAAAoNv0xZjteHN+0rP7ztY2XDhqyXhy/Ymv/Dt0gaMoQcvd3AAAAACADvTemG01Gyx2/0YREQmduGHjpNOzQgbfv/s284YFd90sdovhRp074qx9b4PZ/Mcvk/YUz/Ov+Tn7R7N5w3u1Tv92AAAAAEC/0Wvvzb60a0piw5qy1DD/Qreqs2YurEzZOidSI2I1K/snu/KM/n3UnOctKZawdS8ag/wrAAAAAID+oJfOZtuW/3Pa6+VpekVRDBa71B1bca9OoyjamBXH6sRuMSg+ZqujKEGrGCx2z9Jvw+ayg/P0GkUbs+G0U0Sk8dze9Ht1GkWjz7TWqb9Sb835beCC30Rq1I2OwvEaJWTGS+/XeD/rZrDYJSA8+emgrBxrvXoEAAAAAKDf6KUxO/a5/8qNi9tS5XK5ylJvLZ4749P5f77quvb+zLf+rfCcSOCsA1dcrislpp/9zDR5dGhSbm6ciIiEJuXmxn24+/3bsj+5+sGiz58qPCYipc+PPzJpb21DZf5tv99/SvUR5/H9xYmTYwJUTSLOm4Pvyyn5aFf6r4Ir1iVsv++tq66mS7tnDDCVWFPDRCRgTPz9xfuPs3IcAAAAAPqlXhqz2zhXtvvijunDBioDR6SXn6msCUkt2f7QoPOWaQmnnn/3+vXbUTOnROkCNFGGCV87W0TknherN9wfJAHhEWPbdrxQadOH6NQtR1ZN+vk9ZUbTde+Urx21rRPhuhC9rfKCXx0AAAAA0C/05pjtbG5p/TnvcJPLY8P9ASJ11sxxL4x+Y09qeNu56PbUnfxD+oN33q5V4vPbFmoqK0aHhqpbQu5btCHl0BNr3YvNoxduv2ed4QdKoH7pwKLVU4d4OoWGjq6orFEPAwAAAAD0F702Zt86aHDF0bN1dQdXvOwcEbd1084LjeJsOLM545XPnN6J7EF/3favnku4fJnc88vZ3CQiIqWrYorH/ucHVVUn1j44oKlZtdo7OCL6lMPR+uRsbpLhY+958KmNj29/bO1pp8gl654hexsaXa76j1+d4cvzDsep6Ihg71sAAAAAAP1Ir43ZQwyPzSx55KfRpTHTHkh+peD7L44eqPwoJveHc2YNry7dZm2wpkUEKoGhs/8k4ijKyCivMKUXOny/xLYkcaNsmpFtGzkh/XTa0OCo/Kt3T4vamLjE5v3E0IjYqupaz4O3f8AvosefX2QYOrPo4k3X1t4d6D7/TBvz+wrPuWe11VWxEUO9bwEAAAAA9CMdX+hly9bFL738ta9hUHB0Yvbm/0gdE+QrDph14G/bH/LtWHYeWxwcu/yyDJq88/QbSaGOooRfPLK/QQYMXlJSmx3re1fPVm81G45MP77M7xQ0j/rSTPNf5m9OuSNApPHtJwceesSVZxTnyVXG7b98K8+o9e8PAAAAAOj7Op7Njs0uy48W96neLpfrWs1h0y0702JWlbqLVXtmfX/4cO2OZwvP+cbU7H1xuwwWmVe8JylUREKT9hTPE3m44EzvydgiojVmrW1aX3C+/WPDPzr4UmVDfaNTxNnw2WfnRg0dIuI8X7CmLieLjA0AAAAA/VTHMVvkezepZnM1P/3VlJlRvmftLT/634kLFo86s+y1Y5446qywLLr8/IpHRQK9IwNuChQJ1bUeE9ZbBBmX50W8k5n1pt2/IhKTuuuu4vsGByrKoLDkEwv3zB3wZlbmOxF5y68/hxwAAAAA0E90JmarNX7+6b6VL1RPL0iNUbWOSvzdhMtrNh2qExGp2btya2LO9DBV/R+zmt37m9vlOcHsOxOgu3t+Xs7Edv43AeEJLx2tbXS5XI21J16dER4QNjEnb/7dunZXmAMAAAAA+oXOxuzyNL2iKIoyMOjnS2/efKRAdbK2iEjwpEUm98Jx5+mdy+1Pp32TZdPGvNbLuNqRZ/TvDgAAAABAT9XZmN26N/ta3SdLvpoTHm621rWpa41pi0edWfba2wfXvBC9OiVSHI5TbTp0G//p7p7N/68HAAAAAPRpnY3ZrTQ/vHNK7sZZF/Nz3vDeKO0Wmfi7CZfXPPzIR8syJmhFWlrc11J3wjdbNO4/3d2z+f3xAAAAAIC+7ZvGbK+mlha/luDpWc9p5bHVKZF+hY6waBwAAAAA0Ed0Jma3NPtutGr8/NN9GfN2yKjpse5Tweq/vCJN7g4BMctqGy0T3LuyW5qd0loQEWdzk8iVL+u9L+qTLpUuefB2raIoGl3Cq557wKzm9ubkAQAAAAB9Uscx25ZtMFWojkCLXnjx4cITR9Mj3UX9tB2ycVJwtq2dQbIxcVqRQ0QcRdMSN4rsmKb369fHfHH+Pefi96+5rr0z+9jW0mr/MgAAAACgr1P6xP5hu8WQLAVlqdddu3XDQsecte+9vHKvLjXv1yP8S16XytesOjAsLXtqpEbd7KzdN/fxq8+8PbsLnwUAAAAA9GZ9I2Z3vzpr5sLKlK1z2ubn9tRZMxfaU7eltt5w5jy/68mVXz3z8uy2V54BAAAAAPqDjheN9zS25bdrFY0u2+b5qU1Yty5BqxgsdnfGnT3SvTl6WpHDUdRasGXrNIp538mXxmsVjX7uWzXinq9eO3WkVlG041s3UnvUW3N+G7jgN5Ea8R/6bOlF9y/do8U1IiISZPz3ae8+UWAXERHn+Vef3Ba0+uXZQ8vMmezHBgAAAIB+p/fF7NjnDi8bFZo5NVYkNmV1wnOH9ixcmJsb5y4esyRfW1LV5Lp2LOMHX7SEJrUWYrN3zZXiNx2TXr9yaUfU5jWHHSKOwqRnBqw6WX/l8KwTbTdSO4/vL06cHOOejVYNdWwOX/lQ2vFxr9df2Rn/WmHZJXf3oNgpg7dZ7SJiL3jiiW0rHxgSqATG24YFq14JAAAAAOgXel/MFomcmP7j7UfPiZwrPjB2picNu42cMPfDlUsKjl7UP2W5bkN24qNThmoCdHeNi2tqaREJnV1SNic8QIKGjQlv2/FCpU0folO3uIfecUeEzHoqOVIjQSPujb7c8IWnOuQnwz88+RenSFhqmfcmsj/P8XsrAAAAAKDv640xW8KMKdrdNvu5dy9MSmx7SXeQMe/j4pSbbRkxY54t7eD2MOfFd1ZM/aVep9Gnlbet1FRWjA4NbdvWKvCmABGR77n/8QgOjzr1Vw4WBwAAAAD0ypgtYcYU2fb00v9+YJJ3YbazuUXEbpky/+gtd81ctHXJyNyDH/kKIuK9xdtzDbijMDnta9PbH1d/cmBumK+TiEhwRPQph0PVoLoA3HP395dX/0dVrjn/4eg7QlQNAAAAAID+qXfGbAkzpoh97GPjtCIijqKMjPIKU3qh49bBukOPhwQqgfqlAwtSY3wFW/aMTbIxcYlNHIXpporyjIyi5rhZd+b9y09CZhwNnzKpwpRe6MvVQyNiq6prPQ/qoas3yY6Zq2ziKMxcXFmekVHkHnPp759FjRnGweIAAAAAAC70ak+91Ww4Mv34sjb7vm+obl/S5CvLu3Q5NwAAAACgb+mls9nfMq0xa23T+oK2t3zdQJ111Z5xrySTsQEAAAAAIv8Hh+vLjjV5ddMAAAAASUVORK5CYII=)
+- Preporučeni raspon prema WHO: 18,5–24,9 kg/m² (odrasli).​
+- Niže vrijednosti ukazuju na neuhranjenost, više na pretilost.​​
+- Primjer: osoba 1,83 m, 84 kg → BMI = 84 / (1,83)² ≈ 25 (povećana tjelesna masa).​
+
+Zdrava prehrana – smjernice
+
+- Zdrava (pravilna) prehrana znači: zadovoljene energetske potrebe + uravnotežen unos svih važnih hranjivih tvari.​​
+- Prehrana treba biti raznolika: uključiti sve skupine namirnica (žitarice, voće, povrće, mahunarke, meso/riba/jaja, mliječni proizvodi, masti).​
+
+Preporučeni udjeli makronutrijenata u dnevnoj energiji:
+
+- 45–65% iz ugljikohidrata.​​
+- 20–35% iz masti.​
+- 10–35% iz proteina.​​
+
+Preporuke Svjetske zdravstvene organizacije (WHO):
+
+- najmanje 400 g (≈ 4 porcije) voća i povrća dnevno.​
+- manje od 10% dnevne energije iz dodanih šećera (≈ 12 čajnih žličica saharoze).​
+- manje od 30% dnevne energije iz masti; prednost dati biljnim uljima nad životinjskim mastima.​
+- manje od 5 g soli dnevno (≈ 1 čajna žličica).​
+- Pridržavanje ovih smjernica smanjuje rizik od srčanožilnih i drugih kroničnih bolesti, poboljšava kognitivne funkcije, energiju i smanjuje umor.​​
+- Zdrava prehrana treba biti udružena s redovitom tjelesnom aktivnošću.​
