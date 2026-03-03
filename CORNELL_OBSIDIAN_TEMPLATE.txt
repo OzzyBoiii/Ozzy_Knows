@@ -1,0 +1,288 @@
+1. Set the vault root correctly (URAĐENO!!!)
+Open Obsidian.
+
+Bottom‑left vault/profile icon → Manage vaults… → Open folder as vault.
+​
+
+Select:
+C:\Users\CrozzyBoii\Documents\VSCode_Programs\Ozzy_Knows\Course\Summaries
+
+Confirm that in the left file list you see your subfolders (e.g. Biologija, maybe Templates, etc.).
+
+From now on, this folder is the universe for Obsidian:
+
+All notes and internal attachments you want to treat “normally” should live inside this Summaries folder.
+
+You will use some files outside for images, but then they are handled via external links, not Obsidian’s ![[...]] syntax.
+
+2. Move/copy Cornell templates into this vault (URAĐEN0)
+Your Cornell templates currently live in:
+
+C:\Users\CrozzyBoii\Documents\VSCode_Programs\Ozzy_Knows\Templates
+
+That is outside the vault, so Obsidian won’t see them as templates.
+​
+
+In Explorer:
+
+Create a new folder inside the vault:
+C:\Users\CrozzyBoii\Documents\VSCode_Programs\Ozzy_Knows\Course\Summaries\Templates
+
+Copy the files:
+
+Template, Cornell, Cue.md
+
+Template, Cornell, Summary top.md
+
+Any other Cornell templates you downloaded
+from the old ...\Ozzy_Knows\Templates into ...\Course\Summaries\Templates.
+
+Your vault tree now looks like:
+
+text
+Summaries\
+  Templates\
+    Template, Cornell, Cue.md
+    Template, Cornell, Summary top.md
+  Biologija\
+    Text Summaries.md
+  (other subject folders)
+3. Enable and configure the Templates plugin (URAĐENO)
+In Obsidian (with Summaries vault open):
+
+Settings → Core plugins → toggle Templates ON.
+​
+
+Settings → Templates:
+
+Template folder location → choose Templates (the one inside Summaries).
+​
+
+Settings → Hotkeys → search “Insert template” → assign a shortcut, e.g. Ctrl+Alt+C.
+
+Now, from any note in this vault, you can insert your Cornell templates via command palette or hotkey.
+
+4. Bring in and enable Cornell CSS snippet (URAĐENO)
+If you want the nice Cornell layout (cues left, notes right, summary top) from TfTHacker, you need his CSS.
+​
+​
+
+4.1. Locate the Cornell CSS in the demo vault
+Open the Cornell demo vault (if you still have it) by:
+
+Bottom‑left vault icon → Manage vaults… → Open folder as vault.
+
+Select cornell-notes-learning-vault-main (wherever you saved it).
+
+In that vault:
+
+Settings → Appearance → CSS snippets → Open snippets folder.
+​
+
+An Explorer window opens with one or more .css files (e.g. Cornell.css, cornell-notes.css, etc.).
+
+4.2. Copy the CSS into your Summaries vault
+Switch Obsidian back to your Summaries vault.
+
+Settings → Appearance → CSS snippets → Open snippets folder.
+​
+
+This opens C:\Users\CrozzyBoii\Documents\VSCode_Programs\Ozzy_Knows\Course\Summaries\.obsidian\snippets.
+
+Copy the Cornell CSS file(s) from the demo vault snippets folder into this snippets folder.
+
+Back in Settings → Appearance → CSS snippets:
+
+Click Refresh (if needed).
+
+Toggle the Cornell CSS snippet ON.
+​
+
+Now, any note in Summaries that has cssclass: cornell in its frontmatter will use the Cornell layout.
+
+5. Create your “Lovrina metoda” Cornell template inside this vault
+You want your own structure (VAŽNO, left column = key ideas, right column = formulas/images, bottom = links).
+
+In Summaries\Templates, duplicate one of the imported templates, e.g. Template, Cornell, Cue.md.
+
+Rename the duplicate to:
+Template, Cornell, Lovro.md
+
+Open Template, Cornell, Lovro.md and adjust it along these lines (keep the cssclass: cornell line if it exists):
+
+text
+---
+cssclass: cornell
+tags: [cornell, lovro, matura]
+predmet: ""
+autor: "Lovro"
+date: {{date}}
+---
+
+# VAŽNO!!!
+
+S obzirom na to kako nemamo svi iste predmete za pisanje na maturi, bilježenje njih ovdje će biti slobodno raditi kako god ta osoba želi.
+
+Za predmete koje ja pišem (Lovro), isključivo će se koristiti **LOVRINA METODA ISPISIVANJA** opisana ispod, a ostali su dužni pridržavati se takvoga zahtjeva.
+
+Naravno, moja (Lovrina) metoda ispisivanja je još uvijek u radu, tako da su savjeti za poboljšanje dobrodošli.
+
+---
+
+## Savjeti za ispisivanje
+
+- Savjet 1: …
+- Savjet 2: …
+- Savjet 3: …
+
+---
+
+## Gornji redak (naslov, datum)
+
+- Naslov:  
+- Datum:  
+
+---
+
+## Lijevi stupac – Ključni pojmovi / teze
+
+Ovdje ide sve što se može jasno napisati riječima.
+
+| Pojam / teza | Kratka definicija / podsjetnik |
+|-------------|--------------------------------|
+|             |                                |
+|             |                                |
+|             |                                |
+
+---
+
+## Desni stupac – Formule, skice, slike…
+
+Desni stupac ne služi za duga objašnjenja, nego za sve što nije “čisti tekst”:
+- formule i jednadžbe
+- skice i dijagrami
+- slike / screenshotovi
+- grafovi, tablice itd.
+
+Primjeri:
+
+- Formula:
+  \[
+  E = mc^2
+  \]
+
+- Slika (unutarnja ili vanjska – vidi niže):
+  ![[ime_slike.png|250]]
+
+---
+
+## Donji redak – Linkovi za dodatno učenje
+
+Umjesto sažetka, ovdje ide sve što pomaže produbiti pojmove iz lijevog stupca:
+
+- Pojam 1 – [[bilješka ili URL]]
+- Pojam 2 – [[bilješka ili URL]]
+- Pojam 3 – [[bilješka ili URL]]
+
+Primjeri:
+- [YouTube video – odličan prikaz koncepta](https://...)
+- [Članak / skripta](https://...)
+- [[Povezana bilješka u vaultu]]
+Save the template.
+
+Now, in any note, you can:
+
+Press your template hotkey or use command palette → choose Template, Cornell, Lovro → you get your Cornell layout with your rules.
+
+6. How to use external images (Option B)
+You said you want to keep some images outside the vault and link to them. Example external path:
+
+C:\Users\CrozzyBoii\Documents\VSCode_Programs\Ozzy_Knows\Course\Biology\Sections\1_Biosfera\Images\some_image.png
+
+Because this is outside the Summaries vault, Obsidian cannot use ![[...]] to embed it directly. Instead, you will use file URLs or a plugin.
+​
+
+6.1. Simple file URL links (no plugin)
+Windows file URL syntax:
+
+text
+file:///C:/Users/CrozzyBoii/Documents/VSCode_Programs/Ozzy_Knows/Course/Biology/Sections/1_Biosfera/Images/some_image.png
+Note the three slashes after file: and forward slashes / in the path.
+​
+
+In a note, you can write:
+
+text
+[Slika biosfere](file:///C:/Users/CrozzyBoii/Documents/VSCode_Programs/Ozzy_Knows/Course/Biology/Sections/1_Biosfera/Images/some_image.png)
+This shows as a clickable link “Slika biosfere”.
+
+Clicking it opens the image in your default image viewer (not embedded inside the note).
+
+If you want it to look more “visual”, you can also paste the URL as plain text; many themes/plugins can detect and make it clickable.
+
+6.2. Optional: plugin for external embeds
+If one day you decide you really want external images embedded in the note, not just linked, you can look at plugins like External File Embed and Link.
+​
+
+It lets you embed local files outside the vault with a special syntax.
+
+For now, you can stay with pure Markdown + file URLs which is simpler.
+
+7. Linking internal images (inside Summaries)
+For any images that you do store inside the vault (e.g. new screenshots you paste), treat them normally:
+
+Decide where in the vault you’ll keep internal images, for example:
+
+text
+Summaries\
+  Biologija\
+    Text Summaries.md
+    Images\
+      bio_img_1.png
+      bio_img_2.png
+In Obsidian: Settings → Files & Links →
+
+“Default location for new attachments” → choose In subfolder under current folder and set the subfolder name to Images.
+​
+
+This means if you paste an image while editing Biologija\Text Summaries.md, Obsidian creates/uses Biologija\Images\ automatically.
+
+To embed these internal images in a Cornell note:
+
+text
+![[Biologija/Images/bio_img_1.png|250]]
+or simply drag them from the file explorer into the note; Obsidian will insert the correct ![[...]] line.
+​
+
+Use internal images for things you want nicely embedded; use external file URLs for things you don’t want to move into the vault.
+
+8. Daily workflow with everything configured
+Putting it all together:
+
+Open Obsidian → vault Summaries.
+
+Go to a subject folder, e.g. Biologija.
+
+Create a new note: Biologija – Tema – Cornell – 2026-03-03.md.
+
+Insert template → choose Template, Cornell, Lovro.
+
+Fill sections:
+
+Top row: naslov, datum.
+
+Left column: ključni pojmovi / teze.
+
+Right column:
+
+Formulas in LaTeX,
+
+Internal embedded images via ![[Biologija/Images/...|250]],
+
+External file links to images stored outside the vault via [tekst](file:///C:/...).
+
+Bottom row:
+
+Links to YouTube, websites, and other internal notes with [[...]].
+
+When you want to reference an external image from 1_Biosfera\Images, build the file:/// URL once, then reuse it or store it in a reference note.
