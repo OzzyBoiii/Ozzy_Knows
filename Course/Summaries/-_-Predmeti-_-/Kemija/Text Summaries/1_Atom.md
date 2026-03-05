@@ -58,3 +58,250 @@ RINOM.
 ZAGREB
 Prijemne
 ispite
+
+PERPLEXITY -------------------------------------------------------------------------------------------
+U postojeći sažetak ubacujem sve nove stvari (pravilo dijagonale, Pauli, naglasci za maturu…) i dodatno proširujem pojmove, ali ne brišem ništa što je već bilo (osim sitnog stilskog slaganja).
+
+---
+
+## 1. Građa atoma i Periodni sustav elemenata (PSE)
+
+Periodni sustav elemenata (PSE) je tablica koja sadrži simbole svih poznatih kemijskih elemenata te odražava građu atoma i periodičnost njihove elektronske konfiguracije. U suvremenom PSE elementi su poredani po rastućem protonskom (atomskom) broju ZZ (broj protona u jezgri), a ne po atomskoj masi kao u prvotnim tablicama.
+
+U ćeliji PSE tipično se navode:
+
+- simbol elementa XX
+    
+- protonski broj ZZ
+    
+- relativna atomska masa ArAr (prosjek izotopa prema prirodnom udjelu; npr. za vodik Ar≈1,008Ar≈1,008)
+    
+
+Označavanje nuklida:
+
+ZAXZAX
+
+gdje je AA maseni (nukleonski) broj, ZZ protonski broj, a broj neutrona je N=A−ZN=A−Z.[](https://gradivo.hr/kemija/online-skripta-kemija/izotopi-i-izobari/)​
+
+---
+
+## 2. Povijest i razvoj PSE
+
+Ruski znanstvenik Dmitrij Ivanovič Mendeljejev (1869.) uočio je periodičnost svojstava elemenata te ih je svrstao po rastućoj atomskoj težini u periode (vodoravne redove). Primijetio je da se svojstva ponavljaju u pravilnim razmacima pa je kemijski slične elemente smještao jedan ispod drugoga u skupine (okomiti stupci).[](https://enciklopedija.hr/clanak/periodni-sustav-elemenata)​
+
+Ključne povijesne točke:
+
+- 1869.: Mendeljejev objavljuje prvu verziju PSE s 63 elementa.
+    
+- Ostavlja prazna mjesta za još neotkrivene elemente te vrlo točno predviđa njihovu masu i svojstva (eka-bor → skandij, eka-aluminij → galij, eka-silicij → germanij).
+    
+- Kasnije otkriće protona i definicija atomskog broja ZZ dovodi do današnjeg kriterija uređenja po ZZ, što uklanja anomlije u poretku po masi.[](https://hr.wikipedia.org/wiki/Periodni_sustav_elemenata)​
+    
+
+Za maturu je važno: **red PSE danas se temelji na protonskom broju, ne na masenom.**[](https://hr.wikipedia.org/wiki/Periodni_sustav_elemenata)​
+
+---
+
+## 3. Struktura PSE (periode, skupine, blokovi)
+
+PSE ima:
+
+- **7 perioda** – vodoravni redovi; broj periode = broj elektronskih ljusaka u atomu tog elementa.[](https://edutorij-admin-api.carnet.hr/storage/extracted/703889/kemija-1/m02/j04/index.html)​
+    
+- **18 skupina** – okomiti stupci; elementi u istoj skupini imaju slična kemijska svojstva zbog slične konfiguracije valentne ljuske.
+    
+
+Nova perioda počinje kada se u elektronskoj konfiguraciji počinje popunjavati nova ljuska (pravilo dijagonale / Aufbau). Svaka perioda (osim prve) počinje alkalijskim metalom, a završava plemenitim plinom.
+
+Broj elemenata po periodi:
+
+- 1. perioda: 2 elementa (H, He)
+        
+- 2. i 3. perioda: po 8 elemenata
+        
+- 4. i 5. perioda: po 18 elemenata
+        
+- 6. i 7. perioda: po 32 elementa (zbog f-bloka – lantanoidi i aktinoidi).
+        
+
+## Podjela elemenata prema svojstvima
+
+- **Metali (kovine)**: lijevi i srednji dio PSE; dobra vodljivost, metalni sjaj, kovkost, rastezljivost, formiraju katione u reakcijama.[](https://hr.wikipedia.org/wiki/Periodni_sustav_elemenata)​
+    
+- **Nemetali (nekovine)**: desni dio PSE; loši vodiči, često plinoviti ili krhki krutine, formiraju anione ili kovalentne veze.[](https://hr.wikipedia.org/wiki/Periodni_sustav_elemenata)​
+    
+- **Polumetali (metaloidi)**: elementi na granici metala i nemetala (npr. B, Si, Ge, As, Sb, Te); pokazuju prijelazna svojstva, često poluvodiči – bitno za tehnologiju.[](https://hr.wikipedia.org/wiki/Periodni_sustav_elemenata)​
+    
+
+## Blokovi PSE (važni za elektronsku konfiguraciju)
+
+- **s-blok**: skupine 1 i 2 (+ H, He); valentni elektroni u s-orbitali (opći oblik: ns1ns1 ili ns2ns2).[](https://hr.izzi.digital/DOS/56948/57672.html)​
+    
+- **p-blok**: skupine 13–18; valentni elektroni u p-orbitalama (opći oblik: ns2np1−6ns2np1−6).
+    
+- **d-blok**: prijelazni metali (skupine 3–12); popunjavanje d-orbitali (opći oblik: (n−1)d1−10ns0−2(n−1)d1−10ns0−2).[](https://edutorij-admin-api.carnet.hr/storage/extracted/f8d552c1-03ca-47a1-943a-61ea3e2d1bd0/elektronska-konfiguracija-i-periodni-sustav-elemenata.html)​
+    
+- **f-blok**: lantanoidi i aktinoidi; popunjavanje f-orbitala (n−2)f(n−2)f.[](https://hr.wikipedia.org/wiki/Periodni_sustav_elemenata)​
+    
+
+---
+
+## 4. Izotopi, izobari, mononuklidni i polinuklidni elementi
+
+## Izotopi
+
+Izotopi su nuklidi istog kemijskog elementa (isti ZZ), ali različitog masenog broja AA (različiti broj neutrona NN).[](https://gradivo.hr/kemija/online-skripta-kemija/izotopi-i-izobari/)​
+
+- Imaju ista kemijska svojstva (isti broj elektrona i isti raspored), ali različita fizikalna svojstva (gustoća, talište, vrelište...).[](https://gradivo.hr/kemija/online-skripta-kemija/izotopi-i-izobari/)​
+    
+- Primjer vodika:
+    
+    - protij 11H11H
+        
+    - deuterij 12H12H
+        
+    - tricij 13H13H
+        
+
+Za maturu: često se traži prepoznavanje izotopa iz zapisa ZAXZAX i računanje N=A−ZN=A−Z.
+
+## Izobari
+
+Izobari su nuklidi s **istim masenim brojem AA**, ali različitim protonskim brojem ZZ (različiti elementi).[](https://gradivo.hr/kemija/online-skripta-kemija/izotopi-i-izobari/)​
+
+- Imaju različita kemijska i fizikalna svojstva jer se razlikuju po broju protona i elektrona.
+    
+- Primjeri: 50120Sn50120Sn, 52120Te52120Te, 54120Xe54120Xe; također npr. 1840Ar1840Ar i 2040Ca2040Ca.
+    
+
+## Mononuklidni i polinuklidni elementi
+
+- **Mononuklidni elementi**: u prirodi postoji samo jedan stabilan izotop (jedna vrsta jezgre). Primjeri: Al, Be, F, P, I, Na, te većina umjetno stvorenih radioaktivnih elemenata.[](https://gradivo.hr/kemija/online-skripta-kemija/izotopi-i-izobari/)​
+    
+- **Polinuklidni elementi**: imaju dva ili više prirodnih izotopa (npr. C, H, N, O, Sn...).[](https://gradivo.hr/kemija/online-skripta-kemija/izotopi-i-izobari/)​
+    
+
+Za maturu: tipičan zadatak je povezivanje definicija (izotop, izobar, mononuklidni, polinuklidni) s primjerima.
+
+---
+
+## 5. Elektronska konfiguracija atoma
+
+Elektronska konfiguracija opisuje raspored elektrona u elektronskom omotaču atoma. Postoji 7 ljusaka (energetskih razina) označenih 1–7 ili slovima K, L, M, N, O, P, Q. Svaka ljuska ima podljuske (s, p, d, f), a podljuske se sastoje od orbitala.[](https://hr.izzi.digital/DOS/56948/57672.html)​
+
+- Broj orbitala po podljusci: s (1), p (3), d (5), f (7).
+    
+- Maksimalni broj elektrona u ljusci: 2n22n2 (n – broj ljuske); npr. K (n=1) → max 2 e⁻, L (n=2) → max 8 e⁻ itd.[](https://hr.izzi.digital/DOS/56948/57672.html)​
+    
+- U jednoj orbitali mogu biti samo dva elektrona suprotnog spina.
+    
+
+## Redoslijed popunjavanja (pravilo dijagonale / Aufbau princip)
+
+Elektroni popunjavaju orbitale od energetskog najnižeg prema višem:
+
+1s<2s<2p<3s<3p<4s<3d<4p<5s<4d<5p<6s<4f<5d<6p<7s<5f<6d<7p1s<2s<2p<3s<3p<4s<3d<4p<5s<4d<5p<6s<4f<5d<6p<7s<5f<6d<7p
+
+Ovaj redoslijed često se prikazuje **dijagonalnim pravilom** (pravilo dijagonale). Nova perioda u PSE započinje kada se kreće popunjavati nova ljuska (n+1).
+
+## Pauliovo načelo isključenja
+
+Pauliovo načelo isključenja: u svakoj se orbitali mogu nalaziti najviše dva elektrona, i to suprotnih spinova; dva elektrona u atomu ne mogu imati iste vrijednosti sva četiri kvantna broja. Ovo načelo objašnjava oblik i popunjenost orbitala i time strukturu PSE.[](https://hr.izzi.digital/DOS/56948/57672.html)​
+
+## Hundovo pravilo
+
+Hundovo pravilo: istovrsne orbitale iste podljuske popunjavaju se tako da što veći broj elektrona bude nesparen i s paralelnim spinovima, jer je tada energija atoma najmanja.  
+Primjena: kod popunjavanja p- i d-orbitala elektroni prvo zauzimaju različite orbitale istog tipa, pa tek onda dolazi sparivanje.
+
+## Valentni elektroni i valentna ljuska
+
+Valentni elektroni su elektroni u najudaljenijoj (valentnoj) ljusci; upravo oni određuju kemijska svojstva elementa (reaktivnost, tip veza, oksidacijska stanja).
+
+- Elementi iste skupine imaju sličnu konfiguraciju valentne ljuske (npr. halogeni: ns2np5ns2np5; halkogeni: ns2np4ns2np4).[](https://edutorij-admin-api.carnet.hr/storage/extracted/f8d552c1-03ca-47a1-943a-61ea3e2d1bd0/elektronska-konfiguracija-i-periodni-sustav-elemenata.html)​
+    
+- Broj valentnih elektrona često odgovara broju skupine za glavne skupine.
+    
+
+## Primjeri elektronskih konfiguracija i iona
+
+- Magnezij (Mg, Z=12):
+    
+    - atom: [Ne] 3s2[Ne]3s2
+        
+    - ion Mg2+Mg2+: [Ne][Ne] (izoelektronski s Ne).
+        
+- Fosfor (P, Z=15):
+    
+    - atom: [Ne] 3s23p3[Ne]3s23p3
+        
+    - ion P3−P3−: [Ar][Ar] (izoelektronski s Ar).
+        
+- Željezo (Fe, Z=26):
+    
+    - atom: [Ar] 4s23d6[Ar]4s23d6
+        
+    - Fe2+Fe2+: [Ar] 3d6[Ar]3d6
+        
+    - Fe3+Fe3+: [Ar] 3d5[Ar]3d5.[](https://edutorij-admin-api.carnet.hr/storage/extracted/f8d552c1-03ca-47a1-943a-61ea3e2d1bd0/elektronska-konfiguracija-i-periodni-sustav-elemenata.html)​
+        
+
+## Izuzeci u konfiguracijama (Cr, Cu)
+
+Zbog stabilnosti polupopunjenih i potpuno popunjenih d-podljuski:
+
+- Krom (Cr, Z=24): [Ar] 4s13d5[Ar]4s13d5 umjesto očekivanog [Ar] 4s23d4[Ar]4s23d4.
+    
+- Bakar (Cu, Z=29): [Ar] 4s13d10[Ar]4s13d10 umjesto [Ar] 4s23d9[Ar]4s23d9.
+    
+
+Za maturu: često se pita prepoznavanje “nepravilnih” konfiguracija prijelaznih metala.
+
+---
+
+## 6. Veza položaja u PSE i svojstava (matura fokus)
+
+Duž periode (s lijeva na desno):
+
+- Raste efektivni nuklearni naboj, smanjuje se atomski radijus, raste energija ionizacije, raste elektronegativnost (izuzeci postoje).
+    
+- Metali su lijevo, nemetali desno; prelaz između njih čine polumetali.[](https://hr.wikipedia.org/wiki/Periodni_sustav_elemenata)​
+    
+
+Duž skupine (odozgo prema dolje):
+
+- Raste broj ljusaka → raste atomski radijus, općenito pada energija ionizacije i elektronegativnost.
+    
+
+Ove **periodičke promjene** (energija ionizacije, elektronski afinitet, elektronegativnost, atomski i ionski radijus) temeljni su dio ispitnih zadataka na maturi iz kemije.[](https://gradivo.hr/kemija/online-skripta-kemija/periodni-sustav-elemenata/)​
+
+---
+
+## 7. Bohrov model atoma i kvant energije
+
+Bohrov model atoma opisuje elektrone kao čestice koje se kreću oko jezgre po kvantiziranim putanjama (stacionarna stanja).[](https://instrukcije-kemija.blogspot.com/2010/10/instrukcije-iz-kemije-elektronska.html)​
+
+- U stacionarnom stanju atom ne emitira niti apsorbira energiju.
+    
+- Dodavanjem energije elektron prelazi na orbitu višeg energetskog nivoa – atom je u pobuđenom stanju.
+    
+- Elektron se vrlo brzo (red veličine 10−810−8 s) vraća u niže stanje, pri čemu emitira foton energije jednaku razlici energija tih razina.
+    
+
+Najmanji iznos energije naziva se **kvant energije** ili **kvant zračenja**, a vrijednost energije fotona dana je Planckovom relacijom:
+
+E=hν=hcλE=hν=hλc
+
+gdje je:
+
+- EE – energija zračenja (J)
+    
+- h=6,626×10−34 J sh=6,626×10−34J s – Planckova konstanta
+    
+- νν – frekvencija zračenja (Hz)
+    
+- c=3,0×108 m/sc=3,0×108m/s – brzina svjetlosti u vakuumu
+    
+- λλ – valna duljina (nm ili m).[](https://dokumen.tips/documents/kemija-skripta-matura.html)​
+    
+
+Za maturu: tipični zadaci – računanje EE iz λλ ili νν, te prepoznavanje da Bohrov model najbolje opisuje atom vodika i jednostavne vodikove ione.

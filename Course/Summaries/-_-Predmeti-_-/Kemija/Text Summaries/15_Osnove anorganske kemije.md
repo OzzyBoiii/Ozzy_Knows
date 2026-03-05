@@ -818,3 +818,758 @@ a) kalcijev karbid, CaC, - čvrst ionski karbid, koji u reakciji s vodom osloba�
 - zbog nečistoće sive boje, a zbog tragova fosfina (PH,) neugodna mirisa
 b) silicijev karbid (karborund), SiC - kovalentni karbid, koji je zbog nečistoća obojen zeleno, žuto, plavo ili crno
 - ima izvanredna kemijska, fizikalna, mehanička, toplinska i električna svojstva
+
+PERPLEXITY -------------------------------------------------------------
+## 1. Opća svojstva metala
+
+Metali su uglavnom čvrste tvari pri sobnoj temperaturi (iznimka: živa, tekućina). Imaju visoka tališta i vrelišta, često veliku tvrdoću i gustoću, plastični su, kovki i izvlačivi (mogu se valjati u lim, vući u žicu), te su vrlo dobri vodiči topline i električne struje.
+
+- **Metalna veza**: pozitivne ionske jezgre uronjene su u „more“ delokaliziranih elektrona; ti elektroni se slobodno gibaju cijelim kristalom.
+    
+- **Uzrok sjaja**: elektroni tik uz površinu apsorbiraju svjetlost i pri povratku u osnovno stanje emitiraju istu valnu duljinu → metalni sjaj.
+    
+- **Mehanička svojstva**: metali s polupopunjenim d–orbitalama (prijelazni metali) imaju često visoku čvrstoću i tvrdoću.
+    
+- **Vodljivost**: bolju toplinsku i električnu vodljivost imaju metali s više delokaliziranih valentnih elektrona (npr. Ag, Cu, Al).[](https://repozitorij.vuka.hr/islandora/object/vuka:1678/datastream/PDF/view)​
+    
+
+## Band teorija (za maturu – kratko)
+
+- U metalu se energijske razine elektrona šire u **pojaseve (vrpce)**.
+    
+- **Valentni pojas** i **vodljivi pojas** se preklapaju ili gotovo dodiruju → elektroni se lako gibaju → metal dobro vodi struju.
+    
+- U **izolatorima** je zabranjeni pojas širok → elektroni teško prelaze u vodljivi pojas.
+    
+- **Poluvodiči** (Si, Ge): mali zabranjeni pojas; na niskim T su skoro izolatori, na sobnoj T dio elektrona prelazi u vodljivi pojas → umjerena vodljivost.
+    
+    - Doping (p– i n–tip) ubacivanjem drugih atoma mijenja broj slobodnih nositelja naboja.
+        
+
+## Periodičnost metalnih svojstava
+
+- Prema **dnu skupine**: raste atomski radijus, opada energija ionizacije i elektronegativnost → metalni karakter i reaktivnost rastu (npr. Li < Na < K).​[](https://gradivo.hr/kemija/online-skripta-kemija/periodicnost-svojstava-metala-i-nemetala/)​
+    
+- Prema **desno po periodi**: raste EN i E_ion → opada metalni karakter; lijevo metali, desno nemetali.
+    
+- Metali imaju mali elektronski afinitet i **niske energije ionizacije** → lako otpuštaju elektrone, tvore katione.
+    
+
+## Standardni redukcijski potencijal
+
+Standardni redukcijski potencijal E° (u V) mjeri **sklonost pola da prima elektrone** (reducira se).[](https://gradivo.hr/kemija/online-skripta-kemija/periodicnost-svojstava-metala-i-nemetala/)​
+
+- Što je **niža (negativnija)** vrijednost E° za par M²⁺/M, metal je **jače redukcijsko sredstvo** (lakše se oksidira).
+    
+- Primjer: Ca2++2e−→Ca, E∘=−2,87 VCa2++2e−→Ca, E∘=−2,87 V je jači redukcens od: Cu2++2e−→Cu, E∘=+0,34 VCu2++2e−→Cu, E∘=+0,34 V.
+    
+
+---
+
+## 2. Opća kemijska svojstva metala
+
+Metali se ponašaju kao redukcijska sredstva – **otpuštaju elektrone** i tvore katione:
+
+- Općenito: M→Mn++ne−.M→Mn++ne−.
+    
+
+Tipične reakcije:
+
+1. **S kisikom – nastanak oksida**
+    
+    - Bazični oksidi (većina metala) s vodom daju hidrokside:  
+        BaO(s)+H2O(l)→Ba(OH)2(aq).BaO(s)+H2O(l)→Ba(OH)2(aq).
+        
+2. **S nemetali­ma (O, F, S, halogeni)**
+    
+    - Ionski spojevi (halogenidi, sulfidi, fluoridi…):  
+        2Al(s)+3F2(g)→2AlF3(s).2Al(s)+3F2(g)→2AlF3(s).
+        
+3. **Hidridi metala**
+    
+    - Binarni metalni hidridi jakog redukcijskog djelovanja:  
+        2Na(s)+H2(g)→2NaH(s).2Na(s)+H2(g)→2NaH(s).
+        
+    - U vodi hidroliziraju uz oslobađanje H₂:  
+        NaH(s)+H2O(l)→NaOH(aq)+H2(g).NaH(s)+H2O(l)→NaOH(aq)+H2(g).
+        
+4. **Stvaranje kationa**
+    
+    - Metali lako otpuštaju elektrone, npr.:  
+        Ba→Ba2++2e−.Ba→Ba2++2e−.
+        
+5. **Redukcija nemetala**
+    
+    - Primjer: Ba(s)+I2(g)→BaI2(s).Ba(s)+I2(g)→BaI2(s).
+        
+6. **Reakcije s kiselinama – istiskivanje vodika**
+    
+    - Svi metali s **negativnim** standardnim redukcijskim potencijalom istiskuju H₂ iz kiselina:  
+        2Al(s)+3H2SO4(aq)→Al2(SO4)3(aq)+3H2(g).2Al(s)+3H2SO4(aq)→Al2(SO4)3(aq)+3H2(g).
+        
+
+## Soli jake kiseline + jaka baza
+
+- Soli nastale reakcijom **jake kiseline** i **jake baze** (npr. NaCl) u vodi ne hidroliziraju → pH ≈ 7:  
+    NaOH(aq)+HCl(aq)→NaCl(aq)+H2O(l).NaOH(aq)+HCl(aq)→NaCl(aq)+H2O(l).
+    
+
+---
+
+## 3. Alkalijski metali (Li, Na, K, Rb, Cs, Fr)
+
+Naziv od arap. _al-qali_ (biljni pepeo – sadrži Na₂CO₃ i K₂CO₃). Elektronska konfiguracija valentne ljuske: ns1 (n=2−7).ns1(n=2−7).[](https://edutorij-admin-api.carnet.hr/storage/extracted/4874fe79-8302-4ea2-b516-4657ea249026/kemija-7/m05/j01/index.html)​
+
+|Svojstvo|Opis|
+|---|---|
+|Veza|Slaba metalna veza (samo 1 valentni e⁻).|
+|Trend|Od Li prema Fr veza slabi (radijus raste, e⁻ dalje od jezgre).|
+|Struktura|Kubična, volumno centrirana (bcc).|
+|Talište/gustoća|Nisko talište; gustoća mala, Li, Na, K < 1 g/cm³.|
+|Tvrdoća|Meki, mogu se rezati nožem.|
+|Čuvanje|U petroleju (Na, K, Rb), Cs u vakuumu.|
+|Ioni|Samo M⁺, bezbojni.|
+|EN|Najniže u PSE.|
+|Oksid. broj|Uvijek +I.|
+|Reaktivnost|Najreaktivniji metali, najjača redukcijska sredstva.|
+
+## Bojanje plamena (bitno za maturu)
+
+- Li – crvena
+    
+- Na – žuta (vrlo intenzivna)
+    
+- K – ljubičasta
+    
+- Rb – ljubičasto–modra
+    
+- Cs – modra[](https://edutorij-admin-api.carnet.hr/storage/extracted/4874fe79-8302-4ea2-b516-4657ea249026/kemija-7/m05/j01/index.html)​
+    
+
+## Reakcije alkalijskih metala
+
+1. **S kisikom** (kompleksniji oksidi):
+    
+    - Li: 4Li+O2→2Li2O4Li+O2→2Li2O (oksid).
+        
+    - Na: 2Na+O2→Na2O22Na+O2→Na2O2 (peroksid).
+        
+    - K, Rb, Cs: M+O2→MO2M+O2→MO2 (superoksid).
+        
+2. **S vodom**
+    
+    - Li reagira sporo, ostali burno; nastaju lužine i H₂:  
+        2M(s)+2H2O(l)→2MOH(aq)+H2(g).2M(s)+2H2O(l)→2MOH(aq)+H2(g).
+        
+3. **S vodikom**
+    
+    - Grade ionske hidride (LiH je značajno kovalentniji):  
+        2Na+H2→2NaH.2Na+H2→2NaH.
+        
+    - Hidridi su jaka redukcijska sredstva; u vodi hidroliziraju:  
+        NaH+H2O→NaOH+H2.NaH+H2O→NaOH+H2.
+        
+4. **S halogenima** – nastaju ionski halogenidi:  
+    2Na+Cl2→2NaCl.2Na+Cl2→2NaCl.
+    
+5. **S dušikom**
+    
+    - Samo Li reagira izravno:  
+        6Li+N2→2Li3N.6Li+N2→2Li3N.
+        
+6. **Alkalijske lužine**
+    
+    - Dobivaju se i iz oksida:  
+        Li2O+H2O→2LiOH.Li2O+H2O→2LiOH.
+        
+
+---
+
+## 4. Natrij (Na)
+
+Jedan od najrasprostranjenijih elemenata; maseni udio u Zemljinoj kori oko 2,6%.[](https://hr.wikipedia.org/wiki/Natrij)​  
+Konfiguracija: [Ne]3s¹. t.pl. 98 °C, t.vr. 883 °C, ρ = 0,97 g/cm³; EN ≈ 0,9; E°(Na⁺/Na) ≈ -2,71 V.[](https://hr.wikipedia.org/wiki/Natrij)​
+
+- Meki, lako se reže nožem.
+    
+- Nepostojan na zraku (oksidira, reagira s vlagom), čuva se u petroleju.
+    
+- U prirodi uglavnom u spojevima: čilska salitra NaNO₃, kriolit Na₃AlF₆, boraks Na₂B₄O₇·10H₂O.
+    
+
+## Dobivanje natrija – Downsov postupak
+
+Elektroliza taline NaCl u Downsovom uređaju.[](https://edutorij-admin-api.carnet.hr/storage/extracted/4874fe79-8302-4ea2-b516-4657ea249026/kemija-7/m05/j01/p01/index.html)​
+
+- Talište NaCl = 801 °C; dodaje se CaCl₂ (≈60%) → snižava talište na oko 600 °C.
+    
+- Katodni i anodni prostor odvojeni dijafragmom.
+    
+- U talini: NaCl(l)→Na++Cl−.NaCl(l)→Na++Cl−.
+    
+- Katoda: 2Na++2e−→2Na(l).2Na++2e−→2Na(l).
+    
+- Anoda: 2Cl−→Cl2(g)+2e−.2Cl−→Cl2(g)+2e−.
+    
+
+---
+
+## 5. Važniji spojevi natrija
+
+|Spoj|Svojstva|Primjena|
+|---|---|---|
+|NaCl (kuhinjska sol)|U morskoj vodi ≈ 2,8%; nalazi se kao halit. Dobro topljiv u vodi, etanolu, tekućem NH₃; otopina je **neutralna**, ali Cl⁻ aktivira koroziju. Čisti NaCl nije higroskopan; zbog MgCl₂ i MgSO₄ postaje higroskopan.|Prehrana (začin), konzerviranje, kemijska industrija (NaOH, Cl₂, HCl…).[](https://edutorij-admin-api.carnet.hr/storage/extracted/703858/kemija-8/m01/j02/index.html)​|
+|NaOH (kaustična soda)|Bijela, neprozirna, granule ili listići; vrlo higroskopna, upija vlagu i CO₂: 2NaOH+CO2→Na2CO3+H2O.2NaOH+CO2→Na2CO3+H2O. Dobro topljiva u vodi (egzotermno) → jaka Na–lužina. Reagira sa staklom (SiO₂) → čuva se u bocama s gumenim čepom.|Detergenti, čišćenje, proizvodnja sapuna, papira, aluminija.[](https://edutorij-admin-api.carnet.hr/storage/extracted/703858/kemija-8/m01/j02/index.html)​|
+|Na₂CO₃ (soda)|Dobiva se neutralizacijom NaOH s CO₂; jaka lužnata otopina; kristalizacijom nastaje kristalna soda Na₂CO₃·10H₂O.|Staklo, sapuni, boje, papir, tekstil.|
+|Solvayev postupak|Zasićena otopina NaCl + NH₃ + CO₂ → taloži se NaHCO₃ (najslabije topljiva sol), u otopini ostaje NH₄Cl. Žarenjem: 2NaHCO3→Na2CO3+CO2+H2O.2NaHCO3→Na2CO3+CO2+H2O.|Industrijska proizvodnja sode.[](https://edutorij-admin-api.carnet.hr/storage/extracted/703858/kemija-8/m01/j02/index.html)​|
+|NaHCO₃ (soda bikarbona)|Bijeli prah, slabo topljiv; otopina je slabo lužnata (hidroliza). Može nastati uvođenjem CO₂ u otopinu Na₂CO₃: Na2CO3+CO2+H2O→2NaHCO3.Na2CO3+CO2+H2O→2NaHCO3.|Prašak za pecivo, neutralizacija želučane kiseline, kozmetika, pjenušava pića.|
+|NaH (natrijev hidrid)|Ionski hidrid; jak reducens. Dobiva se direktnom sintezom: 2Na+H2→2NaH.2Na+H2→2NaH. U vodi burno reagira: NaH+H2O→NaOH+H2.NaH+H2O→NaOH+H2.|Snažno redukcijsko sredstvo u organskoj i anorganskoj kemiji.|
+
+---
+
+## 6. Zemnoalkalijski metali (Be, Mg, Ca, Sr, Ba, Ra)
+
+Elektronska konfiguracija valentne ljuske: ns2.ns2.
+
+- Dobri vodiči topline i elektriciteta; mogu se kovati (osim vrlo tvrdog Be).
+    
+- Uglavnom **lake legure** (ρ < 5 g/cm³).
+    
+- Kristali:
+    
+    - Be, Mg – heksagonski (hcp, Z=6),
+        
+    - Ca, Sr – kubični (fcc/bcc, Z=4),
+        
+    - Ba – kubični (Z=2).[](https://hr.wikipedia.org/wiki/Zemnoalkalijski_metali)​
+        
+- Gustoća, talište i vrelište nepravilno rastu (ovisno o strukturi).
+    
+- Plamen: Ca – ciglastocrveno, Sr – svijetlocrveno, Ba – zeleno.
+    
+- Grade isključivo M²⁺ katione; oksidacijski broj +II.
+    
+
+Toksičnost: Be i spojevi vrlo otrovni; topljivi Ba–spojevi također otrovni.[](https://hr.wikipedia.org/wiki/Zemnoalkalijski_metali)​
+
+## Kemijska svojstva zemnoalkalijskih metala
+
+1. **Reakcija s vodom**
+    
+    - Be s vodom ne reagira (pasivni oksidni sloj).
+        
+    - Mg reagira sporo s vrućom vodom, brzo s parom:  
+        Mg+H2O(g)→MgO+H2.Mg+H2O(g)→MgO+H2.
+        
+    - Ca, Sr, Ba:  
+        Ca+2H2O→Ca(OH)2+H2.Ca+2H2O→Ca(OH)2+H2.
+        
+2. **S kisikom**
+    
+    - Svi daju okside MO; BeO amfoteran, ostali bazični:  
+        2Ca+O2→2CaO.2Ca+O2→2CaO.
+        
+    - Sr, Ba dodatno daju perokside: Ba+O2→BaO2.Ba+O2→BaO2.
+        
+3. **S dušikom**
+    
+    - Svi (osim Be) daju nitride M₃N₂:  
+        3Ca+N2→Ca3N2.3Ca+N2→Ca3N2.
+        
+4. **Oksidi + voda → lužine**
+    
+    - CaO+H2O→Ca(OH)2.CaO+H2O→Ca(OH)2.
+        
+    - Jakost i topljivost lužina rastu od Mg prema Ba.
+        
+5. **Hidridi**
+    
+    - Ionski: Ca+H2→CaH2Ca+H2→CaH2; u vodi hidroliziraju:  
+        CaH2+2H2O→Ca(OH)2+2H2.CaH2+2H2O→Ca(OH)2+2H2.
+        
+    - BeH₂, MgH₂ pretežno kovalentni.
+        
+
+---
+
+## 7. Kalcij (Ca) i spojevi
+
+Najrašireniji zemnoalkalijski metal. Važniji minerali: vapnenac CaCO₃, dolomit CaMg(CO₃)₂, gips CaSO₄·2H₂O, fluorit CaF₂.[](https://www.periodni.com/hr/ca.html)​
+
+## Kalcijev karbonat (CaCO₃)
+
+- Pojavljuje se kao **kalcit** (heksagonski) i **aragonit** (rompski).
+    
+- U čistoj vodi praktički netopljiv, ali se u prirodnoj vodi s CO₂ otapa:  
+    CaCO3(s)+H2O(l)+CO2(g)→Ca2+(aq)+2HCO3−(aq).CaCO3(s)+H2O(l)+CO2(g)→Ca2+(aq)+2HCO3−(aq).
+    
+- Kad se zasićena otopina Ca(HCO₃)₂ zagrijava ili isparava, CO₂ se oslobađa, taloži se netopljiv CaCO₃ → nastaju **stalaktiti i stalagmiti**:  
+    Ca2+(aq)+2HCO3−(aq)→CaCO3(s)+H2O(l)+CO2(g).Ca2+(aq)+2HCO3−(aq)→CaCO3(s)+H2O(l)+CO2(g).
+    
+
+## Gips (CaSO₄·2H₂O) i pečeni gips
+
+- Bijeli prah, slabo topljiv; u prirodi i kao mineral anhidrit, alabaster.
+    
+- Grijanjem na oko 130 °C gubi dio kristalne vode:  
+    CaSO4⋅2H2O→130∘CCaSO4⋅12H2O+32H2O.CaSO4⋅2H2O130∘CCaSO4⋅21H2O+23H2O.
+    
+- Pečeni gips pomiješan s vodom ponovno se stvrdnjava → žbuka.
+    
+
+## Kalcijev hidrid (CaH₂)
+
+- Ionski spoj; dobiva se:  
+    Ca+H2→CaH2.Ca+H2→CaH2.
+    
+- U reakciji s vodom snažno reagira:  
+    CaH2+2H2O→Ca(OH)2+2H2.CaH2+2H2O→Ca(OH)2+2H2.
+    
+
+---
+
+## 8. Aluminij (Al)
+
+Najrasprostranjeniji **metal** u Zemljinoj kori.[](https://gradivo.hr/kemija/online-skripta-kemija/periodicnost-svojstava-metala-i-nemetala/)​  
+Konfiguracija: [Ne]3s²3p¹; oks. broj gotovo uvijek +III. ρ≈2,7 g/cm³; t.pl. ≈ 658 °C; EN=1,5; E°(Al³⁺/Al)=-1,66 V.
+
+- Srebrnastobijel, sjajan, male gustoće, vrlo rastezljiv i čvrst, dobar vodič topline i el. energije, nemagnetičan.
+    
+- Na zraku se pasivira tankim slojem Al₂O₃ koji sprečava daljnju koroziju.
+    
+
+## Proizvodnja aluminija (Bayer + Hall–Héroult)
+
+1. **Bayerov postupak** (pročišćavanje boksita):
+    
+    - Boksit + NaOH pri povišenom tlaku i T → topljivi natrijev aluminat:  
+        Al(OH)3+NaOH→Na[Al(OH)4].Al(OH)3+NaOH→Na[Al(OH)4].
+        
+    - Kristalizacijom i filtracijom izdvoji se Al(OH)₃.
+        
+    - Žarenjem: 2Al(OH)3→Al2O3+3H2O.2Al(OH)3→Al2O3+3H2O.
+        
+2. **Hall–Héroult** (elektroliza Al₂O₃ u kriolitu Na₃AlF₆, oko 950 °C):
+    
+    - Katoda (rastopljeni Al): Al3++3e−→Al.Al3++3e−→Al.
+        
+    - Anoda (grafit): 2O2−→O2+4e−,2O2−→O2+4e−, zatim C+O2→CO2.C+O2→CO2.
+        
+
+Dobiveni Al je oko 99,5% čist; za višu čistoću – elektrolitska rafinacija.
+
+## Kemijska svojstva aluminija
+
+1. **S klorom**:  
+    2Al+3Cl2→Al2Cl62Al+3Cl2→Al2Cl6 (kovalentni dimer).
+    
+2. **S kiselinama**:
+    
+    - S HCl: Al istiskuje H₂, nastaje heksaakvakompleks:  
+        2Al+6HCl+6H2O→2[Al(H2O)6]3++6Cl−+3H2.2Al+6HCl+6H2O→2[Al(H2O)6]3++6Cl−+3H2.
+        
+    - S koncentriranom HNO₃ – pasivacija (nema daljnje reakcije).
+        
+3. **S lužinama** – amfoteran karakter:  
+    2Al+2NaOH+6H2O→2Na[Al(OH)4]+3H2.2Al+2NaOH+6H2O→2Na[Al(OH)4]+3H2.
+    
+4. **Oksidi/hidroksidi** – amfoterni:
+    
+    - S kiselinama: daju akvakompleks [Al(H₂O)₆]³⁺.
+        
+    - S lužinama: daju tetrahidroksaluminat, [Al(OH)₄]⁻.
+        
+5. **S nemetalima** – fluoridi, bromidi, sulfidi itd.:  
+    2Al+3Br2→2AlBr3.2Al+3Br2→2AlBr3.
+    
+
+## Primjene aluminija
+
+- **Eloksiranje** (anodna oksidacija) – zadebljava zaštitni sloj Al₂O₃.
+    
+- **Termit** – smjesa Fe₂O₃ i Al u prahu za zavarivanje tračnica:  
+    Fe2O3+2Al→2Fe+Al2O3.Fe2O3+2Al→2Fe+Al2O3.
+    
+- **Aluminotermija** – redukcija oksida Mn, Cr, Mo, W:  
+    3Mn2O3+4Al→3Mn+2Al2O3.3Mn2O3+4Al→3Mn+2Al2O3.
+    
+
+---
+
+## 9. Željezo (Fe) – svojstva, proizvodnja, korozija
+
+Drugi najrašireniji metal u Zemljinoj kori, feromagnetičan.[](https://enciklopedija.hr/clanak/metali)​  
+Konfiguracija: [Ar]4s²3d⁶; Fe²⁺: [Ar]3d⁶; Fe³⁺: [Ar]3d⁵.  
+t.pl. ≈ 1535 °C; t.vr. ≈ 2700 °C; EN ≈ 1,8; E°(Fe²⁺/Fe) ≈ -0,44 V.
+
+## Alotropske modifikacije
+
+- α-Fe (do 907 °C) – bcc, feromagnetičan.
+    
+- γ-Fe (907–1401 °C) – fcc.
+    
+- δ-Fe (iznad 1401 °C) – bcc.
+    
+
+## Proizvodnja željeza – visoka peć
+
+Rude: hematit Fe₂O₃, limonit Fe₂O₃·nH₂O, magnetit Fe₃O₄, siderit FeCO₃, pirit FeS₂.
+
+1. **Ugljen (koks) + O₂** → CO₂, zatim:  
+    CO2+C→2CO.CO2+C→2CO.
+    
+2. **Redukcija ruda CO-om**:  
+    Fe2O3+3CO→2Fe+3CO2.Fe2O3+3CO→2Fe+3CO2.
+    
+3. Izlazak plinova (CO, CO₂, N₂, H₂) na vrhu; na dnu rastaljeno Fe i troska (CaSiO₃).
+    
+
+- **Sirovo željezo** – polagano hlađenje, ~4% C, krto.
+    
+- **Bijelo željezo** – naglo hlađenje, C u obliku cementita Fe₃C.
+    
+- **Čelik** – legura Fe + 0,03–1,5% C.
+    
+
+## Korozija željeza (elektrokemijska)
+
+Hrđanje je **elektrokemijska korozija** – nastaje galvanska ćelija na površini željeza u prisutnosti elektrolita (voda + ioni).
+
+- **Anoda** (mikro područje):  
+    Fe→Fe2++2e−.Fe→Fe2++2e−.
+    
+- **Katoda**:  
+    O2+2H2O+4e−→4OH−.O2+2H2O+4e−→4OH−.
+    
+- Fe²⁺ + OH⁻ → Fe(OH)₂ (svijetlozeleni talog).
+    
+- Daljnjom oksidacijom nastaje hidratizirani Fe(III)-oksid (hrđa):  
+    4Fe(OH)2+O2+2H2O→4Fe(OH)3,4Fe(OH)2+O2+2H2O→4Fe(OH)3,  
+    Fe2O3⋅xH2OFe2O3⋅xH2O (hrđa).[](https://edutorij-admin-api.carnet.hr/storage/extracted/4d903566-3e87-45ae-9299-e35942520b45/korozija-i-nacini-zastite-od-korozije-1.html)​
+    
+
+Faktori koji ubrzavaju koroziju: vlažnost, kisik, kisela sredina, kloridni ioni, povišena temperatura.
+
+**Zaštita**: premazi (bojanje, plastifikacija), katodne/anodne metalne prevlake (Zn – pocinčavanje; Cr, Ni, Sn), legiranje (nehrđajući čelik).
+
+## Kemijska svojstva željeza
+
+- S O₂: 4Fe+3O2→2Fe2O3.4Fe+3O2→2Fe2O3.
+    
+- U razrjeđenim kiselinama:  
+    Fe+2H+→Fe2++H2.Fe+2H+→Fe2++H2.
+    
+- Konc. HNO₃, H₂SO₄ – pasivizacija (ništa ili vrlo sporo).
+    
+- S Cl₂: 2Fe+3Cl2→2FeCl3.2Fe+3Cl2→2FeCl3.
+    
+- S HCl(g): Fe+2HCl→FeCl2+H2.Fe+2HCl→FeCl2+H2.
+    
+- S OH⁻: Fe2++2OH−→Fe(OH)2 (s)Fe2++2OH−→Fe(OH)2(s) → oksidira u Fe(OH)₃.
+    
+
+---
+
+## 10. Bakar (Cu)
+
+Prijelazni metal, 11. skupina, rijedak.[](https://gradivo.hr/kemija/online-skripta-kemija/periodicnost-svojstava-metala-i-nemetala/)​  
+Rude: halkopirit CuFeS₂, halkozin Cu₂S, kuprit Cu₂O.  
+Konfiguracija: [Ar]4s¹3d¹⁰; Cu⁺: [Ar]3d¹⁰; Cu²⁺: [Ar]3d⁹.  
+t.pl. 1083 °C; t.vr. 2300 °C; EN ≈ 1,9; E°(Cu²⁺/Cu)=+0,34 V.
+
+## Proizvodnja bakra
+
+1. Redukcija oksidnih/sulfidnih ruda → sirovi Cu (~5% nečistoća).
+    
+2. Elektrolitska rafinacija:
+    
+    - Anoda – sirovi Cu, katoda – čisti Cu, elektrolit – vruća otopina CuSO₄.
+        
+    - Anoda: Cu→Cu2++2e−.Cu→Cu2++2e−.
+        
+    - Katoda: Cu2++2e−→Cu.Cu2++2e−→Cu.
+        
+    - Plemeniti metali (Au, Ag, Se, Te) padaju kao **anodni mulj**.
+        
+
+Slitine: **mjed** (Cu+Zn), **bronca** (Cu+Sn).
+
+## Kemijska svojstva bakra
+
+- S O₂: 2Cu+O2→2CuO2Cu+O2→2CuO (crni prah, netopljiv u vodi).
+    
+- S Cl₂: Cu+Cl2→CuCl2Cu+Cl2→CuCl2; u vodi: CuCl2(s)→Cu2+(aq)+2Cl−.CuCl2(s)→Cu2+(aq)+2Cl−.
+    
+- S HNO₃ (konc.):  
+    Cu+4HNO3→Cu(NO3)2+2NO2+2H2O.Cu+4HNO3→Cu(NO3)2+2NO2+2H2O.
+    
+- S HNO₃ (razr.):  
+    3Cu+8HNO3→3Cu(NO3)2+2NO+4H2O.3Cu+8HNO3→3Cu(NO3)2+2NO+4H2O.
+    
+- S H₂SO₄ (konc.):  
+    Cu+2H2SO4→CuSO4+SO2+2H2O.Cu+2H2SO4→CuSO4+SO2+2H2O.
+    
+- S H₂SO₄ (razr.) + O₂:  
+    2Cu+2H2SO4+O2→2CuSO4+2H2O.2Cu+2H2SO4+O2→2CuSO4+2H2O.
+    
+- S lužinom: Cu2++2OH−→Cu(OH)2 (s)Cu2++2OH−→Cu(OH)2(s) (svijetloplavi talog).
+    
+- Disproporcija Cu⁺:  
+    2Cu+→Cu2++Cu (s).2Cu+→Cu2++Cu(s).
+    
+
+---
+
+## 11. Nemetali – opća svojstva
+
+- Plinoviti (H₂, N₂, O₂, F₂, Cl₂) ili čvrsti niskog tališta (S, P, I); Br je jedini tekući nemetal pri sobnoj temperaturi.
+    
+- Bez sjaja, male gustoće, mekani (iznimka dijamant – najtvrđi prirodni materijal).
+    
+- Loši vodiči struje i topline (iznimka grafit – dobro vodi struju).
+    
+- Veliki elektronski afinitet, visoke energije ionizacije.
+    
+- Uglavnom topljivi u **nepolarnim** otapalima (npr. CS₂, benzen).
+    
+
+## Opća kemijska svojstva nemetala
+
+- **Oksidiraju** metale i nemetale manje elektronegativnosti.
+    
+- Grade uglavnom **kovalentne okside**; s vodom daju kiseline.
+    
+- Reagiraju s H₂ → kovalentni hidridi (često kiseline u vodi).
+    
+- S metalima → najčešće ionski spojevi (halogenidi, sulfidi…).
+    
+- Kemijska svojstva ovise o standardnom redukcijskom potencijalu nemetala.
+    
+- Stabilnu konfiguraciju postižu **primanjem elektrona** (anioni) ili stvaranjem zajedničkih parova (kovalentna veza).
+    
+- Neutralni oksidi: CO, NO, N₂O.
+    
+
+---
+
+## 12. Vodik (H₂)
+
+- Najrasprostranjeniji element u svemiru, organogeni element (C, H, O, N).[](https://gradivo.hr/kemija/online-skripta-kemija/periodicnost-svojstava-metala-i-nemetala/)​
+    
+- Bezbojan, bez mirisa, neotrovni plin; slabo topljiv u vodi; t.pl. -259,3 °C, t.vr. -252,8 °C.
+    
+- Izotopi: protij ¹H, deuterij ²H, tricij ³H (radioaktivan).
+    
+- Molekule H₂ lako difundiraju kroz metale (Pd).
+    
+- Gori, ali sam **ne podržava gorenje**; smjesa H₂ + O₂ (zrak) eksplozivna – „plin praskavac“.
+    
+
+## Dobivanje H₂
+
+- Lab:
+    
+    - Metal + kiselina: Zn+2H+→Zn2++H2.Zn+2H+→Zn2++H2.
+        
+    - Elektroliza lužine (NaOH).
+        
+- Industrija:
+    
+    - C + H₂O(g) → CO + H₂ (water gas);
+        
+    - CH₄ + H₂O(g) → CO + 3H₂ (parno reformiranje).
+        
+
+## Uloga vodika
+
+- Redukcijsko sredstvo za dobivanje metala (Fe, Ni, Sn, Pb, Cu…) iz oksida.
+    
+- U reakciji s vrlo reaktivnim metalima djeluje kao **oksidans** (nastaju ionski hidridi).
+    
+
+---
+
+## 13. Halogeni elementi (Grupa 17)
+
+F, Cl, Br, I, At. Svi imaju 7 valentnih elektrona (ns²np⁵).
+
+- Najčešće oksidacijsko stanje -I; osim F (nema d-podljusku) ostali mogu imati i više (+1, +3, +5, +7).
+    
+- Visoka prva energija ionizacije, velik elektronski afinitet i elektronegativnost – jaka oksidacijska sredstva.
+    
+- U elementarnom stanju grade dvoatomne molekule X₂.
+    
+- Reaktivnost opada prema dnu skupine (F₂ > Cl₂ > Br₂ > I₂).
+    
+- Talište, vrelište i gustoća rastu s molarnom masom.
+    
+
+## Karakteristične reakcije halogena
+
+1. **S vodom – disproporcija**  
+    X2+H2O→HX+HXO.X2+H2O→HX+HXO.  
+    F₂ je toliko jak oksidans da oksidira vodu:  
+    2F2+2H2O→4HF+O2.2F2+2H2O→4HF+O2.
+    
+2. **S vodikom**
+    
+    - Halogenovodici HX; u vodi daju jake kiseline (osim HF, slabija zbog vodikovih veza):  
+        HX+H2O→H3O++X−.HX+H2O→H3O++X−.
+        
+    - Jakost kiselina raste: HF < HCl < HBr < HI.
+        
+3. **Redoks (istiskivanje)**
+    
+    - Halogen s jačom oksidac. sposobnošću istiskuje slabiji iz halogenidne soli:  
+        Cl2+2Br−→2Cl−+Br2.Cl2+2Br−→2Cl−+Br2.
+        
+    - Opća pravilnost: F₂ > Cl₂ > Br₂ > I₂.
+        
+4. **Taloženje AgX**
+    
+    - S Ag⁺:  
+        Ag++X−→AgX(s).Ag++X−→AgX(s).
+        
+    - AgCl bijel, AgBr žućkast, AgI žut; netopljivost i tamna boja rastu prema dnu skupine.
+        
+
+## Oksokiseline halogena
+
+Opće formule: HXO, HXO₂, HXO₃, HXO₄ (X=Cl, Br, I); F ne gradi ove spojeve.
+
+- Primjeri (klor):
+    
+    - HClO – hipoklorasta;
+        
+    - HClO₂ – klorasta;
+        
+    - HClO₃ – klorna;
+        
+    - HClO₄ – perklorna.
+        
+
+## Halogenidi metala i nemetala
+
+- S alkalijskim / zemnoalkalijskim metalima → ionski halogenidi (NaCl, CaCl₂; BeCl₂ više kovalentnog karaktera).
+    
+- Metal s halogenovodičnom kiselinom – niži oks. broj; s čistim halogenom – viši oks. broj:  
+    Sn+2HCl→SnCl2+H2,Sn+2HCl→SnCl2+H2,  
+    Sn+2Cl2→SnCl4.Sn+2Cl2→SnCl4.
+    
+- S nemetali­ma nastaju kovalentni halogenidi; višak nemetala → niže oksidacijsko stanje, višak halogena → više.
+    
+
+---
+
+## 14. Halkogeni elementi (Grupa 16: O, S, Se, Te, Po)
+
+Valentna konfiguracija: ns²np⁴.
+
+- O, S tipični nemetali; Se ima nemetalnu i metalnu modifikaciju; Te polumetal (metalna modifikacija prevladava); Po – metal, radioaktivan.
+    
+- Reaktivnost i oksidacijska sposobnost opadaju O > S > Se > Te.
+    
+- EN i E_ion opadaju niz skupinu; radijus, talište, vrelište i gustoća rastu.
+    
+- Kisik: O₂ i O₃ (ozon); sumpor – rompski i monoklinski S₈ prstenovi.
+    
+
+## Reakcije halkogena
+
+- S vodom – praktički samo O₂ malo topljiv; ostali se ne otapaju značajno.
+    
+- S H₂ – hidridi H₂E (H₂O, H₂S, H₂Se, H₂Te); samo voda ima jake vodikove veze → vrlo visoko t.pl. i t.vr. u odnosu na ostale.
+    
+- S O₂ – oksidi: SO₂, SO₃; SeO₂, TeO₂ (čvrsti, lančasti, mrežasti).
+    
+
+## Važniji spojevi
+
+- **H₂O** – polarna, kut 104,5°, vodikove veze; najveća gustoća na 4 °C.
+    
+- **H₂O₂** – bezbojna tekućina, oksidans, izbjeljivač, dezinfekcijsko sredstvo.
+    
+- **SO₂** – otrovan, reducens, konzervans, dezinfekcija vinskih bačava; nastaje izgaranjem sumpornih goriva → kisele kiše.
+    
+- **SO₃** – nastaje oksidacijom SO₂, anhidrid H₂SO₄.
+    
+- **H₂SO₄** – jaka kiselina, oksidacijsko i dehidratacijsko sredstvo.
+    
+
+---
+
+## 15. Dušikova skupina (Grupa 15: N, P, As, Sb, Bi)
+
+Valentna konfiguracija: ns²np³.
+
+- N – nemetal, vrlo stabilan N₂ (trostruka veza) → inertan.
+    
+- P – nemetal, vrlo reaktivan; alotropi: bijeli (P₄), crveni (polimer), crni.
+    
+- As, Sb – polumetali; Bi – metal.
+    
+
+## Oksidi i kiseline
+
+- N stvara mnoge okside: NO, NO₂, N₂O, N₂O₃, N₂O₅; većina kiselih oksida (osim N₂O i NO, neutralni).
+    
+    - 3NO2+H2O→2HNO3+NO.3NO2+H2O→2HNO3+NO.
+        
+- P₂O₅ (P₄O₁₀) – anhidrid fosforne kiseline:  
+    P4O10+6H2O→4H3PO4.P4O10+6H2O→4H3PO4.
+    
+- As, Sb – amfoterne okside; Bi – bazične.
+    
+
+## Hidridi
+
+- Opća formula: EH₃ (NH₃, PH₃, AsH₃, SbH₃, BiH₃).
+    
+- NH₃ je najstabilniji, najpolarniji, jako topljiv, slabo bazičan; ima vodikove veze.
+    
+- Hidridi 15. skupine su redukcijska sredstva (element u oks. stanju -III).
+    
+
+## Važniji spojevi
+
+- **Dušikovi oksidi**:
+    
+    - N₂O – „raj plin“, anestetik.
+        
+    - NO – bezbojan, otrovan.
+        
+    - NO₂ – crvenosmeđ, otrovan, dobro topljiv (smjesa s N₂O₄).
+        
+- **HNO₃** – jaka kiselina i snažno oksidacijsko sredstvo; pasivira Fe, Al, Cr.
+    
+- **NH₃** – otrovan plin oštrog mirisa; industrijski Haber–Boschov postupak (N₂ + 3H₂ ⇌ 2NH₃).
+    
+
+---
+
+## 16. Ugljikova skupina (Grupa 14: C, Si, Ge, Sn, Pb)
+
+Valentna konfiguracija: ns²np².
+
+- C – nemetal; Si, Ge – polumetali; Sn, Pb – metali.
+    
+- C je biogeni element; mnoge alotropne modifikacije: dijamant, grafit, fulereni.
+    
+
+## Tipične reakcije C i Si
+
+- C + O₂ → CO₂ (potpuno); 2C + O₂ → 2CO (nepotpuno).
+    
+- CO – neutralan oksid, vrlo otrovan; CO₂ – kiseli oksid, stabilan sastojak zraka (~0,04%), sudjeluje u fotosintezi.
+    
+- H₂CO₃ – slaba kiselina; soli: karbonati, hidrogenkarbonati.
+    
+- Silicij – dijamantna struktura, poluvodič; SiO₂ – kiseli oksid.
+    
+
+## Karbidi
+
+- **CaC₂** (kalcijev karbid) – ionski; s vodom daje etin C₂H₂:  
+    CaC2+2H2O→Ca(OH)2+C2H2.CaC2+2H2O→Ca(OH)2+C2H2.
+    
+- **SiC** (karborund) – kovalentni, vrlo tvrd, otporan, za brusne materijale.

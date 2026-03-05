@@ -118,3 +118,575 @@ konst.
 [qv] =  
 S  
 Bernoullijeva jednadžba Kad tekućina miruje, tlak je u svakoj točki tekućine na istoj dubini jednak. Kod strujanja tekućine to više ne vrijedi. Kod strujanja tekućine javlja se dinamički tlak Pd koji ovisi o brzini strujanja tekućine i možemo ga iskazati formulom: P - PtekV2 d---2 Ako tekućina miruje dinamički tlak jednak je nuli, a statički tlak (tlak okomit na sijenke) je maksimalan. 17; V; , Sl Sl > S2 Vl < V2 Pl> P2 Bernoullijeva jednadžba govori da je u istoj cijevi različitih presjeka zbrOj hidrostatskog, statičkog i dinamičkog tlaka u užem dijelu cijevi jednak zbroju hidrostatskog, statičkog i dinamičkog tlaka u širem dijelu cijevi: Plek vt Plek v~ Plekg hl + Pl + -Z- = Plekg h2 + P2 + -zAko je cijev horizontalna Bernoullijevu jednadžbu možemo pisati: 2 2 + PtekVl _+ PlekV2 Pl Z - P2 Z hl i h2 - visine otvora cijevi Pl - statički tlak u širem dijelu cijevi, P2 - statički tlak u užem dijelu cijevi Vl -- brzina strujanja u širem dijelu cijevi, V2 - brzina strujanja u užem dijelu cijevi U užem dijelu cijevi veća je brzina strujanja, pa je veći i dinamički tlak: Pd2 > Pd1 . Zato je u širem dijelu cijevi veći statički tlak u odnosu na statički tlak u užem dijelu cijevi: Pl> P2'_
+
+PERPLEXITY -----------------
+## 1. Osnovni pojmovi mehanike i kinematike
+
+**Mehanika** proučava gibanja i međudjelovanja tijela; dijeli se na kinematiku (opis gibanja), dinamiku (uzroci gibanja – sile) i statiku (ravnoteža sila).  
+**Kinematika** je dio mehanike koji proučava gibanja, ali ne pita za uzroke gibanja (ne bavi se silama).
+
+- **Gibanje**: promjena položaja tijela u odnosu na neko mirno tijelo iz okoline (referentno tijelo).
+    
+- **Materijalna točka**: model koji pojednostavljuje opis gibanja; masa tijela zamišljena je kao da je koncentrirana u jednu točku.
+    
+- **Skalarne veličine**: imaju samo iznos (npr. masa, gustoća, temperatura, tlak, vrijeme).[](https://es.scribd.com/doc/91657914/52202092-Fizika-Drzavna-Matura-Com)​
+    
+- **Vektorske veličine**: imaju iznos, smjer i orijentaciju (npr. pomak, brzina, akceleracija, sila, količina gibanja).[](https://es.scribd.com/doc/91657914/52202092-Fizika-Drzavna-Matura-Com)​
+    
+
+## Koordinatni sustav i referentni sustav
+
+- Položaj materijalne točke opisujemo u koordinatnom sustavu:
+    
+    - 1D gibanje: koordinata xx,
+        
+    - 2D gibanje: (x,y)(x,y),
+        
+    - 3D gibanje: (x,y,z)(x,y,z).
+        
+- **Referentni koordinatni sustav**: onaj u kojem se nalazi promatrač koji mjeri vrijeme; svi opisi gibanja vezani su uz taj sustav.
+    
+
+## Putanja, put i pomak
+
+- **Putanja**: stvarni ili zamišljeni trag što ga materijalna točka ostavlja pri gibanju.
+    
+    - Pravocrtna putanja → pravocrtno gibanje.
+        
+    - Krivocrtna putanja → krivocrtno gibanje (npr. parabola kod hitaca, kružnica kod kružnog gibanja).
+        
+- **Put ss**: duljina putanje od početne do konačne točke (skalar).
+    
+- **Pomak Δx⃗Δx**: vektor od početne prema konačnoj točki, iznos = najkraća udaljenost između tih točaka.
+    
+
+Za maturu: put i pomak nisu isto – tijelo može imati put > 0, a pomak = 0 (npr. kruženje i povratak u početnu točku).[](https://www.ncvvo.hr/wp-content/uploads/2018/10/FIZIKA-formule-NOVO.pdf)​
+
+---
+
+## 2. Brzina i akceleracija
+
+## Srednja brzina i trenutna brzina
+
+- **Srednja brzina**:
+    
+
+vsr=ΔsΔt=s2−s1t2−t1,vsr=sukupnitukupnovsr=ΔtΔs=t2−t1s2−s1,vsr=tukupnosukupni
+
+- Jedinica: m/s.
+    
+- Kod jednolikog gibanja: srednja = trenutna brzina u svakom trenutku.
+    
+
+**Primjer (iz teksta)**:  
+Zagreb–Dubrovnik (~600 km), prvih 150 km s 120 km/h, ostatak tako da ukupna srednja brzina bude 80 km/h → preostalih 450 km treba voziti brzinom ~72 km/h.
+
+- **Trenutna brzina**: brzina u jednom trenutku; formalno:
+    
+
+v(t)=lim⁡Δt→0ΔsΔtv(t)=Δt→0limΔtΔs
+
+Na maturi: iščitava se kao nagib ss-tt ili xx-tt grafa u točki.​
+
+## Srednja i trenutna akceleracija
+
+- **Srednja akceleracija**:
+    
+
+asr=ΔvΔt=v2−v1t2−t1asr=ΔtΔv=t2−t1v2−v1
+
+- **Trenutna akceleracija**:
+    
+
+a(t)=lim⁡Δt→0ΔvΔta(t)=Δt→0limΔtΔv
+
+- Jedinica: m/s².
+    
+
+Grafički:
+
+- nagib vv-tt grafa = akceleracija,
+    
+- površina ispod aa-tt grafa = promjena brzine.
+    
+
+---
+
+## 3. Pravocrtna gibanja
+
+## 3.1 Jednoliko pravocrtno gibanje
+
+- Brzina ne mijenja ni iznos ni smjer: v=konst.v=konst..
+    
+- Formula:
+    
+
+s=vt,v=sts=vt,v=ts
+
+Grafovi:
+
+- ss-tt: pravac kroz ishodište, nagib = brzina.
+    
+- vv-tt: horizontalna linija.
+    
+- aa-tt: nula.
+    
+
+Razlika ss-tt i xx-tt grafa: ss-tt prikazuje put (uvijek raste), xx-tt prikazuje pomak (može rasti i padati).
+
+## 3.2 Jednoliko ubrzano pravocrtno gibanje
+
+Akceleracija konstantna (a=konst.a=konst.):
+
+v=v0+atv=v0+ats=v0t+12at2s=v0t+21at2v2=v02+2asv2=v02+2as
+
+- Iz mirovanja (v0=0v0=0): v=atv=at, s=12at2s=21at2.
+    
+- Grafovi: vv-tt – pravac nagiba aa; ss-tt – parabola.
+    
+
+## 3.3 Jednoliko usporeno pravocrtno gibanje
+
+- Akceleracija konstantna i negativna (suprotna brzini).
+    
+- Koriste se iste jednadžbe kao gore, s a<0a<0.
+    
+- Brzina se linearno smanjuje, tijelo staje kad v=0v=0.
+    
+
+---
+
+## 4. Dinamika i Newtonovi zakoni
+
+**Dinamika**: opisuje gibanja i pita za uzroke gibanja (sile).[](https://www.veleknin.hr/wp-content/uploads/2024/06/Udzbenik-Fizika-mr.sc_.-Josip-Paic-v.pred_.pdf)​
+
+1. **Prvi Newtonov zakon (zakon inercije)**  
+    Ako je rezultantna sila na tijelo nula (F⃗R=0FR=0), tijelo:
+    
+    - miruje ili
+        
+    - se giba jednoliko pravocrtno (a=0a=0).
+        
+2. **Drugi Newtonov zakon**
+    
+
+F⃗R=ma⃗FR=ma
+
+- Osnovna jednadžba gibanja.
+    
+- Jedinica sile: N = kg·m/s².
+    
+
+3. **Treći Newtonov zakon (zakon akcije i reakcije)**
+    
+
+F⃗12=−F⃗21F12=−F21
+
+- Svaka sila akcije izaziva silu reakcije jednakog iznosa i suprotnog smjera.
+    
+
+---
+
+## 5. Sile u svakodnevnom životu
+
+## 5.1 Sila teža i težina
+
+- **Sila teža FgFg**: sila kojom Zemlja privlači tijelo prema svom središtu:
+    
+
+Fg=mgFg=mg
+
+- Hvatište: središte mase tijela.
+    
+- **Težina GG**: sila kojom tijelo djeluje na podlogu ili ovjes:
+    
+
+G=mgG=mg
+
+- Hvatište: podloga ili ovjes.
+    
+
+Tijelo miruje na vodoravnoj podlozi: na tijelo djeluje sila teža FgFg i sila podloge FpFp; rezultantna sila je nula, ali to ne znači da sila ne djeluje:
+
+Fp=FgFp=Fg
+
+## 5.2 Sila trenja
+
+- Javlja se između tijela i podloge kad tijelo želimo pokrenuti ili kada se giba.
+    
+- **Statičko trenje klizanja**: djeluje kad tijelo miruje, ali na njega djelujemo silom; po iznosu jednako sili kojom djelujemo do maksimuma, najveće je u trenutku pokretanja.
+    
+- **Dinamičko trenje klizanja**: tijekom jednolikog klizanja po podlozi.
+    
+
+Za tijelo na vodoravnoj podlozi:
+
+Ft=μFp=μmgFt=μFp=μmg
+
+gdje je μμ faktor trenja klizanja.
+
+## 5.3 Elastična sila
+
+- Elastična sila elastičnog tijela (opruge):
+    
+
+Fel=kΔlFel=kΔl
+
+- kk: koeficijent elastičnosti (N/m).
+    
+- ΔlΔl: produljenje ili skraćenje.
+    
+
+## 5.4 Sila napetosti
+
+- Reakcija užeta na silu koja ga želi prekinuti.
+    
+- Mirujuće tijelo obješeno na uže:
+    
+
+Fn=FgFn=Fg
+
+## 5.5 Slobodni pad
+
+Jednoliko ubrzano gibanje iz mirovanja, s akceleracijom gg i zanemarenim otporom zraka:
+
+v=gt,h=12gt2,v2=2ghv=gt,h=21gt2,v2=2gh
+
+U vakuumu sve mase padaju istom akceleracijom.
+
+## 5.6 Kosina
+
+Kosina je ravnina koja s horizontalom zatvara kut αα. Težu rastavljamo na komponente:
+
+F1=Fgsin⁡α,F2=Fp=Fgcos⁡αF1=Fgsinα,F2=Fp=Fgcosα
+
+Sila trenja:
+
+Ft=μFp=μFgcos⁡αFt=μFp=μFgcosα
+
+Vrijedi za gibanje niz ili uz kosinu, ovisno o smjeru rezultantne sile.
+
+---
+
+## 6. Količina gibanja i impuls sile
+
+## 6.1 Količina gibanja
+
+p⃗=mv⃗,[p]=Nsp=mv,[p]=Ns
+
+Vektorska veličina, smjer kao brzina.
+
+## 6.2 Impuls sile
+
+I=FΔtI=FΔt
+
+- [I]=Ns[I]=Ns.
+    
+
+Povezan s promjenom količine gibanja:
+
+FΔt=Δp=mΔvFΔt=Δp=mΔv
+
+## 6.3 Zakon očuvanja količine gibanja
+
+U zatvorenom sustavu (tijela djeluju samo međusobno):
+
+∑p⃗prije=∑p⃗poslije∑pprije=∑pposlije
+
+Važi i za više tijela.
+
+## 6.4 Sudari
+
+- **Centralni sudari**: vektori brzina leže na istom pravcu.
+    
+- **Elastični sudar**:
+    
+    - tijela se nakon sudara gibaju odvojeno,
+        
+    - očuvan pp i EkEk.
+        
+- **Neelastični (plastični) sudar**:
+    
+    - tijela se nakon sudara gibaju zajedno,
+        
+    - očuvan pp, dio EkEk prelazi u druge oblike.
+        
+
+Centralni plastični sudar:
+
+m1v1+m2v2=(m1+m2)vm1v1+m2v2=(m1+m2)v
+
+---
+
+## 7. Složena gibanja – hitci
+
+Složena gibanja: gibanja koja možemo rastaviti na dva ili više jednostavnih gibanja koja se odvijaju istodobno; vrijeme trajanja složenog gibanja jednako je vremenu svakog sastavnog gibanja.
+
+## 7.1 Horizontalni hitac
+
+- Jednoliko gibanje u horizontalnom smjeru + slobodni pad u vertikalnom smjeru.
+    
+- Putanja: parabola.
+    
+
+Za tijelo bačeno horizontalnom brzinom v0v0 s visine hh:
+
+x=v0t,y=−12gt2x=v0t,y=−21gt2
+
+Vertikalna komponenta brzine:
+
+vy=gtvy=gt
+
+Ukupna brzina:
+
+v=v02+vy2v=v02+vy2
+
+Vrijeme leta (kao slobodni pad s iste visine):
+
+t=2hgt=g2h
+
+Domet:
+
+D=v0t=v02hgD=v0t=v0g2h
+
+## 7.2 Vertikalni hitac prema gore
+
+v=v0−gtv=v0−gth=v0t−12gt2h=v0t−21gt2v2=v02−2ghv2=v02−2gh
+
+Najviša točka (v=0v=0):
+
+tH=v0g,H=v022gtH=gv0,H=2gv02
+
+## 7.3 Vertikalni hitac prema dolje
+
+v=v0+gt,h=v0t+12gt2,v2=v02+2ghv=v0+gt,h=v0t+21gt2,v2=v02+2gh
+
+---
+
+## 8. Jednoliko kružno gibanje
+
+Periodično gibanje: nakon nekog vremena ponavlja se isti put.
+
+- **Period TT**: vrijeme jednog okretaja.
+    
+- **Frekvencija ff**:
+    
+
+f=Nt=1T,[f]=Hzf=tN=T1,[f]=Hz
+
+- **Obodna brzina**:
+    
+
+v=2πrT=2πrfv=T2πr=2πrf
+
+- **Kutna brzina**:
+    
+
+ω=2πT=2πf,[ω]=rad/sω=T2π=2πf,[ω]=rad/s
+
+- **Centripetalna akceleracija i sila**:
+    
+
+ac=v2r=rω2,Fc=mac=mv2r=mrω2ac=rv2=rω2,Fc=mac=mrv2=mrω2
+
+Centripetalnu silu često daju sila trenja, napetost užeta, teža ili gravitacijska sila.
+
+---
+
+## 9. Rad, snaga, korisnost, mehanička energija
+
+## 9.1 Rad WW
+
+Ako sila FF djeluje na tijelo po putu ss, pod kutom αα prema smjeru gibanja:
+
+W=Fscos⁡αW=Fscosα
+
+- Jedinica: J (Nm).
+    
+- Pozitivan rad: sila u smjeru gibanja.
+    
+- Negativan rad: sila suprotno smjeru gibanja.
+    
+- W=0W=0 ako α=90∘α=90∘ ili nema pomaka.
+    
+
+Grafički: rad je površina lika ispod pravca ili krivulje u FF-ss grafu.
+
+## 9.2 Snaga PP
+
+Srednja snaga:
+
+P=WtP=tW
+
+Trenutna snaga:
+
+P=FvP=Fv
+
+- Jedinica: W (J/s).
+    
+- 1 kWh = 3.6×1063.6×106 J.
+    
+
+## 9.3 Korisnost ηη
+
+η=WkorisniWulozˇeni=PkorisnaPulozˇenaη=WulozˇeniWkorisni=PulozˇenaPkorisna
+
+- η<1η<1, često u %.
+    
+
+## 9.4 Mehanička energija
+
+- Kinetička energija:
+    
+
+Ek=12mv2Ek=21mv2
+
+- Elastična potencijalna energija:
+    
+
+Eep=12k(Δl)2Eep=21k(Δl)2
+
+- Gravitacijska potencijalna energija (blizina Zemlje):
+    
+
+Egp=mghEgp=mgh
+
+**Zakon očuvanja energije**:
+
+Ek+Egp+Eep=konst.Ek+Egp+Eep=konst.
+
+Rad je jednak promjeni energije:
+
+W=ΔEW=ΔE
+
+---
+
+## 10. Gravitacija
+
+Newtonov opći zakon gravitacije:
+
+FG=Gm1m2r2,G≈6.67×10−11 Nm2/kg2FG=Gr2m1m2,G≈6.67×10−11Nm2/kg2
+
+Akceleracija sile teže na visini hh iznad Zemljine površine:
+
+g=GM(R+h)2g=G(R+h)2M
+
+Vrijedi za bilo koje nebesko tijelo mase MM i radijusa RR.[](https://www.veleknin.hr/wp-content/uploads/2024/06/Udzbenik-Fizika-mr.sc_.-Josip-Paic-v.pred_.pdf)​
+
+---
+
+## 11. Mehanika fluida
+
+Fluidi: tekućine i plinovi. Tekućine lako mijenjaju oblik, ali volumen ostaje (približno) isti; plinovi mijenjaju i oblik i volumen.
+
+## 11.1 Hidrostatika
+
+- **Tlak**:
+    
+
+p=FSp=SF
+
+- [p]=Pa=N/m2[p]=Pa=N/m2.  
+    1 bar = 105105 Pa, 1 hPa = 100 Pa.
+    
+- **Hidrostatski tlak**:
+    
+
+ph=ρghph=ρgh
+
+Raste s dubinom; isti na istoj dubini neovisno o obliku posude (hidrostatski paradoks).
+
+- **Atmosferski tlak**: nastaje zbog težine zraka; najveći uz površinu Zemlje, smanjuje se s visinom; normirani tlak je 101325 Pa.
+    
+- **Ukupni tlak**:
+    
+
+pu=pa+ph=pa+ρghpu=pa+ph=pa+ρgh
+
+- **Hidraulički tlak**: vanjski tlak koji djeluje na tekućinu (npr. klip).
+    
+
+**Pascalov zakon**: vanjski tlak prenosi se u tekućini jednako u svim smjerovima.
+
+**Hidraulička dizalica**:
+
+F1S1=F2S2S1F1=S2F2
+
+Omogućuje podizanje velikog tereta malom silom.
+
+## 11.2 Sila uzgona – Arhimedov zakon
+
+Sila uzgona FuFu djeluje na tijelo volumena VV uronjeno u tekućinu; smjer prema površini:
+
+Fu=ρtekucˊinegVuronjeniFu=ρtekucˊinegVuronjeni
+
+Na dinamometru: Fu=G−G′Fu=G−G′.
+
+**Arhimedov zakon**: sila uzgona jednaka je težini istisnute tekućine:
+
+Fu=Gistisnute tekucˊineFu=Gistisnute tekucˊine
+
+Uvjeti:
+
+- Fg>FuFg>Fu (ili ρtijelo>ρtekucˊineρtijelo>ρtekucˊine) → tijelo tone.
+    
+- Fg=FuFg=Fu (ili ρtijelo=ρtekucˊineρtijelo=ρtekucˊine) → tijelo lebdi.
+    
+- Fu>FgFu>Fg (ili ρtijelo<ρtekucˊineρtijelo<ρtekucˊine) → tijelo izranja.
+    
+
+---
+
+## 12. Hidrodinamika
+
+Gibanje tekućina: strujanje. Gibanje se prikazuje strujnicama (zamišljene linije tangentne na brzinu fluida).
+
+## 12.1 Jednadžba kontinuiteta
+
+Volumni protok:
+
+qv=ΔVΔtqv=ΔtΔV
+
+Za nestišljiv fluid:
+
+S1v1=S2v2=qvS1v1=S2v2=qv
+
+- Širi dio cijevi → manja brzina.
+    
+- Uži dio cijevi → veća brzina.
+    
+
+## 12.2 Dinamički tlak i Bernoullijeva jednadžba
+
+Dinamički tlak:
+
+pd=12ρv2pd=21ρv2
+
+Bernoullijeva jednadžba (idealna tekućina):
+
+ρgh1+p1+12ρv12=ρgh2+p2+12ρv22ρgh1+p1+21ρv12=ρgh2+p2+21ρv22
+
+Za horizontalnu cijev (h1=h2h1=h2):
+
+p1+12ρv12=p2+12ρv22p1+21ρv12=p2+21ρv22
+
+- U užem dijelu: v2>v1v2>v1 → p2<p1p2<p1.
+    
+
+---
+
+## 13. Matura – dodatni naglasci
+
+- Prepoznaj je li veličina skalar ili vektorska (često konceptualna pitanja).[](https://es.scribd.com/doc/91657914/52202092-Fizika-Drzavna-Matura-Com)​
+    
+- Uči iz knjižice formula NCVVO (ima iste formule kao ovdje).[](https://www.ncvvo.hr/wp-content/uploads/2022/09/FIZ-T-D.pdf)​
+    
+- Grafovi:
+    
+    - nagib ss-tt/xx-tt → brzina,
+        
+    - nagib vv-tt → akceleracija,
+        
+    - površina ispod vv-tt → put,
+        
+    - površina ispod FF-ss → rad.

@@ -465,3 +465,625 @@ Dr
 lim an
 71400
 lim a, #0
+
+PERPLEXITY ------------------------------
+##   
+Osnove Aritmetike i Algebre (matura fokus)
+
+## 🔑 Ključni pojmovi i definicije
+
+|Pojam|Definicija|Primjer|
+|---|---|---|
+|**Adicija**|Zbrajanje brojeva.|a+ba+b.|
+|**Algebra**|Grana matematike koja se bavi općim brojevima (slovima).|x+3y=7x+3y=7.|
+|**Aritmetika**|Grana matematike koja se bavi brojevima (prirodnim, cijelim, racionalnim); često se naziva „kraljicom matematike“.|Osnovne operacije: +, −, ×, ÷.|
+|**Aproksimacija**|Približno izračunavanje neke veličine pomoću jednostavnijih veličina.|π≈3.14π≈3.14.|
+|**Element skupa**|x∈Ax∈A znači da x pripada skupu A.|3∈{1,2,3}3∈{1,2,3}.|
+|**Disjunktni skupovi**|Skupovi A i B su disjunktni ako nemaju zajedničkih elemenata, tj. A∩B=∅A∩B=∅.|{1,2}∩{3,4}=∅{1,2}∩{3,4}=∅.|
+|**Cifra / znamenka**|Jedna „pozicijska jedinica“ zapisa broja; brojka od 0 do 9.|U 502, cifre su 5, 0 i 2.|
+|**Brojnik razlomka**|Gornji broj u razlomku mnnm.|U 3443, brojnik je 3.|
+
+## Brojevni sustavi
+
+- **Pozicijski**: Vrijednost cifre ovisi o mjestu.
+    - Dekadski sustav: u 502, cifra 5 znači 5⋅102=5005⋅102=500; u 459, cifra 5 znači 5⋅101=505⋅101=50.  
+        
+- **Nepozicijski**: Vrijednost znaka ne ovisi o mjestu.
+    - Rimski: X = 10, L = 50 → LX = 60 (50+10), LXX = 70, LXXX = 80.  
+        
+- **Mješoviti**: Kombiniraju elemente pozicijskih i nepozicijskih sustava (nije standardna maturalna tema, ali pojam postoji).  
+    
+
+---
+
+## ⚖️ Svojstva operacija nad realnim brojevima
+
+|Svojstvo|Formula|Napomena|
+|---|---|---|
+|**Asocijativnost**|(a+b)+c=a+(b+c)(a+b)+c=a+(b+c), (ab)c=a(bc)(ab)c=a(bc).|Za oduzimanje i dijeljenje ne vrijedi.|
+|**Komutativnost**|a+b=b+aa+b=b+a, ab=baab=ba.|Ne vrijedi za oduzimanje i dijeljenje.|
+|**Distributivnost**|a(b+c)=ab+aca(b+c)=ab+ac.|Ključno za računanje, faktorizaciju, kraćenje.|
+
+**Tipična greška (matura)**:  
+(a+b)2≠a2+b2(a+b)2=a2+b2 nego a2+2ab+b2a2+2ab+b2.
+
+---
+
+## ➗ Osnovne operacije, potenciranje, znanstveni zapis
+
+## Potenciranje
+
+Definicija potencije:
+
+- an=a⋅a⋅…⋅a⏟n putaan=n putaa⋅a⋅…⋅a, a∈Ra∈R, n∈Nn∈N.  
+    
+- a0=1a0=1 za a≠0a=0.  
+    
+- a−n=1ana−n=an1 za a≠0a=0.  
+    
+
+Nazivi:
+
+- anan: potencija  
+    
+- aa: baza  
+    
+- nn: eksponent  
+    
+
+Primjeri skraćenog zapisa:
+
+- 4+5+6+7+…+123+124+125=∑n=4125n4+5+6+7+…+123+124+125=∑n=4125n.  
+    
+- 1⋅2⋅3⋅…⋅74=74!1⋅2⋅3⋅…⋅74=74!.  
+    
+- 7+7+7+7+7+7=6⋅77+7+7+7+7+7=6⋅7.  
+    
+- 3⋅3⋅…⋅33⋅3⋅…⋅3 (10 faktora) =310=310.  
+    
+
+## Pravila za potencije (matura „must-know“)
+
+Za a,b≠0a,b=0, m,n∈Zm,n∈Z:
+
+- Iste baze:
+    - am⋅an=am+nam⋅an=am+n.  
+        
+    - aman=am−nanam=am−n.  
+        
+- Isti eksponenti:
+    - (ab)n=anbn(ab)n=anbn.  
+        
+    - (ab)n=anbn(ba)n=bnan.  
+        
+- Potencija potencije:
+    - (am)n=amn(am)n=amn.  
+        
+
+Zbrajanje potencija:
+
+- Općenito **ne** vrijedi: xn+yn=(x+y)nxn+yn=(x+y)n.  
+    
+- Dozvoljeno samo za istu bazu i isti eksponent:
+    - axn+bxn=(a+b)xnaxn+bxn=(a+b)xn.  
+        
+    - an+an+…+anan+an+…+an (k članova) =kan=kan.  
+        
+
+## Znanstveni zapis
+
+Broj je u znanstvenom zapisu ako je oblika:
+
+±a.bcde…×10n,1≤a<10±a.bcde…×10n,1≤a<10
+
+Primjeri ispravnog znanstvenog zapisa:
+
+- −2.473×103−2.473×103  
+    
+- 9.1234×1029.1234×102  
+    
+- 3.80×10−23.80×10−2  
+    
+
+Primjeri neznanstvenog zapisa:
+
+- 0.123×1030.123×103 (a nije između 1 i 10)  
+    
+- −14.69×105−14.69×105 (a nije između 1 i 10)  
+    
+- 5697×10−15697×10−1 (a nije jedna znamenka s decimalama)  
+    
+
+**Primjeri velikih/malih brojeva** (iz fizike, kemije itd.):
+
+- Masa Zemlje: 6 000 000 000 000 000 000 0006000000000000000000000 t ≈6×1021≈6×1021 t.  
+    
+- Masa Sunca: 1 985 000 000 000 000 000 000 000 0001985000000000000000000000000 t ≈1.985×1030≈1.985×1030 t.  
+    
+- Masa H atoma: 0.000 000 000 000 000 000 000 001 6740.000000000000000000000001674 g ≈1.674×10−24≈1.674×10−24 g.  
+    
+- Udaljenost Zemlja–Sunce: 149 500 000 000149500000000 m ≈1.495×1011≈1.495×1011 m.  
+    
+
+---
+
+## 🔢 Posebni oblici brojeva i djeljivost
+
+- Broj za 3 veći od nn: n+3n+3.  
+    
+- Broj 3 puta veći od nn: 3n3n.  
+    
+
+Opći oblici:
+
+- Parnog broja: 2n,2n+2,2n+4,…2n,2n+2,2n+4,….  
+    
+- Neparnog broja: 2n−1,2n+1,2n+3,…2n−1,2n+1,2n+3,….  
+    
+- Broja djeljivog s 3: 3n3n.  
+    
+- Broja koji pri dijeljenju s 3 daje ostatak 2: 3n+23n+2.  
+    
+- Broja djeljivog s 8: 8n8n.  
+    
+- Broja koji pri dijeljenju s 8 daje ostatak 1: 8n+18n+1.  
+    
+- Broja djeljivog s kk: knkn.  
+    
+
+**Djeljivost izraza**:
+
+- Ako je A=a⋅b⋅cA=a⋅b⋅c, tada je A djeljiv s a, b, c i s bilo kojim umnoškom tih faktora (npr. ac).  
+    
+- Ako su cjelobrojni a i b djeljivi s c, tada su i a+ba+b i a−ba−b djeljivi s c.  
+    
+- Ako ni a ni b nisu djeljivi s c, tada ni a+ba+b ni a−ba−b obično nisu djeljivi s c (treba provjeriti poseban slučaj).  
+    
+
+---
+
+## 🧮 Polinomi: monom, binom, trinom
+
+- **Monom**: jednočlani izraz, npr. 3ab2,−5x33ab2,−5x3.  
+    
+- **Binom**: dvočlani izraz, npr. a+b,ab−3a+b,ab−3.  
+    
+- **Trinom**: tročlani izraz, npr. a2+b−3,2a2b−6ab−3a2+b−3,2a2b−6ab−3.  
+    
+
+## Zbrajanje monoma
+
+- Moguće samo ako su **identični po varijablama i eksponentima**:
+    - 3a+2a=5a3a+2a=5a.  
+        
+    - 3(1−y)−7(1−y)=−4(1−y)3(1−y)−7(1−y)=−4(1−y).  
+        
+- Nije moguće:
+    - 3a+2a23a+2a2 (različiti eksponenti).  
+        
+    - 3(1−y)−7(1−y)33(1−y)−7(1−y)3 (različiti izrazi).  
+        
+
+## Množenje monoma
+
+- Uvijek moguće:
+    - 3a⋅2a=6a23a⋅2a=6a2.  
+        
+    - 3ab⋅(−2a3b−1)=−6a43ab⋅(−2a3b−1)=−6a4 (nakon sređivanja) [u skripti je zapisano kao primjer s potencijama].  
+        
+
+---
+
+## 🧱 Binomni teorem, Pascalov trokut, faktorizacija
+
+## Binomni koeficijenti
+
+(nk)=n!k!(n−k)!,k=0,1,…,n(kn)=k!(n−k)!n!,k=0,1,…,n
+
+- Koeficijent uz xkxk u (1+x)n(1+x)n je (nk)(kn).  
+    
+- Brojevi (nk)(kn) čine **Pascalov trokut**.  
+    
+
+Pascalov trokut (prvih nekoliko redova):
+
+text
+
+```
+     `1        1 1       1 2 1      1 3 3 1     1 4 6 4 1    1 5 10 10 5 1`
+```
+
+## Binomne formule (matura „by heart“)
+
+(x+y)2=x2+2xy+y2(x+y)2=x2+2xy+y2(x+y)3=x3+3x2y+3xy2+y3(x+y)3=x3+3x2y+3xy2+y3
+
+Općenito:
+
+(x+y)n=∑k=0n(nk)xn−kyk(x+y)n=k=0∑n(kn)xn−kyk
+
+## Razlika i suma kvadrata/kubova
+
+|Izraz|Rastav|
+|---|---|
+|x2−y2x2−y2|(x−y)(x+y)(x−y)(x+y)|
+|x2+y2x2+y2|Nema rastava nad RR; nad CC: (x+yi)(x−yi)(x+yi)(x−yi).|
+|x3−y3x3−y3|(x−y)(x2+xy+y2)(x−y)(x2+xy+y2)|
+|x3+y3x3+y3|(x+y)(x2−xy+y2)(x+y)(x2−xy+y2)|
+
+**Napomena (kraćenje razlomaka)**:  
+Skraćivanje razlomka moguće je tek nakon što brojnik i nazivnik rastavimo na faktore. Kratiti se mogu samo **faktori**, nikako pojedinačni članovi.
+
+---
+
+## ℯ – Eulerov broj
+
+- e≈2.718281828459045…e≈2.718281828459045… (iracionalan).  
+    
+- Jedna od najpoznatijih konstanti; povezan s rastom, logaritmima, vjerojatnoćom.  
+    
+- Može se definirati kao:  
+    
+
+e=∑n=0∞1n!=1+1+12!+13!+14!+…e=n=0∑∞n!1=1+1+2!1+3!1+4!1+…
+
+---
+
+## 🔺 Kompleksni brojevi
+
+## Definicije
+
+- **Imaginarna jedinica**: i2=−1i2=−1.  
+    
+- **Standardni (algebarski) oblik**: z=x+yiz=x+yi, x,y∈Rx,y∈R.
+    - x je realni dio, y imaginarni dio.  
+        
+- **Kompleksno konjugirani** broj: ako je z=x+yiz=x+yi, onda je z‾=x−yiz=x−yi.  
+    
+- **Modul**: ∣z∣=x2+y2∣z∣=x2+y2.  
+    
+
+Primjer:
+
+- z=4+5i⇒∣z∣=42+52=41z=4+5i⇒∣z∣=42+52=41.  
+    
+- z=2−2 i⇒z‾=2+2 iz=2−2i⇒z=2+2i.  
+    
+
+Svojstva modula:
+
+- ∣z∣≥0∣z∣≥0, ∣z∣=0  ⟺  z=0∣z∣=0⟺z=0.  
+    
+- ∣z1z2∣=∣z1∣⋅∣z2∣∣z1z2∣=∣z1∣⋅∣z2∣.  
+    
+- ∣z1z2∣=∣z1∣∣z2∣z2z1=∣z2∣∣z1∣ za z2≠0z2=0.  
+    
+- Za zbroj ne vrijedi ∣z1+z2∣=∣z1∣+∣z2∣∣z1+z2∣=∣z1∣+∣z2∣; vrijedi trokutna nejednakost:  
+    ∣z1+z2∣≤∣z1∣+∣z2∣∣z1+z2∣≤∣z1∣+∣z2∣. [](https://edutorij-admin-api.carnet.hr/storage/extracted/8169/index.html)​  
+    
+
+## Potencije i
+
+Ciklus:
+
+- i1=ii1=i  
+    
+- i2=−1i2=−1  
+    
+- i3=−ii3=−i  
+    
+- i4=1i4=1  
+    
+- i4k=1i4k=1, i4k+1=ii4k+1=i, i4k+2=−1i4k+2=−1, i4k+3=−ii4k+3=−i.  
+    
+
+Primjeri:
+
+- i123456=i0=1i123456=i0=1 (jer je 123456 djeljiv s 4).  
+    
+- i27=i3=−ii27=i3=−i.  
+    
+- i65=i4⋅16+1=ii65=i4⋅16+1=i.  
+    
+- (1+i)6=[(1+i)2]3=(2i)3=8i3=−8i(1+i)6=[(1+i)2]3=(2i)3=8i3=−8i.  
+    
+
+## Trigonometrijski (polarni) oblik
+
+Za z=x+yiz=x+yi:
+
+- r=∣z∣=x2+y2r=∣z∣=x2+y2.  
+    
+- cos⁡φ=xrcosφ=rx, sin⁡φ=yrsinφ=ry, φ=arg⁡zφ=argz.  
+    
+- Tada:  
+    z=r(cos⁡φ+isin⁡φ)z=r(cosφ+isinφ).  
+    
+
+**De Moivreova formula**:
+
+- Ako je z=r(cos⁡φ+isin⁡φ)z=r(cosφ+isinφ), onda:  
+    
+
+zn=rn(cos⁡nφ+isin⁡nφ)zn=rn(cosnφ+isinnφ)
+
+- Za z1=r1(cos⁡φ1+isin⁡φ1)z1=r1(cosφ1+isinφ1),  
+    z2=r2(cos⁡φ2+isin⁡φ2)z2=r2(cosφ2+isinφ2):  
+    
+
+z1z2=r1r2[cos⁡(φ1+φ2)+isin⁡(φ1+φ2)]z1z2=r1r2[cos(φ1+φ2)+isin(φ1+φ2)]z1z2=r1r2[cos⁡(φ1−φ2)+isin⁡(φ1−φ2)]z2z1=r2r1[cos(φ1−φ2)+isin(φ1−φ2)]
+
+[](https://edutorij-admin-api.carnet.hr/storage/extracted/8169/index.html)​
+
+---
+
+## ⚙️ Transformacije formula i tipovi jednadžbi
+
+## Premještanje članova i faktora
+
+- Članovi mijenjaju stranu promjenom predznaka:
+    - a+b=c⇒a=c−ba+b=c⇒a=c−b.  
+        
+- Faktori mijenjaju stranu „po dijagonali“:
+    - ab=c⇒a=bcba=c⇒a=bc.  
+        
+
+## Algebarske jednadžbe
+
+Opći oblik algebarske jednadžbe stupnja n:
+
+anxn+an−1xn−1+…+a1x+a0=0,an≠0anxn+an−1xn−1+…+a1x+a0=0,an=0
+
+Primjeri:
+
+- Linearna: 3x+2=03x+2=0.  
+    
+- Kvadratna: 7x2−11x+4=07x2−11x+4=0.  
+    
+- Kubna: 5x3−2x2+6x−1=05x3−2x2+6x−1=0.  
+    
+
+## Linearne jednadžbe i nejednadžbe
+
+Linearno:
+
+- −2x=12⇒x=−6−2x=12⇒x=−6.  
+    
+- Nejednadžba: −2x<12⇒x>−6−2x<12⇒x>−6 (pri dijeljenju s −2 znak se okreće).  
+    
+
+Svi zadaci s postotcima mogu se svesti na oblik:
+
+p⋅x=yp⋅x=y
+
+gdje je x početna vrijednost, p postotak (u decimalnom obliku), a y je dio.
+
+## Racionalne jednadžbe
+
+- Nepoznanica je u nazivniku: npr.  
+    −5x1−3x=21−3x−5x=2.  
+    
+- Rješavanje: pomnožiš s najmanjim zajedničkim nazivnikom, ali:
+    - **OBAVEZNO** napisati uvjet: nazivnik ≠ 0.  
+        
+    - Ili na kraju provjeriti uvrštavanjem.  
+        
+- Racionalne nejednadžbe se rješavaju **drugačije** (tablica predznaka, intervali).  
+    
+
+## Jednadžbe s apsolutnom vrijednošću
+
+**Osnovni tip**:
+
+- ∣f(x)∣=k,k≥0⇒f(x)=k∣f(x)∣=k,k≥0⇒f(x)=k ili f(x)=−kf(x)=−k. [](https://edutorij-admin-api.carnet.hr/storage/extracted/642012/html/24480_Jednadzbe_s_apsolutnim_vrijednostima.html)​  
+    
+
+Nejednadžbe:
+
+- ∣f(x)∣≥k⇒f(x)≥k∣f(x)∣≥k⇒f(x)≥k ili f(x)≤−kf(x)≤−k (k ≥ 0).  
+    
+- ∣f(x)∣≤k⇒−k≤f(x)≤k∣f(x)∣≤k⇒−k≤f(x)≤k (k ≥ 0).  
+    
+
+Jednadžbe s više modula:
+
+- ∣f(x)∣=∣g(x)∣⇒f(x)=g(x)∣f(x)∣=∣g(x)∣⇒f(x)=g(x) ili f(x)=−g(x)f(x)=−g(x), uz uvjete.  
+    
+- Ako ima više modula i više članova, često se radi **razbijanje po intervalima** (na temelju točaka gdje argumenti modula mijenjaju predznak).  
+    
+
+**OBAVEZNO**:
+
+- Pisanje uvjeta (npr. za radikande i nazivnike).  
+    
+- Provjera rješenja uvrštavanjem u početnu jednadžbu (radi mogućih „lažnih“ rješenja kod potenciranja i apsolutne vrijednosti).  
+    
+
+## Iracionalne jednadžbe
+
+- Nepoznanica se nalazi pod korijenom: npr. 3x+2=43x+2=4.  
+    
+- Rješavanje potenciranjem (kvadriranjem, kubiranjem, ...).  
+    
+- **OBAVEZNO** pisanje uvjeta (radikand ≥ 0) ili provjera rješenja.  
+    
+
+---
+
+## 💯 Postoci
+
+- 1% = 11001001.  
+    
+- 1‰ = 1100010001.  
+    
+
+Postotak od broja:
+
+- p%p% od x: p100⋅x100p⋅x.  
+    
+
+Primjeri:
+
+- 23% od 4356 = 0.23⋅43560.23⋅4356.  
+    
+- 17% od 250 = 0.17⋅2500.17⋅250.  
+    
+
+Tipične formulacije:
+
+- „x je smanjen za 25%“ → nova vrijednost je 0.75x0.75x.  
+    
+- „smanji x za 32%“ → nova vrijednost 0.68x0.68x; 32% od x je 0.32x0.32x.  
+    
+
+---
+
+## 🔁 Trojno pravilo – proporcionalnosti
+
+- **Proporcionalne (direktno razmjerne)** veličine:  
+    y=kxy=kx. Uvećanje x 3 puta → y se poveća 3 puta.  
+    
+- **Obrnuto proporcionalne**:  
+    x⋅y=kx⋅y=k. Uvećanje x 3 puta → y se smanji 3 puta.  
+    
+
+Tipični zadaci:
+
+- rad, brzina, vrijeme, udaljenost, mješavine, potrošnja.  
+    
+
+---
+
+## 📊 Statistika – prikaz i analiza podataka
+
+Statistika se bavi prikupljanjem, obradom, analizom i tumačenjem podataka.
+
+## Prikaz podataka
+
+- Uređeni niz (rastući/padajući, abecedni, kronološki).  
+    
+- Tablica.  
+    
+- Grafički prikazi:
+    - stupčasti dijagram (histogram kad su intervali),  
+        
+    - kružni dijagram (postotci udjela),  
+        
+    - linijski dijagram (promjena u vremenu).  
+        
+
+## Frekvencija, relativna frekvencija, mod
+
+- Frekvencija fifi: broj pojavljivanja podatka xixi.  
+    
+- Relativna frekvencija pi=fiNpi=Nfi (češće kao postotak).  
+    
+- Mod (Mo): podatak koji se pojavljuje **najviše puta**.  
+    
+
+## Aritmetička sredina
+
+Za podatke xixi s frekvencijama fifi:
+
+x‾=∑xifi∑fix=∑fi∑xifi
+
+Specijalan slučaj – običan prosjek:
+
+x‾=x1+x2+…+xnnx=nx1+x2+…+xn
+
+## Medijan (Me)
+
+- Ako je broj podataka neparan: srednji član uređenog niza.  
+    
+- Ako je paran: aritmetička sredina dvaju srednjih članova.  
+    
+
+## Standardna devijacija
+
+Mjeri tipično odstupanje podataka od aritmetičke sredine. Jedna od mogućih formula (populacijska):
+
+σ=∑(xi−x‾)2nσ=n∑(xi−x)2
+
+Za uzorak se često koristi 1n−1n−11 umjesto 1nn1, ali na maturi se obično drži jednostavnijeg oblika.
+
+Pravilo 68–95–99% (za normalnu distribuciju):
+
+- unutar [x‾−σ,x‾+σ][x−σ,x+σ]: ≈ 68% podataka,  
+    
+- unutar [x‾−2σ,x‾+2σ][x−2σ,x+2σ]: ≈ 95%,  
+    
+- unutar [x‾−3σ,x‾+3σ][x−3σ,x+3σ]: ≈ 99%.[](https://hrcak.srce.hr/file/279546)​  
+    
+
+## Račun smjese (prosječna vrijednost)
+
+Ako imamo n sastojaka:
+
+- 1. sastojak: količina k1k1, svojstvo S1S1,  
+        
+- 2. sastojak: količina k2k2, svojstvo S2S2,  
+        
+- ...  
+    
+- n-ti: količina knkn, svojstvo SnSn,  
+    
+
+onda smjesa ima svojstvo:
+
+S=k1S1+k2S2+⋯+knSnk1+k2+⋯+knS=k1+k2+⋯+knk1S1+k2S2+⋯+knSn
+
+To je ista formula kao aritmetička sredina s frekvencijama (statistika).
+
+---
+
+## 🔄 Nizovi: aritmetički i geometrijski, limes
+
+## Aritmetički niz
+
+- Svojstvo: razlika susjednih članova je konstanta d:
+    - d=an+1−and=an+1−an.  
+        
+- Opći član:
+    - an=a1+(n−1)dan=a1+(n−1)d.  
+        
+- Zbroj prvih n članova:
+    - Sn=n(a1+an)2Sn=2n(a1+an).  
+        
+
+Dodatno svojstvo:
+
+- Za n>kn>k:  
+    
+
+an−k+an+k=2anan−k+an+k=2an
+
+## Geometrijski niz
+
+- Svojstvo: omjer susjednih članova je konstanta q:
+    - q=an+1anq=anan+1.  
+        
+- Opći član:
+    - an=a1qn−1an=a1qn−1.  
+        
+- Zbroj prvih n članova (q ≠ 1):
+    - Sn=a1qn−1q−1Sn=a1q−1qn−1.  
+        
+
+## Limes niza
+
+Za niz (an)(an) kažemo da ima limes a, ako za svaki dovoljno mali interval oko a ima beskonačno mnogo članova niza unutar njega, a izvan intervala ih je konačno mnogo.
+
+Označavamo:
+
+a=lim⁡n→∞ana=n→∞liman
+
+Niz s limesom je **konvergentan**, inače je **divergentan**.
+
+Pravila:
+
+- lim⁡(kan)=klim⁡anlim(kan)=kliman.  
+    
+- lim⁡(an±bn)=lim⁡an±lim⁡bnlim(an±bn)=liman±limbn.  
+    
+- lim⁡(anbn)=(lim⁡an)(lim⁡bn)lim(anbn)=(liman)(limbn).  
+    
+- lim⁡anbn=lim⁡anlim⁡bnlimbnan=limbnliman ako je lim⁡bn≠0limbn=0.

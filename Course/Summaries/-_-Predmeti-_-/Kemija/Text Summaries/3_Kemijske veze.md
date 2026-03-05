@@ -112,3 +112,192 @@ Poluvodiči - tvari u kojima između valentne i vodljive vrpce postoji određena
 Izolatori-tvari koje ne provode električnu struju jer je energetska barijera između valentne i vodljive vrpce toliko velika da je elektroni ne mogu svladati
 Valencije metala koje se ne čitaju:
 1. Skupina PSE - alkalijski metali 2. Skupina PSE - zemnoalkalijski metali Ag(I), Zn(II), Al(III)
+
+PERPLEXITY --------------------------------------------------
+Ionska veza nastaje **potpunim prijelazom elektrona** s metala (mala energija ionizacije → lako gube e⁻ → **kationi**, pozitivni ioni) na nemetal (veliki afinitet prema e⁻ → **anioni**, negativni ioni). Broj otpuštenih/primljenih e⁻ = broj u valentnoj ljusci (Mg otpusti 2 → Mg²⁺; O primi 2 → O²⁻). **Gustoća elektronskog oblaka između iona vrlo mala** (nema dijeljenja). **Maturinsko pravilo**: Metal (lijeva PSE) + nemetal (desna PSE) = ionska; kristalna rešetka (3D mreža, npr. NaCl kockasta) za stabilnost; visoka tališta (>800°C); provode u talini/vodiku (slobodni ioni), suhi ne.[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=574)​
+
+**Primjer: MgO**  
+a) **Lewisovim oznakama**:  
+\ce[\ceMg]2+[: ⁣\ceO ⁣:]2−\ce[\ceMg]2+[:\ceO:]2−  
+b) **Jednadžbama polureakcija** (redoks: oksidacija gubi e⁻, reduksija dobiva):  
+\ceMg−>Mg2++2e−\ceMg−>Mg2++2e−  
+\ce1/2O2+2e−−>O2−\ce1/2O2+2e−−>O2−  
+**Neto**: \ce2Mg+O2−>2MgO\ce2Mg+O2−>2MgO
+
+## Coulombov zakon (jakost ionske veze)
+
+**Coulombov zakon**: Sila privlačenja FF proporcionalna umnošku naboja Q1Q2Q1Q2 (valencije), obrnuto kvadratu udaljenosti rr (zbroj ionskih polumjera).  
+F=k∣Q1Q2∣r2F=kr2∣Q1Q2∣  
+k=8.99×109 N⋅m2⋅C−2k=8.99×109N⋅m2⋅C−2 (vakuum; u vodi slabija). **Jača veza** = veći Q/manji r (MgO > NaCl; LiF tal. 845°C > CsI 623°C). **Maturinski test**: KCl nisko talište (veliki r).[](https://hr.wikipedia.org/wiki/Coulombov_zakon)​
+
+## Kovalentna veza 3.2. (Tablica 1.)
+
+**Dijeljenje e⁻ parova** među nemetalima za **oktet** (8 e⁻ poput Ar/Ne). **Dodatak**: Koordinacijska – jedan atom daje par (\ceNH3−>[lonepair]BF3\ceNH3−>[lonepair]BF3); **hibridizacija** (sp³ CH₄ tetraedar, sp² C₂H₄ planarno).[](https://instrukcije-poduka.blogspot.com/2012/10/)​
+
+|Vrsta veze|Broj parova|Primjer|Opis (valentni e⁻ → konfiguracija)|
+|---|---|---|---|
+|Jednostruka|1|\ceCl−Cl\ceCl−Cl|7 e⁻/Cl; 1 veznik + 3 nevezna para → Ar.|
+|Dvostruka|2|\ceO=O\ceO=O|6 e⁻/O; 2 veznika + 2 nevezna → Ne.|
+|Trostruka|3|\ce{N#N}|5 e⁻/N; 3 veznika + 1 nevezni → Ne.|
+
+**Valencija**: Broj veznika (O divalentan: \ceH2O\ceH2O, \ceO2\ceO2).
+
+## Polaracija molekula (Sl. 1. simetrične, Sl. 2. polarne)
+
+**Paulingova skala elektronegativnosti**: ΔEN >1.7 ionska; 0.4-1.7 polarna kovalentna; <0.4 nepolarna.
+
+- **Nepolarne**: Identčni atomi (\ceCl−Cl\ceCl−Cl) ili simetrija (linearne \ceCO2\ceCO2, planarne \ceBF3\ceBF3, tetraedarske \ceCCl4\ceCCl4) – dipoli poništavanje.
+    
+- **Polarni**: Asimetrija (V-oblika \ceH2O\ceH2O 104.5° μ=1.85 D; piramida \ceNH3\ceNH3 μ=1.47 D).  
+    **Dipolni moment**: μ=e⋅dμ=e⋅d (naboj × udaljenost težišta).[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=574)​
+    
+
+## Međumolekulске sile (Sl. 3./4. agregatna stanja)
+
+**Slabije** od unutarmolekulskih; određuju plin/tekućina/čvrsto. **Van der Waalsove**: #e⁻ (I₂ čvrsto > Br₂ tekućina > Cl₂ plin); oblik (kraći razmak = jače). **Vodikova**: H-F/O/N...F/O/N (H₂O 100°C, HF 19.5°C, NH₃ -33°C).
+
+**Hijerarhija (maturinski redoslijed)**:
+
+|Sila|Jakost (kJ/mol)|Primjer|Zakonitost|
+|---|---|---|---|
+|Unutarmolekularna|100-1000|NaCl, H₂O veza|Ionska/kovalentna.|
+|Vodikova|10-40|H₂O visoko vrelište|H s F/O/N.|
+|Dipol-dipol|5-25|HCl|Polarne molekule.|
+|London disperzija|2-10|Halogeni (#e⁻ ↑ → vrelište ↑)|Svi molekuli.|
+
+## Metalna veza (za one koji žele znati više – spojeno)
+
+**"More" slobodnih valentnih e⁻** drži katione u rešetki; više nivoa nego e⁻. **Vrpce**: Valentna (popunjena); vodljiva (prazna, preklapa → **vodiči**: metali/grafit). **Poluvodiči**: Barijera (Si/Ge, doping ↑ provodljivost). **Izolatori**: Velika barijera. **Dodatak**: Plastičnost (klizanje); boja (e⁻); legure (čelik mijenja vrpce). **Valencije (ne čitaju)**: IA (+1), IIA (+2), Ag(I), Zn(II), Al(III).[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=574)​
+
+|Materijal|Vrpce|Primjer|
+|---|---|---|
+|Vodiči|Preklapanje|Cu, grafit.|
+|Poluvodiči|Mali energetski jump|Si (n/p doping).|
+|Izolatori|Velika barijera|Guma, staklo.|
+
+## Formule spojeva
+
+- **Empirijska**: Odnos atoma (CH₂); bez mase/strukture.
+    
+- **Molekulska**: Broj (C₂H₄).
+    
+- **Strukturna**: Veze (\ceH2C=CH2\ceH2C=CH2).[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=574)​
+    
+
+## Kiseline i anioni (Tablica 2.)
+
+|Kiseline|Formula|Anion|Naziv aniona|Primjer soli|
+|---|---|---|---|---|
+|HCl|\ceHCl\ceHCl|Cl⁻|Klorid|NaCl.|
+|HNO₃|\ceHNO3\ceHNO3|NO₃⁻|Nitrat|KNO₃.|
+|H₂SO₄|\ceH2SO4\ceH2SO4|SO₄²⁻|Sulfat|CaSO₄.|
+
+**Maturinski rezime**: PSE predviđa veze; Coulomb → tališta; simetrija + ΔEN = polaracija; vrpce → provodljivost. Spremno za ispite!
+## Ionska veza
+
+Ionska veza tvori se kada metal (niska energija ionizacije) gubi elektrone i postaje kation (pozitivni ion), a nemetal (visok elektronegativitet ili afinitet prema elektronima) dobiva elektrone i postaje anion (negativni ion). Broj otpuštenih ili primljenih elektrona ovisi o broju elektrona u valentnoj ljusci atoma: koliko atom otpusti, toliki mu je pozitivan naboj (npr. Mg gubi 2 e⁻ → Mg²⁺); koliko primi, toliki negativan naboj (npr. O dobiva 2 e⁻ → O²⁻). Gustoća elektronskog oblaka između iona je vrlo mala jer nema dijeljenja elektrona.[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=574)​
+
+**Primjer: MgO (magnezijev oksid)**
+
+- **Lewisove oznake**: \ceMg2+[O2−]\ceMg2+[O2−]
+    
+- **Polureakcije**:  
+    \ceMg−>Mg2++2e−\ceMg−>Mg2++2e− (oksidacija)  
+    \ceO+2e−−>O2−\ceO+2e−−>O2− (redukscija)
+    
+- **Neto reakcija**:  
+    \ce2Mg+O2−>2MgO\ce2Mg+O2−>2MgO
+    
+
+## Coulombov zakon
+
+Jakost ionske veze određuje Coulombov zakon: privlačna sila FF između iona raste s većim nabojima Q1Q1 i Q2Q2 (valencijama iona), a opada s kvadratom udaljenosti rr (zbroj ionskih polumjera).  
+Formule:  
+F=kQ1Q2r2F=kr2Q1Q2  
+gdje je kk Coulombova konstanta (približno 9×109 N⋅m2⋅C−29×109N⋅m2⋅C−2 u vakuumu).  
+Veza je jača kod većih naboja (npr. Mg²⁺O²⁻ jača od Na⁺Cl⁻) i manjih polumjera (npr. LiF jača od NaCl).[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=574)​
+
+## Kovalentna veza
+
+Kovalentna veza nastaje dijeljenjem elektronskih parova između nemetala, omogućujući oktetnu konfiguraciju (8 e⁻ u valentnoj ljusci, slično plemenitim plinovima). Svaki atom doprinosi jednako elektronima za stabilnost.[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=574)​
+
+|Vrsta veze|Broj zajedničkih parova|Primjer|Opis|
+|---|---|---|---|
+|Jednostruka|1|\ceCl−Cl\ceCl−Cl|Svaki Cl ima 7 valentnih e⁻; dijele 1 par (2 e⁻); svaki ima 3 nevezna para. Postižu argonovu konfiguraciju.|
+|Dvostruka|2|\ceO=O\ceO=O|Svaki O ima 6 valentnih e⁻; dijele 2 para (4 e⁻); svaki ima 2 nevezna para. Postižu neonovu konfiguraciju.|
+|Trostruka|3|\ce{N#N}|Svaki N ima 5 valentnih e⁻; dijele 3 para (6 e⁻); svaki ima 1 nevezni par. Postižu neonovu konfiguraciju.|
+
+**Valencija**: Broj veznog parova koji atom formira (npr. O je divalentan: \ceO2\ceO2 ili \ceH2O\ceH2O).
+
+## Polaracija molekula
+
+Polaracija nastaje razlikom u elektronegativnosti:
+
+- **Nepolarne molekule**: Identčni atomi (npr. \ceCl−Cl\ceCl−Cl), bez dipola.
+    
+- **Polarni dipol**: Različiti atomi (npr. \ceHCl\ceHCl); dipolni moment μ=e⋅dμ=e⋅d (ee = naboj, dd = udaljenost težišta naboja).[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=574)​
+    
+
+Simetrija određuje ukupnu polarizaciju:
+
+- **Nepolarne** (simetrične): linearne (\ceCO2\ceCO2), planarne (\ceBF3\ceBF3), tetraedarske (\ceCCl4\ceCCl4) – dipoli se poništavaju.
+    
+- **Polarni** (asimetrične): V-oblika (\ceH2O\ceH2O), piramidalne (\ceNH3\ceNH3) – dipoli se ne poništavaju.[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=574)​
+    
+
+**Primjeri slika (konceptualno)**:
+
+- Sl. 1: Simetrične nepolarne (linearne/planarne/tetraedarske).
+    
+- Sl. 2: Polarni (H₂O pod kutom, NH₃ piramida):  
+    \ceH−O−H\ceH−O−H (104.5°, polarna zbog samo lone paira na O).
+    
+
+## Međumolekulske sile
+
+Slabije od unutarmolekulskih (ionskih/kovalentnih); određuju agregatna stanja (plin/tekućina/čvrsto).
+
+- **Van der Waalsove sile**:
+    
+    - Ovisno o broju e⁻ (veći broj → jače; npr. F₂, Cl₂ plinovi; Br₂ tekućina; I₂ čvrsto).
+        
+    - Oblik molekule: Kraći razmaci → jače privlačenje.[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=574)​
+        
+- **Vodikova veza**: Elektrostatska između H (vezanog na F, O, N) i drugog F/O/N. Visoka vrelišta: H₂O (100°C), NH₃ (-33°C), HF (19.5°C) naspram sličnih bez H-veze.[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=574)​
+    
+
+## Metalna veza
+
+U metalima, valentni e⁻ formiraju "more" slobodnih e⁻ koji drže metalne katione zajedno u kristalnoj rešetki.
+
+- **Energijske vrpce**:
+    
+    - **Valentna vrpca**: Popunjena e⁻.
+        
+    - **Vodljiva vrpca**: Prazna; preklapa se s valentnom → e⁻ slobodno putuju (vodiči: metali, grafit).[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=574)​
+        
+
+|Materijal|Karakteristika|Primjer|
+|---|---|---|
+|Vodiči|Preklapanje vrpca|Metali, grafit|
+|Poluvodiči|Barijera između vrpca|Si, Ge (e⁻ prelaze s energijom)|
+|Izolatori|Velika barijera|Staklo, gume (e⁻ ne prelaze)|
+
+**Valencije metala (ne čitaju se u nazivima)**: IA (alkalijski: +1), IIA (zemnoalkalijski: +2), Ag(I), Zn(II), Al(III).
+
+## Formule spojeva
+
+- **Empirijska formula**: Numerički odnos atoma (npr. CH₂ za neke ugljikove spojeve); ne pokazuje masu ili strukturu.
+    
+- **Molekulska formula**: Točan broj atoma (npr. C₂H₄).
+    
+- **Strukturna formula**: Prikazuje veze i atome (npr. \ceH−C−C−H\ceH−C−C−H za etilen).[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=574)​
+    
+
+## Kiseline i anioni (Tablica 2. primjeri)
+
+| Kiseline | Formula          | Anion | Naziv aniona | Primjer soli |
+| -------- | ---------------- | ----- | ------------ | ------------ |
+| HCl      | \ceHCl\ceHCl     | Cl⁻   | Klorid       | NaCl         |
+| HNO₃     | \ceHNO3\ceHNO3   | NO₃⁻  | Nitrat       | KNO₃         |
+| H₂SO₄    | \ceH2SO4\ceH2SO4 | SO₄²⁻ | Sulfat       | CaSO₄        |

@@ -126,3 +126,438 @@ Kristali
 - elementarna ćelija definirana je parametrima:
 bridovima koji se označavaju a, b, c i kutovima između bridova koji se označavaju a, Biy
 - svi se kristali mogu svrstati u sedam kristalnih sustava (sl. 5.)
+
+PERPLEXITY --------------------------------------------------------
+## 6.1. Agregacijska stanja tvari
+
+Pri **kemijskim jednadžbama** uz formulu tvari piše se i **agregacijsko stanje** desno dolje u zagradi:
+
+- **(s)** – _solid_ (čvrsta tvar, krutina)
+    
+- **(l)** – _liquid_ (tekućina)
+    
+- **(g)** – _gas_ (plin)
+    
+- **(aq)** – _aqueous_ (otopina u vodi – često bitno za maturu)
+    
+- ponekad **(c)** – kristalno stanje (naglašava kristalnu strukturu čvrste tvari)
+    
+
+Primjer:
+
+\ce2H2(g)+O2(g)−>2H2O(l)\ce2H2(g)+O2(g)−>2H2O(l)
+
+**Agregacijsko stanje tvari** ovisi o **tlaku i temperaturi**, ali i o **jačini privlačnih sila** između čestica.
+
+---
+
+## 6.1.1. Osnovna agregacijska stanja i čestični model
+
+Tvari se najčešće opisuju u tri osnovna stanja: čvrsto, tekuće, plinovito.
+
+## Čvrsto stanje (s)
+
+- Čestice su **blizu jedna drugoj**, razmak je mali, gustoća velika.
+    
+- Struktura je obično **uređena** (kristalna rešetka).
+    
+- Čestice **titraju** oko ravnotežnog položaja, ne mijenjaju svoje susjede.
+    
+- Čvrste tvari imaju **stalan oblik i stalan volumen**.
+    
+- **Nestlačive** su (promjena volumena s tlakom je mala).
+    
+
+Kod kristala se uvodi pojam **kristalne rešetke** i **elementarne ćelije** (detaljnije u poglavlju o čvrstim tvarima).
+
+## Tekuće stanje (l)
+
+- Čestice su **bliže** nego u plinu, ali **dalje** nego u krutini.
+    
+- Uređenost je **kratkog dosega** – lokalni red postoji, ali nema pravilnosti na velikim udaljenostima.
+    
+- Čestice se **slobodnije gibaju**, mijenjaju položaj, klize jedna pored druge.
+    
+- Tekućine **nemaju stalan oblik**, ali imaju **stalan volumen**.
+    
+- Uobičajeno se smatraju **nestlačivima** pri normalnim tlakovima.
+    
+
+## Plinovito stanje (g)
+
+- Čestice su **vrlo udaljene**, gustoća mala.
+    
+- Nema uređenosti strukture; gibanje je nasumično i u svim smjerovima.
+    
+- Plin **nema stalan ni oblik ni volumen** – popunjava cijelu posudu.
+    
+- Volumen plina snažno ovisi o **tlaku** i **temperaturi**.
+    
+
+Idealni plin zadovoljava jednadžbu:
+
+pV=nRTpV=nRT
+
+gdje je pp – tlak, VV – volumen, nn – količina tvari, RR – univerzalna plinska konstanta, TT – temperatura u kelvinima.[](https://gradivo.hr/kemija/online-skripta-kemija/agregacijska-stanja-tvari/)​
+
+## Plazma (četvrto agregacijsko stanje – dodatak)
+
+- **Plazma** je **ionizirani plin** u kojem postoje slobodni ioni i elektroni.
+    
+- Električki je vodljiva, reagira na magnetska polja.
+    
+- Primjeri: unutrašnjost zvijezda, plazma ekrani, neonske svjetiljke.
+    
+
+Na maturi se plazma ponekad spomene, ali se obično ne ulazi duboko.
+
+---
+
+## 6.1.2. Prijelazi između agregacijskih stanja
+
+Nazivi prijelaza:
+
+- čvrsto →→ tekuće: **taljenje**
+    
+- tekuće →→ čvrsto: **skrućivanje** / **kristalizacija** / **stvaranje leda**
+    
+- tekuće →→ plinovito: **isparavanje** / **vrenje**
+    
+- plinovito →→ tekuće: **kondenzacija** / **ukapljivanje**
+    
+- čvrsto →→ plinovito: **sublimacija**
+    
+- plinovito →→ čvrsto: **resublimacija**[](https://edutorij-admin-api.carnet.hr/storage/extracted/9fa73ce9-74d3-4c51-9a14-c976650188a6/html/25073_Cesticna_grada_tvari_i_agregacijska_stanja.html)​
+    
+
+Ovi prijelazi nastaju pri **zagrijavanju** (dovod topline) ili **hlađenju** (odvod topline).
+
+---
+
+## 6.1.3. Temperatura i kinetička energija čestica
+
+- **Temperatura** je mjera **prosječne kinetičke energije** čestica.
+    
+- Kad zagrijavamo čvrstu tvar, čestice jače titraju. Ako dovoljno poraste energija, svladaju privlačne sile – nastupa **taljenje**.
+    
+- U plinovitom stanju srednja kinetička energija jedne čestice proporcionalna je temperaturi:
+    
+
+Ekin∝TEkin∝T
+
+---
+
+## 6.1.4. Toplina pri zagrijavanju i faznim prijelazima
+
+## Zagrijavanje uz promjenu temperature
+
+Kad **nema** promjene agregacijskog stanja, toplina je:
+
+Q=m⋅c⋅ΔTQ=m⋅c⋅ΔT
+
+- QQ – toplina
+    
+- mm – masa
+    
+- cc – specifični toplinski kapacitet
+    
+- ΔTΔT – promjena temperature[](https://gradivo.hr/kemija/online-skripta-kemija/agregacijska-stanja-tvari/)​
+    
+
+To vrijedi za:
+
+- zagrijavanje leda od npr. −10°C−10°C do 0°C0°C,
+    
+- zagrijavanje vode od 20°C20°C do 80°C80°C,
+    
+- zagrijavanje pare.
+    
+
+## Latentna (skrivena) toplina – fazni prijelazi
+
+Pri taljenju ili isparavanju/ kondenzaciji temperatura je **stalna**, a dovodi se ili oduzima **latentna toplina**.
+
+- **Entalpija taljenja** ΔHfusΔHfus:
+    
+    Q=n⋅ΔHfus(taljenje ili skrucˊivanje)Q=n⋅ΔHfus(taljenje ili skrucˊivanje)
+- **Entalpija isparavanja** ΔHvapΔHvap:
+    
+    Q=n⋅ΔHvap(isparavanje ili kondenzacija)Q=n⋅ΔHvap(isparavanje ili kondenzacija)
+
+Moguće je i računati preko mase:
+
+Q=m⋅λtaljiliQ=m⋅λisparQ=m⋅λtaljiliQ=m⋅λispar
+
+gdje su λλ specifične latentne topline.[](https://gradivo.hr/kemija/online-skripta-kemija/agregacijska-stanja-tvari/)​
+
+## Ukupna toplina u višestupanjskom procesu
+
+Ako proces uključuje: grijanje → taljenje → grijanje → isparavanje → grijanje pare, onda:
+
+Qukupno=Q1+Q2+Q3+Q4+Q5Qukupno=Q1+Q2+Q3+Q4+Q5
+
+pri čemu su:
+
+- Q1,Q3,Q5Q1,Q3,Q5: Q=mcΔTQ=mcΔT (zagrijavanja s promjenom TT),
+    
+- Q2,Q4Q2,Q4: Q=mλQ=mλ (taljenje, isparavanje bez promjene TT).[](https://gradivo.hr/kemija/online-skripta-kemija/agregacijska-stanja-tvari/)​
+    
+
+---
+
+## 6.1.5. Fazni dijagram čistih tvari
+
+**Faza**: dio sustava koji ima isti **kemijski sastav** i ista **fizikalna svojstva** u svakoj točki.  
+**Led, voda i vodena para** su tri faze iste tvari (H₂O).
+
+## Fazni dijagram (p–T dijagram)
+
+Fazni dijagram prikazuje koji je **stabilan agregacijski oblik** tvari pri određenom **tlaku** pp i **temperaturi** TT.
+
+Tipične linije:
+
+- linija **taljenja** (granica čvrsto–tekuće)
+    
+- linija **isparavanja** (granica tekuće–plinovito)
+    
+- linija **sublimacije** (granica čvrsto–plinovito)
+    
+
+## Trojna točka
+
+**Trojna točka** – jedinstvena točka gdje istodobno koegzistiraju **čvrsta, tekuća i plinovita faza** u ravnoteži.
+
+Za vodu (tipične vrijednosti):
+
+T≈273,16 K (0,01°C),p≈611 PaT≈273,16 K (0,01°C),p≈611 Pa
+
+## Kritična točka (bitno za širu sliku)
+
+Na liniji tekuće–plinovito granica završava u **kritičnoj točki**. Iznad nje:
+
+- više se ne može razlikovati tekuća i plinovita faza,
+    
+- postoji **superkritični fluid**.[](https://hr.wikipedia.org/wiki/Fazni_dijagram)​
+    
+
+Za vodu:
+
+Tkrit≈647 K,pkrit≈22,064 MPaTkrit≈647 K,pkrit≈22,064 MPa
+
+Na maturi se kritična točka obično spominje površno (definicija).
+
+---
+
+## 6.2. Svojstva tekućina
+
+## 6.2.1. Gustoća, ρρ [kg m−3][kg m−3]
+
+**Definicija**:
+
+ρ=mVρ=Vm
+
+- mm – masa
+    
+- VV – volumen
+    
+- ρρ – gustoća
+    
+
+## Ovisnost gustoće o temperaturi
+
+Za većinu tekućina:
+
+- s porastom temperature volumen raste → gustoća se smanjuje:
+    
+
+V(T)≈V0(1+αΔT)⇒ρ↓ ako T↑V(T)≈V0(1+αΔT)⇒ρ↓ ako T↑
+
+## Anomalija vode
+
+**Voda je iznimka**:
+
+- Gustoća vode je **najveća** pri oko 4°C4°C (~1000 kg m−31000 kg m−3).
+    
+- Od 0°C0°C do 4°C4°C – gustoća raste s porastom TT.
+    
+- Iznad 4°C4°C – ponaša se „normalno“ (gustoća se smanjuje s temperaturom).
+    
+
+To objašnjava zašto **led pluta**, a dublji slojevi vode u jezerima zimi ostanu na oko 4 °C.
+
+## Uređaji za određivanje gustoće
+
+- **Areometar** – plutajuće tijelo, uranja dublje u tekućinu manje gustoće; ovisno o uronjenom dijelu čita se gustoća.
+    
+- **Piknometar** – mala tikvica poznatog volumena; mjeri se masa praznog i napunjenog piknometra, pa se iz mase i volumena dobije gustoća.[](https://eucenjekemije.com/agregatna-stanja-tvari/)​
+    
+
+Na maturi se najčešće traži **znati čemu služi**, ne nužno detaljan princip rada.
+
+---
+
+## 6.2.2. Viskoznost, ηη [Pa s][Pa s]
+
+**Viskoznost** je mjera **otpornosti protjecanju** ili **unutarnjeg trenja** tekućine.[](https://edutorij-admin-api.carnet.hr/storage/extracted/15cf791a-4c97-4f29-84d9-17c1b47ceccc/kemija-2/m02/j01/index.html)​
+
+- Potječe od **intermolekulskih sila** (vodikove veze, van der Waalsove sile, dipol–dipol interakcije).
+    
+- Što su molekule **veće** i međumolekulske sile **jače**, viskoznost ηη je veća.[](https://edutorij-admin-api.carnet.hr/storage/extracted/15cf791a-4c97-4f29-84d9-17c1b47ceccc/kemija-2/m02/j01/index.html)​
+    
+
+Primjeri viskoznih tvari: med, čokolada, glicerol, maslinovo ulje, sumporna kiselina, živa, etanol, voda (relativno mala viskoznost).[](https://edutorij-admin-api.carnet.hr/storage/extracted/15cf791a-4c97-4f29-84d9-17c1b47ceccc/kemija-2/m02/j01/index.html)​
+
+## Ovisnost viskoznosti o temperaturi
+
+- S porastom temperature viskoznost **opada**:
+    
+
+η↓ ako T↑η↓ ako T↑
+
+jer molekule lakše nadvladaju međusobne privlačne sile.[](https://edutorij-admin-api.carnet.hr/storage/extracted/15cf791a-4c97-4f29-84d9-17c1b47ceccc/kemija-2/m02/j01/index.html)​
+
+## Uređaj: Ostwaldov viskozimetar
+
+- Mjeri **vrijeme protjecanja** određene količine tekućine kroz kapilarnu cijev.
+    
+- Viskoznost nepoznate tekućine uspoređuje se s **referentnom tekućinom** (obično vodom) putem omjera vremena protjecanja i gustoća.[](https://edutorij-admin-api.carnet.hr/storage/extracted/15cf791a-4c97-4f29-84d9-17c1b47ceccc/kemija-2/m02/j01/index.html)​
+    
+
+---
+
+## 6.2.3. Napetost površine, σσ [N m−1][N m−1]
+
+**Napetost površine** je mjera **sile po jedinici duljine** koja djeluje na površinske molekule tekućine.[](http://katedre.mefos.hr/bmsmi/images/praktikum/MED/01Napetost_povrsine.pdf)​
+
+- Posljedica je **kohezijskih sila** (privlačne sile između molekula tekućine).
+    
+- Površinski sloj tekućine ponaša se kao **elastična opna**.[](http://katedre.mefos.hr/bmsmi/images/praktikum/MED/01Napetost_povrsine.pdf)​
+    
+
+Primjeri:
+
+- **voda** – visoka napetost površine zbog vodikovih veza,
+    
+- **živa** – vrlo visoka zbog metalne veze,
+    
+- **heksan** – niska zbog slabih disperzijskih sila.
+    
+
+## Ovisnost o temperaturi
+
+- Uz porast temperature, napetost površine **opada**:
+    
+
+σ↓ ako T↑σ↓ ako T↑
+
+jer se molekule brže gibaju i lakše „izlaze“ na površinu.[](http://katedre.mefos.hr/bmsmi/images/praktikum/MED/01Napetost_povrsine.pdf)​
+
+## Uređaj: stalagmometar
+
+- Mjeri se **broj kapljica** određene tekućine koje isteknu iz kapilare.
+    
+- Na temelju mase kapljice i njihovog broja može se izračunati σσ.[](http://katedre.mefos.hr/bmsmi/images/praktikum/MED/01Napetost_povrsine.pdf)​
+    
+
+---
+
+## 6.2.4. Tenzidi (površinski aktivne tvari)
+
+**Tenzidi** su molekule koje smanjuju površinsku napetost tekućine.[](https://edutorij-admin-api.carnet.hr/storage/extracted/15cf791a-4c97-4f29-84d9-17c1b47ceccc/kemija-2/m02/j01/index.html)​
+
+Građa:
+
+- **hidrofilni dio** (polarna/ionska „glava“ – npr. karboksilna skupina, sulfatna skupina),
+    
+- **hidrofobni dio** (ugljikovodični lanac – „rep“).
+    
+
+Posljedice:
+
+- smanjuju površinsku napetost vode,
+    
+- olakšavaju „močenje“ površina (npr. pranje rublja),
+    
+- djeluju kao **detergenti**, **emulgatori**.[](https://edutorij-admin-api.carnet.hr/storage/extracted/15cf791a-4c97-4f29-84d9-17c1b47ceccc/kemija-2/m02/j01/index.html)​
+    
+
+Primjeri: sapuni, deterdženti.
+
+---
+
+## 6.2.5. Kapilarni uspon, kohezija i adhezija (dodatak za maturu)
+
+**Kohezija** – sile između **istih** čestica (npr. voda–voda).  
+**Adhezija** – sile između **različitih** čestica (voda–stijenka stakla).[](https://www.mathos.unios.hr/~mdjumic/uploads/diplomski/GRA40.pdf)​
+
+**Kapilarni uspon**:[](https://www.mathos.unios.hr/~mdjumic/uploads/diplomski/GRA40.pdf)​
+
+- U uskoj cjevčici (kapilari) voda se može **podignuti** iznad razine u posudi.
+    
+- Ako su **adhezijske sile > kohezijske**, tekućina moči stijenke, menisk je **konkavan**, tekućina se penje.
+    
+- Ako su **kohezijske sile > adhezijske**, menisk je **konveksan** (npr. živa u staklu) i tekućina se spušta.[](https://www.mathos.unios.hr/~mdjumic/uploads/diplomski/GRA40.pdf)​
+    
+
+Kapilarni uspon je izravna posljedica **napetosti površine** i **adhezijskih sila**.
+
+---
+
+## 6.3. Čvrste tvari – kristali i amorfne tvari
+
+## Amorfne tvari
+
+- Nemaju **pravilnu unutarnju građu**, pa ih često zovemo **jako pothlađene tekućine**.
+    
+- Nemaju **točno određeno talište** – pri zagrijavanju postupno mekšaju.
+    
+- Primjeri: staklo, vosak.
+    
+
+## Kristali
+
+- Imaju **pravilnu unutarnju građu** → zbog toga im je i vanjski oblik često pravilan.
+    
+- Imaju **točno određeno talište**.
+    
+- Raspored čestica (atoma, iona ili molekula) opisuje se **kristalnom rešetkom**.
+    
+- Najmanji dio koji se ponavlja u sva tri smjera zove se **elementarna ćelija**.[](https://gradivo.hr/kemija/online-skripta-kemija/agregacijska-stanja-tvari/)​
+    
+
+Parametri elementarne ćelije:
+
+- bridovi: a,b,ca,b,c
+    
+- kutovi između bridova: α,β,γα,β,γ
+    
+
+Svi kristali se mogu svrstati u **7 kristalnih sustava** (kubični, tetragonski, ortorombični, monoklinski, triklinski, heksagonalni, romboedarski).[](https://gradivo.hr/kemija/online-skripta-kemija/agregacijska-stanja-tvari/)​
+
+---
+
+## 6.X. Talište i vrelište
+
+## Talište (temperatura taljenja)
+
+- Temperatura pri kojoj se tvar počinje taliti (čvrsto →→ tekuće stanje).
+    
+- Ovisi o tlaku – u pravilu: veći tlak može sniziti talište nekih tvari (npr. leda).[](https://gradivo.hr/kemija/online-skripta-kemija/agregacijska-stanja-tvari/)​
+    
+
+## Vrelište (temperatura vrelišta)
+
+- Temperatura pri kojoj se **tlak para tekućine** izjednači s **vanjskim (atmosferskim) tlakom**.
+    
+- Pri standardnom tlaku p=101 325 Pap=101325 Pa, voda vrije pri 100°C100°C.[](https://gradivo.hr/kemija/online-skripta-kemija/agregacijska-stanja-tvari/)​
+    
+
+Na višim nadmorskim visinama tlak je manji → voda vrije na **nižoj temperaturi**.
+
+---
+
+Ovim proširenjem:
+
+- ništa iz prethodnog sažetka nije izbačeno,
+    
+- dodani su uređaji (areometar, piknometar, stalagmometar), kapilarni uspon, plazma, kritična točka, puni popis prijelaza, (aq)(aq) oznaka i nekoliko važnih komentara vezanih uz maturu.

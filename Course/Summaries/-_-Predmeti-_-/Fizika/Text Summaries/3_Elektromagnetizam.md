@@ -55,4 +55,623 @@ Promatrat ćemo serijski spoj omskog, induktivnog i kapacitivnog otpora. Ukupni 
 Električna rezonancija Induktivni i kapacitivni otpor ovise o frekvenciji izmjenične struje. Otpor u krugu izmjenične struje bit će najmanji ako je induktivni opor jednak kapacitivnom: RL = Rc Tada između jakosti struje i napona nema razlike u fazi. Krugom izmjenične struje tada teče najjača struja. Tada je došlo do rezonancije (maksimalnog prijenosa energije) između izvora i L - G kruga. Raspišemo gornju jednakost: 1 Lw=- Cw 1 L2nf = C2nf 1 f = 2n& f je rezonantna frekvencija. To je ujedno i vlastita frekvencija L - G kruga.  
 Transformator Transformator je uređaj koji C·f služi za transformaciju u, izmjeničnih napona i struja na više ili niže vrijednosti. Transformatorom ne možemo transformirati frekvenciju. Radi na principu međuindukcije dvije zavojnice povezane željeznom jezgrom. Zavojnicu na koju priključujemo veličine koje želimo transformirati nazivamo primarna zavojnica. Zavojnicu na kojoj dobijemo transformirane veličine nazivamo sekundarna zavojnica. Primarni napon Ul' sekundarni napon U2 povezani su sa brojem zavoja N1primarne zavojnice i brojem zavoja N2 sekundarne zavojnice preko jednadžbe:  
 U1/U2=N1/N2=I2/I1  
-IV TITEANJE, VALOVI I OPTIKA
+
+PERPLEXITY --------------------------------------------------------------------------
+Da, mogu to ugraditi; ispod je proširena verzija ranijeg sažetka, dopunjena stvarima koje si tražio i proširenjima relevantnim za maturu (ništa iz starog nisam izbacio, samo sam dodavao i dorađivao).
+
+---
+
+# Elektrostatika
+
+## Električni naboj
+
+Postoje dvije vrste električnog naboja: **pozitivni** (protoni) i negativni (elektroni).[](https://gradivo.hr/fizika/fizika-online-skripta-za-2-razred/coulombov-zakon-i-elektricno-polje/)​  
+Naboj protona je e=+1.6×10−19 Ce=+1.6×10−19C, naboj elektrona e=−1.6×10−19 Ce=−1.6×10−19C.  
+Elementarni naboj je e=1.6×10−19 Ce=1.6×10−19C; ukupni naboj tijela je
+
+Q=Ne,N=1,2,3,…Q=Ne,N=1,2,3,…
+
+Kažemo da je električni naboj kvantiziran.[](https://gradivo.hr/fizika/fizika-online-skripta-za-2-razred/coulombov-zakon-i-elektricno-polje/)​
+
+- Elektrizacija trenjem: pri trljanju plastičnog štapa krznom, štap postaje negativno nabijen (dobiva elektrone).
+    
+- Pravilo sila:
+    
+    - Istoimeni naboji se odbijaju.
+        
+    - Raznoimeni naboji se privlače.[](https://gradivo.hr/fizika/fizika-online-skripta-za-2-razred/coulombov-zakon-i-elektricno-polje/)​
+        
+
+**Zakon očuvanja naboja**: u zatvorenom sustavu ukupni naboj je stalni – naboji se mogu premještati i stvarati u parovima, ali se ne mogu „iz ništa“ pojaviti niti nestati.
+
+**Superpozicija električnih sila/polja**:
+
+- Rezultantna sila na naboj jednak je vektorskom zbroju sila svih ostalih naboja.
+    
+- Jakost rezultantnog električnog polja u točki jednaka je vektorskom zbroju polja svih naboja.  
+    Ovo je ključno za zadatke s više naboja.
+    
+
+---
+
+## Elektroskop i električna influencija
+
+## Elektroskop
+
+Elektroskop je uređaj kojim otkrivamo je li neko tijelo električki nabijeno.  
+Ne može razlikovati vrstu naboja (pozitivni/negativni), već samo „ima li naboja ili nema“.
+
+Dijelovi elektroskopa:
+
+1. Metalno kućište (uglavnom uzemljeno).
+    
+2. Staklene stijenke (prednja i stražnja) – vizualni pristup.
+    
+3. Metalna šipka: gore šuplja kugla/ploča, dolje lagani aluminijski listići.
+    
+4. Plastični čep – izolira šipku od kućišta (sprečava pražnjenje).
+    
+
+**Rad s kontaktom**:
+
+- Negativno nabijeni štap dotakne elektroskop → elektroni prelaze na šipku → listići se otklanjaju (odbijaju se jer imaju isti naboj).
+    
+- Pozitivno nabijeni štap dotakne elektroskop → elektroni s elektroskopa prelaze na štap → elektroskop postane pozitivan, listići se opet otklone.[](https://hr.wikipedia.org/wiki/Elektroskop)​
+    
+
+Otklon listića raste s količinom naboja na elektroskopu.
+
+## Električna influencija (indukcija)
+
+Ako negativno nabijeni štap približimo neutralnom elektroskopu (bez dodira), u elektroskopu dolazi do razdvajanja naboja: negativni naboji se udaljavaju od štapa, pozitivni „ostaju bliže“.  
+Aluminijski listići se otklone jer na njima dominira isti predznak naboja.  
+Kad uklonimo štap, naboji se ponovno ravnomjerno rasporede i listići se vrate u početni položaj.
+
+Ovu pojavu zovemo **električna indukcija (influencija)** – razdvajanje naboja u neutralnom tijelu zbog vanjskog naboja.[](https://gradivo.hr/fizika/fizika-online-skripta-za-2-razred/coulombov-zakon-i-elektricno-polje/)​
+
+---
+
+## Coulombov zakon (električna sila)
+
+Coulomb je eksperimentalno odredio da je sila između točkastih naboja razmjerna umnošku naboja i obrnuto razmjerna kvadratu udaljenosti.
+
+F=kQ1Q2ϵrr2F=kϵrr2Q1Q2
+
+gdje je
+
+- k=14πϵ0≈9×109 N m2C2k=4πϵ01≈9×109C2Nm2,
+    
+- ϵ0=8.85×10−12 C2N m2ϵ0=8.85×10−12Nm2C2 – permitivnost vakuuma,
+    
+- ϵrϵr – relativna permitivnost sredstva (vakuum: ϵr=1ϵr=1, zrak: ϵr≈1ϵr≈1).
+    
+
+Relativna permitivnost opisuje koliko je sila u vakuumu veća od sile u danom sredstvu:
+
+ϵr=FvakuumFsredstvoϵr=FsredstvoFvakuum
+
+---
+
+## Električno polje
+
+Električno polje je prostor oko naboja u kojem djeluje električna sila.
+
+**Jakost električnog polja**:
+
+E=FqE=qF[E]=NC=Vm[E]=CN=mV
+
+Smjer vektora EE je smjer sile na pozitivan probni naboj.[](https://gradivo.hr/fizika/fizika-online-skripta-za-2-razred/coulombov-zakon-i-elektricno-polje/)​
+
+**Silnice** električnog polja: zamišljene linije čiji je smjer jednak smjeru polja.
+
+- Gušće silnice → jače polje.
+    
+- Rjeđe silnice → slabije polje.
+    
+
+## Polje točkastog naboja i kugle
+
+Za točkasti naboj QQ:
+
+E=kQϵrr2E=kϵrr2Q
+
+Smjer: radijalno od naboja (ako je Q>0Q>0) ili prema naboju (ako je Q<0Q<0).[](https://gradivo.hr/fizika/fizika-online-skripta-za-2-razred/coulombov-zakon-i-elektricno-polje/)​
+
+Za metalnu kuglu radijusa RR s ukupnim nabojem QQ:
+
+- Unutra (r<Rr<R): E=0E=0.
+    
+- Na površini (r=Rr=R): EE maksimalan.
+    
+- Izvana (r>Rr>R): E=kQ/(ϵrr2)E=kQ/(ϵrr2) – kao da je sav naboj u središtu.
+    
+
+To je posljedica simetrije i Gaussova zakona (kvalitativno: tok polja kroz zatvorenu površinu ovisi samo o ukupnom naboju u njoj).
+
+---
+
+## Električna potencijalna energija i električni potencijal
+
+Analogno gravitaciji: u gravitacijskom polju Zemlje tijelo mase mm ima
+
+Egp=mghEgp=mgh
+
+Za naboj qq u homogenom električnom polju jakosti EE na udaljenosti rr:
+
+Ep=qErEp=qEr
+
+**Električni potencijal** φφ:
+
+φ=Epqφ=qEp[φ]=V[φ]=V
+
+Za točkasti naboj ili kuglu:
+
+φ(r)=kQϵrrφ(r)=kϵrrQ
+
+Unutar nabijene metalne kugle i na površini potencijal je isti – kugla je **ekvipotencijalno tijelo**; izvan kugle potencijal opada obrnuto proporcionalno rr.
+
+**Električni napon**:
+
+U=φ1−φ2U=φ1−φ2
+
+To je razlika potencijala između dviju točaka polja; to je veličina koju mjeri voltmetar.[](https://gradivo.hr/fizika/fizika-online-skripta-za-2-razred/coulombov-zakon-i-elektricno-polje/)​
+
+---
+
+## Kondenzator
+
+Električni kondenzator pohranjuje naboj: jedna ploča pozitivna, druga negativna.
+
+**Kapacitet** CC:
+
+C=QUC=UQ[C]=F[C]=F
+
+**Pločasti kondenzator**:
+
+C=ϵ0ϵrAdC=ϵ0ϵrdA
+
+- AA – površina ploče
+    
+- dd – razmak između ploča.
+    
+
+**Energija** nabijenog kondenzatora:
+
+W=12QU=12CU2=Q22CW=21QU=21CU2=2CQ2
+
+**Načini spajanja**:
+
+- Serijski:
+    
+    1Cs=1C1+1C2+⋯+1Cn,Q=konst.Cs1=C11+C21+⋯+Cn1,Q=konst.
+- Paralelni:
+    
+    Cp=C1+C2+⋯+CnCp=C1+C2+⋯+Cn
+
+## Homogeno električno polje
+
+Između ploča kondenzatora stvara se približno homogeno polje; silnice idu od pozitivne prema negativnoj ploči.  
+Jakost:
+
+E=UdE=dU[E]=Vm=NC[E]=mV=CN
+
+---
+
+## Gibanje naboja u električnom polju
+
+Na naboj qq mase mm u polju jakosti EE djeluje sila:
+
+F=qEF=qE
+
+Po 2. Newtonovu zakonu:
+
+a=Fm=qEma=mF=mqE
+
+Za kondenzator:
+
+E=Ud⇒a=qUmdE=dU⇒a=mdqU
+
+Pozitivna čestica koja ulazi u homogeno polje iz mirovanja jednoliko ubrzava u smjeru polja; za negativnu česticu smjer akceleracije je suprotan smjeru polja.[](https://www.phy.uniri.hr/~vlabinac/files/index/skripte/ele_pregled.pdf)​
+
+Promjena kinetičke energije:
+
+ΔEk=qUΔEk=qU
+
+To je izraz koji se stalno koristi u zadacima za maturu (elektronski top, ubrzavanje iona itd.).[](https://www.phy.uniri.hr/~vlabinac/files/index/skripte/ele_pregled.pdf)​
+
+---
+
+# Elektrodinamika
+
+## Električna struja
+
+**Jakost struje**:
+
+I=ΔQΔtI=ΔtΔQ[I]=A[I]=A
+
+U metalnim vodičima struju čini usmjereno gibanje slobodnih elektrona.  
+Za metalnu žicu presjeka SS:
+
+I=SvenI=Sven
+
+gdje je nn broj slobodnih elektrona u jedinici volumena, a vv drift brzina.
+
+**Dogovoreni smjer struje**: od pozitivnog prema negativnom polu izvora, što je suprotno stvarnom smjeru gibanja elektrona.
+
+---
+
+## Električni otpor i Ohmov zakon
+
+Otpor:
+
+R=UIR=IU[R]=Ω[R]=Ω
+
+Ohmov zakon za dio strujnog kruga:
+
+U=RIU=RI
+
+Grafički, u I ⁣ ⁣− ⁣UI−U koordinatnom sustavu dobivamo pravac kroz ishodište; nagib određuje otpor (veći nagib → veći otpor).[](https://www.phy.uniri.hr/~vlabinac/files/index/skripte/ele_pregled.pdf)​
+
+**Vodljivost**:
+
+G=1RG=R1[G]=S (simens)[G]=S(simens)
+
+Ohmov zakon preko vodljivosti:
+
+I=UGI=UG
+
+## Otpor ravnog vodiča
+
+R=ρlSR=ρSl
+
+gdje je
+
+- ρρ – električna otpornost tvari ([ρ]=Ω m[ρ]=Ωm),
+    
+- ll – duljina vodiča,
+    
+- SS – površina poprečnog presjeka.
+    
+
+Ovisnost o temperaturi:
+
+R=R0(1+αΔT)R=R0(1+αΔT)
+
+- αα – temperaturni koeficijent otpora ([α]=K−1[α]=K−1),
+    
+- kod metala RR raste s temperaturom.[](https://www.phy.uniri.hr/~vlabinac/files/index/skripte/ele_pregled.pdf)​
+    
+
+---
+
+## Načini spajanja otpornika
+
+**Serijski spoj**:
+
+- Struja je svugdje ista: I1=I2=⋯=II1=I2=⋯=I.
+    
+- Napon se dijeli: U=U1+U2+…U=U1+U2+….
+    
+- Ukupni otpor:
+    
+
+Rs=R1+R2+⋯+RnRs=R1+R2+⋯+Rn
+
+**Paralelni spoj**:
+
+- Napon je svugdje isti: U1=U2=⋯=UU1=U2=⋯=U.
+    
+- Struja se dijeli: I=I1+I2+…I=I1+I2+….
+    
+- Ukupni otpor:
+    
+
+1Rp=1R1+1R2+⋯+1RnRp1=R11+R21+⋯+Rn1
+
+---
+
+## Rad i snaga električne struje
+
+Rad električne struje:
+
+W=UItW=UIt
+
+Kombinacijom s Ohmovim zakonom:
+
+W=U2Rt=I2RtW=RU2t=I2Rt
+
+Snaga:
+
+P=Wt=UI=I2R=U2RP=tW=UI=I2R=RU2
+
+Ovo je ključ za zadatke o žaruljama, grijačima, električnim uređajima.[](https://www.phy.uniri.hr/~vlabinac/files/index/skripte/ele_pregled.pdf)​
+
+---
+
+## Elektromotorni napon i drugo Kirchhoffovo pravilo
+
+**Elektromotorni napon** EE: rad nefektričnih sila izvora po jedinici pozitivnog naboja:
+
+E=WqE=qW[E]=V[E]=V
+
+Stariji naziv: elektromotorna sila (EMS).[](https://www.phy.uniri.hr/~vlabinac/files/index/skripte/ele_pregled.pdf)​
+
+**Strujni krug**:
+
+- Unutarnji dio: izvor s unutarnjim otporom RuRu.
+    
+- Vanjski dio: sve ostalo (trošila, vodiči) – ukupni otpor RvRv.
+    
+
+Drugo Kirchhoffovo pravilo:
+
+E=Uv+Uu=IRv+IRu=I(Rv+Ru)E=Uv+Uu=IRv+IRu=I(Rv+Ru)
+
+Jakost struje:
+
+I=ERu+RvI=Ru+RvE
+
+Struja kratkog spoja (kad je Rv=0Rv=0):
+
+IKS=ERuIKS=RuE
+
+---
+
+# Magnetizam
+
+## Magnetsko polje i magnet
+
+Magnetsko polje je prostor oko magneta u kojem djeluje magnetska sila.  
+Magnet ima sjeverni (N) i južni (S) pol; polove nije moguće odvojiti – prepolovljeni magnet opet ima oba pola.
+
+- Feromagnetski materijali: Fe, Ni, Co i njihove legure.
+    
+- Magnetsko djelovanje je najjače na polovima, najslabije u sredini magneta.
+    
+- Istoimeni polovi se odbijaju, raznoimeni se privlače.[](https://edutorij-admin-api.carnet.hr/storage/extracted/8201/html/1159_Elektricna_struja_i_magnetizam.html)​
+    
+
+## Silnice magnetskog polja
+
+Silnice su zamišljene zatvorene linije koje izlaze iz sjevernog i ulaze u južni pol magneta.  
+Smjer magnetskog polja u točki jednak je smjeru tangente na silnicu.  
+Piljevina na papiru iznad magneta vizualizira silnice.[](https://edutorij-admin-api.carnet.hr/storage/extracted/8201/html/1159_Elektricna_struja_i_magnetizam.html)​
+
+---
+
+## Magnetska indukcija i magnetski tok
+
+**Magnetska indukcija** BB:
+
+[B]=T[B]=T
+
+Opisuje „jačinu“ magnetskog polja.
+
+Ovisi o **permeabilnosti** μμ:
+
+μ=μ0μrμ=μ0μrμ0=4π×10−7 T mAμ0=4π×10−7ATm
+
+- μrμr – relativna permeabilnost (vakuum/zrak: μr≈1μr≈1).[](https://www.mev.hr/wp-content/uploads/2020/02/Elektromagnetizam-rije%C5%A1eni-zadaci.pdf)​
+    
+
+**Magnetski tok** ΦΦ:
+
+Φ=BScos⁡αΦ=BScosα[Φ]=Wb[Φ]=Wb
+
+- SS – površina,
+    
+- αα – kut između vektora površine (normale) i BB.
+    
+
+Maksimalan je za α=0∘α=0∘ (silnice okomite na površinu); nula za α=90∘α=90∘.[](https://www.mev.hr/wp-content/uploads/2020/02/Elektromagnetizam-rije%C5%A1eni-zadaci.pdf)​
+
+---
+
+## Oerstedov pokus, polje oko struje
+
+Oersted je otkrio da oko vodiča kojim teče struja nastaje magnetsko polje: magnetska igla u blizini vodiča se otklanja kada kroz vodič poteče struja.[](https://edutorij-admin-api.carnet.hr/storage/extracted/8201/html/1159_Elektricna_struja_i_magnetizam.html)​
+
+## Magnetsko polje oko ravnog vodiča
+
+Silnice su koncentrične kružnice u ravninama okomitim na vodič.  
+Smjer dobivamo **pravilom desne ruke**:
+
+- Palac pokazuje smjer struje,
+    
+- Savijeni prsti pokazuju smjer silnica.[](https://edutorij-admin-api.carnet.hr/storage/extracted/702081/html/7582_Magnetsko_polje_elektricne_struje.html)​
+    
+
+Indukcija na udaljenosti rr od vodiča:
+
+B=μ0μrI2πrB=2πrμ0μrI
+
+## Strujna petlja i zavojnica
+
+Strujna petlja je vodič savijen u krug; jedna strana se ponaša kao sjeverni, druga kao južni pol.  
+Indukcija u središtu petlje:
+
+B=μ0μrI2rB=2rμ0μrI
+
+Zavojnica (solenoid) – više petlji (N zavoja): stvara gotovo homogeno polje unutar:
+
+B=μ0μrNIlB=μ0μrlNI
+
+- ll – duljina zavojnice.
+    
+
+**Elektromagnet**: zavojnica s željeznom jezgrom; jačina polja se pojača, a gubi se kad se struja isključi.[](https://edutorij-admin-api.carnet.hr/storage/extracted/8201/html/1159_Elektricna_struja_i_magnetizam.html)​
+
+---
+
+## Magnetske sile
+
+## Ampereova sila (vodič u polju)
+
+Sila na ravni vodič duljine ll u homogenom polju B:
+
+FA=BIlsin⁡αFA=BIlsinα
+
+gdje je αα kut između smjera struje i silnica.[](https://element.hr/wp-content/uploads/2020/06/unutra-12308.pdf)​
+
+Smjer – **pravilo desnog dlana**:
+
+- Palac: smjer struje.
+    
+- Prsti: smjer silnica.
+    
+- Sila izlazi okomito iz dlana (za pozitivni smjer konvencije).
+    
+
+## Lorentzova sila (čestica u polju)
+
+FL=qvBsin⁡αFL=qvBsinα
+
+- αα: kut između brzine i BB.
+    
+
+Smjer za pozitivnu česticu – pravilo desnog dlana (palac: vv, prsti: BB, sila je okomito iz dlana); za negativnu česticu smjer je suprotan (okomito u dlan).
+
+Općenito:
+
+F=q(E+v×B)F=q(E+v×B)
+
+(za maturu obično se koristi posebni slučaj samo magnetskog ili samo električnog polja).[](http://sail.zpf.fer.hr/labs/elektromagnetizam.pdf)​
+
+## Gibanje čestice u homogenom B
+
+Ako čestica uđe okomito na BB, gibanje je jednoliko po kružnici:  
+Lorentzova sila glumi centripetalnu:
+
+qvB=mv2r⇒r=mvqBqvB=rmv2⇒r=qBmv
+
+Brzina se ne mijenja po iznosu, samo smjer; energija ostaje ista.[](https://element.hr/wp-content/uploads/2020/06/unutra-12308.pdf)​  
+Ako čestica uđe paralelno sa silnicama, FL=0FL=0 i gibanje je pravocrtno jednoliko.
+
+## Sila između dvaju paralelnih vodiča
+
+Dva duga paralelna vodiča na razmaku dd s strujama I1I1 i I2I2:
+
+F=μ0μrI1I2l2πdF=2πdμ0μrI1I2l
+
+- Struje u istom smjeru → privlače se.
+    
+- Struje u suprotnom smjeru → odbijaju se.[](https://element.hr/wp-content/uploads/2020/06/unutra-12308.pdf)​
+    
+
+---
+
+# Elektromagnetska indukcija
+
+Faraday je otkrio da promjena magnetskog toka kroz zavojnicu inducira napon.
+
+## Faradayev zakon indukcije
+
+Ui=−NΔΦΔtUi=−NΔtΔΦ
+
+- NN – broj zavoja,
+    
+- ΦΦ – magnetski tok.
+    
+
+Minus znak je posljedica **Lenzova pravila**.
+
+## Lenzovo pravilo
+
+Smjer induciranog napona i struje je takav da se suprotstavlja promjeni magnetskog toka koji ga je uzrokovao.[](https://hr.wikipedia.org/wiki/Lenzovo_pravilo)​  
+Intuitivno: sustav „pokušava zadržati“ postojeći tok – to je važno kod smjera struje u petlji i kod samoindukcije.
+
+## Indukcija u ravnom vodiču
+
+Ako se vodič duljine ll giba brzinom vv u polju BB (okomito na silnice i na sam vodič):
+
+Ui=Blvsin⁡αUi=Blvsinα
+
+Za α=90∘α=90∘ dobiva se maksimalni napon.[](https://hr.wikipedia.org/wiki/Elektromagnetska_indukcija)​
+
+## Samoindukcija i induktivnost
+
+Promjena struje u zavojnici mijenja tok i inducira napon na istoj zavojnici:
+
+Ui=−LΔIΔtUi=−LΔtΔI
+
+- LL – induktivnost zavojnice:
+    
+
+L=NΦIL=INΦ[L]=H (henri)[L]=H(henri)
+
+---
+
+# Izmjenična struja (AC)
+
+Izmjenična struja (AC) ima promjenjivu jakost i smjer; dobiva se generatorima na temelju elektromagnetske indukcije.[](https://edutorij-admin-api.carnet.hr/storage/extracted/702081/html/7589_Izmjenicna_struja.html)​
+
+Za sinusoidni napon i struju:
+
+u(t)=Umsin⁡(ωt),i(t)=Imsin⁡(ωt)u(t)=Umsin(ωt),i(t)=Imsin(ωt)ω=2πfω=2πf
+
+**Efektivne vrijednosti**:
+
+U=Um2,I=Im2U=2Um,I=2Im
+
+Instrumenti (voltmetar, ampermetar) pokazuju efektivne vrijednosti.[](https://edutorij-admin-api.carnet.hr/storage/extracted/702081/html/7589_Izmjenicna_struja.html)​
+
+---
+
+## Otpori u AC krugu
+
+- Omski (radni) otpor: RR – isti kao u DC.
+    
+- Induktivni otpor:
+    
+    RL=ωL=2πfLRL=ωL=2πfL
+- Kapacitivni otpor:
+    
+    RC=1ωC=12πfCRC=ωC1=2πfC1
+
+**Impedancija** ZZ serijskog R-L-C kruga:
+
+Z=R2+(RL−RC)2Z=R2+(RL−RC)2I=UZI=ZU
+
+## Fazni pomak (bitno za maturu)
+
+- Čisti R: napon i struja su u fazi (φ=0φ=0).
+    
+- Čisti L: struja zaostaje za naponom za 90∘90∘ (φ=+π/2φ=+π/2).
+    
+- Čisti C: struja prethodi naponu za 90∘90∘ (φ=−π/2φ=−π/2).[](https://edutorij-admin-api.carnet.hr/storage/extracted/702081/html/7589_Izmjenicna_struja.html)​
+    
+
+Za R-L-C serijski:
+
+tan⁡φ=RL−RCRtanφ=RRL−RC
+
+Faktor snage:
+
+cos⁡φ=PUIcosφ=UIP
+
+(ovo se zna pojavljivati kvalitativno na maturi).[](https://edutorij-admin-api.carnet.hr/storage/extracted/702081/html/7589_Izmjenicna_struja.html)​
+
+---
+
+## Električna rezonancija
+
+U R-L-C serijskom krugu, impedancija je minimalna kad je:
+
+RL=RC⇒ω0=1LCRL=RC⇒ω0=LC1f0=12πLCf0=2πLC1
+
+Tada su napon i struja u fazi, a kroz krug teče najveća struja (maksimalan prijenos energije).[](https://edutorij-admin-api.carnet.hr/storage/extracted/702081/html/7589_Izmjenicna_struja.html)​
+
+---
+
+## Transformator
+
+Transformator transformira izmjenične napone i struje (ne frekvenciju).  
+Radi na principu međuindukcije dviju zavojnica na zajedničkoj (feromagnetskoj) jezgri.[](https://www.phy.uniri.hr/~eduphy01/magnetizam.html)​
+
+Primarni napon U1U1, sekundarni U2U2, brojevi zavoja N1,N2N1,N2:
+
+U1U2=N1N2=I2I1U2U1=N2N1=I1I2
+
+- N2>N1N2>N1: transformator povisuje napon (snižava struju).
+    
+- N2<N1N2<N1: snižava napon (povisuje struju).[](https://www.phy.uniri.hr/~eduphy01/magnetizam.html)

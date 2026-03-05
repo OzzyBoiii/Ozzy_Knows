@@ -448,3 +448,408 @@ Izjednačimo (1) i (2) pa imamo
 15 10
 Traženi opseg je O = 2x = 12
 Nakon toga zadatak postaje planimetrijski, tj. više se ne bavimo tijelima nego trokutima, kružnicama,... Evo što se vidi na presjeku:
+
+PERPLEXITY -------------------------
+# 📐 Analitička Geometrija & Geometrija – Kompletni Sažetak (matura fokus)
+
+## 🧭 Osnovni pojmovi
+
+## Analitička geometrija
+
+Analitička geometrija je grana matematike koja geometrijske probleme rješava **algebarski** preko koordinatnog sustava.[](https://www.scribd.com/document/645598610/Analiticka-geometrija)​  
+Točka u ravnini zadana je uređenim parom (x,y)(x,y), pravac linearnom jednadžbom, kružnica kvadratnom jednadžbom u xx i yy.  
+Osnivačem analitičke geometrije smatra se **René Descartes**.
+
+## Kolinearnost i komplanarnost
+
+- Tri točke su **kolinearne** ako leže na istom pravcu.
+    
+- Dva vektora su kolinearna ako su **proporcionalni** (imaju isti smjer).
+    
+- Četiri točke su **komplanarne** ako leže u istoj ravnini; tri vektora su komplanarna ako leže u istoj ili paralelnim ravninama.
+    
+
+## Konveksnost
+
+Skup je **konveksan** ako za bilo koje dvije njegove točke sadrži cijelu dužinu koja ih spaja.  
+Krug i trokut su uvijek konveksni; mnogokuti s više stranica mogu biti ili ne moraju biti konveksni.
+
+---
+
+## 📈 Analitička geometrija – točke, pravci, kružnice
+
+## Udaljenost i polovište
+
+Za točke A(x1,y1)A(x1,y1), B(x2,y2)B(x2,y2):
+
+d(A,B)=(x2−x1)2+(y2−y1)2d(A,B)=(x2−x1)2+(y2−y1)2Ppolovisˇte=(x1+x22,y1+y22)Ppolovisˇte=(2x1+x2,2y1+y2)
+
+## Jednadžbe pravca
+
+**Implicitni (opći) oblik**:
+
+Ax+By+C=0Ax+By+C=0
+
+**Eksplicitni oblik** (ako B≠0B=0):
+
+y=kx+ly=kx+l
+
+- kk – koeficijent smjera; k>0k>0 → pravac raste, k<0k<0 → pravac pada.
+    
+- ll – odsječak na y-osi.
+    
+
+**Segmentni oblik** (ako A,B,C≠0A,B,C=0):
+
+xm+yn=1mx+ny=1
+
+gdje pravac siječe osi u (m,0)(m,0) i (0,n)(0,n).
+
+**Pravac kroz dvije točke** A(x1,y1)A(x1,y1), B(x2,y2)B(x2,y2):
+
+y−y1x−x1=y2−y1x2−x1x−x1y−y1=x2−x1y2−y1
+
+**Pravac kroz točku i kut αα prema x-osi**:
+
+y−y1=tan⁡α (x−x1)y−y1=tanα(x−x1)
+
+## Paralelnost i okomitost pravaca
+
+Za pravce Ax+By+C=0Ax+By+C=0 i Dx+Ey+F=0Dx+Ey+F=0:
+
+- **Paralelni**: AD=BEDA=EB
+    
+- **Okomiti**: AD+BE=0AD+BE=0
+    
+
+Za pravce y=k1x+l1y=k1x+l1 i y=k2x+l2y=k2x+l2:
+
+- **Paralelni**: k1=k2k1=k2
+    
+- **Okomiti**: k1⋅k2=−1k1⋅k2=−1[](https://edutorij.carnet.hr/materijali/4447556)​
+    
+
+## Udaljenost točke od pravca
+
+Za točku T(x0,y0)T(x0,y0) i pravac Ax+By+C=0Ax+By+C=0:
+
+d(T,p)=∣Ax0+By0+C∣A2+B2d(T,p)=A2+B2∣Ax0+By0+C∣
+
+## Kružnica
+
+**Definicija**: skup točaka jednako udaljenih od središta S(p,q)S(p,q) za udaljenost rr.
+
+**Opći oblik**:
+
+(x−p)2+(y−q)2=r2(x−p)2+(y−q)2=r2
+
+**Kružnica sa središtem u ishodištu**:
+
+x2+y2=r2x2+y2=r2
+
+**Odnos pravca i kružnice** često se ispituje pomoću udaljenosti središta od pravca:
+
+- d<rd<r → dvije zajedničke točke (sekanta)
+    
+- d=rd=r → jedna točka (tangenta)
+    
+- d>rd>r → nema presjeka.[](https://www.scribd.com/document/645598610/Analiticka-geometrija)​
+    
+
+---
+
+## ➕ Vektori
+
+## Definicije i osnovni pojmovi
+
+- **Usmjerena dužina** ABAB – razlikujemo početak i kraj.
+    
+- **Vektor** a⃗a – skup svih usmjerenih dužina istog smjera, duljine i orijentacije.
+    
+- Vektor je zadan ako znamo **smjer**, **duljinu** i **orijentaciju**.
+    
+- Dva vektora su jednaka ako imaju jednaku duljinu, smjer i orijentaciju.
+    
+
+## Koordinatni prikaz
+
+Za A(x1,y1)A(x1,y1), B(x2,y2)B(x2,y2):
+
+AB⃗=(x2−x1)i⃗+(y2−y1)j⃗AB=(x2−x1)i+(y2−y1)j
+
+Za vektor a⃗=a1i⃗+a2j⃗a=a1i+a2j:
+
+∣a⃗∣=a12+a22∣a∣=a12+a22
+
+**Radij vektor** točke A(x,y)A(x,y):
+
+OA⃗=xi⃗+yj⃗OA=xi+yj
+
+## Skalarni umnožak
+
+**Geometrijska definicija**:
+
+a⃗⋅b⃗=∣a⃗∣ ∣b⃗∣cos⁡φa⋅b=∣a∣∣b∣cosφ
+
+gdje je φφ kut između vektora.
+
+**Koordinatni oblik**:
+
+a⃗⋅b⃗=a1b1+a2b2a⋅b=a1b1+a2b2
+
+**Okomitost vektora**:  
+a⃗⊥b⃗  ⟺  a⃗⋅b⃗=0a⊥b⟺a⋅b=0.[](https://www.ncvvo.hr/wp-content/uploads/2017/10/MAT-A-formule.pdf)​
+
+**Linearne kombinacije vektora**: izraz oblika
+
+ka⃗+mb⃗ka+mb
+
+nazivamo linearnom kombinacijom (bitno za opis pravaca i ravnina vektorima).
+
+---
+
+## 🔺 Trokuti – pojmovi, teoremi, površine
+
+## Osnovne činjenice
+
+- Zbroj kutova u trokutu: α+β+γ=180∘α+β+γ=180∘.
+    
+- Nasuprot većoj stranici leži veći kut i obrnuto.
+    
+- Nejednakost trokuta: a+b>ca+b>c, a+c>ba+c>b, b+c>ab+c>a.
+    
+
+**Tipovi trokuta**:
+
+- jednakostranični – sve stranice/kutovi jednaki
+    
+- jednakokračni – dvije stranice i dva kuta jednaka
+    
+- pravokutni – jedan kut od 90∘90∘, stranice uz pravi kut su **katete**, nasuprot je **hipotenuza**.
+    
+
+## Pitagorin poučak i njegove posljedice
+
+Za pravokutni trokut:
+
+a2+b2=c2a2+b2=c2
+
+gdje je cc hipotenuza.[](https://www.ncvvo.hr/wp-content/uploads/2017/10/MAT-A-formule.pdf)​
+
+Često korišteni pitagorinski trojci (korisno u zadacima):  
+(3,4,5)(3,4,5), (5,12,13)(5,12,13), (8,15,17)(8,15,17) itd.
+
+## Površina trokuta
+
+1. Po bazi i visini:
+    
+
+P=a⋅ha2P=2a⋅ha
+
+2. Po dvjema stranicama i kutu između njih:
+    
+
+P=12absin⁡γP=21absinγ
+
+3. Heronova formula:
+    
+
+s=a+b+c2,P=s(s−a)(s−b)(s−c)s=2a+b+c,P=s(s−a)(s−b)(s−c)
+
+4. Pomoću opisane kružnice:
+    
+
+P=abc4RP=4Rabc
+
+5. Pomoću upisane kružnice:
+    
+
+P=rsP=rs
+
+## Teoremi o sukladnosti trokuta
+
+- **S-S-S** – sve tri stranice jednake.
+    
+- **S-K-S** – dvije stranice i kut između njih jednaki.
+    
+- **K-S-K** – jedna stranica i dva kuta uz nju jednaki.
+    
+- **S>S-K** – dvije stranice i kut nasuprot većoj jednaki.
+    
+
+## Teoremi o sličnosti trokuta
+
+- **K-K** – dva kuta jednaka.
+    
+- **S-S-S** – odgovarajuće stranice proporcionalne.
+    
+- **S-K-S** – jedna stranica, kut i još jedna stranica uz taj kut proporcionalni.
+    
+- **S-S-K** – dvije stranice proporcionalne i kut nasuprot većoj jednak.[](https://www.ncvvo.hr/wp-content/uploads/2017/10/MAT-A-formule.pdf)​
+    
+
+Za slične trokute:
+
+aa1=bb1=cc1=ka1a=b1b=c1c=k
+
+i vrijedi da se opsezi, visine, težišnice i radijusi kružnica skaliraju s kk, površine s k2k2.
+
+---
+
+## 🔹 Četiri osobite točke trokuta
+
+|Točka|Definicija|Svojstva (bitno za analitičku geo.)|
+|---|---|---|
+|Ortocentar|Sjecište visina|Leži unutar, na ili izvan trokuta ovisno o tipu|
+|Težište|Sjecište težišnica|Dijeli težišnicu u omjeru 2:12:1|
+|Incentrum|Sjecište simetrala kutova|Središte upisane kružnice|
+|Circumcentrum|Sjecište simetrala stranica|Središte opisane kružnice|
+
+U analitičkoj geometriji se često traže **jednadžbe visina, težišnica, simetrala stranica i kutova** kako bi se našle koordinate ovih točaka.[](https://edutorij.carnet.hr/materijali/4447556)​
+
+---
+
+## 📐 Trigonometrija u trokutu (matura core)
+
+## Pravokutni trokut
+
+sin⁡α=nasuprotna katetahipotenuza,cos⁡α=prilezˇecˊa katetahipotenuza,tan⁡α=nasuprotnaprilezˇecˊa,cot⁡α=1tan⁡αsinα=hipotenuzanasuprotna kateta,cosα=hipotenuzaprilezˇecˊa kateta,tanα=prilezˇecˊanasuprotna,cotα=tanα1
+
+Veze:
+
+sin⁡2α+cos⁡2α=1,tan⁡α=sin⁡αcos⁡αsin2α+cos2α=1,tanα=cosαsinα
+
+## Teorem o sinusima
+
+U bilo kojem trokutu:
+
+asin⁡α=bsin⁡β=csin⁡γ=2Rsinαa=sinβb=sinγc=2R
+
+Koristi se kad su zadani **kutovi + jedna stranica**, pa treba naći ostale.
+
+## Teorem o kosinusima
+
+a2=b2+c2−2bccos⁡αa2=b2+c2−2bccosαb2=a2+c2−2accos⁡βb2=a2+c2−2accosβc2=a2+b2−2abcos⁡γc2=a2+b2−2abcosγ
+
+Koristi se kad su zadane tri stranice (za kut) ili dvije stranice i kut (za treću stranicu).[](https://www.ncvvo.hr/wp-content/uploads/2017/10/MAT-A-formule.pdf)​
+
+---
+
+## 🔷 Četverokuti (paralelogrami, trapezi, tetivni, tangencijalni)
+
+## Paralelogram, pravokutnik, romb, kvadrat
+
+|Lik|Ključna svojstva|Površina|
+|---|---|---|
+|Paralelogram|2 para paralelnih stranica, dijagonale se raspolavljaju|P=absin⁡αP=absinα|
+|Pravokutnik|Paralelogram s pravim kutom|P=abP=ab|
+|Romb|Sve stranice jednake, dijagonale okomite i simetrale kutova|P=e1e22P=2e1e2|
+|Kvadrat|Romb + pravokutnik|P=a2P=a2|
+
+## Trapez
+
+- Jedan par paralelnih stranica (osnovice).
+    
+- Zbroj kutova uz bilo koji krak = 180∘180∘.
+    
+- Srednjica spaja polovišta krakova, paralelna je osnovicama, duljina joj je a+c22a+c.
+    
+
+Površina:
+
+P=(a+c) h2P=2(a+c)h
+
+## Tetivni i tangencijalni četverokut (česta matura zamka)
+
+- **Tetivni četverokut** – oko njega se može opisati kružnica.
+    
+    - Zbroj nasuprotnih kutova: α+γ=180∘α+γ=180∘, β+δ=180∘β+δ=180∘.
+        
+- **Tangencijalni četverokut** – u njega se može upisati kružnica.
+    
+    - Zbroj nasuprotnih stranica jednak: a+c=b+da+c=b+d.[](https://matematickitalent.mk/uploads/books/IMra_UIN60mp_FRfJdYGvA.pdf)​
+        
+
+Dodatno (izvan standardne mature, ali korisno):
+
+- **Ptolemejev poučak** za tetivni četverokut: umnožak dijagonala = zbroj umnožaka nasuprotnih stranica.[](https://matematickitalent.mk/uploads/books/IMra_UIN60mp_FRfJdYGvA.pdf)​
+    
+
+---
+
+## ⭕ Kružnica, krug i kutovi
+
+## Osnovne definicije
+
+- **Radijus** – dužina od središta do točke na kružnici.
+    
+- **Promjer** – dužina koja prolazi središtem i spaja dvije točke na kružnici.
+    
+- **Tetiva** – dužina koja spaja dvije točke na kružnici.
+    
+- **Sekanta** – pravac koji siječe kružnicu u dvije točke.
+    
+- **Tangenta** – pravac koji dodiruje kružnicu u jednoj točki (diralište).
+    
+
+**Teoremi**:
+
+- Radijus u diralište je **okomit na tangentu**.
+    
+- Simetrala bilo koje tetive prolazi središtem.
+    
+- Diralište dviju kružnica leži na pravcu kroz njihova središta.
+    
+
+## Duljina kružnog luka i površine
+
+Okruzˇnice=2πrOkruzˇnice=2πrPkruga=πr2Pkruga=πr2
+
+Za središnji kut αα (u stupnjevima):
+
+l=α360∘⋅2πr,Pisjecˇka=α360∘⋅πr2l=360∘α⋅2πr,Pisjecˇka=360∘α⋅πr2
+
+## Obodni i središnji kut
+
+- Svi obodni kutovi nad istim kružnim lukom su jednaki.
+    
+- Središnji kut nad istim lukom je **dvostruko veći** od obodnog.
+    
+- Obodni kut nad promjerom je **pravi** (Talesov teorem).[](https://www.ncvvo.hr/wp-content/uploads/2017/10/MAT-A-formule.pdf)​
+    
+
+---
+
+## 🧊 Stereometrija – prizme, piramide, valjak, stožac, kugla
+
+## Prizma
+
+- Tijelo omeđeno dvjema sukladnim i paralelnim bazama te pobočkama (paralelogrami).
+    
+- Uspravna prizma – pobočke okomite na bazu.
+    
+
+V=Bh,O=2B+PpV=Bh,O=2B+Pp
+
+## Piramida
+
+- Baza – mnogokut; pobočke – trokuti.
+    
+- Pravila piramida – baza pravilan mnogokut, svi bočni bridovi jednaki.
+    
+
+V=Bh3,O=B+PpV=3Bh,O=B+Pp
+
+## Valjak
+
+B=πr2,V=πr2hB=πr2,V=πr2hO=2πr2+2πrh=2B+PpO=2πr2+2πrh=2B+Pp
+
+## Stožac
+
+B=πr2,V=πr2h3B=πr2,V=3πr2hO=πr2+πrsO=πr2+πrs
+
+gdje je ss izvodnica (kosina visina plašta).
+
+## Kugla
+
+V=43πR3,O=4πR2V=34πR3,O=4πR2

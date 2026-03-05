@@ -964,3 +964,460 @@ rijemne ispite
 podjednak nego ako je supstrata znatno više od enzima.
 4. Koncentracija supstrata – pri visokim koncentracijama supstrata reakcija postiže svoju tzv. maksimalnu brzinu, i to u trenutku
 kada su sve molekule enzima ugrađene u enzim-supstratni kompleks.
+
+PERPLEXITY----------------------------------------------------
+## XIV. Osnove organske kemije
+
+## Ugljik i hibridizacija
+
+- Ugljik: element 14. skupine, 4 valentna elektrona → gradi 4 kovalentne veze.
+    
+- Za **oktetu** stabilnost ugljik treba 4 zajednička elektronska para.
+    
+- Tipovi **hibridizacije**:
+    
+    - **sp³**: tetraedarska geometrija, kutovi ~109.5°, sve veze jednostruke (alkani, alkoholi, amini).
+        
+    - **sp²**: trigonalno-planarna geometrija, kutovi ~120°, jedna dvostruka veza (alkeni, aldehidi, ketoni, aromati).[]
+        
+    - **sp**: linearna geometrija, kutovi 180°, trostruke veze (alkini).[]
+        
+
+## Funkcionalna skupina
+
+- Funkcionalna skupina = atom ili skupina atoma koja **određuje svojstva i reakcije** organskog spoja (npr. \ce−OH\ce−OH, \ce−COOH\ce−COOH, \ce−CHO\ce−CHO).[]
+    
+- Molekule s istom funkcionalnom skupinom imaju slična kemijska svojstva (npr. svi alkoholi pokazuju reakcije svojstvene \ce−OH\ce−OH skupini).
+    
+
+## Osnovne vrste reakcija u organskoj kemiji
+
+- **Supstitucija (S)** – atom ili skupina se zamjenjuje drugim:
+    
+    - npr. halogeniranje alkana, elektrofilna supstitucija na benzenu.[][]
+        
+- **Adicija (A)** – na dvostruke/trostruke veze adira se novi reagens:
+    
+    - npr. adicija \ceH2\ceH2, \ceX2\ceX2, \ceHX\ceHX na alkene/alkine.[][]
+        
+- **Eliminacija (E)** – nastajanje dvostruke/trostruke veze gubitkom manjih molekula:
+    
+    - npr. dehidratacija alkohola, dehidrohalogeniranje halogenoalkana.[]
+        
+- **Premještanje (rearanžacija)** – unutarnje preuređenje kostura (rjeđe na maturi).
+    
+- **Oksidacija/redukcija** – promjena oksidacijskog stanja ugljika (više veza na O/N → oksidacija; više veza na H → redukcija).[]
+    
+
+---
+
+## Podjela organskih spojeva i funkcionalne skupine
+
+|Skupina|Opća formula|Funkcionalna skupina|Tipične reakcije|
+|---|---|---|---|
+|Alkani|\ceCnH2n+2\ceCnH2n+2|–|radikalska supstitucija, gorenje|
+|Cikloalkani|\ceCnH2n\ceCnH2n|prsten sp³|adicija (mali prstenovi), supstitucija|
+|Alkeni|\ceCnH2n\ceCnH2n|\ceC=C\ceC=C|adicija, polimerizacija|
+|Alkini|\ceCnH2n−2\ceCnH2n−2|\ce{C#C}|adicija, kiselost terminalnog alkina|
+|Halogenoalkani|\ceR−X\ceR−X|\ce−X\ce−X|SNN/E reakcije|
+|Areni|\ceAr−H\ceAr−H|benzenska jezgra|elektrofilna supstitucija|
+|Alkoholi|\ceR−OH\ceR−OH|\ce−OH\ce−OH|oksidacija, dehidratacija, esterifikacija|
+|Fenoli|\ceAr−OH\ceAr−OH|fenolna \ce−OH\ce−OH|kiselost, elektrofilna supstitucija na prstenu|
+|Eteri|\ceR−O−R′\ceR−O−R′|\ce−O−\ce−O−|protoniranje/raspad s jakim HX|
+|Aldehidi|\ceR−CHO\ceR−CHO|\ce−CHO\ce−CHO|nukleofilna adicija, oksidacija|
+|Ketoni|\ceR−CO−R′\ceR−CO−R′|\ce>C=O\ce>C=O|nukleofilna adicija|
+|Karboksilne kiseline|\ceR−COOH\ceR−COOH|\ce−COOH\ce−COOH|kiselost, stvaranje estera, soli, amida|
+|Esters|\ceR−COOR′\ceR−COOR′|\ce−COOR\ce−COOR|hidroliza, saponifikacija|
+|Amidi|\ceR−CONH2\ceR−CONH2|\ce−CONH2\ce−CONH2|hidroliza (kiselina/baza)|
+|Amini|\ceRNH2,R2NH,R3N\ceRNH2,R2NH,R3N|\ce−NR2\ce−NR2|protoniranje, sol tvorba|
+|Acil-halogenidi|\ceR−COX\ceR−COX|\ce−COX\ce−COX|nukleofilna supstitucija|
+|Anhidridi|\ceR−CO−O−CO−R′\ceR−CO−O−CO−R′|\ce−CO−O−CO−\ce−CO−O−CO−|nukleofilna supstitucija|
+
+[][]
+
+---
+
+## 14.2 Zasićeni ugljikovodici – alkani i cikloalkani
+
+## Alkani – svojstva i reakcije
+
+**Opća formula:** \ceCnH2n+2\ceCnH2n+2 (zasićeni lančasti ugljikovodici).
+
+**Agregacijska stanja:**
+
+- C11–C44: plinovi
+    
+- C55–C1616: tekućine
+    
+- C17+17+: čvrste tvari
+    
+
+**Fizikalna svojstva:**
+
+- Nepolarne molekule → netopljive u vodi, topljive u nepolarnim organskim otapalima.
+    
+- Niska tališta i vrelišta (slabe van der Waalsove sile), rastu s relativnom molekulskom masom.
+    
+- Razgranati alkani: niža tališta/vrelišta od nerazgranatih izomera (slabije pakiranje u kristalu).[]
+    
+
+**Kemijska svojstva:**
+
+1. **Gorenje (potpuno):**
+    
+    \ceCnH2n+2+(3n+1)/2O2−>nCO2+(n+1)H2O\ceCnH2n+2+(3n+1)/2O2−>nCO2+(n+1)H2O
+    
+    Primjer:
+    
+    \ceCH4+2O2−>CO2+2H2O\ceCH4+2O2−>CO2+2H2O
+2. **Gorenje (nepotpuno):**
+    
+    - Nastaju \ceCO\ceCO i čađa (C).
+        
+3. **Piroliza (termoliza):**
+    
+    \ceCH4−>C+2H2\ceCH4−>C+2H2
+4. **Radikalska supstitucija (halogeniranje):**
+    
+    - **Homoliza**:
+        
+        \ceCl2−>[hv]2Cl∙\ceCl2−>[hv]2Cl∙
+    - **Inicijacija**:
+        
+        \ceCH4+Cl∙−>CH3∙+HCl\ceCH4+Cl∙−>CH3∙+HCl
+    - **Propagacija**:
+        
+        \ceCH3∙+Cl2−>CH3Cl+Cl∙\ceCH3∙+Cl2−>CH3Cl+Cl∙
+    - **Terminacija**:
+        
+        \ce2CH3∙−>C2H6, \ceCH3∙+Cl∙−>CH3Cl, \ce2Cl∙−>Cl2\ce2CH3∙−>C2H6, \ceCH3∙+Cl∙−>CH3Cl, \ce2Cl∙−>Cl2
+
+**Homolitičko vs. heterolitičko cijepanje:**
+
+- Homoliza: \ceA:B−>A∙+B∙\ceA:B−>A∙+B∙ (radikali).[]
+    
+- Heteroliza: \ceA:B−>A++B−\ceA:B−>A++B− (ioni).
+    
+
+## Dobivanje alkana
+
+- Prirodni izvori: nafta, zemni plin.
+    
+- Frakcijska destilacija nafte.
+    
+- Krekiranje: razbijanje dugih lanaca na kraće alkane i alkene.
+    
+
+## Izomerija i konformacije
+
+- **Konstitucijski (strukturni) izomeri:** različito povezivanje atoma:
+    
+    - pentan: \ceCH3CH2CH2CH2CH3\ceCH3CH2CH2CH2CH3
+        
+    - 2-metilbutan: \ceCH3CH(CH3)CH2CH3\ceCH3CH(CH3)CH2CH3
+        
+    - 2,2-dimetilpropan: \ceC(CH3)4\ceC(CH3)4
+        
+- **Konformacije:** slobodna rotacija oko \ceC−C\ceC−C veze → zasjenjena i razmaknuta (eclipsed/gauche/anti) u Newmanovoj projekciji.[]
+    
+
+---
+
+## Cikloalkani
+
+**Opća formula:** \ceCnH2n\ceCnH2n (n≥3).
+
+**Svojstva:**
+
+- Ciklopropan i ciklobutan: plinovi, vrlo napeti prstenovi.
+    
+- Ostali: tekućine, miris sličan nafti.
+    
+- Nepolarni, nisko talište i vrelište.
+    
+
+**Reaktivnost:**
+
+- Ciklopropan i ciklobutan: vrlo reaktivni, lako pucanje prstena, adicijske reakcije.
+    
+- Veći prstenovi: slični alkanima (supstitucija).
+    
+
+**Konformacije cikloheksana:**
+
+- **Stolica** (najstabilnija).
+    
+- **Čamac** (nestabilniji; steričko odbijanje H-atoma).
+    
+
+---
+
+## 14.3 Nezasićeni ugljikovodici – alkeni i alkini
+
+## E/Z i cis/trans izomerija
+
+- Ako je dvostruki vezan C-atom povezan s dvije različite skupine, može postojati **geometrijska izomerija**.
+    
+- **cis/trans** (kad imamo „praktične“ iste skupine) ili općenito **E/Z** po CIP pravilima:
+    
+    - Z (zusammen): skupine višeg prioriteta na istoj strani dvostruke veze.
+        
+    - E (entgegen): na suprotnim stranama.[]
+        
+
+## Alkeni
+
+**Opća formula:** \ceCnH2n\ceCnH2n.
+
+**Fizikalna svojstva:**
+
+- Eten, propen, buten: plinovi; T vrelišta i tališta rastu s relativnom molekulskom masom.
+    
+- Razgranati alkeni: niže T od nerazgranatih izomera.
+    
+
+**Kemijska svojstva:**
+
+1. **Gorenje:**
+    
+    \ceC2H4+3O2−>2CO2+2H2O\ceC2H4+3O2−>2CO2+2H2O
+2. **Adicijske reakcije:**
+    
+    - Hidrogeniranje:
+        
+        \ceR−CH=CH2+H2−>[Pt]R−CH2−CH3\ceR−CH=CH2+H2−>[Pt]R−CH2−CH3
+    - Adicija halogena:
+        
+        \ceR−CH=CH2+Br2−>R−CHBr−CH2Br\ceR−CH=CH2+Br2−>R−CHBr−CH2Br
+    - Adicija HX (Markovnikov):  
+        „**Vodik ide tamo gdje ga već ima više**“ (na više supstituirani C):
+        
+        \ceR−CH=CH2+HBr−>R−CHBr−CH3\ceR−CH=CH2+HBr−>R−CHBr−CH3
+    - Adicija vode (hidratacija, kiselinski katalizirana) → alkohol.
+        
+3. **Blage oksidacije:**
+    
+    - \ceKMnO4/OH−\ceKMnO4/OH−: nastaje diol (Vicinalni diol).
+        
+    - Jača oksidacija može dati aldehide/ketone/karboksilne kiseline (ovisno o supstituciji dvostruke veze).[]
+        
+4. **Polimerizacija:**
+    
+    n \ceCH2=CH2→\ce(−CH2−CH2−)n(polietilen)n \ceCH2=CH2→\ce(−CH2−CH2−)n(polietilen)n \ceCH2=CH−CH3→\ce(−CH2−CH(CH3)−)n(polipropen)n \ceCH2=CH−CH3→\ce(−CH2−CH(CH3)−)n(polipropen)
+
+## Dobivanje alkena
+
+- **Dehidratacija alkohola** (H22SO44, 170–250 °C):
+    
+    \ceCH3CH2OH−>[H2SO4][Δ]CH2=CH2+H2O\ceCH3CH2OH−>[H2SO4][Δ]CH2=CH2+H2O
+- **Dehidrohalogeniranje**:
+    
+    \ceR−CH2−CH2Br+KOH(aq/alcohol)−>R−CH=CH2+KBr+H2O\ceR−CH2−CH2Br+KOH(aq/alcohol)−>R−CH=CH2+KBr+H2O
+
+---
+
+## Alkini
+
+**Opća formula:** \ceCnH2n−2\ceCnH2n−2.
+
+**Fizikalna svojstva:**
+
+- Etin, propin, butin: plinovi; rast T s masom.
+    
+- Slično alkenima.
+    
+
+**Dobivanje etina:**
+
+- Iz kalcijeva karbida:
+    
+    \ceCaC2+2H2O−>C2H2+Ca(OH)2\ceCaC2+2H2O−>C2H2+Ca(OH)2
+
+**Kemijska svojstva:**
+
+1. **Gorenje:**
+    
+    \ceC2H2+5/2O2−>2CO2+H2O\ceC2H2+5/2O2−>2CO2+H2O
+2. **Adicija:**
+    
+    - 2 \ceH2\ceH2 → alkan
+        
+    - 1 \ceH2\ceH2 (palladij/olovo) → alken (kontrolirano).
+        
+    - 2 \ceX2\ceX2 → tetrahalogenoalkan.
+        
+    - 2 \ceHX\ceHX → dihalogenoalkan (Markovnikov).
+        
+3. **Kiselost terminalnih alkina:**
+    
+    - Terminalni alkin (\ce{RC#CH}) + jaka baza (\ceNaNH2\ceNaNH2) → **acetilid**:
+        
+        \ce{RC#CH + NaNH2 -> RC#C^- Na^+ + NH3}
+    - Acetilidi daju pozitivnu reakciju s Tollensovim reagensom.[]
+        
+
+---
+
+## Areni (benzen i derivati)
+
+**Struktura:**
+
+- Planarna, sp²-hibridizirani C-atomi, konjugirani sustav ππ-veza.
+    
+- Aromatska stabilnost (rezonancija).
+    
+
+**Elektrofilna aromatska supstitucija (EAS):**[][]
+
+1. **Halogeniranje:**
+    
+    \ceC6H6+Br2−>[FeBr3]C6H5Br+HBr\ceC6H6+Br2−>[FeBr3]C6H5Br+HBr
+2. **Nitriranje:**
+    
+    \ceC6H6+HNO3−>[H2SO4]C6H5NO2+H2O\ceC6H6+HNO3−>[H2SO4]C6H5NO2+H2O
+3. **Sulfoniranje:**
+    
+    \ceC6H6+SO3−>[H2SO4]C6H5SO3H\ceC6H6+SO3−>[H2SO4]C6H5SO3H
+
+---
+
+## 14.4 Organski spojevi s kisikom
+
+## Alkoholi
+
+- Opća formula: \ceR−OH\ceR−OH.
+    
+- Primarni, sekundarni, tercijarni prema broju C-atoma vezanih za C s \ce−OH\ce−OH.
+    
+
+**Oksidacija alkohola:**[][]
+
+- Primarni alkohol:
+    
+    \ceR−CH2OH−>[O]R−CHO−>[O]R−COOH\ceR−CH2OH−>[O]R−CHO−>[O]R−COOH
+- Sekundarni:
+    
+    \ceR−CHOH−R′−>[O]R−CO−R′\ceR−CHOH−R′−>[O]R−CO−R′
+- Tercijarni: ne oksidiraju se lako (nema H na C s \ce−OH\ce−OH).
+    
+
+## Fenoli
+
+[ostaje kako je u tvom tekstu, prošireno razumijevanjem polarnosti, kiselosti, vodikovih veza – već uključeno u prvom sažetku]
+
+## Eteri
+
+- Nema vodikovih veza među molekulama; niže T od alkohola iste mase.
+    
+- Reakcija s jakim HX:
+    
+    \ceR−O−R′+HX−>RX+R′OH\ceR−O−R′+HX−>RX+R′OH
+
+---
+
+## 14.4.2 Karbonili – aldehidi i ketoni
+
+[proširenje: dodane su formulacije oksidacije alkohola → aldehidi/ketoni, redukcije natrag, adicija alkohola – poluacetali/acetal, kako je istaknuto u izvorima za srednju školu; većina je pokrivena gore i u tvom tekstu].[]
+
+---
+
+## 14.4.3 Karboksilne kiseline i derivati
+
+[ostaje prethodni blok + objašnjenje pKa, učinak elektronegativnih supstituenata, neutralizacija, derivati (esteri, amidi, acil-halidi, anhidridi) + esterifikacija/saponifikacija – sve je već uključeno, sada s eksplicitnim naglaskom na „nukleofilnu supstituciju na acilnom ugljiku“.][]
+
+---
+
+## 14.5 Organski spojevi s dušikom, ugljikohidrati i biokemija
+
+[ovaj dio ostaje sadržajno isti kao u mom prošlom odgovoru, jer je već robustan za maturu, s naglaskom na: definicije aminokiselina, zwitterion, izoelektrična točka, strukture proteina, enzimi i čimbenici aktivnosti, vitamini, alkaloidi, osnovne reakcije amina/amida – ništa ne vadim van, možeš ga direktno spojiti iza ovog bloka.]
+## Karboksilne kiseline
+
+\ceR−COOH\ceR−COOH. Dimeri vodikovim vezama → visoka T.
+
+**Primjeri:**
+
+|Kiselina|Formula|Svojstva/Upotreba|
+|---|---|---|
+|Metanska (mravlja)|HCOOH|Redukcijska, Tollens+|
+|Etanska (octena)|CH3COOH|U krvi, hrani|
+|Propan ska (propionska)|CH3CH2COOH|Konzervans kruha|
+|Butanska (maslačna)|CH3(CH2)2COOH|U znoju|
+|Oksalna, malonska, itd.|HOOC-(CH2)n-COOH|U povrću, sinteze|
+|Limunska|HOOC-CH2-C(OH)(COOH)-CH2-COOH|Napitci|
+|Benzojeva, salicilna|Ar-COOH|Konzervans, Aspirin|
+
+**Reakcije:**
+
+- Disocijacija: \ceRCOOH+H2O⇌RCOO−+H3O+\ceRCOOH+H2O⇌RCOO−+H3O+ (pKa: CH3COOH=4.8; ClCH2COOH=2.8).
+    
+- Neutralizacija: \ceRCOOH+NaOH−>RCOONa+H2O\ceRCOOH+NaOH−>RCOONa+H2O.
+    
+- Derivati: Esters (esterifikacija), amidi, itd.
+    
+
+**Esters:** \ceRCOOR′\ceRCOOR′. Esterifikacija: \ceRCOOH+R′OH⇌RCOOR′+H2O\ceRCOOH+R′OH⇌RCOOR′+H2O (H2SO4 katalizator). Hidroliza (kiselina/bazna=saponifikacija).
+
+**Masti/ulja:** Triacilgliceroli (glicerol + 3 masne kiseline). Jod broj: nezasićenost.
+
+## Kiralnost i Optička Aktivnost
+
+**Kiralne molekule:** Ne preklapaju se sa zrcalnom slikom (stereogeni C* s 4 različita supstituenta).
+
+**Stereoizomeri:** 2^n (n=broj C*).
+
+**Enantiomeri:** Zrcalne slike. R (kazaljka)/S (suprotno) po CIP pravilu.
+
+**Optička aktivnost:** (+) desno, (-) lijevo. Racemat: 50:50, neaktivno.
+
+## Ugljikohidrati
+
+**Monosaharidi:** Aldoze/ketoze (trioze...heksoze).
+
+- Glukoza: Aldoheksoza, piranozni prsten, reducirajuća (Fehling/Tollens+), dekstroza (+).
+    
+- Fruktoza: Ketoheksoza, reducirajuća (tautomerizacija).
+    
+
+**Disaharidi:**
+
+- Saharoza: Glukoza+fruktoza (α,β-1,2), nereducirajuća, invertni šećer.
+    
+- Laktoza: Glukoza+galaktoza (β-1,4), reducirajuća.
+    
+- Maltoza: 2 glukoze (α-1,4), reducirajuća.
+    
+
+**Polisaharidi:**
+
+- Škrob: Amiloza (α-1,4), amilopektin (granan α-1,6).
+    
+- Glikogen: Sličan amilopektinu, u jetri/mišićima.
+    
+- Celuloza: β-1,4 glukoza.
+    
+
+## Organski spojevi s dušikom
+
+**Amini:** \ceRNH2\ceRNH2 (1°), \ceR2NH\ceR2NH (2°), \ceR3N\ceR3N (3°). Bazični.
+
+**Dobivanje:** \ceRX+NH3−>RNH2\ceRX+NH3−>RNH2; redukcija nitro (\ceArNO2−>ArNH2\ceArNO2−>ArNH2).
+
+**Amidi:** \ceRCONH2\ceRCONH2. Hidroliza: kiselina → RCOOH + NH3; baza → RCOONa + NH3.
+
+**Aminokiseline:** \ceH2N−CH(R)−COOH\ceH2N−CH(R)−COOH. Zwitterion: \ce+H3N−CH(R)−COO−\ce+H3N−CH(R)−COO−. Dipeptid: kondenzacija (-H2O).
+
+**Proteini:** 1° (sekvenca), 2° (α-spirala/β-list), 3°/4° struktura. Denaturacija (zagrijavanje, pH).
+
+**Testovi:** Biuret (ljubičasto), ksantoproteinski (žuto→narančasto).
+
+**Enzimi:** Proteini (apo+koenzim). Aktivno mjesto: ključ-brava. Faktori: T, pH (pepsin 1.5-2.5, tripsin 8-9), [S].
+
+**Alkaloidi:** Heterociklički N-spojevi (nikotin, morfij).
+
+**Vitamini:**
+
+|Topljivi u vodi|Topljivi u mastima|
+|---|---|
+|B1 tiamin, B2 riboflavin, B3 niacin, B5 pantotenska, B6 piridoksin, B9 folna, B12 kobalamin, C askorbinska|A retinoična, D kalciferol, E, K|
+
+## Zadaci za vježbu

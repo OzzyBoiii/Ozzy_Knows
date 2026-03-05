@@ -70,9 +70,6 @@ Nacionalni parkovi i sedrene barijere
 
 - Sedrene barijere: nastaju taloženjem kalcijeva karbonata u vodama bogatim otopljenim Ca²⁺ i HCO₃⁻, uz sudjelovanje biljaka i algi (tipično za neke hrvatske nacionalne parkove).​
 - Nacionalni parkovi i parkovi prirode: zaštićena područja važna za očuvanje biološke raznolikosti i prirodnih procesa (u tvom kontekstu dovoljno je da su navedeni kao pojmovi).
-
-From <[https://www.perplexity.ai/search/zelio-bih-da-iz-ovoga-teksta-k-S4pQtzCfSdCmaNSgcA3_BA](https://www.perplexity.ai/search/zelio-bih-da-iz-ovoga-teksta-k-S4pQtzCfSdCmaNSgcA3_BA)>
-
 - Endemi: vrste ograničene na malo područje; razlikuju se paleoendemiti (stari, reliktni endemi) i neoendemiti (nedavno nastali, još se nisu raširili).​
 - Stenovalentne vrste: imaju usku ekološku valentnost (usko podnošenje promjena npr. temperature, vlage, hrane).​
 - Parazitizam (+,−): odnos u kojem parazit ima korist, a domaćin štetu; paraziti, unatoč negativnom učinku na jedinku, mogu povećavati genetsku i biološku raznolikost zajednice.

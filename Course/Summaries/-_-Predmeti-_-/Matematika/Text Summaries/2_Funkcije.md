@@ -442,3 +442,374 @@ Odredimo stacionarne točke (nultočke derivacije).
 2.
 Odredimo intervale monotonosti.
 10. Za stacionarne točke u kojima je funkcija promijenila tijek određujemo pripadne vrijednosti funkcije. Te vrijednosti zovemo lokalni minimum ili lokalni maksimum.
+
+PERPLEXITY -------------------
+## Osnovni pojmovi
+
+|Pojam|Oznaka / relacija|Sažeta definicija|
+|---|---|---|
+|Argument funkcije|xx|Element domene, neovisna varijabla.|
+|Domena|DfDf|Svi xx za koje je f(x)f(x) realan broj.|
+|Kodomena|KK|Skup u koji funkcija preslikava elemente domene.|
+|Slika funkcije|S(f)⊆KS(f)⊆K|Skup svih vrijednosti f(x)f(x), tj. {f(x)∣x∈Df}{f(x)∣x∈Df}.|
+|Neovisna varijabla|xx|Ulaz funkcije, argument.|
+|Ovisna varijabla|y=f(x)y=f(x)|Izlaz funkcije, vrijednost koja ovisi o xx.|
+|Injekcija|f:A→Bf:A→B|Različiti elementi domene daju različite vrijednosti: x1≠x2⇒f(x1)≠f(x2)x1=x2⇒f(x1)=f(x2).|
+|Surjekcija|f:A→Bf:A→B|Svaki y∈By∈B je slika nekog x∈Ax∈A: ∀y∈B,∃x∈A:f(x)=y∀y∈B,∃x∈A:f(x)=y.|
+|Bijekcija|f:A→Bf:A→B|Funkcija koja je i injekcija i surjekcija; postoji inverz f−1:B→Af−1:B→A.|
+|Identitet|f(x)≡g(x)f(x)≡g(x)|Jednakost koja vrijedi za sve dopuštene xx.|
+|Elementarna funkcija|—|Dobivena iz osnovnih funkcija (potencija, exp, log, trig, …) + operacije i kompozicija.|
+|Parna funkcija|f(−x)=f(x)f(−x)=f(x)|Graf simetričan prema yy-osi.|
+|Neparna funkcija|f(−x)=−f(x)f(−x)=−f(x)|Graf simetričan oko ishodišta.|
+|Period|T>0T>0|Broj za koji vrijedi f(x+T)=f(x)f(x+T)=f(x) za sve xx iz domene.|
+|Periodična funkcija|—|Funkcija koja ima barem jedan period T≠0T=0.|
+|Parametar|npr. a,b,ca,b,c|Konstanta o kojoj ovisi oblik funkcije/jednadžbe.|
+|Korijen jednadžbe|—|Broj koji zadovoljava jednadžbu (rješenje).|
+|Konstanta|npr. cc|Veličina s fiksnom vrijednošću; neovisna o xx.|
+|Koordinatni sustav|osi x,yx,y, ishodište O(0,0)O(0,0)|Dva okomita brojevna pravca u ravnini (Kartezijev sustav).|
+|Realna funkcija realnog argumenta|f:D→K, D,K⊆Rf:D→K, D,K⊆R|Funkcija čiji su i argument i vrijednosti realni brojevi.|
+
+## 2. Pojam funkcije i zadavanje
+
+**Funkcija** je preslikavanje f:D→Kf:D→K takvo da svakom x∈Dx∈D pridružuje točno jedan y∈Ky∈K, pišemo y=f(x)y=f(x).
+
+Načini zadavanja:
+
+- **Analitički (formulom)**: npr. f(x)=x+1f(x)=x+1.  
+    
+- **Tablicom**: konačan broj parova (x,f(x))(x,f(x)).  
+    
+- **Grafom**: skup točaka (x,f(x))(x,f(x)) u koordinatnoj ravnini.  
+    
+
+**Realna funkcija realnog argumenta**: D,K⊆RD,K⊆R, najčešće D=K=RD=K=R.
+
+---
+
+## 3. Linearna funkcija
+
+**Definicija**:
+
+f(x)=ax+b,a,b∈Rf(x)=ax+b,a,b∈R
+
+- aa: koeficijent smjera (nagib)  
+    
+- bb: odsječak na yy-osi (f(0)=bf(0)=b)  
+    Graf: pravac; svaka linearna funkcija je bijekcija na RR ako a≠0a=0.[](https://edutorij-admin-api.carnet.hr/storage/extracted/702245/html/24683_Graf_linearne_funkcije.html)​  
+    
+
+**Primjer (iz teksta)**: pravac y=2x−1y=2x−1.  
+Tablica koja mu odgovara (iz zadatka _2022_):
+
+|xx|-1|1|
+|---|---|---|
+|yy|-3|1|
+
+---
+
+## 4. Kvadratna funkcija i polinomi
+
+**Kvadratna funkcija**:
+
+f(x)=ax2+bx+c,a≠0f(x)=ax2+bx+c,a=0
+
+**Teorem – faktorizacija**: Ako su x1,x2x1,x2 nultočke kvadratne funkcije,
+
+f(x)=a(x−x1)(x−x2)f(x)=a(x−x1)(x−x2)
+
+**Vieteove formule** (za jednadžbu ax2+bx+c=0ax2+bx+c=0):
+
+x1+x2=−ba,x1x2=cax1+x2=−ab,x1x2=ac
+
+**Opći polinom**:
+
+anxn+an−1xn−1+⋯+a1x+a0=an(x−x1)(x−x2)⋯(x−xn)anxn+an−1xn−1+⋯+a1x+a0=an(x−x1)(x−x2)⋯(x−xn)
+
+gdje su xixi korijeni (mogu biti kompleksni).
+
+**Monom / binom / trinom**:
+
+- monom: 2a2b−32a2b−3  
+    
+- binom: a+ba+b  
+    
+- trinom: a+b+ca+b+c  
+    
+
+**Zbrajanje monoma**:  
+Samo istog oblika:  
+3a+2a=5a3a+2a=5a,  
+3(1−y)−7(1−y)=−4(1−y)3(1−y)−7(1−y)=−4(1−y).
+
+**Množenje monoma**:  
+(3ab)⋅(−2a3b−1)=−6a4b0=−6a4(3ab)⋅(−2a3b−1)=−6a4b0=−6a4.
+
+---
+
+## 5. Potencije, eksponencijalne funkcije i složene kamate
+
+**Pravila potencija** (za x>0x>0):
+
+xm⋅xn=xm+n,xmxn=xm−n,(xm)n=xmn,(xy)n=xnynxm⋅xn=xm+n,xnxm=xm−n,(xm)n=xmn,(xy)n=xnyn
+
+Zbrajanje samo potpuno jednakih potencija (isti bazni dio i eksponent).
+
+**Eksponencijalna funkcija**:
+
+f(x)=ax,a>0, a≠1f(x)=ax,a>0, a=1
+
+- Domenа: RR  
+    
+- Slika: (0,∞)(0,∞)  
+    
+- Ako a>1a>1: funkcija strogo raste; ako 0<a<10<a<1: strogo pada.  
+    
+- Horizontalna asimptota: y=0y=0.[](https://www.cuemath.com/calculus/asymptotes/)​  
+    
+
+**Složeni kamatni račun**:  
+Glavnica C0C0 nakon nn godina pri stopi p%p%:
+
+Cn=C0(1+p100)nCn=C0(1+100p)n
+
+---
+
+## 6. Logaritmi i logaritamska funkcija
+
+**Definicija logaritma**:
+
+ax=b⟺x=log⁡abax=b⟺x=logab
+
+Uvjeti: a>0, a≠1, b>0a>0, a=1, b>0.
+
+**Logaritamska funkcija baze aa**:
+
+f(x)=log⁡ax,x>0f(x)=logax,x>0
+
+- Domenа: (0,∞)(0,∞)  
+    
+- Slika: RR  
+    
+- Ako a>1a>1: rastuća, ako 0<a<10<a<1: padajuća  
+    
+- Vertikalna asimptota: x=0x=0.[](https://gimnazija-mujevica-im.skole.hr/wp-content/uploads/sites/773/2024/06/02_Logaritamska-funkcija_prezentacija.pdf)​  
+    
+
+**Pravila**:
+
+log⁡a(xy)=log⁡ax+log⁡ay,log⁡axy=log⁡ax−log⁡ayloga(xy)=logax+logay,logayx=logax−logaylog⁡a(xm)=mlog⁡axloga(xm)=mlogax
+
+**Promjena baze**:
+
+log⁡ax=log⁡cxlog⁡calogax=logcalogcx
+
+**Upozorenje**: log⁡ax⋅log⁡aylogax⋅logay nema jednostavnu formulu; zbrajaju se i oduzimaju samo logaritmi iste baze.
+
+**Prirodni logaritam**:
+
+- ln⁡x=log⁡exlnx=logex, baza e≈2,718e≈2,718.  
+    
+- Derivacija: ddxln⁡x=1xdxdlnx=x1.  
+    
+
+---
+
+## 7. Skupovi brojeva i decimali
+
+- N={1,2,3,… }N={1,2,3,…}  
+    
+- Z={…,−3,−2,−1,0,1,2,3,… }Z={…,−3,−2,−1,0,1,2,3,…}  
+    
+- Q={mn∣m,n∈Z,n≠0}Q={nm∣m,n∈Z,n=0}  
+    
+
+Svaki racionalni broj ima periodičan decimalni zapis (npr. 1/7=0,142857‾1/7=0,142857).
+
+---
+
+## 8. Trigonometrija: kutovi, funkcije, svojstva
+
+## 8.1. Mjere za kut
+
+- **Stupnjevi**: glavni kut 0∘≤α<360∘0∘≤α<360∘; svi kutovi oblika α+360∘kα+360∘k, k∈Zk∈Z, su ekvivalentni.  
+    
+- **Radijani**: duljina luka jedinične kružnice: 180∘=π,90∘=π2,60∘=π3,45∘=π4,30∘=π6180∘=π,90∘=2π,60∘=3π,45∘=4π,30∘=6π Pretvorba: rad=deg⋅π180rad=deg⋅180π.[](https://www.rapidtables.org/hr/convert/number/degrees-to-radians.html)​  
+    
+
+## 8.2. Trigonometrijske funkcije
+
+Temeljne: sin⁡x,cos⁡x,tg⁡x,ctg⁡xsinx,cosx,tgx,ctgx.
+
+- Periodi:
+    - sin⁡,cos⁡sin,cos: 2π2π  
+        
+    - tg⁡,ctg⁡tg,ctg: ππ  
+        
+- Parnost:
+    - cos⁡(−x)=cos⁡xcos(−x)=cosx (parna)  
+        
+    - sin⁡(−x)=−sin⁡xsin(−x)=−sinx, tg⁡(−x)=−tg⁡xtg(−x)=−tgx, ctg⁡(−x)=−ctg⁡xctg(−x)=−ctgx (neparne).  
+        
+
+**Sinusoida**:
+
+f(x)=Asin⁡(Bx+C)f(x)=Asin(Bx+C)
+
+- Amplituda: ∣A∣∣A∣  
+    
+- Period: T=2π∣B∣T=∣B∣2π  
+    
+- Fazni pomak: −CB−BC  
+    
+
+**Osnovne trig identitete (za maturu)**:
+
+- Odnos: tg⁡x=sin⁡xcos⁡x,ctg⁡x=cos⁡xsin⁡xtgx=cosxsinx,ctgx=sinxcosx
+- Reciprocitet: sec⁡x=1cos⁡x,csc⁡x=1sin⁡xsecx=cosx1,cscx=sinx1
+- Pitagorejski: sin⁡2x+cos⁡2x=1sin2x+cos2x=11+tg⁡2x=sec⁡2x,1+ctg⁡2x=csc⁡2x1+tg2x=sec2x,1+ctg2x=csc2x
+
+---
+
+## 9. Domena i slika (formalizirani teoremi)
+
+**Prirodna domena**: svi x∈Rx∈R za koje formula ima smisla (daje realan broj).
+
+## 9.1. Teorem – parni korijen
+
+Ako je
+
+f(x)=g(x)n,n paranf(x)=ng(x),n paran
+
+onda:
+
+Df={x∈R∣g(x)≥0}Df={x∈R∣g(x)≥0}
+
+## 9.2. Teorem – logaritamska funkcija „opće” forme
+
+Ako je
+
+f(x)=log⁡g(x)h(x),f(x)=logg(x)h(x),
+
+tada:
+
+Df={x∈R∣g(x)>0, g(x)≠1, h(x)>0}Df={x∈R∣g(x)>0, g(x)=1, h(x)>0}
+
+## 9.3. Teorem – kvocijent funkcija
+
+Ako je
+
+f(x)=g(x)h(x),f(x)=h(x)g(x),
+
+onda:
+
+Df={x∈R∣h(x)≠0}Df={x∈R∣h(x)=0}
+
+**Složena funkcija**: domena je presjek domena svih „sastavnih” funkcija.
+
+**Grafičko čitanje**:
+
+- Domena: svi xx za koje vertikalna linija siječe graf.  
+    
+- Slika: svi yy za koje horizontalna linija siječe graf.  
+    
+
+---
+
+## 10. Limes, neprekidnost, asimptote
+
+**Limes u točki aa**:
+
+lim⁡x→af(x)=Lx→alimf(x)=L
+
+Ako postoje limes slijeva i zdesna i jednaki su, limes postoji.
+
+**Jednostrani limesi**:
+
+lim⁡x→a−f(x),lim⁡x→a+f(x)x→a−limf(x),x→a+limf(x)
+
+**Neprekidnost** u točki aa:
+
+- f(a)f(a) je definirana  
+    
+- lim⁡x→af(x)limx→af(x) postoji  
+    
+- lim⁡x→af(x)=f(a)limx→af(x)=f(a)  
+    
+
+**Vertikalna asimptota**: pravac x=ax=a je vertikalna asimptota ako
+
+lim⁡x→a−f(x)=±∞ililim⁡x→a+f(x)=±∞x→a−limf(x)=±∞ilix→a+limf(x)=±∞
+
+**Horizontalna asimptota**: pravac y=Ly=L je horizontalna asimptota ako
+
+lim⁡x→∞f(x)=Lililim⁡x→−∞f(x)=Lx→∞limf(x)=Lilix→−∞limf(x)=L
+
+---
+
+## 11. Derivacija: definicija, pravila, nagib, ekstremi
+
+**Intuitivna definicija**: derivacija f′(x0)f′(x0) je nagib tangente na graf u točki x0x0 – „trenutna brzina promjene”.
+
+**Formalna definicija**:
+
+f′(a)=lim⁡h→0f(a+h)−f(a)hf′(a)=h→0limhf(a+h)−f(a)
+
+**Osnovne derivacije**:
+
+(c)′=0,(xn)′=nxn−1(c)′=0,(xn)′=nxn−1(sin⁡x)′=cos⁡x,(cos⁡x)′=−sin⁡x(sinx)′=cosx,(cosx)′=−sinx(tg⁡x)′=1cos⁡2x,(ctg⁡x)′=−1sin⁡2x(tgx)′=cos2x1,(ctgx)′=−sin2x1(ex)′=ex,(ln⁡x)′=1x (x>0)(ex)′=ex,(lnx)′=x1 (x>0)
+
+**Pravila**:
+
+- Zbroj: (g+h)′=g′+h′(g+h)′=g′+h′  
+    
+- Produkt: (gh)′=g′h+gh′(gh)′=g′h+gh′  
+    
+- Kvocijent: (gh)′=g′h−gh′h2(hg)′=h2g′h−gh′
+- Konstanta: (cg)′=cg′(cg)′=cg′  
+    
+
+**Lančano pravilo** (češće u višoj razini / PMF, ali korisno i za maturu):
+
+ddxf(g(x))=f′(g(x))⋅g′(x)dxdf(g(x))=f′(g(x))⋅g′(x)
+
+**Nagib i derivacija**:  
+Koeficijent smjera tangente u točki graf-a funkcije ff jednak je f′(x0)f′(x0). U primjeru s točkama A,B,C,D iz teksta: tangente imaju koeficijente -0,27; 0,82; -0,38; 0 → to su nagibi u tim točkama.
+
+**Lokalni ekstremi (algoritam)**:
+
+1. Nađi f′(x)f′(x).
+    
+2. Riješi f′(x)=0f′(x)=0 → stacionarne točke.
+    
+3. Pogledaj znak f′(x)f′(x) lijevo i desno:
+    
+    - ++ pa −−: lokalni maksimum  
+        
+    - −− pa ++: lokalni minimum  
+        
+4. Ekstremne vrijednosti: f(xstac)f(xstac).
+    
+
+---
+
+## 12. Statistika: kvartili i standardna devijacija
+
+- **Kvartili**:
+    - Q1Q1: medijan donje polovice (25%)  
+        
+    - Q2Q2: medijan (50%)  
+        
+    - Q3Q3: medijan gornje polovice (75%)  
+        
+
+**Standardna devijacija**:
+
+σ=∑i=1n(xi−xˉ)2nσ=n∑i=1n(xi−xˉ)2
+
+Kod normalne distribucije:
+
+- ≈68%≈68% u [xˉ−σ,xˉ+σ][xˉ−σ,xˉ+σ]  
+    
+- ≈95%≈95% u [xˉ−2σ,xˉ+2σ][xˉ−2σ,xˉ+2σ]  
+    
+- ≈99%≈99% u [xˉ−3σ,xˉ+3σ][xˉ−3σ,xˉ+3σ]

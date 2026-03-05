@@ -286,3 +286,294 @@ a) Napišite jednadžbu kemijske reakcije nastajanja bijeloga
 zamućenja i označite agregacijska stanja svih sudionika
 reakcije.
 he i
+
+PWEPLWXITY -----------------------------------------------------------
+# XII. Kiseline, Baze, Soli i pH  *(matura-ready sažetak)*
+
+## 12.1. Kiseline i baze
+
+### Anorganske kiseline s kisikom (oksokiseline)
+
+Anorganske kiseline koje u sastavu imaju kisik obično nastaju reakcijom odgovarajućeg nemetalnog oksida s vodom i vrlo su važne u kemijskoj industriji.[web:1][web:19]
+
+**Jednadžbe nastajanja oksokiselina:**
+- Sumporaste/sumporne kiseline:
+  - \(\ce{SO2(g) + H2O(l) -> H2SO3(aq)}\)  (sumporasta kiselina)
+  - \(\ce{SO3(g) + H2O(l) -> H2SO4(aq)}\)  (sumporna kiselina)
+- Dušična kiselina:
+  - \(\ce{N2O5(g) + H2O(l) -> 2HNO3(aq)}\)
+- Ugljikova kiselina:
+  - \(\ce{CO2(g) + H2O(l) <=> H2CO3(aq)}\)  (ravnoteža, vrlo slaba kiselina)
+- Fosforna kiselina:
+  - \(\ce{P4O10(s) + 6H2O(l) -> 4H3PO4(aq)}\)
+- Perklorna kiselina:
+  - \(\ce{Cl2O7(g) + H2O(l) -> 2HClO4(aq)}\)
+
+### Kiseline bez kisika (hidridi nemetala)
+
+Kiseline koje ne sadrže kisik (npr. HCl, HBr, HI) dobivaju se drugim postupcima (izravna sinteza, reakcije s klorovodičnom kiselinom, itd.).[web:4]
+
+**Primjer:**
+- \(\ce{HCl(g) + H2O(l) -> HCl(aq)}\)  (klorovodična kiselina)
+
+---
+
+### Lužine (vodene otopine baza)
+
+Lužinama nazivamo vodene otopine baza.[web:16]
+
+**Nastaju:**
+1. **Otapanjem bazičnih oksida u vodi:**
+   - \(\ce{Na2O(s) + H2O(l) -> 2NaOH(aq)}\)
+2. **Otapanjem topljivih hidroksida:**
+   - \(\ce{NaOH(s) -> Na+(aq) + OH-(aq)}\)
+3. **Reakcijom metala 1. i 2. skupine s vodom:**
+   - \(\ce{2Na(s) + 2H2O(l) -> 2NaOH(aq) + H2(g)}\)
+4. **Reakcijom metalnih hidrida s vodom:**
+   - \(\ce{NaH(s) + H2O(l) -> NaOH(aq) + H2(g)}\)
+
+**Slaba amonijeva lužina:**
+- \(\ce{NH3(g) + H2O(l) <=> NH4+(aq) + OH-(aq)}\)
+
+---
+
+### Ionizacija kiselina
+
+Kiseline u vodi disociraju na oksonijeve ione \(\ce{H3O+}\) i kiselinski ostatak (anion).[web:19]
+
+#### Monoprotonske kiseline (jedan stupanj ionizacije)
+
+- Općenito: \(\ce{HA(aq) + H2O(l) -> H3O+(aq) + A-(aq)}\)
+- Primjer:
+  - \(\ce{HCl(aq) + H2O(l) -> H3O+(aq) + Cl-(aq)}\)
+
+#### Dvoprotonske kiseline (dva stupnja)
+
+- \(\ce{H2SO4(aq) + H2O(l) -> H3O+(aq) + HSO4-(aq)}\)  (prvi stupanj – vrlo jak)
+- \(\ce{HSO4-(aq) + H2O(l) <=> H3O+(aq) + SO4^{2-}(aq)}\)  (drugi stupanj – slab)
+- Zbrojeno:
+  - \(\ce{H2SO4(aq) + 2H2O(l) -> 2H3O+(aq) + SO4^{2-}(aq)}\)
+
+#### Triprotonske kiseline (tri stupnja)
+
+- \(\ce{H3PO4(aq) + H2O(l) <=> H3O+(aq) + H2PO4-(aq)}\)
+- \(\ce{H2PO4-(aq) + H2O(l) <=> H3O+(aq) + HPO4^{2-}(aq)}\)
+- \(\ce{HPO4^{2-}(aq) + H2O(l) <=> H3O+(aq) + PO4^{3-}(aq)}\)
+- Zbrojeno:
+  - \(\ce{H3PO4(aq) + 3H2O(l) <=> 3H3O+(aq) + PO4^{3-}(aq)}\)
+
+**Nazivi iona:**
+- \(\ce{HSO4-}\) – hidrogensulfatni ion  
+- \(\ce{SO4^{2-}}\) – sulfatni ion  
+- \(\ce{H2PO4-}\) – dihidrogenfosfatni ion  
+- \(\ce{HPO4^{2-}}\) – hidrogenfosfatni ion  
+- \(\ce{PO4^{3-}}\) – fosfatni ion  
+
+**Strelice:**
+- Jake kiseline: \(\rightarrow\) (jedna strelica – praktički potpuna ionizacija)  
+- Slabe kiseline: \(\rightleftharpoons\) (dvostruka strelica – ravnoteža)
+
+---
+
+## 12.2. Teorije o kiselinama i bazama
+
+### Arrheniusova teorija (samo vodene otopine)
+
+- **Kiselina:** tvar koja u vodenoj otopini povećava koncentraciju \(\ce{H+}\) (odnosno \(\ce{H3O+}\)).  
+- **Baza:** tvar koja u vodenoj otopini povećava koncentraciju \(\ce{OH-}\).[web:19]
+
+**Primjeri:**
+- \(\ce{HCl(aq) -> H+(aq) + Cl-(aq)}\)
+- \(\ce{NaOH(aq) -> Na+(aq) + OH-(aq)}\)
+
+Ova definicija vrijedi isključivo za **vodene otopine** i ne obuhvaća sve baze (npr. \(\ce{NH3}\)).[web:21]
+
+---
+
+### Brønsted–Lowry teorija (protonska)
+
+- **Kiselina:** donor protona (\(\ce{H+}\))  
+- **Baza:** akceptor protona  
+- Vrijedi za različita agregacijska stanja, ne samo za vodene otopine.[web:24][web:21]
+
+**Opća jednadžba:**
+- kiselina + baza \(\rightleftharpoons\) konjugirana kiselina + konjugirana baza
+
+**Primjer para:**
+- \(\ce{HCl + H2O -> H3O+ + Cl-}\)  
+  - \(\ce{HCl}\) – kiselina, \(\ce{Cl-}\) – konjugirana baza  
+  - \(\ce{H2O}\) – baza, \(\ce{H3O+}\) – konjugirana kiselina  
+
+**Jakost i konjugirani par:**
+- Što je **kiselina jača**, njezina **konjugirana baza je slabija**, i obrnuto.[web:24]
+
+---
+
+### Lewisova teorija (elektronski parovi)
+
+- **Lewisova kiselina:** akceptor elektronskog para  
+- **Lewisova baza:** donor elektronskog para.[web:19]
+
+Ova definicija obuhvaća i reakcije bez stvarnog prijenosa protona (kompleksiranje metala, koordinacijski spojevi).
+
+---
+
+## 12.3. Ionski produkt vode \(K_w\)
+
+Voda je **amfolit** (amfoterna tvar) – može se ponašati kao kiselina i kao baza.[web:1][web:19]
+
+**Autoionizacija vode:**
+- \(\ce{2H2O(l) <=> H3O+(aq) + OH-(aq)}\)
+
+**Konstanta ravnoteže:**
+- \(K = \dfrac{[H_3O^+][OH^-]}{[H_2O]^2}\)
+
+Budući da je koncentracija vode približno konstantna, definira se **ionski produkt vode**:
+- \(K_w = [H_3O^+][OH^-]\)
+
+Pri \(25^\circ\text{C}\):
+- \(K_w = 1{,}0 \times 10^{-14}~\text{mol}^2\,\text{dm}^{-6}\)[web:19]  
+- U neutralnoj vodi: \([H_3O^+] = [OH^-] = 1{,}0 \times 10^{-7}~\text{mol\,dm}^{-3}\)
+
+**Amfoterni ion \(\ce{HSO4-}\):**
+- kao kiselina: \(\ce{HSO4- -> H+ + SO4^{2-}}\)  
+- kao baza: \(\ce{HSO4- + H+ -> H2SO4}\)
+
+---
+
+## 12.4. pH – mjera kiselosti
+
+Koncentracije \(\ce{H3O+}\) su male, pa se koristi logaritamska skala.[web:2][web:19]
+
+**Definicije:**
+- \(\text{pH} = -\log[H_3O^+]\)
+- \(\text{pOH} = -\log[OH^-]\)
+- \(\text{pH} + \text{pOH} = 14\)  (pri \(25^\circ\text{C}\))
+
+**pH ljestvica (idealan slučaj, 25 °C):**[web:2]
+
+| pH raspon | Vrsta otopine | Primjer |
+|----------|---------------|---------|
+| 0 – <7   | kisela        | limunov sok (pH ≈ 2) |
+| 7        | neutralna     | čista voda |
+| >7 – 14  | lužnata       | sapunica (pH ≈ 9–10) |
+
+---
+
+### pH jakih kiselina i baza
+
+**Jaki elektroliti:** gotovo potpuno disociraju u vodi.[web:19]
+
+- **Jake kiseline:** HCl, HBr, HI, HNO3, HClO4, H2SO4  
+- **Jake baze:** LiOH, NaOH, KOH, RbOH, CsOH, Ca(OH)2, Sr(OH)2, Ba(OH)2
+
+Za **monoprotonske jake kiseline**:
+- \([H_3O^+] \approx c(\text{kiselina})\)
+
+Za **monohidroksidne jake baze**:
+- \([OH^-] \approx c(\text{baza})\)
+
+**Primjer (iz teksta):**  
+\(\text{c(HCl)} = 0{,}25~\text{mol/L}\)  
+\(\ce{HCl(aq) -> H+(aq) + Cl-(aq)}\) – jaka kiselina  
+\([H_3O^+] = 0{,}25~\text{mol/L}\)  
+\(\text{pH} = -\log 0{,}25 = 0{,}60\)
+
+---
+
+### pH slabih kiselina i baza
+
+Slabe kiseline i baze **djelomično** disociraju, pa \([H_3O^+] \neq c(\text{kiselina})\) i \([OH^-] \neq c(\text{baza})\).[web:19]
+
+**Za slabu kiselinu HA:**
+- \(\ce{HA(aq) <=> H+(aq) + A-(aq)}\)
+- \(K_a = \dfrac{[H^+][A^-]}{[HA]}\)
+
+Approx za razrijeđene otopine i malu disocijaciju:
+- ako je \(c_0\) početna koncentracija i \(x = [H^+]\), često se koristi:
+  - \(K_a \approx \dfrac{x^2}{c_0}\)
+
+**Primjer (iz teksta):** Octena kiselina, \(c = 0{,}1~\text{mol/L}\),  
+\(K_a = 1{,}8 \times 10^{-5}\ \text{mol/L}\):
+- \(\ce{CH3COOH(aq) <=> CH3COO-(aq) + H+(aq)}\)
+- \([CH_3COOH] = 0{,}1 - x\), \([CH_3COO^-] = x\), \([H^+] = x\)  
+- \(K_a = \dfrac{x^2}{0{,}1 - x} \approx \dfrac{x^2}{0{,}1}\)  
+- \(x = [H^+] = 1{,}34 \times 10^{-3}~\text{mol/L}\)  
+- \(\text{pH} = 2{,}87\)  
+- \(\alpha = \dfrac{[H^+]}{c_0} = \dfrac{1{,}34 \times 10^{-3}}{0{,}1} = 0{,}0134 = 1{,}34\%\)
+
+**Stupanj disocijacije \(\alpha\):**
+- \(\alpha = \dfrac{\text{broj disociranih molekula}}{\text{ukupan broj molekula}}\)
+- Za kiselinu HA: \(\alpha = \dfrac{[H_3O^+]}{[HA]_0}\)
+- Za bazu BOH: \(\alpha = \dfrac{[OH^-]}{[BOH]_0}\)
+
+---
+
+## 12.5. Kiselo–bazni indikatori i pH-metri
+
+Kiselo–bazni indikatori mijenjaju boju u određenom pH području.[web:10][web:16]
+
+**Vrste indikatora:**
+- Lakmus (crveni/plavi)
+- Univerzalni indikatorski papir (širok raspon pH, boje od crvene do ljubičaste)
+- Metil oranž (pH 3,2–4,2; crvena → narančasta → žuta)
+- Fenolftalein (pH 8,2–12; bezbojan → ružičast/ljubičast)[web:10][web:23]
+
+**Fenolftalein:**
+- U kiselim i neutralnim otopinama – bezbojan
+- U lužnatim otopinama (pH > 8,2) – ružičast do ljubičast[web:23]
+
+**pH-metri:**
+- Uređaji koji koriste pH-elektrodu za **točno numeričko određivanje pH** (važni u analitičkoj kemiji i laboratorijima).[web:2]
+
+---
+
+## 12.6. Kiselo–bazne reakcije (neutralizacija, titracija)
+
+### Neutralizacija
+
+Reakcija kiseline i baze u kojoj nastaju sol i voda; u idealnom slučaju pH ≈ 7 (jaka kiselina + jaka baza).[web:10][web:16]
+
+**Primjer (iz teksta):**
+- \(\ce{HCl(aq) + NaOH(aq) -> NaCl(aq) + H2O(l)}\)
+
+**Ionska jednadžba:**
+- ukupno: \(\ce{H+(aq) + Cl-(aq) + Na+(aq) + OH-(aq) -> Na+(aq) + Cl-(aq) + H2O(l)}\)
+- skraćeno: \(\ce{H+(aq) + OH-(aq) -> H2O(l)}\)
+
+Reakcija je **egzotermna** – temperatura se povećava.
+
+---
+
+### Volumetrija / titrimetrija (matura kontekst)
+
+Metoda kvantitativne analize u kojoj se mjeri volumen otopine poznate koncentracije utrošen na **neutralizaciju** otopine nepoznate koncentracije.[web:14]
+
+- **Titracija:** dodavanje titranta do **točke ekvivalencije** (stehiometrijsko omjer kiseline i baze).
+- Točka ekvivalencije se u praksi detektira:
+  - promjenom boje indikatora (fenolftalein, metil oranž…)
+  - pH-metrom (pH krivulja).
+
+---
+
+## 12.7. Soli
+
+Soli su ionski spojevi visokog tališta; u krutom stanju su izolatori, a taljevine i vodene otopine provode električnu struju (elektroliti).[web:16][web:19]
+
+**Slabo topljive soli:**
+- \(\ce{AgCl}\), \(\ce{BaSO4}\), \(\ce{CaCO3}\), \(\ce{CaC2O4}\), \(\ce{Ca(COO)2}\), \(\ce{CaSO4}\), \(\ce{PbI2}\)
+
+---
+
+### Dobivanje soli (laboratorij)
+
+1. **Metal + nemetal → sol**
+   - \(\ce{Pb(s) + I2(s) -> PbI2(s)}\)
+2. **Metal + kiselina → sol + vodik**
+   - \(\ce{Zn(s) + H2SO4(aq) -> ZnSO4(aq) + H2(g)}\)
+3. **Bazični oksid + kiselina → sol + voda**
+   - \(\ce{CuO(s) + 2HNO3(aq) -> Cu(NO3)2(aq) + H2O(l)}\)
+4. **Kiseli oksid + baza → sol + voda**
+   - \(\ce{CO2(g) + Ca(OH)2(aq) -> CaCO3(s) + H2O(l)}\)
+5. **Kiselina + baza (neutralizacija) → sol + voda**
+   - \(\ce{2HCl(aq) + Ca(OH)2(aq) -> CaC

@@ -195,3 +195,320 @@ Ako jedan od čimbenika nije zadovoljen, na spontanost reakcije utječe temperat
 GIBBSOVA ENERGIJA, G, funkcija stanja koja uključuje entalpiju, entropiju i temperaturu. Prirast Gibbsove energije pri stalnom tlaku i temperaturi jednak je razlici prirasta entalpije i umnoška prirasta entropije i temperature pri kojoj se reakcija zbiva.
 AG* = AH-T-AS
 To je jedna od osnovnih jednadžbi kemijske termodinamike jer se pomoću nje može zaključiti o spontanosti kemijske reakcije (p, T= konst.).
+
+PERPLEXITY -------------------------------------------------------
+## Kemijska promjena
+
+Kemijska se promjena događa kada **jedne ili više tvari** nastaje **jedna ili više novih tvari** s **posve drukčijim svojstvima**.[](https://edutorij-admin-api.carnet.hr/storage/extracted/703916/kemija-2/m01/j03/index.html)​  
+To uključuje kidanje i stvaranje kemijskih veza, što mijenja kemijski identitet tvari (za razliku od fizikalnih promjena gdje se mijenja samo agregatno stanje ili oblik).
+
+## Reaktanti i produkti
+
+- **Reaktanti**: Tvari koje ulaze u kemijsku reakciju; pišu se na **lijevoj strani** jednadžbe kemijske reakcije.
+    
+- **Produkti**: Tvari koje izlaze iz kemijske reakcije; pišu se na **desnoj strani** jednadžbe kemijske reakcije.
+    
+
+Jednadžba kemijske reakcije mora biti **stehiometrijski izjednačena** (zakon očuvanja mase – broj atoma svakog elementa isti je na lijevoj i desnoj strani).[](https://www.pmf.unizg.hr/_download/repository/OFK_2011.pdf)​
+
+---
+
+## Vrste kemijskih reakcija
+
+## 1. Prema promjeni energije (termodinamika)
+
+- **Egzotermne reakcije**
+    
+    - Oslobađa se energija u okolinu, reakcijska entalpija **negativna** (ΔH<0ΔH<0).
+        
+    - Temperatura reakcijske smjese raste (ako je sustav slabo izoliran).[](https://zir.nsk.hr/islandora/object/kemos:311/datastream/PDF/download)​
+        
+    - Primjer (gorenje metana):
+        
+        \ceCH4(g)+2O2(g)−>CO2(g)+2H2O(l)ΔH∘=−890 kJ/mol\ceCH4(g)+2O2(g)−>CO2(g)+2H2O(l)ΔH∘=−890kJ/mol
+- **Endotermne reakcije**
+    
+    - Sustav apsorbira energiju iz okoline, reakcijska entalpija **pozitivna** (ΔH>0ΔH>0).
+        
+    - Temperatura smjese pada ak- - ko se toplina ne dovodi izvana.[](https://edutorij-admin-api.carnet.hr/storage/extracted/703916/kemija-2/m01/j03/index.html)​
+        
+    - Primjer (žarenje modre galice):
+        
+        \ceCuSO4⋅5H2O(s)−>CuSO4(s)+5H2O(l)ΔH=+80 kJ/mol\ceCuSO4⋅5H2O(s)−>CuSO4(s)+5H2O(l)ΔH=+80kJ/mol
+
+> Za maturu: bitno je prepoznati **iz jednadžbe i znaka ΔHΔH** je li reakcija egzo- ili endotermna, te povezati znak ΔHΔH s promjenom temperature i smjerom prijenosa topline.
+
+---
+
+## 2. Prema složenosti reaktanata i produkta
+
+- **Sinteza (spajanje)**: Od jednostavnijih tvari nastaju složenije.
+    
+    - Opći oblik: \ceA+B−>AB\ceA+B−>AB.
+        
+    - Primjeri:
+        
+        - \ce2H2(g)+O2(g)−>2H2O(l)\ce2H2(g)+O2(g)−>2H2O(l)
+            
+        - \ceN2(g)+3H2(g)−>2NH3(g)\ceN2(g)+3H2(g)−>2NH3(g).[](https://www.pmf.unizg.hr/_download/repository/OFK_2011.pdf)​
+            
+- **Analiza (raspad)**: Složenije tvari se rastavljaju na jednostavnije.
+    
+    - Opći oblik: \ceAB−>A+B\ceAB−>A+B.
+        
+    - Podvrste analize:
+        
+
+|Podvrsta|Opis|Primjer|
+|---|---|---|
+|**Piroliza**|Raspad tvari povišenom temperaturom bez prisutnosti kisika|\ceCaCO3(s)−>CaO(s)+CO2(g)\ceCaCO3(s)−>CaO(s)+CO2(g)|
+|**Hidroliza**|Raspad uz pomoć vode|Hidroliza estera u karboksilnu kiselinu i alkohol|
+|**Fotoliza**|Raspad djelovanjem svjetlosti|Npr. razgradnja ozona u stratosferi|
+|**Elektroliza**|Raspad pomoću električne struje|\ce2H2O(l)−>[struja]2H2(g)+O2(g)\ce2H2O(l)−>[struja]2H2(g)+O2(g)|
+
+Za maturu je važno da **prepoznaš tip iz oblika jednadžbe** (sinteza – „više u jedno“, analiza – „jedno u više“, piroliza/hidro/foto/elektro su specifični uvjeti).[](https://gradivo.hr/kemija/online-skripta-kemija/entalpija-i-promjena-entalpije/)​
+
+---
+
+## 3. Prema stupnju ravnoteže
+
+- **Nepovratne reakcije**
+    
+    - U stanju ravnoteže u reakcijskoj smjesi je prisutna **zanemariva količina reaktanata**.
+        
+    - Ravnoteža je pomaknuta **u desno**, prema produktima.
+        
+    - Vrijednost konstante ravnoteže: K>100K>100.[](https://www.pmf.unizg.hr/_download/repository/OFK_2011.pdf)​
+        
+    - Pišu se **običnom strjelicom**: \ce−>\ce−>.
+        
+    - Primjer:
+        
+        \ce2Mg(s)+O2(g)−>2MgO(s)\ce2Mg(s)+O2(g)−>2MgO(s)
+- **Povratne (reverzibilne) reakcije**
+    
+    - U stanju ravnoteže **nema mjerljivih promjena koncentracija**, ali se reakcije i dalje zbivaju na mikroskopskoj razini istim brzinama (dinamička ravnoteža).[](https://www.pmf.unizg.hr/_download/repository/OFK_2011.pdf)​
+        
+    - Konstanta ravnoteže: K≈0,01K≈0,01 do 100100.
+        
+    - Pišu se **dvostrukom strjelicom**: \ce⇌\ce⇌.
+        
+    - Primjer:
+        
+        \ce2NO(g)⇌N2O4(g)\ce2NO(g)⇌N2O4(g)
+
+> Tipično maturalno proširenje: **povezanost ΔG∘ΔG∘ i KK**
+> 
+> ΔG∘=−RTln⁡KΔG∘=−RTlnK
+> 
+> Ako je K>1K>1, ln⁡K>0lnK>0 pa je ΔG∘<0ΔG∘<0 – reakcija je u smjeru produkata termodinamički povoljnija.[](https://repozitorij.kemija.unios.hr/object/kemos:311/FILE0)​
+
+---
+
+## 4. Prema smjeru putovanja elektrona (redoks-reakcije)
+
+- **Oksidacija**
+    
+    - Otpuštanje elektrona (broj elektrona na strani produkata), povećanje oksidacijskog broja.[](https://gradivo.hr/kemija/online-skripta-kemija/redoks-procesi/)​
+        
+    - Primjer:
+        
+        \ceZn−>Zn2++2e−\ceZn−>Zn2++2e−
+- **Redukcija**
+    
+    - Primanje elektrona (elektroni na strani reaktanata), smanjenje oksidacijskog broja.[](https://gradivo.hr/kemija/online-skripta-kemija/redoks-procesi/)​
+        
+    - Primjer:
+        
+        \ceNO3−+2H++e−−>NO2+H2O\ceNO3−+2H++e−−>NO2+H2O
+
+U svakoj redoks-reakciji **broj otpuštenih elektrona = broju primljenih elektrona**, što je ključno kod sređivanja jednadžbi polureakcijskom metodom.[](https://gradivo.hr/kemija/online-skripta-kemija/redoks-procesi/)​
+
+---
+
+## 5. Prema promjeni zasićenosti (organske reakcije)
+
+|Vrsta|Opis|Primjer|
+|---|---|---|
+|**Eliminacija**|Smanjenje zasićenosti (nastaje dvostruka veza)|\ceCH3CH2Cl+NaOH−>CH2=CH2+H2O+NaCl\ceCH3CH2Cl+NaOH−>CH2=CH2+H2O+NaCl|
+|**Adicija**|Povećanje zasićenosti (dvostruka → jednostruka veza)|\ceCH2=CH2+HBr−>CH3CH2Br\ceCH2=CH2+HBr−>CH3CH2Br|
+|**Supstitucija**|Zamjena jednog atoma drugim, zasićenost ne mijenja|\ceCH4+Cl2−>CH3Cl+HCl\ceCH4+Cl2−>CH3Cl+HCl|
+
+Na maturi je bitno razlikovati **kod alkena**: reakcije s HX i X22 su **adicije**, a kod alkana s halogenima uglavnom **supstitucije**.
+
+---
+
+## Termodinamika i termokemija
+
+- **Termodinamika**: Proučava energetske promjene tvari i odnose toplinske energije s ostalim oblicima energije.[](https://www.pmf.unizg.hr/_download/repository/OFK_2011.pdf)​
+    
+- **Termokemija**: Grana kemije koja proučava izmjenu topline pri kemijskim reakcijama.
+    
+- **Toplina (QQ)**: Energija koju sustav spontano izmjenjuje s okolinom; mjerna jedinica **džul (J)**; spontano prelazi s toplijeg na hladnije tijelo.
+    
+
+## Vrste sustava
+
+|Vrsta sustava|Izmjena tvari|Izmjena energije|Primjer|
+|---|---|---|---|
+|**Otvoreni**|Da|Da|Otvorena epruveta koja se zagrijava|
+|**Zatvoreni**|Ne|Da|Zatvorena tikvica|
+|**Izolirani**|Ne|Ne|Termos-boca|
+
+---
+
+## Toplinski kapaciteti i kalorimetrija
+
+- **Toplinski kapacitet (CC)**
+    
+    C=QΔT[J/K]C=ΔTQ[J/K]
+- **Specifični toplinski kapacitet (cc)**  
+    Toplina potrebna da se 1 kg tvari zagrije za 1 K:
+    
+    c=Qm(X)ΔT[J/(kg K)]c=m(X)ΔTQ[J/(kg K)]
+- **Molarni toplinski kapacitet (CmCm)**  
+    Toplina potrebna da se 1 mol tvari zagrije za 1 K:
+    
+    Cm=Qn(X)ΔT[J/(K mol)]Cm=n(X)ΔTQ[J/(K mol)]
+
+Toplinski kapacitet ovisi o količini tvari (ekstenzivna veličina).  
+**Kalorimetrija**: Metoda mjerenja topline; u kalorimetru se toplina računa:
+
+Q=m(X) c ΔTQ=m(X)cΔT
+
+---
+
+## Entalpija (HH)
+
+- **Entalpija** je termodinamička **funkcija stanja** (H=U+pVH=U+pV), što znači da ovisi samo o početnom i konačnom stanju, ne o putu.[](https://www.pmf.unizg.hr/_download/repository/OFK_2011.pdf)​
+    
+- Apsolutna vrijednost se ne mjeri, nego **prirast entalpije ΔHΔH**.
+    
+- Pri stalnom tlaku:
+    
+    Qp=ΔHQp=ΔH
+    
+    (toplina izmijenjena pri stalnom tlaku jednaka je prirastu entalpije).[](https://edutorij-admin-api.carnet.hr/storage/extracted/703916/kemija-2/m01/j03/index.html)​
+    
+
+Entalpija je **ekstenzivno svojstvo** (ovisno o količini tvari) i **funkcija stanja** (zato vrijedi Hessov zakon).
+
+## Standardno stanje i standardna entalpija
+
+- **Standardno stanje**:
+    
+    - tlak p=100p=100 kPa,
+        
+    - temperatura obično 298 K (25 °C),
+        
+    - tvar u svojem **najstabilnijem obliku** pri tim uvjetima (npr. \ceO2(g)\ceO2(g), \ceH2(g)\ceH2(g), \ceC(graphit)\ceC(graphit)).[](https://edutorij-admin-api.carnet.hr/storage/extracted/15cf791a-4c97-4f29-84d9-17c1b47ceccc/kemija-2/m01/j03/index.html)​
+        
+- **Standardna entalpija stvaranja (ΔHf∘ΔHf∘)**  
+    Toplina koja se oslobađa ili troši pri nastanku **1 mola spoja** iz elemenata u njihovim standardnim stanjima pri 100 kPa.
+    
+    - Standardna entalpija stvaranja **elemenata u standardnom stanju je 0 kJ/mol** (definicija nulte razine).
+        
+- **Standardna reakcijska entalpija (ΔH∘ΔH∘)**  
+    Toplina koja se oslobodi ili utroši u kemijskoj reakciji pri standardnim uvjetima (100 kPa, 25 °C).[](https://edutorij-admin-api.carnet.hr/storage/extracted/703916/kemija-2/m01/j03/index.html)​
+    
+
+Za maturu se **vrlo često** koristi formula preko entalpija stvaranja:
+
+ΔHreak∘=∑ΔHf,produkti∘−∑ΔHf,reaktanti∘ΔHreak∘=∑ΔHf,produkti∘−∑ΔHf,reaktanti∘
+
+---
+
+## Vrste entalpijskih reakcija
+
+|Vrsta|Što znači|
+|---|---|
+|**Standardna entalpija stvaranja** ΔHf∘ΔHf∘|1 mol spoja iz elemenata u standardnom stanju.|
+|**Standardna entalpija izgaranja** ΔHc∘ΔHc∘|1 mol tvari potpuno izgara s O22; uvijek egzotermna (ΔH<0ΔH<0).|
+|**Standardna reakcijska entalpija** ΔH∘ΔH∘|Toplina reakcije pri std. uvjetima.|
+|**Standardna entalpija veze**|Energija potrebna za kidanje jedne mole veze u plinu; mjera jakosti veze.|
+
+---
+
+## Hessov zakon
+
+**Hessov zakon**: Ukupna reakcijska entalpija neke reakcije jednaka je **zbroju entalpija svih koraka** na koje se može razložiti ta reakcija.[](https://bs.wikipedia.org/wiki/Hessov_zakon)​  
+To vrijedi jer je entalpija funkcija stanja.
+
+Za maturu treba znati:
+
+- Preokretanje jednadžbe → mijenja se **predznak ΔHΔH**.
+    
+- Množenje jednadžbe s koeficijentom → ΔHΔH se množi s istim brojem.
+    
+- Zbrajanjem jednadžbi dobije se ciljna, zbrajaju se i pripadne entalpije.
+    
+
+---
+
+## Mikroskopska interpretacija egzotermnih / endotermnih procesa
+
+- **Egzotermno**: Sustav gubi energiju, entalpija sustava se smanjuje; često je reakcija spontana jer je ΔH<0ΔH<0.[](https://zir.nsk.hr/islandora/object/kemos:311/datastream/PDF/download)​
+    
+- **Endotermno**: Sustav prima energiju; entalpija se povećava, ali reakcija može biti spontana ako joj **povećanje entropije ide u prilog** (vidi ΔGΔG).[](https://zir.nsk.hr/islandora/object/kemos:311/datastream/PDF/download)​
+    
+
+---
+
+## Entropija (SS)
+
+- **Entropija** je termodinamička veličina koja opisuje **stupanj nereda** ili broj mogućih mikrostanja sustava.[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=881)​
+    
+- Funkcija je stanja; prirast:
+    
+    ΔS=Skonacˇno−SpocˇetnoΔS=Skonacˇno−Spocˇetno
+- Može biti **pozitivna** (nered raste) ili **negativna** (sustav postaje uređeniji).
+    
+
+Tipične relacije:
+
+- Plinovi imaju veću entropiju od tekućina, tekućine od krutina.
+    
+- Povećanje temperature povećava S.
+    
+- Povećanje broja molekula plina u reakciji obično znači veći ΔS>0ΔS>0.[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=881)​
+    
+
+---
+
+## Gibbsova energija (GG) i spontanost
+
+**Gibbsova energija (Gibbsova slobodna energija)**:
+
+G=H−TSG=H−TS
+
+Funkcija stanja koja uključuje entalpiju, entropiju i temperaturu.
+
+Prirast Gibbsove energije pri stalnom tlaku i temperaturi:
+
+ΔG∘=ΔH∘−TΔSΔG∘=ΔH∘−TΔS
+
+Ova jednadžba je ključna za procjenu **spontanosti** reakcije (pri konstantnom p i T):
+
+- ΔG∘<0ΔG∘<0: reakcija je **spontana** u smjeru produkata.
+    
+- ΔG∘>0ΔG∘>0: reakcija je **nespontana** u tom smjeru (spontana je suprotna).
+    
+- ΔG∘=0ΔG∘=0: sustav je u **ravnoteži**.
+    
+
+Kombinacija znakova (često na maturi):
+
+|ΔHΔH|ΔSΔS|Ovisnost o temperaturi|Spontanost|
+|---|---|---|---|
+|-|+|Ne ovisi o T|Spontano pri svim T|
+|-|-|Ovisi o T|Spontano pri niskim T|
+|+|+|Ovisi o T|Spontano pri visokim T|
+|+|-|Ne ovisi o T|Nespontano pri svim T|
+
+Povezanost s konstantom ravnoteže:
+
+ΔG∘=−RTln⁡KΔG∘=−RTlnK
+
+Odatle slijedi:
+
+- ako je K>1K>1 → ln⁡K>0lnK>0 → ΔG∘<0ΔG∘<0 → reakcija „vuče“ prema produktima.

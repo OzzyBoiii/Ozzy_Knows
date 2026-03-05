@@ -453,3 +453,536 @@ pražnjenje akumulatora:
 Pb(s) + PbO₂(s) + 2 H,SO (aq) → 2 PbSO₄(aq)+ 2 H₂O(8)
 punjenje akumulatora je reakcija u suprotnom smjeru:
 2 PbSO (aq) + 2 H₂O(f) →Pb(s) + PbO₂(s) + 2 H₂SO (aq)
+
+PERPLEXITY ---------------------------------------------------
+U sadašnjem sažetku još uvijek nema “svega” (npr. Nernst, eksplicitni Voltov niz, još tipičnih redoks-parova), pa ću ga sada proširiti, ali bez izbacivanja onoga što je već bilo, samo uz umetanje i nadogradnju. Sve je pisano u stilu pogodnom za Obsidian (naslovi, liste, formule).
+
+---
+
+## 1. Oksidacija, redukcija i oksidacijski broj
+
+**Oksidacija**
+
+- Proces **gubitka** elektrona.
+    
+- Oksidacijski broj atoma se povećava.
+    
+- Tvar koja se oksidira djeluje kao _reducens_ (redukcijsko sredstvo).[](https://hr.wikipedia.org/wiki/Redoks)​
+    
+
+**Redukcija**
+
+- Proces **primanja** elektrona.
+    
+- Oksidacijski broj atoma se smanjuje.
+    
+- Tvar koja se reducira djeluje kao _oksidans_ (oksidacijsko sredstvo).[](https://hr.wikipedia.org/wiki/Redoks)​
+    
+
+**Oksidacijski broj (stupanj oksidacije)**
+
+- Broj koji označuje prividni naboj koji bi atom imao kad bi sve veze bile potpuno ionske.
+    
+- Matematički: zbrajaš oksidacijske brojeve svih atoma u čestici i to mora dati:
+    
+    - 0 za neutralnu molekulu
+        
+    - naboj iona za složeni ion
+        
+
+## 1.1. Posebna pravila za oksidacijske brojeve
+
+- Elementarne tvari: oksidacijski broj = 0
+    
+    - Primjeri:
+        
+        - O2O2, H2H2, P4P4, S8S8, Na, Al, Fe, N₂.[](https://hr.wikipedia.org/wiki/Oksidacijski_broj)​
+            
+- Vodik (H):
+    
+    - +1 u većini spojeva (s nemetalimа, npr. HCl, H₂SO₄, NH₃).
+        
+    - −1 u metalnim hidridima (npr. CaH₂, NaH).
+        
+- Kisik (O):
+    
+    - −2 u najvećem broju spojeva (H₂O, CO₂, H₂SO₄).
+        
+    - −1 u peroksidima (H₂O₂, Na₂O₂).
+        
+    - −1/2 u superoksidima (npr. KO₂).
+        
+    - +2 u spoju OF₂ (fluor je jedini s −1).
+        
+- Halogeni (F, Cl, Br, I):
+    
+    - U jednostavnim binarnim spojevima s metalima imaju −1.
+        
+    - Mogu imati pozitivne oksidacijske brojeve u oksokiselinama i oksosolima (npr. Cl u HClO, HClO₂, HClO₃, HClO₄).[](https://hr.wikipedia.org/wiki/Redoks)​
+        
+- Jednoatomni ioni:
+    
+    - Oksidacijski broj = naboj iona
+        
+    - Primjeri:
+        
+        - Na⁺: +1
+            
+        - Mg²⁺: +2
+            
+        - Al³⁺: +3
+            
+        - Cl⁻: −1
+            
+        - O²⁻: −2
+            
+- Zbroj oksidacijskih brojeva:
+    
+    - U neutralnoj molekuli = 0
+        
+    - U poliatomskom ionu = ukupni naboj iona
+        
+
+## 1.2. Oksidacijsko stanje ugljika u organskim spojevima
+
+Pravilo iz teksta:
+
+- Oksidacijsko stanje C **povećava se za +1** nastajanjem svake nove veze s elektronegativnijim atomom (O, N, Cl…).
+    
+- Oksidacijsko stanje C **smanjuje se za −1** nastajanjem svake nove veze s manje elektronegativnim atomom (H).[](https://edutorij-admin-api.carnet.hr/storage/extracted/703916/kemija-2/m05/j01/index.html)​
+    
+
+Primjer: metan → metanol → formaldehid → mravlja kiselina → CO₂ (sve “oksidiraniji” C).[](https://edutorij-admin-api.carnet.hr/storage/extracted/703916/kemija-2/m05/j01/index.html)​
+
+---
+
+## 2. Primjeri računanja oksidacijskih brojeva
+
+**Primjer 1: H₂SO₄**
+
+- H: +1
+    
+- O: −2
+    
+- jednadžba: 2(+1)+x+4(−2)=02(+1)+x+4(−2)=0
+    
+    - 2+x−8=02+x−8=0
+        
+    - x=+6x=+6 (S je +6)
+        
+
+**Primjer 2: NH₄⁺**
+
+- H: +1
+    
+- zbroj = +1 (naboj iona)
+    
+- jednadžba: x+4(+1)=+1x+4(+1)=+1
+    
+    - x+4=1x+4=1
+        
+    - x=−3x=−3 (N je −3)
+        
+
+**Primjer 3: K₂Cr₂O₇**
+
+- K: +1 (2 atoma)
+    
+- O: −2 (7 atoma)
+    
+- zbroj = 0
+    
+- jednadžba: 2(+1)+2x+7(−2)=02(+1)+2x+7(−2)=0
+    
+    - 2+2x−14=02+2x−14=0
+        
+    - 2x=12→x=+62x=12→x=+6 (Cr je +6)
+        
+
+---
+
+## 3. Redoks-procesi i jednadžbe
+
+## 3.1. Definicije
+
+- **Redoks-reakcija** – kemijska reakcija u kojoj istovremeno nastaju oksidacija i redukcija, uz prijenos elektrona.[](https://hr.wikipedia.org/wiki/Redoks)​
+    
+- **Oksidans (oksidacijsko sredstvo)** – prima elektrone, reducira se.
+    
+- **Reducens (redukcijsko sredstvo)** – daje elektrone, oksidira se.
+    
+
+## 3.2. Disproporcioniranje
+
+- Reakcija u kojoj se **isti spoj** istodobno oksidira i reducira.[](https://hr.wikipedia.org/wiki/Redoks)​
+    
+- Primjer iz teksta:
+    
+    - Cl2(g)+H2O(l)→HCl(aq)+HClO(aq)Cl2(g)+H2O(l)→HCl(aq)+HClO(aq)
+        
+    - Dio Cl: 0 → −1 (reducira se → HCl)
+        
+    - Dio Cl: 0 → +1 (oksidira se → HClO)
+        
+    - Cl₂ je istodobno oksidans i reducens.
+        
+
+---
+
+## 4. Metoda ion–elektron (izjednačavanje redoks-jednadžbi)
+
+Koraci (kisela sredina – ono što trebaš za maturu):
+
+1. Odredi oksidacijske brojeve svih elemenata.
+    
+2. Odredi što se oksidira, a što reducira (promjena oksidacijskog broja).
+    
+3. Napiši dvije polureakcije: oksidacija (O) i redukcija (R).
+    
+4. Izjednači atome u svakoj polureakciji, osim H i O.
+    
+5. Izjednači O dodavanjem H2OH2O.
+    
+6. Izjednači H dodavanjem H+H+.
+    
+7. Izjednači naboj dodavanjem e⁻.
+    
+8. Pomnoži polureakcije tako da broj e⁻ bude jednak.
+    
+9. Zbroji polureakcije, skrati što se ponavlja.
+    
+
+## 4.1. Primjeri iz teksta
+
+## 4.1.1. Dikromat i H₂S (oksidacija S²⁻, redukcija Cr⁶⁺)
+
+Polazna jednadžba:  
+K2Cr2O7(aq)+H2S(aq)+H2SO4(aq)→Cr2(SO4)3(aq)+K2SO4(aq)+S(s)+H2O(l)K2Cr2O7(aq)+H2S(aq)+H2SO4(aq)→Cr2(SO4)3(aq)+K2SO4(aq)+S(s)+H2O(l)
+
+Polureakcije:
+
+- Oksidacija S:
+    
+    - S2−→S0+2e−S2−→S0+2e−
+        
+- Redukcija Cr:
+    
+    - Cr2O72−+14H++6e−→2Cr3++7H2OCr2O72−+14H++6e−→2Cr3++7H2O
+        
+
+Poravnavanje e⁻ (×3 oksidacija):
+
+- 3S2−→3S0+6e−3S2−→3S0+6e−
+    
+
+Zbroj, uz uključivanje K⁺ i SO₄²⁻:  
+K2Cr2O7(aq)+3H2S(aq)+4H2SO4(aq)→Cr2(SO4)3(aq)+K2SO4(aq)+3S(s)+7H2O(l)K2Cr2O7(aq)+3H2S(aq)+4H2SO4(aq)→Cr2(SO4)3(aq)+K2SO4(aq)+3S(s)+7H2O(l)
+
+- K2Cr2O7/Cr3+K2Cr2O7/Cr3+ = oksidans (narančasta → zelena).
+    
+- H₂S/S = reducens.
+    
+
+## 4.1.2. Cu + konc. HNO₃ (NO₂, smeđi plin)
+
+Cu(s)+4HNO3(konc.)→Cu(NO3)2(aq)+2NO2(g)+2H2O(l)Cu(s)+4HNO3(konc.)→Cu(NO3)2(aq)+2NO2(g)+2H2O(l)
+
+- O: Cu→Cu2++2e−Cu→Cu2++2e−
+    
+- R: 2NO3−+4H++2e−→2NO2+2H2O2NO3−+4H++2e−→2NO2+2H2O
+    
+
+Cu = reducens, HNO₃/NO₃⁻ = oksidans, NO₂ = smeđi plin.
+
+## 4.1.3. Cu + razr. HNO₃ (NO, bezbojan plin)
+
+3Cu(s)+8HNO3(aq)→3Cu(NO3)2(aq)+2NO(g)+4H2O(l)3Cu(s)+8HNO3(aq)→3Cu(NO3)2(aq)+2NO(g)+4H2O(l)
+
+- O: 3Cu→3Cu2++6e−3Cu→3Cu2++6e−
+    
+- R: 2NO3−+8H++6e−→2NO+4H2O2NO3−+8H++6e−→2NO+4H2O
+    
+
+NO = bezbojan plin.
+
+## 4.1.4. Cu + konc. H₂SO₄
+
+Cu(s)+2H2SO4(konc.)→CuSO4(aq)+SO2(g)+2H2O(l)Cu(s)+2H2SO4(konc.)→CuSO4(aq)+SO2(g)+2H2O(l)
+
+- O: Cu→Cu2++2e−Cu→Cu2++2e−
+    
+- R: SO42−+4H++2e−→SO2+2H2OSO42−+4H++2e−→SO2+2H2O
+    
+
+SO₂ = bezbojan plin, oštra mirisa.
+
+## 4.1.5. KMnO₄ + konc. HCl
+
+2KMnO4(aq)+16HCl(konc.)→2MnCl2(aq)+2KCl(aq)+5Cl2(g)+8H2O(l)2KMnO4(aq)+16HCl(konc.)→2MnCl2(aq)+2KCl(aq)+5Cl2(g)+8H2O(l)
+
+- R: 2MnO4−+16H++10e−→2Mn2++8H2O2MnO4−+16H++10e−→2Mn2++8H2O
+    
+- O: 10Cl−→5Cl2+10e−10Cl−→5Cl2+10e−
+    
+
+KMnO₄ = snažan oksidans (ljubičaste boje).
+
+---
+
+## 5. Elektroliza
+
+**Definicija**
+
+- Proces u kojem protok **istosmjerne** električne struje kroz elektrolit uzrokuje kemijske promjene na elektrodama (redoks-reakcije).
+    
+- Provodi se u _elektroliznom članku_: posuda s elektrolitom + dvije elektrode uronjene u elektrolit spojene na izvor DC.
+    
+
+**Elektrode**
+
+- Katoda (−): uvijek mjesto redukcije.
+    
+- Anoda (+): uvijek mjesto oksidacije.
+    
+
+## 5.1. Elektroliza taline NaCl
+
+- NaCl (s) zagrijava se iznad 801 °C → talina (Na⁺(l), Cl⁻(l)).
+    
+- Katoda (−):
+    
+    - Na+(l)+e−→Na(l)Na+(l)+e−→Na(l) (redukcija)
+        
+- Anoda (+):
+    
+    - 2Cl−(l)→Cl2(g)+2e−2Cl−(l)→Cl2(g)+2e− (oksidacija)
+        
+- Sumarno:
+    
+    - 2Na+(l)+2Cl−(l)→2Na(l)+Cl2(g)2Na+(l)+2Cl−(l)→2Na(l)+Cl2(g)
+        
+
+## 5.2. Elektroliza vode u Hofmannovom aparatu
+
+- Voda je slab elektrolit → dodaje se malo H₂SO₄ radi vodljivosti.[](https://edutorij-admin-api.carnet.hr/storage/extracted/703916/kemija-2/m05/j03/index.html)​
+    
+- Katoda (−):
+    
+    - 2H2O+2e−→H2+2OH−2H2O+2e−→H2+2OH− (redukcija)
+        
+- Anoda (+):
+    
+    - 2H2O→O2+4H++4e−2H2O→O2+4H++4e− (oksidacija)
+        
+- Nakon poravnanja:
+    
+    - Sumarno: 2H2O→2H2+O22H2O→2H2+O2
+        
+- Odnos volumena H₂ : O₂ = 2 : 1.
+    
+
+## 5.3. Elektroliza vodene otopine NaCl
+
+U otopini su prisutni: Na⁺, Cl⁻, H₂O, H⁺, OH⁻.
+
+- Katoda (−):
+    
+    - Natrij se **ne** reducira (E° vrlo negativan) → reducira se voda:
+        
+    - 2H2O+2e−→H2+2OH−2H2O+2e−→H2+2OH− (bezbojan plin vodik)
+        
+- Anoda (+):
+    
+    - Kloridni ioni se oksidiraju:
+        
+    - 2Cl−→Cl2+2e−2Cl−→Cl2+2e− (žutozeleni plin klor)
+        
+- Sumarno (bez pisanja Na⁺ kao promatrača):
+    
+    - 2H2O(l)+2Cl−(aq)→H2(g)+Cl2(g)+2OH−(aq)2H2O(l)+2Cl−(aq)→H2(g)+Cl2(g)+2OH−(aq)
+        
+- U punom obliku:
+    
+    - 2Na+(aq)+2Cl−(aq)+2H2O(l)→H2(g)+Cl2(g)+2Na+(aq)+2OH−(aq)2Na+(aq)+2Cl−(aq)+2H2O(l)→H2(g)+Cl2(g)+2Na+(aq)+2OH−(aq)
+        
+
+**Opće pravilo za vodene otopine (bitno za maturu):**
+
+- Na **anodi**, ako su prisutni složeni anioni (CO₃²⁻, NO₃⁻, SO₄²⁻): oksidira se voda → O₂.
+    
+- Na **katodi**, za alkalijske, zemnoalkalijske metale i Al: reducira se voda → H₂.
+    
+
+---
+
+## 6. Faradayevi zakoni elektrolize
+
+## 6.1. Prvi Faradayeov zakon
+
+> Množina tvari koja se izluči na elektrodama proporcionalna je množini elektriciteta Q koji prođe kroz elektrolit.[](https://hr.wikipedia.org/wiki/Faradayevi_zakoni_elektrolize)​
+
+Formule:
+
+- Q=I⋅tQ=I⋅t
+    
+- Q=n(e−)⋅FQ=n(e−)⋅F
+    
+- n(X)=QzFn(X)=zFQ
+    
+- m(X)=n(X)⋅M(X)=Q⋅M(X)zFm(X)=n(X)⋅M(X)=zFQ⋅M(X)
+    
+
+Gdje:
+
+- Q – količina elektriciteta [C]
+    
+- I – jakost struje [A]
+    
+- t – vrijeme [s]
+    
+- F – Faradayeva konstanta ≈ 96 500 C/mol ≈ 26,8 Ah/mol
+    
+- z – broj elektrona u redoks-reakciji po jednoj formulskoj jedinici
+    
+- M – molarna masa tvari [g/mol]
+    
+
+## 6.2. Drugi Faradayeov zakon
+
+> Za istu količinu elektriciteta, mase različitih tvari izlučenih na elektrodama razmjerne su njihovim ekvivalentnim masama (M/z).[](https://hr.wikipedia.org/wiki/Faradayevi_zakoni_elektrolize)​
+
+mAmB=MA/zAMB/zBmBmA=MB/zBMA/zA
+
+Korisno kod serijski spojenih elektroliznih članaka (često zadaci na maturi).
+
+---
+
+## 7. Galvanski članci i standardni elektrodni potencijali
+
+## 7.1. Galvanski članak
+
+- Uređaj kojim se dobiva električna struja **spontanom** redoks-reakcijom.
+    
+- Sastoji se od dviju elektroda uronjenih u vlastite elektrolite, spojenih metalnim vodičem i elektrolitskim mostom.
+    
+
+**Oznake:**
+
+- Anoda (A, minus) – oksidacija, reaktivniji metal.
+    
+- Katoda (K, plus) – redukcija, plemenitiji metal.
+    
+- Shema: npr. Daniellov:
+    
+    - Zn(s)∣Zn2+(aq)∣∣Cu2+(aq)∣Cu(s)Zn(s)∣Zn2+(aq)∣∣Cu2+(aq)∣Cu(s)
+        
+
+## 7.2. Daniellov članak (Zn–Cu)
+
+Reakcije:
+
+- Anoda: Zn(s)→Zn2+(aq)+2e−Zn(s)→Zn2+(aq)+2e−
+    
+- Katoda: Cu2+(aq)+2e−→Cu(s)Cu2+(aq)+2e−→Cu(s)
+    
+- Sumarno: Zn(s)+Cu2+(aq)→Zn2+(aq)+Cu(s)Zn(s)+Cu2+(aq)→Zn2+(aq)+Cu(s)
+    
+
+Napon članka (standardni uvjeti):
+
+- E°(Zn²⁺|Zn) = −0,76 V
+    
+- E°(Cu²⁺|Cu) = +0,34 V
+    
+- E°cˇlanka=E°katoda−E°anoda=0,34−(−0,76)=1,10 VE°cˇlanka=E°katoda−E°anoda=0,34−(−0,76)=1,10V
+    
+
+## 7.3. Standardni elektrodni potencijal i Voltov niz
+
+- Standardni elektrodni potencijal E°: potencijal polureakcije mjerene naspram standardne vodikove elektrode (SHE, E° = 0 V).[](https://edutorij-admin-api.carnet.hr/storage/extracted/2251094/elektrodni-potencijal-i-galvanski-clanci.html)​
+    
+- Što je E° **negativniji**, metal lakše otpušta elektrone (jači reducens).
+    
+- Što je E° **pozitivniji**, vrsta lakše prima elektrone (jači oksidans).
+    
+
+**Voltov (naponski) niz metala – ideja:**
+
+- Metali poredani po sposobnosti da jedni druge reduciraju ili oksidiraju.
+    
+- Manje plemeniti (s više negativnim E°) reduciraju plemenitije iz njihovih otopina.
+    
+- Najmanje plemenit metal reducira sve ostale.
+    
+
+Primjer redoslijeda (skraćeno):
+
+- vrlo reaktivni: K, Ca, Na, Mg, Al
+    
+- srednje: Zn, Fe, Sn
+    
+- manje reaktivni: Cu, Ag, Au
+    
+
+Za maturu:
+
+- reaktivniji metal istiskuje manje reaktivan iz otopine njegove soli.
+    
+- npr. Ca + Pb²⁺ → Ca²⁺ + Pb (moguća reakcija).[](https://srednjastrucna-bar.me/wp-content/uploads/2020/03/Naponski-niz.pdf)​
+    
+
+---
+
+## 8. Nernstova jednadžba (proširenje za one koji žele više)
+
+Za članke izvan standardnih uvjeta (koncentracije ≠ 1 mol/dm³):
+
+E=E°−0,059nlog⁡QE=E°−n0,059logQ
+
+- n – broj izmijenjenih elektrona
+    
+- Q – reakcijski količnik (izražen koncentracijama i/ili tlakovima)
+    
+
+Za maturu se često koristi kvalitativno:
+
+- povećanje koncentracije oksidiranog oblika obično povećava napon pri redukciji (i obratno).[](http://eskola.chem.pmf.hr/odgovori/odgovor.php3?sif=11973)​
+    
+
+---
+
+## 9. Elektrokemijski izvori energije: baterije i akumulatori
+
+## 9.1. Baterije (primjer: Leclanché)
+
+- Cinkova elektroda (anoda, Zn)
+    
+- Grafitni štapić obavijen MnO₂ i čađom (katoda)
+    
+- Elektrolit: NH₄Cl i ZnCl₂ (suhi članak)
+    
+
+Tipična globalna jednadžba (sažeto):  
+2MnO2(s)+2NH4+(aq)+Zn(s)→Mn2O3(s)+Zn2+(aq)+2NH3(aq)+H2O(l)2MnO2(s)+2NH4+(aq)+Zn(s)→Mn2O3(s)+Zn2+(aq)+2NH3(aq)+H2O(l)
+
+- Reakcija je u praksi nepovratna → baterija se ne puni.
+    
+
+## 9.2. Akumulatori (olovni akumulator)
+
+- Anoda (−): Pb
+    
+- Katoda (+): PbO₂
+    
+- Elektrolit: H₂SO₄ (≈ 28%)
+    
+
+Pražnjenje:  
+Pb(s)+PbO2(s)+2H2SO4(aq)→2PbSO4(aq)+2H2O(l)Pb(s)+PbO2(s)+2H2SO4(aq)→2PbSO4(aq)+2H2O(l)
+
+Punjenje:  
+2PbSO4(aq)+2H2O(l)→Pb(s)+PbO2(s)+2H2SO4(aq)2PbSO4(aq)+2H2O(l)→Pb(s)+PbO2(s)+2H2SO4(aq)
+
+---
+
+Ako želiš, sljedeći korak može biti: izdvojiti samo jedan odjeljak (npr. “Elektroliza” ili “Galvanski članci”) u zaseban .md s uključenim mini-zadacima tipičnim za maturu, tako da dobiješ “skriptu po temama” spremnu za učenje i aktivno rješavanje.

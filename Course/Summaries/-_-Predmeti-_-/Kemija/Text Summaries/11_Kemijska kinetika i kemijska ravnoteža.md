@@ -167,3 +167,126 @@ Zadatci za vježbu
 1
 reakcija se odvija u oba smjera
 dinamička ravnoteža
+
+PERPLEXITY -----------------------------------------------------------------
+## Kemijska Kinetika
+
+Kemijska kinetika proučava brzinu kemijskih reakcija, čimbenike koji utječu na reakciju te mehanizam reakcije. Za reakciju su potrebni sudari čestica s energijom većom od energije aktivacije (EaEa), koja predstavlja visinu potencijalne barijere između reaktanata i produkata; Arrheniusova jednadžba opisuje ovisnost konstante brzine o EaEa: k=Ae−Ea/RTk=Ae−Ea/RT gdje je AA frekvencijski faktor, RR plinska konstanta i TT temperatura (važno za maturu).
+
+## Uvjeti za Kemijsku Reakciju
+
+- Čestice se moraju sudariti.
+    
+- Čestice moraju imati energiju > EaEa.
+    
+
+Brzina reakcije raste povećanjem broja uspješnih sudara, povećanjem energije čestica iznad EaEa ili smanjenjem EaEa; red reakcije je eksperimentalno određen i ne ovisi uvijek o stehiometriji.
+
+## Čimbenici koji Utječu na Brzinu Reakcije
+
+## Agregacijsko Stanje Reaktanata
+
+Reakcije u otopinama ili plinovima brže su nego u čvrstom stanju zbog veće pokretljivosti čestica. Primjer:  
+2KI(s)+HgCl2(s)→2KCl(s)+HgI2(s)2KI(s)+HgCl2(s)→2KCl(s)+HgI2(s) (spora).  
+2KI(aq)+HgCl2(aq)→2KCl(aq)+HgI2(s)2KI(aq)+HgCl2(aq)→2KCl(aq)+HgI2(s) (brza, crvena boja).[](https://edutorij-admin-api.carnet.hr/storage/extracted/15cf791a-4c97-4f29-84d9-17c1b47ceccc/kemija-2/m03/j02/index.html)​
+
+## Ukupna Površina Reaktanata
+
+Veća površina (npr. prah umjesto komada) povećava broj sudara. Primjer:  
+CaCO3(s)+2HCl(aq)→CaCl2(aq)+H2O(l)+CO2(g)CaCO3(s)+2HCl(aq)→CaCl2(aq)+H2O(l)+CO2(g)  
+Prah vapnenca brže reagira s HCl-om jer je veća površina, pa veći broj uspješnih sudara; brzina se mijenja tijekom reakcije.
+
+## Koncentracija Reaktanata
+
+Veća koncentracija (cc) povećava broj sudara. Brzina se definira kao:  
+v=ΔcΔt⋅νv=Δt⋅νΔc  
+gdje je νν stehiometrijski koeficijent. Za reaktante:  
+v(A)=−1νAΔc(A)Δt,v(B)=−Δc(B)Δt,v(AB)=Δc(AB)Δtv(A)=−νA1ΔtΔc(A),v(B)=−ΔtΔc(B),v(AB)=ΔtΔc(AB)[](https://edutorij-admin-api.carnet.hr/storage/extracted/15cf791a-4c97-4f29-84d9-17c1b47ceccc/kemija-2/m03/j02/index.html)​
+
+## Temperatura
+
+Povećanje temperature za 10 °C približno udvostručuje brzinu jer raste kinetička energija čestica i broj uspješnih sudara; van't Hoffova jednadžba povezuje s KK za ravnotežu.
+
+## Katalizatori
+
+Katalizator ubrzava reakciju smanjujući EaEa, ulazi u reakciju i izlazi nepromijenjen. Omogućuje novi put reakcije; relacija Kc=k→/k←Kc=k→/k←.
+
+## Heterogena Kataliza
+
+Reaktant i katalizator u različitim stanjima. Primjeri:  
+2H2O2(aq)→MnO2(s)2H2O(l)+O2(g)2H2O2(aq)MnO2(s)2H2O(l)+O2(g) (graf sl.5: smanjenje EaEa).  
+Krumpir (katalaza) ili jetra razlažu H2O2H2O2; zagrijani novčić inaktiviraju enzim (sl.6).[](https://edutorij-admin-api.carnet.hr/storage/extracted/15cf791a-4c97-4f29-84d9-17c1b47ceccc/kemija-2/m03/j02/index.html)​
+
+## Homogena Kataliza
+
+Reaktant i katalizator u istom stanju. Primjer:  
+2SO2(g)+O2(g)→NO(g)2SO3(g)2SO2(g)+O2(g)NO(g)2SO3(g); industrijski: 2CO+O2→Pt2CO22CO+O2Pt2CO2.
+
+## Biološki Katalizatori (Enzimi)
+
+Enzimi poput katalaze u jetri razlažu H2O2H2O2 (stanični otrov), stvarajući pjenu s O2O2 (dokaz: tinjajuća triješčica).[](https://edutorij-admin-api.carnet.hr/storage/extracted/15cf791a-4c97-4f29-84d9-17c1b47ceccc/kemija-2/m03/j02/index.html)​
+
+## Inhibitori (Negativni Katalizatori)
+
+Povećavaju EaEa, usporavaju reakciju. Primjeri: glicerin stabilizira H2O2H2O2; kalcijev propanoat produžuje svježinu kruha.
+
+## Zakon Brzine Kemijske Reakcije
+
+A→produkti,v=k[A]A→produkti,v=k[A] (1. red)  
+2A→produkti,v=k[A]22A→produkti,v=k[A]2 (2. red)  
+A+B→produkti,v=k[A][B]A+B→produkti,v=k[A][B] (2. red)  
+2A+B→produkti,v=k[A]2[B]2A+B→produkti,v=k[A]2[B] (3. red)  
+kk ovisi o TT (Arrhenius); primjer mature: H2+Br2→2HBrH2+Br2→2HBr, složeni red.
+
+## Kemijska Ravnoteža
+
+Ravnoteža je dinamičko stanje gdje su brzine unapredne (v→v→) i unazadne (v←v←) reakcije jednake (v→=v←v→=v←); koncentracije su stalne, ali reakcija se nastavlja u oba smjera (⇌⇌); graf sl.7 pokazuje stalne ravnotežne cc.
+
+## Oznake Ravnoteže
+
+aA+bB⇌cC+dDaA+bB⇌cC+dD
+
+## Koncentracijska Konstanta Ravnoteže (KcKc)
+
+Kc=[C]c[D]d[A]a[B]bKc=[A]a[B]b[C]c[D]d
+
+- Kc<1Kc<1: prevladavaju reaktanti.
+    
+- Kc=1Kc=1: ravnoteža.
+    
+- Kc>1Kc>1: prevladavaju produkti.  
+    Guldberg-Waageov zakon (zakon o djelovanju mase); za plinove Kp=PCcPDdPAaPBbKp=PAaPBbPCcPDd.
+    
+
+## ICE Tablica (Matura Primjer)
+
+Za izračun KcKc:
+
+||N₂|3H₂|2NH₃|
+|---|---|---|---|
+|Poč.|0.1|0.3|0|
+|Prom.|-x|-3x|+2x|
+|Rav.|0.1-x|0.3-3x|2x|
+|Kc=[NH3]2[N2][H2]3Kc=[N2][H2]3[NH3]2||||
+
+## Le Chatelierovo Načelo
+
+Ako se promijeni uvjet (koncentracija, tlak, temperatura), ravnoteža se pomiče suprotno promjeni da se uvjeti vrate. Katalizator ubrzava uspostavljanje, ali ne utječe na položaj; van't Hoff: ln⁡(K2/K1)=−ΔH/R(1/T2−1/T1)ln(K2/K1)=−ΔH/R(1/T2−1/T1).
+
+## Utjecaj Tlaka (Plinovi)
+
+- Δn=0Δn=0: nema pomaka, npr.  
+    H2(g)+Cl2(g)⇌2HCl(g)H2(g)+Cl2(g)⇌2HCl(g)
+    
+- Povećanje tlaka → manji broj molova, npr.  
+    2NO2(g)⇌N2O4(g)2NO2(g)⇌N2O4(g); Haber-Bosch: N2+3H2⇌2NH3N2+3H2⇌2NH3.
+    
+
+| Čimbenik       | Utjecaj na Brzinu     | Utjecaj na Ravnotežu (Matura Fokus)   |
+| -------------- | --------------------- | ------------------------------------- |
+| Agregacija     | Plin/otopina > čvrsto | -                                     |
+| Površina       | Veća > brže           | -                                     |
+| Koncentracija  | Veća > brže           | Pomak → produkti                      |
+| Temperatura    | +10°C ≈ ×2            | Egzotermna: lijevo; endotermna: desno |
+| Tlak (plinovi) | -                     | Prema manjem nn molova                |
+| Katalizator    | Smanjuje EaEa         | Ne pomiče položaj, samo ubrzava       |

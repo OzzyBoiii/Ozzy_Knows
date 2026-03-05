@@ -8,75 +8,51 @@ autor: "Lovro"
 date: {{date}}
 ---
 
-# VAŽNO!!!
-
-S obzirom na to kako nemamo svi iste predmete za pisanje na maturi, bilježenje njih ovdje će biti slobodno raditi kako god ta osoba želi.
-
-Za predmete koje ja pišem (Lovro), isključivo će se koristiti **LOVRINA METODA ISPISIVANJA** opisana ispod, a ostali su dužni pridržavati se takvoga zahtjeva.
-
-Naravno, moja (Lovrina) metoda ispisivanja je još uvijek u radu, tako da su savjeti za poboljšanje dobrodošli.
-
+---
+cssclasses:
+  - cornell-left
+  - cornell-border
+tags: [cornell, lovrin, #patologija/#imunologija]
+created: 2026-03-04
+predmet: Patologija
 ---
 
-## Savjeti za ispisivanje
+>[!banner-image] ![[banner-cornellU.jpg]]
 
-- Savjet 1: …
-- Savjet 2: …
-- Savjet 3: …
+# Upala - Akutna faza
 
----
+>[!cue] **Patogeneza**
+>Akutna vs kronična (Rubor, Calor, Tumor, Dolor)
 
-## Gornji redak (naslov, datum)
+**Glavne bilješke (desni stupac)**  
+Akutna upala:  
+- **Vaskularna faza**: Vasodilatacija (histamin) → eritem/toplina.  
+  \[ \text{Propustljivost} \uparrow \rightarrow \text{Eksudat (plazma + proteini)} \]  
+- **Ćelijska faza**: Neutrofili (kemotaksis IL-8, C5a). 
 
-- Naslov:  
-- Datum:  
+  | Faza | Medijatori | Efekti |  
+  |------|------------|--------|  
+  | Vaskularna | Histamin, Prostaglandini | Eritem, Edem |  
+  | Cellularna | LTB4, IL-1 | Fagocitoza |  
 
----
+![[upala-graf.jpg|400]] *(tvoja slika/skica ovdje)*  
 
-## Lijevi stupac – Ključni pojmovi / teze
+>[!cue] **Makroskopski nalaz**
+>Promjene vidljive oku (Eritem, Edem)
 
-Ovdje ide sve što se može jasno napisati riječima.
+**Kronična upala**:  
+- Limfociti, makrofagi, fibroblasti.  
+- Granulomi (TB: caseum).  
+- \[ E = mc^2 \]
 
-| Pojam / teza | Kratka definicija / podsjetnik |
-|-------------|--------------------------------|
-|             |                                |
-|             |                                |
-|             |                                |
+>[!cue] **Terapija**
+>NSAID (COX inhibitori), Steroidi
 
----
+>[!summary] **Ukupni sažetak**  
+>- 4 kardinalna znaka (RCTC).  
+>- Eksudativna (neutrofili) vs proliferativna (limfociti).  
+>- Povezivanje: [[Imunologija - Citokini]] | [Video: Patologija upale](https://youtube.com/example) | [[Patofiziologija - Vaskulitis]]  
 
-## Desni stupac – Formule, skice, slike…
-
-Desni stupac ne služi za duga objašnjenja, nego za sve što nije “čisti tekst”:
-- formule i jednadžbe
-- skice i dijagrami
-- slike / screenshotovi
-- grafovi, tablice itd.
-
-Primjeri:
-
-- Formula:
-  \[
-  E = mc^2
-  \]
-
-- Slika (unutarnja):
-  ![[ime_slike.png|250]]
-
-- Slika (izvan vaulta, file URL):
-  [Slika biosfere](file:///C:/Users/CrozzyBoii/Documents/VSCode_Programs/Ozzy_Knows/Course/Biology/Sections/1_Biosfera/Images/some_image.png)
-
----
-
-## Donji redak – Linkovi za dodatno učenje
-
-Umjesto sažetka, ovdje ide sve što pomaže produbiti pojmove iz lijevog stupca:
-
-- Pojam 1 – [[bilješka ili URL]]
-- Pojam 2 – [[bilješka ili URL]]
-- Pojam 3 – [[bilješka ili URL]]
-
-Primjeri:
-- [YouTube video – odličan prikaz koncepta](https://...)
-- [Članak / skripta](https://...)
-- [[Povezana bilješka u vaultu]]
+>[!summary-top] **Brzi pregled**  
+>- Ključ: Medijatori → Znaci → Terapija.  
+>- Test pitanje: Što uzrokuje edem?

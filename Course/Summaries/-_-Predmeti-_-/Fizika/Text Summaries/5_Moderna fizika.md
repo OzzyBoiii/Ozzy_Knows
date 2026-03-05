@@ -59,3 +59,429 @@ TRINOM.
 Prije  
 ZAGRE  
 MEĐUJNIAIROIONll1 SUJSTAV MJEIRNJtilHJ JIEIl)~NJtiCA Međunarodni sustav mjernih jedinica (skraćeno SI prema francuskom nazivu Systeme International d'Unites) je sustav mjernih jedinica čija je uporaba zakonom propisana u većini zemalja svijeta. Osnovne fizikalne veličine i mjerne jedinice u SI
+
+PERPLEXITY ------------------------------------------------------------------
+## Specijalna teorija relativnosti
+
+Albert Einstein objavio je specijalnu teoriju relativnosti 1905. godine, zamijenivši Galilejev-Newtonov koncept apsolutnog prostora i vremena te uskladivši mehaniku s Maxwellovim jednadžbama elektromagnetizma. Teorija je „specijalna“ jer se bavi slučajevima bez gravitacije (inercijski sustavi, daleko od jakih gravitacijskih polja).
+
+## Postulati
+
+1. **Princip relativnosti**  
+    Svi zakoni fizike imaju jednak matematički oblik u svim inercijskim referentnim sustavima; svi inercijski sustavi su ravnopravni.
+    
+2. **Princip konstantnosti brzine svjetlosti**  
+    Brzina svjetlosti u vakuumu c≈3×108c≈3×108 m/s je ista u svim inercijskim sustavima, neovisno o gibanju izvora ili promatrača; ujedno je najveća moguća brzina prijenosa informacija.
+    
+
+---
+
+## Lorentzov faktor
+
+Temeljni “prefaktor” gotovo svih relativističkih formula je Lorentzov faktor:
+
+γ=11−v2c2γ=1−c2v21
+
+gdje je vv relativna brzina između inercijskih sustava.
+
+---
+
+## Dilatacija vremena
+
+Sat koji se giba u odnosu na promatrača “kuca sporije”.
+
+T=γT0=T01−v2c2T=γT0=1−c2v2T0
+
+- T0T0: vlastito vrijeme (mjeri se u sustavu gdje je sat mirovanju, npr. S’)
+    
+- TT: vremenski interval mjeren u laboratorijskom sustavu S
+    
+- Vrijedi T>T0T>T0.
+    
+
+Za maturu je ključno: vlastito vrijeme je uvijek ono koje mjeri sat u **mirujućem** sustavu tog događaja.
+
+---
+
+## Kontrakcija duljine
+
+U smjeru gibanja, duljine se mjere manjima u odnosu na vlastitu duljinu štapa.
+
+L=L0γ=L01−v2c2L=γL0=L01−c2v2
+
+- L0L0: vlastita duljina (mjerena u sustavu u kojem je tijelo u mirovanju)
+    
+- LL: duljina koju mjeri promatrač u odnosu na kojeg se tijelo giba
+    
+- Vrijedi L<L0L<L0.
+    
+
+---
+
+## Lorentzove transformacije (osnovni oblik)
+
+Povezuju koordinate događaja između dva inercijska sustava S i S’ gdje se S’ giba brzinom vv u smjeru osi x.
+
+x′=γ(x−vt)x′=γ(x−vt)t′=γ(t−vxc2)t′=γ(t−c2vx)
+
+Inverse transformacije:
+
+x=γ(x′+vt′)x=γ(x′+vt′)t=γ(t′+vx′c2)t=γ(t′+c2vx′)
+
+Za maturu obično treba znati da iz ovih jednadžbi slijede dilatacija vremena i kontrakcija duljine.
+
+---
+
+## Relativističko zbrajanje brzina
+
+Klasično (Galilejevo) zbrajanje u=u′+vu=u′+v ne vrijedi pri velikim brzinama; brzine se moraju računati relativistički.
+
+u=u′+v1+u′vc2u=1+c2u′vu′+v
+
+- u′u′: brzina objekta u sustavu S’
+    
+- vv: brzina S’ u odnosu na S
+    
+- uu: brzina objekta u S
+    
+
+Ako su i u′u′ i vv blizu cc, rezultat je i dalje manji od cc.
+
+---
+
+## Relativistički Dopplerov učinak (konceptualno)
+
+Za svjetlost promjena frekvencije ovisi samo o relativnoj brzini izvora i promatrača i zahtijeva relativistički tretman.
+
+Kvalitativno (za maturu dovoljno):
+
+- Približavanje → opaža se veća frekvencija (plavo pomaknuće).
+    
+- Udaljavanje → opaža se manja frekvencija (crveno pomaknuće).
+    
+
+Egzaktne formule se obično traže tek na višoj razini.
+
+---
+
+## Energija i masa u specijalnoj relativnosti
+
+Ukupna energija:
+
+E=γmc2E=γmc2
+
+Energija mirovanja:
+
+E0=mc2E0=mc2
+
+Relativistička kinetička energija:
+
+Ek=E−E0=(γ−1)mc2Ek=E−E0=(γ−1)mc2
+
+Za male brzine (v≪cv≪c) dobiva se klasični izraz Ek≈12mv2Ek≈21mv2.
+
+---
+
+## Planckov zakon i kvantna priroda zračenja
+
+Max Planck je uveo pretpostavku da oscilatori u materiji zrače energiju u kvantima, ne kontinuirano.[](https://www.halapa.com/fizpdf/15fs221.pdf)​
+
+## Energija kvanta
+
+E=hfE=hf
+
+- h=6.626×10−34h=6.626×10−34 Js: Planckova konstanta
+    
+- ff: frekvencija zračenja
+    
+
+Za maturu: važno je znati da energija fotona ovisi samo o frekvenciji, ne o intenzitetu.
+
+---
+
+## Fotoelektrični efekt
+
+Fotoelektrični efekt je izbijanje elektrona iz metala pod utjecajem elektromagnetskog zračenja dovoljno velike frekvencije.
+
+## Einsteinova jednadžba
+
+hf=Wi+Ekmax⁡hf=Wi+Ekmax
+
+- WiWi: izlazni rad metala (minimalna energija za oslobađanje elektrona)
+    
+- Ekmax⁡Ekmax: maksimalna kinetička energija fotoelektrona
+    
+
+S obzirom na zaustavni napon UU:
+
+Ekmax⁡=eU⇒hf=Wi+eUEkmax=eU⇒hf=Wi+eU
+
+- e=1.6×10−19e=1.6×10−19 C: elementarni naboj.
+    
+
+## Granična frekvencija i valna duljina
+
+- **Granična frekvencija** fgfg: najniža frekvencija pri kojoj još dolazi do fotoefekta. Tada je Ekmax⁡=0Ekmax=0:
+    
+    hfg=Wihfg=Wi
+- **Granična valna duljina** λgλg: najveća valna duljina pri kojoj još dolazi do fotoefekta:
+    
+    λg=cfg=hcWiλg=fgc=Wihc
+
+Za većinu metala fotoelektrični efekt izaziva UV zračenje (λ≈10 nm−400 nmλ≈10 nm−400 nm).
+
+## Intenzitet vs. frekvencija (bitno za razumijevanje)
+
+- Povećanje frekvencije (iznad fgfg) povećava energiju pojedinog elektrona (veći Ekmax⁡Ekmax).
+    
+- Povećanje intenziteta pri istoj frekvenciji povećava broj izbijenih elektrona (veća fotoelektrična struja), ali ne i njihovu pojedinačnu energiju.
+    
+
+---
+
+## Elektronvolt
+
+Energije se često iskazuju u elektronvoltima:
+
+1 eV=1.6×10−19 J1 eV=1.6×10−19 J
+
+- 1 eV je energija koju dobije elektron ubrzan kroz razliku potencijala 1 V.[](https://www.halapa.com/fizpdf/15fs221.pdf)​
+    
+
+---
+
+## Valna priroda čestica (de Broglie)
+
+Louis de Broglie postavio je hipotezu da svakoj čestici mase mm koja se giba brzinom vv može biti pridružena valna duljina.
+
+λ=hp=hmvλ=ph=mvh
+
+- p=mvp=mv: klasični impuls (pri malim brzinama).
+    
+- Ogib elektrona (Davisson–Germer) eksperimentalno potvrđuje valnu prirodu čestica.[](https://mapmf.pmfst.unist.hr/~zeljko/STR.pdf)​
+    
+
+Za maturu: često se traži izračun λλ za elektron i usporedba s razmakom rešetke (ogib ako su usporedivi).
+
+---
+
+## Atomska fizika – modeli atoma
+
+Povijesno: Leukip i Demokrit (početak ideje atoma), Ruđer Bošković (moderna atomistička ideja), zatim fizički modeli atoma.[](https://mapmf.pmfst.unist.hr/~zeljko/STR.pdf)​
+
+|Model|Osnovna ideja|Ograničenja|
+|---|---|---|
+|Thomsonov|Pozitivna kugla s elektronskim „ugradcima”, atom neutralan („puding sa šljivama”).|Ne objašnjava spektre i Rutherfordov pokus.|
+|Rutherfordov|Mala pozitivna jezgra, elektroni kruže po kružnim putanjama (planetarni model).|Nestabilnost: ubrzani elektroni bi zračili i pali u jezgru.|
+|Bohrov|Kvantizirane staze, elektron ne zrači na dozvoljenim orbitama; zračenje pri prijelazima.|Radi dobro za vodik; ne opisuje složene atome.|
+
+---
+
+## Bohrovi postulati
+
+1. Elektron se može nalaziti samo na određenim kvantiziranim orbitama (stanjima energije); ne zrači dok se po njima giba.[](https://mapmf.pmfst.unist.hr/~zeljko/STR.pdf)​
+    
+2. Atom emitira ili apsorbira foton frekvencije ff samo pri prijelazu elektrona između tih staza:
+    
+    hf=Evisˇa−Enizˇahf=Evisˇa−Enizˇa
+
+---
+
+## Energije vodikova atoma
+
+Za vodik:
+
+En=−13.6 eVn2,n=1,2,3,…En=−n213.6 eV,n=1,2,3,…
+
+Prijelaz elektrona s razine mm na nn (gdje je m>nm>n) daje foton energije:
+
+Ef=En−Em=−13.6 eV(1n2−1m2)Ef=En−Em=−13.6 eV(n21−m21)
+
+Kako vrijedi Ef=hf=hcλEf=hf=λhc, može se odrediti i valna duljina spektralne linije.[](https://mapmf.pmfst.unist.hr/~zeljko/STR.pdf)​
+
+Na višoj razini se često navode serije (Lyman – UV, Balmer – vidljivo, Paschen – IR), ali za maturu je najčešće važna formula energetskih razina.[](https://mapmf.pmfst.unist.hr/~zeljko/STR.pdf)​
+
+---
+
+## Energijska stanja atoma
+
+U kvantnoj slici ne postoje klasične putanje, već diskretna energijska stanja.[](https://mapmf.pmfst.unist.hr/~zeljko/STR.pdf)​
+
+- **Osnovno stanje**: n=1n=1, najniža energija, atom nepobuđen.
+    
+- **Pobuđena stanja**: n=2,3,…n=2,3,…; energijske razine postaju sve gušće kako nn raste.
+    
+- Energijski uvjet za apsorpciju:
+    
+    Ef=Evisˇa−EnizˇaEf=Evisˇa−Enizˇa
+    
+    Ako foton nema “pravu” energiju, do pobude ne dolazi.
+    
+
+Pobuđeno stanje je kratkotrajno, tipično ~10−810−8 s, nakon čega se atom vraća u niže stanje uz emisiju fotona iste energije EfEf.[](https://mapmf.pmfst.unist.hr/~zeljko/STR.pdf)​
+
+---
+
+## Nuklearna fizika
+
+## Oznake jezgri
+
+Jezgre označavamo:
+
+ZAXZAX
+
+- ZZ: protonski (atomski) broj
+    
+- NN: broj neutrona
+    
+- A=Z+NA=Z+N: maseni broj
+    
+
+Primjer: 24He24He, Z=2Z=2, N=2N=2.
+
+---
+
+## Radioaktivnost
+
+Radioaktivnost je spontano emitiranje čestica i/ili zračenja iz nestabilnih jezgri.
+
+## Vrste raspada
+
+- **α-raspad**:
+    
+    ZAX→Z−2A−4Y+24HeZAX→Z−2A−4Y+24He
+    
+    Emitira se alfa-čestica (jezgra helija).[](https://edutorij-admin-api.carnet.hr/storage/extracted/eb63acab-6d0c-4a0a-84b8-345fddcdcec2/zakon-radioaktivnog-raspada.html)​
+    
+- **β⁻-raspad** (neutron → proton):
+    
+    ZAX→Z+1AY+e−+νˉeZAX→Z+1AY+e−+νˉe
+    
+    Emitiraju se elektron i antineutrino.
+    
+- **β⁺-raspad** (proton → neutron):
+    
+    ZAX→Z−1AY+e++νeZAX→Z−1AY+e++νe
+    
+    Emitiraju se pozitron i neutrino.
+    
+- **γ-raspad**:
+    
+    ZAX∗→ZAX+γZAX∗→ZAX+γ
+    
+    Jezgra iz pobuđenog stanja prelazi u niže stanje, emitira visokoenergetski foton; AA i ZZ se ne mijenjaju.
+    
+
+---
+
+## Zakon radioaktivnog raspada
+
+Broj još neraspadnutih jezgri u vremenu tt dan je:
+
+N=N0e−λtN=N0e−λt
+
+- N0N0: početni broj jezgri
+    
+- NN: broj preostalih jezgri nakon vremena tt
+    
+- λλ: konstanta raspada (jedinica s−1−1); ne ovisi o vremenu ni uvjetima okoline.
+    
+
+Ista forma vrijedi i za masu:
+
+m=m0e−λtm=m0e−λt
+
+---
+
+## Vrijeme poluraspada i prosječno vrijeme života
+
+**Vrijeme poluraspada** T1/2T1/2 je vrijeme za koje se raspadne polovica početnog broja jezgri:
+
+T1/2=ln⁡2λ≈0.693λT1/2=λln2≈λ0.693
+
+Zakon raspada može se zapisati i preko T1/2T1/2:
+
+N=N0(12)tT1/2N=N0(21)T1/2t
+
+**Prosječno vrijeme života** (u višim razinama, ali korisno znati):
+
+τ=1λ=T1/2ln⁡2τ=λ1=ln2T1/2
+
+---
+
+## Aktivnost
+
+Aktivnost AA je broj raspada u jedinici vremena:
+
+A=−dNdt=λNA=−dtdN=λN
+
+- Jedinica: bekerel (Bq) = 1 raspad u sekundi.
+    
+- Vremenska ovisnost:
+    
+    A=A0e−λt=λN0e−λtA=A0e−λt=λN0e−λt
+
+Za maturu je bitno: aktivnost je proporcionalna broju neraspadnutih jezgri.
+
+---
+
+## Defekt mase i energija vezanja jezgre
+
+Masa jezgre manja je od zbira masa slobodnih protona i neutrona koji je čine; razlika je **defekt mase**.
+
+Δm=Zmp+Nmn−MjezgreΔm=Zmp+Nmn−Mjezgre
+
+ili, uzimajući u obzir masu atoma:
+
+Δm=ZmH+Nmn−MatomaΔm=ZmH+Nmn−Matoma
+
+Energija vezanja jezgre:
+
+Ev=Δmc2Ev=Δmc2
+
+- 1 u (unificirana atomska jedinica mase):
+    
+    1 u=1.6605×10−27 kg1 u=1.6605×10−27 kg1 u c2≈931.5 MeV1 uc2≈931.5 MeV
+
+[](https://edutorij-admin-api.carnet.hr/storage/extracted/2251080/zakon-radioaktivnog-raspada.html)​
+
+**Energija vezanja po nukleonu**:
+
+EvAAEv
+
+što je mjera stabilnosti jezgre (maksimum oko željeza – čini jezgre oko sredine tablice periodnog sustava posebno stabilnima).[](https://edutorij-admin-api.carnet.hr/storage/extracted/2251080/zakon-radioaktivnog-raspada.html)​
+
+---
+
+## Međunarodni sustav jedinica (SI)
+
+Međunarodni sustav mjernih jedinica (SI) je standardizirani sustav koji se koristi u znanosti i tehnici.[](https://gradivo.hr/fizika/fizika-online-skripta-za-4-razred/relativnost/)​
+
+- Osnovne veličine:
+    
+    - duljina – metar (m)
+        
+    - masa – kilogram (kg)
+        
+    - vrijeme – sekunda (s)
+        
+    - električna struja – amper (A)
+        
+    - termodinamička temperatura – kelvin (K)
+        
+    - količina tvari – mol (mol)
+        
+    - jakost svjetlosti – kandela (cd)
+        
+
+U ovim temama često se pojavljuju izvedene jedinice:
+
+- energija – džul (J)
+    
+- snaga – vat (W)
+    
+- aktivnost – bekerel (Bq)
+    
+- frekvencija – herc (Hz)
+    
+- elektronvolt (eV) se koristi kao **praktična** jedinica energije, iako formalno nije osnovna SI jedinica.
