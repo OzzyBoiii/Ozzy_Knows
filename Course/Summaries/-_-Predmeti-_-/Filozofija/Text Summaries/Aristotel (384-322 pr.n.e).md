@@ -58,3 +58,24 @@ Ključni odnosi i filozofski citati
 - Promjena: Treći (djelatni) + četvrti (svršni) uzrok; materija pasivna → forma aktivna → entelehija.
 - Citat: "Nema nikakvog drugog uzroka jedinstva osim dejstva pokretača koji vrši prelaženje sa mogućnosti na stvarnost" ("Metafizika").
 - Kozmološki lanac: Nepokretni pokretač (privlačna sila) → vječno kružni pokret prvog neba → planeti → život → minerari.
+
+QUESTIONIERE- PREUREĐENO
+# Aristotel – Polihistor i njegova filozofija
+
+## Ontološka svojstva i zakoni (tablica 1)
+
+| Pojam | Prva supstancija | Druga supstancija |
+|-------|------------------|-------------------|
+| Primjer | Stvarni pas (iskustveno) | Pojam "pas" (vrsta/rod) |
+| Znanje | Kontingentno, promjenjivo | Nužno, univerzalno (episteme) |
+| Zakon | Četiri uzroka: Materijalni (bronca), formalni (eshata), djelatni (kipar), svršni (počasna svrha) | Dedukcija iz općeg; kategorije biti (supstancija, kvantiteta, kvaliteta, relacija...) |
+
+## Ontološka svojstva i zakoni (tablica 2)
+
+| Pojam | Materija | Forma |
+|-------|----------|-------|
+| Priroda | Pasivna, promjenjiva, ograničena potencija (cigla ≠ mač) | Aktivna, nepromjenjiva, entelehija |
+| Zakon | Lanac: aktualnost = potencija za sljedeće (kuća → ruševina) | Hijerarhija: materija → Bog; kozmološki lanac (nebo → zemlja) |
+| Promjena | Kretanje (kinēsis); ograničena forma | Teleologija: "Priroda ništa ne čini uzalud" ("O dišanjima") |
+
+---

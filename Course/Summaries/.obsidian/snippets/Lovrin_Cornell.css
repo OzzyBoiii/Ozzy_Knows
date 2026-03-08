@@ -1,0 +1,406 @@
+/* LOVRIN CORNELL ULTIMATE – SVE U JEDNOM
+   - Pozadina s kvadratićima
+   - Cornell osnove (cue stupac, borderi)
+   - Sticky summary (gore i dolje) – fiksne visine, scroll kad je sadržaj veći
+   - Lovrin 50/50 layout: lijevo tekst, desno vizualije
+   - Desni vizualni blok podijeljen na 2 podstupca s ISPREKIDANOM linijom
+   - Frontmatter prikazan i centriran, odvojen isprekidanom linijom
+   - Naslov centriran s dvostrukom linijom
+   - Desna rubna linija
+   - Podrška za float slike unutar teksta (lijevo/desno)
+   - Podrška za sve tvoje plugine
+   - Responzivno
+*/
+
+/* ---------- POZADINA S KVADRATIĆIMA ---------- */
+.markdown-preview-view {
+    background-image:
+        linear-gradient(rgba(128, 128, 128, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(128, 128, 128, 0.15) 1px, transparent 1px) !important;
+    background-size: 20px 20px !important;
+    background-position: -1px -1px !important;
+}
+
+/* ---------- BANNER ---------- */
+:root {
+    --banner-image-height: 150px;
+}
+
+.banner-image > .markdown-preview-section {
+    margin-top: var(--banner-image-height) !important;
+}
+
+.show-view-header div:not(.markdown-embed-content) > .markdown-preview-view:is(.banner-image):has([data-callout='banner-image']) {
+    padding-top: 0px;
+}
+
+.banner-image.markdown-preview-view [data-callout='banner-image'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--banner-image-height) !important;
+    margin: 0 !important;
+    padding: 0;
+    background: transparent;
+    border: 0 !important;
+    border-radius: unset !important;
+}
+
+.banner-image.markdown-preview-view [data-callout='banner-image'] .callout-icon {
+    display: none;
+}
+
+.banner-image.markdown-preview-view [data-callout='banner-image'] .callout-title {
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+.banner-image.markdown-preview-view [data-callout='banner-image'] .callout-title-inner {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.banner-image.markdown-preview-view [data-callout='banner-image'] img {
+    position: absolute;
+    min-height: var(--banner-image-height) !important;
+    width: 100%;
+    object-fit: cover;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+@media print {
+    [data-callout='banner-image'] {
+        position: unset !important;
+    }
+}
+
+/* ---------- CORNELL OSNOVE ---------- */
+:root {
+    --cornell-cue-column-width: 150px;
+    --cornell-cue-column-width-readable-line: 150px;
+    --cornell-cue-callout-width: 158px;
+    --cornell-cue-callout-width-readable-line: 158px;
+    --cornell-summary-callout-max-height: 150px;
+    --cornell-summary-callout-top-height: 150px;
+    --cornell-border-padding: 10px;
+}
+
+.theme-light {
+    --cornell-summary-callout-background-color: #f0f8ff;
+    --cornell-border-color: #000000;
+    --text-color: #000000;
+}
+
+.theme-dark {
+    --cornell-summary-callout-background-color: #2e2a2a;
+    --cornell-border-color: #ffffff;
+    --text-color: #ffffff;
+}
+
+:is(.cornell-left, .cornell-right) [data-callout='cue'] {
+    --callout-icon: '';
+}
+
+:is(.cornell-left, .cornell-right) :is([data-callout='summary'], [data-callout='summary-top']) {
+    --callout-icon: '';
+}
+
+@media (min-width: 400px) {
+
+    .markdown-source-view.cornell-livepreview.cornell-left [data-callout='cue'],
+    .markdown-preview-view.cornell-left [data-callout='cue'] {
+        padding-left: 15px !important;
+        padding-right: 10px !important;
+    }
+
+    .markdown-source-view.cornell-livepreview.cornell-right [data-callout='cue'],
+    .markdown-preview-view.cornell-right [data-callout='cue'] {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .markdown-source-view.cornell-livepreview:where(.cornell-left, .cornell-right) [data-callout='cue'] {
+        display: inline;
+        border-left: 0;
+    }
+
+    .markdown-source-view.cornell-livepreview:where(.cornell-left, .cornell-right) [data-callout='cue'],
+    .markdown-preview-view:where(.cornell-left, .cornell-right) [data-callout='cue'] {
+        background-color: transparent !important;
+        padding: 0;
+        z-index: 999;
+    }
+
+    .markdown-source-view.cornell-livepreview:where(.cornell-left, .cornell-right) [data-callout='cue'] .callout-title,
+    .markdown-preview-view:where(.cornell-left, .cornell-right) [data-callout='cue'] .callout-title {
+        background-color: transparent !important;
+        border: 0 !important;
+    }
+
+    .markdown-source-view.cornell-livepreview:where(.cornell-left, .cornell-right) [data-callout='cue'] .callout-icon,
+    .markdown-preview-view:where(.cornell-left, .cornell-right) [data-callout='cue'] .callout-icon {
+        display: none;
+    }
+
+    .markdown-source-view.cornell-livepreview.cornell-left:not(.is-readable-line-width) .cm-scroller,
+    .markdown-preview-view.cornell-left:not(.is-readable-line-width) {
+        padding-left: var(--cornell-cue-column-width) !important;
+    }
+
+    .markdown-source-view.cornell-livepreview.cornell-right:not(.is-readable-line-width) .cm-scroller,
+    .markdown-preview-view.cornell-right:not(.is-readable-line-width) {
+        padding-right: var(--cornell-cue-column-width) !important;
+    }
+}
+
+/* ---------- BORDERS (pojačane) ---------- */
+.cornell-livepreview.cornell-left.cornell-border .cm-sizer,
+.cornell-left.cornell-border > .markdown-preview-sizer {
+    border-left: 3px solid var(--cornell-border-color) !important;
+    padding-left: var(--cornell-border-padding);
+}
+
+.cornell-livepreview.cornell-right.cornell-border .cm-sizer,
+.cornell-right.cornell-border > .markdown-preview-sizer {
+    border-right: 3px solid var(--cornell-border-color) !important;
+    padding-right: 5px;
+}
+
+.markdown-preview-view:where(.cornell-left, .cornell-right).cornell-border [data-callout='summary'] {
+    border-top: 3px solid var(--cornell-border-color);
+}
+
+.markdown-preview-view:where(.cornell-left, .cornell-right).cornell-border [data-callout='summary-top'] {
+    border-bottom: 3px solid var(--cornell-border-color);
+}
+
+/* ---------- DESNA RUBNICA ---------- */
+.markdown-preview-view.lovrin-cornell {
+    border-right: 3px solid var(--cornell-border-color) !important;
+    padding-right: 15px !important;
+}
+
+/* ---------- STICKY SUMMARY (s fiksnom visinom i scrollom) ---------- */
+@media screen {
+
+    /* Bottom summary */
+    div:not(.markdown-embed-content) > :is(.cornell-left, .cornell-right) .markdown-preview-section [data-callout='summary'] {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        z-index: 1000;
+        background-color: var(--cornell-summary-callout-background-color) !important;
+        border-radius: 0;
+        border-top: 3px solid var(--cornell-border-color);
+        padding: 0.5rem;
+        opacity: 0.95;
+        color: var(--text-color) !important;
+        max-height: var(--cornell-summary-callout-max-height) !important;
+        overflow-y: auto !important;
+    }
+
+    /* Top summary */
+    div:not(.markdown-embed-content) > .markdown-preview-view:is(.cornell-left, .cornell-right):has([data-callout='summary-top']) {
+        margin-top: var(--cornell-summary-callout-top-height);
+    }
+
+    div:not(.markdown-embed-content) > .markdown-preview-view:is(.cornell-left, .cornell-right) [data-callout='summary-top'] {
+        height: var(--cornell-summary-callout-top-height) !important;
+        position: fixed;
+        top: 20px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        overflow-y: auto !important;
+        /* osigurava scroll */
+        background-color: var(--cornell-summary-callout-background-color) !important;
+        border-radius: 0;
+        border-bottom: 3px solid var(--cornell-border-color);
+        padding: 0.5rem;
+        opacity: 0.95;
+        color: var(--text-color) !important;
+    }
+}
+
+@media print {
+    .markdown-preview-view:is(.cornell-left, .cornell-right) [data-callout='cue'] {
+        width: var(--cornell-cue-column-width) !important;
+    }
+}
+
+/* ---------- NASLOV I FRONTMATTER ---------- */
+.markdown-preview-view.lovrin-cornell .frontmatter,
+.markdown-preview-view.lovrin-cornell .frontmatter-container {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    font-family: monospace !important;
+    font-size: 0.9rem !important;
+    color: var(--text-color) !important;
+    background-color: rgba(128, 128, 128, 0.05) !important;
+    padding: 0.75rem !important;
+    margin: 0 auto 1rem auto !important;
+    border-bottom: 3px dashed var(--cornell-border-color) !important;
+    box-sizing: border-box !important;
+}
+
+.markdown-preview-view.lovrin-cornell h1:first-of-type {
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0.5rem auto 1rem auto !important;
+    font-size: 2rem !important;
+    border-bottom: 3px double var(--cornell-border-color) !important;
+    padding-bottom: 0.75rem !important;
+    color: var(--text-color) !important;
+}
+
+/* ---------- LOVRIN 50/50 LAYOUT ---------- */
+@media (min-width: 700px) {
+    .markdown-preview-view.lovrin-cornell .markdown-preview-section {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        column-gap: 2rem !important;
+    }
+
+    .markdown-preview-view.lovrin-cornell .markdown-preview-section > *:not(.lovrin-left-content):not([data-callout="lovrin-visuals"]) {
+        grid-column: 1 / -1 !important;
+    }
+
+    .markdown-preview-view.lovrin-cornell .markdown-preview-section > .lovrin-left-content {
+        grid-column: 1 / 2 !important;
+        border-right: 3px solid var(--cornell-border-color) !important;
+        padding-right: 1rem !important;
+        color: var(--text-color) !important;
+    }
+
+    .markdown-preview-view.lovrin-cornell .markdown-preview-section > [data-callout="lovrin-visuals"] {
+        grid-column: 2 / 3 !important;
+    }
+
+    .markdown-preview-view.lovrin-cornell [data-callout="lovrin-visuals"] .callout-content {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .markdown-preview-view.lovrin-cornell [data-callout="lovrin-visuals"] .lovrin-visual-block:first-child {
+        border-right: 3px dashed var(--cornell-border-color) !important;
+        padding-right: 1rem !important;
+    }
+}
+
+@media (max-width: 699px) {
+    .markdown-preview-view.lovrin-cornell [data-callout="lovrin-visuals"] .callout-content {
+        display: block;
+    }
+
+    .markdown-preview-view.lovrin-cornell [data-callout="lovrin-visuals"] .lovrin-visual-block {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* ---------- FLOAT SLIKE UNUTAR LIJEVOG STUPCA ---------- */
+.lovrin-left-content {
+    overflow: auto;
+    /* clearfix za float */
+}
+
+.lovrin-left-content img.float-left {
+    float: left !important;
+    margin: 0 1rem 0.5rem 0 !important;
+    max-width: 50% !important;
+    clear: left;
+}
+
+.lovrin-left-content img.float-right {
+    float: right !important;
+    margin: 0 0 0.5rem 1rem !important;
+    max-width: 50% !important;
+    clear: right;
+}
+
+/* ---------- OSIGURANJE VIDLJIVOSTI TEKSTA ---------- */
+.lovrin-left-content,
+.lovrin-left-content *,
+.markdown-preview-view.lovrin-cornell p,
+.markdown-preview-view.lovrin-cornell li,
+.markdown-preview-view.lovrin-cornell h2,
+.markdown-preview-view.lovrin-cornell h3,
+.markdown-preview-view.lovrin-cornell h4,
+.markdown-preview-view.lovrin-cornell strong,
+.markdown-preview-view.lovrin-cornell em,
+.markdown-preview-view.lovrin-cornell u,
+.markdown-preview-view.lovrin-cornell span {
+    color: var(--text-color) !important;
+    background-color: transparent !important;
+}
+
+/* ---------- PODRŠKA ZA PLUGINE ---------- */
+.markdown-preview-view.lovrin-cornell .math-block,
+.markdown-preview-view.lovrin-cornell .math-inline {
+    overflow-x: auto;
+    max-width: 100%;
+    color: var(--text-color) !important;
+}
+
+.markdown-preview-view.lovrin-cornell .block-language-chart {
+    max-width: 100%;
+    height: auto;
+}
+
+.markdown-preview-view.lovrin-cornell .block-language-plantuml {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.markdown-preview-view.lovrin-cornell .block-language-chem {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.markdown-preview-view.lovrin-cornell .block-language-asciimath {
+    max-width: 100%;
+    overflow-x: auto;
+    color: var(--text-color) !important;
+}
+
+.markdown-preview-view.lovrin-cornell .excalidraw-svg,
+.markdown-preview-view.lovrin-cornell .excalidraw {
+    max-width: 100%;
+    height: auto;
+}
+
+.markdown-preview-view.lovrin-cornell img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0.5rem 0;
+}
+
+.markdown-preview-view.lovrin-cornell .image-caption {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted) !important;
+    margin-top: -0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.markdown-preview-view.lovrin-cornell ul.contains-task-list {
+    padding-left: 1.5rem;
+}
+
+.markdown-preview-view.lovrin-cornell .dataview.table-view-table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+
+.markdown-preview-view.lovrin-cornell table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+}

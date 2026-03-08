@@ -1,12 +1,43 @@
 {
-  "choices": [],
+  "choices": [
+    {
+      "id": "6d668482-1cca-4437-bb9f-b90fdc4dea64",
+      "name": "Lovrin_Cornell_QuickAdd",
+      "type": "Template",
+      "command": true,
+      "templatePath": "Templates/Lovrin_Cornell.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "{{VALUE:Naslov bilješke}}"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "-_-Predmeti-_-"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": true
+      },
+      "appendLink": false,
+      "openFile": true,
+      "fileOpening": {
+        "location": "tab",
+        "direction": "vertical",
+        "mode": "default",
+        "focus": true
+      },
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false
+    }
+  ],
   "inputPrompt": "single-line",
   "persistInputPromptDrafts": true,
   "useSelectionAsCaptureValue": true,
   "devMode": false,
   "templateFolderPath": "",
   "announceUpdates": "major",
-  "version": "2.11.0",
+  "version": "2.12.0",
   "globalVariables": {},
   "onePageInputEnabled": false,
   "disableOnlineFeatures": true,
