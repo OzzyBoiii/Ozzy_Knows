@@ -1,0 +1,27 @@
+{% comment %}
+    * Parameters *
+    class: string (optional)
+    left_side: fragment (optional)
+    right_side: fragment (optional)
+{% endcomment %}
+
+<c-vars
+    class=""
+    base_class="flex flex-col sm:flex-row sm:items-center justify-end gap-x-3 gap-y-4"
+    left_side_class="flex flex-col sm:flex-row"
+    right_side_class="flex flex-col sm:flex-row items-center gap-2 max-sm:w-full max-sm:*:w-full"
+/>
+
+<div class="{{ base_class }} {{ class }}" {{ attrs }}>
+    {% if left_side %}
+        <div class="{{ left_side_class }}">
+            {{ left_side }}
+        </div>
+    {% endif %}
+    <div class="flex-1 max-sm:hidden"></div>
+    {% if right_side %}
+        <div class="{{ right_side_class }}">
+            {{ right_side }}
+        </div>
+    {% endif %}
+</div>

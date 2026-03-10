@@ -1,0 +1,92 @@
+{% comment %}
+    * Parameters *
+    id: string
+    label: string
+    checked: boolean
+    disabled: boolean
+    indeterminate: boolean
+    helper_text: string
+    is_error: boolean
+{% endcomment %}
+
+<c-vars
+    class=""
+    base_class="flex gap-2 font-display max-w-[75ch]"
+    input_class="hidden"
+    base_checkbox_container_class="w-fit h-fit focus:not-active:rounded-lg hover:rounded-md p-1 focus:not-active:outline-border-primary-focus focus:not-active:outline-2 outline-offset-2"
+    enabled_checkbox_container_class="cursor-pointer"
+    disabled_checkbox_container_class="text-icon-disabled-main"
+    success_checkbox_container_class="hover:bg-background-primary-subtle-hover"
+    error_checkbox_container_class="text-icon-destructive-main hover:text-icon-destructive-on-color-subtle hover:bg-background-destructive-subtle-hover"
+    checked_checkbox_container_class="text-icon-primary-main hover:text-icon-primary-on-color-subtle"
+    unchecked_checkbox_container_class="text-icon-neutral-main hover:text-icon-neutral-on-color-subtle"
+    checkbox_icon_class="size-5"
+    label_container_class="flex flex-col gap-0.5 py-0.5"
+/>
+
+<div
+  class="{{ base_class }} {{ class }}"
+  x-data="{
+    checked: {% if checked %}true{% else %}false{% endif %},
+    indeterminate: {% if indeterminate %}true{% else %}false{% endif %},
+  }"
+>
+    <input
+        type="checkbox"
+        x-model.boolean="checked"
+        name="{{ input_name }}"
+        class="{{ input_class }}"
+        id="{{ id }}"
+        {% if disabled %}disabled{% endif %}
+        x-effect="$el.indeterminate = indeterminate"
+        {{ attrs }}
+    >
+    <div
+        class="{{ base_checkbox_container_class }}
+            {% if disabled %}
+                {{ disabled_checkbox_container_class }}
+            {% else %}
+                {{ enabled_checkbox_container_class }}
+                 {% if is_error %}
+                    {{ error_checkbox_container_class }}
+                 {% else %}
+                    {{ success_checkbox_container_class }}
+                 {% endif %}
+            {% endif %}"
+        {% if not is_error and not disabled %}
+          :class="checked || indeterminate ? '{{ checked_checkbox_container_class }}' : '{{ unchecked_checkbox_container_class }}'"
+        {% endif %}
+        {% if not disabled %}
+            tabindex="0"
+            role="checkbox"
+            :aria-checked="indeterminate ? 'mixed' : (checked ? 'true' : 'false')"
+            @click="checked = !checked; indeterminate = false; $event.currentTarget.blur();"
+            @keydown.space.prevent="checked = !checked; indeterminate = false;"
+        {% endif %}
+    >
+        <template x-if="indeterminate">
+            <c-v1.icon type="checkbox-indeterminate-20" class="{{ checkbox_icon_class }}"/>
+        </template>
+        <template x-if="!indeterminate && checked">
+            <c-v1.icon type="checkbox-checked-20" class="{{ checkbox_icon_class }}"/>
+        </template>
+        <template x-if="!indeterminate && !checked">
+            <c-v1.icon type="checkbox-unchecked-20" class="{{ checkbox_icon_class }}"/>
+        </template>
+    </div>
+    <div class="{{ label_container_class }}">
+        <c-v1.label
+            id="{{ id }}"
+            label="{{ label }}"
+            :required="required"
+            :disabled="disabled"
+        />
+        {% if helper_text %}
+            <c-v1.helper_text
+                helper_text="{{ helper_text }}"
+                state="{% if is_error %}error{% else %}default{% endif %}"
+                :disabled="disabled"
+            />
+        {% endif %}
+    </div>
+</div>

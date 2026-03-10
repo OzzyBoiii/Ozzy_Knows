@@ -1,0 +1,63 @@
+{% comment %}
+    * Parameters *
+    class: string (optional)
+    open_var: string (optional) - Alpine.js variable name for open state
+    open: boolean (optional) - static boolean for open state, used if open_var not provided
+    body: string
+    current_step_var: Alpine.js variable name for the current step number
+    total_steps: Total number of steps
+    on_back: string - Click handler for Back button
+    on_next: string - Click handler for Next button
+    show_backdrop: boolean (optional) - default: True
+    close_on_input_events: whether to close the dialog on mouse clicks or esc keys
+{% endcomment %}
+
+<c-vars
+    class=""
+    open_var=""
+    back_label="Back"
+    on_back=""
+    next_label="Next"
+    on_next=""
+    :open=False
+    :show_backdrop=True
+    :close_on_input_events=False
+    current_step_var
+    total_steps
+    body
+/>
+
+<c-v1.dialog
+    class="{{ class }}"
+    open_var="{{ open_var }}"
+    :open={{ open }}
+    :show_backdrop={{ show_backdrop }}
+    :close_on_input_events="close_on_input_events"
+    size="small"
+    {{ attrs }}
+>
+    <c-v1.dialog.body>{{ body }}</c-v1.dialog.body>
+
+    <c-v1.divider />
+
+    <c-v1.dialog.action_area>
+        <c-slot name="left_side">
+            <c-v1.button kind="text" @click="open = false">
+                Close
+            </c-v1.button>
+        </c-slot>
+
+        <c-slot name="right_side">
+            <div class="text-caption text-text-neutral-main" x-text="`${ {{ current_step_var }} } of {{ total_steps }}`">
+            </div>
+            <c-v1.button kind="secondary" @click="{{ on_back }}">
+                {{ back_label }}
+            </c-v1.button>
+            <c-v1.button kind="main" @click="{{ on_next }}">
+                {{ next_label }}
+            </c-v1.button>
+        </c-slot>
+    </c-v1.dialog.action_area>
+
+    {{ slot }}
+</c-v1.dialog>

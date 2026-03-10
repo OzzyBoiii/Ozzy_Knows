@@ -1,0 +1,258 @@
+"""Universal Beautify Anki - Modular Theme & Styling System
+
+A comprehensive theming addon for Anki that provides:
+- 5 beautiful built-in theme presets
+- Customizable colors for all UI elements (Qt widgets + webviews)
+- Support for popular addons (Review Heatmap, Image Occlusion, etc.)
+- Menu glow effects and card styling options
+- Full control over fonts, spacing, and visual effects
+
+This is the refactored modular version with separated concerns.
+"""
+
+import os
+from typing import Dict, Any, Optional
+
+# ============================================================================
+# Module Imports
+# ============================================================================
+
+from .constants import (
+    ADDON_NAME,
+    ADDON_ID,
+    DEFAULTS,
+    TECH_LABELS,
+    FIELD_HELP,
+)
+
+from .config import (
+    load_config,
+    reload_config,
+    ADDON_DIR,
+)
+
+from .themes import (
+    THEME_PRESETS,
+    get_all_presets,
+    load_custom_presets,
+    save_current_as_preset,
+    apply_preset,
+    delete_custom_preset,
+    is_builtin_preset,
+)
+
+from .patcher import (
+    build_global_stylesheet,
+    apply_global_stylesheet,
+    build_toolbar_css,
+    build_browser_editor_css,
+    build_bottom_bar_css,
+    build_webview_css,
+    build_reviewer_css,
+)
+
+from .webview_handlers import (
+    inject_webview_css,
+    build_addon_integration_css,
+    refresh_all_webviews,
+)
+
+from .heatmap_integration import (
+    get_installed_addons as get_installed_addons_list,
+    build_all_addon_integration_css,
+    get_addon_status,
+)
+
+# ============================================================================
+# Anki Hooks & GUI
+# ============================================================================
+
+try:
+    from aqt import mw, gui_hooks
+    from aqt.qt import QMenu, QDialog, QVBoxLayout, QLabel, QPushButton
+except Exception:
+    mw = None
+    gui_hooks = None
+    QMenu = object
+    QDialog = object
+    QVBoxLayout = object
+    QLabel = object
+    QPushButton = object
+
+
+# ============================================================================
+# Hook Callbacks
+# ============================================================================
+
+def on_profile_did_open() -> None:
+    """Apply theme when Anki profile opens."""
+    apply_global_stylesheet()
+
+
+def on_style_did_init(buf: str) -> str:
+    """Inject stylesheet into Anki's theme system."""
+    cfg = load_config()
+    our_styles = build_global_stylesheet(cfg)
+    addon_styles = build_addon_integration_css(cfg)
+    return buf + "\n" + our_styles + "\n" + addon_styles
+
+
+def register_hooks() -> None:
+    """Register all Anki GUI hooks."""
+    if not gui_hooks:
+        return
+    try:
+        gui_hooks.profile_did_open.append(on_profile_did_open)
+        gui_hooks.webview_will_set_content.append(inject_webview_css)
+        gui_hooks.style_did_init.append(on_style_did_init)
+    except Exception:
+        pass
+
+
+# ============================================================================
+# Menu & UI
+# ============================================================================
+
+def open_theme_designer_dialog() -> None:
+    """Open the Theme Designer dialog (from original __init__.py UI section)."""
+    # This would be imported from a new ui.py module in full refactoring
+    # For now, call back to original if still available
+    try:
+        from aqt.utils import tooltip
+        tooltip("Theme Designer would open here (UI module pending)", period=2000)
+    except Exception:
+        pass
+
+
+def add_beautify_menu() -> None:
+    """Add Design menu to Anki menubar."""
+    if not mw or not hasattr(mw, "form"):
+        return
+    try:
+        menubar = mw.form.menubar
+        # Avoid duplicate menu
+        for act in menubar.actions():
+            if act.text() == "Design":
+                return
+        
+        beautify_menu = QMenu("Design", mw)
+        menubar.addMenu(beautify_menu)
+        
+        beautify_menu.addAction("Theme Designer...", open_theme_designer_dialog)
+        beautify_menu.addSeparator()
+        
+        # Presets submenu
+        presets_menu = beautify_menu.addMenu("🎨 Presets")
+        
+        # Built-in presets
+        for preset_name in sorted(THEME_PRESETS.keys()):
+            presets_menu.addAction(f"🔒 {preset_name}", lambda p=preset_name: apply_preset(p))
+        
+        # Custom presets (if any)
+        custom = load_custom_presets()
+        if custom:
+            presets_menu.addSeparator()
+            for preset_name in sorted(custom.keys()):
+                presets_menu.addAction(f"✨ {preset_name}", lambda p=preset_name: apply_preset(p))
+        
+        beautify_menu.addSeparator()
+        beautify_menu.addAction("Reload Theme", lambda: apply_global_stylesheet())
+        beautify_menu.addAction("Reset to Defaults", _reset_to_defaults)
+    except Exception:
+        pass
+
+
+def _reset_to_defaults() -> None:
+    """Reset configuration to defaults."""
+    try:
+        if mw and hasattr(mw, "addonManager"):
+            mw.addonManager.writeConfig(ADDON_ID, DEFAULTS.copy())
+        reload_config()
+        apply_global_stylesheet()
+        from aqt.utils import tooltip
+        tooltip("Defaults restored", period=1800)
+    except Exception:
+        pass
+
+
+def _post_profile_menu() -> None:
+    """Add menu after profile loads."""
+    add_beautify_menu()
+
+
+# ============================================================================
+# Initialization
+# ============================================================================
+
+def initialize() -> None:
+    """Initialize the addon after Anki loads."""
+    # Register hooks
+    register_hooks()
+    
+    # Apply initial theme if mw is ready
+    if mw and hasattr(mw, 'col') and mw.col is not None:
+        apply_global_stylesheet()
+    
+    # Schedule menu addition for profile load
+    if gui_hooks:
+        try:
+            gui_hooks.profile_did_open.append(_post_profile_menu)
+        except Exception:
+            pass
+    
+    # Log loaded
+    try:
+        print(f"[{ADDON_NAME}] loaded (modular version)")
+        if mw:
+            try:
+                from aqt.utils import tooltip
+                def show_tooltip():
+                    tooltip(f"{ADDON_NAME} theme active", period=2000)
+                mw.taskman.run_on_main(show_tooltip)
+            except Exception:
+                pass
+    except Exception:
+        pass
+
+
+# Initialize on import
+initialize()
+
+
+# ============================================================================
+# Public API
+# ============================================================================
+
+__all__ = [
+    "ADDON_NAME",
+    "ADDON_ID",
+    "ADDON_DIR",
+    "THEME_PRESETS",
+    "DEFAULTS",
+    # Config
+    "load_config",
+    "reload_config",
+    # Themes
+    "get_all_presets",
+    "load_custom_presets",
+    "save_current_as_preset",
+    "apply_preset",
+    "delete_custom_preset",
+    "is_builtin_preset",
+    # Styling
+    "build_global_stylesheet",
+    "apply_global_stylesheet",
+    "build_toolbar_css",
+    "build_browser_editor_css",
+    "build_bottom_bar_css",
+    "build_webview_css",
+    "build_reviewer_css",
+    # Webviews & Integration
+    "inject_webview_css",
+    "build_addon_integration_css",
+    "refresh_all_webviews",
+    "get_addon_status",
+    # UI
+    "add_beautify_menu",
+    "open_theme_designer_dialog",
+]

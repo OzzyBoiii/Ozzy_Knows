@@ -1,0 +1,191 @@
+{% load custom_tags %}
+{% comment %}
+    * Parameters *
+    title: string
+    subtitle: string (optional)
+    badge: Slot (optional)
+    class: string (optional)
+    main_button_label: string (optional)
+    main_button_action: function (optional)
+    main_button_left_icon: string (optional)
+    main_button_right_icon: string (optional)
+    second_button_label: string (optional)
+    second_button_action: function (optional)
+    second_button_left_icon: string (optional)
+    second_button_right_icon: string (optional)
+    third_button_label: string (optional)
+    third_button_action: function (optional)
+    third_button_left_icon: string (optional)
+    third_button_right_icon: string (optional)
+    fourth_button_label: string (optional)
+    fourth_button_action: function (optional)
+    fourth_button_left_icon: string (optional)
+    fourth_button_right_icon: string (optional)
+{% endcomment %}
+
+<c-vars
+    class=""
+    base_class="flex flex-col md:flex-row gap-6 justify-between"
+    title_class="text-text-basic-heading"
+    subtitle_class="text-body-strong text-text-basic-subtitle"
+    md_size_class="hidden md:flex gap-x-2 items-start"
+    phone_size_class="flex md:hidden gap-x-2 items-start w-max"
+    main_button_label=""
+    main_button_action=""
+    main_button_left_icon=""
+    main_button_right_icon=""
+    second_button_label=""
+    second_button_action=""
+    second_button_left_icon=""
+    second_button_right_icon=""
+    third_button_label=""
+    third_button_action=""
+    third_button_left_icon=""
+    third_button_right_icon=""
+    fourth_button_label=""
+    fourth_button_action=""
+    fourth_button_left_icon=""
+    fourth_button_right_icon=""
+/>
+
+<div
+    class="{{ base_class }} {{ class }}"
+    x-data="{
+        selectedOption: null,
+        mainButtonAction: {{ main_button_action|default:"null" }},
+        secondButtonAction: {{ second_button_action|default:"null" }},
+        thirdButtonAction: {{ third_button_action|default:"null" }},
+        fourthButtonAction: {{ fourth_button_action|default:"null" }},
+    }"
+>
+    <div class="flex flex-col gap-y-1">
+        <div class="flex gap-x-3 items-start">
+            <h1 class="text-text-basic-heading">{{ title }}</h1>
+            {% if badge %}
+                <div class="mt-1.5">
+                    {{ badge }}
+                </div>
+            {% endif %}
+        </div>
+        {% if subtitle %}
+            <span class="text-body-strong text-text-basic-subtitle">{{ subtitle }}</span>
+        {% endif %}
+    </div>
+
+    <div class="{{ md_size_class }}">
+
+        {% if fourth_button_label %}
+            <c-v1.button kind="secondary" @click="fourthButtonAction">
+                {% if fourth_button_left_icon %}
+                    <slot name="icon_left">
+                        <c-v1.icon type="{{ fourth_button_left_icon }}" class="size-5" />
+                    </slot>
+                {% endif %}
+                {{ fourth_button_label }}
+                {% if fourth_button_right_icon %}
+                    <slot name="icon_right">
+                        <c-v1.icon type="{{ fourth_button_right_icon }}" class="size-5" />
+                    </slot>
+                {% endif %}
+            </c-v1.button>
+        {% endif %}
+
+        {% if third_button_label %}
+            <c-v1.button kind="secondary" @click="thirdButtonAction">
+                {% if third_button_left_icon %}
+                    <slot name="icon_left">
+                        <c-v1.icon type="{{ third_button_left_icon }}" class="size-5" />
+                    </slot>
+                {% endif %}
+                {{ third_button_label }}
+                {% if third_button_right_icon %}
+                    <slot name="icon_right">
+                        <c-v1.icon type="{{ third_button_right_icon }}" class="size-5" />
+                    </slot>
+                {% endif %}
+            </c-v1.button>
+        {% endif %}
+
+        {% if second_button_label %}
+            <c-v1.button kind="secondary" @click="secondButtonAction">
+                {% if second_button_left_icon %}
+                    <slot name="icon_left">
+                        <c-v1.icon type="{{ second_button_left_icon }}" class="size-5" />
+                    </slot>
+                {% endif %}
+                {{ second_button_label }}
+                {% if second_button_right_icon %}
+                    <slot name="icon_right">
+                        <c-v1.icon type="{{ second_button_right_icon }}" class="size-5" />
+                    </slot>
+                {% endif %}
+            </c-v1.button>
+        {% endif %}
+
+        {% if main_button_label %}
+            <c-v1.button kind="main" @click="mainButtonAction">
+                {% if main_button_left_icon %}
+                    <slot name="icon_left">
+                        <c-v1.icon type="{{ main_button_left_icon }}" class="size-5" />
+                    </slot>
+                {% endif %}
+                {{ main_button_label }}
+                {% if main_button_right_icon %}
+                    <slot name="icon_right">
+                        <c-v1.icon type="{{ main_button_right_icon }}" class="size-5" />
+                    </slot>
+                {% endif %}
+            </c-v1.button>
+        {% endif %}
+    </div>
+
+    <div class="{{ phone_size_class }}">
+        {% if main_button_label %}
+            <c-v1.button kind="main" @click="mainButtonAction">
+                {% if main_button_left_icon %}
+                    <slot name="icon_left">
+                        <c-v1.icon type="{{ main_button_left_icon }}" class="size-5" />
+                    </slot>
+                {% endif %}
+                {{ main_button_label }}
+                {% if main_button_right_icon %}
+                    <slot name="icon_right">
+                        <c-v1.icon type="{{ main_button_right_icon }}" class="size-5" />
+                    </slot>
+                {% endif %}
+            </c-v1.button>
+        {% endif %}
+
+        {% make_list second_button_label third_button_label fourth_button_label as items %}
+        {% if items|length == 1 %}
+            <c-v1.button kind="secondary" @click="secondButtonAction">
+                {% if second_button_left_icon %}
+                    <slot name="icon_left">
+                        <c-v1.icon type="{{ second_button_left_icon }}" class="size-5" />
+                    </slot>
+                {% endif %}
+                {{ second_button_label }}
+                {% if second_button_right_icon %}
+                    <slot name="icon_right">
+                        <c-v1.icon type="{{ second_button_right_icon }}" class="size-5" />
+                    </slot>
+                {% endif %}
+            </c-v1.button>
+        {% elif items|length > 1 %}
+            <c-v1.select
+                id="more-select"
+                kind="primary"
+                placeholder="More"
+
+                :selected_option="selectedOption"
+                options="{{ items }}"
+                labels="{{ items }}"
+                onchange_func="
+                    if (selected_option === '{{ second_button_label }}') secondButtonAction();
+                    else if (selected_option === '{{ third_button_label }}') thirdButtonAction();
+                    else if (selected_option === '{{ fourth_button_label }}') fourthButtonAction();
+                    selected_option = null;"
+            />
+        {% endif %}
+    </div>
+</div>

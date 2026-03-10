@@ -18,14 +18,16 @@ kanban-plugin: board
 
 - [ ] Dodavanje popupa na laptopu 30-20-10 (odmor očiju)- POSTPONED
 - [ ] Questionare.html - POSTPONED
+- [ ] Work on ANKI - POSTPONED
 
 
-## Doing (Non-Digital)
+## Doing (Digital)
 
 - [ ] Cornell Obsidian template - PARTIALLY SUPPORTED
 - [ ] Google Calendar and windows calendar support) - partially supported
 - [ ] Calendar popup notification addon
 - [ ] Obsidian calendar setup and google support
+- [ ] Anki - Obisidian - HTML support
 
 
 

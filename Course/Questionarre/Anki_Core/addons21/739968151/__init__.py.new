@@ -1,0 +1,69 @@
+"""Universal Beautify Anki - Main Entry Point
+
+Modular structure:
+- constants.py: Defaults and configuration constants
+- config.py: Config loading and management
+- themes.py: Theme presets and preset management  
+- patcher.py: (future) CSS/stylesheet generation
+- webview_handlers.py: (future) Webview injection logic
+- heatmap_integration.py: (future) Review Heatmap addon support
+
+This file contains hook registration and initialization.
+"""
+
+from typing import Dict, Any
+from pathlib import Path
+
+# Import modular components
+from .constants import DEFAULTS, ADDON_NAME
+from .config import load_config, reload_config, get_config, ADDON_DIR, ADDON_ID
+from .themes import (
+    THEME_PRESETS, 
+    get_all_presets, 
+    apply_preset, 
+    load_custom_presets,
+    save_current_as_preset,
+    delete_custom_preset,
+    is_builtin_preset,
+    get_custom_presets_path,
+)
+
+try:
+    from aqt import gui_hooks, mw
+except Exception:
+    gui_hooks = None
+    mw = None
+
+
+# Public API - export main functions
+__all__ = [
+    "load_config",
+    "reload_config",
+    "get_config",
+    "THEME_PRESETS",
+    "get_all_presets",
+    "apply_preset",
+    "load_custom_presets",
+    "save_current_as_preset",
+    "delete_custom_preset",
+    "is_builtin_preset",
+    "ADDON_NAME",
+    "ADDON_DIR",
+    "ADDON_ID",
+    "DEFAULTS",
+]
+
+
+def register_hooks() -> None:
+    """Register Anki GUI hooks."""
+    # TODO: Hook registration will happen here
+    # Import patcher and webview_handlers when they're extracted
+    pass
+
+
+# Initialize on import
+if gui_hooks:
+    try:
+        register_hooks()
+    except Exception:
+        pass

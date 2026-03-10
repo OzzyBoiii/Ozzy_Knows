@@ -1,0 +1,35 @@
+{% comment %}
+    * Parameters *
+    open_var: string (optional) - Alpine.js variable name for open state
+    title: string (optional)
+    show_close_button: boolean (optional) - default: True
+    class: string (optional)
+{% endcomment %}
+
+<c-vars
+    class=""
+    open_var=""
+    :show_close_button=True
+    base_class="flex justify-between gap-2 order-first items-center"
+    title_base_class="text-text-basic-heading"
+/>
+
+
+{% if title or show_close_button %}
+    <header class="{{ base_class }} {{ class }}" {{ attrs}}>
+        {% if title %}
+            <h3 class="{{ title_base_class }}">
+                {{ title }}
+            </h3>
+        {% endif %}
+        {% if show_close_button %}
+            <c-v1.icon-button
+                kind="utility_neutral"
+                label="Close dialog"
+                @click="{% if open_var %} {{ open_var }} = false{% else %}open = false{% endif %}"
+            >
+                <c-v1.icon type="dismiss-20" class="size-5" />
+            </c-v1.icon-button>
+        {% endif %}
+    </header>
+{% endif %}

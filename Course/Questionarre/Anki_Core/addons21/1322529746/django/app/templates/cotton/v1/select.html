@@ -1,0 +1,139 @@
+{% comment %}
+    * Parameters *
+    id: string
+    class: string
+    label: string
+    options: list
+    labels: list
+    selected_option: string
+    input_name: string
+    required: boolean (optional)
+    optional_text: string (optional)
+    helper_text: string (optional)
+    placeholder: string (optional)
+    size: string (optional, default is "large") - options: large, small
+    state: string (optional, default is "success") - options: success, error
+    kind: string (optional, default is "default") - options: default, primary, alternative
+{% endcomment %}
+
+<c-vars
+    base_class="flex flex-col gap-1 w-full"
+    option_text_base_class="block text-left truncate component-default group-[*]/disabled:text-text-disabled-main"
+    button_base_class="flex justify-between gap-3 items-center w-full py-2.5 px-3 rounded-xl text-base h-(--component-base-height) disabled:bg-background-disabled-main disabled:text-text-neutral-main disabled:border-0 group-[*]/enabled:focus-visible:outline-2 group-[*]/enabled:focus-visible:outline-offset-2 group-[*]/enabled:active:outline-2 group-[*]/enabled:active:outline-offset-2 group-[*]/error:focus-visible:outline-2 group-[*]/error:focus-visible:outline-offset-2 group-[*]/error:active:outline-2 group-[*]/error:active:outline-offset-2"
+    list_base_class="w-full"
+    hidden_input_class="hidden"
+    kind="default"
+    :button_kinds="{
+        'default': 'border-2 bg-background-basic-surface border-border-neutral-subtle group-[*]/enabled:focus-visible:outline-border-primary-focus group-[*]/enabled:focus-visible:border-border-primary-subtle group-[*]/enabled:active:outline-none group-[*]/error:active:outline-none group-hover/enabled:not-focus:not-active:border-border-primary-main group-[*]/error:border-border-destructive-subtle group-hover/error:not-focus:not-active:border-border-destructive-main group-[*]/error:focus-visible:outline-border-destructive-focus',
+        'primary': 'bg-background-primary-subtle group-hover/enabled:bg-background-primary-subtle-hover group-[*]/enabled:focus-visible:outline-border-primary-focus group-[*]/enabled:active:outline-none group-hover/enabled:not-focus:not-active:border-border-primary-hover',
+        'alternative': 'bg-background-alternative-subtle group-hover/enabled:bg-background-alternative-subtle-hover group-[*]/enabled:focus-visible:outline-border-alternative-focus group-[*]/enabled:active:outline-none group-hover/enabled:not-focus:not-active:border-border-alternative-hover',
+    }"
+    :idle_option_kinds="{
+        'default': 'group-[*]/enabled:text-text-basic-placeholder group-[*]/error:text-text-destructive-main',
+        'primary': 'group-[*]/enabled:text-text-primary-on-color-subtle',
+        'alternative': 'group-[*]/enabled:text-text-alternative-on-color-subtle',
+    }"
+    :selected_option_kinds="{
+        'default': 'group-[*]/enabled:text-text-neutral-main group-[*]/error:text-icon-destructive-main',
+        'primary': 'text-text-primary-on-color-subtle',
+        'alternative': 'text-text-alternative-on-color-subtle',
+    }"
+    :chevron_base_kinds="{
+        'default': 'group-[*]/enabled:text-icon-neutral-main group-[*]/error:text-icon-destructive-main',
+        'primary': 'group-[*]/enabled:text-icon-primary-on-color-subtle',
+        'alternative': 'group-[*]/enabled:text-icon-alternative-on-color-subtle',
+    }"
+    class=""
+    label=""
+    optional_text=""
+    helper_text=""
+    placeholder=""
+    state="success"
+/>
+
+<div
+    class="{{ base_class }} {% if not disabled and state != 'error' %}group/enabled{% endif %} {% if state == 'error' %}group/error{% endif %} {% if disabled and state != 'error' %}group/disabled{% endif %} {{ class }}"
+    x-data="{
+        open: false,
+        activeRegularIndex: -1,
+        options: {{ options|default:"[]" }},
+        labels: {{ labels|default:"[]" }},
+        selected_option: {{ selected_option|default:"null" }},
+        placeholder: '{{ placeholder }}'
+    }"
+    @change="{{ onchange_func }}"
+>
+    <c-v1.label
+        id="{{ id }}"
+        label="{{ label }}"
+        :required="required"
+        :disabled="disabled"
+        optional_text="{{ optional_text }}"
+        is_strong
+    />
+
+    <div class="relative">
+        <button
+            type="button"
+            {% if disabled %}
+                disabled
+            {% endif %}
+            @click="open = !open"
+            @keydown.space.prevent="open = !open"
+            @keydown.arrow-up.prevent="activeRegularIndex = (activeRegularIndex > 0) ? activeRegularIndex - 1 : options.length - 1"
+            @keydown.arrow-down.prevent="activeRegularIndex = (activeRegularIndex < options.length - 1) ? activeRegularIndex + 1 : 0"
+            @keydown.enter.prevent="open = !open; selected_option = options[activeRegularIndex]; $dispatch('change');"
+            class="{{ button_base_class }} {{ button_kinds|get_item:kind }}"
+            aria-haspopup="listbox"
+            aria-expanded="true"
+            aria-labelledby="listbox-label"
+        >
+            <span
+                class="{{ option_text_base_class }}"
+                :class="{ '{{ idle_option_kinds|get_item:kind }}': !selected_option, '{{ selected_option_kinds|get_item:kind }}': selected_option }"
+                x-text="selected_option && labels[options.indexOf(selected_option)]? labels[options.indexOf(selected_option)] : placeholder"
+            ></span>
+            <span
+                class="inset-y-0 flex items-center justify-center pr-2 pointer-events-none group-[*]/disabled:text-icon-disabled-main {{ chevron_base_kinds|get_item:kind }}">
+                <template x-if="!open">
+                    <c-v1.icon type="chevron-down-24" class="size-5" />
+                </template>
+                <template x-if="open">
+                    <c-v1.icon type="chevron-up-24" class="size-5" />
+                </template>
+            </span>
+        </button>
+        <c-v1.menu.root
+            class="{{ list_base_class }}"
+            x-show="open"
+            @click.away="open = false"
+            x-transition:leave="transition ease-in duration-100"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            tabindex="-1"
+        >
+            <template x-for="(option, index) in options" :key="index">
+                <c-v1.menu.item
+                    x-data="{ index: index, label: labels[index], disabled: false, get isSelected() { return selected_option === option; }, isActive(idx) { return activeRegularIndex === idx; } }"
+                    @menuitem-click="selected_option = option; open = false; $dispatch('change');"
+                    @menuitem-enter="activeRegularIndex = index, activeIndex = index"
+                    @menuitem-leave="activeRegularIndex = -1, activeIndex = -1"
+                    class="justify-between"
+                />
+            </template>
+        </c-v1.menu.root>
+    </div>
+    {% if helper_text %}
+        <c-v1.helper_text
+            helper_text="{{ helper_text }}"
+            state="{{ state }}"
+            :disabled="disabled"
+        />
+    {% endif %}
+    <input
+        type="hidden"
+        name="{{ input_name }}"
+        x-model="selected_option"
+        class="{{ hidden_input_class }}"
+    >
+</div>

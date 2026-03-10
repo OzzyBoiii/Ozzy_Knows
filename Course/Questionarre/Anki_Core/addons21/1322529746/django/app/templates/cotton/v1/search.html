@@ -1,0 +1,81 @@
+{% comment %}
+    * Parameters *
+    id: string - The id for the search input
+    label: string (optional) - Label text to display above the input
+    placeholder: string (optional) - Placeholder text for the input
+    name: string (optional) - Name attribute for the input
+    value: string (optional) - Initial value for the input
+    button_text: string (optional) - Text for the search button (default: "Search")
+    on_search: string (optional) - Alpine.js function to call when search is triggered
+    on_clear: string (optional) - Alpine.js function to call when clear is triggered
+    disabled: boolean (optional) - Whether the search is disabled (default: false)
+    class: string (optional) - Additional classes for the container
+    is_searching: boolean (optional) - Whether the search is currently searching (default: false)
+{% endcomment %}
+
+<c-vars
+    class=""
+    base_class="flex gap-2 items-end w-full max-w-[600px] min-w-[300px]"
+    input_wrapper_class="relative w-full"
+    placeholder=""
+    button_text="Search"
+    disabled=""
+/>
+
+<div
+    class="{{ base_class }} {{ class }}"
+    x-data="{
+        query: '{{ value|default:'' }}',
+        isButtonDisabled: true,
+        isDisabled: {{ disabled|yesno:'true,false' }},
+        isSearching: {{ is_searching|yesno:'true,false' }},
+        clear() {
+            this.query = '';
+            this.isButtonDisabled = true;
+            {{ on_clear }}
+        },
+        search(query) {
+            this.isButtonDisabled = true;
+            {{ on_search }}
+        }
+    }"
+>
+        <div class="{{ input_wrapper_class }}">
+            <c-v1.input
+                type="text"
+                id="{{ id }}"
+                name="{{ name }}"
+                label="{{ label }}"
+                placeholder="{{ placeholder }}"
+                left_icon="search-16"
+                ::disabled="isDisabled"
+                x-model="query"
+                input_class="overflow-hidden text-ellipsis"
+                @input="isButtonDisabled = false"
+                @blur="$el.scrollLeft = 0"
+                @keydown.enter="search(query)"
+                @keydown.escape="clear()"
+            >
+                <c-slot name="right_action">
+                    <div x-show="query && !isSearching" x-cloak>
+                        <c-v1.input_embedded_action
+                            icon="dismiss-16"
+                            @click="clear()"
+                        />
+                    </div>
+                    <div x-show="isSearching" x-cloak>
+                        <c-v1.spinner />
+                    </div>
+                </c-slot>
+            </c-v1.input>
+        </div>
+
+    <c-v1.button
+        type="button"
+        kind="secondary"
+        ::disabled="isButtonDisabled || isDisabled"
+        @click="search(query)"
+    >
+        {{ button_text }}
+    </c-v1.button>
+</div>

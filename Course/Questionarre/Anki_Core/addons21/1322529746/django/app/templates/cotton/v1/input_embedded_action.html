@@ -1,0 +1,18 @@
+{% comment %}
+    * Parameters *
+    icon: string - Icon type to display
+    class: string (optional) - Additional classes
+    attrs: dict (optional) - Additional attributes
+{% endcomment %}
+
+<c-vars
+    class=""
+    base_class="rounded-[20px] p-1 flex items-center justify-center
+        hover:bg-background-neutral-subtle-hover active:bg-background-neutral-subtle-active
+        focus:outline-2 focus:outline-offset-[-1px] focus:outline-border-primary-focus"
+    icon_class="size-4 text-icon-neutral-main"
+/>
+
+<button type="button" class="{{ base_class }} {{ class }}" {{ attrs }}>
+    <c-v1.icon type="{{ icon }}" class="{{ icon_class }}" />
+</button>

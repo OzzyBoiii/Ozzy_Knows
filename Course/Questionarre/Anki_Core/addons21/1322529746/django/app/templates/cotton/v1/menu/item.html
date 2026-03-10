@@ -1,0 +1,71 @@
+{% comment %}
+    * Parameters *
+    index: number
+    label: string
+    kind: string (primary|destructive) - default: primary
+    icon: string - optional
+    disabled: boolean
+{% endcomment %}
+
+<c-vars
+    class=""
+    option_base_class="flex items-center justify-start gap-3 component-default cursor-default select-none relative py-2 px-3 rounded-xl group"
+    enabled_option_class="focus:not-active:outline-2 focus:not-active:outline-offset-2"
+    disabled_option_class="text-text-disabled-main pointer-events-none"
+    kind="primary"
+    :option_kinds="{
+        'primary': 'focus:not-active:outline-border-primary-focus focus:not-active:text-text-primary-main',
+        'destructive': 'focus:not-active:outline-border-destructive-focus focus:not-active:text-text-destructive-main',
+    }"
+    :idle_option_kinds="{
+        'primary': 'text-text-neutral-main',
+        'destructive': 'text-text-destructive-main',
+    }"
+    :active_option_kinds="{
+        'primary': 'text-text-primary-on-color-subtle bg-background-primary-subtle-hover cursor-pointer',
+        'destructive': 'text-text-destructive-on-color-subtle bg-background-destructive-subtle-hover cursor-pointer',
+    }"
+    icon_base_class="size-4 disabled:text-icon-disabled-main"
+    disabled_icon_class="text-icon-disabled-main"
+    :idle_icon_kinds="{
+        'primary': 'text-icon-neutral-main group-focus:not-active:text-icon-primary-main',
+        'destructive': 'text-icon-destructive-main group-focus:not-active:text-icon-destructive-main',
+    }"
+    :active_icon_kinds="{
+        'primary': 'text-icon-primary-on-color-subtle',
+        'destructive': 'text-icon-destructive-on-color-subtle',
+    }"
+/>
+<li
+    class="{{ option_base_class }} {{ option_kinds|get_item:kind }} {{ class }}"
+    :class="{
+        '{{ enabled_option_class }}': !disabled,
+        '{{ active_option_kinds|get_item:kind }}': !disabled && $data.isActive(index),
+        '{{ idle_option_kinds|get_item:kind }}': !disabled && !$data.isActive(index),
+        '{{ disabled_option_class }}': disabled,
+    }"
+    role="option"
+    @click="if(!disabled) { $dispatch('menuitem-click', { index: index }); $event.target.blur(); }"
+    @mouseenter="$dispatch('menuitem-enter', { index: index })"
+    @mouseleave="$dispatch('menuitem-leave')"
+    :tabindex="disabled ? -1 : 0"
+    {{ attrs }}
+>
+    {% if icon %}
+        <span
+            :class="{
+                '{{ idle_icon_kinds|get_item:kind }}': !disabled && !$data.isActive(index),
+                '{{ active_icon_kinds|get_item:kind }}': !disabled && $data.isActive(index),
+                '{{ disabled_icon_class }}': disabled
+            }"
+            tabindex="-1"
+        >
+            <c-v1.icon type="{{ icon }}" class="{{ icon_base_class }}"/>
+        </span>
+    {% endif %}
+    <span class="block break-words" x-text="label" tabindex="-1"></span>
+    <template x-if="$data.isSelected">
+        <c-v1.icon type="checkmark" class="{{ icon_base_class }}" />
+    </template>
+    {{ trailing_item }}
+</li>

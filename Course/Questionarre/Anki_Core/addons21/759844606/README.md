@@ -1,0 +1,213 @@
+# FSRS Helper
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+FSRS Helper is an Anki add-on that supports [FSRS](https://github.com/open-spaced-repetition/fsrs4anki) algorithm. It has the following main features:
+
+- **Reschedule** cards based on their entire review histories.
+- **Postpone** a selected number of due cards.
+- **Advance** a selected number of undue cards.
+- **Schedule a Break** to redistribute cards due during an upcoming period when you'll be away from Anki.
+- **Balance** the load during rescheduling (based on fuzz).
+- Less Anki on **Easy Days** (such as weekends) during rescheduling (based on load balance).
+- **Disperse** Siblings (cards with the same note) to avoid interference & reminder.
+- **Flatten** future due cards to a selected number of reviews per day.
+- **Remedy Hard Misuse** to correct historical Hard button misuse by converting Hard reviews to Again.
+- **Reset** to clear custom data or manual rescheduling records.
+- **Steps Stats** quantify your short-term memory performance and recommend learning steps.
+
+# Requirements
+
+- For Anki version >= 23.10
+  - Enable built-in FSRS (follow this [tutorial](https://github.com/open-spaced-repetition/fsrs4anki/blob/main/docs/tutorial.md))
+  - Remove FSRS4Anki custom scheduling code if you are already using it
+- For Anki version in 2.1.55 - 2.1.66 (no longer maintained)
+  - Enable V3 Scheduler
+  - FSRS4Anki version >= 3.0.0
+
+# Installation
+
+The FSRS Helper add-on is purely an added bonus and is not recommended for extensive use.
+
+Installation link: https://ankiweb.net/shared/info/759844606
+
+# Usage
+
+## Overview
+
+| Feature name      | How does it work?                                            | When should I use it?                                        |
+| ----------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Reschedule        | Calculates stability, difficulty, and the optimum interval from the entire review history for each card using FSRS parameters. Then, it changes the due dates of cards. | When you update the parameters or desired retention of FSRS. Rescheduling with the Helper does not add to the size of your collection, unlike Anki's built-in "Reschedule cards on change." |
+| Advance           | Decreases the intervals of undue cards based on current and requested R, and interval length to minimize damage to long-term learning. | When you want to review your material ahead of time, for example, before a test. |
+| Postpone          | Increases the intervals of cards that are due today based on current and requested R, and interval length in a way that minimizes damage to long-term learning. | When you are dealing with a large number of reviews after taking a break from Anki or after rescheduling. |
+| Schedule a Break  | Redistributes cards due during an upcoming break period (including overdue cards and cards due today) across follow-up days. Uses a cost function to minimize deviation from original due dates. | When you know you'll be away from Anki for a period (e.g., vacation, busy work period) and want to proactively redistribute reviews. |
+| Load Balancing    | After the optimal interval is calculated, it is adjusted by a random amount to make the distribution of reviews over time more uniform. | Always. This feature makes your workload (reviews per day) more consistent. |
+| Easy Days         | After the optimal interval is calculated, it is slightly adjusted to change the due date. | If you want to spend less time on Anki on some days of the week, for example, Sundays. |
+| Disperse Siblings | Siblings are cards generated from the same note. Their intervals are adjusted to spread them further apart from each other. | Always. This feature alleviates the interference; disabling it will only decrease the efficiency of spaced repetition. |
+| Flatten           |  If the number of future due cards exceeds the limit, the cards are postponed. | When you want to spread your backlog to the future. |
+
+## Reschedule
+
+Rescheduling can calculate the memory states and intervals based on each card's review history and the parameters from the Scheduler code. These parameters can be personalized with the FSRS Optimizer.
+
+**Note**: For cards that have been reviewed multiple times using Anki's default algorithm, rescheduling may give different intervals than the Scheduler because the Scheduler can't access the full review history when running. In this case, the intervals given by rescheduling will be more accurate. But after rescheduling once, there will be no difference between the two.
+
+![image](https://github.com/user-attachments/assets/1ca82fe5-9750-4586-97ec-55ef8c9f39df)
+
+## Advance/Postpone
+
+These two functions are very similar, so I'll talk about them together. You can set the number of cards to advance/postpone, and the Helper add-on will sort your cards and perform the advance/postpone in such a way that the deviation from the original review schedule is minimal while meeting the number of cards you set.
+
+![image](https://github.com/user-attachments/assets/56ff6f97-c111-43f6-be1c-43415dbb5e0b)
+
+![image](https://github.com/open-spaced-repetition/fsrs4anki-helper/assets/32575846/f9838010-cb00-44ce-aefc-10300f2a586e)
+
+## Schedule a Break
+
+This feature allows you to redistribute cards due during an upcoming period when you cannot use Anki across follow-up days. You specify how many days you'll be away (break days) and across how many days the reviews should be redistributed (spread days).
+
+**Important:** This feature will reduce future memory retention rates. The algorithm can only minimize the decline. You can undo this operation using Edit -> Undo.
+
+## Load Balance
+
+FSRS Helper automatically applies load balance when you reschedule all cards via the add-on.
+
+Here's a comparison, the first graph is rescheduling via the Anki's built-in method, and the second graph is via the add-on:
+
+![image](https://github.com/open-spaced-repetition/fsrs4anki-helper/assets/32575846/1f31491c-7ee6-4eed-ab4a-7bc0dba5dff8)
+
+![image](https://github.com/open-spaced-repetition/fsrs4anki-helper/assets/32575846/1c4f430d-824b-4145-801e-68fc0329fbbd)
+
+## Easy Days
+
+The add-on reads Anki's built-in Easy Days configuration (weekly schedule) and applies it when rescheduling cards. You need to configure Easy Days in Anki's settings (Deck Options → Easy Days), not in the add-on settings.
+
+Additionally, the add-on allows you to configure specific dates as easy days. You can add specific dates (e.g., holidays, busy periods) through Tools → FSRS Helper → Less Anki on Easy Days → Apply easy days for specific dates, which opens a window where you can manage and apply easy days for specific dates. Cards due on these specific dates will be rescheduled to avoid those days.
+
+**Note**: After Anki 24.11, the easy days feature is built-in in Anki. The add-on reads Anki's Easy Days configuration to ensure consistency when rescheduling cards, allowing you to apply the same easy days settings during the rescheduling process.
+
+Note: Easy Days only works for cards in the "review" stage. Due to technical limitations, FSRS doesn't modify the interval and due date of cards in the "(re)learning" stage. And it also doesn't reschedule cards whose interval is less than 3 days.
+
+Fuzz example:
+- Review less than 3 days: will not choose another day.
+- Review in 3 days: Choose between days 2 and 4.
+- Review in 7 days: Choose between days 5 and 9.
+- Review in 90 days: Choose between days 86 and 94.
+- Cards you forgot, and return within 2 days it does not choose another day.
+
+Exceptions:
+
+If the fuzz range is too narrow or does not exist (review less than 3 days) to satisfy the selected easy days, the day of the week may be selected for review of the card.
+
+**Effect**:
+
+![image](https://github.com/user-attachments/assets/79c5eda3-b4c8-4694-95c4-f88a6cd84118)
+
+
+## Disperse Siblings
+
+In Anki, some templates will generate multiple cards related in content from the same note, such as reversed cards (Front->Back, Back->Front) and cloze cards (when you make multiple clozes on the same note). If the review dates of these cards are too close, they may interfere with or remind you of each other. Dispersing siblings can spread the review dates of these cards out as much as possible.
+
+![image](https://github.com/user-attachments/assets/3e358cb7-e135-4d8a-9dc5-3056bb881d8c)
+
+## Flatten
+
+You can set the maximum number of reviews per day for future days. The Helper add-on will find out the days that exceed the limit and postpone the extra cards to the future.
+
+## Advanced Statistics
+
+Hold down the Shift key and click "Stats" to enter the old version of Anki's statistics interface.
+
+### FSRS Stats
+
+![](https://github.com/user-attachments/assets/88b7b713-c3a0-4eb3-acb3-83585f4119fd)
+
+The FSRS Stats are based on all cards in your deck or collection (whichever is selected) that you have ever reviewed. They remain unaffected by the 1 month/year settings.
+
+Interpretation:
+
+- **Daily Load** is an estimate of the average review count required per day. It is influenced by the [Burden](https://supermemo.guru/wiki/Burden) statistic in SuperMemo. 
+- The [three component of the memory model](https://supermemo.guru/wiki/Three_component_model_of_memory) used by FSRS:
+	- Average predicted **retention** reflects the percentage of cards that you would recall correctly if you were tested today.
+	- Average (memory) **stability** reflects how fast you forget (forgetting rate). The greater the stability, the slower the forgetting rate.
+
+### Steps Stats
+
+![](https://github.com/user-attachments/assets/3d1a9865-654d-4074-8eb5-2f905a4fdf69)
+
+The Steps Stats are based on the cards from the selected deck or collection that were first reviewed in the last 1 month/year or deck life and have at least two reviews.
+
+These stats are helpful for fine-tuning your (re)learning steps to achieve your desired retention in the short-term reviews. 
+
+How your learning steps affect the intervals:
+- If your first rating for a new card is Again, the interval is the 1st learning step.
+- If your first rating is Again and the second one is Good, the interval is the 2nd learning step.
+- If your first rating is Good, the interval is the 2nd learning step.
+- If your first rating is Hard, the interval is (1st learning step + 2nd learning step) / 2.
+
+So the 1st recommended learning step is based on the stability of your cards where you press Again during the first review.
+
+For the 2nd recommended learning step, the scenario is more complex. It is based on the minimum of the stability of three kinds of cards:
+- S(Again Then Good): Your ratings are Again and then Good for a new card.
+- S(Good): Your first rating is Good.
+- S(Hard): Your first rating is Hard.
+  - Because a Hard step is (1st learning step + 2nd learning step) / 2, the 2nd learning step is 2 * hard step - 1st learning step. And the Hard step is based on S(Hard).
+
+### True Retention
+
+True Retention is a statistic that shows the pass rate calculated only on cards with intervals greater than or equal to one day. It provides a better indicator of learning quality than the Again rate because it excludes cards in the learning phase.
+
+To enable True Retention statistics, go to Tools → FSRS Helper → Show true retention. Note that this table may slow down the statistics page loading if you have a lot of reviews, so enable it with caution.
+
+By default, mature cards are defined as cards with an interval of 21 days or longer. This cutoff can be adjusted in the add-on configuration (`mature_ivl` setting).
+
+## Remedy Hard Misuse
+
+This feature allows you to correct historical misuse of the Hard button by converting Hard reviews (ease = 2) to Again reviews (ease = 1) within a specified date range. This can help improve the accuracy of your FSRS parameters and scheduling. You can also undo the remedy operation if needed.
+
+**Important:** This feature modifies your review history. It is recommended to create a backup before using this feature. You can undo this operation if you have the remedy record file.
+
+## Reset
+
+The add-on provides two reset options:
+
+- **Clear custom data:** Removes all custom data stored by the add-on on cards. This can be useful if you want to start fresh with the add-on's tracking.
+- **Clear manual rescheduling:** Removes redundant manual rescheduling entries from the review log. This helps clean up your review history.
+
+## Other features
+
+- **Auto reschedule cards reviewed on other devices after sync:** This option is useful if you do some (or all) of your reviews on platforms that don't support FSRS such as AnkiDroid or AnkiWeb. If this option is enabled, the reviews synced from the other devices will be automatically rescheduled according to the FSRS algorithm. If you are relying on this feature, it is recommended to sync the reviews daily for the best results.
+- **Auto disperse siblings when review:** It automatically disperses siblings after each review. But it could cause constant queue rebuilding, which slows down Anki and breaks Display Order settings.
+- **Reschedule all cards:** This option is used to reschedule all the cards in the decks in which FSRS is enabled. It should only be used after you have installed FSRS for the first time and/or updated your parameters.
+- **Reschedule cards reviewed in the last n days:** This option can be used to reschedule the cards that were reviewed in the last few days. The number of days (default: 7) can be adjusted in the add-on configuration. To change this setting:
+  1. Go to Tools → FSRS Helper → Configuration (or open the add-on configuration)
+  2. Find the `days_to_reschedule` setting
+  3. Change the value to your desired number of days
+  4. Save the configuration
+- **Display memory state after answer:** When enabled, this option displays the current Difficulty (D), Stability (S), and Retrievability (R) values below the answer buttons after each review. This helps you understand the memory state of each card.
+- **Show true retention:** When enabled, this option adds a "True Retention" section to the statistics page. True retention is the pass rate calculated only on cards with intervals greater than or equal to one day, providing a better indicator of learning quality than the Again rate.
+- **Reschedule set due date:** When enabled, this option allows rescheduling to overwrite cards that have manually set due dates. By default, cards with manually set due dates are skipped during rescheduling.
+- **Visualize schedule:** Opens a web-based visualization tool that shows your FSRS schedule based on your current parameters and desired retention.
+- **Export dataset:** Exports your review history dataset for research purposes. The exported file is saved in the add-on's `user_files` folder.
+- **Browser custom columns:** The add-on adds a "Target R" (Target Retrievability) column to the card browser, showing the predicted retrievability for each card.
+
+# Mechanism
+
+Please see this wiki page: [FSRS Helper WIKI](https://github.com/open-spaced-repetition/fsrs4anki-helper/wiki)
+
+# Support My Work
+
+I'm Jarrett Ye, a diehard fan of spaced repetition. I used Anki during my high school life and attended my dream college. Now, I'm a researcher and developer in the field of spaced repetition. FSRS is my homage to Anki, expressing my deep gratitude for its invaluable support.
+
+If you like FSRS Helper, [please Rate this!👍](https://ankiweb.net/shared/review/759844606) Your support will allow more people to enjoy this fantastic tool and improve their learning experience!
+
+# Acknowledgements
+
+I referred to the following projects while developing FSRS Helper:
+
+- [load balancer](https://github.com/jakeprobst/anki-loadbalancer)
+- [Free Weekend](https://github.com/cjdduarte/Free_Weekend)
+- [Delay siblings](https://github.com/oakkitten/anki-delay-siblings)
+- [True Retention by Card Maturity Simplified](https://ankiweb.net/shared/info/1779060522)
+
+Thanks to all the contributors for their valuable contributions!

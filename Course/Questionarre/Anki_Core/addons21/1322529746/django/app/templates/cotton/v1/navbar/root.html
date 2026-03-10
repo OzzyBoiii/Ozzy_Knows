@@ -1,0 +1,346 @@
+{% comment %}
+    * Parameters *
+    icon_left: Element
+    icon_right: Element
+    slot: Element | string
+    class: string
+{% endcomment %}
+
+<c-vars
+    class=""
+    base_class="relative flex justify-between items-center h-16
+        w-[var(--responsiveness-frame-width)]
+        min-w-[var(--responsiveness-frame-min-width)] max-w-[var(--responsiveness-frame-max-width)]
+        rounded-b-xl shadow-[0_2px_0_0_var(--border-basic-default)]
+        bg-background-basic-surface"
+    container_class="flex justify-between items-center w-full
+        max-w-[var(--responsiveness-frame-max-container)] p-[var(--responsiveness-frame-grid-margin-x)]"
+    mobile_dropdown_container="absolute w-full top-15 rounded-2xl
+        shadow-[0_20px_25px_-5px_rgba(0,0,0,0.10),0_10px_10px_-5px_rgba(0,0,0,0.04)]"
+    desktop_dropdown_container="hidden md:block absolute top-full mt-3 right-1 rounded-2xl min-w-50
+        shadow-[0_20px_25px_-5px_rgba(0,0,0,0.10),0_10px_10px_-5px_rgba(0,0,0,0.04)]"
+/>
+
+<nav
+    x-data="{
+        mobileMenuOpen: false,
+        menuOpen: false,
+        darkModeEnabled: localStorage.theme === 'dark',
+        updateToggles() {
+            this.$el.querySelectorAll('.dark-mode-toggle').forEach(toggleOuter => {
+                const checkbox = toggleOuter.querySelector('input[type=checkbox]');
+                if (checkbox) {
+                    checkbox.checked = this.darkModeEnabled;
+                    checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+                }
+            });
+        }
+    }"
+    x-effect="updateToggles()"
+    class="{{ base_class }} {{ class }}"
+>
+    <div class="{{ container_class }}">
+        {% if is_logged_in %}
+            <c-v1.ankihub-logo class="hidden md:max-lg:block"/>
+            <c-v1.ankihub-full-logo class="md:max-lg:hidden" />
+        {% else %}
+            <c-v1.ankihub-full-logo />
+        {% endif %}
+
+        {% if is_logged_in %}
+            <div class="hidden md:flex gap-2 items-center">
+                <c-v1.navbar.item label="Explore" link_to="" />
+                <c-v1.navbar.item label="My Decks" link_to="" />
+                <c-v1.navbar.item label="Community" link_to="" />
+            </div>
+
+            <div class="flex gap-2 items-center">
+                <c-v1.button kind="alternative" class="hidden md:block">
+                    Try Premium
+                </c-v1.button>
+                <c-v1.button kind="secondary">
+                    Upgrade
+                </c-v1.button>
+
+                <div class="relative">
+                    <c-v1.button
+                        kind="secondary"
+                        class="hidden md:flex"
+                        @click="menuOpen = !menuOpen"
+                    >
+                        {{ username }}
+                        <template x-if="menuOpen">
+                            <c-v1.icon type="chevron-up-16" />
+                        </template>
+                        <template x-if="!menuOpen">
+                            <c-v1.icon type="chevron-down-16" />
+                        </template>
+                    </c-v1.button>
+                    <div
+                        x-show="menuOpen"
+                        @click.outside="menuOpen = false"
+                        class="{{ desktop_dropdown_container }}"
+                    >
+                        <c-v1.menu.root
+                            x-data="{ activeIndex: -1 }"
+                            class="w-full"
+                        >
+                            <c-v1.menu.item
+                                kind="primary"
+                                x-data="{
+                                    index: 0,
+                                    label: 'Profile',
+                                    disabled: false,
+                                    isActive(idx) { return activeIndex === idx; }
+                                }"
+                                @menuitem-enter="activeIndex = 0;"
+                                @menuitem-leave="activeIndex = -1"
+                                @menuitem-click="menuOpen = false"
+                            />
+                            <c-v1.menu.item
+                                kind="primary"
+                                x-data="{
+                                    index: 1,
+                                    label: 'Login and password',
+                                    disabled: false,
+                                    isActive(idx) { return activeIndex === idx; }
+                                }"
+                                @menuitem-enter="activeIndex = 1"
+                                @menuitem-leave="activeIndex = -1"
+                                @menuitem-click="menuOpen = false"
+                            />
+                            <c-v1.menu.item
+                                kind="primary"
+                                x-data="{
+                                    index: 2,
+                                    label: 'Billing and plans',
+                                    disabled: false,
+                                    isActive(idx) { return activeIndex === idx; }
+                                }"
+                                @menuitem-enter="activeIndex = 2"
+                                @menuitem-leave="activeIndex = -1"
+                                @menuitem-click="menuOpen = false"
+                            />
+
+                            <c-v1.divider />
+
+                            <c-v1.menu.item
+                                kind="primary"
+                                x-data="{
+                                    index: 3,
+                                    label: 'Dark mode',
+                                    disabled: false,
+                                    isActive(idx) { return activeIndex === idx; }
+                                }"
+                                @menuitem-enter="activeIndex = 3"
+                                @menuitem-leave="activeIndex = -1"
+                                @menuitem-click="toggleTheme(); $nextTick(() => {
+                                    darkModeEnabled = localStorage.theme === 'dark';
+                                    updateToggles();
+                                });"
+                            >
+                                <c-slot name="trailing_item">
+                                    <c-v1.toggle
+                                        class="ml-auto dark-mode-toggle"
+                                        label_visibility="hidden"
+                                        :checked="darkModeEnabled"
+                                    />
+                                </c-slot>
+                            </c-v1.menu.item>
+
+                            <c-v1.divider />
+
+                            <c-v1.menu.item
+                                kind="primary"
+                                x-data="{
+                                    index: 4,
+                                    label: 'Log out',
+                                    disabled: false,
+                                    isActive(idx) { return activeIndex === idx; }
+                                }"
+                                @menuitem-enter="activeIndex = 4"
+                                @menuitem-leave="activeIndex = -1"
+                                @menuitem-click="menuOpen = false"
+                            />
+                        </c-v1.menu.root>
+                    </div>
+                </div>
+
+                <c-v1.icon-button
+                    @click="mobileMenuOpen = !mobileMenuOpen"
+                    class="md:hidden"
+                    kind="utility_primary"
+                >
+                    <template x-if="mobileMenuOpen">
+                        <c-v1.icon type="dismiss-20" />
+                    </template>
+                    <template x-if="!mobileMenuOpen">
+                        <c-v1.icon type="menu-20" />
+                    </template>
+                </c-v1.icon-button>
+            </div>
+        {% endif %}
+
+        {% if not is_logged_in %}
+            <div class="flex gap-2 items-center">
+                <c-v1.button kind="main">
+                    Sign up
+                </c-v1.button>
+                <c-v1.button kind="secondary">
+                    Login
+                </c-v1.button>
+            </div>
+        {% endif %}
+    </div>
+
+    {% if is_logged_in %}
+        <div
+            x-show="mobileMenuOpen"
+            @click.outside="mobileMenuOpen = false"
+            class="{{ mobile_dropdown_container }}"
+        >
+            <c-v1.menu.root
+                x-data="{ activeIndex: -1 }"
+                class="w-full"
+            >
+                <c-v1.menu.item
+                    kind="primary"
+                    x-data="{
+                        index: 0,
+                        label: 'Explore',
+                        disabled: false,
+                        isActive(idx) { return activeIndex === idx; }
+                    }"
+                    @menuitem-enter="activeIndex = 0;"
+                    @menuitem-leave="activeIndex = -1"
+                    @menuitem-click="mobileMenuOpen = false"
+                />
+                <c-v1.menu.item
+                    kind="primary"
+                    x-data="{
+                        index: 1,
+                        label: 'My Decks',
+                        disabled: false,
+                        isActive(idx) { return activeIndex === idx; }
+                    }"
+                    @menuitem-enter="activeIndex = 1"
+                    @menuitem-leave="activeIndex = -1"
+                    @menuitem-click="mobileMenuOpen = false"
+                />
+                <c-v1.menu.item
+                    kind="primary"
+                    x-data="{
+                        index: 2,
+                        label: 'Community',
+                        disabled: false,
+                        isActive(idx) { return activeIndex === idx; }
+                    }"
+                    @menuitem-enter="activeIndex = 2"
+                    @menuitem-leave="activeIndex = -1"
+                    @menuitem-click="mobileMenuOpen = false"
+                />
+                <c-v1.menu.item
+                    kind="primary"
+                    x-data="{
+                        index: 3,
+                        label: 'Dark mode',
+                        disabled: false,
+                        isActive(idx) { return activeIndex === idx; }
+                    }"
+                    @menuitem-enter="activeIndex = 3"
+                    @menuitem-leave="activeIndex = -1"
+                    @menuitem-click="toggleTheme(); $nextTick(() => {
+                        darkModeEnabled = localStorage.theme === 'dark';
+                        updateToggles();
+                    });"
+                >
+                    <c-slot name="trailing_item">
+                        <c-v1.toggle
+                            class="ml-auto dark-mode-toggle"
+                            label_visibility="hidden"
+                            :checked="darkModeEnabled"
+                        />
+                    </c-slot>
+                </c-v1.menu.item>
+
+                <c-v1.divider />
+
+                <c-v1.menu.label label="@{{ username }}" />
+
+                <c-v1.menu.item
+                    kind="primary"
+                    x-data="{
+                        index: 5,
+                        label: 'Profile',
+                        disabled: false,
+                        isActive(idx) { return activeIndex === idx; }
+                    }"
+                    @menuitem-enter="activeIndex = 5"
+                    @menuitem-leave="activeIndex = -1"
+                    @menuitem-click="mobileMenuOpen = false"
+                />
+                <c-v1.menu.item
+                    kind="primary"
+                    x-data="{
+                        index: 6,
+                        label: 'Login and password',
+                        disabled: false,
+                        isActive(idx) { return activeIndex === idx; }
+                    }"
+                    @menuitem-enter="activeIndex = 6"
+                    @menuitem-leave="activeIndex = -1"
+                    @menuitem-click="mobileMenuOpen = false"
+                />
+                <c-v1.menu.item
+                    kind="primary"
+                    x-data="{
+                        index: 7,
+                        label: 'Billing and plans',
+                        disabled: false,
+                        isActive(idx) { return activeIndex === idx; }
+                    }"
+                    @menuitem-enter="activeIndex = 7"
+                    @menuitem-leave="activeIndex = -1"
+                    @menuitem-click="mobileMenuOpen = false"
+                />
+                <c-v1.menu.item
+                    kind="primary"
+                    x-data="{
+                        index: 8,
+                        label: 'Try Premium',
+                        disabled: false,
+                        isActive(idx) { return activeIndex === idx; }
+                    }"
+                    @menuitem-enter="activeIndex = 8"
+                    @menuitem-leave="activeIndex = -1"
+                    @menuitem-click="mobileMenuOpen = false"
+                >
+                    <c-slot name="trailing_item">
+                        <c-v1.badge
+                            icon="sparkle-24"
+                            kind="purple"
+                            label="Free trial"
+                            :dismissible="False"
+                            class="ml-auto"
+                        />
+                    </c-slot>
+                </c-v1.menu.item>
+
+                <c-v1.divider />
+
+                <c-v1.menu.item
+                    kind="primary"
+                    x-data="{
+                        index: 9,
+                        label: 'Log out',
+                        disabled: false,
+                        isActive(idx) { return activeIndex === idx; }
+                    }"
+                    @menuitem-enter="activeIndex = 9"
+                    @menuitem-leave="activeIndex = -1"
+                    @menuitem-click="mobileMenuOpen = false"
+                />
+            </c-v1.menu.root>
+        </div>
+    {% endif %}
+</nav>

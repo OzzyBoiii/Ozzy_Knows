@@ -1,0 +1,3855 @@
+"""Universal Beautify Anki
+
+A universal, configurable theme add-on that beautifies Anki's UI and
+review cards. Compatible with Anki 2.1.60+ (Qt6/PyQt6) and keeps a
+fallback for older PyQt5-based builds where possible.
+
+All logic is contained in this file. Config values are read from
+config.json using Anki's addon manager. Missing keys fall back to
+sensible defaults without raising exceptions.
+
+Features:
+- Load settings from config.json
+- Apply a global Qt stylesheet on profile load
+- Inject custom CSS into reviewer/card webviews
+- Provide functions for dynamic theme application
+- Use gui_hooks.profile_did_open & gui_hooks.webview_will_set_content
+
+"""
+from __future__ import annotations
+
+from typing import Dict, Any, Optional, Tuple
+from pathlib import Path
+import json
+import os
+
+try:  # Anki API imports
+    from aqt import gui_hooks, mw  # type: ignore
+    from aqt.webview import WebContent  # type: ignore
+except Exception:  # pragma: no cover - allows safe import outside Anki
+    gui_hooks = None  # type: ignore
+    mw = None  # type: ignore
+    WebContent = Any  # type: ignore
+
+ADDON_NAME = "Visuals"
+ADDON_ID = __name__  # directory name of this add-on
+ADDON_DIR = Path(__file__).parent
+
+# ------------------------- Defaults ------------------------- #
+_DEFAULTS: Dict[str, Any] = {
+    # Typography
+    "fontFamily": "Inter, Segoe UI, Arial, sans-serif",
+    "cardFontSize": "20px",
+    # Qt Widget Colors (menus, toolbars, buttons, dialogs)
+    "globalBackground": "#0f0f17",
+    "panelBackground": "#1b1b26",
+    "textColor": "#e0e0e6",
+    "mutedTextColor": "#a0a0b0",
+    "accentColor": "#4f86ff",
+    "dangerColor": "#ff4f64",
+    "successColor": "#3fbf7f",
+    "borderColor": "#2a2a38",
+    "focusRingColor": "#4f86ff",
+    "toolbarHeight": 34,
+    # Webview/HTML Screens (deck browser, overview, congrats)
+    "webviewBackground": "#0f0f17",
+    "webviewBackgroundImage": "",  # data URI or path; empty disables image
+    "webviewBackgroundImageOpacity": 1.0,  # 0.0 to 1.0
+    "webviewCanvas": "#1b1b26",
+    "webviewForeground": "#e0e0e6",
+    "webviewLink": "#4f86ff",
+    "webviewBorder": "#2a2a38",
+    "deckHoverBackground": "#2a2a38",
+    "browserPreviewBackground": "#1b1b26",
+    "browserPreviewOuterBackground": "#000000",
+    # Toolbar
+    "toolbarBackground": "#16161f",
+    # Toolbar Buttons
+    "buttonDecksColor": "#4f86ff",
+    "buttonAddColor": "#3fbf7f",
+    "buttonBrowseColor": "#4f86ff",
+    "buttonStatsColor": "#4f86ff",
+    "buttonSyncColor": "#4f86ff",
+    # Reviewer/Card Display
+    "gradientStart": "#1e1e2e",
+    "gradientEnd": "#11111b",
+    "cardBackground": "rgba(255,255,255,0.05)",
+    "cardRadius": "18px",
+    "cardMaxWidth": "760px",
+    # Toggles
+    "enableGlobalStyles": True,
+    "enableReviewerStyles": True,
+    "enableWebviewStyles": True,
+    "enableAddonIntegration": True,  # Auto-style popular addons
+    "extraGlobalCss": "",
+    "extraReviewerCss": "",
+    "extraWebviewCss": "",
+    # Review Heatmap Integration Colors
+    "heatmapBackground": "",  # Empty = use panelBackground
+    "heatmapBorderColor": "",  # Empty = use accentColor
+    "heatmapCellEmpty": "",  # Empty = use cardBackground
+    "heatmapCellLow": "",  # Empty = use accentColor (light opacity)
+    "heatmapCellHigh": "",  # Empty = use accentColor (full opacity)
+    "heatmapTextColor": "",  # Empty = use textColor
+    "heatmapButtonColor": "",  # Empty = use accentColor
+    # Menu Glow Effect
+    "menuGlowEnabled": False,
+    "menuGlowColor": "#00ffff",
+    "menuGlowSpeed": 2.0,  # seconds per pulse cycle
+    "menuGlowIntensity": 35,  # max glow spread in pixels at peak
+    "menuGlowBlur": 8,  # base blur radius in pixels
+    "forceCardStyling": False,  # Apply preset theme to card content
+}
+
+_config_cache: Dict[str, Any] | None = None
+_orig_on_theme_did_change = None  # type: ignore
+
+# ------------------------- Theme Presets ------------------------- #
+
+# Built-in (read-only) presets
+THEME_PRESETS: Dict[str, Dict[str, Any]] = {
+    "Default": {
+        "fontFamily": "Inter, Segoe UI, Arial, sans-serif",
+        "cardFontSize": "20px",
+        "globalBackground": "#0f0f17",
+        "panelBackground": "#1b1b26",
+        "textColor": "#e0e0e6",
+        "mutedTextColor": "#a0a0b0",
+        "accentColor": "#4f86ff",
+        "dangerColor": "#ff4f64",
+        "successColor": "#3fbf7f",
+        "borderColor": "#2a2a38",
+        "focusRingColor": "#4f86ff",
+        "toolbarHeight": 34,
+        "webviewBackground": "#0f0f17",
+        "webviewBackgroundImage": "",
+        "webviewCanvas": "#1b1b26",
+        "webviewForeground": "#e0e0e6",
+        "webviewLink": "#4f86ff",
+        "webviewBorder": "#2a2a38",
+        "deckHoverBackground": "#2a2a38",
+        "toolbarBackground": "#16161f",
+        "buttonDecksColor": "#4f86ff",
+        "buttonAddColor": "#3fbf7f",
+        "buttonBrowseColor": "#4f86ff",
+        "buttonStatsColor": "#4f86ff",
+        "buttonSyncColor": "#4f86ff",
+        "gradientStart": "#1e1e2e",
+        "gradientEnd": "#11111b",
+        "cardBackground": "rgba(255,255,255,0.05)",
+        "cardRadius": "18px",
+        "cardMaxWidth": "760px",
+        "enableGlobalStyles": True,
+        "enableReviewerStyles": True,
+        "enableWebviewStyles": True,
+        "extraGlobalCss": "",
+        "extraReviewerCss": "",
+        "extraWebviewCss": "",
+        "menuGlowEnabled": False,
+        "menuGlowColor": "#4f86ff",
+        "menuGlowSpeed": 2.0,
+        "menuGlowIntensity": 35,
+        "menuGlowBlur": 8,
+        "forceCardStyling": False,
+    },
+    "Upside Down": {
+        "fontFamily": "'Roboto', 'Segoe UI', sans-serif",
+        "cardFontSize": "20px",
+        "globalBackground": "#0b0b0d",
+        "panelBackground": "#121215",
+        "textColor": "#e8e8ea",
+        "mutedTextColor": "#b3b3b8",
+        "accentColor": "#d7263d",
+        "dangerColor": "#ff2e4c",
+        "successColor": "#3fd77b",
+        "borderColor": "#2a2a30",
+        "focusRingColor": "#d7263d",
+        "toolbarHeight": 34,
+        "webviewBackground": "#0b0b0d",
+        "webviewBackgroundImage": "stranger_things.jpg",
+        "webviewBackgroundImageOpacity": 0.45,
+        "webviewCanvas": "#16161a",
+        "webviewForeground": "#e8e8ea",
+        "webviewLink": "#ff3b57",
+        "webviewBorder": "#2a2a30",
+        "deckHoverBackground": "#1c1c21",
+        "browserPreviewBackground": "#151518",
+        "browserPreviewOuterBackground": "#000000",
+        "toolbarBackground": "#0b0b0d",
+        "buttonDecksColor": "#d7263d",
+        "buttonAddColor": "#3fd77b",
+        "buttonBrowseColor": "#d7263d",
+        "buttonStatsColor": "#d7263d",
+        "buttonSyncColor": "#d7263d",
+        "gradientStart": "#1a0a0e",
+        "gradientEnd": "#0b0b0d",
+        "cardBackground": "rgba(215,38,61,0.07)",
+        "cardRadius": "16px",
+        "cardMaxWidth": "780px",
+        "enableGlobalStyles": True,
+        "enableReviewerStyles": True,
+        "enableWebviewStyles": True,
+        "extraGlobalCss": "QWidget { animation: fadeIn 0.5s ease; } QPushButton:hover { box-shadow: 0 4px 14px rgba(215,38,61,0.35); transition: all 0.3s; }",
+        "extraReviewerCss": "@keyframes glowRed { from { box-shadow: 0 0 6px rgba(215,38,61,0.25); } to { box-shadow: 0 0 20px rgba(215,38,61,0.6); } } .card { border: 1px solid rgba(215,38,61,0.3); }",
+        "extraWebviewCss": "tr.deck.current td { color: #000000 !important; }",
+        "menuGlowEnabled": False,
+        "menuGlowColor": "#d7263d",
+        "menuGlowSpeed": 2.2,
+        "menuGlowIntensity": 35,
+        "menuGlowBlur": 8,
+        "forceCardStyling": False,
+    },
+    "Midnight Eclipse": {
+        "fontFamily": "'Roboto', 'Segoe UI', sans-serif",
+        "cardFontSize": "20px",
+        "globalBackground": "#0d0d12",
+        "panelBackground": "#1a1a22",
+        "textColor": "#d4d4e0",
+        "mutedTextColor": "#7a7a90",
+        "accentColor": "#6c63ff",
+        "dangerColor": "#e63946",
+        "successColor": "#06ffa5",
+        "borderColor": "#2a2a38",
+        "focusRingColor": "#6c63ff",
+        "toolbarHeight": 34,
+        "webviewBackground": "#0d0d12",
+        "webviewBackgroundImage": "",
+        "webviewCanvas": "#1a1a22",
+        "webviewForeground": "#d4d4e0",
+        "webviewLink": "#6c63ff",
+        "webviewBorder": "#2a2a38",
+        "deckHoverBackground": "#25252f",
+        "browserPreviewBackground": "#252530",
+        "browserPreviewOuterBackground": "#000000",
+        "toolbarBackground": "#0d0d12",
+        "buttonDecksColor": "#6c63ff",
+        "buttonAddColor": "#06ffa5",
+        "buttonBrowseColor": "#6c63ff",
+        "buttonStatsColor": "#6c63ff",
+        "buttonSyncColor": "#6c63ff",
+        "gradientStart": "#1a1a25",
+        "gradientEnd": "#0d0d15",
+        "cardBackground": "rgba(108,99,255,0.06)",
+        "cardRadius": "16px",
+        "cardMaxWidth": "780px",
+        "enableGlobalStyles": True,
+        "enableReviewerStyles": True,
+        "enableWebviewStyles": True,
+        "extraGlobalCss": "QWidget { animation: fadeIn 0.5s ease; } QPushButton:hover { box-shadow: 0 4px 15px rgba(108,99,255,0.4); transition: all 0.3s; }",
+        "extraReviewerCss": "@keyframes smoothEntry { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } } .card { animation: smoothEntry 0.6s ease-out; }",
+        "extraWebviewCss": "tr.deck { transition: all 0.3s ease; } tr.deck:hover { transform: translateX(8px); box-shadow: -4px 0 8px rgba(108,99,255,0.3); }",
+        "menuGlowEnabled": False,
+        "menuGlowColor": "#6c63ff",
+        "menuGlowSpeed": 2.5,
+        "menuGlowIntensity": 35,
+        "menuGlowBlur": 8,
+        "forceCardStyling": False,
+    },
+    "Forest Zen": {
+        "fontFamily": "'Georgia', 'Times New Roman', serif",
+        "cardFontSize": "21px",
+        "globalBackground": "#1a2318",
+        "panelBackground": "#253325",
+        "textColor": "#d4e8d4",
+        "mutedTextColor": "#8a9a8a",
+        "accentColor": "#7bc67e",
+        "dangerColor": "#d9a62e",
+        "successColor": "#a3d977",
+        "borderColor": "#3a4a3a",
+        "focusRingColor": "#7bc67e",
+        "toolbarHeight": 34,
+        "webviewBackground": "#1a2318",
+        "webviewBackgroundImage": "forest.jpg",
+        "webviewBackgroundImageOpacity": 0.5,
+        "webviewCanvas": "#253325",
+        "webviewForeground": "#d4e8d4",
+        "webviewLink": "#7bc67e",
+        "deckHoverBackground": "#2e3e2e",
+        "browserPreviewBackground": "#1a2820",
+        "browserPreviewOuterBackground": "#000000",
+        "toolbarBackground": "#1a2318",
+        "buttonDecksColor": "#7bc67e",
+        "buttonAddColor": "#a3d977",
+        "buttonBrowseColor": "#7bc67e",
+        "buttonStatsColor": "#7bc67e",
+        "buttonSyncColor": "#7bc67e",
+        "gradientStart": "#253325",
+        "gradientEnd": "#1a2318",
+        "cardBackground": "rgba(123,198,126,0.08)",
+        "cardRadius": "14px",
+        "cardMaxWidth": "740px",
+        "enableGlobalStyles": True,
+        "enableReviewerStyles": True,
+        "enableWebviewStyles": True,
+        "extraGlobalCss": "QWidget { animation: fadeIn 0.5s ease; } QPushButton:hover { background: #3a4a3a; transition: background 0.3s; }",
+        "extraReviewerCss": "@keyframes gentleSlide { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } } .card { animation: gentleSlide 0.7s ease; }",
+        "extraWebviewCss": "tr.deck { transition: background 0.3s ease; } tr.deck:hover { background: #2e3e2e; }",
+        "menuGlowEnabled": False,
+        "menuGlowColor": "#7bc67e",
+        "menuGlowSpeed": 3.0,
+        "menuGlowIntensity": 35,
+        "menuGlowBlur": 8,
+        "forceCardStyling": False,
+    },
+    "Velvet Rose": {
+        "fontFamily": "'Poppins', 'Segoe UI', Arial, sans-serif",
+        "cardFontSize": "20px",
+        "globalBackground": "#1f0f18",
+        "panelBackground": "#2a1623",
+        "textColor": "#f8eaf0",
+        "mutedTextColor": "#d9b6c7",
+        "accentColor": "#ff5ca8",
+        "dangerColor": "#ff6b9a",
+        "successColor": "#66d1a4",
+        "borderColor": "#5a2a40",
+        "focusRingColor": "#ff82bf",
+        "toolbarHeight": 34,
+        "webviewBackground": "#2b1724",
+        "webviewBackgroundImage": "",
+        "webviewCanvas": "#2e1a27",
+        "webviewForeground": "#f8eaf0",
+        "webviewLink": "#ff8ec3",
+        "webviewBorder": "#5a2a40",
+        "deckHoverBackground": "#3f2231",
+        "browserPreviewBackground": "#2d1926",
+        "browserPreviewOuterBackground": "#1a0d15",
+        "toolbarBackground": "#3a1c2c",
+        "buttonDecksColor": "#ff5ca8",
+        "buttonAddColor": "#a3d977",
+        "buttonBrowseColor": "#ff5ca8",
+        "buttonStatsColor": "#ff5ca8",
+        "buttonSyncColor": "#ff5ca8",
+        "gradientStart": "#2c1623",
+        "gradientEnd": "#1f0f18",
+        "cardBackground": "rgba(255,160,200,0.10)",
+        "cardRadius": "18px",
+        "cardMaxWidth": "760px",
+        "enableGlobalStyles": True,
+        "enableReviewerStyles": True,
+        "enableWebviewStyles": True,
+        "extraGlobalCss": "QPushButton:hover { filter: brightness(1.05); transition: filter 0.2s; }",
+        "extraReviewerCss": "",
+        "extraWebviewCss": "tr.deck { transition: background 0.2s ease; } tr.deck:hover { background: #3f2231; }",
+        "menuGlowEnabled": False,
+        "menuGlowColor": "#ff5ca8",
+        "menuGlowSpeed": 2.0,
+        "menuGlowIntensity": 35,
+        "menuGlowBlur": 8,
+        "forceCardStyling": False,
+    },
+}
+
+# ------------------------- Custom Preset Management ------------------------- #
+
+def get_custom_presets_path() -> Path:
+    """Get path to custom presets JSON file."""
+    return ADDON_DIR / "custom_presets.json"
+
+# Alias removed per user request: Pink Blossom references are deprecated.
+
+
+def load_custom_presets() -> Dict[str, Dict[str, Any]]:
+    """Load custom user-created presets from disk."""
+    path = get_custom_presets_path()
+    if not path.exists():
+        return {}
+    try:
+        with path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+            if isinstance(data, dict):
+                return data
+    except Exception:
+        pass
+    return {}
+
+
+def save_custom_presets(presets: Dict[str, Dict[str, Any]]) -> bool:
+    """Save custom presets to disk."""
+    path = get_custom_presets_path()
+    try:
+        with path.open("w", encoding="utf-8") as f:
+            json.dump(presets, f, indent=2, ensure_ascii=False)
+        return True
+    except Exception:
+        return False
+
+
+def get_all_presets() -> Dict[str, Dict[str, Any]]:
+    """Get all presets: built-in + custom."""
+    custom = load_custom_presets()
+    # Custom presets override built-in if same name (allows user to override)
+    return {**THEME_PRESETS, **custom}
+
+
+def save_current_as_preset(preset_name: str, config_override: Dict[str, Any] | None = None) -> bool:
+    """Save current config as a custom preset.
+    
+    Args:
+        preset_name: Name for the preset
+        config_override: Optional config dict to use instead of current config
+    """
+    if not preset_name or not preset_name.strip():
+        return False
+    
+    preset_name = preset_name.strip()
+    
+    # Prevent overriding built-in presets accidentally
+    if preset_name in THEME_PRESETS:
+        # Ask for confirmation (handled by UI layer)
+        pass
+    
+    cfg = config_override if config_override else load_config()
+    custom_presets = load_custom_presets()
+    
+    # Save all theme properties
+    preset_data = {k: cfg.get(k, _DEFAULTS[k]) for k in _DEFAULTS.keys()}
+    custom_presets[preset_name] = preset_data
+    
+    return save_custom_presets(custom_presets)
+
+
+def delete_custom_preset(preset_name: str) -> bool:
+    """Delete a custom preset. Cannot delete built-in presets."""
+    if preset_name in THEME_PRESETS:
+        return False  # Cannot delete built-in
+    
+    custom_presets = load_custom_presets()
+    if preset_name in custom_presets:
+        del custom_presets[preset_name]
+        return save_custom_presets(custom_presets)
+    return False
+
+
+def is_builtin_preset(preset_name: str) -> bool:
+    """Check if preset is a built-in (read-only) preset."""
+    return preset_name in THEME_PRESETS
+
+
+def apply_preset(preset_name: str) -> None:
+    """Apply a theme preset by name, save to config, and refresh UI."""
+    all_presets = get_all_presets()
+    if preset_name not in all_presets:
+        return
+    preset = all_presets[preset_name]
+    if mw and hasattr(mw, "addonManager"):
+        try:
+            mw.addonManager.writeConfig(ADDON_ID, preset)  # type: ignore
+        except Exception:
+            pass
+    
+    # Force reload config to clear cache
+    reload_config()
+    
+    # Apply global styles
+    apply_global_stylesheet()
+    
+    # Force toolbar to rebuild and re-inject CSS
+    if mw and hasattr(mw, 'toolbar'):
+        try:
+            # Get the new CSS with updated colors
+            toolbar_css = build_toolbar_css(load_config())
+            # Inject directly into toolbar webview
+            if hasattr(mw.toolbar, 'web') and hasattr(mw.toolbar.web, 'eval'):
+                js_code = f"""
+                (function() {{
+                    let style = document.getElementById('uba-toolbar-style');
+                    if (!style) {{
+                        style = document.createElement('style');
+                        style.id = 'uba-toolbar-style';
+                        document.head.appendChild(style);
+                    }}
+                    style.textContent = `{toolbar_css.replace('`', '\\`').replace('\\', '\\\\')}`;
+                }})();
+                """
+                mw.toolbar.web.eval(js_code)
+        except Exception as e:
+            pass
+    
+    # Force deck browser reload
+    if mw and mw.state == "deckBrowser":
+        try:
+            # Use a slight delay to ensure config is written
+            from aqt.qt import QTimer  # type: ignore
+            QTimer.singleShot(100, lambda: mw.moveToState("deckBrowser"))
+        except Exception:
+            pass
+    
+    from aqt.utils import tooltip  # type: ignore
+    tooltip(f"{preset_name} theme applied!", period=2000)  # type: ignore
+
+# ------------------------- Config Handling ------------------------- #
+
+def load_config() -> Dict[str, Any]:
+    """Load config using Anki's addon manager with safe fallbacks.
+
+    Returns:
+        A dictionary containing config values merged with defaults.
+    """
+    global _config_cache
+    if _config_cache is not None:
+        return _config_cache
+
+    data: Dict[str, Any] = {}
+    if mw and hasattr(mw, "addonManager"):
+        try:
+            loaded = mw.addonManager.getConfig(ADDON_ID)  # type: ignore
+            if isinstance(loaded, dict):
+                data = loaded
+        except Exception:
+            pass
+
+    # Fallback to manual read if necessary.
+    if not data:
+        cfg_path = ADDON_DIR / "config.json"
+        if cfg_path.exists():
+            try:
+                with cfg_path.open("r", encoding="utf-8") as f:
+                    raw = json.load(f)
+                if isinstance(raw, dict):
+                    data = raw
+            except Exception:
+                pass
+
+    # Merge with defaults
+    merged = {**_DEFAULTS, **{k: v for k, v in data.items() if v is not None}}
+
+    _config_cache = merged
+    return merged
+
+
+def reload_config() -> Dict[str, Any]:
+    """Force reload of config (clears cache)."""
+    global _config_cache
+    _config_cache = None
+    return load_config()
+
+# (Removed) Pink Blossom auto-migration logic per user request.
+
+# ------------------------- Stylesheet Builders ------------------------- #
+
+def _build_menu_glow_css(cfg: Dict[str, Any]) -> str:
+    """Build menu glow CSS if enabled.
+    
+    Note: Qt stylesheets don't support @keyframes animations.
+    We use multi-layer box-shadow for static glow and QTimer-based
+    stylesheet updates for animation (see _GlowAnimator).
+    """
+    if not cfg.get("menuGlowEnabled", False):
+        return ""
+    color = cfg.get("menuGlowColor", "#00ffff")
+    intensity = int(cfg.get("menuGlowIntensity", 35) or 35)
+    blur = int(cfg.get("menuGlowBlur", 8) or 8)
+    # Single-layer glow for performance and stability
+    return f"""
+/* Menu Glow Effect - Optimized */
+QMenuBar {{
+    border: 1px solid {color};
+    box-shadow: 0 0 {blur}px {color};
+}}
+QMenu {{
+    border: 1px solid {color};
+    box-shadow: 0 0 {blur}px {color};
+}}
+QPushButton {{
+    border: 1px solid {color};
+    box-shadow: 0 0 {blur}px {color};
+}}
+QToolBar {{
+    border-bottom: 1px solid {color};
+    box-shadow: 0 0 {blur}px {color};
+}}
+"""
+
+def build_global_stylesheet(cfg: Dict[str, Any]) -> str:
+    """Build the application-wide Qt stylesheet based on config.
+
+    This affects main windows, toolbars, buttons, menus, inputs, lists,
+    and various panel-like widgets, aiming for a modern dark aesthetic.
+    """
+    if not cfg.get("enableGlobalStyles", True):
+        return ""
+
+    # Note: Avoid overly specific selectors to let Anki keep layout.
+    return f"""
+/* {ADDON_NAME} - Global Qt Stylesheet */
+QWidget {{
+    background-color: {cfg['globalBackground']};
+    color: {cfg['textColor']};
+    font-family: {cfg['fontFamily']};
+    font-size: 14px;
+}}
+QToolTip {{
+    background: {cfg['panelBackground']};
+    color: {cfg['textColor']};
+    border: 1px solid {cfg['borderColor']};
+    padding: 6px 8px;
+    border-radius: 6px;
+}}
+QMainWindow, QDialog {{
+    background-color: {cfg['globalBackground']};
+}}
+QMainWindow::separator {{
+    width: 1px;
+    height: 1px;
+    background: {cfg['borderColor']};
+}}
+QToolBar {{
+    background: {cfg['globalBackground']};
+    spacing: 6px;
+    padding: 4px 8px;
+    border-bottom: 1px solid {cfg['borderColor']};
+    min-height: {cfg['toolbarHeight']}px;
+    max-height: {cfg['toolbarHeight']}px;
+}}
+QToolBar QWidget {{
+    margin: 0px 2px;
+}}
+QToolButton {{
+    background: transparent;
+    color: {cfg['textColor']};
+    padding: 4px 10px;
+    border-radius: 6px;
+}}
+QToolButton:hover {{
+    background: {cfg['cardBackground']};
+}}
+QToolButton:pressed {{
+    background: {cfg['accentColor']};
+    color: #fff;
+}}
+QMenuBar {{
+    background: {cfg['globalBackground']};
+    padding: 2px 4px;
+    spacing: 4px;
+}}
+QMenuBar::item {{
+    padding: 6px 12px;
+    margin: 2px 4px;
+    background: transparent;
+    border-radius: 6px;
+}}
+QMenuBar::item:selected {{
+    background: {cfg['cardBackground']};
+    border-radius: 6px;
+}}
+QMenu {{
+    background: {cfg['panelBackground']};
+    border: 1px solid {cfg['borderColor']};
+    padding: 8px 4px;
+    border-radius: 8px;
+}}
+QMenu::item {{
+    padding: 8px 20px;
+    margin: 2px 4px;
+    border-radius: 6px;
+}}
+QMenu::item:selected {{
+    background: {cfg['accentColor']};
+    color: #fff;
+}}
+QMenu::separator {{
+    height: 1px;
+    background: {cfg['borderColor']};
+    margin: 4px 8px;
+}}
+QPushButton, QRadioButton, QCheckBox {{
+    background: {cfg['panelBackground']};
+    color: {cfg['textColor']};
+    padding: 8px 16px;
+    border: 1px solid {cfg['borderColor']};
+    border-radius: 8px;
+    min-height: 24px;
+}}
+QPushButton {{
+    text-align: center;
+    qproperty-alignment: AlignCenter;
+}}
+QPushButton:hover {{
+    border-color: {cfg['accentColor']};
+    background: {cfg['cardBackground']};
+}}
+QPushButton:pressed {{
+    background: {cfg['accentColor']};
+    color: #fff;
+}}
+QPushButton:disabled {{
+    background: {cfg['panelBackground']};
+    color: {cfg['mutedTextColor']};
+    border-color: {cfg['borderColor']};
+}}
+QLineEdit, QSpinBox, QComboBox, QTextEdit {{
+    background: {cfg['panelBackground']};
+    color: {cfg['textColor']};
+    border: 1px solid {cfg['borderColor']};
+    padding: 6px 10px;
+    border-radius: 8px;
+    selection-background-color: {cfg['accentColor']};
+    selection-color: #fff;
+}}
+QLineEdit:focus, QSpinBox:focus, QComboBox:focus, QTextEdit:focus {{
+    border: 1px solid {cfg['focusRingColor']};
+}}
+QScrollBar:vertical {{
+    background: transparent;
+    width: 12px;
+    margin: 4px; border-radius: 6px;
+}}
+QScrollBar::handle:vertical {{
+    background: {cfg['panelBackground']};
+    min-height: 20px; border-radius: 6px;
+}}
+QScrollBar::handle:vertical:hover {{
+    background: {cfg['accentColor']};
+}}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {{ height:0; }}
+QListView, QTreeView, QTableView {{
+    background: {cfg['panelBackground']} !important;
+    alternate-background-color: {cfg['panelBackground']} !important;
+    border: 1px solid {cfg['borderColor']};
+    border-radius: 8px;
+    selection-background-color: {cfg['accentColor']};
+    selection-color: #fff;
+    color: {cfg['textColor']} !important;
+}}
+QAbstractItemView {{
+    background: {cfg['panelBackground']} !important;
+    alternate-background-color: {cfg['panelBackground']} !important;
+    selection-background-color: {cfg['accentColor']} !important;
+    selection-color: #fff !important;
+}}
+/* Force browser window background to match panel */
+Browser {{
+    background: {cfg['panelBackground']} !important;
+}}
+/* Deck Browser & Sidebar specifics */
+QHeaderView {{
+    background: {cfg['panelBackground']};
+    border: none;
+}}
+QHeaderView::section {{
+    background: {cfg['panelBackground']};
+    color: {cfg['textColor']};
+    padding: 6px 10px;
+    border-right: 1px solid {cfg['borderColor']};
+}}
+QTreeView::item, QTableView::item {{
+    padding: 6px 8px;
+    color: {cfg['textColor']};
+}}
+QTreeView::item:hover, QTableView::item:hover {{
+    background: {cfg['cardBackground']};
+}}
+QTreeView::item:selected, QTableView::item:selected {{
+    background: {cfg['accentColor']};
+    color: #fff;
+}}
+/* Browser window specific */
+QSplitter {{
+    background: {cfg['globalBackground']};
+}}
+QSplitter::handle {{
+    background: {cfg['borderColor']};
+}}
+QSplitter::handle:horizontal {{
+    width: 2px;
+}}
+QSplitter::handle:vertical {{
+    height: 2px;
+}}
+/* Browser sidebar tree - FORCE COLORS */
+QTreeWidget {{
+    background-color: {cfg['panelBackground']} !important;
+    background: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+    border: none;
+    border-radius: 8px;
+    margin: 0px !important;
+    padding: 0px !important;
+    outline: none;
+}}
+QTreeWidget::item {{
+    padding: 6px 8px;
+    color: {cfg['textColor']} !important;
+    background-color: {cfg['panelBackground']} !important;
+    background: {cfg['panelBackground']} !important;
+    margin: 0px;
+    padding: 6px 8px;
+}}
+QTreeWidget::item:hover {{
+    background-color: {cfg['deckHoverBackground']} !important;
+    background: {cfg['deckHoverBackground']} !important;
+    color: {cfg['textColor']} !important;
+}}
+QTreeWidget::item:selected {{
+    background-color: {cfg['accentColor']} !important;
+    background: {cfg['accentColor']} !important;
+    color: #fff !important;
+}}
+QTreeWidget::branch {{
+    background-color: {cfg['panelBackground']} !important;
+    background: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+}}
+/* Browser filter/search bar */
+QLineEdit {{
+    background: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+    border: 1px solid {cfg['borderColor']};
+    border-radius: 6px;
+    padding: 6px 10px;
+    selection-background-color: {cfg['accentColor']};
+    selection-color: #fff;
+}}
+QLineEdit:focus {{
+    border: 1px solid {cfg['accentColor']};
+}}
+/* Browser combo boxes (dropdowns) */
+QComboBox {{
+    background: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+}}
+QComboBox:hover {{
+    background: {cfg['deckHoverBackground']} !important;
+}}
+QComboBox QAbstractItemView {{
+    background: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+    selection-background-color: {cfg['accentColor']};
+    selection-color: #fff;
+}}
+/* Generic frames for editor area */
+QFrame {{
+    background: {cfg['globalBackground']} !important;
+    color: {cfg['textColor']} !important;
+}}
+QWidget {{
+    color: {cfg['textColor']};
+    background-color: {cfg['globalBackground']};
+}}
+/* Browser window - themed colors */
+Browser QTableView {{
+    background-color: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+    alternate-background-color: {cfg['panelBackground']} !important;
+}}
+Browser QTableView::item {{
+    color: {cfg['textColor']} !important;
+    background-color: {cfg['panelBackground']} !important;
+}}
+Browser QTableView::item:selected {{
+    background-color: {cfg['accentColor']} !important;
+    color: #fff !important;
+}}
+Browser QTreeWidget {{
+    background-color: {cfg['panelBackground']} !important;
+    background: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+}}
+Browser QTreeWidget::item {{
+    color: {cfg['textColor']} !important;
+}}
+Browser QTreeWidget::item:selected {{
+    background-color: {cfg['accentColor']} !important;
+    color: #fff !important;
+}}
+Browser QHeaderView::section {{
+    background-color: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+    border: 1px solid {cfg['borderColor']} !important;
+    padding: 4px 8px !important;
+}}
+Browser QLineEdit {{
+    background-color: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+    border: 1px solid {cfg['borderColor']} !important;
+}}
+Browser QLabel {{
+    color: {cfg['textColor']} !important;
+}}
+/* Browser editor toolbar - Fields, Cards, Preview buttons */
+Browser QToolBar {{
+    background: {cfg['panelBackground']} !important;
+    border: none !important;
+    padding: 6px 4px !important;
+    margin: 0px !important;
+    spacing: 0px !important;
+}}
+Browser QToolBar::separator {{
+    width: 0px;
+    margin: 0px;
+}}
+Browser QToolButton {{
+    background: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+    border: 1px solid {cfg['borderColor']} !important;
+    border-radius: 4px !important;
+    padding: 6px 12px !important;
+    margin: 2px 2px !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    min-width: 60px !important;
+    text-align: center !important;
+}}
+Browser QToolButton:hover {{
+    background: {cfg['deckHoverBackground']} !important;
+    border: 1px solid {cfg['accentColor']} !important;
+    color: {cfg['textColor']} !important;
+}}
+Browser QToolButton:pressed {{
+    background: {cfg['accentColor']} !important;
+    color: #fff !important;
+}}
+/* Browser combobox/dropdown buttons */
+Browser QPushButton {{
+    background: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+    border: 1px solid {cfg['borderColor']} !important;
+    padding: 4px 10px !important;
+    margin: 1px !important;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+}}
+Browser QPushButton:hover {{
+    background: {cfg['deckHoverBackground']} !important;
+    border: 1px solid {cfg['accentColor']} !important;
+    color: {cfg['textColor']} !important;
+}}
+QTabBar::tab {{
+    background: {cfg['panelBackground']};
+    color: {cfg['textColor']};
+    padding: 6px 12px;
+    border: 1px solid {cfg['borderColor']};
+    border-bottom: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}}
+QTabBar::tab:selected {{
+    background: {cfg['globalBackground']};
+    border-color: {cfg['accentColor']};
+}}
+QGroupBox {{
+    border: 1px solid {cfg['borderColor']};
+    border-radius: 8px;
+    margin-top: 12px;
+}}
+QGroupBox::title {{
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 4px;
+    color: {cfg['mutedTextColor']};
+}}
+QStatusBar {{
+    background: {cfg['panelBackground']};
+    border-top: 1px solid {cfg['borderColor']};
+}}
+/* Accent utility classes for potential custom widgets */
+.accent-bg {{ background: {cfg['accentColor']}; color:#fff; }}
+.success-bg {{ background: {cfg['successColor']}; color:#fff; }}
+.danger-bg {{ background: {cfg['dangerColor']}; color:#fff; }}
+/* FINAL BROWSER COLOR MATCHING - Make everything match panelBackground */
+Browser {{
+    background: {cfg['panelBackground']} !important;
+}}
+Browser QAbstractScrollArea {{
+    background: {cfg['panelBackground']} !important;
+}}
+Browser QMainWindow {{
+    background: {cfg['panelBackground']} !important;
+}}
+Browser QWidget {{
+    background: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+}}
+Browser QTableView,
+Browser QTreeView,
+Browser QListView {{
+    background: {cfg['panelBackground']} !important;
+    alternate-background-color: {cfg['panelBackground']} !important;
+}}
+Browser QHeaderView,
+Browser QHeaderView::section {{
+    background: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+}}
+Browser QSplitter {{
+    background: {cfg['panelBackground']} !important;
+}}
+Browser QSplitter::handle {{
+    background: {cfg['borderColor']} !important;
+}}
+/* ULTRA-AGGRESSIVE: Override any residual CANVAS_CODE gray backgrounds */
+/* Target ALL viewport/content areas that might have gray */
+Browser QTableView::item {{
+    background-color: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+    selection-background-color: {cfg['accentColor']} !important;
+}}
+Browser QTreeView::item {{
+    background-color: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+    selection-background-color: {cfg['accentColor']} !important;
+}}
+Browser QListView::item {{
+    background-color: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+    selection-background-color: {cfg['accentColor']} !important;
+}}
+/* Viewport (the actual content scrolling area) */
+QAbstractScrollArea::viewport {{
+    background: {cfg['panelBackground']} !important;
+}}
+Browser QAbstractScrollArea::viewport {{
+    background: {cfg['panelBackground']} !important;
+    background-color: {cfg['panelBackground']} !important;
+}}
+QTreeView::viewport,
+QTableView::viewport,
+QListView::viewport {{
+    background: {cfg['panelBackground']} !important;
+    background-color: {cfg['panelBackground']} !important;
+}}
+/* Ensure scroll area corners don't get gray */
+QAbstractScrollArea {{
+    background: {cfg['panelBackground']} !important;
+}}
+/* Horizontal and vertical scroll bars background area */
+Browser QScrollBar {{
+    background: {cfg['panelBackground']} !important;
+}}
+/* Any remaining decorations or borders - no gray! */
+Browser QAbstractItemView {{
+    background: {cfg['panelBackground']} !important;
+    alternate-background-color: {cfg['panelBackground']} !important;
+}}
+{_build_menu_glow_css(cfg)}
+{cfg.get('extraGlobalCss','')}
+"""
+
+
+def _build_webview_glow_css(cfg: Dict[str, Any]) -> str:
+    """Build webview glow animation CSS if menu glow is enabled."""
+    if not cfg.get("menuGlowEnabled", False):
+        return ""
+    color = cfg.get("menuGlowColor", "#00ffff")
+    speed = float(cfg.get("menuGlowSpeed", 2.0) or 2.0)
+    intensity = int(cfg.get("menuGlowIntensity", 35) or 35)
+    blur = int(cfg.get("menuGlowBlur", 8) or 8)
+    # Webview glow slightly softer than Qt
+    base_blur = blur - 2
+    mid_blur = int(intensity * 0.5)
+    peak_blur = int(intensity * 0.8)
+    return f"""
+/* Webview Glow Effect */
+@keyframes webviewGlowPulse {{
+    0%, 100% {{ box-shadow: 0 0 {base_blur}px {color} !important; }}
+    50% {{ box-shadow: 0 0 {mid_blur}px {color}, 0 0 {peak_blur}px {color} !important; }}
+}}
+table {{
+    box-shadow: 0 0 {base_blur}px {color} !important;
+    animation: webviewGlowPulse {speed * 1.5}s ease-in-out infinite !important;
+}}
+button {{
+    box-shadow: 0 0 {base_blur - 1}px {color} !important;
+}}
+button:hover {{
+    box-shadow: 0 0 {mid_blur - 5}px {color}, 0 0 {mid_blur}px {color} !important;
+}}
+"""
+
+def _rgba_from_hex(hex_color: str, alpha: float) -> str:
+    """Convert a hex color like #RRGGBB to rgba(r,g,b,a) string.
+
+    Falls back to black if parsing fails.
+    """
+    try:
+        s = hex_color.strip()
+        if s.startswith('#'):
+            s = s[1:]
+        if len(s) == 3:  # shorthand #rgb
+            r = int(s[0] * 2, 16)
+            g = int(s[1] * 2, 16)
+            b = int(s[2] * 2, 16)
+        elif len(s) >= 6:
+            r = int(s[0:2], 16)
+            g = int(s[2:4], 16)
+            b = int(s[4:6], 16)
+        else:
+            r, g, b = 0, 0, 0
+        # Clamp alpha
+        a = 0.0 if alpha < 0 else (1.0 if alpha > 1 else alpha)
+        return f"rgba({r},{g},{b},{a})"
+    except Exception:
+        a = 0.0 if alpha < 0 else (1.0 if alpha > 1 else alpha)
+        return f"rgba(0,0,0,{a})"
+
+
+def _hex_to_rgb(hex_color: str) -> Tuple[int, int, int]:
+    """Parse a hex color string into an RGB tuple.
+
+    Returns (0,0,0) on failure.
+    """
+    try:
+        s = hex_color.strip()
+        if s.startswith("#"):
+            s = s[1:]
+        if len(s) == 3:  # shorthand #rgb
+            return (int(s[0] * 2, 16), int(s[1] * 2, 16), int(s[2] * 2, 16))
+        if len(s) >= 6:
+            return (int(s[0:2], 16), int(s[2:4], 16), int(s[4:6], 16))
+    except Exception:
+        pass
+    return (0, 0, 0)
+
+
+def _relative_luminance(hex_color: str) -> float:
+    """Compute WCAG relative luminance for a given hex color."""
+    r, g, b = _hex_to_rgb(hex_color)
+
+    def _channel(c: int) -> float:
+        c_lin = c / 255.0
+        return c_lin / 12.92 if c_lin <= 0.04045 else ((c_lin + 0.055) / 1.055) ** 2.4
+
+    return 0.2126 * _channel(r) + 0.7152 * _channel(g) + 0.0722 * _channel(b)
+
+
+def _is_light_color(hex_color: str) -> bool:
+    """Return True if color is light based on luminance threshold."""
+    try:
+        return _relative_luminance(hex_color) >= 0.6
+    except Exception:
+        return False
+
+
+def _ensure_contrast_color(bg_hex: str, fg_hex: Optional[str], *, light_fg: str = "#f7f7f7", dark_fg: str = "#111111") -> str:
+    """Ensure text color contrasts with background.
+
+    - If bg is light, prefer dark_fg.
+    - If bg is dark, prefer light_fg.
+    - If a user-specified fg clashes with that rule, fall back to the preferred color.
+    """
+    try:
+        bg_is_light = _is_light_color(bg_hex)
+    except Exception:
+        bg_is_light = False
+    preferred = dark_fg if bg_is_light else light_fg
+
+    if not fg_hex:
+        return preferred
+
+    try:
+        fg_is_light = _is_light_color(fg_hex)
+    except Exception:
+        return preferred
+
+    if bg_is_light and fg_is_light:
+        return dark_fg
+    if (not bg_is_light) and (not fg_is_light):
+        return light_fg
+    return fg_hex
+
+def build_toolbar_css(cfg: Dict[str, Any]) -> str:
+    """Build CSS specifically for the top toolbar buttons.
+    
+    Targets Decks, Add, Browse, Stats, Sync buttons in the toolbar.
+    """
+    if not cfg.get("enableWebviewStyles", True):
+        return ""
+
+    toolbar_bg = cfg.get("globalBackground", "#0f0f17")
+    toolbar_text = _ensure_contrast_color(toolbar_bg, cfg.get("textColor"))
+    toolbar_link = _ensure_contrast_color(toolbar_bg, cfg.get("webviewForeground"))
+    
+    return f"""
+/* {ADDON_NAME} - Toolbar Styling */
+
+/* Force toolbar webview background */
+html, body {{
+    background: {toolbar_bg} !important;
+    background-color: {toolbar_bg} !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    color: {toolbar_link} !important;
+}}
+
+/* Toolbar background (match menu background) */
+.header {{
+    background: {toolbar_bg} !important;
+}}
+
+.toolbar {{
+    background: {toolbar_bg} !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    padding: 2px 6px !important;
+    margin: 0px !important;
+}}
+
+.toolbar * {{
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}}
+
+/* All toolbar buttons - minimal styling matching background */
+#decks, #add, #browse, #stats, #sync, .hitem {{
+    background: transparent !important;
+    color: {toolbar_text} !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 4px 10px !important;
+    margin: 2px 2px !important;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    height: auto !important;
+}}
+
+/* Ensure all common elements use the foreground color for contrast */
+table, tr, td, th, p, span, div, input, select, option, textarea, label {{
+    color: {toolbar_link} !important;
+}}
+
+a, a.deck {{
+    color: {toolbar_link} !important;
+    text-decoration: none !important;
+}}
+
+a:hover, a.deck:hover {{
+    color: {cfg['webviewLink']} !important;
+    text-decoration: underline !important;
+}}
+
+#decks:hover, #add:hover, #browse:hover, #stats:hover, #sync:hover, .hitem:hover {{
+    background: {cfg['deckHoverBackground']} !important;
+    color: {cfg['accentColor']} !important;
+}}
+
+#decks:active, #add:active, #browse:active, #stats:active, #sync:active, .hitem:active {{
+    background: {cfg['borderColor']} !important;
+}}
+"""
+
+def build_browser_editor_css(cfg: Dict[str, Any]) -> str:
+    """Build CSS specifically for Browser editor webview."""
+    if not cfg.get("enableWebviewStyles", True):
+        return ""
+    
+    # Choose a foreground that contrasts with the panel background so the
+    # right-hand editor pane (fields) is always readable. For light themes
+    # this evaluates to black; for dark themes, to white.
+    editor_fg = _ensure_contrast_color(cfg.get('panelBackground', '#0f0f17'), cfg.get('textColor'))
+
+    return f"""
+/* {ADDON_NAME} - Browser Editor Styling */
+body {{
+    background: {cfg['globalBackground']} !important;
+    color: {editor_fg} !important;
+}}
+
+.field {{
+    background: {cfg['cardBackground']} !important;
+    color: {editor_fg} !important;
+    border: 1px solid {cfg['borderColor']} !important;
+    border-radius: 6px !important;
+}}
+
+#fields {{
+    background: {cfg['panelBackground']} !important;
+    color: {editor_fg} !important;
+}}
+
+.fname {{
+    color: {editor_fg} !important;
+}}
+
+/* Strong override: ensure everything in the editor inherits the readable color */
+html, body, #fields, #fields * {{
+    color: {editor_fg} !important;
+}}
+
+button {{
+    background: {cfg['accentColor']} !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 6px 12px !important;
+}}
+
+button:hover {{
+    filter: brightness(1.1) !important;
+}}
+"""
+
+def build_bottom_bar_css(cfg: Dict[str, Any]) -> str:
+    """Build CSS specifically for bottom bars without background image."""
+    if not cfg.get("enableWebviewStyles", True):
+        return ""
+
+    bottom_fg = _ensure_contrast_color(cfg.get("panelBackground", "#0f0f17"), cfg.get("webviewForeground"))
+    bottom_btn_text = _ensure_contrast_color(cfg.get("panelBackground", "#0f0f17"), cfg.get("textColor"))
+    
+    return f"""
+/* {ADDON_NAME} - Bottom Bar (No Background Image) */
+html, body {{
+    background: {cfg['panelBackground']} !important;
+    background-image: none !important;
+    color: {bottom_fg} !important;
+    font-family: {cfg['fontFamily']} !important;
+    margin: 0 !important;
+    padding: 12px !important;
+}}
+
+button, input[type="button"] {{
+    background: {cfg['panelBackground']} !important;
+    color: {bottom_btn_text} !important;
+    border: 2px solid {cfg['borderColor']} !important;
+    border-radius: 8px !important;
+    padding: 6px 14px !important;
+    font-family: {cfg['fontFamily']} !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}}
+
+button:hover, input[type="button"]:hover {{
+    background: {cfg['deckHoverBackground']} !important;
+    border-color: {cfg['accentColor']} !important;
+}}
+"""
+
+
+def build_webview_css(cfg: Dict[str, Any]) -> str:
+    """Build CSS for HTML-based screens: deck browser, overview, congrats.
+    
+    Anki's deck browser, overview, and other main screens are webviews
+    (HTML/CSS/JS), NOT Qt widgets. This CSS targets those screens.
+    Uses !important to override Anki's default styles.
+    """
+    if not cfg.get("enableWebviewStyles", True):
+        return ""
+    
+    bg_img = cfg.get("webviewBackgroundImage", "").strip()
+    bg_opacity = float(cfg.get("webviewBackgroundImageOpacity", 1.0))
+    bg_color = cfg['webviewBackground']
+
+    # Resolve filename to path in backgrounds folder when needed
+    if bg_img and not bg_img.startswith("data:image") and not Path(bg_img).is_absolute():
+        folder_path = ADDON_DIR / "backgrounds" / bg_img
+        if folder_path.exists():
+            bg_img = str(folder_path)
+
+    # Convert local file path to data URI (more reliable than file:// in QWebEngine)
+    if bg_img and not bg_img.startswith("data:image"):
+        try:
+            p = Path(str(bg_img))
+            if p.exists():
+                ext = p.suffix.lower().lstrip('.')
+                mime = f"image/{'jpeg' if ext in {'jpg','jpeg'} else ('png' if ext=='png' else ( 'webp' if ext=='webp' else 'png'))}"
+                data = p.read_bytes()
+                import base64
+                b64 = base64.b64encode(data).decode('utf-8')
+                bg_img = f"data:{mime};base64,{b64}"
+            else:
+                bg_img = ""
+        except Exception:
+            bg_img = ""
+
+    # Build layered background: top = semi-transparent color (same as bg), middle = image, bottom = solid bg color
+    overlay_rgba = _rgba_from_hex(bg_color, max(0.0, min(1.0, 1.0 - bg_opacity)))
+    if bg_img:
+        bg_css = (
+            f"background-image: linear-gradient({overlay_rgba}, {overlay_rgba}), url('{bg_img}'), none !important;"
+            f"background-color: {bg_color} !important;"
+        )
+    else:
+        bg_css = f"background: {bg_color} !important;"
+
+    # Ensure text contrasts with the chosen background/panel colors
+    webview_fg = _ensure_contrast_color(bg_color, cfg.get("webviewForeground"))
+    panel_text = _ensure_contrast_color(cfg.get("panelBackground", bg_color), cfg.get("textColor"))
+
+    # Removed Pink Blossom-specific overrides
+
+    css = f"""
+/* {ADDON_NAME} - Webview Screens (Deck Browser, Overview) */
+/* Background layers with light breathing room */
+html, body {{
+    {bg_css}
+    background-size: cover, cover, auto !important;
+    background-position: center center, center center, 0 0 !important;
+    background-repeat: no-repeat, no-repeat, repeat !important;
+    color: {webview_fg} !important;
+    font-family: {cfg['fontFamily']} !important;
+    margin: 0 !important;
+    padding: 6px !important; /* compact spacing */
+}}
+
+/* Main table container - compact dense look */
+table {{
+    background: {cfg['panelBackground']} !important;
+    border: 2px solid {cfg['accentColor']} !important;
+    border-radius: 12px !important;
+    padding: 12px !important;
+    margin: 6px auto !important; /* minimal margins */
+    width: 100% !important;
+    max-width: 900px !important;
+}}
+
+/* Deck rows - compact spacing */
+tr.deck td {{
+    background: {cfg['panelBackground']} !important;
+    color: {panel_text} !important;
+    padding: 6px 10px !important;
+    border-bottom: 1px solid {cfg['borderColor']} !important;
+}}
+
+tr.deck:hover td {{
+    background: {cfg['deckHoverBackground']} !important;
+}}
+
+tr.deck.current td {{
+    background: {cfg['accentColor']} !important;
+    color: {'#000000' if cfg.get('accentColor', '').lower() in ['#00ffff', '#0ff'] else '#fff'} !important;
+}}
+
+/* Force dark text on current deck row when accent is bright cyan */
+tr.deck.current a,
+tr.deck.current a.deck,
+tr.deck.current a:hover,
+tr.deck.current a.deck:hover,
+tr.deck.current .new-count,
+tr.deck.current .learn-count,
+tr.deck.current .review-count {{
+    color: {'#000000' if cfg.get('accentColor', '').lower() in ['#00ffff', '#0ff'] else 'inherit'} !important;
+}}
+
+/* Deck names and links */
+a, a.deck {{
+    color: {webview_fg} !important;
+    text-decoration: none !important;
+}}
+
+a:hover, a.deck:hover {{
+    color: {cfg['webviewLink']} !important;
+    text-decoration: underline !important;
+}}
+
+/* Table headers */
+th {{
+    color: {cfg['mutedTextColor']} !important;
+    border-bottom: 1px solid {cfg['webviewBorder']} !important;
+}}
+
+/* Count badges (new/learning/review) - compact */
+.new-count {{
+    color: {cfg['accentColor']} !important;
+    font-weight: 600 !important;
+    font-size: 0.9em !important;
+}}
+
+.learn-count {{
+    color: {cfg['dangerColor']} !important;
+    font-weight: 600 !important;
+    font-size: 0.9em !important;
+}}
+
+.review-count {{
+    color: {cfg['successColor']} !important;
+    font-weight: 600 !important;
+    font-size: 0.9em !important;
+}}
+
+.zero-count {{
+    color: {cfg['mutedTextColor']} !important;
+    font-size: 0.9em !important;
+}}
+
+/* Buttons - Enhanced styling (restore) */
+button, input[type="button"] {{
+    background: {cfg['panelBackground']} !important;
+    color: {panel_text} !important;
+    border: 2px solid {cfg['borderColor']} !important;
+    border-radius: 8px !important;
+    padding: 6px 14px !important;
+    font-family: {cfg['fontFamily']} !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}}
+
+button:hover, input[type="button"]:hover {{
+    background: {cfg['deckHoverBackground']} !important;
+    border-color: {cfg['accentColor']} !important;
+}}
+
+{_build_webview_glow_css(cfg)}
+
+/* Stats text */
+#studiedToday, #studiedToday span {{
+    color: {cfg['mutedTextColor']} !important;
+}}
+
+/* Collapse/expand icons */
+.collapse {{
+    color: {webview_fg} !important;
+}}
+
+/* Gear icon for deck options */
+.gears {{
+    opacity: 0.6 !important;
+}}
+
+tr.deck:hover .gears {{
+    opacity: 1 !important;
+}}
+
+/* Overview page: flatten layout, center counts, remove ALL inner boxes */
+.descfont, .description, .studyopt, .descfont table, .description table {{
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    color: {cfg['textColor']} !important;
+}}
+
+/* Remove borders from count container elements */
+table table, .descfont > *, .description > * {{
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}}
+
+/* Center the count display area */
+.description {{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    padding: 16px 0 !important;
+    text-align: center !important;
+}}
+
+/* Deck description text styling */
+.descfont, .descfont *, .description-text, .deck-description {{
+    color: {panel_text} !important;
+    font-family: {cfg['fontFamily']} !important;
+}}
+
+/* Ensure counts are readable and centered - force high contrast */
+.new-count, .learn-count, .review-count, .zero-count {{
+    display: inline-block !important;
+    padding: 4px 0 !important;
+    color: {panel_text} !important;
+    font-weight: 700 !important;
+}}
+
+/* Override specific count colors for visibility */
+.new-count {{
+    color: {panel_text} !important;
+}}
+
+.learn-count {{
+    color: {panel_text} !important;
+}}
+
+.review-count {{
+    color: {panel_text} !important;
+}}
+
+{cfg.get('extraWebviewCss','')}
+"""
+
+    # Removed Pink Blossom deck list override
+
+    return css
+
+
+def _build_card_content_css(cfg: Dict[str, Any]) -> str:
+    """Build themed CSS for card content when forceCardStyling is enabled.
+    
+    Styles card text, buttons (Show Answer, Again, Hard, Good, Easy), and
+    adds preset-specific flair to match the theme vibe.
+    """
+    accent = cfg.get('accentColor', '#4f86ff')
+    danger = cfg.get('dangerColor', '#ff4f64')
+    success = cfg.get('successColor', '#3fbf7f')
+    text = cfg.get('textColor', '#e0e0e6')
+    panel = cfg.get('panelBackground', '#1b1b26')
+    
+    # Detect preset vibe for custom animations
+    extra_animations = ""
+    font_family = cfg.get('fontFamily', 'Inter, sans-serif')
+    
+    # Preset-specific button effects
+    if 'Comic Sans' in font_family:
+        # Girly Pop: bounce and sparkle
+        extra_animations = """
+@keyframes sparkleButton {
+    0%, 100% { filter: brightness(1) hue-rotate(0deg); }
+    50% { filter: brightness(1.3) hue-rotate(10deg); }
+}
+button:hover {
+    animation: sparkleButton 0.6s ease-in-out infinite !important;
+    transform: scale(1.08) !important;
+}
+"""
+    elif cfg.get('accentColor') == '#00ffff':
+        # Neon Glow: pulsing cyber effect
+        extra_animations = f"""
+@keyframes neonPulse {{
+    0%, 100% {{ box-shadow: 0 0 8px {accent}, 0 0 16px {accent}; }}
+    50% {{ box-shadow: 0 0 20px {accent}, 0 0 35px {accent}, 0 0 50px {accent}; }}
+}}
+button {{
+    animation: neonPulse 2s ease-in-out infinite !important;
+    border: 2px solid {accent} !important;
+}}
+"""
+    elif cfg.get('accentColor') == '#6c63ff':
+        # Midnight Eclipse: smooth glow
+        extra_animations = f"""
+@keyframes smoothGlow {{
+    0%, 100% {{ box-shadow: 0 4px 15px rgba(108,99,255,0.3); }}
+    50% {{ box-shadow: 0 6px 25px rgba(108,99,255,0.6); }}
+}}
+button:hover {{
+    animation: smoothGlow 1.5s ease-in-out infinite !important;
+}}
+"""
+    elif cfg.get('accentColor') == '#7bc67e':
+        # Forest Zen: gentle pulse
+        extra_animations = """
+@keyframes gentlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+button:hover {
+    animation: gentlePulse 2s ease-in-out infinite !important;
+}
+"""
+    elif cfg.get('accentColor') == '#ff3333':
+        # Crimson Warrior: combat shake
+        extra_animations = f"""
+@keyframes combatShake {{
+    0%, 100% {{ transform: translateX(0); box-shadow: 0 0 10px {danger}; }}
+    25% {{ transform: translateX(-2px); }}
+    75% {{ transform: translateX(2px); }}
+}}
+button:hover {{
+    animation: combatShake 0.3s ease-in-out infinite !important;
+}}
+"""
+    
+    return f"""
+/* Forced Card Content Styling - OVERRIDE EVERYTHING */
+html, body, #qa, .card, .card1, .card2, div, span, p {{
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}}
+.card {{
+    color: {text} !important;
+    font-family: {font_family} !important;
+}}
+.card *, .card1 *, .card2 * {{
+    color: {text} !important;
+    font-family: {font_family} !important;
+    background: transparent !important;
+    background-color: transparent !important;
+}}
+.card h1, .card h2, .card h3 {{
+    color: {accent} !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}}
+.card a {{
+    color: {accent} !important;
+    text-decoration: none !important;
+}}
+.card a:hover {{
+    text-decoration: underline !important;
+    filter: brightness(1.2);
+}}
+
+/* Show Answer & Rating Buttons */
+button, input[type="button"], .button {{
+    background: {panel} !important;
+    color: {text} !important;
+    border: 2px solid {accent} !important;
+    border-radius: 12px !important;
+    padding: 12px 24px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    font-family: {font_family} !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+    margin: 8px 4px !important;
+}}
+button:hover {{
+    background: {accent} !important;
+    color: white !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4) !important;
+}}
+button:active {{
+    transform: translateY(0) !important;
+}}
+
+/* Rating button colors */
+button[title*="Again"], button:nth-of-type(1) {{
+    border-color: {danger} !important;
+}}
+button[title*="Again"]:hover, button:nth-of-type(1):hover {{
+    background: {danger} !important;
+}}
+button[title*="Easy"], button:nth-of-type(4) {{
+    border-color: {success} !important;
+}}
+button[title*="Easy"]:hover, button:nth-of-type(4):hover {{
+    background: {success} !important;
+}}
+
+{extra_animations}
+"""
+
+
+def build_reviewer_css(cfg: Dict[str, Any]) -> str:
+    """Build CSS injected into reviewer webviews for card display.
+
+    Ensures centered layout, modern font, gradient background, rounded
+    corners, responsiveness, and uses config values where appropriate.
+    """
+    if not cfg.get("enableReviewerStyles", True):
+        return ""
+
+    # Get webview background - this is what should be displayed
+    webview_bg = cfg['webviewBackground']
+
+    return f"""
+/* {ADDON_NAME} - Reviewer Card Styles */
+:root {{
+  --uba-font: {cfg['fontFamily']};
+  --uba-text-color: {cfg['textColor']};
+  --uba-muted: {cfg['mutedTextColor']};
+  --uba-accent: {cfg['accentColor']};
+  --uba-radius: {cfg['cardRadius']};
+  --uba-max-width: {cfg['cardMaxWidth']};
+  --uba-card-bg: {cfg['cardBackground']};
+  --uba-font-size: {cfg['cardFontSize']};
+  /* Override Anki's --canvas variables */
+  --canvas: {webview_bg} !important;
+  --canvas-code: {webview_bg} !important;
+  --canvas-glass: {webview_bg} !important;
+  --canvas-inset: {webview_bg} !important;
+  --canvas-overlay: {webview_bg} !important;
+  --canvas-elevated: {webview_bg} !important;
+}}
+
+/* CRITICAL: Override all body/background colors - use !important everywhere */
+html, body {{
+  margin: 0 !important;
+  padding: 0 !important;
+  background: {webview_bg} !important;
+  background-color: {webview_bg} !important;
+  background-image: none !important;
+  font-family: var(--uba-font);
+  color: var(--uba-text-color);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh !important;
+}}
+
+/* Nuclear option: force every element to the same background to squash lingering dark panels */
+body, body * {{
+    background: {webview_bg} !important;
+    background-color: {webview_bg} !important;
+    background-image: none !important;
+}}
+
+/* Catch any element with inline/background styles (including legacy nightMode classes) */
+*, [style*="background"], .nightMode, .nightMode *, .night-mode, .night-mode *, .night_mode, .night_mode * {{
+    background: {webview_bg} !important;
+    background-color: {webview_bg} !important;
+    background-image: none !important;
+}}
+
+/* Force background on all container elements */
+body, div, section, article, main, #qa {{
+  background: {webview_bg} !important;
+  background-color: {webview_bg} !important;
+}}
+
+/* Aggressively force descendants inside QA (preview/reviewer) to the same background
+     to eliminate any lingering dark panels from Anki defaults */
+#qa * {{
+    background: {webview_bg} !important;
+    background-color: {webview_bg} !important;
+}}
+
+/* Override any inline styles on body */
+body[style] {{
+  background: {webview_bg} !important !important;
+  background-color: {webview_bg} !important !important;
+}}
+
+#qa {{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 32px 24px;
+  background: {webview_bg} !important;
+  min-height: 100vh;
+}}
+
+#qa > * {{
+  max-width: var(--uba-max-width);
+  width: 100%;
+}}
+
+.card {{
+  background: {webview_bg} !important;
+  border-radius: var(--uba-radius);
+  padding: 32px clamp(20px,4vw,40px);
+  font-size: var(--uba-font-size);
+  line-height: 1.5;
+  animation: uba-fade-in 0.5s ease;
+}}
+
+.card, .card1, .card2 {{
+  background: {webview_bg} !important;
+  background-color: {webview_bg} !important;
+}}
+
+@keyframes uba-fade-in {{
+  from {{ opacity: 0; transform: translateY(8px); }}
+  to {{ opacity: 1; transform: translateY(0); }}
+}}
+
+.card b, .card strong {{ color: var(--uba-accent); }}
+.card i, .card em {{ color: var(--uba-muted); }}
+
+img, video {{
+  display: block;
+  margin: 18px auto;
+  max-width: 100%;
+  border-radius: calc(var(--uba-radius) - 4px);
+}}
+
+code, pre {{
+  font-family: "JetBrains Mono", Consolas, "Courier New", monospace;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}}
+
+hr {{
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 32px 0;
+}}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {{
+  #qa {{ padding: 16px 12px; }}
+  .card {{
+    padding: 24px 18px;
+    font-size: calc(var(--uba-font-size) - 2px);
+  }}
+}}
+
+{_build_card_content_css(cfg) if cfg.get('forceCardStyling', False) else ''}
+{cfg.get('extraReviewerCss','')}
+"""
+
+# ------------------------- Application Logic ------------------------- #
+
+def apply_global_stylesheet() -> None:
+    """Apply the global stylesheet to the QApplication instance."""
+    if not mw:
+        return
+    cfg = load_config()
+    stylesheet = build_global_stylesheet(cfg)
+    if not stylesheet:
+        return
+    try:
+        mw.app.setStyleSheet(stylesheet)  # type: ignore[attr-defined]
+    except Exception:
+        pass
+    # Start glow animation if enabled
+    _start_glow_animation(cfg)
+
+
+def _override_canvas_palette() -> None:
+    """Rewrite Anki's CANVAS palette entries to our background color and force palette reapply."""
+    try:
+        from aqt import colors, theme_manager
+        cfg = load_config()
+        bg = cfg.get("webviewBackground", "#0f0f17")
+        for palette_name in ["CANVAS", "CANVAS_CODE", "CANVAS_OVERLAY", "CANVAS_INSET", "CANVAS_ELEVATED", "CANVAS_GLASS"]:
+            pal = getattr(colors, palette_name, None)
+            if isinstance(pal, dict):
+                pal["light"] = bg
+                pal["dark"] = bg
+        # Force theme manager to reapply the palette with our overridden colors
+        try:
+            if mw and mw.app:
+                theme_manager._apply_palette(mw.app)
+        except Exception:
+            pass
+    except Exception:
+        pass
+
+
+def _set_webview_bg(webview: Any, color_hex: str) -> None:
+    """Force QWebEnginePage background and inject a last-resort CSS shim."""
+    try:
+        from PyQt6.QtGui import QColor
+        page = webview.page() if hasattr(webview, "page") else None
+        if page:
+            page.setBackgroundColor(QColor(color_hex))
+    except Exception:
+        pass
+    try:
+        webview.eval(
+            f"""
+            (function() {{
+                const bg = '{color_hex}';
+                function forceBg() {{
+                    document.documentElement.style.setProperty('background', bg, 'important');
+                    document.documentElement.style.setProperty('background-color', bg, 'important');
+                    document.body && document.body.style.setProperty('background', bg, 'important');
+                    document.body && document.body.style.setProperty('background-color', bg, 'important');
+                    document.querySelectorAll('*').forEach(el => {{
+                        el.style.setProperty('background', bg, 'important');
+                        el.style.setProperty('background-color', bg, 'important');
+                        el.style.setProperty('background-image', 'none', 'important');
+                    }});
+                }}
+                forceBg();
+                new MutationObserver(forceBg).observe(document.documentElement, {{childList:true, subtree:true}});
+                setInterval(forceBg, 500);
+            }})();
+            """
+        )
+    except Exception:
+        pass
+
+
+def _patch_on_theme_did_change() -> None:
+    """Monkey-patch AnkiWebView.on_theme_did_change to force our background.
+    
+    Call AFTER original so our override takes precedence over Anki's colors.CANVAS reset.
+    """
+    global _orig_on_theme_did_change
+    try:
+        from aqt.webview import AnkiWebView
+
+        if _orig_on_theme_did_change is None:
+            _orig_on_theme_did_change = AnkiWebView.on_theme_did_change
+
+        def _patched(self):  # type: ignore
+            try:
+                if _orig_on_theme_did_change:
+                    _orig_on_theme_did_change(self)
+            except Exception:
+                pass
+            # AFTER original, override with our config color
+            try:
+                cfg = load_config()
+                bg_hex = cfg.get("webviewBackground", "#0f0f17")
+                _set_webview_bg(self, bg_hex)
+            except Exception:
+                pass
+
+        AnkiWebView.on_theme_did_change = _patched  # type: ignore
+    except Exception:
+        pass
+
+
+# ------------------------- Glow Animation System ------------------------- #
+
+_glow_animator: Any = None
+
+class _GlowAnimator:
+    """Animates menu glow by cycling opacity/intensity using QTimer.
+    
+    Qt stylesheets don't support CSS @keyframes, so we animate by
+    periodically updating the stylesheet with different opacity values.
+    """
+    def __init__(self, speed: float) -> None:
+        from aqt.qt import QTimer  # type: ignore
+        self.step = 0
+        self.timer = QTimer()
+        # Update every 150ms for performance (was 50ms)
+        self.timer.timeout.connect(self._update)  # type: ignore
+        self.timer.start(150)
+    
+    def _update(self) -> None:
+        """Update glow with breathing animation via dynamic stylesheet."""
+        if not mw:
+            return
+        cfg = load_config()
+        if not cfg.get("menuGlowEnabled", False):
+            self.stop()
+            return
+        
+        speed = float(cfg.get("menuGlowSpeed", 2.0) or 2.0)
+        intensity = int(cfg.get("menuGlowIntensity", 35) or 35)
+        blur = int(cfg.get("menuGlowBlur", 8) or 8)
+        color = cfg.get("menuGlowColor", "#00ffff")
+        
+        # Calculate breathing pulse (0 to 1 sine wave)
+        import math
+        self.step += 1
+        cycle = (self.step * 0.15) / speed  # 150ms updates
+        pulse = 0.5 + 0.5 * math.sin(cycle * 2 * math.pi)  # 0.0 to 1.0
+        
+        # Animate glow intensity and scale
+        min_blur = blur
+        max_blur = intensity
+        current_blur = int(min_blur + (max_blur - min_blur) * pulse)
+        
+        # Breathing scale effect (0.98 to 1.02)
+        scale = 0.98 + 0.04 * pulse
+        
+        # Build animated glow CSS with breathing - simplified for performance
+        glow_css = f"""
+/* Breathing Glow Animation - Optimized */
+QMenuBar {{
+    border: 1px solid {color};
+    box-shadow: 0 0 {current_blur}px {color};
+}}
+QMenu {{
+    border: 1px solid {color};
+    box-shadow: 0 0 {current_blur}px {color};
+}}
+QPushButton {{
+    border: 1px solid {color};
+    box-shadow: 0 0 {current_blur}px {color};
+}}
+QToolBar {{
+    border-bottom: 1px solid {color};
+    box-shadow: 0 0 {current_blur}px {color};
+}}
+"""
+        
+        # Apply animated stylesheet
+        try:
+            if mw and hasattr(mw, 'app'):
+                base_css = build_global_stylesheet(cfg)
+                # Replace glow section with animated version
+                animated_css = base_css.replace("/* Menu Glow Effect - Enhanced multi-layer */", glow_css)
+                mw.app.setStyleSheet(animated_css)  # type: ignore
+        except Exception:
+            pass
+    
+    def stop(self) -> None:
+        """Stop the animation timer."""
+        try:
+            self.timer.stop()
+            # Restore static stylesheet
+            if mw and hasattr(mw, 'app'):
+                cfg = load_config()
+                mw.app.setStyleSheet(build_global_stylesheet(cfg))  # type: ignore
+        except Exception:
+            pass
+
+
+def _start_glow_animation(cfg: Dict[str, Any]) -> None:
+    """Start or restart glow animation based on config."""
+    global _glow_animator
+    
+    # Stop existing animator
+    if _glow_animator:
+        try:
+            _glow_animator.stop()
+        except Exception:
+            pass
+        _glow_animator = None
+    
+    # Start new animator if enabled
+    if cfg.get("menuGlowEnabled", False):
+        try:
+            speed = float(cfg.get("menuGlowSpeed", 2.0) or 2.0)
+            _glow_animator = _GlowAnimator(speed)
+        except Exception:
+            pass
+
+
+def inject_webview_css(web_content: WebContent, context: Any) -> None:
+    """Inject CSS into webviews: reviewer, deck browser, overview, etc.
+
+    Called via gui_hooks.webview_will_set_content. Context determines which
+    CSS to apply (reviewer cards vs deck browser/overview screens).
+    """
+    cfg = load_config()
+    ctx_name = getattr(context, "__class__", type(context)).__name__
+    
+    try:
+        # Reviewer/Previewer/CardLayout: apply card-specific styles
+        if ctx_name in {"Reviewer", "Previewer", "CardLayout"}:
+            css = build_reviewer_css(cfg)
+            if css:
+                web_content.head += f"<style id='uba-reviewer-style'>{css}</style>"
+                # Add an additional style tag at the END of the body that will load last
+                # This is a fallback in case our head CSS gets overridden
+                webview_bg = cfg['webviewBackground']
+                webview_fg = _ensure_contrast_color(webview_bg, cfg.get('webviewForeground'))
+                web_content.body += f"""
+<style id='uba-reviewer-final-override'>
+html, body {{
+  background: {webview_bg} !important !important;
+  background-color: {webview_bg} !important !important;
+    color: {webview_fg} !important !important;
+}}
+body, body * {{
+    background: {webview_bg} !important !important;
+    background-color: {webview_bg} !important !important;
+    background-image: none !important !important;
+    color: {webview_fg} !important !important;
+}}
+*, [style*="background"], .nightMode, .nightMode *, .night-mode, .night-mode *, .night_mode, .night_mode * {{
+    background: {webview_bg} !important !important;
+    background-color: {webview_bg} !important !important;
+    background-image: none !important !important;
+    color: {webview_fg} !important !important;
+}}
+</style>
+"""
+        
+        # TopToolbar: apply toolbar-specific button colors
+        elif ctx_name in {"TopToolbar", "Toolbar"}:
+            css = build_toolbar_css(cfg)
+            if css:
+                web_content.head += f"<style id='uba-toolbar-style'>{css}</style>"
+        
+        # Browser editor: apply editor-specific styles
+        elif ctx_name in {"Editor", "EditorWebView"}:
+            css = build_browser_editor_css(cfg)
+            addon_css = build_addon_integration_css(cfg)
+            if css or addon_css:
+                web_content.head += f"<style id='uba-editor-style'>{css}\n{addon_css}</style>"
+        
+        # Browser window: apply webview styles to card preview
+        elif ctx_name in {"Browser", "PreviewDialog"}:
+            css = build_webview_css(cfg)
+            addon_css = build_addon_integration_css(cfg)
+            if css or addon_css:
+                web_content.head += f"<style id='uba-browser-style'>{css}\n{addon_css}</style>"
+            
+            # Preview panel background system (stabilized):
+            # Body uses panelBackground; outer (html) uses a slightly deeper tint for framing.
+            panel_bg = cfg.get('panelBackground', cfg['webviewBackground'])
+            outer_bg = cfg.get('browserPreviewOuterBackground', cfg.get('panelBackground', '#000000'))
+            
+            # Auto-detect text color based on panel background luminance
+            def _get_text_color_for_bg(hex_color: str) -> str:
+                """Determine if text should be dark or light based on background luminance."""
+                try:
+                    hex_color = hex_color.lstrip('#')
+                    r, g, b = int(hex_color[0:2], 16), int(hex_color[2:4], 16), int(hex_color[4:6], 16)
+                    luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255
+                    return '#000000' if luminance > 0.5 else '#ffffff'
+                except:
+                    return cfg.get('webviewForeground', '#e0e0e6')
+            
+            panel_text_color = _get_text_color_for_bg(panel_bg)
+            
+            web_content.body += f"""
+<script>
+(function() {{
+    const panelBg = '{panel_bg}';
+    const outerBg = '{outer_bg}';
+    const panelTextColor = '{panel_text_color}';
+    
+    function applyStyles() {{
+        // Set outer background to make panel stand out
+        document.documentElement.style.setProperty('background-color', outerBg, 'important');
+        document.documentElement.style.setProperty('background', outerBg, 'important');
+        document.documentElement.style.setProperty('background-image', 'none', 'important');
+        
+        if (document.body) {{
+            document.body.style.setProperty('background-color', panelBg, 'important');
+            document.body.style.setProperty('background', panelBg, 'important');
+            document.body.style.setProperty('background-image', 'none', 'important');
+            document.body.style.setProperty('color', panelTextColor, 'important');
+        }}
+        
+        // Ensure all text in the preview panel uses appropriate color
+        document.querySelectorAll('*').forEach(el => {{
+            el.style.setProperty('color', panelTextColor, 'important');
+        }});
+    }}
+    
+    if (document.readyState === 'loading') {{
+        document.addEventListener('DOMContentLoaded', applyStyles);
+    }} else {{
+        applyStyles();
+    }}
+    
+    // Re-apply on mutations
+    const observer = new MutationObserver(applyStyles);
+    observer.observe(document.documentElement, {{ childList: true, subtree: true }});
+    
+    // Continuous enforcement
+    setInterval(applyStyles, 500);
+}})();
+</script>
+"""
+        
+        # DeckBrowser, Overview, other HTML screens: apply webview styles
+        elif ctx_name in {"DeckBrowser", "Overview"}:
+            css = build_webview_css(cfg)
+            addon_css = build_addon_integration_css(cfg)
+            if css or addon_css:
+                web_content.head += f"<style id='uba-webview-style'>{css}\n{addon_css}</style>"
+        
+        # Bottom bars: use CSS without background image
+        elif ctx_name in {"DeckBrowserBottomBar", "OverviewBottomBar"}:
+            css = build_bottom_bar_css(cfg)
+            if css:
+                web_content.head += f"<style id='uba-bottombar-style'>{css}</style>"
+    except Exception:
+        pass
+
+
+def _on_card_review_webview_did_init(webview: Any, kind: Any) -> None:
+    """Force background on reviewer/previewer webviews right after creation."""
+    try:
+        cfg = load_config()
+        bg_hex = cfg.get("webviewBackground", "#0f0f17")
+        _set_webview_bg(webview, bg_hex)
+    except Exception:
+        pass
+
+
+def _on_previewer_did_init(previewer: Any) -> None:
+    """Style previewer dialog chrome (buttons/checkbox) to avoid gray bars."""
+    try:
+        from PyQt6.QtGui import QPalette, QColor
+        cfg = load_config()
+        panel_bg = cfg.get("panelBackground", cfg.get("webviewBackground", "#0f0f17"))
+        text_fg = cfg.get("textColor", "#e0e0e6")
+        pal = QPalette()
+        pal.setColor(QPalette.ColorRole.Window, QColor(panel_bg))
+        pal.setColor(QPalette.ColorRole.Base, QColor(panel_bg))
+        pal.setColor(QPalette.ColorRole.Button, QColor(panel_bg))
+        pal.setColor(QPalette.ColorRole.WindowText, QColor(text_fg))
+        pal.setColor(QPalette.ColorRole.ButtonText, QColor(text_fg))
+        for widget in (getattr(previewer, "bbox", None), getattr(previewer, "_web", None), previewer):
+            if widget and hasattr(widget, "setPalette"):
+                try:
+                    widget.setPalette(pal)
+                except Exception:
+                    pass
+            if widget and hasattr(widget, "setAutoFillBackground"):
+                try:
+                    widget.setAutoFillBackground(True)
+                except Exception:
+                    pass
+    except Exception:
+        pass
+
+
+def on_profile_did_open() -> None:
+    """Hook callback when profile opens: apply the theme."""
+    # Override CANVAS colors FIRST before any theme application
+    _override_canvas_palette()
+    _patch_on_theme_did_change()
+    apply_global_stylesheet()
+    # Force toolbar background via JavaScript injection
+    try:
+        if mw and hasattr(mw, 'toolbar') and hasattr(mw.toolbar, 'web'):
+            cfg = load_config()
+            toolbar_bg = cfg.get("globalBackground", "#0f0f17")
+            mw.toolbar.web.eval(f"""
+            document.documentElement.style.setProperty('background-color', '{toolbar_bg}', 'important');
+            document.body.style.setProperty('background-color', '{toolbar_bg}', 'important');
+            document.body.style.setProperty('background', '{toolbar_bg}', 'important');
+            """)
+    except Exception:
+        pass
+    # Try to force browser colors on any open browser
+    try:
+        _force_browser_colors()
+    except Exception:
+        pass
+    # Fix webview background colors at Qt level
+    try:
+        _fix_webview_backgrounds_on_theme_change()
+    except Exception:
+        pass
+
+    # Important: after Anki finishes building the initial UI, re-apply once more.
+    # This avoids a race where ThemeManager and toolbars overwrite our colors
+    # during startup, causing the “wrong until I click something” effect.
+    try:
+        from aqt.qt import QTimer  # type: ignore
+        # quick re-apply shortly after UI settles
+        QTimer.singleShot(150, refresh_theme)  # type: ignore
+        # final safety re-apply after animations/other addons (optional, cheap)
+        QTimer.singleShot(600, refresh_theme)  # type: ignore
+    except Exception:
+        pass
+
+    # Dev hint: show active addon path when running from repo scripts
+    try:
+        if os.environ.get("ANKIDEV"):
+            from aqt.utils import tooltip  # type: ignore
+            tooltip(f"{ADDON_NAME} loaded from: {ADDON_DIR}", period=2000)  # type: ignore
+    except Exception:
+        pass
+
+
+def refresh_theme() -> None:
+    """Public helper to reload config and reapply theme.
+    
+    Forces deck browser and all webviews to reload with new styles.
+    """
+    cfg = reload_config()
+    apply_global_stylesheet()
+    
+    # Force toolbar to rebuild and re-inject CSS
+    if mw and hasattr(mw, 'toolbar'):
+        try:
+            # Get the new CSS with updated colors
+            toolbar_css = build_toolbar_css(cfg)
+            # Inject directly into toolbar webview
+            if hasattr(mw.toolbar, 'web') and hasattr(mw.toolbar.web, 'eval'):
+                js_code = f"""
+                (function() {{
+                    let style = document.getElementById('uba-toolbar-style');
+                    if (!style) {{
+                        style = document.createElement('style');
+                        style.id = 'uba-toolbar-style';
+                        document.head.appendChild(style);
+                    }}
+                    style.textContent = `{toolbar_css.replace('`', '\\`').replace('\\', '\\\\')}`;
+                }})();
+                """
+                mw.toolbar.web.eval(js_code)
+        except Exception as e:
+            pass
+    
+    # Force deck browser to reload if it's the current screen
+    if mw and mw.state == "deckBrowser":
+        try:
+            mw.deckBrowser.refresh()
+        except Exception:
+            pass
+    
+    # Force current webview to refresh
+    if mw and hasattr(mw, 'web'):
+        try:
+            # Get current state and force a redraw
+            if mw.state == "deckBrowser":
+                mw.moveToState("deckBrowser")
+            elif mw.state == "overview":
+                mw.moveToState("overview")
+        except Exception:
+            pass
+
+# ------------------------- Addon Integration ------------------------- #
+
+def get_installed_addons() -> Dict[str, str]:
+    """Get list of installed addon IDs and their names."""
+    if not mw or not hasattr(mw, 'addonManager'):
+        return {}
+    
+    installed = {}
+    try:
+        for addon_id in mw.addonManager.allAddons():
+            meta = mw.addonManager.addonMeta(addon_id)
+            name = meta.get('name', addon_id) if meta else addon_id
+            installed[addon_id] = name
+    except Exception:
+        pass
+    return installed
+
+def build_addon_integration_css(cfg: Dict[str, Any]) -> str:
+    """Build CSS for specific popular addons if they're installed."""
+    if not cfg.get("enableAddonIntegration", True):
+        return ""
+    
+    installed = get_installed_addons()
+    css_parts = []
+    
+    # Review Heatmap (909972253)
+    if "909972253" in installed:
+        hm_bg = cfg.get('heatmapBackground', cfg['panelBackground'])
+        hm_border = cfg.get('heatmapBorderColor', cfg['accentColor'])
+        hm_cell_empty = cfg.get('heatmapCellEmpty', cfg['cardBackground'])
+        hm_cell_low = cfg.get('heatmapCellLow', cfg['accentColor'])
+        hm_cell_high = cfg.get('heatmapCellHigh', cfg['accentColor'])
+        hm_text = cfg.get('heatmapTextColor', cfg['textColor'])
+        hm_btn = cfg.get('heatmapButtonColor', cfg['accentColor'])
+        
+        css_parts.append(f"""
+/* Review Heatmap Integration - Force Override All Themes */
+.rh-container {{
+    background: {hm_bg} !important;
+    border: 2px solid {hm_border} !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+}}
+.cal-heatmap-container {{
+    background: {hm_bg} !important;
+}}
+.cal-heatmap-container .graph {{
+    background: transparent !important;
+}}
+/* Empty cells - override default gray */
+.cal-heatmap-container rect.graph-rect,
+.cal-heatmap-container .graph-rect,
+.rh-container .graph-rect {{
+    fill: {hm_cell_empty} !important;
+    stroke: {hm_border} !important;
+    stroke-width: 1px !important;
+}}
+/* Override ALL heatmap theme colors (olive, lime, ice, magenta, flame) */
+.cal-heatmap-container .q1, .cal-heatmap-container .q2, .cal-heatmap-container .q3, 
+.cal-heatmap-container .q4, .cal-heatmap-container .q5, .cal-heatmap-container .q6,
+.cal-heatmap-container .q7, .cal-heatmap-container .q8, .cal-heatmap-container .q9,
+.cal-heatmap-container .q10 {{
+    fill: {hm_cell_low} !important;
+    opacity: 0.15 !important;
+    stroke: {hm_border} !important;
+    stroke-width: 1px !important;
+}}
+/* Low activity - 20-40% opacity */
+.cal-heatmap-container .q11 {{
+    fill: {hm_cell_low} !important;
+    opacity: 0.2 !important;
+    stroke: {hm_border} !important;
+    stroke-width: 1px !important;
+}}
+.cal-heatmap-container .q12 {{
+    fill: {hm_cell_low} !important;
+    opacity: 0.3 !important;
+    stroke: {hm_border} !important;
+    stroke-width: 1px !important;
+}}
+.cal-heatmap-container .q13 {{
+    fill: {hm_cell_low} !important;
+    opacity: 0.4 !important;
+    stroke: {hm_border} !important;
+    stroke-width: 1px !important;
+}}
+/* Medium activity - 50-70% opacity */
+.cal-heatmap-container .q14 {{
+    fill: {hm_cell_high} !important;
+    opacity: 0.5 !important;
+    stroke: {hm_border} !important;
+    stroke-width: 1px !important;
+}}
+.cal-heatmap-container .q15 {{
+    fill: {hm_cell_high} !important;
+    opacity: 0.6 !important;
+    stroke: {hm_border} !important;
+    stroke-width: 1px !important;
+}}
+.cal-heatmap-container .q16 {{
+    fill: {hm_cell_high} !important;
+    opacity: 0.7 !important;
+    stroke: {hm_border} !important;
+    stroke-width: 1px !important;
+}}
+/* High activity - 80-90% opacity */
+.cal-heatmap-container .q17 {{
+    fill: {hm_cell_high} !important;
+    opacity: 0.8 !important;
+    stroke: {hm_border} !important;
+    stroke-width: 1px !important;
+}}
+.cal-heatmap-container .q18 {{
+    fill: {hm_cell_high} !important;
+    opacity: 0.85 !important;
+    stroke: {hm_border} !important;
+    stroke-width: 1px !important;
+}}
+/* Maximum activity - full opacity */
+.cal-heatmap-container .q19 {{
+    fill: {hm_cell_high} !important;
+    opacity: 0.95 !important;
+    stroke: {hm_border} !important;
+    stroke-width: 1px !important;
+}}
+.cal-heatmap-container .q20 {{
+    fill: {hm_cell_high} !important;
+    opacity: 1.0 !important;
+    stroke: {hm_border} !important;
+    stroke-width: 2px !important;
+}}
+/* Override night mode theme-specific colors */
+.night_mode .cal-heatmap-container .q1, .night_mode .cal-heatmap-container .q2, 
+.night_mode .cal-heatmap-container .q3, .night_mode .cal-heatmap-container .q4,
+.night_mode .cal-heatmap-container .q5, .night_mode .cal-heatmap-container .q6,
+.night_mode .cal-heatmap-container .q7, .night_mode .cal-heatmap-container .q8,
+.night_mode .cal-heatmap-container .q9, .night_mode .cal-heatmap-container .q10,
+.night_mode .cal-heatmap-container .q11, .night_mode .cal-heatmap-container .q12,
+.night_mode .cal-heatmap-container .q13, .night_mode .cal-heatmap-container .q14,
+.night_mode .cal-heatmap-container .q15, .night_mode .cal-heatmap-container .q16,
+.night_mode .cal-heatmap-container .q17, .night_mode .cal-heatmap-container .q18,
+.night_mode .cal-heatmap-container .q19, .night_mode .cal-heatmap-container .q20 {{
+    fill: {hm_cell_high} !important;
+}}
+/* Highlighted today */
+.cal-heatmap-container rect.highlight-now {{
+    stroke: {hm_border} !important;
+    stroke-width: 2px !important;
+}}
+.cal-heatmap-container .graph-label {{
+    fill: {hm_text} !important;
+}}
+.heatmap-controls {{
+    background: {hm_bg} !important;
+    padding: 8px !important;
+    border-radius: 8px !important;
+    margin-bottom: 10px !important;
+}}
+.hm-btn {{
+    background: {hm_btn} !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    padding: 4px 10px !important;
+}}
+.hm-btn:hover {{
+    filter: brightness(1.2) !important;
+}}
+.linkspan {{
+    color: {hm_btn} !important;
+}}
+.streak {{
+    background: {hm_bg} !important;
+    padding: 10px !important;
+    border-radius: 8px !important;
+    margin-top: 10px !important;
+}}
+.streak-info, .sstats {{
+    color: {hm_text} !important;
+}}
+""")
+    
+    # Image Occlusion Enhanced (1374772155)
+    if "1374772155" in installed:
+        css_parts.append(f"""
+/* Image Occlusion Integration */
+#io-overlay {{
+    background: {cfg['globalBackground']} !important;
+}}
+.io-buttons button {{
+    background: {cfg['accentColor']} !important;
+    color: #fff !important;
+}}
+""")
+    
+    # Hierarchical Tags (594329229)
+    if "594329229" in installed:
+        css_parts.append(f"""
+/* Hierarchical Tags Integration */
+.hierarchical-tag {{
+    background: {cfg['panelBackground']} !important;
+    color: {cfg['textColor']} !important;
+}}
+""")
+    
+    # Advanced Browser (874215009)
+    if "874215009" in installed:
+        css_parts.append(f"""
+/* Advanced Browser Integration */
+.advanced-browser-column {{
+    color: {cfg['textColor']} !important;
+}}
+""")
+    
+    # More Decks Stats (1556734708)
+    if "1556734708" in installed:
+        css_parts.append(f"""
+/* More Decks Stats Integration */
+.deck-stats {{
+    background: {cfg['cardBackground']} !important;
+    color: {cfg['textColor']} !important;
+    border: 1px solid {cfg['borderColor']} !important;
+}}
+""")
+    
+    return "\n".join(css_parts)
+
+# ------------------------- Hook Registration ------------------------- #
+
+def on_style_did_init(buf: str) -> str:
+    """Hook into Anki's theme system to inject our stylesheet.
+    
+    This is called by Anki's ThemeManager and allows us to append
+    CSS that will be applied with Anki's native stylesheets.
+    """
+    cfg = load_config()
+    our_styles = build_global_stylesheet(cfg)
+    addon_styles = build_addon_integration_css(cfg)
+    return buf + "\n" + our_styles + "\n" + addon_styles
+
+def _force_browser_colors(browser: Any = None) -> None:
+    """Force browser window colors using Qt palette - override Anki's CANVAS_CODE with panelBackground.
+    
+    Args:
+        browser: Browser instance. If None, tries to get from dialogs.
+    """
+    try:
+        # If no browser passed, try to get open browser
+        if not browser:
+            from aqt import dialogs
+            browser = dialogs.get("Browser")
+        
+        if browser:
+            from PyQt6.QtWidgets import QAbstractScrollArea, QAbstractItemView
+            cfg = load_config()
+            from PyQt6.QtGui import QColor, QPalette
+            palette = QPalette()
+            # Parse hex colors
+            panel_bg = QColor(cfg.get('panelBackground', '#2a2a35'))
+            text_fg = QColor(cfg.get('textColor', '#e0e0e6'))
+            accent = QColor(cfg.get('accentColor', '#4f86ff'))
+            
+            # Set ALL palette colors to override Anki's defaults (especially CANVAS_CODE)
+            palette.setColor(QPalette.ColorRole.Base, panel_bg)
+            palette.setColor(QPalette.ColorRole.AlternateBase, panel_bg)
+            palette.setColor(QPalette.ColorRole.Window, panel_bg)
+            palette.setColor(QPalette.ColorRole.Button, panel_bg)
+            palette.setColor(QPalette.ColorRole.Light, panel_bg)
+            palette.setColor(QPalette.ColorRole.Midlight, panel_bg)
+            palette.setColor(QPalette.ColorRole.Dark, panel_bg)
+            palette.setColor(QPalette.ColorRole.Mid, panel_bg)
+            palette.setColor(QPalette.ColorRole.Shadow, panel_bg)
+            palette.setColor(QPalette.ColorRole.WindowText, text_fg)
+            palette.setColor(QPalette.ColorRole.Text, text_fg)
+            palette.setColor(QPalette.ColorRole.ButtonText, text_fg)
+            palette.setColor(QPalette.ColorRole.BrightText, text_fg)
+            palette.setColor(QPalette.ColorRole.Highlight, accent)
+            palette.setColor(QPalette.ColorRole.HighlightedText, QColor("#fff"))
+            palette.setColor(QPalette.ColorRole.Link, accent)
+            
+            # Apply palette to browser window and all its children
+            browser.setPalette(palette)
+            browser.setAutoFillBackground(True)
+            
+            # Find and force ALL QAbstractItemView subclasses (QTableView, QTreeView, QListView, etc)
+            for widget in browser.findChildren(QAbstractItemView):
+                try:
+                    widget.setPalette(palette)
+                    widget.setAutoFillBackground(True)
+                    if widget.viewport():
+                        widget.viewport().setPalette(palette)
+                        widget.viewport().setAutoFillBackground(True)
+                except:
+                    pass
+            
+            # Find and style all QAbstractScrollArea viewports
+            for widget in browser.findChildren(QAbstractScrollArea):
+                try:
+                    if widget.viewport():
+                        widget.viewport().setPalette(palette)
+                        widget.viewport().setAutoFillBackground(True)
+                except:
+                    pass
+            
+            # Recursively apply palette to all child widgets
+            for widget in browser.findChildren(object):
+                try:
+                    if hasattr(widget, 'setPalette'):
+                        widget.setPalette(palette)
+                    if hasattr(widget, 'setAutoFillBackground'):
+                        widget.setAutoFillBackground(True)
+                except:
+                    pass
+    except Exception:
+        pass
+
+
+def _on_browser_will_show(browser: Any) -> None:
+    """Hook callback when Browser window is about to be shown.
+    
+    Force colors on the browser window to override Anki's default grays.
+    Also force background on all webviews (card preview, editor).
+    """
+    try:
+        # Apply Qt palette colors
+        _force_browser_colors(browser)
+        
+        # Force background on all AnkiWebView instances in browser
+        cfg = load_config()
+        webview_bg = cfg.get('webviewBackground', '#0f0f17')
+        
+        try:
+            from aqt.webview import AnkiWebView
+            # Find all webviews in the browser window
+            for child in browser.findChildren(AnkiWebView):
+                try:
+                    _set_webview_bg(child, webview_bg)
+                except Exception:
+                    pass
+        except Exception:
+            pass
+    except Exception:
+        pass
+
+
+def _fix_webview_backgrounds_on_theme_change() -> None:
+    """Override Anki's Qt-level webview background color.
+    
+    Anki sets QWebEnginePage.setBackgroundColor() to colors.CANVAS (gray).
+    We override this by calling setBackgroundColor() with our webviewBackground color.
+    This is the root cause fix - without this, all CSS overrides fail.
+    """
+    try:
+        from aqt import mw
+        if not mw:
+            return
+        cfg = load_config()
+        our_color_hex = cfg.get('webviewBackground', '#0f0f17')
+        
+        # Fix reviewer webview
+        if hasattr(mw, 'reviewer') and hasattr(mw.reviewer, 'web'):
+            _set_webview_bg(mw.reviewer.web, our_color_hex)
+        
+        # Fix browser preview webviews
+        try:
+            from aqt.browser import Browser
+            from aqt.browser.previewer import Previewer
+            for window in mw.app.allWidgets():
+                if isinstance(window, Browser):
+                    if hasattr(window, '_previewer') and isinstance(window._previewer, Previewer):
+                        if hasattr(window._previewer, '_web'):
+                            _set_webview_bg(window._previewer._web, our_color_hex)
+        except Exception:
+            pass
+    except Exception:
+        pass
+
+
+def register_hooks() -> None:
+    """Register Anki GUI hooks for profile load and webview content."""
+    if not gui_hooks:
+        return
+    try:
+        # Override CANVAS before anything else initializes
+        _override_canvas_palette()
+        
+        gui_hooks.profile_did_open.append(on_profile_did_open)
+        gui_hooks.webview_will_set_content.append(inject_webview_css)
+        gui_hooks.style_did_init.append(on_style_did_init)
+        gui_hooks.card_review_webview_did_init.append(_on_card_review_webview_did_init)
+        gui_hooks.previewer_did_init.append(_on_previewer_did_init)
+        # CRITICAL: Force browser colors when browser opens (fixes gray boxes)
+        gui_hooks.browser_will_show.append(_on_browser_will_show)
+        # Also force colors when browser row changes (card preview updates)
+        gui_hooks.browser_did_change_row.append(_on_browser_will_show)
+        # Hook into theme changes - override CANVAS first, then fix webviews
+        gui_hooks.theme_did_change.append(_override_canvas_palette)
+        gui_hooks.theme_did_change.append(_fix_webview_backgrounds_on_theme_change)
+        gui_hooks.theme_did_change.append(_patch_on_theme_did_change)
+    except Exception:
+        pass
+
+
+# Register immediately on import.
+register_hooks()
+
+# Apply styles if mw already initialized (defensive for some reload cases).
+if mw and mw.col is not None:
+    apply_global_stylesheet()
+
+# ------------------------- Minimal Logging ------------------------- #
+def _log_loaded() -> None:
+    """Lightweight logging compatible with modern Anki builds.
+
+    Uses print (visible in console when launched from terminal) and a
+    tooltip for quick user feedback. Avoids deprecated/internal
+    attributes like mw.logWindow that no longer exist in Qt6 versions.
+    """
+    try:
+        print(f"[{ADDON_NAME}] loaded")
+        if mw:
+            try:
+                from aqt.utils import tooltip  # type: ignore
+                mw.taskman.run_on_main(lambda: tooltip(f"{ADDON_NAME} theme active", period=2000))
+            except Exception:
+                pass
+    except Exception:
+        pass
+
+_log_loaded()
+
+# ------------------------- Theme Designer UI ------------------------- #
+
+try:  # UI imports (only available inside Anki runtime)
+    from aqt.qt import (
+        QDialog,
+        QVBoxLayout,
+        QHBoxLayout,
+        QFormLayout,
+        QLabel,
+        QLineEdit,
+        QPushButton,
+        QColorDialog,
+        QWidget,
+        QSpinBox,
+        QMenu,
+        Qt,
+    )  # type: ignore
+    from aqt.utils import tooltip  # type: ignore
+except Exception:  # pragma: no cover
+    QDialog = object  # type: ignore
+
+
+EDITABLE_FIELDS = [
+    ("Typography", None, "separator"),
+    ("Font Family", "fontFamily", "text"),
+    ("Card Text Size", "cardFontSize", "text"),
+    ("Card Max Width", "cardMaxWidth", "text"),
+    ("Card Corner Radius", "cardRadius", "text"),
+    ("Qt Widgets (Menus/Toolbars/Buttons)", None, "separator"),
+    ("Window Background", "globalBackground", "color"),
+    ("Toolbar/Panel Background", "panelBackground", "color"),
+    ("Text Color", "textColor", "color"),
+    ("Muted Text", "mutedTextColor", "color"),
+    ("Accent/Focus Color", "accentColor", "color"),
+    ("Danger/Warning Color", "dangerColor", "color"),
+    ("Success/OK Color", "successColor", "color"),
+    ("Border Color", "borderColor", "color"),
+    ("Decks & Overview (Main Screens)", None, "separator"),
+    ("Main Background Image", "webviewBackgroundImage", "image"),
+    ("Background Image Opacity", "webviewBackgroundImageOpacity", "slider"),
+    ("Main Background", "webviewBackground", "color"),
+    ("Content Panels", "webviewCanvas", "color"),
+    ("Main Text", "webviewForeground", "color"),
+    ("Link Color", "webviewLink", "color"),
+    ("Content Borders", "webviewBorder", "color"),
+    ("Deck Hover", "deckHoverBackground", "color"),
+    ("Review Cards Background", None, "separator"),
+    ("Background Gradient Start", "gradientStart", "color"),
+    ("Background Gradient End", "gradientEnd", "color"),
+    ("Card Container", "cardBackground", "color"),
+    ("Menu Glow Effect", None, "separator"),
+    ("Enable Menu Glow", "menuGlowEnabled", "checkbox"),
+    ("Glow Color", "menuGlowColor", "color"),
+    ("Glow Speed (seconds)", "menuGlowSpeed", "text"),
+    ("Glow Intensity (pixels)", "menuGlowIntensity", "text"),
+    ("Glow Blur (pixels)", "menuGlowBlur", "text"),
+    ("Card Styling", None, "separator"),
+    ("Force Theme to Card Content", "forceCardStyling", "checkbox"),
+]
+
+# Technical labels and help text for tooltips
+TECH_LABELS: Dict[str, str] = {
+    "fontFamily": "fontFamily",
+    "cardFontSize": "cardFontSize",
+    "cardMaxWidth": "cardMaxWidth",
+    "cardRadius": "cardRadius",
+    "globalBackground": "Qt globalBackground",
+    "panelBackground": "Qt panelBackground",
+    "textColor": "Qt textColor",
+    "mutedTextColor": "Qt mutedTextColor",
+    "accentColor": "Qt accentColor",
+    "dangerColor": "Qt dangerColor",
+    "successColor": "Qt successColor",
+    "borderColor": "Qt borderColor",
+    "webviewBackground": "webview background",
+    "webviewBackgroundImage": "webview background image",
+    "webviewBackgroundImageOpacity": "webview background image opacity",
+    "webviewCanvas": "webview canvas",
+    "webviewForeground": "webview foreground (text)",
+    "webviewLink": "webview link",
+    "webviewBorder": "webview border",
+    "deckHoverBackground": "deck hover background",
+    "gradientStart": "reviewer gradient start",
+    "gradientEnd": "reviewer gradient end",
+    "cardBackground": "reviewer card background",
+    "menuGlowEnabled": "menu glow enabled",
+    "menuGlowColor": "menu glow color",
+    "menuGlowSpeed": "menu glow speed",
+    "menuGlowIntensity": "menu glow intensity",
+    "menuGlowBlur": "menu glow blur",
+    "forceCardStyling": "force card styling",
+}
+
+FIELD_HELP: Dict[str, str] = {
+    "fontFamily": "Primary font family used across Anki.",
+    "cardFontSize": "Default font size for card text.",
+    "cardMaxWidth": "Maximum width of the card container (e.g. 800px).",
+    "cardRadius": "Corner radius of the card container (e.g. 12px).",
+    "globalBackground": "Background of the main window and dialogs (Qt widgets).",
+    "panelBackground": "Background of toolbars, sidebars, and panels (Qt widgets).",
+    "textColor": "Primary text color in Qt widgets.",
+    "mutedTextColor": "Secondary/disabled text color in Qt widgets.",
+    "accentColor": "Highlight, focus rings, and selected items (Qt).",
+    "dangerColor": "Warning/error accents (Qt).",
+    "successColor": "Success/confirmation accents (Qt).",
+    "borderColor": "Borders for Qt widgets.",
+    "webviewBackground": "Main page background for Deck Browser & Overview.",
+    "webviewBackgroundImage": "Optional image (file or data URI) behind main background (covers entire page). Images should be 2560x1440 for lossless scaling.",
+    "webviewBackgroundImageOpacity": "Transparency of background image (0.0 = invisible, 1.0 = fully opaque).",
+    "webviewCanvas": "Tables and content panels within webviews.",
+    "webviewForeground": "Text color in Deck Browser & Overview.",
+    "webviewLink": "Link color in HTML pages.",
+    "webviewBorder": "Borders for tables and panels in webviews.",
+    "deckHoverBackground": "Background when hovering over a deck row.",
+    "gradientStart": "Top color of Reviewer background gradient.",
+    "gradientEnd": "Bottom color of Reviewer background gradient.",
+    "cardBackground": "Reviewer card container background.",
+    "menuGlowEnabled": "Enable pulsing glow effect on menus and buttons.",
+    "menuGlowColor": "Color of the glow effect.",
+    "menuGlowSpeed": "Duration of one glow pulse cycle in seconds (e.g., 2.0).",
+    "menuGlowIntensity": "Maximum glow spread at peak pulse, in pixels (e.g. 35).",
+    "menuGlowBlur": "Base blur radius for the glow, in pixels (e.g. 8).",
+    "forceCardStyling": "Apply theme colors and animations to card content, buttons (Show Answer, Again, etc.). Only affects display, doesn't modify your cards permanently.",
+}
+
+
+class ColorButton(QPushButton):  # type: ignore
+    """A modern color picker button with live swatch and hex label.
+
+    - Click to open the color dialog
+    - Shows current hex as button text
+    - Right-click to reset to default
+    """
+
+    def __init__(self, key: str, initial_hex: str, on_change, parent: QWidget | None = None) -> None:  # type: ignore
+        super().__init__(parent)
+        from aqt.qt import QColor  # local import in Anki runtime
+        self._key = key
+        self._on_change = on_change
+        self._color = QColor(initial_hex) if initial_hex else QColor("#000000")  # type: ignore
+        # Qt5/Qt6 compatible pointing hand cursor
+        try:
+            self.setCursor(Qt.PointingHandCursor)  # Qt5 style
+        except Exception:
+            try:
+                self.setCursor(Qt.CursorShape.PointingHandCursor)  # Qt6 style
+            except Exception:
+                pass
+        self.setMinimumHeight(28)
+        self.setMaximumWidth(220)
+        self._update_visuals()
+        self.clicked.connect(self._pick_color)  # type: ignore
+
+    def _hex(self) -> str:
+        return self._color.name().upper()  # type: ignore
+
+    def _best_text_color(self) -> str:
+        r, g, b = self._color.red(), self._color.green(), self._color.blue()  # type: ignore
+        yiq = (r * 299 + g * 587 + b * 114) / 1000
+        return "#000000" if yiq > 160 else "#FFFFFF"
+
+    def _update_visuals(self) -> None:
+        hexv = self._hex()
+        fg = self._best_text_color()
+        self.setText(hexv)
+        self.setStyleSheet(
+            f"QPushButton {{ background-color: {hexv}; color: {fg}; border: 1px solid #666; border-radius: 6px; padding: 6px 10px; }}"
+        )
+        tech = TECH_LABELS.get(self._key, self._key)
+        help_text = FIELD_HELP.get(self._key, "")
+        tt = f"{tech} ({self._key}) — {help_text}".strip()
+        self.setToolTip(tt)
+
+    def _pick_color(self) -> None:
+        from aqt.qt import QColorDialog  # type: ignore
+        c = QColorDialog.getColor(self._color, self.window(), "Choose color")  # type: ignore
+        if c and c.isValid():  # type: ignore
+            self._color = c
+            self._update_visuals()
+            try:
+                self._on_change(self._key, self._hex())
+            except Exception:
+                pass
+
+    def contextMenuEvent(self, event) -> None:  # type: ignore
+        menu = QMenu(self)
+        reset = menu.addAction("Reset to default")
+        act = menu.exec_(event.globalPos())
+        if act == reset:
+            default = _DEFAULTS.get(self._key)
+            if isinstance(default, str):
+                self.set_hex(default)
+                try:
+                    self._on_change(self._key, default)
+                except Exception:
+                    pass
+
+    def set_hex(self, hexv: str) -> None:
+        from aqt.qt import QColor  # type: ignore
+        c = QColor(hexv)
+        if c and c.isValid():  # type: ignore
+            self._color = c
+            self._update_visuals()
+
+
+class ThemeDesignerDialog(QDialog):  # type: ignore
+    """Dialog for editing theme configuration with user-friendly labels.
+
+    Live preview has been removed for simplicity; use Apply/Save to see changes.
+    """
+
+    def __init__(self, parent: QWidget | None = None) -> None:  # type: ignore
+        super().__init__(parent)
+        self.setWindowTitle(f"{ADDON_NAME} - Theme Designer")
+        self.resize(700, 650)
+        self.cfg = load_config().copy()
+        self._controls: Dict[str, QWidget] = {}
+        self._building_ui = True
+        self._setup_ui()
+        self._building_ui = False
+
+    def _setup_ui(self) -> None:
+        main_layout = QVBoxLayout(self)
+        
+        # Preset management section at the top
+        preset_group = QWidget()
+        preset_layout = QVBoxLayout(preset_group)
+        preset_layout.addWidget(QLabel("<b>Preset Management</b>"))
+        
+        preset_controls = QHBoxLayout()
+        
+        # Preset selector
+        from aqt.qt import QComboBox  # type: ignore
+        self.preset_combo = QComboBox()
+        self._refresh_preset_list()
+        preset_controls.addWidget(QLabel("Preset:"))
+        preset_controls.addWidget(self.preset_combo)
+        
+        # Load preset button
+        load_preset_btn = QPushButton("Load")
+        load_preset_btn.setToolTip("Load the selected preset into the editor")
+        load_preset_btn.clicked.connect(self._load_preset_from_combo)  # type: ignore
+        preset_controls.addWidget(load_preset_btn)
+        
+        # Save as new preset button
+        save_preset_btn = QPushButton("Save As...")
+        save_preset_btn.setToolTip("Save current settings as a new preset")
+        save_preset_btn.clicked.connect(self._save_as_new_preset)  # type: ignore
+        preset_controls.addWidget(save_preset_btn)
+        
+        # Update existing preset button
+        update_preset_btn = QPushButton("Update")
+        update_preset_btn.setToolTip("Update the selected custom preset with current settings")
+        update_preset_btn.clicked.connect(self._update_existing_preset)  # type: ignore
+        preset_controls.addWidget(update_preset_btn)
+        
+        # Delete preset button
+        delete_preset_btn = QPushButton("Delete")
+        delete_preset_btn.setToolTip("Delete the selected custom preset")
+        delete_preset_btn.clicked.connect(self._delete_preset)  # type: ignore
+        preset_controls.addWidget(delete_preset_btn)
+        
+        preset_layout.addLayout(preset_controls)
+        main_layout.addWidget(preset_group)
+        
+        # Add separator
+        from aqt.qt import QFrame  # type: ignore
+        separator = QFrame()
+        try:
+            # Qt6 style
+            separator.setFrameShape(QFrame.Shape.HLine)  # type: ignore
+            separator.setFrameShadow(QFrame.Shadow.Sunken)  # type: ignore
+        except AttributeError:
+            # Qt5 fallback
+            separator.setFrameShape(QFrame.HLine)  # type: ignore
+            separator.setFrameShadow(QFrame.Sunken)  # type: ignore
+        main_layout.addWidget(separator)
+        
+        # Controls only (preview removed)
+        left_widget = QWidget()
+        left_layout = QVBoxLayout(left_widget)
+        left_widget.setMaximumWidth(520)
+        
+        from aqt.qt import QScrollArea  # type: ignore
+        scroll = QScrollArea()
+        scroll.setWidgetResizable(True)
+        form_widget = QWidget()
+        form = QFormLayout(form_widget)
+        
+        # Build editable controls with friendly labels + tooltips.
+        from aqt.qt import QFileDialog, QComboBox  # type: ignore
+        from aqt.qt import QInputDialog  # type: ignore
+        FONT_CHOICES = [
+            "System Default",
+            "Inter",
+            "Segoe UI",
+            "Roboto",
+            "Arial",
+            "Noto Sans",
+            "Georgia (Serif)",
+            "Custom...",
+        ]
+
+        for label, key, kind in EDITABLE_FIELDS:
+            if kind == "separator":
+                sep_label = QLabel(f"<b>{label}</b>")
+                form.addRow(sep_label)
+                continue
+            val = str(self.cfg.get(key, _DEFAULTS.get(key, "")))
+            friendly_label = label
+            tech = TECH_LABELS.get(key or "", "")
+            help_text = FIELD_HELP.get(key or "", "")
+            tooltip_text = (tech + (" — " + help_text if help_text else "")).strip()
+            if kind == "color":
+                color_btn = ColorButton(key or "", val, self.on_field_changed, self)
+                self._controls[key] = color_btn
+                lbl = QLabel(friendly_label)
+                if tooltip_text:
+                    lbl.setToolTip(f"{tech} ({key}) — {help_text}" if key else tooltip_text)
+                    color_btn.setToolTip(f"{tech} ({key}) — {help_text}" if key else tooltip_text)
+                form.addRow(lbl, color_btn)
+            elif kind == "image":
+                # Background image picker with dropdown for backgrounds folder
+                container_widget = QWidget()
+                container_layout = QVBoxLayout(container_widget)
+                container_layout.setContentsMargins(0, 0, 0, 0)
+                
+                # Dropdown + browse button row
+                row1 = QHBoxLayout()
+                image_combo = QComboBox()
+                
+                # Populate with images from backgrounds folder
+                backgrounds_folder = ADDON_DIR / "backgrounds"
+                image_combo.addItem("(None)", "")
+                if backgrounds_folder.exists():
+                    for img_file in sorted(backgrounds_folder.glob("*")):
+                        if img_file.suffix.lower() in [".png", ".jpg", ".jpeg", ".webp", ".gif"]:
+                            image_combo.addItem(img_file.name, str(img_file))
+                
+                # Add Browse option at the end
+                image_combo.addItem("Browse...", "__BROWSE__")
+                
+                # Set current value - match by filename or path
+                if val:
+                    # Try exact match first
+                    idx = image_combo.findData(val)
+                    if idx < 0:
+                        # Try matching by filename only
+                        filename = Path(val).name
+                        for i in range(image_combo.count()):
+                            item_data = image_combo.itemData(i)
+                            if item_data and item_data != "__BROWSE__" and Path(str(item_data)).name == filename:
+                                idx = i
+                                break
+                    if idx >= 0:
+                        image_combo.setCurrentIndex(idx)
+                
+                def on_image_combo_change(k=key, combo=image_combo):
+                    def _change():
+                        selected = combo.currentData()
+                        if selected == "__BROWSE__":
+                            # Open file browser starting from backgrounds folder
+                            start_path = str(ADDON_DIR / "backgrounds")
+                            fp, _ = QFileDialog.getOpenFileName(
+                                self, 
+                                "Choose Background Image", 
+                                start_path, 
+                                "Images (*.png *.jpg *.jpeg *.webp *.gif)"
+                            )  # type: ignore
+                            if fp:
+                                # Check if file is in backgrounds folder
+                                fp_path = Path(fp)
+                                if fp_path.parent == backgrounds_folder:
+                                    # Find it in the combo
+                                    idx = combo.findData(fp)
+                                    if idx >= 0:
+                                        combo.setCurrentIndex(idx)
+                                    else:
+                                        # Add to combo (shouldn't happen but just in case)
+                                        combo.insertItem(combo.count() - 1, fp_path.name, fp)
+                                        combo.setCurrentIndex(combo.count() - 2)
+                                else:
+                                    # File is outside backgrounds folder, add as custom entry
+                                    combo.insertItem(combo.count() - 1, f"Custom: {fp_path.name}", fp)
+                                    combo.setCurrentIndex(combo.count() - 2)
+                                self.on_field_changed(k, fp)
+                            else:
+                                # User cancelled, revert to previous selection
+                                if val:
+                                    idx = combo.findData(val)
+                                    if idx >= 0:
+                                        combo.setCurrentIndex(idx)
+                                    else:
+                                        combo.setCurrentIndex(0)
+                                else:
+                                    combo.setCurrentIndex(0)
+                        else:
+                            self.on_field_changed(k, selected or "")
+                    return _change
+                
+                image_combo.currentIndexChanged.connect(on_image_combo_change())  # type: ignore
+                
+                row1.addWidget(image_combo)
+                container_layout.addLayout(row1)
+                
+                # Disclaimer label
+                disclaimer = QLabel("⚠️ For best quality, use 2560x1440 images to prevent scaling issues.")
+                disclaimer.setStyleSheet("color: #ff9800; font-size: 11px; font-style: italic;")
+                disclaimer.setWordWrap(True)
+                container_layout.addWidget(disclaimer)
+                
+                self._controls[key] = image_combo
+                lbl = QLabel(friendly_label)
+                if tooltip_text:
+                    tt = f"{tech} ({key}) — {help_text}" if key else tooltip_text
+                    lbl.setToolTip(tt)
+                    image_combo.setToolTip(tt)
+                form.addRow(lbl, container_widget)
+            elif kind == "slider":
+                # Slider for opacity/transparency
+                container_widget = QWidget()
+                slider_layout = QHBoxLayout(container_widget)
+                slider_layout.setContentsMargins(0, 0, 0, 0)
+                
+                from aqt.qt import QSlider  # type: ignore
+                slider = QSlider(Qt.Orientation.Horizontal if hasattr(Qt, 'Orientation') else Qt.Horizontal)  # type: ignore
+                slider.setMinimum(0)
+                slider.setMaximum(100)
+                slider.setValue(int(float(val) * 100))
+                slider.setTickPosition(QSlider.TickPosition.TicksBelow if hasattr(QSlider, 'TickPosition') else QSlider.TicksBelow)  # type: ignore
+                slider.setTickInterval(10)
+                
+                value_label = QLabel(f"{int(float(val) * 100)}%")
+                value_label.setMinimumWidth(45)
+                value_label.setStyleSheet("font-weight: bold;")
+                
+                def on_slider_change(k=key, s=slider, lbl=value_label):
+                    def _change():
+                        pct = s.value()
+                        lbl.setText(f"{pct}%")
+                        self.on_field_changed(k, pct / 100.0)
+                    return _change
+                
+                slider.valueChanged.connect(on_slider_change())  # type: ignore
+                
+                slider_layout.addWidget(slider)
+                slider_layout.addWidget(value_label)
+                
+                self._controls[key] = slider
+                lbl = QLabel(friendly_label)
+                if tooltip_text:
+                    tt = f"{tech} ({key}) — {help_text}" if key else tooltip_text
+                    lbl.setToolTip(tt)
+                    slider.setToolTip(tt)
+                form.addRow(lbl, container_widget)
+            elif kind == "checkbox":
+                from aqt.qt import QCheckBox  # type: ignore
+                checkbox = QCheckBox()
+                checkbox.setChecked(bool(self.cfg.get(key, False)))
+                # Qt checkbox: 0=unchecked, 2=checked; convert to bool properly
+                checkbox.stateChanged.connect(lambda state, k=key: self.on_field_changed(k, state == 2))  # type: ignore
+                self._controls[key] = checkbox
+                lbl = QLabel(friendly_label)
+                if tooltip_text:
+                    lbl.setToolTip(f"{tech} ({key}) — {help_text}" if key else tooltip_text)
+                    checkbox.setToolTip(f"{tech} ({key}) — {help_text}" if key else tooltip_text)
+                lbl_widget = QWidget()
+                lbl_layout = QHBoxLayout(lbl_widget)
+                lbl_layout.setContentsMargins(0, 0, 0, 0)
+                lbl_layout.addWidget(checkbox)
+                lbl_layout.addWidget(QLabel(friendly_label))
+                lbl_layout.addStretch()
+                form.addRow("", lbl_widget)
+            elif key == "fontFamily":
+                combo = QComboBox()
+                combo.addItems(FONT_CHOICES)
+                # Determine initial selection
+                current_val = val
+                normalized_default = _DEFAULTS.get("fontFamily", "")
+                if current_val == normalized_default:
+                    combo.setCurrentText("System Default")
+                elif any(f for f in FONT_CHOICES if f.lower() in current_val.lower().split(',')):  # simple heuristic
+                    # choose first matching
+                    for f in FONT_CHOICES:
+                        if f == "Custom...":
+                            continue
+                        if f.lower() in current_val.lower():
+                            combo.setCurrentText(f)
+                            break
+                else:
+                    combo.addItem(current_val)  # show custom existing
+                    combo.setCurrentText(current_val)
+
+                def on_font_change():
+                    chosen = combo.currentText()
+                    if chosen == "System Default":
+                        self.on_field_changed("fontFamily", normalized_default)
+                    elif chosen == "Custom...":
+                        text, ok = QInputDialog.getText(self, "Custom Font Family", "Enter CSS font-family value:")  # type: ignore
+                        if ok and text.strip():
+                            combo.addItem(text.strip())
+                            combo.setCurrentText(text.strip())
+                            self.on_field_changed("fontFamily", text.strip())
+                        else:
+                            combo.setCurrentText("System Default")
+                            self.on_field_changed("fontFamily", normalized_default)
+                    else:
+                        # direct mapping to chosen name with fallbacks
+                        fallback = "Segoe UI, Arial, sans-serif"
+                        fam = {
+                            "Inter": "Inter, " + fallback,
+                            "Segoe UI": "Segoe UI, " + fallback,
+                            "Roboto": "Roboto, " + fallback,
+                            "Arial": "Arial, sans-serif",
+                            "Noto Sans": "'Noto Sans', " + fallback,
+                            "Georgia (Serif)": "Georgia, serif",
+                        }.get(chosen, normalized_default)
+                        self.on_field_changed("fontFamily", fam)
+
+                combo.currentIndexChanged.connect(on_font_change)  # type: ignore
+                self._controls[key] = combo
+                lbl = QLabel(friendly_label)
+                if tooltip_text:
+                    lbl.setToolTip(f"{tech} ({key}) — {help_text}")
+                    combo.setToolTip(f"{tech} ({key}) — {help_text}")
+                form.addRow(lbl, combo)
+            else:
+                line = QLineEdit(val)
+                line.textChanged.connect(lambda v, k=key: self.on_field_changed(k, v))  # type: ignore
+                self._controls[key] = line
+                lbl = QLabel(friendly_label)
+                if tooltip_text:
+                    lbl.setToolTip(f"{tech} ({key}) — {help_text}" if key else tooltip_text)
+                    line.setToolTip(f"{tech} ({key}) — {help_text}" if key else tooltip_text)
+                form.addRow(lbl, line)
+        
+        scroll.setWidget(form_widget)
+        left_layout.addWidget(QLabel("<b>Theme Settings</b>"))
+        left_layout.addWidget(scroll)
+        main_layout.addWidget(left_widget)
+
+        # Action buttons
+        btn_row = QHBoxLayout()
+        apply_btn = QPushButton("Apply")
+        save_btn = QPushButton("Save")
+        reset_btn = QPushButton("Reset Defaults")
+        close_btn = QPushButton("Close")
+        apply_btn.clicked.connect(self.apply_without_save)  # type: ignore
+        save_btn.clicked.connect(self.save_and_apply)  # type: ignore
+        reset_btn.clicked.connect(self.reset_defaults)  # type: ignore
+        close_btn.clicked.connect(self.close)  # type: ignore
+        btn_row.addWidget(apply_btn)
+        btn_row.addWidget(save_btn)
+        btn_row.addWidget(reset_btn)
+        btn_row.addStretch(1)
+        btn_row.addWidget(close_btn)
+        main_layout.addLayout(btn_row)
+
+    # ------------- Preset Management Methods ------------- #
+    def _refresh_preset_list(self) -> None:
+        """Refresh the preset combo box with all presets."""
+        if not hasattr(self, 'preset_combo'):
+            return
+        
+        current_text = self.preset_combo.currentText()
+        self.preset_combo.clear()
+        
+        all_presets = get_all_presets()
+        
+        # Add built-in presets first
+        for name in sorted(THEME_PRESETS.keys()):
+            self.preset_combo.addItem(f"🔒 {name}", name)
+        
+        # Add custom presets
+        custom = load_custom_presets()
+        if custom:
+            for name in sorted(custom.keys()):
+                self.preset_combo.addItem(f"✨ {name}", name)
+        
+        # Restore selection if possible
+        if current_text:
+            idx = self.preset_combo.findText(current_text)
+            if idx >= 0:
+                self.preset_combo.setCurrentIndex(idx)
+    
+    def _load_preset_from_combo(self) -> None:
+        """Load the selected preset into the editor."""
+        if not hasattr(self, 'preset_combo'):
+            return
+        
+        preset_name = self.preset_combo.currentData()
+        if not preset_name:
+            return
+        
+        all_presets = get_all_presets()
+        if preset_name not in all_presets:
+            tooltip("Preset not found!", period=1500)  # type: ignore
+            return
+        
+        preset = all_presets[preset_name]
+        
+        # Update internal config
+        self.cfg = {**self.cfg, **preset}
+        
+        # Update all UI controls
+        self._building_ui = True
+        for _, key, kind in EDITABLE_FIELDS:
+            if not key:
+                continue
+            ctrl = self._controls.get(key)
+            if not ctrl:
+                continue
+            
+            value = self.cfg.get(key, _DEFAULTS.get(key, ""))
+            
+            if isinstance(ctrl, QLineEdit):
+                ctrl.setText(str(value))
+            elif hasattr(ctrl, "set_hex"):  # ColorButton
+                try:
+                    ctrl.set_hex(str(value))  # type: ignore
+                except Exception:
+                    pass
+            elif kind == "checkbox":
+                from aqt.qt import QCheckBox  # type: ignore
+                if isinstance(ctrl, QCheckBox):
+                    ctrl.setChecked(bool(value))
+            elif kind == "slider":
+                from aqt.qt import QSlider  # type: ignore
+                if isinstance(ctrl, QSlider):
+                    ctrl.setValue(int(float(value) * 100))
+            elif kind == "image":
+                from aqt.qt import QComboBox  # type: ignore
+                if isinstance(ctrl, QComboBox):
+                    # Handle both full paths and just filenames
+                    val_str = str(value)
+                    if val_str:
+                        # Try exact match first
+                        idx = ctrl.findData(val_str)
+                        if idx < 0:
+                            # Try matching by filename only
+                            filename = Path(val_str).name
+                            for i in range(ctrl.count()):
+                                item_data = ctrl.itemData(i)
+                                if item_data and Path(str(item_data)).name == filename:
+                                    idx = i
+                                    break
+                        if idx >= 0:
+                            ctrl.setCurrentIndex(idx)
+                            # If loading a preset with a background image, set opacity to 50% if not already set
+                            if value and key == "webviewBackgroundImage":
+                                opacity_key = "webviewBackgroundImageOpacity"
+                                if opacity_key not in preset or preset.get(opacity_key) == 1.0:
+                                    self.cfg[opacity_key] = 0.5
+                                    # Update opacity slider if it exists
+                                    opacity_ctrl = self._controls.get(opacity_key)
+                                    if opacity_ctrl:
+                                        from aqt.qt import QSlider  # type: ignore
+                                        if isinstance(opacity_ctrl, QSlider):
+                                            opacity_ctrl.setValue(50)
+                        else:
+                            ctrl.setCurrentIndex(0)  # None
+                    else:
+                        ctrl.setCurrentIndex(0)  # None
+            elif kind == "fontFamily":
+                from aqt.qt import QComboBox  # type: ignore
+                if isinstance(ctrl, QComboBox):
+                    # Try to match font family
+                    font_val = str(value)
+                    if "Inter" in font_val:
+                        ctrl.setCurrentText("Inter")
+                    elif "Roboto" in font_val:
+                        ctrl.setCurrentText("Roboto")
+                    elif "Georgia" in font_val:
+                        ctrl.setCurrentText("Georgia (Serif)")
+                    elif "Comic Sans" in font_val:
+                        ctrl.setCurrentText("Comic Sans MS")
+                    else:
+                        ctrl.setCurrentText("System Default")
+        
+        self._building_ui = False
+        tooltip(f"Loaded preset: {preset_name}", period=2000)  # type: ignore
+    
+    def _save_as_new_preset(self) -> None:
+        """Save current settings as a new preset."""
+        from aqt.qt import QInputDialog  # type: ignore
+        
+        name, ok = QInputDialog.getText(
+            self,
+            "Save Preset",
+            "Enter preset name:",
+            text="My Custom Theme"
+        )
+        
+        if not ok or not name or not name.strip():
+            return
+        
+        name = name.strip()
+        
+        # Check if overwriting built-in
+        if is_builtin_preset(name):
+            from aqt.utils import askUser  # type: ignore
+            if not askUser(
+                f"'{name}' is a built-in preset. Your custom version will override it in the menu.\n\nContinue?",
+                parent=self,
+                title="Override Built-in Preset?"
+            ):
+                return
+        
+        # Check if overwriting existing custom
+        custom = load_custom_presets()
+        if name in custom:
+            from aqt.utils import askUser  # type: ignore
+            if not askUser(
+                f"Preset '{name}' already exists.\n\nOverwrite it?",
+                parent=self,
+                title="Overwrite Preset?"
+            ):
+                return
+        
+        if save_current_as_preset(name, self.cfg):
+            self._refresh_preset_list()
+            # Select the newly saved preset
+            idx = self.preset_combo.findData(name)
+            if idx >= 0:
+                self.preset_combo.setCurrentIndex(idx)
+            # Rebuild menu to show new preset
+            rebuild_beautify_menu()
+            tooltip(f"Preset '{name}' saved!", period=2000)  # type: ignore
+        else:
+            tooltip("Failed to save preset!", period=1500)  # type: ignore
+    
+    def _update_existing_preset(self) -> None:
+        """Update the selected preset with current settings."""
+        if not hasattr(self, 'preset_combo'):
+            return
+        
+        preset_name = self.preset_combo.currentData()
+        if not preset_name:
+            tooltip("No preset selected!", period=1500)  # type: ignore
+            return
+        
+        # Cannot update built-in presets
+        if is_builtin_preset(preset_name) and preset_name not in load_custom_presets():
+            tooltip("Cannot update built-in presets! Use 'Save As...' instead.", period=2000)  # type: ignore
+            return
+        
+        from aqt.utils import askUser  # type: ignore
+        if not askUser(
+            f"Update preset '{preset_name}' with current settings?",
+            parent=self,
+            title="Update Preset?"
+        ):
+            return
+        
+        # Update the custom config
+        self.cfg["fontFamily"] = str(self.cfg.get("fontFamily", _DEFAULTS["fontFamily"]))
+        self.cfg["cardFontSize"] = str(self.cfg.get("cardFontSize", _DEFAULTS["cardFontSize"]))
+        
+        if save_current_as_preset(preset_name, self.cfg):
+            # Rebuild menu in case preset name changed
+            rebuild_beautify_menu()
+            tooltip(f"Preset '{preset_name}' updated!", period=2000)  # type: ignore
+        else:
+            tooltip("Failed to update preset!", period=1500)  # type: ignore
+    
+    def _delete_preset(self) -> None:
+        """Delete the selected custom preset."""
+        if not hasattr(self, 'preset_combo'):
+            return
+        
+        preset_name = self.preset_combo.currentData()
+        if not preset_name:
+            tooltip("No preset selected!", period=1500)  # type: ignore
+            return
+        
+        # Cannot delete built-in presets
+        if is_builtin_preset(preset_name) and preset_name not in load_custom_presets():
+            tooltip("Cannot delete built-in presets!", period=1500)  # type: ignore
+            return
+        
+        from aqt.utils import askUser  # type: ignore
+        if not askUser(
+            f"Delete preset '{preset_name}'?\n\nThis cannot be undone.",
+            parent=self,
+            title="Delete Preset?"
+        ):
+            return
+        
+        if delete_custom_preset(preset_name):
+            self._refresh_preset_list()
+            # Rebuild menu to remove deleted preset
+            rebuild_beautify_menu()
+            tooltip(f"Preset '{preset_name}' deleted!", period=2000)  # type: ignore
+        else:
+            tooltip("Failed to delete preset!", period=1500)  # type: ignore
+
+    # ------------- Field & Config Handling ------------- #
+    def on_field_changed(self, key: str, value: any) -> None:
+        if self._building_ui:
+            return
+        # Handle different value types properly
+        if isinstance(value, bool):
+            self.cfg[key] = value
+        elif isinstance(value, (int, float)):
+            self.cfg[key] = value
+        else:
+            self.cfg[key] = str(value)
+        # Only update in-memory config; apply on Apply/Save.
+
+    def update_preview(self, live: bool = False) -> None:
+        # Preview removed; no-op for compatibility.
+        return
+
+    def _apply_global_temp(self) -> None:
+        global _config_cache
+        # Ensure self.cfg overrides cached values completely
+        _config_cache = {**(_config_cache or {}), **self.cfg}
+        apply_global_stylesheet()
+        # Force deck browser reload if visible
+        if mw and mw.state == "deckBrowser":
+            try:
+                mw.moveToState("deckBrowser")
+            except Exception:
+                pass
+
+    def apply_without_save(self) -> None:
+        self._apply_global_temp()
+        tooltip("Theme applied (not saved). Return to deck browser to see changes.", period=2500)  # type: ignore
+
+    def save_and_apply(self) -> None:
+        # Persist to Anki's config system
+        try:
+            if mw and hasattr(mw, "addonManager"):
+                save_blob = {k: self.cfg.get(k) for k in _DEFAULTS.keys()}
+                mw.addonManager.writeConfig(ADDON_ID, save_blob)  # type: ignore
+        except Exception:
+            pass
+        reload_config()  # repopulates cache
+        apply_global_stylesheet()
+        # Force deck browser reload
+        if mw and mw.state == "deckBrowser":
+            try:
+                mw.moveToState("deckBrowser")
+            except Exception:
+                pass
+        tooltip("Theme saved & applied. Return to deck browser to see changes.", period=2500)  # type: ignore
+
+    def reset_defaults(self) -> None:
+        self.cfg = _DEFAULTS.copy()
+        for _, key, kind in EDITABLE_FIELDS:
+            ctrl = self._controls.get(key)
+            if isinstance(ctrl, QLineEdit):
+                ctrl.setText(str(self.cfg[key]))
+            elif ctrl and hasattr(ctrl, "set_hex"):
+                try:
+                    ctrl.set_hex(str(self.cfg[key]))  # type: ignore
+                except Exception:
+                    pass
+            elif kind == "checkbox":
+                from aqt.qt import QCheckBox  # type: ignore
+                if isinstance(ctrl, QCheckBox):
+                    ctrl.setChecked(bool(self.cfg[key]))
+        # No live preview; keep UI values only.
+        tooltip("Defaults restored (not saved).", period=2000)  # type: ignore
+
+
+def open_theme_designer_dialog() -> None:
+    """Open the Theme Designer dialog."""
+    if not mw:
+        return
+    dlg = ThemeDesignerDialog(mw)  # type: ignore
+    dlg.show()
+
+
+def open_style_guide() -> None:
+    """Show a simple style guide explaining what each setting affects."""
+    if not mw:
+        return
+    try:
+        d = QDialog(mw)  # type: ignore
+        d.setWindowTitle(f"{ADDON_NAME} - Style Guide")
+        d.resize(640, 520)
+        v = QVBoxLayout(d)
+        txt = QLabel(
+            """
+            <h3>What gets styled and how</h3>
+            <p><b>Anki has TWO UI systems:</b></p>
+            <ol>
+              <li><b>Qt Widgets</b> (native controls): menus, toolbars, dialogs, buttons, inputs</li>
+              <li><b>Webviews</b> (HTML/CSS/JS): deck browser, overview, review cards, congrats screen</li>
+            </ol>
+            <h4>Qt Widget Colors (affect native UI)</h4>
+            <ul>
+              <li><b>Window Background</b>: Main window and dialog backgrounds</li>
+              <li><b>Panel/Toolbar Background</b>: Toolbars, menus, sidebar panels</li>
+              <li><b>Text Color</b>: Primary text in Qt widgets</li>
+              <li><b>Muted Text</b>: Secondary/disabled text</li>
+              <li><b>Accent/Focus</b>: Hover states, selected items, focus rings</li>
+              <li><b>Danger/Success</b>: Warning/success indicators</li>
+              <li><b>Border Color</b>: Qt widget borders</li>
+            </ul>
+            <h4>Webview Colors (affect HTML screens)</h4>
+            <ul>
+              <li><b>Webview Background</b>: Page background for deck browser & overview</li>
+              <li><b>Webview Canvas</b>: Deck list tables and card containers</li>
+              <li><b>Webview Text/Links</b>: Text and links in HTML screens</li>
+              <li><b>Deck Hover</b>: Deck row hover highlight</li>
+              <li><b>Gradient Start/End</b>: Review card screen background gradient</li>
+              <li><b>Card Background</b>: Semi-transparent card container in reviewer</li>
+            </ul>
+            <p><b>Still not styled?</b> Some areas use custom components. Use <b>extraGlobalCss</b> (Qt widgets),
+            <b>extraWebviewCss</b> (deck browser/overview), or <b>extraReviewerCss</b> (cards) for overrides.</p>
+            """
+        )
+        txt.setWordWrap(True)
+        v.addWidget(txt)
+        btn = QPushButton("Close")
+        btn.clicked.connect(d.close)  # type: ignore
+        v.addWidget(btn)
+        d.show()
+    except Exception:
+        tooltip("Could not open style guide.")  # type: ignore
+
+
+def rebuild_beautify_menu() -> None:
+    """Remove and rebuild the Design menu (for updating preset list)."""
+    if not mw or not hasattr(mw, "form"):
+        return
+    try:
+        menubar = mw.form.menubar  # type: ignore
+        # Remove existing menu
+        for act in menubar.actions():
+            if act.text() == "Design":
+                menubar.removeAction(act)
+                break
+        # Rebuild
+        add_beautify_menu()
+    except Exception:
+        pass
+
+
+def add_beautify_menu() -> None:
+    """Insert a top-level 'Design' menu into the menubar with actions."""
+    if not mw or not hasattr(mw, "form"):
+        return
+    try:
+        menubar = mw.form.menubar  # type: ignore
+        # Avoid duplicate menu creation on reload.
+        for act in menubar.actions():
+            if act.text() == "Design":
+                return
+        beautify_menu = QMenu("Design", mw)  # type: ignore
+        # Insert before Help menu if available.
+        help_action = getattr(mw.form, "menuHelp", None)  # type: ignore
+        if help_action and hasattr(help_action, "menuAction"):
+            menubar.insertMenu(help_action.menuAction(), beautify_menu)  # type: ignore
+        else:
+            menubar.addMenu(beautify_menu)  # type: ignore
+        
+        beautify_menu.addAction("Theme Designer...", open_theme_designer_dialog)  # type: ignore
+        beautify_menu.addAction("Style Guide", open_style_guide)  # type: ignore
+        beautify_menu.addSeparator()  # type: ignore
+        
+        # Force Card Styling toggle
+        cfg = load_config()
+        card_styling_action = beautify_menu.addAction("✓ Force Theme to Card Content" if cfg.get("forceCardStyling", False) else "☐ Force Theme to Card Content")  # type: ignore
+        card_styling_action.triggered.connect(_toggle_card_styling)  # type: ignore
+        beautify_menu.addSeparator()  # type: ignore
+        
+        # Presets submenu
+        presets_menu = beautify_menu.addMenu("🎨 Presets")  # type: ignore
+        
+        # Built-in presets
+        for preset_name in sorted(THEME_PRESETS.keys()):
+            presets_menu.addAction(f"🔒 {preset_name}", lambda p=preset_name: apply_preset(p))  # type: ignore
+        
+        # Custom presets (if any)
+        custom_presets = load_custom_presets()
+        if custom_presets:
+            presets_menu.addSeparator()  # type: ignore
+            for preset_name in sorted(custom_presets.keys()):
+                presets_menu.addAction(f"✨ {preset_name}", lambda p=preset_name: apply_preset(p))  # type: ignore
+        
+        beautify_menu.addSeparator()  # type: ignore
+        beautify_menu.addAction("Reload Theme", lambda: (refresh_theme(), tooltip("Theme reloaded. Deck browser refreshed.", period=2000)))  # type: ignore
+        beautify_menu.addAction("Reset to Defaults", lambda: (_write_defaults_and_reload(), tooltip("Defaults saved & applied", period=1800)))  # type: ignore
+    except Exception:
+        pass
+
+
+def _open_url(url: str) -> None:
+    """Open URL in system default browser."""
+    try:
+        import webbrowser
+        webbrowser.open(url)
+    except Exception:
+        pass
+
+
+def _toggle_card_styling() -> None:
+    """Toggle forceCardStyling setting and refresh."""
+    try:
+        cfg = load_config()
+        current = cfg.get("forceCardStyling", False)
+        new_value = not current
+        
+        if mw and hasattr(mw, "addonManager"):
+            cfg["forceCardStyling"] = new_value
+            mw.addonManager.writeConfig(ADDON_ID, cfg)  # type: ignore
+        
+        reload_config()
+        
+        # Rebuild menu to update checkmark
+        menubar = mw.form.menubar  # type: ignore
+        for act in menubar.actions():
+            if act.text() == "Design":
+                menubar.removeAction(act)
+                break
+        add_beautify_menu()
+        
+        status = "enabled" if new_value else "disabled"
+        tooltip(f"Card content theming {status}. Review a card to see changes.", period=2500)  # type: ignore
+    except Exception:
+        pass
+
+
+def _write_defaults_and_reload() -> None:
+    try:
+        if mw and hasattr(mw, "addonManager"):
+            mw.addonManager.writeConfig(ADDON_ID, {k: v for k, v in _DEFAULTS.items()})  # type: ignore
+        reload_config()
+        apply_global_stylesheet()
+    except Exception:
+        pass
+
+# Ensure menu appears after profile load.
+def _post_profile_menu() -> None:
+    add_beautify_menu()
+
+if gui_hooks:
+    try:
+        gui_hooks.profile_did_open.append(_post_profile_menu)
+    except Exception:
+        pass
+
+__all__ = [
+    "load_config",
+    "reload_config",
+    "apply_global_stylesheet",
+    "inject_webview_css",
+    "refresh_theme",
+]

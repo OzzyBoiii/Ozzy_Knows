@@ -1,0 +1,30 @@
+{% comment %}
+    * Parameters *
+    slot: Element | string
+    with_left_accent: boolean (optional) - default: False
+    with_shadow: boolean (optional) - default: False
+{% endcomment %}
+
+<c-vars
+    base_class="bg-background-basic-surface min-w-[282px] max-w-[720px] overflow-clip p-4 rounded-xl border border-border-basic-default"
+    :with_left_accent=False
+    :with_shadow=False
+    :with_left_accent_variants="{
+        True: 'shadow-[inset_4px_0px_0px_0px_var(--border-primary-main)]',
+        False: '',
+    }"
+    :with_shadow_variants="{
+        True: 'shadow-2xl',
+        False: '',
+    }"
+/>
+
+<div
+    class="{{ base_class }}
+    {{ with_left_accent_variants|get_item:with_left_accent }}
+    {{ with_shadow_variants|get_item:with_shadow }}
+    {{ class }}"
+    {{ attrs }}
+>
+    {{ slot }}
+</div>

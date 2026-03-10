@@ -1,0 +1,264 @@
+import json
+import math
+import time
+from anki.decks import DeckManager
+from aqt.utils import askUser
+from typing import List
+from anki.stats_pb2 import CardStatsResponse
+from anki.cards import Card
+from anki.stats import (
+    REVLOG_LRN,
+    REVLOG_REV,
+    REVLOG_RELRN,
+    REVLOG_CRAM,
+)
+from aqt import mw
+from datetime import date, datetime, timedelta
+
+
+def RepresentsInt(s):
+    try:
+        return int(s)
+    except ValueError:
+        return None
+
+
+def reset_ivl_and_due(cid: int, revlogs: List[CardStatsResponse.StatsRevlogEntry]):
+    card = mw.col.get_card(cid)
+    card.ivl = int(revlogs[0].interval / 86400)
+    due = (
+        math.ceil(
+            (revlogs[0].time + revlogs[0].interval - mw.col.sched.day_cutoff) / 86400
+        )
+        + mw.col.sched.today
+    )
+    if card.odid:
+        card.odue = due if due != 0 else 1
+    else:
+        card.due = due
+    mw.col.update_card(card)
+
+
+def get_revlogs(cid: int):
+    return mw.col.get_review_logs(cid)
+
+
+def filter_revlogs(
+    revlogs: List[CardStatsResponse.StatsRevlogEntry],
+) -> List[CardStatsResponse.StatsRevlogEntry]:
+    return list(
+        filter(
+            lambda x: x.button_chosen >= 1
+            and (x.review_kind != REVLOG_CRAM or x.ease != 0),
+            revlogs,
+        )
+    )
+
+
+def get_last_review_date_and_interval(card: Card):
+    revlogs = filter_revlogs(get_revlogs(card.id))
+    last_interval_seconds = 0  # set default value
+
+    if revlogs:
+        last_revlog = revlogs[0]
+        last_review_date = (
+            math.ceil((last_revlog.time - mw.col.sched.day_cutoff) / 86400)
+            + mw.col.sched.today
+        )
+        # Calculate last_interval
+        if hasattr(last_revlog, "last_interval"):
+            # prefer 'last_interval' attribute if present
+            last_interval_seconds = last_revlog.last_interval
+        elif len(revlogs) >= 2:
+            # otherwise, fallback to the time difference between the two most recent revlogs
+            last_interval_seconds = revlogs[0].time - revlogs[1].time
+    else:
+        due = card.odue if card.odid else card.due
+        last_review_date = due - card.ivl
+
+    last_interval = int(round(last_interval_seconds / 86400))
+    return last_review_date, last_interval
+
+
+def update_card_due_ivl(card: Card, new_ivl: int):
+    new_ivl = max(new_ivl, 1)
+    card.ivl = new_ivl
+    last_review_date, _ = get_last_review_date_and_interval(card)
+    new_due = last_review_date + new_ivl
+    if card.odid:
+        card.odue = new_due if new_due != 0 else 1
+    else:
+        card.due = new_due
+    return card
+
+
+def has_again(revlogs: List[CardStatsResponse.StatsRevlogEntry]):
+    for r in revlogs:
+        if r.button_chosen == 1:
+            return True
+    return False
+
+
+def has_manual_reset(revlogs: List[CardStatsResponse.StatsRevlogEntry]):
+    last_kind = None
+    for r in revlogs:
+        if r.button_chosen == 0:
+            return True
+        if (
+            last_kind is not None
+            and last_kind in (REVLOG_REV, REVLOG_RELRN)
+            and r.review_kind == REVLOG_LRN
+        ):
+            return True
+        last_kind = r.review_kind
+    return False
+
+
+FUZZ_RANGES = [
+    {
+        "start": 2.5,
+        "end": 7.0,
+        "factor": 0.15,
+    },
+    {
+        "start": 7.0,
+        "end": 20.0,
+        "factor": 0.1,
+    },
+    {
+        "start": 20.0,
+        "end": math.inf,
+        "factor": 0.05,
+    },
+]
+
+
+def get_fuzz_range(interval, last_interval, maximum_interval):
+    delta = 1.0
+    for range in FUZZ_RANGES:
+        delta += range["factor"] * max(
+            min(interval, range["end"]) - range["start"], 0.0
+        )
+    interval = min(interval, maximum_interval)
+    min_ivl = int(round(interval - delta))
+    max_ivl = int(round(interval + delta))
+    min_ivl = max(2, min_ivl)
+    max_ivl = min(max_ivl, maximum_interval)
+    if interval > last_interval:
+        min_ivl = max(min_ivl, last_interval + 1)
+    min_ivl = min(min_ivl, max_ivl)
+    return min_ivl, max_ivl
+
+
+def due_to_date_str(due: int) -> str:
+    offset = due - mw.col.sched.today
+    today_date = sched_current_date()
+    return (today_date + timedelta(days=offset)).strftime("%Y-%m-%d")
+
+
+def sched_current_date() -> date:
+    now = datetime.now()
+    next_day_start_at = mw.col.get_config("rollover")
+    return (now - timedelta(hours=next_day_start_at)).date()
+
+
+DECAY = -0.2
+
+
+def power_forgetting_curve(t, s, decay=DECAY):
+    factor = 0.9 ** (1 / decay) - 1
+    return (1 + factor * t / s) ** decay
+
+
+def next_interval(s, r, decay=DECAY):
+    factor = 0.9 ** (1 / decay) - 1
+    ivl = s / factor * (r ** (1 / decay) - 1)
+    return max(1, int(round(ivl)))
+
+
+def write_custom_data(card: Card, key, value):
+    if card.custom_data != "":
+        custom_data = json.loads(card.custom_data)
+        custom_data[key] = value
+    else:
+        custom_data = {key: value}
+    card.custom_data = json.dumps(custom_data)
+
+
+def rotate_number_by_k(N, K):
+    num = str(N)
+    length = len(num)
+    K = K % length
+    rotated = num[K:] + num[:K]
+    return int(rotated)
+
+
+def p_obey_easy_days(num_of_easy_days, easy_days_review_ratio):
+    """
+    Calculate the probability of obeying easy days to ensure the review ratio.
+    Parameters:
+    - num_of_easy_days: the number of easy days
+    - easy_days_review_ratio: the ratio of reviews on easy days
+    Math:
+    - A week has 7 days, n easy days, 7 - n non-easy days
+    - Assume we have y reviews per non-easy day, the number of reviews per easy day is a * y
+    - The total number of reviews in a week is y * (7 - n) + a * y * n
+    - The probability of a review on an easy day is the number of reviews on easy days divided by the total number of reviews
+    - (a * y * n) / (y * (7 - n) + a * y * n) = (a * n) / (a * n + 7 - n)
+    - The probability of skipping a review on an easy day is 1 - (a * n) / (a * n + 7 - n) = (7 - n) / (a * n + 7 - n)
+    """
+    return (7 - num_of_easy_days) / (
+        easy_days_review_ratio * num_of_easy_days + 7 - num_of_easy_days
+    )
+
+
+def p_obey_specific_due_dates(num_of_specific_due_dates, easy_days_review_ratio):
+    """
+    Calculate the probability of obeying specific due dates to ensure the review ratio.
+    Parameters:
+    - num_of_specific_due_dates: the number of specific due dates
+    - easy_days_review_ratio: the ratio of reviews on easy days
+    Math:
+    - When we have n specific due dates, the number of days to reschedule is 8 + n
+    - Assume we have y reviews per non-easy day, the number of reviews per easy day is a * y
+    - The total number of reviews in the days to reschedule is y * 8 + a * y * n
+    - The probability of a review on a specific due date is the number of reviews on specific due dates divided by the total number of reviews
+    - (a * y * n) / (y * 8 + a * y * n) = (a * n) / (a * n + 8)
+    - The probability of skipping a review on a specific due date is 1 - (a * n) / (a * n + 8) = 8 / (a * n + 8)
+    """
+    return 8 / (easy_days_review_ratio * num_of_specific_due_dates + 8)
+
+
+def col_set_modified():
+    mw.col.db.execute(f"UPDATE col set mod = {int(time.time() * 1000)}")
+
+
+def ask_one_way_sync():
+    return askUser(
+        "The requested change will require a one-way sync. If you have made changes on another device, "
+        + "and not synced them to this device yet, please do so before you proceed.\n"
+        + "Do you want to proceed?"
+    )
+
+
+def format_time(x, pos=None):
+    if x < 60:
+        return f"{x:.0f}s"
+    elif x < 3600:
+        return f"{x / 60:.2f}m"
+    elif x < 86400:
+        return f"{x / 3600:.2f}h"
+    else:
+        return f"{x / 86400:.2f}d"
+
+
+def get_decay(card: Card):
+    return getattr(card, "decay", 0.5) or 0.5
+
+
+def get_dr(deck_manager: DeckManager, did: int):
+    return (
+        deck_manager.get(did).get("desiredRetention") / 100
+        if deck_manager.get(did).get("desiredRetention") is not None
+        else deck_manager.config_dict_for_deck_id(did)["desiredRetention"]
+    )

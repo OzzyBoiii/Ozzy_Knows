@@ -1,0 +1,37 @@
+{% comment %}
+    * Parameters *
+    icon_left: Element
+    icon_right: Element
+    slot: Element | string
+    class: string
+{% endcomment %}
+
+<c-vars
+    class=""
+    base_class="flex items-center justify-center gap-1 px-3 rounded-xl component-default h-(--component-base-height) disabled:bg-background-disabled-main disabled:text-text-disabled-main disabled:outline-none focus:outline-2 active:outline-2 outline-offset-2"
+    kind="main"
+    :kind_variants="{
+        'main': 'text-text-primary-on-color-main bg-background-primary-main hover:bg-background-primary-main-hover active:bg-background-primary-main-active outline-border-primary-focus',
+        'secondary': 'text-text-primary-on-color-subtle bg-background-primary-subtle hover:bg-background-primary-subtle-hover active:bg-background-primary-subtle-active outline-border-primary-focus',
+        'text': 'text-text-primary-on-color-subtle hover:bg-background-primary-subtle-hover active:bg-background-primary-subtle-active outline-border-primary-focus',
+        'alternative': 'text-text-alternative-on-color-main bg-background-alternative-main hover:bg-background-alternative-main-hover active:bg-background-alternative-main-active outline-border-alternative-focus',
+        'destructive': 'text-text-destructive-on-color-main bg-background-destructive-main hover:bg-background-destructive-main-hover active:bg-background-destructive-main-active outline-border-destructive-focus',
+        'warning': 'text-text-warning-on-color-main bg-background-warning-main hover:bg-background-warning-main-hover active:bg-background-warning-main-active outline-border-warning-focus',
+        'confirmation': 'text-text-confirmation-on-color-main bg-background-confirmation-main hover:bg-background-confirmation-main-hover active:bg-background-confirmation-main-active outline-border-confirmation-focus',
+      }"
+/>
+
+<button
+    class="{{ base_class }} {{ kind_variants|get_item:kind }} {{ class }}{% if loading %} cursor-not-allowed {% endif %}"
+    {% if loading %}disabled{% endif %}
+    {{ attrs }}
+>
+    {% if loading %}
+        <c-v1.spinner />
+        <span>Loading...</span>
+    {% else %}
+        {{ icon_left }}
+        {{ slot }}
+        {{ icon_right }}
+    {% endif %}
+</button>

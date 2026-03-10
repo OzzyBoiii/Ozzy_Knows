@@ -1,0 +1,13 @@
+{% comment %}
+    * Parameters *
+    class: string (optional)
+    slot: fragment (optional)
+{% endcomment %}
+
+{% comment %} Note: the bottom padding is a hack to prevent the scrollbar from always showing {% endcomment %}
+<c-vars
+    class=""
+    base_class="text-text-basic-body text-base font-sans overflow-y-auto pb-[2px]"
+/>
+
+<div class="{{ base_class }} {{ class }}" {{ attrs }}>{{ slot }}</div>

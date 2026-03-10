@@ -1,0 +1,116 @@
+{% comment %}
+  * Parameters *
+  page_obj: pagination_object
+  onchange_func: function (optional)
+  orientation: string (optional, default is "vertical")
+{% endcomment %}
+
+<c-vars
+  base_class="flex gap-3 items-center"
+  base_label_class="component-small-light text-center text-text-neutral-main min-w-sm"
+  base_navigation_class="flex items-center gap-1"
+  base_button_class="component-default text-text-neutral-main rounded-xl size-[32px]"
+  base_page_class="hover:bg-background-primary-subtle-hover text-center align-middle focus:not-active:outline-2 focus:not-active:outline-offset-2 focus:not-active:outline-border-neutral-focus"
+  active_page_class="bg-pagination-background not-hover:text-text-primary-on-color-main"
+  base_chevron_button_class="flex items-center justify-center disabled:text-icon-disabled-main hover:not-disabled:bg-background-primary-subtle-hover focus:not-disabled:outline-2 focus:not-disabled:outline-offset-2 focus:not-disabled:outline-border-neutral-focus"
+  base_chevron_icon_class="size-4"
+  base_ellipsis_button_class="hover:bg-background-primary-subtle-hover flex items-center justify-center focus:not-active:outline-2 focus:not-active:outline-offset-2 focus:not-active:outline-border-neutral-focus"
+  orientation="vertical"
+  :orientation_class="{
+    'vertical': 'flex-col gap-3',
+    'horizontal': 'flex-row gap-3',
+  }"
+/>
+
+<div
+  class="{{ base_class }} {{ orientation_class|get_item:orientation }}"
+  x-data="{
+    currentPage: {{ page_obj.number }},
+    pageCount: {{ page_obj.paginator.num_pages }},
+    perPage: {{ page_obj.paginator.per_page }},
+    totalCount: {{ page_obj.paginator.count }},
+    bisectedPages() {
+      return this.bisectPages(this.currentPage, this.pageCount);
+    },
+    bisectPages(currentPage, pageCount) {
+      // If total pages is 6 or less, show all pages in one group
+      if (pageCount <= 6) {
+        const allPages = [];
+        for (let i = 1; i <= pageCount; i++) {
+          allPages.push(i);
+        }
+        return [allPages];
+      }
+
+      // Case 1: Current page is in the first 4 pages
+      if (currentPage <= 4) {
+        const firstPages = [1, 2, 3, 4, 5];
+        const lastPages = [pageCount];
+        return [firstPages, lastPages];
+      }
+
+      // Case 2: Current page is in the last 4 pages
+      if (currentPage > pageCount - 4) {
+        const firstPages = [1];
+        const lastPages = [pageCount - 4, pageCount - 3, pageCount - 2, pageCount - 1, pageCount];
+        return [firstPages, lastPages];
+      }
+
+      // Case 3: Current page is in the middle
+      const firstPages = [1];
+      const middlePages = [currentPage - 1, currentPage, currentPage + 1];
+      const lastPages = [pageCount];
+      return [firstPages, middlePages, lastPages];
+    },
+    setCurrentPage(page) {
+      this.currentPage = Math.min(Math.max(page, 1), this.pageCount);
+      $dispatch('change', {page: page});
+    }
+  }"
+  @change="{{ onchange_func }}" {{ attrs }}
+>
+  <div class="{{ base_label_class }}" x-text="`Showing ${(currentPage - 1) * perPage + 1 } to ${currentPage * perPage } of ${totalCount} results`"></div>
+  <div class="{{ base_navigation_class }}">
+    <button class="{{ base_button_class }} {{ base_chevron_button_class }}" :disabled="currentPage <= 1" @click="if (currentPage > 1) setCurrentPage(currentPage - 1)">
+      <c-v1.icon type="chevron-left-24" class="{{ base_chevron_icon_class }}" />
+    </button>
+    <template x-for="(pages, sideIndex) in bisectedPages()" :key="'side-' + sideIndex">
+      <div class="contents">
+        <template x-for="page in pages" :key="'page-' + page">
+          <button
+            class="{{ base_button_class }} {{ base_page_class }}"
+            :class="{ '{{ active_page_class }}': currentPage === page }"
+            @click="setCurrentPage(page); event.currentTarget.blur()"
+            x-text="page">
+          </button>
+        </template>
+        <template
+          x-if="sideIndex < bisectedPages().length - 1"
+          x-data="{ get isForward() { return pages[pages.length - 1] >= currentPage }, tooltipInstance: null }"
+        >
+          <button
+            class="{{ base_button_class }} {{ base_ellipsis_button_class }}"
+            x-effect="if (tooltipInstance) { tooltipInstance.destroy(); } tooltipInstance = tippy($el, { content: isForward ? 'Next 5 pages' : 'Previous 5 pages', placement: 'top' })"
+            @click="setCurrentPage(currentPage + (isForward ? 5 : -5)); event.currentTarget.blur();"
+            x-data="{ active: false }"
+            @mouseenter="active = true"
+            @mouseleave="active = false"
+            @focus="active = true"
+            @blur="active = false"
+          >
+              <c-v1.icon x-show="!active" type="more-horizontal-24" class="size-4" />
+              <c-v1.icon x-show="active && isForward" type="chevron-double-right-24" class="size-4" />
+              <c-v1.icon x-show="active && !isForward" type="chevron-double-left-24" class="size-4" />
+          </button>
+        </template>
+      </div>
+    </template>
+    <button
+      class="{{ base_button_class }} {{ base_chevron_button_class }}"
+      :disabled="currentPage >= pageCount"
+      @click="if (currentPage < pageCount) setCurrentPage(currentPage + 1)"
+    >
+      <c-v1.icon type="chevron-right-24" class="{{ base_chevron_icon_class }}" />
+    </button>
+  </div>
+</div>

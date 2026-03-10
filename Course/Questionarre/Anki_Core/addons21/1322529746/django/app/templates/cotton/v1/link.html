@@ -1,0 +1,32 @@
+{% comment %}
+* Parameters *
+    to: string
+    slot: string
+    class: string
+    isExternal: boolean
+    disabled: boolean
+{% endcomment %}
+
+<c-vars
+    class=""
+    base_class="component-default inline-flex items-center px-1 gap-x-0.5 rounded-md outline-offset-0 text-text-primary-main underline decoration-1 underline-offset-4 hover:text-text-primary-main-hover hover:not-aria-disabled:decoration-link-border hover:not-aria-disabled:decoration-2 focus:outline-2 focus:outline-border-primary-focus focus-visible:outline-2 focus-visible:outline-border-primary-focus focus:hover:outline-link-border focus:hover:text-text-primary-hover focus:no-underline focus-visible:no-underline aria-disabled:outline-none aria-disabled:cursor-default aria-disabled:text-text-disabled-main"
+    isExternal=""
+    disabled=""
+/>
+
+<a
+    {% if isExternal %}
+        target="_blank"
+    {% endif %}
+    {% if not disabled %}
+        href="{{ to }}"
+    {% endif %}
+    {% if disabled %}
+        aria-disabled="true"
+    {% endif %}
+    class="{{ base_class }} {{ class }}"
+    {{ attrs }}
+>
+    <c-v1.icon type="open-12" class="size-3" />
+    {{ slot }}
+</a>

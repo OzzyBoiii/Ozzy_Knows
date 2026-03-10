@@ -1,0 +1,31 @@
+{% comment %}
+    * Parameters *
+    class: string (optional)
+    open_var: string (optional) - Alpine.js variable name for open state (e.g., "dialogOpen")
+    close_on_input_events: boolean (optional) - whether to close the backdrop on mouse clicks or esc keys
+{% endcomment %}
+
+<c-vars
+    class=""
+    open_var=""
+    :open=False
+    :close_on_input_events=False
+    backdrop_class="fixed inset-0 bg-background-basic-overlay"
+/>
+
+<div
+    {% if not open_var %} x-data="{ open: {{ open|yesno:'true,false' }} }" {% endif %}
+    {% if open_var %} x-show="{{ open_var }}"{% else %}x-show="open" {% endif %}
+    x-transition:enter="ease-out duration-200"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-50"
+    x-transition:leave="ease-in duration-200"
+    x-transition:leave-start="opacity-50"
+    x-transition:leave-end="opacity-0"
+    class="{{ backdrop_class }} {{ class }}"
+    {% if close_on_input_events %}
+        {% if open_var %}@click="{{ open_var }} = false"{% else %}@click="open = false"{% endif %}
+        {% if open_var %}@keydown.escape.window="{{ open_var }} = false"{% else %}@keydown.escape.window="open = false"{% endif %}
+    {% endif %}
+    {{ attrs }}
+></div>

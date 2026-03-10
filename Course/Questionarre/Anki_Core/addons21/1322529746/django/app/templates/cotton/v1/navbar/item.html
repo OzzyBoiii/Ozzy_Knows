@@ -1,0 +1,15 @@
+{% comment %}
+    * Parameters *
+    labe: string
+    link_to: string
+    class: string
+{% endcomment %}
+
+<c-vars
+    class=""
+    base_class="component-navbar text-text-neutral-subtle px-3 py-2"
+/>
+
+<a href="{{ link_to }}" class="{{ base_class }} {{ class }}">
+    {{ label }}
+</a >

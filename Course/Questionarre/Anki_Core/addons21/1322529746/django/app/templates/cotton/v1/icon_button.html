@@ -1,0 +1,34 @@
+{% comment %}
+    * Parameters *
+    label: string
+    slot: Element | string
+    class: string
+    kind: string
+    loading: boolean
+{% endcomment %}
+
+<c-vars
+    class=""
+    base_class="flex items-center justify-center gap-2 rounded-xl text-sm h-(--component-base-height) px-(--component-icon-button-padding-x) disabled:bg-background-disabled-main disabled:text-icon-disabled-main focus:outline-2 focus:outline-offset-2 active:outline-2 active:outline-offset-2 disabled:outline-none"
+    kind="main"
+    label=""
+    :kind_variants="{
+        'main': 'bg-background-primary-subtle text-icon-primary-on-color-subtle focus:outline-border-primary-focus hover:bg-background-primary-subtle-hover active:bg-background-primary-subtle-active active:outline-border-primary-focus',
+        'alternative': 'bg-background-alternative-subtle text-icon-alternative-on-color-subtle focus:outline-border-alternative-focus hover:bg-background-alternative-subtle-hover active:bg-background-alternative-subtle-active active:outline-border-alternative-focus',
+        'utility_neutral': 'text-icon-neutral-main focus:outline-border-neutral-focus hover:bg-background-neutral-subtle-hover active:bg-background-neutral-subtle-active active:outline-border-neutral-focus',
+        'utility_primary':'text-icon-primary-main focus:outline-border-primary-focus hover:bg-background-primary-subtle-hover active:bg-background-primary-subtle-active active:outline-border-primary-focus'
+      }"
+/>
+
+<button
+    class="{{ base_class }} {{ kind_variants|get_item:kind }} {% if loading %}cursor-not-allowed{% endif %} {{ class }}"
+    {% if loading %}disabled{% endif %}
+    aria-label="{{ label }}"
+    {{ attrs }}
+>
+    {% if loading %}
+        <c-v1.spinner />
+    {% else %}
+        {{ slot }}
+    {% endif %}
+</button>

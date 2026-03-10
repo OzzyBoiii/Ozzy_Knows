@@ -1,0 +1,67 @@
+{% comment %}
+    * Parameters *
+    kind: string
+    on_dismiss: string
+    copyable: boolean
+{% endcomment %}
+
+<c-vars
+    base_class="component-small-light inline-flex items-start gap-x-2 px-1.5 py-1.5 pl-2.5 rounded-xl w-fit max-w-[315px] break-all"
+    kind="indigo"
+    :kind_variants="{
+        'indigo': 'text-icon-primary-on-color-subtle bg-background-primary-subtle',
+        'purple': 'text-icon-alternative-on-color-subtle bg-background-alternative-subtle',
+        'green': 'text-icon-confirmation-on-color-subtle bg-background-confirmation-subtle',
+        'yellow': 'text-icon-warning-on-color-subtle bg-background-warning-subtle',
+        'red': 'text-icon-destructive-on-color-subtle bg-background-destructive-subtle',
+    }"
+    class=""
+    dismissible="True"
+    copyable="True"
+/>
+
+<div
+    class="{{ base_class }} {{ kind_variants|get_item:kind }} {{ class }}"
+    x-data="{
+        tooltipInstance: null,
+        defaultTooltipContent: 'Copy tag',
+        isRemoved: false,
+        removeNoteTag(id) {
+            this.isRemoved = true;
+            {{ on_dismiss }}
+        },
+        copyContent(content) {
+            navigator.clipboard.writeText(content);
+            this.tooltipInstance.setContent('Copied!');
+            setTimeout(() => {
+                this.tooltipInstance.setContent(this.defaultTooltipContent);
+            }, 2000);
+        }
+    }"
+    x-show="!isRemoved"
+    {{ attrs }}
+>
+    <span class="self-center">{{ label }}</span>
+    <div class="flex items-center gap-x-1">
+        {% if copyable %}
+            <c-v1.tag-embedded-action
+                icon="copy-24"
+                kind="{{ kind }}"
+                @click="copyContent('{{ label }}')"
+                x-init="tooltipInstance = tippy($el, {
+                    content: defaultTooltipContent,
+                    placement: 'top',
+                    trigger: 'mouseenter focus',
+                    hideOnClick: false
+                })"
+            />
+        {% endif %}
+        {% if dismissible %}
+            <c-v1.tag-embedded-action
+                icon="dismiss-12"
+                kind="{{ kind }}"
+                @click="removeNoteTag('{{ id }}')"
+            />
+        {% endif %}
+    </div>
+</div>

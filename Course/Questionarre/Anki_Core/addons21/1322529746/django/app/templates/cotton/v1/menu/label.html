@@ -1,0 +1,20 @@
+{% comment %}
+    * Parameters *
+    label: string
+    class: string
+{% endcomment %}
+
+<c-vars
+    class=""
+    label_base_class="flex items-center justify-start gap-3
+        text-text-basic-subtitle text-overtext cursor-default select-none relative py-2 px-3 rounded-xl group"
+/>
+<li
+    class="{{ label_base_class }} {{ class }}"
+    role="option"
+    {{ attrs }}
+>
+    <label class="block break-words">
+        {{ label }}
+    </label>
+</li>

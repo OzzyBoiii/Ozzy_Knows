@@ -1,0 +1,42 @@
+{% comment %}
+    * Parameters *
+    id: string - The for attribute of the label
+    label: string - The label text
+    required: boolean (optional) - Whether to show the required asterisk
+    disabled: boolean (optional) - Whether the field is disabled
+    optional_text: string (optional) - Optional text to show on the right
+    class: string (optional) - Additional classes for the container
+{% endcomment %}
+
+<c-vars
+    id=""
+    base_class="flex justify-between items-center"
+    label_base_class="flex gap-0.5 text-text-neutral-main group-[*]/disabled:text-text-disabled-main"
+    :is_strong=False
+    :is_strong_font_variant="{
+        True: 'component-strong',
+        False: 'component-default',
+    }"
+    required_base_class="text-text-destructive-main group-[*]/disabled:text-text-disabled-main"
+    optional_text_base_class="component-light text-text-neutral-subtle group-[*]/disabled:text-text-disabled-main"
+/>
+
+<div class="{{ base_class }} {% if disabled %}group/disabled{% else %}group/enabled{% endif %} {{ class }}">
+    {% if label %}
+        <label
+            for="{{ id }}"
+            class="{{ label_base_class }} {{ is_strong_font_variant|get_item:is_strong }}"
+            {{ attrs }}
+        >
+            {{ label }}
+            {% if required and not disabled %}
+                <span class="{{ required_base_class }}">*</span>
+            {% endif %}
+        </label>
+    {% endif %}
+    {% if optional_text %}
+        <span class="{{ optional_text_base_class }}">
+            {{ optional_text }}
+        </span>
+    {% endif %}
+</div>

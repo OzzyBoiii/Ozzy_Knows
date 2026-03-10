@@ -1,0 +1,22 @@
+{% comment %}
+    * Parameters *
+    icon: string
+    kind: string
+{% endcomment %}
+
+<c-vars
+    base_class="p-1 rounded-[20px] active:outline-2 focus:outline-2 focus:outline-offset-[-1px] outline-border-primary-focus"
+    kind="indigo"
+    :kind_variants="{
+        'indigo': 'text-icon-primary-on-color-subtle hover:bg-background-primary-subtle-hover active:bg-background-primary-subtle-active',
+        'purple': 'text-icon-alternative-on-color-subtle hover:bg-background-alternative-subtle-hover active:bg-background-alternative-subtle-active',
+        'green': 'text-icon-confirmation-on-color-subtle hover:bg-background-confirmation-subtle-hover active:bg-background-confirmation-subtle-active',
+        'yellow': 'text-icon-warning-on-color-subtle hover:bg-background-warning-subtle-hover active:bg-background-warning-subtle-active',
+        'red': 'text-icon-destructive-on-color-subtle hover:bg-background-destructive-subtle-hover active:bg-background-destructive-subtle-active',
+      }"
+    class=""
+/>
+
+<button class="{{ base_class }} {{ kind_variants|get_item:kind }} {{ class }}" {{ attrs }}>
+    <c-v1.icon type="{{ icon }}" class="size-3" />
+</button>

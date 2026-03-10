@@ -1,0 +1,74 @@
+{% comment %}
+    * Parameters *
+    id: string
+    label: string
+    label_orientation: string (default: right - options: right, left)
+    label_visibility: string (default: shown - options: shown, hidden)
+    checked: boolean
+    disabled: boolean
+    class: string
+    {% endcomment %}
+
+<c-vars
+    class=""
+    label_orientation="right"
+    label_visibility="shown"
+    base_class="flex gap-2 items-center relative"
+    input_class="peer absolute inset-0 w-full h-full opacity-0 z-10 disabled:cursor-not-allowed not-disabled:cursor-pointer"
+/>
+
+
+<div
+  class="{{ base_class }} {% if label_orientation == "left" %}flex-row-reverse{% endif %} {{ class }}"
+  x-data="{
+    checked: {% if checked %}true{% else %}false{% endif %},
+  }"
+>
+    <div
+        class="group relative inline-block w-11 h-6 flex-shrink-0"
+        for="{{ id }}"
+    >
+        <input
+            type="checkbox"
+            x-model.boolean="checked"
+            name="{{ input_name }}"
+            id="{{ id }}"
+            {% if checked %}checked{% endif %}
+            {% if disabled %}disabled{% endif %}
+            class="{{ input_class }}"
+            {% if label_visibility == "hidden" %}aria-label="{{ label }}"{% endif %}
+            {{ attrs }}
+        >
+        <span
+            class="absolute inset-0
+
+                   bg-background-basic-surface peer-checked:not-group-hover:bg-background-primary-main
+                   peer-disabled:peer-checked:bg-toggle-disabled not-peer-disabled:peer-checked:group-hover:bg-background-primary-main-hover
+
+
+                   peer-checked:before:bg-icon-neutral-on-color-main
+                   not-peer-checked:before:bg-background-primary-main
+                   peer-disabled:not-peer-checked:before:bg-toggle-disabled
+                   not-peer-checked:group-hover:before:bg-background-primary-main-hover
+
+                   border-2 rounded-xl border-border-primary-main peer-disabled:border-toggle-disabled
+                   not-peer-disabled:peer-checked:group-hover:border-background-primary-main-hover
+
+                   transition-all duration-300 ease-in-out before:transition-all before:duration-300 before:ease-in-out
+
+                   peer-focus:outline-2 peer-focus:outline-offset-2 peer-focus:outline-border-primary-focus
+
+                   before:absolute before:rounded-full before:left-[2px] before:top-1/2 before:-translate-y-1/2
+                   before:w-[16px] before:h-[16px] peer-checked:before:translate-x-[21px]
+                   not-peer-disabled:group-hover:before:translate-x-[8px] not-peer-disabled:peer-checked:group-hover:before:translate-x-[13px]
+                   "
+        ></span>
+    </div>
+    {% if label and label_visibility == "shown" %}
+        <c-v1.label
+            id="{{ id }}"
+            label="{{ label }}"
+            :disabled="disabled"
+        />
+    {% endif %}
+</div>

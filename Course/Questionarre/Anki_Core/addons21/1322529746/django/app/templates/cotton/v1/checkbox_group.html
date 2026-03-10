@@ -1,0 +1,69 @@
+{% comment %}
+* Parameters *
+label: string (optional) - Group label
+required: boolean (optional) - default: False
+helper_text: string (optional) - Group-level helper/error message
+is_error: boolean (optional) - default: False
+disabled: boolean (optional) - default: False
+orientation: string (optional) - options: vertical, horizontal (default: vertical)
+columns: list (optional) - List of columns, each column is a list of checkbox item dicts:
+- id: string
+- label: string
+- checked: boolean (optional)
+- indeterminate: boolean (optional)
+class: string (optional)
+{% endcomment %}
+
+<c-vars
+    class=""
+    label=""
+    helper_text=""
+    :required=False
+    :is_error=False
+    :disabled=False
+    :columns="[]"
+    base_class="flex flex-col gap-2 items-start"
+    orientation="vertical"
+    :orientation_variants="{
+        'vertical': 'flex flex-col gap-1 items-start',
+        'horizontal': 'flex gap-4 items-start',
+    }"
+    column_class="flex flex-col gap-1 items-start max-w-[480px] min-w-[100px]"
+/>
+
+
+<div class="{{ base_class }} {{ class }}">
+    <c-v1.label
+        label="{{ label }}"
+        :required="required"
+        :disabled="disabled"
+        is_strong
+    />
+
+    <div class="{{ orientation_variants|get_item:orientation }}">
+        {% for column in columns %}
+            <div class="{{ column_class }}">
+                {% for item in column %}
+                    <c-v1.checkbox
+                        id="{{ item.id }}"
+                        label="{{ item.label }}"
+                        checked="{{ item.checked }}"
+                        :disabled="disabled"
+                        :is_error="is_error"
+                        :required="False"
+                        helper_text=""
+                        class="mt-0.5"
+                    />
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if helper_text %}
+        <c-v1.helper_text
+            helper_text="{{ helper_text }}"
+            state="{% if is_error %}error{% else %}default{% endif %}"
+            :disabled="disabled"
+        />
+    {% endif %}
+</div>

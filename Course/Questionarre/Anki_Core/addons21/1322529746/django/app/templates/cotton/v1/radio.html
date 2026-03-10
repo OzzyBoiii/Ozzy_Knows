@@ -1,0 +1,61 @@
+{% comment %}
+    * Parameters *
+    id: string
+    label: string
+    checked: boolean
+    disabled: boolean
+    is_error: boolean
+    value: string
+{% endcomment %}
+
+<c-vars
+    class=""
+    base_class="flex gap-2 items-start max-w-[75ch]"
+    input_class="sr-only peer"
+    base_radio_container_class="group inline-flex items-center justify-center w-fit h-fit rounded-[20px] p-1 outline-offset-2 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-border-primary-focus"
+    enabled_radio_container_class="cursor-pointer hover:bg-background-primary-subtle-hover"
+    disabled_radio_container_class="cursor-not-allowed text-icon-disabled-main"
+    checked_radio_container_class="text-icon-primary-main group-hover:text-icon-primary-on-color-subtle"
+    unchecked_radio_container_class="text-icon-neutral-main group-hover:text-icon-neutral-on-color-subtle"
+    :checked=False
+    :disabled=False
+/>
+
+<div
+  class="{{ base_class }} {{ class }}"
+>
+    <label
+        class="{{ base_radio_container_class }}
+            {% if disabled %}
+                {{ disabled_radio_container_class }}
+            {% else %}
+                {{ enabled_radio_container_class }}
+            {% endif %}"
+    >
+        <input
+            type="radio"
+            name="{{ name }}"
+            value="{{ value }}"
+            class="{{ input_class }}"
+            id="{{ id }}"
+            {% if checked %}checked{% endif %}
+            {% if disabled %}disabled{% endif %}
+            {{ attrs }}
+        >
+        <c-v1.icon
+            type="radio-checked-14"
+            class="hidden peer-checked:flex leading-none {% if not disabled %}{{ checked_radio_container_class }}{% endif %}"
+        />
+        <c-v1.icon
+            type="radio-unchecked-14"
+            class="flex peer-checked:hidden leading-none {% if not disabled %}{{ unchecked_radio_container_class }}{% endif %}"
+        />
+    </label>
+    <c-v1.label
+        id="{{ id }}"
+        label="{{ label }}"
+        :required="required"
+        :disabled="disabled"
+        class="pt-0.5"
+    />
+</div>

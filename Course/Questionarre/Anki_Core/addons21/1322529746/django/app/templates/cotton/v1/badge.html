@@ -1,0 +1,45 @@
+{% comment %}
+    * Parameters *
+    icon: string
+    kind: string
+    on_dismiss: string
+{% endcomment %}
+
+<c-vars
+    base_class="component-small-light inline-flex items-center justify-center gap-0.5 h-6 pl-1.5 rounded-xl"
+    kind="indigo"
+    :kind_variants="{
+        'indigo': 'text-icon-primary-on-color-subtle bg-background-primary-subtle',
+        'purple': 'text-icon-alternative-on-color-subtle bg-background-alternative-subtle',
+        'green': 'text-icon-confirmation-on-color-subtle bg-background-confirmation-subtle',
+        'yellow': 'text-icon-warning-on-color-subtle bg-background-warning-subtle',
+        'red': 'text-icon-destructive-on-color-subtle bg-background-destructive-subtle',
+    }"
+    class=""
+    dismissible="True"
+/>
+
+<div
+    class="{{ base_class }} {{ kind_variants|get_item:kind }} {% if dismissible %}pr-0.5{% else %}pr-1.5{% endif %} {{ class }}"
+    x-data="{
+        isRemoved: false,
+        removeBadge(id) {
+            this.isRemoved = true;
+            {{ on_dismiss }}
+        }
+    }"
+    x-show="!isRemoved"
+    {{ attrs }}
+>
+    {% if icon %}
+        <c-v1.icon type="{{ icon }}" class="size-3" />
+    {% endif %}
+    <span>{{ label }}</span>
+    {% if dismissible %}
+        <c-v1.tag-embedded-action
+            icon="dismiss-12"
+            kind="{{ kind }}"
+            @click="removeBadge('{{ id }}')"
+        />
+    {% endif %}
+</div>

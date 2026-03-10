@@ -1,0 +1,93 @@
+{% comment %}
+    * Parameters *
+    id: string
+    name: string (optional)
+    label: string
+    placeholder: string
+    required: boolean (optional)
+    optional_text: string (optional)
+    helper_text: string (optional)
+    value: string (optional)
+    disabled: boolean (optional)
+    class: string (optional)
+    left_icon: string (optional)
+    right_icon: string (optional)
+    state: string (optional) - options: default, error
+{% endcomment %}
+
+<c-vars
+    class=""
+    base_class="flex flex-col gap-1 w-full component-default"
+    input_base_class="w-full rounded-xl px-3 text-base h-(--component-base-height) border-2 bg-background-basic-surface placeholder:text-text-neutral-subtle group-[*]/disabled:bg-background-disabled-main group-[*]/disabled:text-text-disabled-main group-[*]/disabled:placeholder:text-text-disabled-main group-[*]/disabled:border-border-disabled-main focus:outline-2 focus:outline-offset-2"
+    input_class=""
+    input_container_class="relative"
+    icon_container_class="absolute inset-y-0 flex items-center gap-x-1"
+    left_icon_container_class="left-3 flex items-center gap-2"
+    right_icon_container_class="right-3"
+    text_class="component-default uppercase text-text-neutral-main group-[*]/disabled:text-text-disabled-main"
+    icon_class="size-4 text-icon-neutral-main group-[*]/disabled:text-icon-disabled-main"
+    state="default"
+    :input_states="{
+        'default': 'border-border-neutral-subtle group-[*]/enabled:hover:border-border-primary-main focus:border-border-primary-focus group-[*]/enabled:focus:outline-border-primary-focus text-text-neutral-main',
+        'error': 'border-border-destructive-subtle group-[*]/error:hover:border-border-destructive-main focus:border-border-destructive-focus group-[*]/error:focus:outline-border-primary-focus text-text-destructive-main'
+    }"
+/>
+
+<div
+    class="{{ base_class }} {% if disabled %}group/disabled{% elif state == 'error' %}group/error{% else %}group/enabled{% endif %} {{ class }}"
+>
+    <c-v1.label
+        id="{{ id }}"
+        label="{{ label }}"
+        :required="required"
+        :disabled="disabled"
+        optional_text="{{ optional_text }}"
+        is_strong
+    />
+
+    <div class="{{ input_container_class }}">
+        {% if left_icon or left_text %}
+            <div class="{{ icon_container_class }} {{ left_icon_container_class }}">
+                {% if left_text %}
+                    <span class="{{ text_class }}">{{ left_text }}</span>
+                {% endif %}
+                {% if left_icon %}
+                    <c-v1.icon type="{{ left_icon }}" class="{{ icon_class }}" />
+                {% endif %}
+            </div>
+        {% endif %}
+
+        <input
+            type="text"
+            id="{{ id }}"
+            name="{{ name }}"
+            placeholder="{{ placeholder }}"
+            class="{{ input_base_class }} {{ input_states|get_item:state }} {% if left_icon and left_text %}pl-17{% elif left_icon %}pl-9{% elif left_text %}pl-11{% endif %} {% if right_icon and right_text %}pr-15{% elif right_icon or right_text or right_action %}pr-9{% endif %} {{ input_class }}"
+            {% if disabled %}disabled{% endif %}
+
+            {{ attrs }}
+        />
+
+        {% if right_icon or right_text or right_action %}
+            <div class="{{ icon_container_class }} {{ right_icon_container_class }}">
+                {% if right_text %}
+                    <span class="{{ text_class }}">{{ right_text }}</span>
+                {% endif %}
+                {% if right_icon %}
+                    <c-v1.icon type="{{ right_icon }}" class="{{ icon_class }}" />
+                {% endif %}
+                {% if right_action %}
+                    {{ right_action }}
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+
+    {% if helper_text %}
+        <c-v1.helper_text
+            helper_text="{{ helper_text }}"
+            state="{{ state }}"
+            :disabled="disabled"
+        />
+    {% endif %}
+</div>

@@ -1,0 +1,25 @@
+{% comment %}
+    * Parameters *
+    helper_text: string - The helper text content
+    state: string (optional) - options: default, error
+    disabled: boolean (optional) - Whether the field is disabled
+    class: string (optional) - Additional classes for the container
+{% endcomment %}
+
+<c-vars
+    base_class="flex gap-0.5 items-start"
+    helper_text_class="text-caption text-text-neutral-subtle group-[*]/error:text-text-destructive-main group-[*]/disabled:text-text-disabled-main flex-9"
+    icon_class="size-4 text-icon-neutral-subtle group-[*]/disabled:text-icon-disabled-main"
+    icon_error_class="size-4 text-icon-destructive-main group-[*]/disabled:text-icon-disabled-main"
+    state="default"
+/>
+
+<div class="{{ base_class }} {% if disabled %}group/disabled{% elif state == 'error' %}group/error{% endif %} {{ class }}">
+    <c-v1.icon
+        type="{% if state == 'error' %}error-circle-24{% else %}lightbulb-24{% endif %}"
+        class="{% if state == 'error' %}{{ icon_error_class }}{% else %}{{ icon_class }}{% endif %}"
+    />
+    <span class="{{ helper_text_class }}">
+        {{ helper_text }}
+    </span>
+</div>
