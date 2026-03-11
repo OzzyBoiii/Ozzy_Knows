@@ -1,0 +1,102 @@
+Redoslijed implementacije sustava
+Slijedi korak po korak vodič za postavljanje kompletnog sustava. Preporučujem da prvo pripremite okruženje, zatim testirate pojedinačne komponente, pa tek onda sve spojite.
+
+1. Priprema okruženja (DONE)
+Instalirajte Python 3.8+ (ako već nije) i requests biblioteku:
+
+bash
+pip install requests
+Instalirajte Anki i dodatak AnkiConnect (kod: 2055492159).
+Nakon instalacije, pokrenite Anki i provjerite da je dodatak aktivan (Alati → Dodaci → AnkiConnect treba biti u listi).
+
+Instalirajte LM Studio, učitajte model DeepSeek‑R1‑0528‑Qwen3‑8B (ili sličan) i uključite “OpenAI compatible server” na portu 1234.
+Provjerite da server radi (npr. curl http://localhost:1234/v1/models ili putem preglednika).
+
+2. Postavljanje direktorija i datoteka (WORK IN PROGRESS)
+Kreirajte sljedeću strukturu (ako već ne postoji):
+
+text
+C:\Users\CrozzyBoii\Documents\VSCode_Programs\Ozzy_Knows\Course\Questionarre\
+    Questionarre.html
+    Python_Support\
+        server.py
+        generate_anki_from_wrong.py
+        (config.json će se kreirati automatski)
+Kopirajte sadržaj datoteka koje sam dao u prethodnom odgovoru:
+
+Questionarre.html u glavni folder.
+
+server.py i generate_anki_from_wrong.py u Python_Support.
+
+3. Testiranje LM Studio i AnkiConnect (opcionalno, ali preporučljivo)
+Pokrenite testnu skriptu (koju možete napraviti privremeno) da provjerite komunikaciju s LM Studio:
+
+python
+# test_lm.py
+import requests
+resp = requests.post("http://localhost:1234/v1/chat/completions", json={
+    "model": "deepseek-r1-0528-qwen3-8b",
+    "messages": [{"role": "user", "content": "Say hello"}]
+})
+print(resp.json())
+Ako dobijete odgovor, LM Studio je spreman.
+
+Provjerite AnkiConnect: u pregledniku otvorite http://127.0.0.1:8765 i pošaljite JSON zahtjev (npr. preko Postmana) ili jednostavno:
+
+python
+import requests
+resp = requests.post("http://127.0.0.1:8765", json={"action": "version", "version": 6})
+print(resp.json())
+4. Pokretanje lokalnog servera
+U terminalu (PowerShell / cmd) pozicionirajte se u Python_Support i pokrenite:
+
+bash
+python server.py
+Server će slušati na http://localhost:8000. Ostavite ga da radi u pozadini.
+
+5. Pokretanje HTML aplikacije
+Otvorite Questionarre.html u pregledniku (dvoklikom ili putem file://).
+Učitajte neku svoju lekciju u JSON formatu (koji sadrži terms s poljima term, sentence, chosen, hint).
+
+Primjer minimalne lekcije:
+
+json
+{
+  "title": "Test",
+  "terms": [
+    {
+      "term": "Nefrotski sindrom",
+      "sentence": "Obliježen je proteinurijom >3.5 g/dan, hipoalbuminemijom, edemima i hiperlipidemijom.",
+      "chosen": ["proteinurija", "edemi"],
+      "hint": "Masivna proteinurija"
+    }
+  ]
+}
+Kad se lekcija učita, kliknite ▶ start lesson.
+
+6. Izvođenje punog ciklusa
+U fazi Recall odgovorite (namjerno pogrešno) kako biste generirali pogrešne termine.
+
+Nakon završetka Recall, aplikacija prelazi u Remedial. Tu će se prikazati samo pogrešni termini. Pojavit će se gumb 🧠 export wrong → Anki AI.
+
+Kliknite gumb. Ako je lokalni server pokrenut, JSON će biti poslan, server će ga spremiti i pokrenuti generiranje kartica. Dobićete potvrdu u pregledniku.
+
+Ako server nije pokrenut, preuzet će se wrong_terms.json – tada ga morate ručno premjestiti u Python_Support i pokrenuti:
+
+bash
+python generate_anki_from_wrong.py
+Nakon izvršavanja, u Ankiju u decku Ozzy_Knows_This trebale bi se pojaviti nove kartice.
+
+7. Provjera i debugging
+Ako nešto ne radi, provjerite konzolu preglednika (F12) za JS greške.
+
+Gledajte izlaz u terminalu gdje je pokrenut server.py i gdje se izvršava generate_anki_from_wrong.py.
+
+U config.json (koji se stvori automatski) možete prilagoditi postavke (npr. check_duplicates, temperature).
+
+8. Daljnja prilagodba
+Provjera točnosti odgovora – po želji modificirajte funkciju isAnswerCorrect u HTML-u da bude stroža ili blaža.
+
+Duplikati – ako želite potpuno isključiti provjeru duplikata, postavite check_duplicates: false u config.json.
+
+Automatsko pokretanje servera – možete dodati server.py u startup skriptu ili ga pokretati kao servis.
