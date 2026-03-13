@@ -465,3 +465,403 @@ I sada računamo:
 Q(15)=5000/(1+1250e^(-4,95) )≈507.
 
 Nakon 15 dana gripom će biti zaraženo približno 507 osoba.
+
+
+MODIFIED
+● Eksponencijalna funkcija
+● Uvod
+    ○ PRIMJER 1 OVDJE IDE
+● Eksponencijalna funkcija
+    ○ Ako je a zadana baza, a > 0 i a ≠ 1, a x bilo koji racionalan broj, onda vrijednost potencije a^x ovisi o x.
+    ○ Možemo govoriti o funkciji koja racionalnom broju x pridružuje vrijednost potencije a^x (x ↦ a^x).
+    ○ Funkcija f(x) = a^x definirana za svaki realni broj x zove se eksponencijalna funkcija.
+    ○ PRIMJER 2 TU IDE
+    ○ IZNIMKE EKSPONENCIJALNE FUNKCIJE
+        ○ Ako bi baza bila negativan broj, tada potencije kao što su (-2)^(-1/4), (-3)^(3/8) i slične ne bi bile realni brojevi.
+        ○ Ako bi baza bila jednaka nuli, tada bi vrijedilo 0^x = 0 za svaki realni broj x osim za x = 0, kada ta potencija nije definirana.
+        ○ Ako bi baza bila 1, vrijedilo bi 1^x = 1 za svaki realni broj x, čineći je konstantom.
+    ○ PRIMJER 3
+● Monotonost eksponencijalne funkcije
+    ○ Neka je baza eksponencijalne funkcije a > 1.
+    ○ Tada za svaki pozitivni racionalni eksponent x > 0 vrijedi a^x = a^(m/n) > 1.
+    ○ Naime, a^x = ⁿ√(a^m), a kako je a^m > 1, onda je i ⁿ√(a^m) > 1.
+    ○ Uzmimo da je x₁ < x₂.
+    ○ Uz primjenu svojstva (E1) imamo: a^(x₂) = a^((x₂ - x₁) + x₁) = a^(x₂ - x₁) ⋅ a^(x₁) > a^(x₁),
+        ○ jer je x₂ - x₁ > 0 i a^(x₂ - x₁) > 1.
+    ○ Time smo dokazali i sljedeće svojstvo monotonosti eksponencijalne funkcije.
+    ○ Monotonost eksponencijalne funkcije
+        ○ Ako je a > 1, onda za racionalne brojeve x₁ < x₂ vrijedi a^(x₁) < a^(x₂).
+● Graf i svojstva eksponencijalne funkcije
+    ○ Graf funkcije x ↦ 10ˣ
+        ○ Skicirajmo graf funkcije f(x) = 10ˣ.
+        ○ U tu ćemo svrhu izračunati njezine vrijednosti za nekoliko odabranih vrijednosti x.
+        ○ Vidimo da ova eksponencijalna funkcija raste vrlo brzo za pozitivne brojeve x.
+        ○ Crtano u mjerilu 1 : 1, za x = 10 cm koordinata y iznosi 10¹⁰ cm = 10⁵ km.
+        ○ Za negativne argumente x funkcija pada prema nuli, također vrlo brzo.
+        ○ Njezin se graf približava negativnom dijelu x-osi.
+        ○ Kažemo da je x-os asimptota grafa eksponencijalne funkcije.
+        ○ (SLIKA 1: Graf i svojstva eksponencijalne funkcije_1.png)
+    ○ Pojam logaritma (motivacija)
+        ○ Grafove funkcija koje rastu vrlo brzo možemo lakše predočiti tako da upotrijebimo različita mjerila na koordinatnim osima.
+        ○ Nacrtajmo sad graf eksponencijalne funkcije 10ˣ na intervalu [-1, 1] izabravši jedinice na koordinatnim osima tako da jednoj jedinici na x-osi odgovara deset jedinica na y-osi.
+        ○ Pritom ćemo s pomoću džepnog računala izračunati vrijednosti eksponencijalne funkcije u racionalnim točkama.
+        ○ Dobivene ćemo vrijednosti zapisati dvjema znamenkama.
+        ○ (SLIKA 2: Graf i svojstva eksponencijalne funkcije_2.png)
+    ○ Potencija s iracionalnim eksponentom
+        ○ Izaberimo neki iracionalni broj, recimo √2.
+        ○ Zapisati ga možemo samo s određenom točnošću, jer je njegov decimalni zapis beskonačan.
+        ○ Ako računamo na dvije decimale, tada ćemo zapisati: 1,41 < √2 < 1,42.
+        ○ Želimo da svojstva eksponencijalne funkcije ostanu sačuvana.
+        ○ Zato po svojstvu (E4) mora vrijediti: 10^1,41 < 10^√2 < 10^1,42,
+            ○ odnosno: 25,70 < 10^√2 < 26,30.
+        ○ Ocjena je neprecizna jer funkcija x ↦ 10ˣ raste jako brzo, a uzeli smo grubu aproksimaciju broja √2.
+        ○ Popravimo je!
+        ○ Iz ocjene 1,41421 < √2 < 1,41422 slijedi: 25,95434 < 10^√2 < 25,95493.
+        ○ Vidimo da smo dobili broj 10^√2 s pet točnih znamenki: 10^√2 = 25,954…
+    ○ Graf eksponencijalne funkcije x ↦ aˣ
+        ○ Baš kao za a = 10, možemo nacrtati graf funkcije aˣ za druge vrijednosti baze a.
+        ○ Nacrtajmo graf funkcije f(x) = 2ˣ.
+        ○ (SLIKA 3: Graf i svojstva eksponencijalne funkcije_3.png)
+        ○ Vidimo da i ova funkcija ima graf sličan grafu funkcije x ↦ 10ˣ, samo što ona za pozitivne realne brojeve x > 0 raste sporije, jer je 2ˣ < 10ˣ za x > 0.
+        ○ Za negativne brojeve x vrijedi suprotna nejednakost: 2ˣ > 10ˣ.
+        ○ (SLIKA 4: Graf i svojstva eksponencijalne funkcije_4.png)
+    ○ Pojam logaritma (baza e)
+        ○ Uz bazu 10, koja je važna zbog toga što računamo u dekadskom sustavu, te bazu 2, jer računala računaju u binarnom sustavu (sustavu s bazom 2), važna je i eksponencijalna funkcija čija je baza broj e.
+        ○ To je iracionalan broj s približnom vrijednošću e = 2,718281828…
+        ○ Promatramo li niz brojeva koji dobijemo uvrštavanjem za n redom prirodnih brojeva u izraz (1 + 1/n)ⁿ, sve smo bliži broju e što dalje u tom nizu odmičemo.
+        ○ (SLIKA 5: Graf i svojstva eksponencijalne funkcije_5.png)
+    ○ Graf eksponencijalne funkcije s bazom 0 < a < 1
+        ○ Sada ćemo promotriti eksponencijalnu funkciju s bazom 0 < a < 1.
+        ○ Vidjet ćemo da se njezin graf može izvesti iz grafa eksponencijalne funkcije s bazom većom od 1, koju znamo nacrtati.
+        ○ Započnimo s jednim primjerom.
+        ○ Uzmimo bazu a = 1/2.
+        ○ Primijetimo da vrijedi: (1/2)ˣ = 2⁻ˣ.
+        ○ Nacrtajmo na istom koordinatnom sustavu grafove funkcija f(x) = 2ˣ i g(x) = 2⁻ˣ.
+        ○ (SLIKA 6: Graf i svojstva eksponencijalne funkcije_6.png)
+        ○ Primjećujemo da funkcije f i g poprimaju iste vrijednosti za brojeve suprotnih predznaka, jer vrijedi: f(-x) = 2⁻ˣ = g(x).
+        ○ Zato su grafovi ovih funkcija simetrični s obzirom na y-os.
+    ○ Simetrija s obzirom na y-os
+        ○ Objasnimo u kakvoj su vezi funkcije čiji su grafovi simetrični s obzirom na y-os.
+        ○ Zrcalimo graf po volji odabrane funkcije f oko y-osi.
+        ○ Time dobivamo graf neke funkcije; označimo je s g.
+        ○ Ako točka (x, y) leži na njezinom grafu, tada je y = g(x), ali isto je tako y = f(-x), jer je graf dobiven zrcaljenjem (vidi sliku).
+        ○ (SLIKA 7: Graf i svojstva eksponencijalne funkcije_7.png)
+        ○ Zrcaljenje grafa oko y-osi
+            ○ Zrcaljenjem grafa funkcije f oko y-osi dobiva se graf funkcije g(x) = f(-x).
+            ○ Zrcalimo li graf eksponencijalne funkcije f(x) = aˣ oko y-osi, dobit ćemo graf eksponencijalne funkcije g(x) = a⁻ˣ: g(x) = f(-x) = a⁻ˣ = (1/a)ˣ.
+            ○ (SLIKA 8: Graf i svojstva eksponencijalne funkcije_8.png)
+    ○ Svojstva eksponencijalne funkcije
+        ○ Svojstva eksponencijalne funkcije
+            ○ Eksponencijalna funkcija x ↦ aˣ ima sljedeća svojstva (za a > 0, a ≠ 1):
+                ○ Funkcija je definirana za svaki realni broj x.
+                ○ Sve su vrijednosti funkcije pozitivni brojevi i svaki je pozitivan realni broj vrijednost funkcije za neki realni broj x.
+                ○ (E1) aˣ ⋅ aʸ = aˣ⁺ʸ
+                ○ (E2) (aˣ)ʸ = aˣ⋅ʸ
+                ○ (E3) (a ⋅ b)ˣ = aˣ ⋅ bˣ
+                ○ (E4) a⁰ = 1
+                ○ (E5)
+                    ○ Ako je a > 1, onda za x₁ < x₂ vrijedi a^(x₁) < a^(x₂); funkcija je rastuća.
+                    ○ Ako je 0 < a < 1, onda za x₁ < x₂ vrijedi a^(x₁) > a^(x₂); funkcija je padajuća.
+                ○ Grafovi eksponencijalnih funkcija, čije su baze recipročni brojevi, simetrični su s obzirom na os y.
+                ○ Za svaki a > 0, a ≠ 1 je a⁰ = 1, a to znači da graf svake eksponencijalne funkcije prelazi os y u točki (0, 1).
+    ○ Injektivnost eksponencijalne funkcije
+        ○ Iz svojstva (E5) slijedi sljedeći važan zaključak.
+        ○ Injektivnost eksponencijalne funkcije
+            ○ (E6) Ako je a^(x₁) = a^(x₂), onda vrijedi x₁ = x₂.
+        ○ Zaista, kad bi bilo x₁ ≠ x₂, pa je, recimo, x₁ < x₂, onda se po svojstvu E5 1) ili E5 2) vrijednosti a^(x₁) i a^(x₂) također razlikuju.
+        ○ Vrijedi, dakle: x₁ ≠ x₂ ⇒ a^(x₁) ≠ a^(x₂).
+        ○ Ova je tvrdnja ekvivalentna tvrdnji E5. (Razmislite zašto!)
+        ○ Primjerice, iz 2ˣ = 8, tj. 2ˣ = 2³ nužno slijedi x = 3.
+        ○ Kriterij injektivnosti
+            ○ Funkcija f je injektivna ako pravac paralelan s x-osi siječe njezin graf najviše u jednoj točki.
+            ○ (SLIKA 9: Graf i svojstva eksponencijalne funkcije_9.png)
+● Logaritamska funkcija
+    ○ Pojam logaritma
+        ○ Izračunati vrijednost eksponencijalne funkcije f(x) = aˣ za neki realni broj x znači odrediti vrijednost potencije aˣ za taj broj x.
+        ○ Kako se zahtijeva a > 0, sve su vrijednosti eksponencijalne funkcije pozitivni brojevi.
+        ○ Obrnuto, ako je zadana vrijednost y potencije aˣ, pitanje je koliki je eksponent.
+        ○ Odgovor je logaritam broja y po bazi a.
+        ○ Pišemo x = log_a y.
+        ○ Logaritam pozitivnog broja
+            ○ Neka je f(x) = aˣ eksponencijalna funkcija i neka je y pozitivan broj.
+            ○ Broj x za koji je aˣ = y zove se logaritam broja y: aˣ = y ⟺ x = log_a y.
+        ○ Logaritam pozitivnog broja y jest eksponent kojim treba potencirati bazu a da bi se dobilo y: a^(log_a y) = y.
+        ○ 1. zad PRIMJER 1
+        ○ 2. zad PRIMJER 2
+        ○ 3. zad PRIMJER 3
+        ○ 4. zad PRIMJER 4
+    ○ Dekadski logaritam
+        ○ Logaritamsku funkciju po bazi 10 izdvajamo iz skupa svih ostalih logaritamskih funkcija jer dekadski je sustav standardni sustav u kojem i inače računamo.
+        ○ Logaritam po bazi 10 zapisujemo bez naznake baze: log_10 x = log x.
+        ○ Dekadski logaritam
+            ○ Logaritam po bazi 10 zovemo dekadski logaritam ili jednostavno logaritam: 10ˣ = y ⟺ x = log y.
+    ○ Logaritamska funkcija
+        ○ Skup svih vrijednosti eksponencijalne funkcije je skup pozitivnih realnih brojeva.
+        ○ To onda znači da ima smisla tražiti logaritme samo pozitivnih brojeva.
+        ○ Pridruživanje pozitivnim realnim brojevima njihovih logaritama je funkcija, logaritamska funkcija.
+        ○ Logaritamska funkcija
+            ○ Logaritamska funkcija po bazi a je pridruživanje x ↦ log_a x, kojim se pozitivnom realnom broju x pridružuje njegov logaritam.
+            ○ Pišemo: f(x) = log_a x, a > 0, a ≠ 1, x > 0.
+    ○ Graf logaritamske funkcije
+        ○ Nacrtajmo graf logaritamske funkcije.
+        ○ Učinimo to na primjeru funkcije f(x) = log_2 x.
+        ○ Uzet ćemo za x više pogodnih vrijednosti te u koordinatnom sustavu ucrtati točke (x, log_a x).
+        ○ Zatim ćemo te točke povezati krivuljom.
+        ○ Imamo, dakle, ove točke: (2, 1), (4, 2), (8, 3), (1/2, -1), (1/4, -2), (1, 0).
+        ○ Već tih šest točaka bit će dovoljno kako bi se uočila krivulja koja ih povezuje, graf funkcije f(x) = log_2 x.
+        ○ (SLIKA 1: Logaritamska funkcija_1.png)
+        ○ Usporedimo ovaj graf s grafom funkcije f(x) = 2ˣ.
+        ○ Što primjećujemo?
+        ○ Ova su dva grafa sukladna, samo su različito položena u koordinatnom sustavu.
+        ○ Je li to slučajno?
+        ○ Dakako da nije.
+        ○ U čemu se razlikuje njihov položaj?
+        ○ Graf eksponencijalne funkcije smješten je iznad osi x, a graf logaritamske desno od osi y.
+        ○ Jedan iz drugog može se dobiti zrcaljenjem prema simetrali I. i III. kvadranta, odnosno pravcu y = x.
+        ○ To je posljedica činjenice da su y = 2ˣ i y = log_2 x par međusobno inverznih funkcija.
+        ○ Ta tvrdnja vrijedi za eksponencijalnu i logaritamsku funkciju po bilo kojoj bazi a: y = aˣ ⟺ x = log_a y.
+        ○ Eksponencijalna i logaritamska funkcija
+            ○ Eksponencijalna funkcija f(x) = aˣ i logaritamska funkcija g(x) = log_a x međusobno su inverzne.
+            ○ Tako iz grafa jedne od tih funkcija možemo dobiti graf druge zrcaljenjem prema pravcu y = x.
+            ○ (SLIKA 2: Logaritamska funkcija_2.png)
+        ○ Nadalje iz ovih grafova zaključujemo:
+            ○ područje definicije eksponencijalne funkcije je skup realnih brojeva.
+            ○ Skup vrijednosti ove funkcije jest skup pozitivnih realnih brojeva.
+            ○ Zbog toga se graf eksponencijalne funkcije proteže iznad cijele osi x, u I. i II. kvadrantu;
+            ○ skup vrijednosti eksponencijalne funkcije je područje definicije logaritamske funkcije pa je graf logaritamske funkcije smješten desno od osi y, u I. i IV. kvadrantu;
+            ○ ako je baza a eksponencijalne funkcije broj veći od 1, ta funkcija je rastuća pa je rastuća i odgovarajuća logaritamska funkcija: x₁ < x₂ ⟺ log_a x₁ < log_a x₂, x₁, x₂ > 0;
+            ○ ako je baza eksponencijalne funkcije broj a, 0 < a < 1, ta je funkcija padajuća, pa je padajuća i odgovarajuća logaritamska funkcija: x₁ < x₂ ⟺ log_a x₁ > log_a x₂, x₁, x₂ > 0.
+            ○ (SLIKA 3: Logaritamska funkcija_3.png)
+● Svojstva logaritamske funkcije
+    ○ Svojstva
+        ○ Logaritamska funkcija x ↦ log_a x definirana je za sve pozitivne realne brojeve.
+        ○ Skup svih njezinih vrijednosti je skup realnih brojeva.
+        ○ Ta funkcija ima sljedeća svojstva (za a > 0, a ≠ 1):
+            ○ (L1) log_a (x ⋅ y) = log_a x + log_a y
+            ○ (L2) log_a (x / y) = log_a x - log_a y
+            ○ (L3) log_a (xʳ) = r ⋅ log_a x
+            ○ (L4) Za svaki broj a > 0 i a ≠ 1 vrijedi log_a 1 = 0.
+            ○ (L5)
+                ○ Ako je a > 1 i x₁ < x₂, onda je log_a x₁ < log_a x₂.
+                ○ Ako je 0 < a < 1 i x₁ < x₂, onda je log_a x₁ > log_a x₂.
+            ○ (L6) Ako je log_a x₁ = log_a x₂, onda vrijedi x₁ = x₂.
+        ○ 1. zad PRIMJER 1
+        ○ 2. zad PRIMJER 2
+        ○ 3. zad PRIMJER 3
+        ○ 4. zad PRIMJER 4
+    ○ Promjena baze logaritamske funkcije
+        ○ Označimo m = log_3 44.
+        ○ Prema definiciji logaritma to znači da je 3ᵐ = 44.
+        ○ Očito, 3 < m < 4.
+        ○ Primjenom pravila (L3) možemo zapisati: m ⋅ log 3 = log 44.
+        ○ Odatle je m = log 44 / log 3.
+        ○ Tako smo promjenom baze računanje sveli na dekadski logaritam pa jednostavno nalazimo: m ≈ 3,4445.
+    ○ Veza logaritama po različitim bazama
+        ○ Na opisani način uvijek možemo računati vrijednost logaritma bilo kojeg broja po bilo kojoj bazi.
+        ○ Neka je m = log_a x.
+        ○ To onda znači da je x = aᵐ.
+        ○ Odatle slijedi log_b x = m ⋅ log_b a,
+            ○ odnosno m = (log_b x) / (log_b a).
+        ○ Veza logaritama po različitim bazama
+            ○ Ako je a > 0 i a ≠ 1, b > 0 i b ≠ 1 te x bilo koji pozitivan broj, tada vrijedi sljedeći identitet: log_a x = (log_b x) / (log_b a).
+        ○ 5. zad PRIMJER 5
+● Eksponencijalne i logaritamske jednadžbe
+    ○ Uvod
+        ○ Ako je f(x) neka realna funkcija, tada je problem određivanja broja x₀ takvog da je f(x₀) = 0, problem rješavanja jednadžbe.
+        ○ Broj x₀ je rješenje jednadžbe.
+        ○ Ako jednadžba ima više rješenja, onda govorimo o skupu rješenja jednadžbe.
+        ○ Rješavajući jednadžbu moramo odrediti sva njezina rješenja.
+        ○ Ovisno o tome o kojoj se funkciji radi, na prikladan način imenujemo i odgovarajuće jednadžbe.
+        ○ Tako smo uz linearnu funkciju f(x) = ax + b imali linearnu jednadžbu, jednadžbu oblika ax + b = 0.
+        ○ Rješavali smo i kvadratne jednadžbe, jednadžbe oblika ax² + bx + c = 0, koje su vezane uz kvadratnu funkciju f(x) = ax² + bx + c.
+        ○ Analogno ovom, uz eksponencijalnu i logaritamsku funkciju rješavamo eksponencijalne, odnosno logaritamske jednadžbe.
+    ○ Eksponencijalna jednadžba
+        ○ Neka je dana eksponencijalna funkcija f(x) = aˣ.
+        ○ Jednadžbu oblika aˣ = b zovemo eksponencijalna jednadžba.
+        ○ Vrijednosti eksponencijalne funkcije pozitivni su realni brojevi pa ova jednadžba ima smisla ako i samo ako je b > 0.
+        ○ Eksponencijalne se jednadžbe pojavljuju u raznim, pa i vrlo složenim oblicima, ali se svaka jednadžba nizom algebarskih postupaka nastoji svesti na ekvivalentan osnovni oblik aˣ = b.
+        ○ Eksponencijalna jednadžba
+            ○ Jednadžbu koju možemo svesti na oblik aˣ = b, b > 0 zovemo eksponencijalna jednadžba.
+        ○ 1. zad PRIMJER 1
+        ○ 2. zad PRIMJER 2
+        ○ 3. zad PRIMJER 3
+        ○ 4. zad PRIMJER 4
+        ○ 5. zad PRIMJER 5
+    ○ Logaritamska jednadžba
+        ○ Uz logaritamsku je funkciju f(x) = log_a x vezana logaritamska jednadžba, jednadžba oblika log_a x = b.
+        ○ Skup vrijednosti logaritamske funkcije je skup realnih brojeva pa zato ta jednadžba ima rješenja za svaki realni broj b.
+        ○ Logaritamska jednadžba
+            ○ Jednadžbu koja se može svesti na oblik log_a x = b, b ∈ R zovemo logaritamska jednadžba.
+        ○ Na nekoliko primjera pokazat ćemo rješavanje standardnih logaritamskih jednadžbi.
+        ○ 6. zad PRIMJER 6
+        ○ 7. zad PRIMJER 7
+        ○ 8. zad PRIMJER 8
+        ○ 9. zad PRIMJER 9
+        ○ 10. zad PRIMJER 10
+● Eksponencijalne i logaritamske nejednadžbe
+    ○ Uvod
+        ○ Pri rješavanju eksponencijalnih i logaritamskih nejednadžbi, slično kao i pri rješavanju jednadžbi, koristimo se svojstvima odgovarajućih funkcija.
+        ○ No za razliku od jednadžbi, rješavajući nejednadžbe moramo prije svega voditi računa o svojstvima monotonosti tih funkcija.
+        ○ Naime, ako je a > 1, tada su funkcije x ↦ aˣ i x ↦ log_a x rastuće, pa su nejednadžbe oblika a^(f(x)) > a^(g(x)), log_a f(x) > log_a g(x) ekvivalentne s f(x) > g(x).
+        ○ Pritom moramo uvažiti da je logaritamska funkcija definirana samo tamo gdje je f(x) > 0 i g(x) > 0.
+        ○ Ako je 0 < a < 1, tada su funkcije x ↦ aˣ i x ↦ log_a x padajuće, pa su nejednadžbe oblika a^(f(x)) > a^(g(x)), log_a f(x) > log_a g(x) ekvivalentne s f(x) < g(x).
+        ○ Dakako, i u ovom slučaju valja uvažiti da se kod logaritamske nejednadžbe zahtijeva f(x) > 0 i g(x) > 0.
+        ○ 1. zad PRIMJER 1
+        ○ 2. zad PRIMJER 2
+        ○ 3. zad PRIMJER 3
+● Primjene eksponencijalne i logaritamske funkcije
+    ○ Uvod
+        ○ Brojne su primjene eksponencijalne i logaritamske funkcije u najrazličitijim područjima znanosti.
+        ○ Osobito su pogodne za matematički opis mnogih prirodnih pojava.
+        ○ U ovoj nastavnoj cjelini udžbenika potkrijepit ćemo to nizom zornih i probranih primjera pri čemu će naglasak biti na idejama.
+        ○ Prvi primjeri odnose se na primjene u kojima je „matematički model” funkcija oblika f(t) = f₀ ⋅ eᵏᵗ.
+        ○ U tome je zapisu f₀ početno stanje, stanje na početku mjerenja (t = 0), dok je f(t) stanje nakon vremena t.
+        ○ Broj k je konstanta koja se uglavnom određuje eksperimentalno.
+        ○ Ako je k > 0, funkcija f opisuje (prirodni) rast, a ako je k < 0, (prirodni) pad u nekom procesu.
+    ○ Primjeri
+        ○ Hrvatska je prema popisu stanovništva 2011. godine imala 4,29 ⋅ 10⁶ stanovnika.
+        ○ Prema nekim crnim prognozama taj bi broj do 2031. mogao pasti na 3,68 ⋅ 10⁶.
+        ○ Kad bi to bilo tako, koje bi godine broj stanovnika bio upola manji nego li je bio 2011. godine?
+        ○ Prirast stanovništva u nekoj zajednici lijep je primjer primjene spomenutog eksponencijalnog zakona n(t) = n₀ ⋅ eᵏᵗ.
+        ○ Iz podataka za n₀ = 4,29 ⋅ 10⁶ i n_t = 3,68 ⋅ 10⁶, gdje je t = 20 godina, nakon uvrštavanja imamo: 3,68 ⋅ 10⁶ = 4,29 ⋅ 10⁶ ⋅ e²⁰ᵏ.
+        ○ Odatle je e²⁰ᵏ = 0,8578 te je 20k = ln 0,8578 = -0,15337.
+        ○ Konačno imamo k = -0,0076685.
+        ○ Tako smo došli do zakonitosti po kojoj se tijekom vremena mijenja broj stanovnika u našoj zemlji: n(t) = 4,29 ⋅ 10⁶ ⋅ e^(-0,0076685t).
+        ○ Primijetimo da je konstanta k negativan broj, što je karakteristika funkcije koja opisuje pad vrijednosti.
+        ○ Naravno, riječ je o tome da se broj stanovnika Republike Hrvatske neprestano umanjuje.
+        ○ I sada odgovorimo na pitanje kada bi se taj broj iz posljednjeg popisa prepolovio.
+        ○ Iz (1/2) n₀ = n₀ ⋅ e^(-0,0076685t) slijedi ln 0,5 = -0,0076685t,
+        ○ odakle se dobije t ≈ 90 godina.
+        ○ Zaključimo: prihvatimo li pretpostavku da se broj stanovnika u Republici Hrvatskoj mijenja po eksponencijalnom zakonu, onda bi (uz spomenute crne prognoze) 2101. u Republici Hrvatskoj živjelo upola manje stanovnika nego 2011. godine.
+        ○ ---
+        ○ Intenzitet svjetlosti u moru smanjuje se s dubinom.
+        ○ To smanjenje je različito i ovisi o brojnim čimbenicima.
+        ○ Jadransko more zbog svoje iznimne čistoće ima vrlo dobru prozirnost.
+        ○ Ona se za vedrog i sunčanog dana umanjuje svega oko 2% po metru dubine.
+        ○ Ako je na površini intenzitet I₀, onda je na dubini h metara intenzitet jednak I(h) = I₀ ⋅ 0,98ʰ.
+        ○ ---
+        ○ Kamate
+            ○ Ako bih danas u banci stavio na štednju 1 penny i zahtijevao da se na kraju svakog sljedećeg mjeseca pripiše 12% kamata, koliki bi iznos (u dolarima) bio nakon 100 godina?
+            ○ Ovakva pitanja nisu ni danas izgubila na važnosti.
+            ○ Odgovor je dan formulom C(t) = C₀ (1 + p/n)ⁿᵗ,
+                ○ gdje je C₀ početni iznos (ulog), p kamatna stopa, n broj ukamaćivanja godišnje i t broj godina.
+            ○ Primjerice, uloži li netko iznos od 10 000 € uz kamatu od 3%, kolika će biti svota nakon tri godine ako se pripisivanje kamata provodi
+                ○ godišnje;
+                ○ polugodišnje;
+                ○ mjesečno;
+                ○ dnevno?
+            ○ Potražimo odgovore:
+                ○ U ovom slučaju je C₀ = 10⁴, p = 0,03, n = 1 te je C = 10⁴ ⋅ (1 + 0,03)³ = 10⁴ ⋅ 1,093 ≈ 10 927,27 €.
+                ○ Sada su podatci za C₀ i p isti kao u prethodnom slučaju, samo je n = 2: C = 10⁴ ⋅ (1 + 0,03/2)⁶ = 10⁴ ⋅ 1,093443 ≈ 10 934,43 €.
+                ○ Sada stavljamo n = 12 i imamo: C = 10⁴ ⋅ (1 + 0,03/12)³⁶ ≈ 10 940,51 €.
+                ○ I konačno, uzmemo li da godina ima 365 dana, tada je C = 10⁴ ⋅ (1 + 0,03/365)⁽³⋅³⁶⁵⁾ ≈ 10 941,70 €.
+            ○ No ukamaćivanje može biti i kontinuirano, neprekinuto, što znači da se provodi u svakom trenutku trajanja ugovora.
+            ○ Tada se račun provodi po formuli C = C₀ ⋅ eᵖᵗ,
+                ○ gdje je C₀ početni iznos (glavnica), t vrijeme u godinama, p postotak (kamatnjak).
+            ○ Ako bismo po ovoj formuli računali koliki je iznos na računu uz glavnicu 10 000 €, nakon tri godine i uz kamatnu stopu od 3%, dobili bismo: C = 10⁴ ⋅ e^(0,03 ⋅ 3) = 10⁴ ⋅ e⁰·⁰⁹ ≈ 10 941,74 €.
+            ○ No nismo odgovorili na Franklinovo pitanje.
+            ○ U njegovom bi slučaju bilo: C₀ = 0,01, p = 0,12, n = 12, t = 100 pa bismo imali: C(100) = 0,01 (1 + 0,12/12)^(12 ⋅ 100) = 0,01 ⋅ 1,01¹²⁰⁰ ≈ 1533,38 dolara.
+        ○ ---
+        ○ Radioaktivnost
+            ○ Ako je m₀ masa neke radioaktivne tvari, tada je količina te tvari nakon vremena t jednaka m(t) = m₀ ⋅ e⁻ᵏᵗ.
+            ○ Vrijeme potrebno da se radioaktivnim raspadanjem količina te tvari prepolovi zove se vrijeme poluraspada i označava se s T.
+            ○ Dakle je m(T) = (1/2) m₀, gdje je m(T) masa tvari preostale nakon vremena T.
+            ○ Dalje imamo m₀ e⁻ᵏᵀ = (1/2) m₀.
+            ○ Odatle je e⁻ᵏᵀ = 1/2,
+            ○ zatim -kT = ln(1/2)
+            ○ i konačno k = (ln 2) / T.
+            ○ Tako primjerice, vrijeme poluraspada radija-226 iznosi 1620 godina.
+            ○ Konstantu k računamo iz k = (ln 2) / T = 4,27868 ⋅ 10⁻⁴
+            ○ i masa radija koja preostane od početne mase m₀ nakon t godina jednaka je m(t) = m₀ ⋅ e^(-0,000427868t).
+        ○ ---
+        ○ Torinsko platno
+            ○ Sve živo, uključujući ljude, biljke i životinje, tijekom života iz ugljikova dioksida u atmosferi apsorbira izotop ugljika C-14.
+            ○ Nakon smrti ili ugibanja C-14 se počinje smanjivati u sada neživom organizmu po eksponencijalnom zakonu m(t) = m₀ ⋅ e⁻ᵏᵗ
+            ○ pa se mjerenjem preostale količine C-14 može procijeniti njegova starost.
+            ○ Iz vremena poluraspada, koje za izotop ugljika C-14 iznosi 5730 godina, odredit ćemo konstantu k.
+            ○ Iz k = (ln 2) / T za T = 5730 dobijemo k = 1,2 ⋅ 10⁻⁴.
+            ○ Provjera je pokazala da se u lanenim nitima Torinskog platna zadržala količina od 91,6% izvorne količine C-14.
+            ○ I sada iz jednadžbe 0,916 = e^(-0,00012t) slijedi da je približna starost platna t ≈ 730 godina pa je zaključak da ono nije moglo biti Isusova posmrtna odora.
+        ○ ---
+        ○ Jaje
+            ○ One izražavaju kakvoću proteina u jajetu, a mjera se zove Haughova jedinica (H) po Raymondu Haughu koji je 1937. godine dao formulu za njezin izračun: H = 100 ⋅ log( (h - 1,7m⁰·³⁷) / 7,6 + 1).
+            ○ U formuli je m masa jajeta u gramima, a h visina bjelanjka u milimetrima nakon što se jaje razbije i izlije na ravnu površinu.
+            ○ Haughova jedinica razvrstava jaja u granicama od 0 do 130 te imamo ove oznake:
+                ○ ● H ≥ 72, oznaka AA;
+                ○ ● 60 ≤ H ≤ 71, oznaka A;
+                ○ ● 31 ≤ H ≤ 59, oznaka B;
+                ○ ● H ≤ 30, oznaka C.
+            ○ Ovaj primjer tek je jedan od brojnih u kojima se pri opisu nekih procesa ili pojava primjenjuju eksponencijalna i logaritamska funkcija.
+            ○ Uzmite jaje, razbijte ga i izlijte na vodoravnu površinu.
+            ○ Izmjerite njegovu masu i visinu bjelanjka te izračunajte Haughovu jedinicu.
+            ○ Koja oznaka pripada vašem jajetu?
+        ○ ---
+        ○ Logaritamska skala i jakost potresa
+            ○ Uobičajeni graf funkcije prikazujemo tako da su jedinice na osima jednake, ili barem proporcionalne.
+            ○ Govorimo tada da je skala na osima linearna.
+            ○ No takva je skala ponekad nepraktična pa se primjenjuju neke druge, kakva je, primjerice, logaritamska.
+            ○ Linearnu skalu možemo pretvoriti u logaritamsku tako da svakom broju b linearne skale pridružimo broj 10ᵇ logaritamske.
+            ○ (SLIKA 1)
+            ○ Jedna od prirodnih nepogoda od kojih ljudi najviše strepe jest potres.
+            ○ U novije se doba iznimno jak potres dogodio u Čileu 1960. g., a njegova je jačina bila 9,5 stupnjeva po Richteru.
+            ○ Richterova skala je ime dobila po američkom seizmologu Charlesu Richteru koji ju je uveo 1935. godine.
+            ○ Jakost potresa određuje se njegovom magnitudom, a ta magnituda je određena maksimalnom odstupanju koje ostavi instrument seizmograf na papirnoj traci.
+            ○ Što je veća magnituda, to je jači potres.
+            ○ Hrvatska je seizmički vrlo aktivno područje i kod nas se prosječno svakih deset godina dogodi jači potres.
+            ○ Osobito su kritični krajevi na krajnjem jugu.
+            ○ Najjači potres zabilježen u Republici Hrvatskoj pogodio je Dubrovnik 1667. godine, a iznosio je 7,6 stupnjeva po Richteru.
+            ○ Jakost potresa u Podgori 1962. i u Stonu 1996. iznosila je 6,1, odnosno 5,9 stupnjeva po Richterovoj skali.
+            ○ Godine 1880. godine Zagreb je pretrpio potres jakosti 6,3 stupnjeva po Richteru, a 2020. godine jakosti 5,5 po Richteru, oba s epicentrom u Medvednici.
+            ○ (SLIKA 2)
+            ○ Magnituda potresa opisuje se brojem, od 0 do 10.
+            ○ Ova skala je logaritamska, povećanje za jedan stupanj znači deset puta jači potres.
+            ○ Primjerice, potres u Podgori 1962. bio je za dva stupnja jači negoli potres u Splitu 2013.
+            ○ To znači da je potres u Podgori bio 100 puta jači nego splitski.
+            ○ Najjači potres novijeg doba u Hrvatskoj, onaj koji se dogodio 1667. godine u Dubrovniku iznosio je 7,6 stupnjeva i u usporedbi s potresom u Splitu (4,1) on je bio približno 3162 puta jači.
+            ○ Naime, 7,6 - 4,1 = 3,5, a 10³·⁵ ≈ 3162.
+            ○ Magnituda potresa povezana je s (rušilačkom) energijom koja se u potresu oslobađa i širi putem seizmičkih valova.
+            ○ Veza se može dobro aproksimirati formulom log E = 4,8 + 1,5M.
+            ○ To znači da će se energije dvaju potresa E₁ i E₂ s magnitudama M₁ i M₂ odnositi ovako: log(E₁/E₂) = log E₁ - log E₂ = 1,5(M₁ - M₂)
+            ○ pa je E₁/E₂ = 10^(1,5(M₁ - M₂)).
+            ○ Vrijedi 10¹·⁵ ≈ 31,6 pa potres koji je za jedan stupanj jači od drugog oslobodi oko 32 puta veću energiju.
+            ○ Potres koji je za 2 stupnja jači od drugog oslobodi točno 1000 puta veću energiju.
+        ○ ---
+        ○ pH-vrijednost
+            ○ Već po okusu za neke tvari ćemo zaključiti da su kisele, za neke da su neutralne, a neke lužnate.
+            ○ Razinu kiselosti tvari određuje koncentracija vodikovih iona u njoj, a izražava se pH-vrijednošću.
+            ○ Ta vrijednost za vodu iznosi 7.
+            ○ Ako je pH-vrijednost neke tvari manja od 7, tada je smatramo kiselom, a ako je veća od 7, tada je lužnata.
+            ○ Vrijednost pH određuje se približno pomoću lakmus papira koji poprimaju različite boje u ovisnosti o stupnju kiselosti.
+            ○ Točno očitanje radi se pomoću uređaja pehametra.
+            ○ Na slici vidimo skalu kiselosti uz navođenje nekih posebnih primjera.
+            ○ Primijetimo kako je riječ o logaritamskoj skali.
+            ○ (SLIKA)
+            ○ Ako je [H⁺] koncentracija vodikovih iona, tada se pH-vrijednost neke tvari izražava funkcijom pH = -log[H⁺].
+            ○ Primjerice, u ruralnim područjima Hrvatske koncentracija vodikovih iona u kišnici približno je jednaka 2,5 ⋅ 10⁻⁶.
+            ○ Dakle je pH-vrijednost kišnice u tim krajevima jednaka -log(2,5 ⋅ 10⁻⁶) ≈ 5,6.
+            ○ Ako je pH-vrijednost kišnice ispod 5,6, to je pokazatelj povećane kiselosti, a ako je između 4 i 4,5 tada govorimo o kiselim kišama.
+            ○ Ta „kiselost” posljedica je procesa sagorijevanja pri kojima se u atmosferu emitiraju štetni plinovi.
+            ○ Kisele kiše oštećuju tkivo biljaka, a u tlu otapaju hranjive tvari potrebne za njihov život.
+            ○ One riječnim tokom zagađuju jezera i mora.
+        ○ ---
+        ○ Logistička funkcija
+            ○ Pozorno pogledajte graf uz zadatak 1. o brojčanom rastu stanovništva Zemlje.
+            ○ Što uočavate?
+            ○ Očigledno je da eksponencijalnoj funkciji ne pripada krivulja koja je granica područja svjetlije boje.
+            ○ Premda smo rastu stanovništva pripisali tu funkciju, ona tek djelomice odgovara tom procesu.
+            ○ Za pojave pri kojima nakon naglog rasta (ili pada) dolazi do relativnog smirivanja, znatno bolje je rješenje logistička funkcija.
+            ○ Primjer je epidemija gripe pri kojoj se zaraza u početku brzo širi da bi nakon nekog vremena jenjavala.
+            ○ Opća formula logističke funkcije glasi f(x) = c / (1 + a e⁻ᵇˣ).
+            ○ U ovom zapisu a, b i c su konstante, realni brojevi koji su svojstveni pojedinoj konkretnoj pojavi i za koje vrijedi a > 0, b ≠ 0, c > 0.
+            ○ Na dvjema slikama prikazani su grafovi dviju logističkih funkcija:
+            ○ (SLIKA)
+        ○ ---
+        ○ Gripa
+            ○ U jednom je gradu broj osoba zaraženih gripom nakon t dana trajanja epidemije približno jednak Q(t) = 5000 / (1 + 1250 e⁻ᵏᵗ).
+            ○ Ako je nakon sedam dana bilo zaraženo 40 osoba, koliko će osoba biti bolesno nakon petnaest dana?
+            ○ Iz jednadžbe Q(7) = 5000 / (1 + 1250 e⁻⁷ᵏ) = 40 slijedi e⁻⁷ᵏ = 124/1250,
+            ○ odnosno -7k = ln(124/1250).
+            ○ Tako dobivamo k = 0,33 pa imamo funkciju Q(t) = 5000 / (1 + 1250 e^(-0,33t)).
+            ○ I sada računamo: Q(15) = 5000 / (1 + 1250 e⁻⁴·⁹⁵) ≈ 507.
+            ○ Nakon 15 dana gripom će biti zaraženo približno 507 osoba.
+===================================================================================================================

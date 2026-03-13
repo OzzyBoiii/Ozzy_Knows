@@ -28,7 +28,6 @@ kanban-plugin: board
 - [x] Calendar popup notification addon ✅ 2026-03-11
 - [ ] Obsidian calendar setup and google support - partially done
 - [ ] Anki - Obisidian - HTML support
-- [ ] AI and Ozzy_Knows implementation
 
 
 

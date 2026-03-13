@@ -360,3 +360,278 @@ Ako je diskriminanta te kvadratne jednadžbe pozitivan broj, njezina su rješenj
 Treći slučaj, kada je diskriminanta jednadžbe jednaka nuli, osobit je. Tada je pravac tangenta krivulje, s njom ima jednu zajedničku točku. [][]
 PRIMJER 2
 
+
+MODIFIED
+● Elipsa, hiperbola i parabola nazivaju se krivuljama drugog reda
+    ○ To su krivulje koje u koordinatnom sustavu opisujemo jednadžbama drugog stupnja
+    ○ Pravac može sjeći ove krivulje u najviše dvije točke
+
+===================================================
+
+● Definicija elipse
+    ○ Elipsa je skup svih točaka T ravnine za koje je zbroj udaljenosti od dviju zadanih točaka (žarišta) stalan
+    ○ Zadane su dvije točke F₁ i F₂ (žarišta)
+        ■ Udaljenost između žarišta: |F₁F₂| = 2e
+        ■ e je linearni ekscentricitet
+    ○ Neka je a bilo koji broj veći od e (a > e)
+    ○ Za svaku točku T elipse vrijedi:
+        ■ r₁ = |F₁T|
+        ■ r₂ = |F₂T|
+        ■ r₁ + r₂ = 2a
+    ○ Polovište O dužine F₁F₂ naziva se središte (centar) elipse
+    ○ Pravac kroz žarišta siječe elipsu u točkama A i B
+        ■ Dužina AB je velika os elipse
+        ■ Njezina duljina je 2a
+        ■ OA i OB su velike poluosi elipse (duljine a)
+    ○ Pravac kroz središte, okomit na veliku os, siječe elipsu u točkama C i D
+        ■ Dužina CD je mala os elipse
+        ■ OC i OD su male poluosi elipse (duljine b)
+    ○ Točke A, B, C, D nazivaju se tjemena elipse
+    ○ Za točku D vrijedi |F₁D| = |F₂D| = a
+        ■ Iz pravokutnog trokuta OF₂D slijedi Pitagorin poučak:
+            ● a² – b² = e²
+    ○ Vektori F₁T i F₂T (ili dužine F₁T i F₂T) nazivaju se radijus-vektori elipse
+
+===================================================
+
+● Konstrukcija elipse
+    ○ Na osnovi definicije (vrtlarska konstrukcija)
+        ■ Nacrtati veliku os AB i odrediti središte O
+        ■ Ucrtati žarišta F₁ i F₂ na veliku os na udaljenosti e od O
+        ■ Iz bilo kojeg žarišta šestarom (otvor a) zasjeći malu os → dobiju se tjemena C i D
+    ○ Postupak određivanja točaka elipse:
+        ■ Pomoćnu dužinu duljine 2a podijeliti na dva dijela: r₁ i r₂
+        ■ Iz F₁ i F₂ povući lukove polumjerom r₁
+        ■ Iz F₁ i F₂ povući lukove polumjerom r₂ koji sijeku prethodne lukove
+        ■ Sjecišta su točke elipse
+        ■ Postupak ponoviti s različitim vrijednostima za r₁ i r₂
+        ■ Dobivene točke spojiti glatkom krivuljom
+    ○ Zakrivljenost elipse
+        ■ Dijelovi elipse nalikuju kružnim lukovima
+        ■ Tjemena su točke najmanje (A, B) i najveće (C, D) zakrivljenosti
+    ○ Preciznije crtanje elipse pomoću kružnica koje je diraju u tjemenima
+        ■ Nacrtati pravokutnik kroz tjemena, paralelno s osima
+        ■ Iz vrha pravokutnika povući okomicu na spojnicu A i D
+        ■ Sjecišta s pravcima osi elipse (T₁, S₁) i njima simetrične točke (T₂, S₂) središta su kružnica koje diraju elipsu u tjemenima
+    ○ Kružnica je poseban slučaj elipse (oba žarišta u istoj točki, e=0, a=b=r)
+        ■ Nema tjemena, zakrivljenost je ista u svakoj točki
+
+===================================================
+
+● Jednadžba elipse (kanonska)
+    ○ Elipsa sa središtem u ishodištu (0,0), velikom osi na x-osi (a > b)
+        ■ Tjemena: A(-a, 0), B(a, 0), C(0, -b), D(0, b)
+        ■ Žarišta: F₁(-e, 0), F₂(e, 0)
+    ○ Iz definicije r₁ + r₂ = 2a izvodi se jednadžba:
+        ■ √((x+e)² + y²) + √((x–e)² + y²) = 2a
+        ■ Kvadriranjem i sređivanjem uz a² – e² = b² dobiva se:
+            ● b²x² + a²y² = a²b²
+            ● (x² / a²) + (y² / b²) = 1
+    ○ Ovo je kanonska (središnja) jednadžba elipse
+
+===================================================
+
+● Numerički ekscentricitet elipse
+    ○ ε = e / a
+    ○ Vrijedi 0 ≤ ε < 1
+        ■ ε = 0 → kružnica (e=0)
+        ■ ε → 1 → elipsa je sve spljoštenija
+    ○ Duljine radijus-vektora mogu se izraziti preko ε:
+        ■ r₁ = a + εx
+        ■ r₂ = a – εx
+
+===================================================
+
+● Elipsa sa žarištima na osi ordinata
+    ○ Jednadžba (x² / a²) + (y² / b²) = 1, uz b > a
+        ■ Velika os (duljine 2b) leži na y-osi
+        ■ Žarišta su na y-osi: F₁(0, -e), F₂(0, e)
+        ■ Linearni ekscentricitet: e = √(b² – a²)
+        ■ Zbroj radijus-vektora: r₁ + r₂ = 2b
+
+===================================================
+
+● Primjeri uz jednadžbu elipse (zadaci)
+    ○ 1. zad (PRIMJER 1)
+    ○ 2. zad (PRIMJER 2)
+    ○ 3. zad (PRIMJER 3)
+    ○ 4. zad (PRIMJER 4)
+    ○ 5. zad (PRIMJER 5)
+    ○ 6. zad (PRIMJER 6)
+
+===================================================
+
+● Jednadžba translatirane elipse
+    ○ Elipsa sa središtem u točki S(p, q) i osima paralelnim s koordinatnim osima
+        ■ U translatiranom sustavu (x', y') s ishodištem u S(p, q), jednadžba je:
+            ● (x'² / a²) + (y'² / b²) = 1
+        ■ Veza koordinata: x' = x – p, y' = y – q
+        ■ Jednadžba u početnom sustavu (x, y):
+            ● ((x – p)² / a²) + ((y – q)² / b²) = 1
+    ○ 7. zad (PRIMJER 7)
+
+===================================================
+===================================================
+
+● Definicija hiperbole
+    ○ Hiperbola je skup svih točaka T ravnine za koje je apsolutna vrijednost razlike udaljenosti od dviju zadanih točaka (žarišta) stalna
+    ○ Zadane su dvije točke F₁ i F₂ (žarišta)
+        ■ Udaljenost između žarišta: |F₁F₂| = 2e
+    ○ Neka je a pozitivan realan broj manji od e (a < e)
+    ○ Za svaku točku T hiperbole vrijedi:
+        ■ r₁ = |F₁T|
+        ■ r₂ = |F₂T|
+        ■ |r₁ – r₂| = 2a
+    ○ Polovište O dužine F₁F₂ je središte hiperbole
+    ○ Pravac kroz žarišta siječe hiperbolu u točkama A i B (tjemena)
+        ■ Dužina AB je realna (glavna) os hiperbole (duljine 2a)
+        ■ a je realna poluos
+    ○ Linearni ekscentricitet: e (e > a)
+    ○ Numerički ekscentricitet: ε = e / a (ε > 1)
+
+===================================================
+
+● Konstrukcija hiperbole
+    ○ Nacrtati realnu os, označiti središte O
+    ○ Na udaljenosti a od O označiti tjemena A i B
+    ○ Na udaljenosti e od O označiti žarišta F₁ i F₂
+    ○ Na pomoćnom polupravcu označiti duljinu 2a
+    ○ Odabrati r₁ > 2a
+        ■ Iz F₁ i F₂ povući po dva luka polumjerom r₁
+        ■ Iz F₁ i F₂ povući lukove polumjerom r₂ = r₁ – 2a koji sijeku prethodne lukove
+        ■ Sjecišta su točke hiperbole
+    ○ Postupak ponoviti s različitim vrijednostima za r₁
+    ○ Dobivene točke spojiti glatkom krivuljom (hiperbola se sastoji od dvije odvojene grane)
+
+===================================================
+
+● Jednadžba hiperbole (kanonska)
+    ○ Hiperbola sa središtem u ishodištu (0,0) i realnom osi na x-osi
+        ■ Tjemena: A(-a, 0), B(a, 0)
+        ■ Žarišta: F₁(-e, 0), F₂(e, 0)
+        ■ Imaginarna tjemena (ne leže na hiperboli): C(0, -b), D(0, b)
+            ● Dužina CD je imaginarna os (duljine 2b)
+            ● b je imaginarna poluos
+    ○ Iz definicije |r₁ – r₂| = 2a izvodi se:
+        ■ √((x+e)² + y²) – √((x–e)² + y²) = ±2a
+        ■ Kvadriranjem i sređivanjem uz e² – a² = b² dobiva se:
+            ● b²x² – a²y² = a²b²
+            ● (x² / a²) – (y² / b²) = 1
+    ○ Uvjet za postojanje točaka: |x| ≥ a
+        ■ x ≥ a → desna grana (r₁ – r₂ = 2a)
+        ■ x ≤ -a → lijeva grana (r₂ – r₁ = 2a)
+    ○ Hiperbola je simetrična s obzirom na osi i ishodište
+
+===================================================
+
+● Asimptote hiperbole
+    ○ Pravci kojima se točke hiperbole približavaju kad se udaljavaju od ishodišta
+    ○ Za hiperbolu (x² / a²) – (y² / b²) = 1, asimptote su:
+        ■ y = (b/a)x
+        ■ y = – (b/a)x
+    ○ Konstrukcija asimptota:
+        ■ Iz tjemena B (a,0) šestarom otvora e zasjeći imaginarnu os u točkama C i D
+        ■ |OD| = √(e² – a²) = b
+        ■ Nacrtati pravokutnik kroz B i D
+        ■ Povući dijagonale pravokutnika → to su asimptote
+
+===================================================
+
+● Primjeri uz jednadžbu hiperbole (zadaci)
+    ○ 1. zad (PRIMJER 1)
+    ○ 2. zad (PRIMJER 2)
+
+===================================================
+
+● Hiperbola s tjemenima na osi ordinata
+    ○ Jednadžba: –(x² / a²) + (y² / b²) = 1, ili (y² / b²) – (x² / a²) = 1
+        ■ Realna os je na y-osi (duljine 2b)
+        ■ Tjemena: A(0, -b), B(0, b)
+        ■ Imaginarna poluos: a
+        ■ Linearni ekscentricitet: e = √(a² + b²)
+        ■ Žarišta: F₁(0, -e), F₂(0, e)
+        ■ Zbroj (razlika) radijus-vektora: |r₁ – r₂| = 2b
+    ○ Asimptote su iste kao i za prethodnu hiperbolu: y = ±(b/a)x
+
+===================================================
+
+● Primjer uz hiperbolu s tjemenima na osi ordinata (zadatak)
+    ○ 3. zad (PRIMJER 3)
+
+===================================================
+===================================================
+
+● Definicija parabole
+    ○ Parabola je skup svih točaka T ravnine koje su jednako udaljene od jednog čvrstog pravca (ravnalice, direktrisa) i jedne čvrste točke (žarište, fokus) koja ne leži na tom pravcu
+        ■ Ravnalica (direktrisa) označava se s d
+        ■ Žarište (fokus) označava se s F
+        ■ Udaljenost žarišta od ravnalice označava se s p (poluparametar parabole)
+    ○ Pravac kroz F okomit na d je os parabole
+    ○ Polovište V udaljenosti od F do d je tjeme (vrh) parabole
+
+===================================================
+
+● Konstrukcija parabole
+    ○ Nacrtati ravnalicu d i žarište F
+    ○ Povući os parabole (pravac kroz F, okomit na d), sjecište s d je točka O
+    ○ Vrh V je polovište dužine OF
+    ○ Nacrtati pravac b paralelan s d, na udaljenosti većoj od p/2
+        ■ b siječe os u točki N
+        ■ Duljina |ON| = r
+        ■ Iz F povući luk kružnice polumjera r
+        ■ Sjecište luka i pravca b su točke parabole
+    ○ Postupak ponoviti s više pravaca paralelnih s d
+
+===================================================
+
+● Jednadžba parabole (vršna)
+    ○ Koordinatni sustav postavljen tako da je tjeme V u ishodištu (0,0), os parabole na x-osi, a žarište na pozitivnom dijelu x-osi
+        ■ Žarište: F(p/2, 0)
+        ■ Ravnalica: x = –p/2
+    ○ Za točku T(x,y) na paraboli, udaljenost od ravnalice (x + p/2) jednaka je udaljenosti do žarišta (√[(x – p/2)² + y²])
+        ■ Jednadžba: x + p/2 = √[(x – p/2)² + y²]
+        ■ Kvadriranjem i sređivanjem dobiva se:
+            ● y² = 2px
+
+===================================================
+
+● Jednadžba translatirane parabole
+    ○ Parabola s tjemenom u točki V(x₀, y₀) i osi paralelnom s x-osi (otvorena prema +x):
+        ■ (y – y₀)² = 2p(x – x₀)
+
+===================================================
+
+● Primjeri uz jednadžbu parabole (zadaci)
+    ○ 1. zad (PRIMJER 1)
+    ○ 2. zad (PRIMJER 2)
+    ○ 3. zad (PRIMJER 3)
+    ○ 4. zad (PRIMJER 4)
+
+===================================================
+===================================================
+
+● Presjek pravca i krivulje drugog reda
+    ○ Zbog kvadratne prirode jednadžbi, pravac može sijeći elipsu, hiperbolu ili parabolu u najviše dvije točke
+    ○ Postupak:
+        ■ Riješiti sustav od jednadžbe pravca (y = kx + l) i jednadžbe krivulje
+        ■ Uvrštavanjem y iz pravca u jednadžbu krivulje dobiva se kvadratna jednadžba po x (ili y)
+        ■ Diskriminanta D kvadratne jednadžbe određuje odnos:
+            ● D > 0 → pravac siječe krivulju u dvjema točkama
+            ● D = 0 → pravac je tangenta krivulje (dodiruje je u jednoj točki)
+            ● D < 0 → pravac i krivulja nemaju zajedničkih točaka
+
+===================================================
+
+● Primjer presjeka pravca i elipse
+    ○ Sustav: { y = kx + l,  (b²x² + a²y² = a²b²) }
+    ○ Eliminacijom y dobiva se:
+        ■ (b² + k²a²)x² + 2kla²x + a²(l² – b²) = 0
+    ○ Ova kvadratna jednadžba određuje apscise presječnih točaka
+
+===================================================
+
+● Primjer uz presjek pravca i krivulje (zadatak)
+    ○ 1. zad (PRIMJER 1)
+    ○ 2. zad (PRIMJER 2)
+
+===================================================

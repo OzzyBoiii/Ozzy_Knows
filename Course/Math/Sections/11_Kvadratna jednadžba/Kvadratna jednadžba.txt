@@ -269,3 +269,226 @@ Ako zamjenom nepoznanica u nekoj algebarskoj jednadžbi dobijemo istu jednadžbu
 PRIMJER 5
 PRIMJER 6
 
+
+MODIFEID
+● Kvadratna jednadžba  
+● Uvod  
+    ○ U prvom je razredu jedna od tema koju smo obrađivali bila linearna jednadžba s jednom nepoznanicom.  
+    ○ Na brojnim smo primjerima i zadatcima pokazali kako se mnogi praktični problemi iz svakodnevice svode na rješavanje takvih jednadžbi.  
+    ○ No, nerijetko će nam se pojavljivati i problemi koji zahtijevaju rješavanje i nekih drugih, često i složenijih jednadžbi.  
+    ○ U ovom ćemo poglavlju naučiti kako riješiti kvadratnu jednadžbu s jednom nepoznanicom.  
+    ○ Krenimo s jednostavnim primjerom iz fizike.  
+    ○ Ana prijeđe 9 km vozeći bicikl i nastavi trčati još 4 km.  
+    ○ Sve je trajalo točno jedan sat.  
+    ○ Ako je Ana vozila bicikl 10 km/h brže nego što je trčala, kojom je prosječnom brzinom trčala?  
+        ○ 1. zad.  
+        ○ Neka je v_b prosječna brzina kojom je Ana vozila bicikl, a v brzina kojom je trčala.  
+        ○ Kako je vozila bicikl brzinom koja je od brzine trčanja bila veća za 10 km/h, onda je v_b = v + 10.  
+        ○ Označimo li s t_b vrijeme vožnje na biciklu, a s t vrijeme koliko traje trčanje, tada vrijedi t_b + t = 1.  
+        ○ Kako je t = s/v, onda imamo jednadžbu s jednom nepoznanicom: 9/(v + 10) + 4/v = 1.  
+        ○ Slijedi 9v + 4(v + 10) = v(v + 10), i konačno v^2 - 3v - 40 = 0.  
+        ○ Jednadžba koju smo dobili jest kvadratna jednadžba s nepoznanicom v.  
+        ○ Kako je riješiti?  
+        ○ Kako odrediti nepoznanicu v?  
+        ○ To ćemo učiti u nastavku ove teme.  
+===================================================  
+● Kvadratna jednadžba  
+    ○ Kvadratna jednadžba je jednadžba oblika ax^2 + bx + c = 0.  
+    ○ Realni brojevi a, b i c (a ≠ 0) koeficijenti su kvadratne jednadžbe.  
+    ○ Broj a je koeficijent kvadratnog člana ili vodeći koeficijent, broj b je koeficijent linearnog člana, a broj c je slobodni član.  
+    ○ Svaki broj x koji zadovoljava tu jednadžbu njezino je rješenje.  
+    ○ PRIMJER 1  
+===================================================  
+● Kvadratne jednadžbe posebnog oblika  
+● Jednadžba x^2 = -c/a  
+● Uvod  
+    ○ Neke kvadratne jednadžbe možemo jednostavno riješiti uz znanje kojim već raspolažemo.  
+    ○ To su one jednadžbe kod kojih je jedan od koeficijenata b ili c jednak nuli.  
+    ○ Naravno, zahtjev a ≠ 0 se podrazumijeva jer u suprotnom jednadžba ne bi bila kvadratna.  
+    ○ Pa razmotrimo sve te posebne slučajeve.  
+    ○ Neka je b = 0, c ≠ 0.  
+    ○ Imamo jednadžbu oblika ax^2 + c = 0, odnosno x^2 = -c/a.  
+    ○ Ova jednadžba uvijek ima dva rješenja.  
+    ○ Ona mogu biti realni ili imaginarni brojevi, što ovisi o predznacima brojeva a i c.  
+        ○ Ako su koeficijenti a i c brojevi suprotnih predznaka, rješenja su dva realna suprotna broja.  
+        ○ Ako su koeficijenti a i c brojevi istog predznaka, ova jednadžba nema realnih rješenja.  
+        ○ Rješenja su dva suprotna imaginarna broja.  
+    ○ PRIMJER 1  
+    ○ PRIMJER 2  
+===================================================  
+● Jednadžba ax^2 + bx = 0  
+    ○ Neka je b ≠ 0, c = 0.  
+    ○ Jednadžba glasi ax^2 + bx = 0.  
+    ○ Broj x zajednički je faktor obaju pribrojnika s lijeve strane: x(ax + b) = 0.  
+    ○ Umnožak dvaju brojeva jednak je nuli onda i samo onda ako je prvi ili drugi faktor jednak nuli.  
+    ○ Zato mora biti x = 0 ili ax + b = 0.  
+    ○ Vidimo da i ova kvadratna jednadžba ima dva rješenja: x_1 = 0, x_2 = -b/a, i da su oba realni brojevi.  
+    ○ PRIMJER 3  
+===================================================  
+● Jednadžba ax^2 = 0  
+    ○ Neka je b = 0 i c = 0.  
+    ○ Jednadžba glasi ax^2 = 0, što vrijedi samo ako je x = 0.  
+    ○ Međutim, imajući u vidu gornja dva slučaja u kojima kvadratna jednadžba ima dva rješenja, i ovdje ćemo reći da kvadratna jednadžba ima dva rješenja koja su jednaka, tj. x_1 = x_2 = 0.  
+    ○ Govorimo još da je x = 0 dvostruko rješenje ove kvadratne jednadžbe.  
+● Kvadratne jednadžbe posebnog oblika  
+    ○ Jednadžba ax^2 + c = 0 ima za c ≠ 0:  
+        ○ dva realna rješenja ako su a i c suprotnih predznaka  
+        ○ dva rješenja koja su suprotni imaginarni brojevi ako su a i c istog predznaka.  
+    ○ Jednadžba ax^2 + bx = 0 ima za b ≠ 0 uvijek dva realna različita rješenja, od kojih je jedno jednako nuli.  
+    ○ Jednadžba ax^2 = 0 ima dvostruko rješenje x = 0.  
+    ○ Postupak rješavanja opće kvadratne jednadžbe, jednadžbe oblika ax^2 + bx + c = 0 kod koje su sva tri koeficijenta a, b i c različita od nule, potječe iz novijeg doba.  
+    ○ No, to ne znači da stari narodi nisu znali rješavati takve kvadratne jednadžbe.  
+    ○ Pri rješavanju su se koristili raznim dosjetkama.  
+===================================================  
+● Rješenja kvadratne jednadžbe  
+● Svođenje na potpuni kvadrat  
+    ○ Kad je riječ o rješenju opće kvadratne jednadžbe ax^2 + bx + c = 0, gdje su sva tri koeficijenta različita od nule, nastojimo jednadžbu svesti na jedan od dvaju posebnih oblika koje smo već razmotrili.  
+    ○ Pokušajmo jednadžbu riješiti dopunjavanjem na potpuni kvadrat.  
+● Svođenje na potpuni kvadrat  
+    ○ Ako kvadratni trinom nije potpuni kvadrat, možemo izdvojiti jedan njegov dio koji to uvijek jest, a koji pritom sadrži članove s nepoznanicom x.  
+    ○ Takav se postupak naziva svođenje na potpuni kvadrat i koristi u rješavanju kvadratnih jednadžbi.  
+    ○ PRIMJER 1  
+    ○ PRIMJER 2  
+===================================================  
+● Rješenja kvadratne jednadžbe – izvedba formule  
+    ○ Krenimo od jednadžbe ax^2 + bx + c = 0.  
+    ○ Dijeljenjem s a ≠ 0 jednadžba se svodi na normirani oblik: x^2 + (b/a)x + c/a = 0.  
+    ○ Prebacimo slobodni član na desnu stranu: x^2 + (b/a)x = -c/a.  
+    ○ Koeficijent uz nepoznanicu x je b/a, a njegova polovica (b/(2a)).  
+    ○ Kvadrat ovog izraza dodajemo lijevoj i desnoj strani jednadžbe: x^2 + (b/a)x + (b/(2a))^2 = -c/a + (b/(2a))^2.  
+    ○ Nakon sređivanja dobivamo: (x + b/(2a))^2 = (b^2 - 4ac)/(4a^2).  
+    ○ Odavde: x_1 + b/(2a) = √(b^2 - 4ac)/(2a), x_2 + b/(2a) = -√(b^2 - 4ac)/(2a), pa je x_1,2 = -b/(2a) ± √(b^2 - 4ac)/(2a) = (-b ± √(b^2 - 4ac))/(2a).  
+● Rješenja kvadratne jednadžbe  
+    ○ Rješenja kvadratne jednadžbe ax^2 + bx + c = 0 su brojevi x_1 = (-b + √(b^2 - 4ac))/(2a), x_2 = (-b - √(b^2 - 4ac))/(2a).  
+    ○ PRIMJER 3  
+===================================================  
+● Kompleksni brojevi  
+    ○ Pri rješavanju kvadratne jednadžbe oblika ax^2 + c = 0 vidjeli smo da rješenja mogu biti realni, ali i imaginarni brojevi.  
+    ○ U prethodnom primjeru rješavajući jednadžbu x^2 + x + 3 = 0 susreli smo se s brojem √(-11), pa zaključujemo kako ova kvadratna jednadžba nema realnih rješenja.  
+    ○ Budući je √(-11) = i√11, rješenja ćemo zapisati u obliku x_1,2 = (-1 ± i√11)/2 = -1/2 ± (√11/2)i.  
+    ○ Ovakvi brojevi koji su zbroj realnog i imaginarnog broja zovu se kompleksni brojevi.  
+● Kompleksni brojevi  
+    ○ Kompleksni broj z je broj oblika z = x + yi.  
+    ○ Pritom su x i y realni brojevi, a i je imaginarna jedinica.  
+    ○ Broj x je realni dio kompleksnog broja z, broj y njegov je imaginarni dio.  
+    ○ Skup realnih brojeva podskup je skupa kompleksnih brojeva.  
+    ○ Svaki je realan broj ujedno i kompleksan broj.  
+    ○ Tada je y = 0.  
+    ○ Dva kompleksna broja koji imaju jednake realne dijelove, a imaginarni dijelovi su im suprotni realni brojevi, zovu se konjugirano kompleksni brojevi.  
+    ○ Primjerice, brojevi 3 + 2i i 3 - 2i konjugirano su kompleksni brojevi.  
+    ○ Napomenimo još kako s kompleksnim brojevima računamo kao s algebarskim izrazima uvažavajući da je i^2 = -1.  
+    ○ PRIMJER 4  
+    ○ Vratimo se sada jednadžbi x^2 + x + 3 = 0 iz primjera 3.  
+    ○ Možemo zaključiti: njezina su rješenja dva konjugirano kompleksna broja -1/2 + (√11/2)i i -1/2 - (√11/2)i.  
+    ○ Možete li sada odgovoriti na pitanje s početka ovog poglavlja: kojom brzinom Ana trči?  
+    ○ Prisjetimo se da smo u traganju za odgovorom došli do kvadratne jednadžbe v^2 - 3v - 40 = 0.  
+    ○ Sada je valja riješiti.  
+===================================================  
+● Diskriminanta kvadratne jednadžbe  
+● Diskriminanta kvadratne jednadžbe  
+    ○ Vidjeli smo da rješenja kvadratne jednadžbe mogu biti realni i konjugirano kompleksni brojevi.  
+    ○ O čemu ovisi priroda rješenja kvadratne jednadžbe ax^2 + bx + c = 0?  
+    ○ Pogledajmo još jednom formulu kojom nalazimo ta rješenja: x_1,2 = (-b ± √(b^2 - 4ac))/(2a).  
+    ○ Hoće li rješenja biti realna ili kompleksna, ovisi samo o izrazu koji se nalazi pod korijenom.  
+    ○ Taj se broj naziva diskriminanta kvadratne jednadžbe.  
+● Diskriminanta kvadratne jednadžbe  
+    ○ Diskriminanta kvadratne jednadžbe ax^2 + bx + c = 0 je broj D = b^2 - 4ac.  
+    ○ Rješenja kvadratne jednadžbe, napisana s pomoću diskriminante, glase: x_1,2 = (-b ± √D)/(2a).  
+    ○ Za različite vrijednosti diskriminante vrijedi:  
+        ○ D > 0. Rješenja su realna i različita: x_1 = (-b + √D)/(2a), x_2 = (-b - √D)/(2a).  
+            ○ PRIMJER 1  
+        ○ D < 0. Rješenja su kompleksno konjugirani brojevi.  
+            ○ Kako je D negativan broj, vrijedi D = -|D|, pa: x_1 = (-b + √(-|D|))/(2a) = (-b + i√|D|)/(2a), x_2 = (-b - √(-|D|))/(2a) = (-b - i√|D|)/(2a).  
+            ○ PRIMJER 2  
+        ○ D = 0. Postoji samo jedno realno rješenje, jer je po formuli x_1,2 = -b/(2a).  
+            ○ Korisno je ovaj rezultat interpretirati na sljedeći način: rješenja kvadratne jednadžbe x_1, x_2 se podudaraju.  
+            ○ Tako radije govorimo da u slučaju D = 0 kvadratna jednadžba ima jedno dvostruko realno rješenje.  
+            ○ PRIMJER 3  
+            ○ PRIMJER 4 (JEDNADŽBE S PARAMETROM)  
+            ○ PRIMJER 5  
+===================================================  
+● Vièteove formule  
+● Vièteove formule  
+    ○ Rješenja x_1 i x_2 kvadratne jednadžbe ax^2 + bx + c = 0 i njezine koeficijente povezuju dvije jednostavne jednakosti.  
+    ○ Dobit ćemo ih zbrajanjem i množenjem rješenja jednadžbe: x_1 + x_2 = (-b + √D)/(2a) + (-b - √D)/(2a) = -b/a, x_1 ⋅ x_2 = (-b + √D)/(2a) ⋅ (-b - √D)/(2a) = (b^2 - D)/(4a^2) = (b^2 - (b^2 - 4ac))/(4a^2) = c/a.  
+● Vièteove formule  
+    ○ Ako su x_1 i x_2 rješenja kvadratne jednadžbe ax^2 + bx + c = 0, tada vrijede Vièteove formule: x_1 + x_2 = -b/a, x_1 x_2 = c/a.  
+    ○ PRIMJER 1  
+    ○ PRIMJER 2  
+    ○ PRIMJER 3  
+===================================================  
+● Faktorizacija kvadratnog trinoma  
+    ○ U prvom razredu pri rastavljanju višečlanih algebarskih izraza u faktore posebna se pozornost poklanja rastavu na faktore polinoma drugog stupnja.  
+    ○ Taj problem ponekad i nije jednostavan.  
+    ○ No, primjenjujući Vièteove formule, on postaje lako rješiv.  
+● Faktorizacija kvadratnog trinoma  
+    ○ Neka su x_1 i x_2 rješenja kvadratne jednadžbe ax^2 + bx + c = 0, onda se kvadratni trinom ax^2 + bx + c može napisati u obliku ax^2 + bx + c = a(x - x_1)(x - x_2).  
+    ○ PRIMJER 4  
+===================================================  
+● Kvadratna jednadžba sa zadanim rješenjima  
+    ○ Kvadratna jednadžba s rješenjima x_1 i x_2 glasi a(x - x_1)(x - x_2) = 0, gdje je a ≠ 0 po volji odabran broj.  
+    ○ PRIMJER 5  
+    ○ PRIMJER 6  
+    ○ Ako vrijedi x_1 + x_2 = m, x_1 x_2 = n, onda su x_1 i x_2 rješenja kvadratne jednadžbe x^2 - mx + n = 0.  
+    ○ PRIMJER 7  
+    ○ PRIMJER 8  
+===================================================  
+● Jednadžbe koje se svode na kvadratne  
+● Uvod  
+    ○ Zamislimo da se neka jama proteže okomito u tlo i da želimo izmjeriti njezinu dubinu.  
+    ○ Kako to učiniti?  
+    ○ Uzet ćemo kamen i pustiti ga da slobodno pada u jamu.  
+    ○ Izmjerit ćemo vrijeme od ispuštanja kamena do trenutka kada do nas dopre odjek udarca kamena o dno jame.  
+    ○ Uzmimo da to vrijeme iznosi 16 sekundi.  
+        ○ 2. zad.  
+        ○ Nakon ispuštanja kamen je slobodno padao i vrijeme do njegova udarca o dno jame jednako je t_1 = √(2s/g) ≈ 0,45√s sekundi, a vrijeme potrebno da zvuk nastao udarcem o dno stigne do vrha jame jednako je t_2 = s/340 ≈ 0,003s sekundi.  
+        ○ Ukupno je vrijeme jednako t = t_1 + t_2, te imamo jednadžbu √(2s/g) + s/340 = 16, koja uz prethodno prihvaćene približne vrijednosti poprima oblik 0,45√s + 0,003s = 16.  
+        ○ Prepoznajete li u njoj kvadratnu jednadžbu?  
+        ○ Što je nepoznanica?  
+        ○ Nepoznanica je √s.  
+        ○ Jednadžbu možemo zapisati u obliku iz kojega je to sasvim razvidno: 0,003(√s)^2 + 0,45√s - 16 = 0.  
+        ○ Od dvaju rješenja ove jednadžbe prihvaćamo pozitivno, √s ≈ 29,68, pa je s ≈ 881 m.  
+        ○ Jednadžba koju smo upravo riješili primjer je jednadžbe čije se rješavanje svodi na rješavanje kvadratne jednadžbe.  
+===================================================  
+● Bikvadratna jednadžba  
+● Bikvadratna jednadžba  
+    ○ Jednadžbu četvrtog stupnja koja ima oblik ax^4 + bx^2 + c = 0 zovemo bikvadratna jednadžba.  
+    ○ Pritom su koeficijenti a, b i c realni brojevi te a ≠ 0.  
+    ○ Zamjenom x^2 = t rješavanje bikvadratne jednadžbe prevodimo na rješavanje kvadratne jednadžbe at^2 + bt + c = 0.  
+    ○ Bikvadratna jednadžba može imati najviše četiri rješenja.  
+    ○ Ako su t_1 i t_2 rješenja kvadratne jednadžbe u t, onda:  
+        ○ ako je t_1 ≥ 0 i t_2 ≥ 0, sva su četiri rješenja realna  
+        ○ ako je t_1 ≥ 0, a t_2 < 0, dva su rješenja jednadžbe realna, a dva su konjugirano kompleksni brojevi  
+        ○ ako je t_1 < 0 i t_2 < 0, rješenja su dva para konjugirano kompleksnih brojeva.  
+    ○ PRIMJER 1  
+    ○ PRIMJER 2  
+===================================================  
+● Iracionalna jednadžba  
+    ○ Iracionalne se jednadžbe u načelu rješavaju tako da se njihovim potenciranjem želi riješiti korijena.  
+    ○ No potenciranjem neke jednadžbe općenito se ne dobiva ekvivalentna jednadžba.  
+    ○ U to se lako uvjeriti već na jednostavnom primjeru: kvadriranjem jednadžbe x + 1 = 0 dobivamo kvadratnu jednadžbu (x + 1)^2 = 0 koja nije ekvivalentna prvoj (druga „dopušta” i rješenja koja ne zadovoljavaju početnu ako bismo je dobili iz neke druge jednadžbe).  
+    ○ I još jednom napomenimo: pri rješavanju iracionalnih jednadžbi često se primjenjuje identitet √a ⋅ √b = √(ab), pri čemu se zaboravlja kako on vrijedi samo za nenegativne realne brojeve a i b.  
+    ○ Ako, primjerice, promotrimo jednakost √(2x - 1) ⋅ √(x + 1) = √((2x - 1)(x + 1)), vidjet ćemo kako lijeva strana ima smisla ako je 2x - 1 ≥ 0 i x + 1 ≥ 0, odnosno za x ≥ 1/2.  
+    ○ A desna je strana definirana za sve x za koje je (2x - 1)(x + 1) ≥ 0, odnosno za x ≤ -1 ili x ≥ 1/2.  
+    ○ Očigledno, dana jednakost je identitet samo u skupu brojeva x ≥ 1/2.  
+    ○ Zbog svega navedenog, najbolje je već na samom početku rješavanja postaviti uvjete koji određuju skup brojeva unutar kojega uopće ima smisla očekivati rješenja, a nakon provedenog rješavanja uvrštavanjem provjeriti jesu li brojevi koje smo dobili uistinu i rješenja jednadžbe.  
+    ○ PRIMJER 3  
+===================================================  
+● Sustav linearne i kvadratne jednadžbe  
+    ○ Linearna jednadžba s dvjema nepoznanicama je oblika ax + by + c = 0.  
+    ○ O takvoj jednadžbi učili smo u prvom razredu.  
+    ○ Jednadžba drugog stupnja (kvadratna jednadžba) s dvjema nepoznanicama x i y je oblika Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0.  
+    ○ Pritom su realni brojevi A, B, C, D, E i F koeficijenti jednadžbe.  
+    ○ Mnogi se matematički zadatci svode na problem rješavanja sustava dviju jednadžbi s dvjema nepoznanicama, jedne linearne i jedne kvadratne.  
+    ○ Kako riješiti takav sustav?  
+    ○ Ideja je jasna.  
+    ○ Izrazit ćemo iz linearne jednadžbe jednu od nepoznanica te provesti zamjenu te iste nepoznanice u drugoj jednadžbi.  
+    ○ Tako će druga jednadžba biti kvadratna jednadžba s jednom nepoznanicom.  
+    ○ PRIMJER 4  
+===================================================  
+● Simetrični sustavi jednadžbi  
+    ○ Ako zamjenom nepoznanica u nekoj algebarskoj jednadžbi dobijemo istu jednadžbu, kažemo da je ta jednadžba simetrična.  
+    ○ Pri rješavanju sustava dviju simetričnih jednadžbi s dvjema nepoznanicama ponekad se vrlo uspješno primjenjuju Vièteove formule.  
+    ○ PRIMJER 5  
+    ○ PRIMJER 6  
+===================================================

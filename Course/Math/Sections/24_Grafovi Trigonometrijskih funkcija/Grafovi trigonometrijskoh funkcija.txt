@@ -300,3 +300,308 @@ ________________________________________
 Nul vektor
 Vektor kojem se podudaraju početna i završna točka nazivamo nul vektor i označavamo s 0 ⃗. Njegova je duljina 0, i to je jedini vektor duljine nula. Tako je 0 ⃗=(AA) ⃗ za bilo koju točku A. Jedino za nul vektor nema smisla govoriti o smjeru niti o orijentaciji. Prema dogovoru uzimamo da je nul vektor kolinearan sa svakim vektorom.
 
+
+MODIFIED
+● **Grafovi funkcija sinus i kosinus**
+● **Uvod**
+● **PRIMJER 1**
+===================================================
+● **Graf funkcije sinus** **f(x) = sin x**
+  ○ Nacrtajmo brojevnu kružnicu i podijelimo njezin luk u prvom kvadrantu te interval [0, π/2] na osi apscisa na 8 jednakih dijelova.
+  ○ Potom s grafa odredimo vrijednost sinusa za bilo koju vrijednost broja x.
+    (SLIKA 1: Grafovi funkcija sinus i kosinus_1.png)
+  ○ Daljnjim proširivanjem na druge lukove brojevne kružnice određujemo interval [0, 2π].
+    (SLIKA 2: Grafovi funkcija sinus i kosinus_2.png)
+  ● **Svojstva grafa**
+    1. Simetričnost s obzirom na pravac x = π/2.
+       ○ Kako je sin(π/2 - α) = sin(π/2 + α) za α > 0, graf je simetričan s obzirom na pravac x = π/2.
+       ○ Ako smo nacrtali graf funkcije sinus za 0 < x < π/2, graf funkcije na intervalu [0, π] dobivamo zrcaljenjem oko tog pravca.
+         (SLIKA 3: Grafovi funkcija sinus i kosinus_3.png)
+    2. Simetričnost s obzirom na ishodište.
+       ○ Za svaki realni broj x vrijedi sin(-x) = -sin x, te se na grafu nalaze točke (x, sin x) i (-x, -sin x).
+       ○ Te su dvije točke simetrične s obzirom na ishodište, kao i graf (sinus je neparna funkcija).
+         (SLIKA 4: Grafovi funkcija sinus i kosinus_4.png)
+    3. Periodičnost.
+       ○ Za svaki realni broj x vrijedi sin(x + 2π) = sin x.
+       ○ Svakim intervalom duljine 2π graf funkcije sinus identičan je onom s intervala [0, 2π]; funkcija je periodična s periodom 2π.
+         (SLIKA 5: Grafovi funkcija sinus i kosinus_5.png)
+    4. Nultočke funkcije su brojevi kπ, k ∈ Z.
+    5. Maksimum funkcije je 1, a poprima se za x = π/2 + 2kπ, k ∈ Z.
+    6. Minimum funkcije je -1, a poprima se za x = 3π/2 + 2kπ, k ∈ Z.
+    7. Na intervalu [0, 2π] tijek funkcije je:
+       (TABLICA 1)
+       x        | 0 | π/2 | π | 3π/2 | 2π
+       sin x    | 0 | 1   | 0 | -1   | 0
+  ● **Crtanje grafa**
+    ○ Pritom je korisno znati da graf funkcije sinus „ulazi” u ishodište dodirujući pravac y = x.
+      (SLIKA 6: Grafovi funkcija sinus i kosinus_6.png)
+    ○ Podijelimo interval [0, π/2] na jednake dijelove.
+    ○ Odredimo vrijednosti u djelišnim točkama i unesimo ih na graf funkcije.
+    ○ Primjerice, sin π/4 ≈ 0,71. Na osi ordinata označimo točku kojoj je ordinata približno 0,71.
+===================================================
+● **Graf funkcije kosinus**
+  ○ Vrijedi cos x = sin(x + π/2). To znači da se vrijednost funkcije kosinus u broju x podudara s vrijednošću funkcije sinus u broju koji je za π/2 desno od x.
+    ● Graf funkcije kosinus dobivamo iz grafa funkcije sinus pomakom za π/2 ulijevo.
+      (SLIKA 7: Grafovi funkcija sinus i kosinus_7.png)
+  ● **Svojstva grafa funkcije cos x**
+    1. Nultočke su π/2 + kπ, k ∈ Z.
+    2. Maksimum funkcije je 1, a poprima se za x = 2kπ, k ∈ Z.
+    3. Minimum funkcije je -1, a poprima se za x = (2k+1)π, k ∈ Z.
+    4. Na intervalu [0, 2π] tijek funkcije je:
+       (TABLICA 2)
+       x        | 0 | π/2 | π | 3π/2 | 2π
+       cos x    | 1 | 0   | -1| 0    | 1
+    5. Funkcija je periodična s periodom 2π.
+===================================================
+● **Sinusoida**
+  ○ **Sinusoida**
+    ● Graf harmonijske funkcije f(x) = C sin(ωx + φ).
+      ○ C = amplituda (pozitivna konstanta, C > 0)
+      ○ ω = kružna frekvencija
+      ○ φ = fazni pomak.
+  ○ Harmonijska je funkcija periodična; temeljni period iznosi P = 2π/ω.
+    ○ Za svaki realni broj x vrijedi
+      f(x+P) = C sin[ω(x+P)+φ] = C sin[ωx+ω·2π/ω+φ] = C sin(ωx+φ+2π) = C sin(ωx+φ) = f(x).
+  ○ **Nul točke funkcije su:**
+    ○ C sin(ωx+φ) = 0  ⇔  ωx+φ = kπ  ⇔  x = (kπ - φ)/ω, k = 0, ±1, ±2, …
+    ○ Za k=0 dobivamo nul točku
+      x₀ = -φ/ω
+      (pomak sinusoide).
+  ○ Za svaki realni broj t vrijedi |sin t| ≤ 1, pa će za ovu funkciju biti |f(x)| ≤ C.
+    ○ Pri tom je f(x) = C (gdje sinus poprima vrijednost 1), odnosno f(x) = -C (gdje sinus poprima vrijednost -1); to određuje najveću i najmanju vrijednost ove funkcije (amplitudu).
+===================================================
+● **Primjeri**
+  ● **PRIMJER 2**
+  ● **PRIMJER 3**
+  ● **PRIMJER 4**
+  ● **PRIMJER 5**
+  ● **PRIMJER 6**
+===================================================
+===================================================
+===================================================
+● **Grafovi funkcija tangens i kotangens**
+===================================================
+● **Graf funkcije tangens**
+  ○ **Crtanje tangensoide f(x) = tan x.**
+    ● Funkcija tangens je periodična (temeljni period je π), pa se graf dobiva „kopiranjem” grafa s intervala (-π/2, π/2) na sve intervale duljine π.
+    ● Kad brojevnom kružnicom prolazimo od 0 k π/2, tangens raste i vrijednost teži +∞. Krivulja se rastom funkcije tangens približava pravcu x = π/2 (vertikalnoj asimptoti).
+    ● Tangens je neparna funkcija (tan(-x) = -tan x), pa je graf simetričan s obzirom na ishodište koordinatnog sustava.
+      Na slici je nacrtana tangensoida na intervalu [-π, π].
+      (SLIKA 1: Grafovi funkcija tangens i kotangens_1.png)
+  ○ Pravac x = π/2 jest (vertikalna) asimptota funkcije tangens.
+    ○ Tangens se penje i približava tom pravcu kada se x povećava prema π/2; a kada se x smanjuje prema π/2 s desne strane, tangens je negativan i teži -∞.
+  ● **Svojstva funkcije tangens**
+    1. Nul točke su kπ, k ∈ Z.
+    2. Vertikalne asimptote funkcije su pravci x = π/2 + kπ, k ∈ Z.
+    3. Na intervalu [0, π] tijek funkcije je približno:
+       (TABLICA 1)
+       x        | 0 | (π/2)⁻ | π⁻
+       tan x    | 0 | +∞     | 0
+       (graf se „prelama” na asimptoti x = π/2: lijevo ide u +∞, desno iz -∞).
+===================================================
+● **Graf funkcije kotangens**
+  ○ Graf ove funkcije možemo crtati rabeći vezu s funkcijom tangens:
+    cot x = tan(π/2 - x) = -tan(x - π/2).
+  ○ Graf funkcije tan(x - π/2) dobiva se pomakom grafa funkcije tangens za π/2 udesno.
+  ○ Zatim graf funkcije cot x = -tan(x - π/2) dobivamo zrcaljenjem s obzirom na os x.
+    (SLIKA 2: Grafovi funkcija tangens i kotangens_2.png)
+  ○ Vertikalne asimptote ove funkcije su pravci x = kπ.
+    ○ Između dviju vertikalnih asimptota (tj. na svakom intervalu duljine perioda) funkcija kotangens je padajuća.
+  ● **Svojstva funkcije kotangens**
+    1. Nul točke su π/2 + kπ, k ∈ Z.
+    2. Vertikalne asimptote funkcije su pravci x = kπ, k ∈ Z.
+    3. Na intervalu [0, π] tijek funkcije je:
+       (TABLICA 2)
+       x        | 0⁺ | π/2 | π⁻
+       cot x    | +∞ | 0   | -∞
+    4. Funkcija je periodična s periodom π.
+===================================================
+===================================================
+===================================================
+● **Svojstva trigonometrijskih funkcija**
+===================================================
+● **Parne i neparne funkcije**
+  (SLIKA 1: Svojstva trigonometrijskih funkcija_1.png)
+  ● **Parne funkcije**
+    ○ Funkcija f je parna ako je njezin graf simetričan s obzirom na y os; vrijedi
+      f(-x) = f(x), ∀x ∈ D_f.
+    ○ Neka je x bilo koji element domene; grafu pripadaju točke (x, f(x)) i (-x, f(x)).
+    ○ To znači da vrijedi f(-x) = f(x).
+    ○ Vrijedi i obrat: ako grafu pripadaju točke (x, f(x)) i (-x, f(x)) za svaki x iz domene funkcije, on je simetričan s obzirom na y os.
+      Primjeri:
+        f(x) = x², jer je f(-x) = (-x)² = x² = f(x).
+        f(x) = |x|, jer je f(-x) = |-x| = |x| = f(x).
+  ● **Neparne funkcije**
+    ○ Funkcija f je neparna ako je njezino područje definicije simetrično s obzirom na ishodište i ako vrijedi
+      f(-x) = -f(x), ∀x ∈ D_f.
+    (SLIKA 2: Svojstva trigonometrijskih funkcija_2.png)
+  ● **PRIMJER 1**
+===================================================
+● **Parnost i neparnost trigonometrijskih funkcija**
+  ○ Točke T₁ = E(t) i T₂ = E(-t) simetrične su s obzirom na os Ox, zbog čega se njihove apscise podudaraju, a ordinate razlikuju u predznaku.
+    ○ To znači da je cos(-t) = cos t, te je kosinus parna funkcija, a sin(-t) = -sin t, te je sinus neparna funkcija.
+    (SLIKA 3: Svojstva trigonometrijskih funkcija_3.png)
+  ● **Parnost tangensa i kotangensa**
+    ○ tan(-t) = sin(-t)/cos(-t) = (-sin t)/cos t = -tan t.
+    ○ Budući da je cot t = 1/tan t, funkcije tan t i cot t neparne su funkcije za svaki realni broj t za koji su definirane.
+  ● **PRIMJER 2**
+===================================================
+● **Periodičnost trigonometrijskih funkcija**
+  (SLIKA 4: Svojstva trigonometrijskih funkcija_4.png)
+  ● **Periodične funkcije**
+    ○ Za funkciju f kažemo da je periodična ako postoji realni broj P > 0 takav da za svaki t za koji je funkcija definirana, ona je definirana i u t+P i vrijedi
+      f(t) = f(t+P).
+    ○ Broj P zove se period funkcije f (najmanji takav pozitivan broj zove se temeljni period funkcije f).
+===================================================
+● **Periodičnost funkcija sinus i kosinus**
+  ○ Ako je u neku točku brojevne kružnice smješten realni broj t, onda su u istu točku smješteni i svi brojevi oblika t + k·2π, k ∈ Z.
+    ○ Od tuda zaključujemo da je
+      sin(t + k·2π) = sin t,   cos(t + k·2π) = cos t
+      za svaki cijeli broj k.
+    ○ Funkcije sinus i kosinus su periodične s temeljnim periodom 2π.
+  ● **PRIMJER 3**
+  ● **PRIMJER 4**
+  ● **PRIMJER 5**
+===================================================
+● **Periodičnost funkcija tangens i kotangens**
+  ○ Točke T₁ = E(t) i T₂ = E(t+π) simetrične su s obzirom na ishodište O.
+    ○ Zato T₁, O i T₂ leže na istom pravcu.
+    ○ Drugim riječima, pravci OT₁ i OT₂ se podudaraju, pa se podudara i vrijednost tangensa:
+      tan t = tan(t+π).
+    ○ Isto vrijedi i za funkciju kotangens. Zato je:
+      tan(t+π) = tan t,   cot(t+π) = cot t
+      za svaki t za koji su funkcije definirane.
+    ○ Dakle, tangens i kotangens su periodične funkcije s temeljnim periodom π.
+    (SLIKA 5: Svojstva trigonometrijskih funkcija_5.png)
+  ○ Općenitije, za svaki cjelobrojni k i za svaki t za koji su funkcije definirane, vrijedi:
+    tan(t + kπ) = tan t,   cot(t + kπ) = cot t.
+  ○ Kao i za funkcije sinus i kosinus, možemo pokazati sljedeće svojstvo funkcija tangens i kotangens:
+    ● **Periodičnost tangensa i kotangensa**
+      ○ Neka su φ i ω > 0 po volji odabrani realni brojevi. Funkcije
+        t ↦ tan(ωt + φ),   t ↦ cot(ωt + φ)
+        su periodične, s temeljnim periodom π/ω.
+===================================================
+===================================================
+===================================================
+● **Primjeri primjene trigonometrijskih funkcija**
+===================================================
+● **Harmonijsko titranje**
+  ○ Zamislimo na kružnici polumjera a točku P koja se jednoliko giba kružnom brzinom ω.
+    ○ Za vrijeme t ta točka opiše kut θ = ω·t.
+    (SLIKA 1: Primjeri primjene trigonometrijskih funkcija_1.png)
+  ○ Pri opisanom gibanju točke P njezina projekcija na os y, točka Q(0, y), oscilira između točaka (0, -a) i (0, a) jednako kao što između točaka (-a, 0) i (a, 0) oscilira njezina projekcija na os x, točka R(x, 0).
+  ○ Udaljenost y točke Q od točke O u nekom trenutku zove se elongacija. Isto vrijedi i za x, udaljenost točke R od ishodišta.
+    ○ Pritom vrijedi:
+      x = a cos θ = a cos(ωt),   y = a sin θ = a sin(ωt).
+  ○ Opisana se gibanja zovu jednostavna harmonijska gibanja. Najveća elongacija |a| zove se amplituda.
+  ○ Jedan obilazak točke P kružnicom zove se titraj, a broj titraja u jedinici vremena je frekvencija gibanja. Period je jednak 2π/ω.
+  ● **PRIMJER 1**
+===================================================
+● **Prosječna temperatura zraka**
+  ○ Prosječna dnevna temperatura zraka, kao što nam iskustvo potvrđuje, mijenja se od mjeseca do mjeseca.
+  ○ Ona je u našim krajevima manja zimi, veća ljeti. No kakva je ta promjena? Pokušajmo je opisati na jednom primjeru.
+  ● **PRIMJER 2**
+  ● **PRIMJER 3**
+  ● **PRIMJER 4**
+===================================================
+===================================================
+===================================================
+● **Trigonometrijske jednadžbe**
+===================================================
+● **Osnovne funkcije**
+  ○ Složenija trigonometrijska jednadžba primjenom trigonometrijskih identiteta i algebarskih transformacija svodi se na ekvivalentnu jednostavniju jednadžbu i konačno na rješavanje neke od osnovnih jednadžbi koje su oblika
+    sin x = a,   cos x = b,   tan x = c,   cot x = d.
+  ○ Pritom su a, b, c i d realni brojevi te |a| ≤ 1 i |b| ≤ 1.
+  ● **PRIMJER 1**
+    (ovdje ide interaktivni sadržaj; tekstualno:)
+    ○ Zašto postavljamo ove uvjete na brojeve a i b?
+      ● Nema svaka trigonometrijska jednadžba rješenje. Tako primjerice rješenja nema jednadžba sin x = -3, jer funkcija sinus prima vrijednosti iz intervala [-1, 1].
+      ● S druge strane, jednadžba cos² 2x - sin² 2x = cos 4x ima beskonačno mnogo rješenja; njezino je rješenje svaki realni broj x. Ta jednadžba je identitet.
+  ● **PRIMJER 2**
+    ○ Riješimo jednadžbu 2 cos x - 1 = 0.
+      ● Zadanu jednadžbu zapišimo u obliku cos x = 1/2.
+      ● Primjećujemo da ova jednadžba ima beskonačno mnogo rješenja. Pri njihovom određivanju poslužit će nam brojevna kružnica.
+      ● Rješenja su svi brojevi koji odgovaraju točkama s apscisom 1/2; to su
+        x = ± π/3 + 2kπ, k ∈ Z.
+  ● **PRIMJER 3**
+  ● **PRIMJER 4**
+  ● **PRIMJER 5**
+  ● **PRIMJER 6**
+  ● **PRIMJER 7**
+  ● **PRIMJER 8**
+  ● **PRIMJER 9**
+  ● **PRIMJER 10**
+  ● **PRIMJER 11**
+  ● **PRIMJER 12**
+  ● **PRIMJER 13**
+  ● **PRIMJER 14**
+===================================================
+===================================================
+===================================================
+● **Trigonometrijske nejednadžbe**
+===================================================
+● **Transformacija umnoška u zbroj**
+  ● **PRIMJERI**
+===================================================
+===================================================
+===================================================
+● **Osnovni pojmovi o vektorima**
+===================================================
+● **Definicija vektora**
+  ○ Vektor (lat. vector – nositelj) je usmjerena dužina (AB)⃗ u kojoj razlikujemo početnu točku (hvatište) A i završnu točku (kraj) B.
+    ○ Vektor crtamo poput obične dužine, s tim da je završna točka označena strelicom.
+    (SLIKA 1: Osnovni_pojmovi_o_vektoru_1.png)
+  ○ Zato ćemo vektor označavati s (AB)⃗, (CD)⃗, (PQ)⃗ ili samo malim slovom iznad kojeg je postavljena strelica: a⃗, b⃗ itd.
+  ○ S V₂ ćemo označavati skup svih vektora čija se početna i završna točka nalaze u jednoj ravnini. Kažemo da je V₂ skup svih vektora u ravnini.
+===================================================
+● **Smjer i kolinearnost vektora**
+  ○ Vektor je određen ako poznajemo njegovu duljinu, smjer i orijentaciju.
+  ● **Duljina vektora** a⃗ = (AB)⃗ udaljenost je između njegove početne i završne točke. To je, dakle, duljina dužine (AB)‾.
+    ○ Duljinu vektora označavamo s |a⃗|, odnosno |(AB)⃗|:
+      |a⃗| = |(AB)⃗| = |AB|.
+    (SLIKA 2: Osnovni_pojmovi_o_vektoru_2.png)
+  ● **Smjer vektora.** Ako pravac p prolazi točkama A i B vektora (AB)⃗, onda kažemo da taj pravac sadrži vektor (AB)⃗, ili da vektor (AB)⃗ leži na pravcu p.
+    ○ Govorimo još da je pravac p nositelj vektora (AB)⃗.
+    (SLIKA 3: Osnovni_pojmovi_o_vektoru_3.png)
+  ○ Za sve vektore koji leže na paralelnim pravcima reći ćemo da imaju isti smjer. Za njih još kažemo da su kolinearni.
+  ● **Smjer i kolinearnost vektora**
+    ○ Ako dva vektora leže na paralelnim pravcima, za njih kažemo da imaju isti smjer ili da su kolinearni. U suprotnom slučaju govorimo o nekolinearnim vektorima.
+    (SLIKA 4: Osnovni_pojmovi_o_vektoru_4.png)
+===================================================
+● **Orijentacija vektora**
+  ○ **Orijentacija vektora.** Vektor nije potpuno određen ako mu poznajemo duljinu i pravac nositelj. Moramo mu poznavati još i orijentaciju.
+  ○ Nacrtajmo pravac p i izdvojimo na njemu tri točke. Neka su to (tim poretkom) A, B i C. Onda su vektori (AB)⃗, (AC)⃗ i (BC)⃗ iste orijentacije.
+    ○ Također su iste orijentacije i vektori (CB)⃗, (CA)⃗, (BA)⃗.
+    ○ Međutim, vektori (BA)⃗ i (BC)⃗ na slici su suprotne orijentacije.
+    (SLIKA 5: Osnovni_pojmovi_o_vektoru_5.png)
+  ○ Orijentacija se na prirodan način prenosi i na vektore istog smjera. Tako su na slici, primjerice, vektori (AB)⃗ i (RS)⃗ istog smjera i iste orijentacije, a (AB)⃗ i (QP)⃗ su vektori istog smjera, ali suprotne orijentacije.
+    (SLIKA 6: Osnovni_pojmovi_o_vektoru_6.png)
+  ● **Određenost i jednakost vektora**
+    ○ Vektor je određen ako mu znamo duljinu, smjer i orijentaciju.
+    ○ Dva su vektora jednaka ako se podudaraju po duljini, smjeru i orijentaciji.
+  ● **PRIMJER 1**
+===================================================
+● **Jednakost vektora**
+  ○ Vektori čiji je nositelj isti jednaki su kad imaju istu duljinu i orijentaciju. Za vektore kojima se nositelji razlikuju imamo sljedeći kriterij.
+  ● **Kriterij za jednakost vektora**
+    ○ Vektori (AB)⃗ i (CD)⃗ jednaki su onda i samo onda ako je četverokut ABDC paralelogram.
+    ○ Jedan je smjer u ovoj tvrdnji očit: ako je četverokut ABDC paralelogram, tada vrijedi |AB| = |CD|, pravci AB i CD su paralelni, a orijentacije vektora (AB)⃗ i (CD)⃗ su identične.
+    (SLIKA 7: Osnovni_pojmovi_o_vektoru_7.png)
+    ○ Obratno, ako je (AB)⃗ = (CD)⃗, tada su u četverokutu ABDC dvije nasuprotne stranice paralelne i jednake duljine, što je dovoljno da bi on bio paralelogram.
+  ○ Za svaki vektor možemo odrediti njemu jednak vektor koji ima početak u unaprijed zadanoj točki O.
+    ○ Odaberimo neki vektor (AB)⃗ i neka je dana točka O. Postoji (samo jedna) točka T takva da je OTBA paralelogram. Onda je (OT)⃗ = (AB)⃗.
+    (SLIKA 8: Osnovni_pojmovi_o_vektoru_8.png)
+  ● **Radijus vektor. Temeljni stavak o vektorima**
+    ○ Neka je O bilo koja točka ravnine (ili prostora) i (AB)⃗ zadani vektor. Tada postoji jedinstvena točka T u ravnini (ili prostoru) za koju je (OT)⃗ = (AB)⃗. Vektor (OT)⃗ nazivamo radijus vektor točke T.
+===================================================
+● **Suprotni vektori**
+  ○ Vektori koji imaju istu duljinu i smjer ne moraju biti jednaki. Oni se mogu razlikovati po orijentaciji.
+  ● **Suprotni vektori**
+    ○ Za dva vektora kažemo da su suprotna ako imaju istu duljinu i smjer, a suprotnu orijentaciju. Suprotan vektor vektoru a⃗ označavat ćemo s -a⃗.
+  ● **PRIMJER 2**
+===================================================
+● **Nul vektor**
+  ○ Vektor kojem se podudaraju početna i završna točka nazivamo nul vektor i označavamo s 0⃗.
+  ○ Njegova je duljina 0, i to je jedini vektor duljine nula. Tako je 0⃗ = (AA)⃗ za bilo koju točku A.
+  ○ Jedino za nul vektor nema smisla govoriti o smjeru niti o orijentaciji. Prema dogovoru uzimamo da je nul vektor kolinearan sa svakim vektorom.
+===================================================

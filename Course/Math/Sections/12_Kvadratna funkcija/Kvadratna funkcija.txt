@@ -122,3 +122,265 @@ Rješavajući sustav jednadžbi {y=kx+l, y=ax²+bx+c došli smo do kvadratne jed
 Kakav je geometrijski odražaj ovih razmatranja? U prvom slučaju pravac siječe parabolu u dvjema točkama. U drugom pravac dira parabolu, on je njezina tangenta. A u trećem slučaju pravac i parabola nemaju zajedničkih točaka.
 <!--PRIMJER 2-->
 
+
+MODIFIED
+● Kvadratna funkcija ili polinom drugog stupnja je funkcija zadana formulom f(x) = ax² + bx + c
+    ○ Koeficijenti a, b i c su realni brojevi
+    ○ Broj a ≠ 0 je vodeći koeficijent polinoma f
+    ○ b je linearni koeficijent
+    ○ c je slobodni član
+    ○ Funkcija je definirana za svaki realni broj x
+
+===================================================
+
+● Funkcija kvadriranja f(x) = x² je najjednostavniji oblik polinoma drugog stupnja
+    ○ Njezini koeficijenti su a = 1, b = 0, c = 0
+    ○ Graf funkcije kvadriranja je krivulja koja se zove parabola
+
+(TABLICA 1) Vrijednosti funkcije f(x) = x²
+    x  | -3 | -2 | -1 | 0 | 1 | 2 | 3
+ f(x)  | 9  | 4  | 1  | 0 | 1 | 4 | 9
+
+===================================================
+
+● Svojstva parabole y = x²:
+    ● 1. Ona leži u gornjem dijelu ravnine, iznad x-osi
+        ○ Razlog: f(x) = x² za x ≠ 0 ima samo pozitivne vrijednosti, a u nuli vrijednost nula
+    ● 2. U ishodištu parabola dodiruje x-os
+        ○ Ishodište je tjeme parabole
+        ○ U tjemenu kvadratna funkcija poprima svoju najmanju vrijednost
+        ○ Na intervalu ⟨−∞, 0⟩ funkcija f pada
+        ○ Na intervalu ⟨0, +∞⟩ funkcija f raste
+    ● 3. Parabola je simetrična s obzirom na y-os
+        ○ Razlog: f(−x) = (−x)² = x² = f(x)
+        ○ Točke (x, f(x)) i (−x, f(x)) su simetrične s obzirom na y-os
+
+===================================================
+
+● Graf kvadratne funkcije f(x) = ax²
+    ● Ako je vodeći koeficijent pozitivan (a > 0), parabola ima otvor prema gore
+    ● Ako je vodeći koeficijent negativan (a < 0), parabola ima otvor prema dolje
+    ● Sve parabole oblika y = ax² imaju tjeme u ishodištu T = (0, 0)
+    ● Simetrične su s obzirom na y-os
+    ● Širina parabole ovisi o apsolutnoj vrijednosti koeficijenta a
+        ○ Što je |a| veća, graf je suženiji prema y-osi
+    ● Za x₀ = 0 funkcija f(x)=ax² poprima:
+        ○ Najmanju vrijednost (minimum) ako je a > 0
+        ○ Najveću vrijednost (maksimum) ako je a < 0
+
+===================================================
+
+● 1. zad
+    ○ (SLIKA 1) Grafovi funkcija f(x) = (1/2)x², f(x) = x² i f(x) = 2x²
+
+===================================================
+
+● Graf kvadratne funkcije f(x) = ax² + c
+    ● Za svaki broj x, vrijednost funkcije f(x)=ax²+c razlikuje se za iznos c od vrijednosti funkcije f(x)=ax²
+        ○ Ako je c > 0, vrijednost je povećana za iznos c
+        ○ Ako je c < 0, vrijednost je smanjena za iznos |c|
+    ● Graf funkcije f(x)=ax²+c dobiva se translacijom parabole y=ax²:
+        ○ Prema gore ako je c > 0
+        ○ Prema dolje ako je c < 0
+    ● Tjeme ove parabole nalazi se u točki T = (0, c)
+
+===================================================
+
+● 2. zad
+    ○ (SLIKA 2) Graf funkcije f(x) = x² + 1 i f(x) = x² − 1
+
+===================================================
+
+● Graf kvadratne funkcije f(x) = a(x − x₀)²
+    ● Graf funkcije g(x) = (x + 1)² dobiven je translacijom parabole y = x² ulijevo za 1
+    ● Graf funkcije g(x) = (x − 2)² dobiven je translacijom parabole y = x² udesno za 2
+    ● Graf funkcije g(x) = ½(x + 3)² dobiven je translacijom parabole y = ½x² ulijevo za 3
+    ● Općenito: Graf funkcije f(x) = a(x − x₀)² dobiva se translacijom grafa y = ax² za iznos x₀
+        ○ Udesno ako je x₀ > 0
+        ○ Ulijevo ako je x₀ < 0
+    ● Tjeme parabole y = a(x − x₀)² je točka T = (x₀, 0)
+
+===================================================
+
+● Graf funkcije f(x) = a(x − x₀)² + y₀
+    ● Primjenom dviju uzastopnih translacija crtamo graf kvadratne funkcije f(x) = a(x − x₀)² + y₀
+        ○ 1. Krećemo od grafa parabole y = ax²
+        ○ 2. Translatiramo ga za broj x₀ u smjeru x-osi i dobivamo parabolu y = a(x − x₀)²
+        ○ 3. Translatiramo ovaj graf za broj y₀ u smjeru y-osi i dobivamo traženi graf
+    ● Tjeme parabole prelazi iz ishodišta u točku T = (x₀, y₀)
+    ● Za x = x₀ funkcija f poprima:
+        ○ Najmanju vrijednost (minimum) ako je a > 0
+        ○ Najveću vrijednost (maksimum) ako je a < 0
+
+(SLIKA 3) Graf funkcije f(x) = a(x − x₀)² + y₀
+
+===================================================
+
+● 3. zad
+● 4. zad
+● 5. zad
+
+===================================================
+
+● Graf kvadratne funkcije f(x) = ax² + bx + c
+    ● Postupak nadopunjavanja na potpuni kvadrat:
+        f(x) = ax² + bx + c
+        f(x) = a[x² + (b/a)x] + c
+        f(x) = a[x² + (b/a)x + (b/(2a))² − (b/(2a))²] + c
+        f(x) = a(x + (b/(2a)))² − (b²/(4a)) + c
+        f(x) = a(x + (b/(2a)))² + (4ac − b²)/(4a)
+    ● Usporedbom s oblikom f(x) = a(x − x₀)² + y₀ dobivamo koordinate tjemena:
+        ● x₀ = −b/(2a)
+        ● y₀ = (4ac − b²)/(4a)
+    ● Graf kvadratne funkcije f(x)=ax²+bx+c je parabola koju dobivamo translacijom parabole y=ax² tako da joj tjeme bude u točki T = (x₀, y₀)
+
+===================================================
+
+● 1. zad
+
+===================================================
+
+● Minimum i maksimum kvadratne funkcije
+    ● Napišimo funkciju u obliku f(x) = a(x − x₀)² + y₀
+    ● 1. slučaj: a > 0
+        ○ a(x − x₀)² ≥ 0 ⇒ f(x) = a(x − x₀)² + y₀ ≥ y₀
+        ○ f(x₀) = a(x₀ − x₀)² + y₀ = y₀
+        ○ y₀ je najmanja vrijednost (minimum) funkcije f
+        ○ Na intervalu ⟨−∞, x₀⟩ funkcija pada
+        ○ Na intervalu ⟨x₀, +∞⟩ funkcija raste
+    ● 2. slučaj: a < 0
+        ○ a(x − x₀)² ≤ 0 ⇒ f(x) = a(x − x₀)² + y₀ ≤ y₀
+        ○ f(x₀) = y₀
+        ○ y₀ je najveća vrijednost (maksimum) funkcije f
+        ○ Na intervalu ⟨−∞, x₀⟩ funkcija raste
+        ○ Na intervalu ⟨x₀, +∞⟩ funkcija pada
+
+(SLIKA 1) Tijek kvadratne funkcije za a>0
+(SLIKA 2) Tijek kvadratne funkcije za a<0
+
+===================================================
+
+● Ekstremi i tijek kvadratne funkcije f(x) = ax² + bx + c
+    ● Kvadratna funkcija ima ekstrem u točki s apscisom x₀ = −b/(2a)
+    ● Vrijednost ekstrema iznosi y₀ = (4ac − b²)/(4a)
+    ● Ekstrem je minimum ako je a > 0, maksimum ako je a < 0
+    ● Točka (x₀, y₀) su koordinate tjemena parabole
+    ● Tijek funkcije:
+        ○ Ako je a > 0:
+            ■ Padajuća na intervalu ⟨−∞, x₀⟩
+            ■ Rastuća na intervalu ⟨x₀, +∞⟩
+        ○ Ako je a < 0:
+            ■ Rastuća na intervalu ⟨−∞, x₀⟩
+            ■ Padajuća na intervalu ⟨x₀, +∞⟩
+
+===================================================
+
+● 2. zad
+● 3. zad
+
+===================================================
+
+● Nul-točke polinoma drugog stupnja i njegov graf
+    ● Nul-točka funkcije: Broj x₀ je nul-točka funkcije f ako vrijedi f(x₀) = 0
+    ● Nul-točke tražimo rješavanjem jednadžbe f(x) = 0
+    ● Ako je y = f(x) graf funkcije f, onda u realnoj nul-točki x₀ vrijedi y₀ = f(x₀) = 0
+    ● To znači da graf funkcije prolazi točkom (x₀, 0) koja leži na x-osi
+
+(SLIKA 1) Nul-točke funkcije i njezin graf
+
+===================================================
+
+● Nul-točke kvadratne funkcije
+    ● Broj nul-točaka ovisi o diskriminanti D = b² − 4ac kvadratne jednadžbe ax² + bx + c = 0
+    ● 1. D > 0
+        ○ Funkcija ima dvije različite realne nul-točke
+        ○ Parabola siječe x-os u dvjema točkama
+        ○ Primjer: f(x) = 2x² + x − 3, D = 25, x₁ = −3/2, x₂ = 1
+    ● 2. D = 0
+        ○ Funkcija ima jednu dvostruku realnu nul-točku
+        ○ Tjeme parabole leži na x-osi (parabola dira x-os)
+        ○ Primjer: f(x) = x² − 4x + 4, D = 0, x₁,₂ = 2
+    ● 3. D < 0
+        ○ Funkcija nema realnih nul-točaka
+        ○ Parabola ne siječe x-os
+        ○ Primjer: f(x) = −x² + x − 1, D = −3
+
+(SLIKA 2) Graf funkcije za D > 0
+(SLIKA 3) Graf funkcije za D = 0
+(SLIKA 4) Graf funkcije za D < 0
+
+===================================================
+
+● Crtanje grafa kvadratne funkcije s pomoću nul-točaka
+    ● 1. Utvrdimo predznak vodećeg koeficijenta a
+    ● 2. Odredimo nul-točke x₁, x₂ rješavanjem jednadžbe f(x) = 0
+    ● 3. Izračunamo apscisu tjemena: x₀ = (x₁ + x₂) / 2
+    ● 4. Izračunamo ordinatu tjemena: y₀ = f(x₀)
+
+===================================================
+
+● 1. zad
+● 2. zad
+● 3. zad
+
+===================================================
+
+● Kvadratne nejednadžbe
+    ● Rješenja kvadratne nejednadžbe su vrijednosti varijable x za koje je promatrana funkcija pozitivna ili negativna
+    ● Oblici kvadratnih nejednadžbi:
+        ○ ax² + bx + c > 0
+        ○ ax² + bx + c < 0
+    ● Geometrijsko tumačenje:
+        ○ Ako je x rješenje nejednadžbe ax² + bx + c > 0, tada se točka grafa s tom apscisom nalazi iznad x-osi
+        ○ Ako je x rješenje nejednadžbe ax² + bx + c < 0, tada se točka grafa s tom apscisom nalazi ispod x-osi
+
+===================================================
+
+● 1. zad
+● 2. zad
+● 3. zad
+
+===================================================
+
+● Nejednadžbe x² < a² i x² > a² (za a > 0)
+    ● x² < a² ⇔ x ∈ ⟨−a, a⟩ ⇔ |x| < a
+    ● x² > a² ⇔ x ∈ ⟨−∞, −a⟩ ∪ ⟨a, ∞⟩ ⇔ |x| > a
+    ● Primjer: x² < 5 ⇔ |x| < √5 ⇔ x ∈ ⟨−√5, √5⟩
+
+(SLIKA 1) Grafički prikaz nejednadžbi x² < a² i x² > a²
+
+===================================================
+
+● 4. zad
+
+===================================================
+
+● Utjecaj vodećeg koeficijenta i diskriminante na rješenje kvadratne nejednadžbe
+    ● Koeficijent a utječe na "otvorenost" parabole (prema gore za a>0, prema dolje za a<0)
+    ● Vrsta nejednakosti (>0 ili <0)
+    ● Predznak diskriminante D utječe na broj nul-točaka
+    ● Nejednadžbu uvijek možemo množenjem s −1 svesti na oblik s pozitivnim vodećim koeficijentom
+        ○ Primjer: −x² + 3x + 2 > 0 ⇔ x² − 3x − 2 < 0
+        ○ Primjer: −x² − 2x + 1 < 0 ⇔ x² + 2x − 1 > 0
+
+(SLIKA 2) Skupovi rješenja nejednadžbi u ovisnosti o predznacima a i D
+
+===================================================
+
+● Presjek pravca i parabole
+    ● Rješavamo sustav jednadžbi:
+        ○ y = kx + l
+        ○ y = ax² + bx + c
+    ● Zamjenom izraza za y dobivamo kvadratnu jednadžbu:
+        ○ ax² + (b − k)x + c − l = 0
+    ● Priroda rješenja (presjeka) ovisi o diskriminanti D ove kvadratne jednadžbe
+        ● 1. Ako je D > 0, pravac siječe parabolu u dvjema različitim točkama
+        ● 2. Ako je D = 0, pravac dira parabolu (on je njezina tangenta)
+        ● 3. Ako je D < 0, pravac i parabola nemaju zajedničkih točaka
+
+===================================================
+
+● 1. zad
+● 2. zad
+
+===================================================

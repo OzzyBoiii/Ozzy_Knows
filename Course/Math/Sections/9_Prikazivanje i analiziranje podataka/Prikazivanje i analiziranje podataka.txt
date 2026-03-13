@@ -256,3 +256,438 @@ PRIMJER 11
 PRIMJER 12
 PRIMJER 13
 
+
+
+MDOIFIED
+● Statistika je znanost koja se bavi prikupljanjem, sređivanjem, prikazivanjem i analiziranjem podataka
+○ Podatci mogu biti dobiveni mjerenjem, promatranjem, ispitivanjem, anketiranjem
+○ Statistički godišnjaci objavljuju tisuće podataka o stanovništvu, proizvodnji, trgovini, zaposlenosti, cijenama
+○ Statističkom obradom se opisuje, analizira i pregledno prikazuje trenutno stanje privrede i društva
+○ Na osnovu statističke analize mogu se donositi odluke o budućem razvoju
+
+(SLIKA 1)
+
+● Za podatke čiju vrijednost utvrđujemo mjerenjem kažemo da su neprekinutog tipa
+○ Visina ili težina osobe, dimenzije proizvoda, vrijeme ispravnog rada uređaja
+○ Visina osobe se neprekinuto mijenja
+	● Ako je netko narastao sa 165 na 167 cm, u nekom je trenutku njegova visina poprimila svaku vrijednost unutar tog intervala
+○ Pri zapisivanju podataka koji su nastali mjerenjima neprekinute varijable moramo brojeve zaokruživati
+	● Zapisujemo ih s određenom točnošću, s određenim brojem decimalnih znamenaka
+	● Promjer osovine bit će 31 mm, 31.4 mm ili 31.41 mm, ovisno o zahtijevanoj preciznosti
+	● Stroj za pakiranje šećera mjeri s točnošću od jednog grama
+	● Novorođenčad se mjeri na vagi s točnošću od 50 g
+○ Zaokruživanjem se donekle gubi razlika između diskretnih i neprekinutih podataka
+○ Većina se razmatranja provodi na isti način i za diskretne i za neprekinute podatke
+
+1. zad
+(Primjer 1)
+
+===================================================
+
+● Prikazivanje diskretnih podataka
+○ Diskretne podatke prikazujemo u tabličnoj formi i slikovno s pomoću dijagrama različitih tipova
+● Sređivanje podataka
+○ Podatci u obliku u kojem su prikupljeni su nepregledni
+○ Što je broj podataka veći, to je važnije dovesti ih u pregledniji oblik: zapisati ih u obliku tablice frekvencija
+
+2. zad
+(Primjer 2)
+
+===================================================
+
+● Terminologija
+○ Tablica se naziva tablica frekvencija
+○ Uzorak je niz brojčanih vrijednosti za obilježje
+	● To su ocjene iz matematike
+	● Uzorak čini niz x_1, x_2, …, x_24
+○ Veličina uzorka je n = 24, broj učenika u razredu
+○ Podatci su podijeljeni u razrede
+	● U isti razred stavljamo identične ocjene
+	● Broj razreda označavamo s r, ovdje je r = 5
+○ Frekvencija je broj elemenata u pojedinom razredu
+	● Frekvencije označavamo s f_1, f_2, …, f_r
+	● Primjerice, f_4 = 8
+	● Zbroj frekvencija jednak je volumenu uzorka: f_1 + f_2 + … + f_r = n
+○ Informacija "25% učenika ima ocjenu 5" ponekad je jasnija od "od 24 učenika njih 6 ima ocjenu 5"
+○ Relativna frekvencija p_k = f_k / n, k = 1, 2, …, r
+	● Dobivamo je dijeljenjem frekvencije s volumenom uzorka
+	● Zbroj relativnih frekvencija uvijek iznosi 1: p_1 + p_2 + … + p_r = 1
+(TABLICA 1)
+○ Primijetimo sljedeće:
+	● Relativna frekvencija je racionalan broj, njezina je vrijednost pravi razlomak
+	● U statističkim tablicama najčešće se piše u obliku decimalnog broja
+	● Decimalni broj obično zapisujemo u obliku postotka, dakle 8.33% umjesto 0.0833
+	● Zaokruživanje obično radimo na dvije decimale
+	● Kao posljedica zaokruživanja, zbroj relativnih frekvencija može biti 0.9999 ili 99.99%
+		○ To je pogreška koju toleriramo i ne trebamo je ispravljati
+		○ Bilo bi pogrešno povećati neku decimalu da bi zbroj dao "okruglu vrijednost"
+
+===================================================
+
+● Stupčasti, linijski i kružni dijagrami
+○ Uobičajeno je tablice frekvencija prikazivati u grafičkom obliku
+○ Takav prikaz je najbolji za brzo prenošenje informacija
+
+(SLIKA 2)
+
+○ Kod diskretnih podataka stupce u stupčastom dijagramu crtamo tako da se ne dodiruju
+○ Ako umjesto pravokutnika istaknute vrijednosti spojimo ravnom crtom, dobivamo linijski dijagram
+
+(SLIKA 3)
+
+○ Linijski dijagrami uglavnom se koriste za prikazivanje niza podataka koji su vremenski povezani
+	● Kad apscisa predstavlja vrijeme
+	● Općenito za prikazivanje neprekinutih podataka
+○ Podatci se vrlo često prikazuju i u obliku kružnih dijagrama
+	● Krug predstavlja cjelinu (sve ocjene u razredu)
+	● Podijeljen je na dijelove prema tome kolika je frekvencija pojedine ocjene
+	● Dvaput većoj frekvenciji odgovara dvostruko veći dio
+	● Čitavom krugu odgovara kut od 360°
+	● Taj kut dijelimo na dijelove koji odgovaraju frekvencijama
+	● Za ocjenu 1, frekvencija 2, pripadni kut je (2 ⋅ 360) / 24 = 2 ⋅ 15 = 30°
+
+(TABLICA 2)
+(SLIKA 4)
+
+3. zad
+(Primjer 3)
+
+4. zad
+(Primjer 4)
+
+===================================================
+
+● Stablo i list dijagrami (stem–leaf diagram, SL dijagram)
+○ Koristimo za sređivanje i jednostavnije vizualno predočavanje manjeg niza numeričkih podataka
+
+(SLIKA 5)
+
+○ Za primjer uzmimo podatke: 36, 38, 41, 41, 44, 49, 50, 52, 55, 58, 58, 59, 62, 63, 65
+○ Ideja je praktična i korisna za sređivanje manjeg niza numeričkih podataka
+○ Primjenjiva je i za podatke koji imaju veći broj znamenaka
+	● Posljednja znamenka zapisuje se u redcima (listovima)
+	● Vodeće znamenke zapisuju se u stupcu (na stablu)
+○ Prednosti i nedostaci stablo–list dijagrama:
+	● SL dijagram služi kao zamjena za stupčasti dijagram, jer se jasno vidi frekvencija elemenata u pojedinom razredu
+	● Razredi su fiksne širine i ne možemo ih mijenjati: u svakom razredu može biti točno deset različitih vrijednosti
+	● SL dijagram ne može se načiniti za jednoznamenkaste podatke
+	● Ima smisla tek za veći broj vrijednosti na stablu
+○ Na koncu zapisa treba dodati ključ, koji predstavlja uputu kako se trebaju čitati podatci u dijagramu
+	● ključ: 15 ∣ 7 znači 157
+
+5. zad
+(Primjer 5)
+
+===================================================
+
+● Prikazivanje neprekinutih podataka. Histogram
+○ Prikazivanje neprekinutih podataka ima posebnosti, proizašle iz činjenice da takvi podatci mogu poprimiti bilo koju vrijednost na brojevnom pravcu
+○ Visina pojedinca je podatak neprekinutog tipa
+
+(TABLICA 3)
+
+○ Tablica frekvencija nije prikladna za grafički prikaz ako je broj razreda prevelik, a broj podataka u svakom od njih premalen
+● Spajanje razreda
+○ Tablicu frekvencija sažimamo tako da smanjujemo broj razreda, spajanjem susjednih podataka
+○ U SL dijagramu broj razreda je premalen
+○ Za ovaj niz podataka prirodno ih je grupirati u razrede tako da jedan razred čini pet susjednih visina
+
+(TABLICA 4)
+
+○ Ova tablica je preglednija, ali manje precizna
+	● Iz nje ne možemo rekonstruirati točne visine pojedinih učenika
+	● Znamo da je 6 učenika visoko između 166 i 170 cm, ali ne znamo je li itko visok 168 cm
+	● Dobili smo preglednost, ali smo izgubili na preciznosti
+● Granice i obilježje razreda
+○ Visina je neprekinuti podatak
+○ Podatak "visina je 172 cm" dobili smo zaokruživanjem mjerenja
+○ Tom podatku pridružujemo sva mjerenja unutar intervala [171.5, 172.5]
+○ Prema tome, razredu 156 – 160 cm odgovara interval [155.5, 160.5], slično za sve ostale razrede
+○ Obilježje ili reprezentant razreda je broj koji opisuje čitav razred
+	● U pravilu uzimamo za obilježje središte pripadnog intervala
+	● Za prvi interval to je broj (166 + 170) / 2 = 168
+	● Svi sljedeći su za 5 veći od prethodnog, jer je 5 duljina svakog intervala
+
+(TABLICA 5)
+
+○ Ovu tablicu nismo dužni uvijek priređivati, jer se njezini bitni podatci vide iz dijagrama
+● Histogram
+○ U grafičkom prikazu neprekinutih podataka koristimo se histogramom
+○ Nalikuje na stupčasti dijagram, ali se njegovi stupci dodiruju
+○ Time se naglašava da podatci mogu poprimiti bilo koju vrijednost unutar svog intervala
+
+(SLIKA 6)
+
+○ Na horizontalnu os dovoljno je upisati obilježja razreda
+○ Granice se mogu izračunati iz obilježja, jer su svi razredi jednake duljine
+	● Gornja granica prvog intervala je (158 + 163) / 2 = 160.5
+	● To je ujedno i donja granica sljedećeg intervala
+● Linijski dijagram
+○ U prikazu s pomoću linijskog dijagrama istaknute vrijednosti povezane su ravnom crtom
+○ Apscise istaknutih točaka nalaze se u obilježjima svakog razreda
+○ Ordinate su jednake frekvencijama pojedinih razreda
+
+(SLIKA 7)
+
+○ Dodane su još dvije vrijednosti na rubovima intervala, s iznosom 0
+○ Zamišljamo da se lijevo i desno od rubova intervala nalaze još dva razreda s frekvencijom 0
+○ Obilježja dodanih razreda su 153 i 188
+○ Kod neprekinutih podataka linijski dijagram crtamo tako da počinje i završava na osi apscisa
+
+===================================================
+
+● Mjere sredine
+● Uvod
+○ Temperatura zraka na Plitvičkim jezerima u 13 sati, u nizu od 11 uzastopnih dana: 25, 24, 23, 26, 28, 24, 25, 21, 23, 23, 27
+○ Kad bismo te podatke htjeli predstaviti samo jednim brojem, koji bismo izabrali?
+○ Poredajmo podatke u rastućem poretku: 21, 23, 23, 23, 24, 24, 25, 25, 26, 27, 28
+○ Ovdje se radi o odabiru neke tipične vrijednosti u uzorku
+○ Ne postoji jednoznačan odgovor prikladan za sve moguće situacije
+○ Uglavnom odabiremo ili vrijednost koja se najčešće javlja, ili vrijednost koja je najbliža svim podatcima iz uzorka
+○ Koristimo se jednim od triju podataka: medijan, mod ili aritmetička sredina
+● Medijan je podatak u sredini poredanog uzorka
+	○ U ovom primjeru, to je šesti član: medijan = 24
+	○ Medijan ima svojstvo da je u nizu dana jednak broj onih kad je temperatura bila viša od medijana, kao i onih kad je bila niža
+	○ Najčešće je dobra mjera sredine
+● Mod je vrijednost koja se u uzorku najčešće javlja
+	○ U ovom slučaju, mod = 23
+	○ Namjernik koji je proveo jedan dan na Plitvičkim jezerima imao je najveću šansu provesti ga na ugodnih 23 °C
+● Aritmetička sredina jednaka je zbroju podataka podijeljenom njihovim brojem
+	○ Zbroj temperatura je 269, pa je aritmetička sredina = 269 / 11 ≈ 24.45
+	○ U najvećem broju slučajeva, pogotovo za neprekinute podatke, aritmetička sredina je najbolja mjera srednje vrijednosti
+	○ Njezina prava važnost i uloga može se razumjeti tek poznavanjem teorije vjerojatnosti
+
+===================================================
+
+● Mod
+○ Mod je u uzorku najlakše detektirati
+○ Samo je u izuzetnim situacijama dobra mjera za sredinu
+○ Kod podataka koji imaju svojstvo simetrije ili imaju skoro svi istu vrijednost
+
+1. zad
+(Primjer 1)
+
+2. zad
+(Primjer 2)
+
+○ Ako uzorak ima samo jedan mod, zovemo ga unimodalan
+○ Uzorak može imati više od jednog moda jer različiti podatci mogu imati istu najveću frekvenciju
+	● Tada mod nema smisla razmatrati kao mjeru sredine
+○ Vrlo često, mod u uzorku ne postoji
+	● To je slučaj kad su svi elementi uzorka različiti, pa su sve frekvencije jednake 1
+	● To se često događa kod mjerenja neprekinutih veličina
+	● Zato se mod nikad ne razmatra za mjeru sredine neprekinutog uzorka
+○ Medijan i aritmetička sredina mogu se primjenjivati samo kod numeričkih podataka
+	● Zahtijevaju mogućnost poretka podataka odnosno zbrajanja podataka
+	● Nemaju smisla za podatke koji nisu numerički
+○ Analiziramo li boju očiju kod učenika ili koju vrstu filmova vole, tada mod ima svoj smisao
+	● Druge dvije mjere nije moguće primijeniti
+
+3. zad
+(Primjer 3)
+
+===================================================
+
+● Medijan
+○ Medijan određujemo iz poredanog uzorka
+○ Svejedno je jesmo li ga poredali u uzlaznom ili silaznom poretku
+○ Medijan x̃ poredanog uzorka volumena n je:
+	● srednji njegov član, ako je n neparan
+	● sredina dvaju srednjih članova, ako je n paran
+
+(SLIKA 1 - Mjere sredine)
+
+○ Položaj srednjeg člana određujemo ovako: izračunamo broj k = (n + 1) / 2
+○ Ako je broj elemenata n u uzorku neparan, tada je k cijeli broj i medijan je x̃ = x_k
+	● Primjerice, u nizu od 11 podataka, medijan se nalazi na šestom mjestu, jer je (11 + 1) / 2 = 6, dakle x̃ = x_6
+○ Ako je broj elemenata u uzorku paran, onda k neće biti cijeli broj
+	● Medijan je sredina dvaju elemenata desno i lijevo od dobivene vrijednosti: x̃ = (x_(k - 1/2) + x_(k + 1/2)) / 2
+	● Primjerice, u nizu od 16 podataka je k = (16 + 1) / 2 = 8.5, pa se medijan nalazi na sredini između osmog i devetog člana: x̃ = (x_8 + x_9) / 2
+
+4. zad
+(Primjer 4)
+
+===================================================
+
+● Raspon. Izdvojenice
+○ Najmanja i najveća vrijednost u uzorku su ekstremne vrijednosti
+○ Najmanju zovemo minimum, a najveću maksimum uzorka
+	● Pišemo x_min = minimum uzorka, x_max = maksimum uzorka
+○ Njihova razlika je raspon (range): raspon = x_max - x_min
+○ Izdvojenica (stršeća vrijednost, stršilo, nepodobnjak) je element uzorka koji se po iznosu bitno razlikuje od većine članova uzorka
+	● Izdvojenica je obično ekstremna vrijednost
+	● Neki (veliki) uzorak može imati i nekoliko izdvojenica
+	● Izdvojenica može nastati kao posljedica pogrešnog mjerenja ili pogrešnog zapisivanja rezultata
+		○ Slastičar pogrešno izmjeri količinu šećera jer je uračunao i masu posude
+	● Izdvojenica može biti rezultat neprikladnog mjerenja, kad ono što se mjeri očigledno ne pripada dobrom uzorku
+		○ Trkač s preponama stigne u cilj u dvostrukom vremenu jer je pao
+		○ Računamo li prosjek brzina, takav nepodoban rezultat bolje je isključiti iz razmatranja
+	● Izdvojenica može biti istinski dobar podatak koji bitno odskače od ostalih
+		○ Pojedinci u društvu s izrazito visokim IQ-om
+○ Utjecaj izdvojenica na mjere sredine:
+	● Ne utječu na mod niti na medijan
+	● Mogu bitno utjecati na aritmetičku sredinu
+
+5. zad
+(Primjer 5)
+
+6. zad
+(Primjer 6)
+
+===================================================
+
+● Aritmetička sredina
+○ Aritmetička sredina je najvažnija mjera srednje vrijednosti uzorka
+○ Vrlo često se kraće naziva sredina uzorka
+● Sredina uzorka
+○ Sredina uzorka je broj definiran formulom x̄ = (x_1 + x_2 + … + x_n) / n
+○ Da bi se izračunala sredina, uzorak ne mora biti uređen
+
+7. zad
+(Primjer 7)
+
+8. zad
+(Primjer 8)
+
+10. zad
+(Primjer 10)
+
+11. zad
+(Primjer 11)
+
+12. zad
+(Primjer 12)
+
+===================================================
+
+● Mjere rasipanja
+● Kvartili
+○ Medijan dijeli uzorak na dva jednaka dijela
+○ Nastavimo li postupak dijeljenja s donjom i gornjom polovicom podataka, uzorak će biti podijeljen na četiri dijela
+○ Djelišne točke nazivamo kvartili
+
+1. zad
+(Primjer 1)
+
+2. zad
+(Primjer 2)
+
+○ Svaki niz podataka ima tri kvartila, Q_1, Q_2, Q_3, koji dijele njegove elemente na četiri jednako velika dijela
+○ Kvartile određujemo tako da najprije poredamo elemente u rastućem poretku
+○ Drugi kvartil Q_2 jednak je medijanu niza
+○ Prvi kvartil Q_1 i treći kvartil Q_3 su medijani donje i gornje polovice niza
+○ Važno je razumjeti da se kvartili određuju samo na temelju prebrojavanja elemenata
+○ Za mali volumen podataka lako ih određujemo iz ispisane liste
+○ Ako elemenata ima više, koristimo tablice frekvencija ili SL dijagrame
+
+===================================================
+
+● Pet ključnih podataka. Brkata kutija
+○ Minimum, tri kvartila i maksimum uzorka čine pet ključnih podataka
+
+(SLIKA 1 - Mjere rasipanja)
+
+○ Položaj ovih točaka zorno prikazujemo koristeći se konceptom brkate kutije
+
+(SLIKA 2 - Mjere rasipanja)
+
+● Brkata kutija
+○ Pravokutnik brkate kutije obuhvaća 50% podataka, od prvog do trećeg kvartila
+○ Unutar njega naznačen je položaj medijana
+○ Lijevi brk obuhvaća 25% najmanjih podataka
+○ Desni brk obuhvaća 25% najvećih podataka
+○ Krajevi brkova su minimum i maksimum uzorka
+● Interkvartilski razmak
+○ Duljina osnovice pravokutnika brkate kutije naziva se interkvartilski razmak i označava s IQR
+	● IQR = Q_3 - Q_1
+○ Brkatu kutiju uvijek vezujemo uz brojevni pravac na kojem smo naznačili pet ključnih podataka
+
+3. zad
+(Primjer 3)
+
+4. zad
+(Primjer 4)
+
+○ Veličina interkvartilskog razmaka i usporedba s rasponom govori o tome kako su koncentrirani elementi uzorka
+○ Preko interkvartilskog razmaka možemo definirati kriterij za izdvojenicu
+● Kriterij za izdvojenice
+○ Podatci su izdvojenice ako su od bližeg kvartila udaljeni za više od 1.5 interkvartilskog razmaka
+○ Maksimum je izdvojenica ako vrijedi x_max - Q_3 > 1.5 IQR
+○ Analogno za minimum: Q_1 - x_min > 1.5 IQR
+
+===================================================
+
+● Mjere rasipanja (disperzija)
+○ Neka nam x_1, x_2, …, x_N predstavlja čitavu populaciju
+○ Srednja vrijednost ne daje dovoljno informacija o njezinoj razdiobi
+
+(SLIKA 3 - Mjere rasipanja)
+
+○ Na slici su dane dvije populacije jednakog volumena i iste sredine
+○ Te se populacije razlikuju po rasipanju oko srednje vrijednosti
+○ Prva razdioba ima veće, a druga manje rasipanje
+○ Nužno je uvesti veličinu koja će mjeriti odstupanje podataka od njihove srednje vrijednosti
+○ Sredina populacije označava se s μ: μ = (x_1 + x_2 + … + x_N) / N
+○ Odstupanje svakog elementa od srednje vrijednosti je d_j = x_j - μ
+○ S pomoću tih brojeva računamo disperziju (varijancu) populacije: σ² := (d_1² + … + d_N²) / N
+○ Korijen ovog broja naziva se standardna devijacija ili odstupanje populacije: σ := √σ²
+○ U praksi se račun ne sprovodi na ovaj način
+	● Čak i ako su podatci cjelobrojni, sredina to najčešće nije
+	● Treba izbjegavati račun s oduzimanjem podataka
+○ U tu svrhu koristimo se sljedećim prikazom za disperziju: σ² = (x_1² + x_2² + … + x_N²) / N - μ²
+○ Zbroj ne treba ispisivati na papiru, već se sume računaju direktno džepnim računalom
+● Standardna devijacija uzorka
+○ Ako je iz populacije izvučen uzorak x_1, x_2, …, x_n, onda se sredina uzorka x̄ = (x_1 + … + x_n) / n ne mora podudarati sa sredinom cijele populacije μ koja nije poznata
+○ Udaljenosti |x_j - x̄| bit će u principu manje od udaljenosti |x_j - μ|
+○ U formuli za rasipanje to kompenziramo tako da zbroj kvadrata ovih udaljenosti dijelimo s n-1, a ne s volumenom n
+○ Prema tome, disperzija uzorka dana je formulom s² = [(x_1 - x̄)² + … + (x_n - x̄)²] / (n-1)
+○ Korijen ovog broja naziva se standardna devijacija uzorka i označava se sa s
+● Računanje devijacije
+○ Devijaciju većeg broja podataka računamo uporabom džepnog računala
+○ Na većini džepnih računala postoje dvije tipke, s i σ, koje daju devijaciju uzorka i devijaciju populacije
+○ Formula za sredinu populacije identična je formuli za sredinu uzorka, pa tu imamo samo jednu tipku koja se obično označava s x̄
+○ U postupku računanja džepno računalo pamti formulu za zbroj kvadrata podataka, pa se i ta veličina može pročitati pozivom na odgovarajuću tipku, obično oznake Σx²
+○ Na primjer, ako 24 učenika promatramo kao populaciju, koristit ćemo formulu za σ
+○ Ako na temelju izmjerenih vrijednosti za taj razred želimo zaključiti nešto o učenicima svih prvih razreda u školi, onda je taj razred uzorak uzet iz populacije i koristimo formulu za s
+○ Ovaj izbor je uvijek jasan iz konteksta
+○ Ako se to ne može ustanoviti jer bitne informacije nisu dane, onda se ponašamo kao da je riječ o populaciji
+
+6. zad
+(Primjer 6)
+
+7. zad
+(Primjer 7)
+
+===================================================
+
+● Analiziranje podataka. Zablude i prijevare
+○ Ako se donosi neko mišljenje o cijeloj populaciji na temelju podataka iz nekog uzorka, tada taj uzorak mora biti ispravno odabran
+○ Za to ne postoji jednostavan recept
+○ Čak i profesionalne tvrtke koje se bave ispitivanjem javnog mijenja često griješe u svom odabiru uzorka
+○ U primjerima koji slijede navedeni su neki primjeri pitanja i odabranih uzoraka
+○ Procijenite je li taj uzorak nepristran, odnosno, gdje su mogući problemi
+	● Sportska redakcija želi odabrati nogometaša godine u Hrvatskoj na temelju mišljenja "običnih ljudi" koji prate sport
+		○ Poslali su anketare da o tome pitaju gledatelje koji upravo dolaze na stadion u Maksimiru
+		○ Hoće li anketa dati nepristrane rezultate?
+	● Portal "Prava istina" analizira problem ovisnosti o internetu djece u tinejdžerskoj dobi
+		○ Da bi dobili odgovore na svoja pitanja, postavili su anketu na svom portalu
+		○ Dobivene podatke objavili su u vijesti: "Naši učenici na internetu dnevno provode 3 sata i 42 minute"
+		○ Je li ta vijest vjerodostojna?
+	● Nacionalna TV u reklamama prije Dnevnika 2 moli gledatelje da nazovu određeni broj i pritiskom na tipku odgovore je li njihova središnja informativna emisija bolja ili lošija od središnjih informativnih emisija drugih TV kuća
+		○ Nakon par dana donose vijest da ankete potvrđuju da je njihova emisija najbolja, podatak potkrijepljen visokim postotkom anketiranih gledatelja
+		○ Postoje barem dva razloga zbog čega im ne treba vjerovati
+		○ Koji su to razlozi?
+
+10. zad
+(Primjer 10)
+
+11. zad
+(Primjer 11)
+
+12. zad
+(Primjer 12)
+
+13. zad
+(Primjer 13)
+
+===================================================

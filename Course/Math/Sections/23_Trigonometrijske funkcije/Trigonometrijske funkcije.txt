@@ -500,3 +500,498 @@ Za sve realne brojeve α i β vrijedi …
 (ovdje bi išle standardne formule, npr.
 sin⁡α+sin⁡β=2sin⁡(α+β)/2 cos⁡(α-β)/2, itd., koje u tvom tekstu slijede nakon ovog mjesta).
 
+
+MODIFIED
+● Definicija
+  ○ Mjera kuta je pozitivan broj, između 0° i 360°.
+  ○ Ovisno o tome kolika im je mjera, za neke smo kutove govorili da su šiljasti, pravi, tupi, ispruženi, izbočeni i puni.
+  ○ U složenijim primjenama trigonometrije morat ćemo rješavati probleme u kojima kut može imati mjeru veću od 90°.
+  ○ Štoviše, pokazuje se da za mnoge probleme moramo dopustiti da kut ima mjeru veću od 360°, ili pak da ona bude negativna.
+  ○ Zato ćemo proširiti pojam kuta i njegove mjere.
+  ○ Zamislimo da se neka zraka vrti oko svoje početne točke V.
+  ○ Neka je njezin početni položaj zraka p, a završni zraka q.
+  ○ Pri toj vrtnji zraka je „prebrisala” dio ravnine koji zovemo kut i označavamo s ∠pVq.
+  ○ Kako bismo opisali način vrtnje, uz početnu i završnu zraku nacrtat ćemo i kružni luk sa strelicom koja označava smjer vrtnje.
+  ○ (SLIKA 1 – kut, vrtnja zrake)
+  ○ Kut je uređen par (p, q) dviju zraka koje imaju isti početak V.
+  ○ Označavamo ga s ∠pVq.
+  ○ Točku V nazivamo vrh, zraku p nazivamo prvi krak (ili početni krak), a zraku q drugi krak (ili završni krak) kuta ∠pVq.
+
+===================================================
+
+● Orijentirani kut
+  ○ Ako iz početne zrake p kuta ∠pVq dolazimo do završne zrake q vrtnjom u smjeru suprotnom od kretanja kazaljke na satu, tad kažemo da se zraka vrti u pozitivnom smjeru.
+  ○ Mjera kuta dobivenog vrtnjom u pozitivnom smjeru je pozitivna.
+  ○ (SLIKA 2 – pozitivni smjer vrtnje)
+  ○ Ako se pak vrtnja odvijala u negativnom smjeru (u smjeru kretanja kazaljke na satu), tad uzimamo da je mjera kuta negativna.
+  ○ Na slici su navedene pozitivne mjere (lijevo) i negativne mjere (desno) nekih kutova s početnim krakom p.
+  ○ Neka se vrtnja u kutu odvija u pozitivnom smjeru.
+  ○ Puni kut ima mjeru 360°.
+  ○ Kod njega se zraka q nakon jednog punog okreta podudara sa zrakom p.
+  ○ Nastavi li se zraka q vrtjeti u istom smjeru, dobit ćemo kut s mjerom većom od 360°.
+  ○ (SLIKA 3 – više okreta, mjere veće od 360°)
+
+===================================================
+
+● Određivanje mjere kuta. Glavna mjera
+  ○ Nacrtajmo sad po volji odabrani kut ∠pVq.
+  ○ Kolika je njegova mjera?
+  ○ Ovdje znamo početnu i završnu zraku kuta, ali ne znamo kako se točno odvijala vrtnja koja je zraku p prevela u zraku q.
+  ○ Naime, pri vrtnji zraka p može i po više puta „prebrisati” cijelu ravninu dok ne dođe u položaj q.
+  ○ Zato isti kut može imati više različitih mjera.
+  ○ (SLIKA 4 – različite vrtnje istog kuta)
+  ○ Neka je α neka mjera kuta ∠pVq.
+  ○ Tad istom kutu odgovara i mjera α+360° ili pak α+720° i općenito α+k·360° za neki prirodni broj k, ali isto tako i mjera α-360°, α-720°, općenito α-k·360° za neki prirodni broj k.
+  ○ To naglašavamo pišući da je mjera kuta ∠pVq neki broj iz skupa {α+k·360° | k∈Z}.
+  ○ Tako primjerice, za α=30° sve mjere kuta čine skup {30°, 30°±360°, 30°±720°, …} = {…, -690°, -330°, 30°, 390°, 750°, …},
+  ○ a ako je α=-120° jedna mjera kuta ∠pVq, onda su sve njegove mjere {-120°, -120°±360°, -120°±720°, …} = {…, -840°, -480°, -120°, 240°, 600°, …}.
+  ○ Bilo kakvu početnu mjeru α odabrali, u ovom će se skupu naći mjera α' za koju vrijedi 0≤α'<360°.
+  ○ Tu mjeru nazivamo glavna mjera kuta ∠pVq.
+
+===================================================
+
+● Glavna mjera
+  ○ Formulu za računanje glavne mjere napisat ćemo rabeći funkciju najveći cjelobrojni dio.
+  ○ Za svaki realni broj x s ⌊x⌋ označavamo najveći cijeli broj manji ili jednak broju x.
+  ○ Funkciju f(x)=⌊x⌋ nazivamo najveći cjelobrojni dio.
+  ○ Za pozitivne brojeve x vrijedi primjerice ⌊2,3403⌋=2, ⌊π⌋=⌊3,1415…⌋=3, ⌊4⌋=4.
+  ○ Dakle, najveći cjelobrojni dio pozitivnog broja dobijemo tako da zanemarimo decimalni dio broja.
+  ○ Ako je argument ove funkcije negativan, onda je primjerice ⌊-3,232⌋=-4, ⌊-√5⌋=⌊-2,236…⌋=-3, ⌊-5⌋=-5.
+  ● Glavna mjera kuta
+  ○ Glavna mjera α' kuta α određuje se formulom α' = α - k·360°, gdje je k = ⌊α/360°⌋.
+
+===================================================
+
+● Radijanska mjera kuta
+
+===================================================
+
+● Definicija radijanske vrijednosti
+  ○ Nacrtajmo kružnicu polumjera r sa središtem u vrhu kuta.
+  ○ Izdvojimo luk l te kružnice čija je duljina r.
+  ○ Taj luk određuje kut za koji kažemo da ima mjeru 1 radijan.
+  ○ Pišemo α = 1 rad, ili kratko, α = 1.
+  ○ (SLIKA 5 – radijan, luk duljine r)
+  ○ Općenito, radijanska mjera kuta određuje se kao omjer duljine luka prema polumjeru luka: α_rad = l / r.
+  ○ (SLIKA 6 – općeniti kut, luk l, polumjer r)
+  ○ Tako primjerice, pravom kutu odgovara mjera od 1/4 · 2πr / r = π/2 = 1,5707… radijana,
+  ○ ispruženom π = 3,14159… radijana, dok punom kutu odgovara mjera 2πr / r = 2π = 6,2831… radijana.
+  ○ Ako je mjera kuta izražena u radijanima, tada je duljina l kružnog luka na kružnici polumjera r jednaka α · r.
+  ● Duljina luka i površina kružnog isječka
+  ○ Ako poznajemo mjeru kuta α u radijanima, onda je duljina pripadnog luka jednaka l = α · r.
+  ○ Površina kružnog isječka je P = 1/2 r l = 1/2 α r^2.
+  ○ (SLIKA 7 – luk i kružni isječak)
+
+===================================================
+
+● Pretvorba stupnjeva u radijane
+  ○ Ispruženom kutu (polovici punog kuta) mjere 180° odgovara radijanska mjera π.
+  ○ Ako je zadana mjera kuta u stupnjevima, tada se odgovarajuća mjera u radijanima određuje iz omjera α° : 180° = α_rad : π.
+  ○ Odavde je α_rad = α° · π / 180°. (1)
+
+===================================================
+
+● Pretvorba radijana u stupnjeve
+  ○ Ako je zadana mjera kuta u radijanima, tada se mjera u stupnjevima računa na način α° = α_rad · 180° / π.
+
+===================================================
+
+● Brojevna kružnica
+
+===================================================
+
+● Eksponencijalno preslikavanje
+  ○ U pravokutnom (Kartezijevu) sustavu (O; x, y) nacrtajmo kružnicu k čije je središte u ishodištu sustava, a polumjer joj je 1.
+  ○ Neka je A=(1,0) točka na presjeku kružnice i osi apscisa.
+  ○ Prislonimo brojevni pravac uz kružnicu k tako da svojim ishodištem dira kružnicu u točki A.
+  ○ Zamislimo da se taj pravac (bez rastezanja) namata oko kružnice.
+  ○ Tada će se njegov interval [0, 2π) preslikati na čitavu kružnicu, jer je opseg kružnice 2π.
+  ○ Isto će se dogoditi i s intervalom [2π, 4π), kao i s intervalom [-2π, 0) (i svakim drugim intervalom duljine 2π).
+  ○ Tako se svaki realni broj t s brojevnog pravca preslikava u jednu točku E(t) na kružnici k.
+  ○ Tu kružnicu zato zovemo brojevna kružnica.
+  ○ (SLIKA 8 – brojevni pravac namotan oko kružnice)
+  ○ Svakom broju t brojevnog pravca pridružena je točka T na brojevnoj kružnici.
+  ○ Time je definirano preslikavanje E između realnih brojeva i točaka brojevne kružnice koje nazivamo eksponencijalno preslikavanje.
+  ○ Pišemo E(t)=T.
+
+===================================================
+
+● Mjera kuta
+  ○ Tako se primjerice broj π/6 s pravca preslikava u točku T=E(π/6) za koju kut ∠AOT ima mjeru π/6=30°.
+  ○ U tu istu točku preslikat će se i brojevi π/6 + 2kπ, k=±1, ±2, ….
+  ○ (SLIKA 9)
+  ○ Broju 0 brojevnog pravca odgovara točka A=(1,0).
+  ○ Broju π/2 odgovara točka (0,1).
+  ○ Dalje je E(π)=(-1,0), E(3π/2)=(0,-1), E(2π)=(1,0) itd.
+  ○ Svakom realnom broju odgovara samo jedna točka na brojevnoj kružnici.
+  ○ Međutim, jednoj točki T na brojevnoj kružnici odgovara beskonačno mnogo brojeva na pravcu.
+  ○ Tako se, primjerice, svi brojevi {π/3 + 2kπ | k=0, ±1, ±2, …} preslikavaju u istu točku na brojevnoj kružnici.
+  ○ Koristeći eksponencijalno preslikavanje, možemo još jednom iskazati (precizniju) definiciju mjere i glavne mjere kuta.
+  ● Mjera kuta
+  ○ Svakoj točki T brojevne kružnice odgovara točno jedan broj α iz intervala [0, 2π) na brojevnom pravcu.
+  ○ Taj se broj α naziva glavna mjera kuta ∠AOT.
+  ○ Skup svih mjera tog kuta je {α + 2kπ | k∈Z}.
+
+===================================================
+
+● Definicije trigonometrijskih funkcija
+
+===================================================
+
+● Sinus i kosinus
+  ○ Neka je t po volji odabran realan broj i T=E(t) tom broju pridružena točka na brojevnoj kružnici.
+  ○ Na slici je odabrana točka T u prvom kvadrantu.
+  ○ (SLIKA 10 – Definicije trigonometrijskih funkcija_1.png)
+  ○ Točki E(t) pridružen je uređeni par (x, y) realnih brojeva.
+  ○ Kosinus broja t je broj x, apscisa točke E(t).
+  ○ Ordinata y točke E(t) je sinus broja t.
+  ● Sinus i kosinus po volji odabranog kuta
+  ○ Neka je t po volji odabran realni broj, T=E(t) njemu odgovarajuća točka na brojevnoj kružnici.
+  ○ Tada je T = (cos t, sin t).
+  ○ Dakle, vrijednost funkcije kosinus, cos t, je apscisa, a vrijednost funkcije sinus, sin t, je ordinata točke T=E(t).
+  ● 1. primjer
+  ○ Najveću vrijednost, koja je 1, funkcija sinus prima za t=π/2 te za sve brojeve koji su smješteni u istoj toj točki.
+  ○ Najmanja vrijednost sinusa je -1.
+  ○ Ona se postiže za t=3π/2 i za sve brojeve koji su smješteni u točku E(3π/2).
+  ○ Najveća vrijednost kosinusa također je 1, a najmanja -1.
+  ○ Za koje se brojeve postižu te vrijednosti?
+  ● Omeđenost sinusa i kosinusa
+  ○ Za svaki realni broj t vrijedi |sin t| ≤ 1, |cos t| ≤ 1.
+  ○ Kažemo da su funkcije sinus i kosinus omeđene.
+
+===================================================
+
+● Tangens
+  ○ Povucimo tangentu p na brojevnu kružnicu u točki A=(1,0).
+  ○ To je vertikalni pravac koji dira brojevnu kružnicu u toj točki.
+  ○ (SLIKA 11 – Definicije trigonometrijskih funkcija_2.png)
+  ○ Neka je t po volji odabran realni broj.
+  ○ Odredimo njemu pripadnu točku T=E(t) na brojevnoj kružnici.
+  ○ Povucimo pravac OT.
+  ○ Ako je t ≠ π/2 + kπ, taj pravac siječe tangentu p u nekoj točki P.
+  ○ Apscisa točke P je 1.
+  ○ Označimo njezinu ordinatu s y.
+  ○ Vrijednost broja y ovisi o izabranoj vrijednosti broja t.
+  ○ Dakle, y je funkcija od t.
+  ○ Tu funkciju nazivamo tangens i pišemo y = tan t.
+  ● Tangens po volji odabranog kuta
+  ○ Neka je t po volji odabran realni broj, t ≠ π/2 + kπ, T=E(t) njemu odgovarajuća točka na brojevnoj kružnici i P presjek pravca OT s tangentom p.
+  ○ Tada je P = (1, tan t).
+  ○ Dakle, vrijednost funkcije tangens, tan t, je ordinata točke u kojoj pravac OT siječe tangentu p.
+  ○ Tangens nije definiran za t=π/2, niti za bilo koji argument oblika π/2 + kπ, k∈Z, jer je pripadni pravac OT usporedan s tangentom p pa je ne siječe.
+  ○ Za t koji je vrlo blizak broju π/2, manji ili veći od njega, pravac OT vrlo je strm i vrijednost tangensa je ili pozitivan ili negativan broj vrlo velikog iznosa.
+
+===================================================
+
+● Kotangens
+  ○ Povucimo tangentu q na brojevnu kružnicu u točki C=(0,1).
+  ○ To je horizontalni pravac koji dira brojevnu kružnicu u toj točki.
+  ○ (SLIKA 12 – Definicije trigonometrijskih funkcija_3.png)
+  ○ Neka je t po volji odabran realni broj.
+  ○ Odredimo njemu pripadnu točku T=E(t) na brojevnoj kružnici.
+  ○ Povucimo pravac OT.
+  ○ Ako je t ≠ kπ (k∈Z), taj pravac siječe tangentu q u nekoj točki Q.
+  ○ Ordinata točke Q je 1.
+  ○ Označimo njezinu apscisu s x.
+  ○ Vrijednost broja x ovisi o izabranoj vrijednosti kuta t.
+  ○ Dakle, x je funkcija od t.
+  ○ Tu funkciju nazivamo kotangens i pišemo x = cot t.
+  ● Kotangens po volji odabranog kuta
+  ○ Neka je t po volji odabran realni broj, t ≠ kπ, T=E(t) njemu odgovarajuća točka na brojevnoj kružnici i Q presjek pravca OT s tangentom q.
+  ○ Tada je Q = (cot t, 1).
+  ○ Dakle, vrijednost funkcije kotangens, cot t, je apscisa točke u kojoj pravac OT siječe tangentu q.
+  ○ Zašto kotangens nije definiran za t=kπ? Promotri sliku i odgovori na ovo pitanje.
+  ○ Primijetimo još jednom kako funkcije tangens i kotangens nisu omeđene.
+  ○ Njihove vrijednosti mogu biti bilo koji realni brojevi.
+
+===================================================
+
+● Predznaci trigonometrijskih funkcija
+  ○ Koordinate točaka na brojevnoj kružnici mijenjaju predznak pri prijelazu u novi kvadrant.
+  ○ Zato će i sinus i kosinus mijenjati svoj predznak kada točka T obiđe brojevnu kružnicu.
+  ○ Korisno je zapamtiti kakvi su predznaci tih funkcija u pojedinom kvadrantu.
+  ○ (SLIKA 13 – Definicije trigonometrijskih funkcija_4.png)
+
+===================================================
+
+● Određivanje vrijednosti kuta
+
+===================================================
+
+● Arkus sinus
+  ○ Ako je zadana vrijednost y sinus funkcije, onda se kut α za koji je sin α = y određuje ovako.
+  ○ Nacrtajmo brojevnu kružnicu.
+  ○ Tražimo one točke na brojevnoj kružnici čija je ordinata jednaka broju y.
+  ○ Nacrtajmo horizontalni pravac čiji je odsječak na osi ordinata jednak y.
+  ○ On siječe brojevnu kružnicu općenito u dvjema točkama, od kojih se jedna nalazi na lijevoj, a jedna na desnoj polukružnici.
+  ○ Te se dvije točke podudaraju samo ako je y = -1 ili y = 1.
+  ○ Izabrat ćemo onu točku T koja leži na desnoj polukružnici.
+  ○ Mjera α pripadnog kuta nalazi se u granicama -π/2 ≤ α ≤ π/2.
+  ○ (SLIKA 14 – Određivanje vrijednosti kuta_1.png)
+  ● Arkus sinus
+  ○ Za svaki broj y iz intervala [-1, 1] postoji samo jedan kut α za koji vrijedi sin α = y i -π/2 ≤ α ≤ π/2.
+  ○ Taj se kut označava s α = arcsin y.
+  ● 2. primjer
+
+===================================================
+
+● Preostale vrijednosti kuta
+  ○ Želimo li odrediti vrijednost kuta u stupnjevima, možemo rabiti transformacijsku formulu α° = 180°/π · α_rad ili pak postaviti računalo za račun u stupnjevima.
+  ○ Primjerice, za α = -0,452371 dobit ćemo, računajući na bilo koji od tih dvaju načina, vrijednost α = -25,91899° ≈ -25° 55' 8''.
+  ○ Ovako dobivena vrijednost α tek je jedan kut za koji je sin α = y.
+  ○ Kako ćemo odrediti sve ostale vrijednosti za α?
+  ● Ako je y = 1, tada iz sin α = 1 zaključujemo da mora biti α = π/2 + 2kπ, k∈Z.
+  ● Ako je y = -1, tada iz sin α = -1 zaključujemo da mora biti α = -π/2 + 2kπ, k∈Z.
+  ● Neka je sad -1 < y < 1.
+  ○ Nacrtajmo brojevnu kružnicu.
+  ○ Povucimo horizontalni pravac čiji je odsječak na osi ordinata jednak y.
+  ○ On siječe brojevnu kružnicu u točki T1 čiji je kut α1 = α, te u točki T2 kojoj odgovara kut α2.
+  ○ (SLIKA 15 – Određivanje vrijednosti kuta_2.png)
+  ○ Točka T2 simetrična je točki T1 s obzirom na os ordinata.
+  ○ Zato za kutove α1 i α2 vrijedi α2 = π - α1, što je očito sa slike.
+  ● 3. primjer
+  ○ Sve ostale vrijednosti kuta α, za koji je sin α = y, dobiju se dodavanjem višekratnika broja 2π na neku od ovih dviju izračunanih vrijednosti.
+  ○ Prema tome, skup svih vrijednosti je {α + 2kπ, π - α + 2kπ | k∈Z}, pri čemu je α = arcsin y.
+  ● Računanje kuta iz zadane vrijednosti sinusa
+  ○ Iz zadane vrijednosti y sinusa računamo kut α za koji je sin α = y ovako:
+    ● Ako je y = 1, onda je α = π/2 + 2kπ, k∈Z.
+    ● Ako je y = -1, onda je α = -π/2 + 2kπ, k∈Z.
+    ● Ako je -1 < y < 1, onda izračunamo vrijednost α = arcsin y iz intervala ⟨-π/2, π/2⟩, a potom izračunamo π - α.
+    ● Sve vrijednosti kuta su {α + 2kπ, π - α + 2kπ | k∈Z}.
+  ● 4. primjer
+
+===================================================
+
+● Arkus kosinus
+  ○ Ako je zadana vrijednost x kosinus funkcije, onda se kut α za koji je cos α = x računa na sljedeći način.
+  ○ Nacrtajmo brojevnu kružnicu.
+  ○ Na brojevnoj kružnici tražimo one točke čija je apscisa jednaka broju x.
+  ○ Nacrtajmo vertikalni pravac čiji je odsječak na osi apscisa jednak x.
+  ○ On siječe brojevnu kružnicu općenito u dvjema točkama, od kojih je jedna na donjoj, a jedna na gornjoj polukružnici.
+  ○ Izabrat ćemo onu točku T koja leži na gornjoj polukružnici.
+  ○ Za pripadni kut vrijedi 0 ≤ α ≤ π.
+  ○ (SLIKA 16 – Određivanje vrijednosti kuta_3.png)
+  ● Arkus kosinus
+  ○ Za svaki broj x iz intervala [-1, 1] postoji samo jedan kut α za koji je cos α = x i 0 ≤ α ≤ π.
+  ○ Taj se kut označava s α = arccos x.
+  ○ (Čitaj: arkus kosinus iks.)
+  ○ Vrijednost arkus kosinusa dobivamo uz pomoć računala pritiskom na tipku označenu s COS^(-1) ili ACOS.
+  ● 5. primjer
+  ● 6. primjer
+
+===================================================
+
+● Računanje kuta iz zadane vrijednosti kosinusa
+  ○ Sve vrijednosti kuta α za koji je cos α = x nalazimo slično kao i za funkciju sinus.
+    ● Ako je x = 1, onda je α = 2kπ, k∈Z.
+    ● Ako je x = -1, onda je α = π + 2kπ, k∈Z.
+  ○ Neka je sad -1 < x < 1.
+  ○ Nacrtajmo brojevnu kružnicu.
+  ○ Povucimo vertikalni pravac čiji je odsječak na osi apscisa jednak x.
+  ○ On siječe brojevnu kružnicu u točki T1 u gornjoj poluravnini, kojoj odgovara kut α1 = α, te u točki T2 u donjoj poluravnini, kojoj odgovara kut α2.
+  ○ (SLIKA 17 – Određivanje vrijednosti kuta_4.png)
+  ○ Točka T2 simetrična je točki T1 s obzirom na os apscisa.
+  ○ Zato za α1 i α2 vrijedi α2 = -α1.
+  ○ Sva ostala rješenja jednadžbe cos α = x dobiju se dodavanjem višekratnika broja 2π na neku od ovih dviju izračunanih vrijednosti.
+  ○ Prema tome, skup svih rješenja promatrane jednadžbe je {α + 2kπ, -α + 2kπ | k∈Z}, pri čemu je α = arccos x.
+  ● Računanje kuta iz zadane vrijednosti kosinusa
+  ○ Iz zadane vrijednosti x kosinusa računamo kut α za koji je cos α = x ovako:
+    ● Ako je x = 1, onda je α = 2kπ, k∈Z.
+    ● Ako je x = -1, onda je α = (2k+1)π, k∈Z.
+    ● Ako je -1 < x < 1, onda izračunamo vrijednost α = arccos x iz intervala ⟨0, π⟩.
+    ● Sve vrijednosti kuta su {α + 2kπ, -α + 2kπ | k∈Z}.
+  ● 7. primjer
+
+===================================================
+
+● Arkus tangens i arkus kotangens
+  ○ Sličnu situaciju imamo pri određivanju kuta iz poznate vrijednosti tangensa ili kotangensa.
+  ○ Dovoljno je naučiti kako se određuje kut ako je tan α = y.
+  ○ Naime, ako je zadana vrijednost kotangensa, tada je recipročni broj vrijednost tangensa.
+  ○ Tangens poprima sve realne vrijednosti.
+  ○ Zato će za svaki realni broj y postojati kut za koji je tan α = y.
+  ○ Nacrtajmo brojevnu kružnicu i prislonimo tangentu u točki (1,0).
+  ○ Vrijednost tangensa je ordinata točke na tom pravcu.
+  ○ Zato odredimo točku T s ordinatom y.
+  ○ Zraka OT siječe desnu polukružnicu u jednoj točki, T'.
+  ● Arkus tangens
+  ○ Za svaki realni broj y postoji samo jedan kut α za koji je tan α = y i -π/2 < α < π/2.
+  ○ Taj se kut označava s α = arctan y.
+  ○ (Čitaj: arkus tangens ipsilon.)
+  ○ Arkus tangens dobivamo na računalu pritiskom na tipku označenu s TAN^(-1) ili pak s ATAN.
+  ○ (SLIKA 18 – Određivanje vrijednosti kuta_5.png)
+  ● 8. primjer
+  ○ Na ovaj smo način dobili jednu vrijednost α1 = α za koju je tan α = y.
+  ○ Isto će vrijediti za svaki α iz skupa {α + kπ | k∈Z}.
+  ● Računanje kuta iz zadane vrijednosti tangensa
+  ○ Iz zadane vrijednosti y tangensa računamo kut α za koji je tan α = y ovako:
+    ● Izračunamo vrijednost α = arctan y iz intervala ⟨-π/2, π/2⟩.
+    ● Sve vrijednosti kuta su {α + kπ | k∈Z}.
+
+===================================================
+
+● Osnovni trigonometrijski identiteti
+
+===================================================
+
+● Temeljni identitet
+  ○ (SLIKA 19 – Osnovni trigonometrijski identiteti_1.png)
+  ○ Točka E(t) dužinom je spojena sa središtem brojevne kružnice kako bismo dobili pravokutni trokut s katetama duljina |cos t| i |sin t| te hipotenuzom duljine 1.
+  ○ Primjenom Pitagorina poučka dobijemo sin^2 t + cos^2 t = 1 za svaki realni broj t.
+
+===================================================
+
+● Veza funkcija tangens i kotangens sa sinus i kosinus
+  ○ (SLIKA 20 – Osnovni trigonometrijski identiteti_2.png)
+  ○ Ako je T=E(t) u prvom kvadrantu, onda vrijedi tan t = |AP|.
+  ○ Iz sličnih trokuta OAP i OBT vidimo da je |AP| / |OA| = |BT| / |OB|, a budući da je |OA| = 1, slijedi tan t = |AP| = |BT| / |OB| = sin t / cos t.
+  ○ Ako je T=E(t) u ostalim kvadrantima, dokaz se provodi na isti način.
+  ○ Budući da je kotangens cot t = cos t / sin t, vrijedi cot t = 1 / tan t za svaki t za koji su obje funkcije definirane.
+
+===================================================
+
+● Temeljne veze između trigonometrijskih funkcija
+  ○ Ako znamo vrijednost jedne trigonometrijske funkcije za neki broj t, možemo odrediti vrijednost bilo koje druge funkcije istog tog broja.
+  ○ Iz temeljnog identiteta slijedi sin t = ±√(1 - cos^2 t), cos t = ±√(1 - sin^2 t).
+  ○ Predznak biramo prema kvadrantu u kojem se nalazi točka E(t).
+  ● Izražavanje drugih trigonometrijskih funkcija iz jedne
+  ● Poznat je sin t.
+    ○ cos t = ±√(1 - sin^2 t)
+    ○ tan t = sin t / cos t = sin t / (±√(1 - sin^2 t))
+    ○ cot t = cos t / sin t = (±√(1 - sin^2 t)) / sin t
+  ● Poznat je cos t.
+    ○ sin t = ±√(1 - cos^2 t)
+    ○ tan t = sin t / cos t = (±√(1 - cos^2 t)) / cos t
+    ○ cot t = cos t / sin t = cos t / (±√(1 - cos^2 t))
+  ● Poznat je tan t.
+    ○ Iz sin^2 t + cos^2 t = 1 dijeljenjem s cos^2 t dobivamo tan^2 t + 1 = 1 / cos^2 t ⇒ cos^2 t = 1 / (1 + tan^2 t), te je cos t = ±1 / √(1 + tan^2 t), sin t = tan t · cos t = ± tan t / √(1 + tan^2 t).
+  ○ Slično se izvode veze i ako je poznat cot t.
+  ○ (SLIKA 21 – Osnovni trigonometrijski identiteti_3.png)
+
+===================================================
+
+● Adicijski teoremi
+
+===================================================
+
+● Kosinus zbroja i razlike
+  ○ Neka su s i t realni brojevi.
+  ○ Označimo na brojevnoj kružnici točke A=E(0) i B=E(t+s) kako bismo dobili luk (AB) ̂ duljine t+s.
+  ○ Označimo potom točke C=E(-s) i D=E(t) kako bismo dobili luk (CD) ̂ duljine t+s.
+  ○ (SLIKA 22 – Adicijski teoremi_1.png)
+  ○ Budući da su lukovi iste duljine, vrijedi |AB| = |CD|.
+  ○ Koordinate točaka lukova su:
+    ○ A = (1, 0)
+    ○ B = (cos(t+s), sin(t+s))
+    ○ C = (cos(-s), sin(-s)) = (cos s, -sin s)
+    ○ D = (cos t, sin t)
+  ○ Nadalje, |AB|^2 = [cos(t+s) - 1]^2 + [sin(t+s)]^2 = cos^2(t+s) - 2cos(t+s) + 1 + sin^2(t+s) = 2 - 2cos(t+s)
+  ○ |CD|^2 = [cos t - cos s]^2 + [sin t + sin s]^2 = cos^2 t - 2 cos t cos s + cos^2 s + sin^2 t + 2 sin t sin s + sin^2 s = 2 - 2 cos t cos s + 2 sin t sin s
+  ○ Iz |AB|^2 = |CD|^2 dobivamo 2 - 2cos(t+s) = 2 - 2 cos t cos s + 2 sin t sin s.
+  ○ Uređenjem jednadžbe dobivamo cos(t+s) = cos t cos s - sin t sin s za sve realne brojeve s i t.
+  ● Kosinus razlike
+  ○ Iz formule za kosinus zbroja vrijedi cos(t-s) = cos(t+(-s)) = cos t cos(-s) - sin t sin(-s) = cos t cos s + sin t sin s.
+  ○ Kosinus je parna (cos(-s)=cos s), a sinus neparna (sin(-s)=-sin s) funkcija.
+
+===================================================
+
+● Formule redukcije za funkcije sinus i kosinus
+  ○ Uporabom adicijskih teorema, za svaki realni broj t vrijedi:
+    ○ cos(π - t) = -cos t, cos(π + t) = -cos t (2)
+    ○ sin(π - t) = sin t, sin(π + t) = -sin t (3)
+    ○ cos(π/2 - t) = sin t, cos(π/2 + t) = -sin t (4)
+    ○ sin(π/2 - t) = cos t, sin(π/2 + t) = cos t (5)
+  ○ Izvedimo dvije formule u (2) i (4):
+    ○ cos(π + t) = cos π cos t - sin π sin t = (-1)·cos t + 0·sin t = -cos t
+    ○ cos(π/2 + t) = cos π/2 cos t - sin π/2 sin t = 0·cos t - 1·sin t = -sin t
+  ○ Dokažimo sad (5).
+  ○ Prema (4) imamo cos t = cos(π/2 - (π/2 - t)) = sin(π/2 - t).
+  ○ Zato što je kosinus parna funkcija, vrijedi cos t = cos(-t) = cos(π/2 - (π/2 + t)) = sin(π/2 + t).
+  ○ Koristeći se dokazanim, dokažimo sada (3):
+    ○ sin(π - t) = sin(π/2 + (π/2 - t)) = cos(π/2 - t) = sin t
+    ○ sin(π + t) = sin(π/2 + (π/2 + t)) = cos(π/2 + t) = -sin t
+  ○ (SLIKA 23 – Adicijski teoremi_2.png)
+
+===================================================
+
+● Sinus zbroja i razlike
+  ○ Formule slične adicijskim formulama za kosinus vrijede i za funkciju sinus.
+  ● Adicijski teorem za sinus
+  ○ Za sve realne brojeve s i t vrijede identiteti:
+    ○ sin(t+s) = sin t cos s + cos t sin s (6)
+    ○ sin(t-s) = sin t cos s - cos t sin s (7)
+  ○ Iskoristimo najprije teorem redukcije za funkciju sinus: sin(t+s) = cos(π/2 - (t+s)) = cos((π/2 - t) - s).
+  ○ Sada primijenimo adicijski teorem za funkciju kosinus, te odgovarajuće formule redukcije: sin(t+s) = cos(π/2 - t) cos s + sin(π/2 - t) sin s = sin t cos s + cos t sin s.
+  ○ Time je dokazan identitet (6).
+  ○ Da bismo dokazali identitet (7), dovoljno je primijeniti upravo dokazanu formulu i iskoristiti parnost kosinusa i neparnost sinusa: sin(t-s) = sin(t+(-s)) = sin t cos(-s) + cos t sin(-s) = sin t cos s - cos t sin s.
+
+===================================================
+
+● Tangens zbroja i razlike
+  ○ Uporabom adicijskih teorema za sinus i kosinus dokazat ćemo da vrijedi:
+  ● Adicijski teorem za tangens
+  ○ Za sve realne brojeve s i t, za koje su svi izrazi definirani, vrijedi:
+    ○ tan(t+s) = (tan t + tan s) / (1 - tan t · tan s) (8)
+    ○ tan(t-s) = (tan t - tan s) / (1 + tan t · tan s) (9)
+  ○ Dokažimo identitet (8).
+  ○ Koristimo se adicijskim teoremom za sinus i kosinus: tan(t+s) = sin(t+s) / cos(t+s) = (sin t cos s + cos t sin s) / (cos t cos s - sin t sin s).
+  ○ Podijelimo brojnik i nazivnik s cos t · cos s: tan(t+s) = (sin t/cos t + sin s/cos s) / (1 - (sin t/cos t)·(sin s/cos s)) = (tan t + tan s) / (1 - tan t·tan s).
+  ○ Identitet (9) slijedi, npr., korištenjem neparnosti funkcije tangens: tan(t-s) = tan(t+(-s)) = (tan t + tan(-s)) / (1 - tan t tan(-s)) = (tan t - tan s) / (1 + tan t·tan s).
+
+===================================================
+
+● Trigonometrijske funkcije dvostrukog i polovičnog kuta
+
+===================================================
+
+● Trigonometrijske funkcije dvostrukog kuta
+  ○ Trigonometrijske funkcije dvostrukog kuta izvode se iz adicijskih teorema za funkcije sinus i kosinus.
+  ○ Ako u adicijski teorem za funkcije sinus, kosinus, tangens i kotangens stavimo β = α, dobivamo (ako su lijeva i desna strana definirane):
+    ○ sin 2α = sin(α+α) = sin α cos α + cos α sin α = 2 sin α cos α
+    ○ cos 2α = cos(α+α) = cos^2 α - sin^2 α
+    ○ tan 2α = tan(α+α) = (tan α + tan α) / (1 - tan α tan α) = (2 tan α) / (1 - tan^2 α)
+    ○ cot 2α = cot(α+α) = (cot α cot α - 1) / (cot α + cot α) = (cot^2 α - 1) / (2 cot α)
+
+===================================================
+
+● Trigonometrijske funkcije polovičnog kuta
+  ● Sinus i kosinus polovičnog kuta
+  ○ Za svaki realni broj α:
+  ○ Primijenimo identitet cos 2φ = ((1+cos 2φ)/2)·2 - 1, odnosno standardni oblik cos 2φ = 2 cos^2 φ - 1 = 1 - 2 sin^2 φ.
+  ○ Stavimo φ = α/2.
+  ○ Tada je cos α = cos(2·(α/2)) = 2 cos^2 (α/2) - 1, pa cos^2 (α/2) = (1+cos α)/2, odakle je |cos(α/2)| = √((1+cos α)/2).
+  ○ Analogno iz cos α = 1 - 2 sin^2 (α/2) dobivamo sin^2 (α/2) = (1-cos α)/2, pa je sin(α/2) = ±√((1-cos α)/2). (8)
+  ○ Predznak se uzima prema kvadrantu u kojem se nalazi kut α/2.
+
+===================================================
+
+● Formule pretvorbe
+
+===================================================
+
+● Transformacija umnoška u zbroj
+  ○ Primjenom adicijskih teorema dobit ćemo trigonometrijske identitete koji povezuju umnožak sa zbrojem trigonometrijskih funkcija, kao i obrnute veze.
+  ○ Napišimo adicijski teorem za sinus i kosinus:
+    ○ sin(x+y) = sin x cos y + cos x sin y
+    ○ sin(x-y) = sin x cos y - cos x sin y
+    ○ cos(x+y) = cos x cos y - sin x sin y
+    ○ cos(x-y) = cos x cos y + sin x sin y
+  ○ Zbrojimo prva dva identiteta: sin(x+y) + sin(x-y) = 2 sin x cos y.
+  ○ Oduzimanjem drugog od prvog identiteta dobivamo: sin(x+y) - sin(x-y) = 2 cos x sin y.
+  ○ Na isti način postupimo s preostalim dvama identitetima.
+  ● Transformacija umnoška u zbroj
+  ○ Za sve realne brojeve x i y vrijedi
+    ○ sin x cos y = 1/2 [sin(x+y) + sin(x-y)]
+    ○ cos x sin y = 1/2 [sin(x+y) - sin(x-y)]
+    ○ cos x cos y = 1/2 [cos(x+y) + cos(x-y)]
+    ○ sin x sin y = 1/2 [cos(x-y) - cos(x+y)]
+
+===================================================
+
+● Transformacija zbroja u umnožak
+  ○ Stavimo li sada x+y = α, x-y = β, onda je x = (α+β)/2, y = (α-β)/2, pa gornje formule možemo zapisati u obliku:
+  ● Transformacija zbroja u umnožak
+  ○ Za sve realne brojeve α i β vrijedi …
+  ○ (ovdje bi išle standardne formule, npr. sin α + sin β = 2 sin((α+β)/2) cos((α-β)/2), itd., koje u tvom tekstu slijede nakon ovog mjesta).
+
+===================================================

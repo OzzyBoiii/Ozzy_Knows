@@ -143,3 +143,395 @@ Kad izračunamo modul broja z-z_0, dobit ćemo jednadžbu kružnice sa središte
 (Kompleksna ravnina_4.png)
 Ako u ovoj jednadžbi umjesto znaka jednakosti stavimo znak ≤, dobivenom će nejednadžbom biti određen krug sa središtem u točki z_0 i polumjerom r.
 
+
+MODIFIED
+● Skup kompleksnih brojeva (U RADU)  
+   ===================================================================================================================  
+   ● Uvod  
+      ○ Brojevi su jedno od područja najšireg interesa matematičara i matematičke znanosti  
+      ○ Put od prirodnih do realnih brojeva, koji je trajao tisućljećima, danas svaki školarac prelazi već tijekom svojeg osnovnoškolskog obrazovanja  
+      ○ No je li time taj put i završen  
+      ○ Ili postoji njegov produžetak  
+      ○ Odgovor na posljednje pitanje je potvrdan i upravo će o njemu biti riječi u ovom poglavlju udžbenika  
+      ○ Upoznat ćemo nove, kompleksne brojeve i to tek u jednom malom opsegu  
+      ○ Valja znati kako je uloga kompleksnih brojeva u matematici, ali i u njihovoj stvarnoj primjeni, uistinu velika  
+      ○ Tijekom školovanja upoznali smo različite skupove brojeva  
+         ● Bili su to:  
+            ○ skup prirodnih brojeva N = {1, 2, 3, …}  
+            ○ skup cijelih brojeva Z = {…, -3, -2, -1, 0, 1, 2, 3, …}  
+            ○ skup racionalnih brojeva Q = {m/n : m ∈ Z, n ∈ N}  
+      ○ Skup realnih brojeva R dobijemo združivanjem skupova racionalnih i iracionalnih brojeva  
+      ○ Znamo također da vrijedi N ⊂ Z ⊂ Q ⊂ R  
+      ○ Svaki od skupova Z, Q i R proširenje je prethodnog, načinjeno zbog potrebe da se omogući provedba određene algebarske operacije  
+         ● Primjerice, razlika dvaju prirodnih brojeva nije općenito prirodni broj  
+         ● Stoga se skup N proširuje negativnim cijelim brojevima i nulom te se tako dobije skup cijelih brojeva Z  
+         ● Zbog izvedivosti dijeljenja cijelih brojeva skup Z se proširuje razlomcima, odnosno decimalnim (konačnim ili periodičnim) brojevima čime dobivamo skup racionalnih brojeva Q  
+         ● Vidjeli smo također da postoje brojevi koje ne možemo zapisati kao razlomke  
+         ● To su iracionalni brojevi  
+   ===================================================================================================================  
+   ● Imaginarni brojevi  
+      ○ Izgradnjom skupa realnih brojeva R opisanim proširenjima nije kraj  
+      ○ Razlog leži u tome što kvadrat niti kojeg realnog broja nije negativan  
+         ● Primjerice, već odgovor na pitanje: Za koji realan broj x vrijedi x² = -1  
+         ● glasi: Ne postoji takav realan broj  
+      ○ Skup realnih brojeva proširujemo i uvodimo nove, kompleksne brojeve  
+      ○ Skup kompleksnih brojeva C sadrži sve realne brojeve, svaki je realni broj ujedno i kompleksni broj  
+      ○ Neka je i zamišljeno rješenje jednadžbe x² + 1 = 0, broj sa svojstvom i² + 1 = 0  
+      ○ Taj novi broj nazivamo imaginarnom jedinicom  
+      ○ Imaginarna jedinica  
+         ● Imaginarna jedinica i je broj za koji vrijedi i² = -1  
+      ○ Skup kompleksnih brojeva C bit će proširenje skupa realnih brojeva R  
+      ○ To znači da skup kompleksnih brojeva sadrži sve realne brojeve kao svoj podskup  
+      ○ Želimo također da u skupu kompleksnih brojeva budu definirane algebarske operacije zbrajanja i množenja  
+      ○ Zbog toga je umnožak bilo kojeg realnog broja y i imaginarne jedinice i kompleksan broj  
+      ○ Takve brojeve nazivamo posebnim imenom: imaginarni brojevi  
+         ● Brojevi 2i, -47i, √3 i, primjeri su imaginarnih brojeva  
+      ○ Imaginarni brojevi  
+         ● Imaginarni broj y i umnožak je realnog broja y i imaginarne jedinice i  
+   ===================================================================================================================  
+   ● Skup kompleksnih brojeva  
+      ○ Kompleksni broj je zbroj realnog i imaginarnog broja  
+      ○ Kompleksni su brojevi primjerice -1 + 3i, √3 - i, 34 + 12i …  
+      ○ Svaki je realan broj i kompleksan broj jer se može zapisati u obliku x + 0 · i  
+      ○ Svaki je imaginarni broj i kompleksni broj jer je y i = 0 + y i  
+      ○ Skup kompleksnih brojeva  
+         ● Kompleksni broj z je broj oblika z = x + y i  
+         ● Tu su x i y realni brojevi, a i imaginarna jedinica  
+         ● Broj x je realni dio kompleksnog broja z, a broj y je njegov imaginarni dio  
+         ● Pišemo: x = Re z, y = Im z  
+         ● Zapis z = x + y i zovemo algebarski (ili standardni) prikaz kompleksnog broja z  
+      ○ Skup kompleksnih brojeva označavamo s C  
+   -------------------------------------------------------------------------------------------------------------------  
+   1. zad  
+      ● Odredi realni i imaginarni dio kompleksnih brojeva: a) z = 3 + 5i, b) z = -2 + 4i, c) z = 6, d) z = -7i,  
+        e) z = 0, f) z = √2 + i√3, g) z = -√2 - i√3, h) z = 2i/3, i) z = (1/2) - (3/2)i.  
+      ● Rješenje:  
+         ○ a) Re z = 3, Im z = 5  
+         ○ b) Re z = -2, Im z = 4  
+         ○ c) Re z = 6, Im z = 0  
+         ○ d) Re z = 0, Im z = -7  
+         ○ e) Re z = 0, Im z = 0  
+         ○ f) Re z = √2, Im z = √3  
+         ○ g) Re z = -√2, Im z = -√3  
+         ○ h) Re z = 0, Im z = 2/3  
+         ○ i) Re z = 1/2, Im z = -3/2  
+   -------------------------------------------------------------------------------------------------------------------  
+   2. zad  
+      ● Zapiši sljedeće kompleksne brojeve u obliku x + y i:  
+         ○ a) z = (Re z, Im z) = (4, 5)  
+         ○ b) z = (Re z, Im z) = (-3, 0)  
+         ○ c) z = (Re z, Im z) = (0, 2)  
+         ○ d) z = (Re z, Im z) = (0, 0)  
+         ○ e) z = (Re z, Im z) = (-1, -1)  
+      ● Rješenje:  
+         ○ a) z = 4 + 5i  
+         ○ b) z = -3 + 0i  
+         ○ c) z = 0 + 2i  
+         ○ d) z = 0 + 0i  
+         ○ e) z = -1 - 1i  
+   ===================================================================================================================  
+   ● Jednakost kompleksnih brojeva  
+      ○ Nakon što smo definirali kompleksne brojeve, prirodno je postaviti pitanje: kada su dva kompleksna broja jednaka  
+      ○ Odgovor je vrlo jednostavan: dva su kompleksna broja jednaka ako i samo ako je realni dio prvoga jednak realnom dijelu drugoga i imaginarni dio prvoga jednak imaginarnom dijelu drugoga  
+      ○ Jednakost kompleksnih brojeva  
+         ● Kompleksni brojevi z₁ = x₁ + y₁ i i z₂ = x₂ + y₂ i jednaki su ako i samo ako im se podudaraju realni i imaginarni dijelovi: z₁ = z₂ ako i samo ako vrijedi x₁ = x₂ i y₁ = y₂  
+      ○ Zaista, iz x₁ + y₁ i = x₂ + y₂ i slijedi x₁ - x₂ = (y₂ - y₁)i pa ukoliko bi bilo y₁ ≠ y₂ onda bi vrijedilo i = (x₁ - x₂)/(y₂ - y₁) ∈ R, što je nemoguće  
+      ○ Zato je y₁ = y₂ i onda nužno x₁ = x₂  
+   -------------------------------------------------------------------------------------------------------------------  
+   1. zad  
+      ● Odredi realne brojeve a i b tako da vrijedi: a) (a + 3) + (b - 2)i = 0, b) (2a - b) + (a + b)i = 2 + 5i  
+      ● Rješenje:  
+         ○ a) (a + 3) + (b - 2)i = 0 + 0i ⇒ a + 3 = 0, b - 2 = 0 ⇒ a = -3, b = 2  
+         ○ b) (2a - b) + (a + b)i = 2 + 5i ⇒ 2a - b = 2, a + b = 5  
+            ● Zbrajanjem jednadžbi dobijemo 3a = 7 ⇒ a = 7/3  
+            ● Uvrštavanjem u drugu jednadžbu: 7/3 + b = 5 ⇒ b = 5 - 7/3 = (15 - 7)/3 = 8/3  
+   -------------------------------------------------------------------------------------------------------------------  
+   2. zad  
+      ● Odredi realne brojeve x i y tako da vrijedi: a) (x + y) + (x - y)i = 3 + i, b) (2x + y) - (x - 2y)i = 1 + 4i  
+      ● Rješenje:  
+         ○ a) (x + y) + (x - y)i = 3 + 1i ⇒ x + y = 3, x - y = 1  
+            ● Zbrajanjem jednadžbi: 2x = 4 ⇒ x = 2  
+            ● Uvrštavanjem: 2 + y = 3 ⇒ y = 1  
+         ○ b) (2x + y) - (x - 2y)i = 1 + 4i ⇒ 2x + y = 1, - (x - 2y) = 4 ⇒ -x + 2y = 4  
+            ● Riješimo sustav: 2x + y = 1, -x + 2y = 4  
+            ● Iz druge jednadžbe: x = 2y - 4  
+            ● Uvrstimo u prvu: 2(2y - 4) + y = 1 ⇒ 4y - 8 + y = 1 ⇒ 5y = 9 ⇒ y = 9/5  
+            ● x = 2·(9/5) - 4 = 18/5 - 20/5 = -2/5  
+   ===================================================================================================================  
+   ● Zbrajanje i množenje kompleksnih brojeva (U RADU)  
+      ○ Svojstva zbrajanja kompleksnih brojeva  
+         ● Zbroj, razlika i umnožak kompleksnih brojeva  
+         ● Ako su z₁ = x₁ + y₁ i i z₂ = x₂ + y₂ i bilo koja dva kompleksna broja, tada njihov zbroj, razliku i umnožak definiramo na sljedeći način:  
+            ○ z₁ + z₂ = (x₁ + x₂) + (y₁ + y₂)i  
+            ○ z₁ - z₂ = (x₁ - x₂) + (y₁ - y₂)i  
+            ○ z₁ · z₂ = (x₁ x₂ - y₁ y₂) + (x₁ y₂ + x₂ y₁)i  
+         ● Operacije zbrajanja i množenja u skupu C imaju svojstva komutativnosti, asocijativnosti i distributivnosti množenja prema zbrajanju  
+         ● Naime, za svaka tri kompleksna broja z₁, z₂ i z₃ vrijedi:  
+            ○ svojstvo komutativnosti: z₁ + z₂ = z₂ + z₁, z₁ · z₂ = z₂ · z₁  
+            ○ svojstvo asocijativnosti: z₁ + (z₂ + z₃) = (z₁ + z₂) + z₃, z₁ · (z₂ · z₃) = (z₁ · z₂) · z₃  
+            ○ svojstvo distributivnosti množenja prema zbrajanju kompleksnih brojeva: z₁ · (z₂ + z₃) = z₁ · z₂ + z₁ · z₃  
+   -------------------------------------------------------------------------------------------------------------------  
+   1. zad  
+      ● Odredi zbroj, razliku i umnožak kompleksnih brojeva z₁ = 1 + 2i i z₂ = 3 + 4i  
+      ● Rješenje:  
+         ○ z₁ + z₂ = (1 + 3) + (2 + 4)i = 4 + 6i  
+         ○ z₁ - z₂ = (1 - 3) + (2 - 4)i = -2 - 2i  
+         ○ z₁ · z₂ = (1·3 - 2·4) + (1·4 + 3·2)i = (3 - 8) + (4 + 6)i = -5 + 10i  
+   ===================================================================================================================  
+   ● Potencije imaginarne jedinice  
+      ○ Pri množenju više kompleksnih brojeva pojavit će se potencije imaginarne jedinice  
+      ○ Izračunajmo, primjerice: (2 - 3i)³ = 8 - 36i + 54i² - 27i³  
+      ○ Koliko je i³  
+         ● Možemo računati: i³ = i² · i = (-1) · i = -i  
+      ○ Onda je konačno (2 - 3i)³ = 8 - 36i - 54 + 27i = -46 - 9i  
+      ○ Izračunajmo vrijednosti prvih nekoliko potencija imaginarne jedinice prirodnim brojem  
+         ● Imamo redom:  
+            ○ i¹ = i  
+            ○ i² = -1  
+            ○ i³ = i² · i = (-1) · i = -i  
+            ○ i⁴ = i³ · i = (-i) · i = -i² = 1  
+            ○ i⁵ = i⁴ · i = i  
+            ○ i⁶ = i⁴ · i² = i² = -1  
+      ○ Uočavamo da dalje i ne moramo računati jer se vrijednosti potencija periodički ponavljaju  
+      ○ Pritom se uzastopce izmjenjuju četiri vrijednosti: i, -1, -i, 1  
+      ○ Za određivanje vrijednosti potencije iⁿ, gdje je n prirodni broj, dovoljno je pogledati koliki je ostatak pri dijeljenju broja n s 4  
+      ○ Tada je vrijednost potencije jednaka i^r, gdje je r ostatak pri dijeljenju n s 4  
+      ○ Evo zašto  
+         ● Prirodni broj n može se zapisati u obliku 4k + r, gdje je k količnik, a r ostatak pri dijeljenju broja n s 4  
+         ● Broj r je jedan od brojeva 0, 1, 2 ili 3  
+         ● Zato možemo pisati: iⁿ = i^(4k + r) = i^(4k) · i^r = (i⁴)^k · i^r = 1^k · i^r = i^r  
+      ○ Potencije imaginarne jedinice  
+         ● Neka je k prirodni broj  
+         ● Tada za potencije imaginarne jedinice i vrijedi:  
+            ○ i^(4k) = 1  
+            ○ i^(4k + 1) = i  
+            ○ i^(4k + 2) = -1  
+            ○ i^(4k + 3) = -i  
+   -------------------------------------------------------------------------------------------------------------------  
+   2. zad  
+      ● Izračunaj: a) i⁸, b) i¹⁵, c) i²², d) i³⁷, e) i⁴³  
+      ● Rješenje:  
+         ○ a) 8 : 4 = 2, ostatak 0 ⇒ i⁸ = i^(4·2) = 1  
+         ○ b) 15 : 4 = 3, ostatak 3 ⇒ i¹⁵ = i³ = -i  
+         ○ c) 22 : 4 = 5, ostatak 2 ⇒ i²² = i² = -1  
+         ○ d) 37 : 4 = 9, ostatak 1 ⇒ i³⁷ = i¹ = i  
+         ○ e) 43 : 4 = 10, ostatak 3 ⇒ i⁴³ = i³ = -i  
+   -------------------------------------------------------------------------------------------------------------------  
+   3. zad  
+      ● Izračunaj: a) i²⁰⁰⁵, b) i²⁰⁰⁶, c) i²⁰⁰⁷, d) i²⁰⁰⁸  
+      ● Rješenje:  
+         ○ a) 2005 : 4 = 501, ostatak 1 ⇒ i²⁰⁰⁵ = i¹ = i  
+         ○ b) 2006 : 4 = 501, ostatak 2 ⇒ i²⁰⁰⁶ = i² = -1  
+         ○ c) 2007 : 4 = 501, ostatak 3 ⇒ i²⁰⁰⁷ = i³ = -i  
+         ○ d) 2008 : 4 = 502, ostatak 0 ⇒ i²⁰⁰⁸ = i⁴ = 1  
+   -------------------------------------------------------------------------------------------------------------------  
+   4. zad  
+      ● Izračunaj: a) i¹ + i² + i³ + i⁴, b) i⁵ + i⁶ + i⁷ + i⁸, c) i¹ + i² + i³ + … + i⁸  
+      ● Rješenje:  
+         ○ a) i¹ + i² + i³ + i⁴ = i + (-1) + (-i) + 1 = (i - i) + (-1 + 1) = 0 + 0 = 0  
+         ○ b) i⁵ + i⁶ + i⁷ + i⁸ = i + (-1) + (-i) + 1 = 0  
+         ○ c) Zbroj prvih 8 potencija: (i¹ + i² + i³ + i⁴) + (i⁵ + i⁶ + i⁷ + i⁸) = 0 + 0 = 0  
+   ===================================================================================================================  
+   ● Dijeljenje kompleksnih brojeva (U RADU)  
+      ○ Konjugirano kompleksni brojevi  
+         ● Umnožak dvaju kompleksnih brojeva kompleksni je broj  
+         ● No onda je i količnik z₁/z₂ dvaju kompleksnih brojeva z₁ i z₂ (uz uvjet z₂ ≠ 0) kompleksan broj  
+         ● Kako odrediti taj količnik  
+         ● Kako provesti dijeljenje dvaju kompleksnih brojeva  
+         ● Najprije uvedimo jedan novi pojam  
+         ● Ako je z = x + y i bilo koji kompleksni broj, onda broj z = x - y i zovemo konjugirano kompleksni broj broja z  
+         ● Par kompleksnih brojeva z i z nazivamo parom konjugirano kompleksnih brojeva  
+         ● To je, dakle, par čiji su realni dijelovi jednaki, a imaginarni dijelovi suprotni su realni brojevi  
+         ● Umnožak dvaju konjugirano kompleksnih brojeva pozitivan je realni broj  
+            ○ Lako je provjeriti ovu tvrdnju: (x + y i)(x - y i) = x² - (y i)² = x² + y²  
+   -------------------------------------------------------------------------------------------------------------------  
+   1. zad  
+      ● Odredi konjugirano kompleksne brojeve brojeva: a) z = 2 + 3i, b) z = -4 + i, c) z = 5, d) z = -2i,  
+        e) z = 0, f) z = √3 - i√5  
+      ● Rješenje:  
+         ○ a) z = 2 - 3i  
+         ○ b) z = -4 - i  
+         ○ c) z = 5  
+         ○ d) z = 2i  
+         ○ e) z = 0  
+         ○ f) z = √3 + i√5  
+      ○ Konjugirano kompleksni brojevi  
+         ● Brojevi z = x + y i i z = x - y i čine par konjugirano kompleksnih brojeva  
+         ● Umnožak dvaju konjugirano kompleksnih brojeva realan je i pozitivan broj: (x + y i)(x - y i) = x² + y²  
+      ○ Svojstva konjugirano kompleksnih brojeva  
+   -------------------------------------------------------------------------------------------------------------------  
+   2. zad  
+      ● Dokaži da za konjugirano kompleksne brojeve vrijedi: a) z₁ + z₂ = z₁ + z₂, b) z₁ - z₂ = z₁ - z₂,  
+        c) z₁ · z₂ = z₁ · z₂, d) (z₁/z₂) = z₁/z₂ (z₂ ≠ 0)  
+      ● Rješenje: Neka su z₁ = a + b i, z₂ = c + d i  
+         ○ a) z₁ + z₂ = (a + c) + (b + d)i = (a + c) - (b + d)i  
+            ● z₁ + z₂ = (a - b i) + (c - d i) = (a + c) - (b + d)i  
+            ● Dakle, z₁ + z₂ = z₁ + z₂  
+         ○ b) z₁ - z₂ = (a - c) + (b - d)i = (a - c) - (b - d)i  
+            ● z₁ - z₂ = (a - b i) - (c - d i) = (a - c) - b i + d i = (a - c) - (b - d)i  
+            ● Dakle, z₁ - z₂ = z₁ - z₂  
+         ○ c) z₁ · z₂ = (ac - bd) + (ad + bc)i = (ac - bd) - (ad + bc)i  
+            ● z₁ · z₂ = (a - b i)(c - d i) = ac - a d i - b c i + b d i² = ac - (ad + bc)i - bd  
+            ● = (ac - bd) - (ad + bc)i  
+            ● Dakle, z₁ · z₂ = z₁ · z₂  
+         ○ d) (z₁/z₂) = ((a + b i)/(c + d i)) = ?  
+            ● Najprije izračunamo kvocijent: (a + b i)/(c + d i) = ((a + b i)(c - d i))/(c² + d²) = (ac + bd)/(c² + d²) + (bc - ad)/(c² + d²) i  
+            ● Njegov konjugirani broj je: (ac + bd)/(c² + d²) - (bc - ad)/(c² + d²) i  
+            ● S druge strane, z₁/z₂ = (a - b i)/(c - d i) = ((a - b i)(c + d i))/(c² + d²) = (ac + bd)/(c² + d²) + (-bc + ad)/(c² + d²) i = (ac + bd)/(c² + d²) - (bc - ad)/(c² + d²) i  
+            ● Dakle, (z₁/z₂) = z₁/z₂  
+   ===================================================================================================================  
+   ● Dijeljenje kompleksnih brojeva  
+      ○ Činjenicu da je z · z realan broj iskoristit ćemo pri dijeljenju kompleksnih brojeva  
+      ○ Bit će to postupak analogan onome koji smo provodili pri racionalizaciji nazivnika razlomka uz primjenu identiteta (√a - √b)(√a + √b) = a - b, a ≥ 0, b ≥ 0  
+      ○ Neka je, primjerice, z₁ = 4 + 3i, z₂ = 1 + 2i  
+      ○ Koliko je z₁ : z₂  
+         ● Zapišimo dijeljenje u obliku razlomka i razlomak proširimo brojem 1 - 2i, brojem koji je konjugiran broju 1 + 2i  
+         ● Tada imamo: z₁/z₂ = (4 + 3i)/(1 + 2i) = ((4 + 3i)(1 - 2i))/((1 + 2i)(1 - 2i)) = (10 - 5i)/5 = 2 - i  
+      ○ Isti postupak provodimo i pri dijeljenju bilo kojih dvaju kompleksnih brojeva  
+      ○ Dijeljenje kompleksnih brojeva  
+         ● Dva se kompleksna broja z₁ = x₁ + y₁ i i z₂ = x₂ + y₂ i dijele na sljedeći način:  
+            ○ z₁/z₂ = (x₁ + y₁ i)/(x₂ + y₂ i) = ((x₁ + y₁ i)(x₂ - y₂ i))/((x₂ + y₂ i)(x₂ - y₂ i))  
+            ○ = (x₁ x₂ + y₁ y₂ + (x₂ y₁ - x₁ y₂)i)/(x₂² + y₂²)  
+            ○ = (x₁ x₂ + y₁ y₂)/(x₂² + y₂²) + (x₂ y₁ - x₁ y₂)/(x₂² + y₂²) i  
+   -------------------------------------------------------------------------------------------------------------------  
+   3. zad  
+      ● Izračunaj: a) (2 + 3i)/(1 + i), b) (1 - i)/(3 + 2i), c) (5 - 2i)/(2 - 3i), d) (4 + i)/(3 - 4i)  
+      ● Rješenje:  
+         ○ a) (2 + 3i)/(1 + i) = ((2 + 3i)(1 - i))/((1 + i)(1 - i)) = (2·1 - 2·i + 3i·1 - 3i·i)/(1² + 1²)  
+            ● = (2 - 2i + 3i - 3i²)/2 = (2 + i + 3)/2 = (5 + i)/2 = 5/2 + (1/2)i  
+         ○ b) (1 - i)/(3 + 2i) = ((1 - i)(3 - 2i))/((3 + 2i)(3 - 2i)) = (1·3 - 1·2i - i·3 + i·2i)/(3² + 2²)  
+            ● = (3 - 2i - 3i + 2i²)/(9 + 4) = (3 - 5i - 2)/13 = (1 - 5i)/13 = 1/13 - (5/13)i  
+         ○ c) (5 - 2i)/(2 - 3i) = ((5 - 2i)(2 + 3i))/((2 - 3i)(2 + 3i)) = (5·2 + 5·3i - 2i·2 - 2i·3i)/(2² + 3²)  
+            ● = (10 + 15i - 4i - 6i²)/(4 + 9) = (10 + 11i + 6)/13 = (16 + 11i)/13 = 16/13 + (11/13)i  
+         ○ d) (4 + i)/(3 - 4i) = ((4 + i)(3 + 4i))/((3 - 4i)(3 + 4i)) = (4·3 + 4·4i + i·3 + i·4i)/(3² + 4²)  
+            ● = (12 + 16i + 3i + 4i²)/(9 + 16) = (12 + 19i - 4)/25 = (8 + 19i)/25 = 8/25 + (19/25)i  
+   ===================================================================================================================  
+   ● Kompleksna ravnina (U RADU)  
+      ○ Modul kompleksnog broja  
+         ● U prvom smo se razredu upoznali s pojmom apsolutne vrijednosti ili modula realnog broja x  
+         ● Prisjetimo se:  
+            ○ |x| = { x, x ≥ 0; -x, x < 0 }  
+         ● Modul pozitivnog realnog broja (i nule) sam je taj broj  
+         ● Modul negativnog broja jest njemu suprotan broj  
+         ● Imali smo i sljedeću jednakost: √(x²) = |x|  
+         ● Sada definiramo modul kompleksnog broja z = x + y i kao broj |z| = √(x² + y²)  
+         ● Skup realnih brojeva podskup je skupa kompleksnih brojeva i ovom je definicijom obuhvaćena i ranija definicija modula realnog broja  
+   -------------------------------------------------------------------------------------------------------------------  
+   1. zad  
+      ● Odredi modul kompleksnih brojeva: a) z = 3 + 4i, b) z = 5 - 12i, c) z = -2 + 3i, d) z = -1 - √3 i, e) z = 6, f) z = -8i  
+      ● Rješenje:  
+         ○ a) |z| = √(3² + 4²) = √(9 + 16) = √25 = 5  
+         ○ b) |z| = √(5² + (-12)²) = √(25 + 144) = √169 = 13  
+         ○ c) |z| = √((-2)² + 3²) = √(4 + 9) = √13  
+         ○ d) |z| = √((-1)² + (-√3)²) = √(1 + 3) = √4 = 2  
+         ○ e) |z| = √(6² + 0²) = √36 = 6  
+         ○ f) |z| = √(0² + (-8)²) = √64 = 8  
+   ===================================================================================================================  
+   ● Svojstva modula kompleksnog broja  
+      ○ Modul kompleksnog broja ima sljedeća svojstva:  
+         ● Modul umnoška dvaju kompleksnih brojeva jednak je umnošku njihovih modula: |z₁ · z₂| = |z₁| · |z₂|  
+            ○ Provjerimo ovu jednakost:  
+               ● |z₁ · z₂| = |(x₁ + y₁ i) · (x₂ + y₂ i)|  
+               ● = |(x₁ x₂ - y₁ y₂) + (x₁ y₂ + x₂ y₁)i|  
+               ● = √((x₁ x₂ - y₁ y₂)² + (x₁ y₂ + x₂ y₁)²)  
+               ● = √(x₁² x₂² + y₁² y₂² + x₁² y₂² + x₂² y₁²)  
+               ● = √((x₁² + y₁²)·(x₂² + y₂²))  
+               ● = √(x₁² + y₁²) · √(x₂² + y₂²)  
+               ● = |z₁| · |z₂|  
+            ○ Navedeno svojstvo može se poopćiti na umnožak bilo koliko kompleksnih brojeva  
+            ○ Općenito je: |z₁ · z₂ · … · zₙ| = |z₁| · |z₂| · … · |zₙ|  
+            ○ Ako su svi faktori umnoška jednaki, tada je |zⁿ| = |z|ⁿ  
+         ● Modul količnika dvaju kompleksnih brojeva jednak je količniku njihove apsolutne vrijednosti: |z₁/z₂| = |z₁|/|z₂|, z₂ ≠ 0  
+            ○ Dokažimo ovu jednakost  
+            ○ Najprije primijetimo da je recipročna vrijednost kompleksnog broja z = x + y i jednaka 1/z = 1/(x + y i) = x/(x² + y²) - y/(x² + y²) i,  
+              pa je |1/z| = √(x²/(x² + y²)² + y²/(x² + y²)²) = √((x² + y²)/(x² + y²)²) = 1/√(x² + y²) = 1/|z|  
+            ○ I sada imamo: |z₁/z₂| = |z₁ · 1/z₂| = |z₁| · |1/z₂| = |z₁| · 1/|z₂| = |z₁|/|z₂|  
+      ○ Modul kompleksnog broja  
+         ● Modul kompleksnog broja z = x + y i je realan broj |z| koji se definira formulom: |z| = √((Re z)² + (Im z)²) = √(x² + y²)  
+         ● Za modul kompleksnog broja vrijedi:  
+            ○ |z₁ · z₂| = |z₁| · |z₂|  
+            ○ |zⁿ| = |z|ⁿ  
+            ○ |z₁/z₂| = |z₁|/|z₂|, z₂ ≠ 0  
+   -------------------------------------------------------------------------------------------------------------------  
+   2. zad  
+      ● Ako je |z| = 2, izračunaj |z³|, |z⁴| i |1/z|  
+      ● Rješenje:  
+         ○ |z³| = |z|³ = 2³ = 8  
+         ○ |z⁴| = |z|⁴ = 2⁴ = 16  
+         ○ |1/z| = 1/|z| = 1/2  
+   ===================================================================================================================  
+   ● Kompleksna ravnina  
+      ○ Iz standardnog algebarskog zapisa kompleksnog broja z = x + y i jasno se razabiru njegov realan i imaginaran dio  
+      ○ Svaki kompleksni broj stoga možemo zapisati u obliku uređenog para (x, y) realnih brojeva  
+         ● Primjerice: -1 + 2i = (-1, 2); 3 + 7i = (3, 7); -9i = (0, -9); 4 = (4, 0)  
+      ○ Ovakvo zapisivanje kompleksnih brojeva nameće pomisao da bi se kompleksnim brojevima mogle pridružiti točke u koordinatnoj ravnini  
+      ○ Takvo je pridruživanje obostrano jednoznačno, svakom je kompleksnom broju jednoznačno pridružena točka i svakoj točki odgovara jedinstven kompleksni broj  
+      ○ Os x koordinatnog sustava zove se realna os i na njoj, i samo na njoj, smješteni su realni brojevi  
+      ○ Os y zove se imaginarna os, na njoj su smješteni imaginarni brojevi i to samo oni  
+      ○ Koordinatna ravnina u kojoj su na opisani način smješteni svi kompleksni brojevi zove se kompleksna ravnina ili Gaussova ravnina  
+      ○ Kompleksna ili Gaussova ravnina  
+         ● Svakom kompleksnom broju z = x + y i odgovara točka M(x, y) u kompleksnoj ravnini  
+         ● Na osi apscisa smješteni su realni brojevi pa se ona zove realna os  
+         ● Na osi ordinata smješteni su imaginarni brojevi pa se ona zove imaginarna os  
+         ● Pridruživanje kompleksnih brojeva i točaka kompleksne ravnine obostrano je jednoznačno  
+      (SLIKA 1: Kompleksna ravnina_1.png)  
+   -------------------------------------------------------------------------------------------------------------------  
+   3. zad  
+      ● Predoči u kompleksnoj ravnini brojeve: a) z₁ = 3 + 2i, b) z₂ = -2 + 3i, c) z₃ = -3 - i, d) z₄ = 4 - 2i,  
+        e) z₅ = 4, f) z₆ = -3, g) z₇ = 3i, h) z₈ = -2i  
+      ● Rješenje: (Točke treba nanijeti na koordinatni sustav)  
+         ○ z₁(3, 2)  
+         ○ z₂(-2, 3)  
+         ○ z₃(-3, -1)  
+         ○ z₄(4, -2)  
+         ○ z₅(4, 0)  
+         ○ z₆(-3, 0)  
+         ○ z₇(0, 3)  
+         ○ z₈(0, -2)  
+   -------------------------------------------------------------------------------------------------------------------  
+   4. zad  
+      ● Koji kompleksni broj pripada točki: a) A(2, 5), b) B(-3, 1), c) C(-2, -4), d) D(0, 3), e) E(-5, 0), f) F(0, 0)  
+      ● Rješenje:  
+         ○ a) z_A = 2 + 5i  
+         ○ b) z_B = -3 + i  
+         ○ c) z_C = -2 - 4i  
+         ○ d) z_D = 0 + 3i  
+         ○ e) z_E = -5 + 0i  
+         ○ f) z_F = 0 + 0i  
+   ===================================================================================================================  
+   ● Udaljenost točaka u ravnini  
+      ○ Uvođenjem kompleksne ravnine, čime su kompleksni brojevi dobili zornu podršku, omogućen je razvitak geometrije kompleksnih brojeva  
+      ○ U tom smislu modul kompleksnog broja x + y i, pozitivan realni broj |z| = √(x² + y²) možemo tumačiti kao udaljenost točke M(x, y) od ishodišta koordinatnog sustava  
+      ○ Tu činjenicu lako je provjeriti s pomoću Pitagorina poučka  
+      ○ Udaljenost točke od ishodišta  
+         ● Modul |z| = √(x² + y²) kompleksnog broja z = x + y i jednak je udaljenosti točke M(x, y) od ishodišta koordinatnog sustava  
+      (SLIKA 2: Kompleksna ravnina_2.png)  
+      ○ Neka su zadana dva kompleksna broja z₁ = x₁ + y₁ i i z₂ = x₂ + y₂ i  
+      ○ Tada vrijedi:  
+         ● |z₁ - z₂| = |(x₁ - x₂) + (y₁ - y₂)i| = √((x₁ - x₂)² + (y₁ - y₂)²)  
+      ○ U ovom izrazu prepoznajemo formulu za udaljenost dviju točaka u ravnini  
+      ○ Zato je |z₁ - z₂| udaljenost između točaka z₁ i z₂ u kompleksnoj brojevnoj ravnini  
+      (SLIKA 3: Kompleksna ravnina_3.png)  
+      ○ Broj |z₁ - z₂| jednak je udaljenosti točaka z₁ i z₂  
+   -------------------------------------------------------------------------------------------------------------------  
+   5. zad  
+      ● Izračunaj udaljenost točaka: a) z₁ = 2 + 3i, z₂ = 5 + 7i, b) z₁ = -1 + 2i, z₂ = 3 - i, c) z₁ = 4, z₂ = 4i  
+      ● Rješenje:  
+         ○ a) |z₁ - z₂| = |(2 - 5) + (3 - 7)i| = |-3 - 4i| = √((-3)² + (-4)²) = √(9 + 16) = √25 = 5  
+         ○ b) |z₁ - z₂| = |(-1 - 3) + (2 - (-1))i| = |-4 + 3i| = √((-4)² + 3²) = √(16 + 9) = √25 = 5  
+         ○ c) |z₁ - z₂| = |(4 - 0) + (0 - 4)i| = |4 - 4i| = √(4² + (-4)²) = √(16 + 16) = √32 = 4√2  
+   -------------------------------------------------------------------------------------------------------------------  
+   6. zad  
+      ● Odredi sve kompleksne brojeve z tako da vrijedi |z - (2 + 3i)| = 3  
+      ● Rješenje: Neka je z = x + y i  
+         ● Tada je |(x - 2) + (y - 3)i| = 3 ⇒ √((x - 2)² + (y - 3)²) = 3  
+         ● Kvadriranjem dobijemo (x - 2)² + (y - 3)² = 9  
+         ● To je jednadžba kružnice sa središtem u točki S(2, 3) i polumjerom r = 3  
+      ○ Općenito, neka je z₀ = x₀ + y₀ i bilo koji kompleksan broj  
+      ○ Skup K = { z : |z - z₀| = r } je skup svih točaka z u kompleksnoj ravnini koje su od točke z₀ udaljene r  
+      ○ To je kružnica sa središtem u točki z₀ i polumjerom r  
+      ○ Takvu kružnicu označavamo s K(z₀, r)  
+      ○ Kad izračunamo modul broja z - z₀, dobit ćemo jednadžbu kružnice sa središtem u točki z₀ = (x₀, y₀) i polumjerom r: (x - x₀)² + (y - y₀)² = r²  
+      (SLIKA 4: Kompleksna ravnina_4.png)  
+      ○ Ako u ovoj jednadžbi umjesto znaka jednakosti stavimo znak ≤, dobivenom će nejednadžbom biti određen krug sa središtem u točki z₀ i polumjerom r  
+   ===================================================================================================================

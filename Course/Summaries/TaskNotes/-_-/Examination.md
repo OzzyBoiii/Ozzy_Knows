@@ -29,7 +29,7 @@ kanban-plugin: board
 
 ## 3-Day Session
 
-- [ ] Povijest (11.03)
+- [x] Povijest (11.03) ✅ 2026-03-13
 - [ ] Filozofija (12.03)
 - [x] Kemija (09.03) ✅ 2026-03-09
 - [x] PiG (09.03) ✅ 2026-03-09

@@ -386,3 +386,335 @@ ________________________________________
 Tetivni četverokut
 Tetivni četverokut je četverokut upisan kružnici. Osnovni poučak o tetivnom četverokutu kaže da su njegovi nasuprotni kutovi suplementni. Drugim riječima, zbroj dvaju nasuprotnih kutova tetivnog četverokuta iznosi 180^∘.
 
+
+
+MODIFIED
+Ovdje su vaše bilješke obrađene prema svim zadanim uputama.
+
+● Trigonometrijske funkcije kutova u trokutu
+===================================================
+● Trigonometrijske funkcije kuta u pravokutnom trokutu
+○ U pravokutnom trokutu jedan kut ima mjeru 90°, a dva preostala kuta su šiljasta, njihova je mjera manja od 90°.
+○ Označimo vrhove, stranice i kutove u trokutu na uobičajeni način.
+○ (SLIKA 1)
+○ Trigonometrijske funkcije šiljastog kuta u pravokutnom trokutu definirane su omjerima stranica:
+    ● sin α = nasuprotna kateta / hipotenuza
+    ● cos α = priležeća kateta / hipotenuza
+    ● tan α = nasuprotna kateta / priležeća kateta
+    ● cot α = priležeća kateta / nasuprotna kateta
+
+===================================================
+● Trigonometrijske funkcije za kutove od 0° do 180°
+○ Kut je dio ravnine određen dvjema zrakama (polupravcima) sa zajedničkim početkom.
+○ Mjera kuta je pozitivan broj, između 0° i 360°.
+○ Promatramo kutove s mjerom od 0° do 180° (od dvaju kutova uvijek uzimamo onaj manje mjere).
+○ (SLIKA 2)
+○ Neka je α šiljasti kut smješten u gornju poluravninu, vrhom u ishodištu, a krakom na pozitivnom dijelu osi x.
+○ Na drugom kraku odabrana je točka P(x, y).
+○ Udaljenost r točke P do ishodišta: r = √(x² + y²)
+○ Iz pravokutnog trokuta OTP čitamo:
+    ● sin α = y / r
+    ● cos α = x / r
+○ (SLIKA 3)
+○ Definicija za tupi kut (točka P u drugom kvadrantu) je identična.
+
+===================================================
+● Trigonometrijske funkcije za kutove od 0° do 180° (Jedinična polukružnica)
+○ Nacrtajmo polukružnicu polumjera 1 sa središtem u ishodištu.
+○ Točka P(x, y) na toj polukružnici određuje kut α.
+○ Udaljenost točke P do ishodišta je 1 (r=1).
+○ Prema definicijama vrijedi:
+    ● x = cos α
+    ● y = sin α
+○ Dakle, koordinate točke P su P(cos α, sin α).
+○ (SLIKA 4)
+○ Budući da je x² + y² = 1, za svaki kut α vrijedi osnovni trigonometrijski identitet:
+    ● cos² α + sin² α = 1
+
+○ 1. zad
+    ○ Izračunajmo sin α i cos α ako je točka P na drugom kraku kuta α: P(-3, 4).
+        ○ r = √((-3)² + 4²) = 5
+        ○ sin α = 4/5
+        ○ cos α = -3/5
+○ 2. zad
+    ○ Odredite sin 120° i cos 120°.
+        ○ Točka na polukružnici za 120° ima koordinate (-1/2, √3/2).
+        ○ sin 120° = √3/2
+        ○ cos 120° = -1/2
+
+○ Napomena: Kotangens se računa kao recipročna vrijednost tangensa: cot x = 1 / tan x.
+
+===================================================
+● Suplementarni kutovi
+○ Dva su kuta α i β suplementarna ako zajedno čine ispruženi kut: α + β = 180°.
+○ Suplementaran kut kutu α je 180° - α.
+○ (SLIKA 5)
+○ Za suplementarne kutove vrijedi:
+    ● sin (180° - α) = sin α
+    ● cos (180° - α) = -cos α
+    ● tan (180° - α) = -tan α
+    ● cot (180° - α) = -cot α
+
+===================================================
+● Određivanje kuta
+○ Određivanje kuta iz poznatog kosinusa:
+    ● Ako je cos α > 0, kut je šiljast (0° < α < 90°).
+    ● Ako je cos α < 0, kut je tup (90° < α < 180°).
+    ○ 4. zad
+        ○ Ako je cos α = 0.325, α ≈ 71°.
+        ○ Ako je cos α = -0.675, α ≈ 132°.
+○ Određivanje kuta iz poznatog sinusa:
+    ● Za 0 < p < 1, jednadžba sin α = p ima dva rješenja u intervalu (0°, 180°).
+    ● Računalo daje šiljasti kut (0° < α < 90°).
+    ● Tupi kut je suplementaran tom kutu: 180° - α.
+    ○ 5. zad
+        ○ sin α = 0.623. Računalo: α₁ ≈ 38.5°. Tupi kut: α₂ = 180° - 38.5° = 141.5°.
+○ Određivanje kuta iz poznatog tangensa:
+    ● Ako je tan α > 0, kut je šiljast i računalo ga direktno daje.
+    ● Ako je tan α < 0, kut je tup. Računalo daje negativnu vrijednost kuta (iz IV. kvadranta). Traženi kut je 180° + (negativni rezultat).
+    ○ 6. zad
+        ○ tan α = -1.542. Računalo: α ≈ -57°. Tupi kut: α = 180° + (-57°) = 123°.
+○ Određivanje kuta iz poznatog kotangensa:
+    ● Najprije izračunati tangens (tan α = 1 / cot α), a zatim kut prema pravilima za tangens.
+    ○ 7. zad
+        ○ cot α = -0.445. tan α = 1 / -0.445 ≈ -2.247. Računalo: α ≈ -66°. Tupi kut: α = 180° - 66° = 114°.
+
+===================================================
+● Poučak o sinusima
+○ (SLIKA 1 - poglavlja Poučak o sinusima)
+○ Za bilo koji trokut ABC, visina na stranicu c iz vrha C iznosi: v_c = b sin α.
+○ Ista visina, iz trokuta BPC, iznosi: v_c = a sin β.
+○ Izjednačavanjem dobivamo: a sin β = b sin α  ⇒  a / sin α = b / sin β.
+○ Analognim postupkom dobiva se i b / sin β = c / sin γ.
+○ Poučak o sinusima:
+    ● U svakom su trokutu omjeri duljina stranica i sinusa tim stranicama suprotnih kutova jednaki:
+        ○ a / sin α = b / sin β = c / sin γ
+    ● Te jednakosti možemo napisati u obliku produženog razmjera:
+        ○ a : b : c = sin α : sin β : sin γ
+
+===================================================
+● Rješavanje trokuta (primjenom poučka o sinusima)
+○ Trokut može biti zadan na četiri načina. U slučajevima (a) i (b) koristimo poučak o sinusima.
+    ○ (a) zadana je stranica i dva kuta
+    ○ (b) zadane su dvije stranice i kut nasuprot većoj od njih
+
+○ (a) Stranica i dva kuta
+    ● Ako su poznata dva kuta, treći je određen (α + β + γ = 180°).
+    ● Preostale stranice računamo pomoću poučka o sinusima.
+    ○ 1. zad
+        ○ Trokut: a = 5 cm, β = 30°, γ = 70°. Odredite b i c.
+        ○ α = 180° - 30° - 70° = 80°.
+        ○ b = a · (sin β / sin α) = 5 · (sin 30° / sin 80°) ≈ 2.54 cm
+        ○ c = a · (sin γ / sin α) = 5 · (sin 70° / sin 80°) ≈ 4.77 cm
+    ○ 2. zad
+        ○ Trokut: α = 45°, β = 15°, c = 10 cm. Odredite a i b.
+        ○ γ = 180° - 45° - 15° = 120°.
+        ○ a = c · (sin α / sin γ) = 10 · (sin 45° / sin 120°) ≈ 8.16 cm
+        ○ b = c · (sin β / sin γ) = 10 · (sin 15° / sin 120°) ≈ 2.99 cm
+
+○ (b) Dvije stranice i kut nasuprot jednoj od njih
+    ● Trokut je jednoznačno određen ako je kut nasuprot većoj stranici.
+    ○ 3. zad
+        ○ Trokut: a = 10 cm, b = 7 cm, α = 48° (kut nasuprot većoj stranici a). Odredite β, γ, c.
+        ○ sin β = (b · sin α) / a = (7 · sin 48°) / 10 ≈ 0.520. β ≈ 31.3°.
+        ○ γ = 180° - 48° - 31.3° = 100.7°.
+        ○ c = a · (sin γ / sin α) = 10 · (sin 100.7° / sin 48°) ≈ 13.1 cm
+    ● Ako zadani kut nije nasuprot većoj stranici, mogu postojati dva rješenja (dva različita trokuta).
+    ○ 4. zad
+        ○ Trokut: a = 5 cm, b = 7 cm, α = 40°. Odredite β, γ, c.
+        ○ sin β = (b · sin α) / a = (7 · sin 40°) / 5 ≈ 0.900.
+        ○ β₁ ≈ 64.1°  ili  β₂ = 180° - 64.1° = 115.9°.
+        ○ Za β₁: γ₁ = 180° - 40° - 64.1° = 75.9°, c₁ ≈ 7.55 cm.
+        ○ Za β₂: γ₂ = 180° - 40° - 115.9° = 24.1°, c₂ ≈ 3.17 cm.
+        ○ Postoje dva trokuta koja zadovoljavaju zadane podatke.
+
+===================================================
+● Primjene poučka o sinusima
+○ 5. zad (Mjerenje visine)
+    ○ Iz točke A udaljene 50 m od podnožja B tornja, vrh tornja C vidi se pod kutom od 58°. Iz točke D, koja je s iste strane tornja, vidi se pod kutom od 32°. Kolika je udaljenost točaka A i D?
+    ○ (SLIKA - uz 5. primjer)
+    ○ U trokutu ABC: γ = 90° - 58° = 32°. U trokutu BCD: β' = 90° - 32° = 58°.
+    ○ U trokutu ACD: kut pri A = 58°, kut pri C = 180° - (58°+32°) = 90°? Ovo treba preciznije.
+    ○ Bolji pristup: Promatramo trokut A C D.
+    ○ Iz pravokutnog trokuta ABC: tan 58° = h/50 => h = 50 tan 58° ≈ 80.04 m.
+    ○ Iz pravokutnog trokuta DBC: tan 32° = h / (50 + |AD|) => 50 + |AD| = h / tan 32° ≈ 80.04 / 0.6249 ≈ 128.1 m.
+    ○ Dakle, |AD| = 128.1 - 50 = 78.1 m.
+○ 6. zad (Mjerenje udaljenosti do nedostupne točke)
+    ○ S dvije točke A i B na obali, udaljene 200 m, izmjereni su kutovi prema brodu C: ∠CAB = 65°, ∠CBA = 72°. Koliko je brod udaljen od točke A?
+    ○ (SLIKA - uz 6. primjer)
+    ○ Kut γ = 180° - 65° - 72° = 43°.
+    ○ Primjenom poučka o sinusima na trokut ABC: b / sin β = c / sin γ  (gdje je b = |AC| tražena udaljenost, c = |AB| = 200 m, β = 72°, γ = 43°).
+    ○ b = (c · sin β) / sin γ = (200 · sin 72°) / sin 43° ≈ (200 · 0.9511) / 0.6820 ≈ 279 m.
+
+===================================================
+● Sinus dvostrukog kuta
+○ Za svaki kut α vrijedi formula:
+    ● sin 2α = 2 sin α cos α
+○ (SLIKA 2 - poglavlja Poučak o sinusima)
+○ 7. zad
+    ○ sin 60° = 2 sin 30° cos 30° = 2 · (1/2) · (√3/2) = √3/2. Točno.
+○ 8. zad
+    ○ Bez upotrebe džepnog računala izračunajmo sin 120°.
+    ○ sin 120° = sin (2·60°) = 2 sin 60° cos 60° = 2 · (√3/2) · (1/2) = √3/2.
+
+===================================================
+● Poučak o kosinusu
+○ (SLIKA 1 - poglavlja Poučak o kosinusima)
+○ Za bilo koji trokut ABC (šiljasti ili tupi kut γ) vrijedi ista formula.
+○ Poučak o kosinusu:
+    ● Kvadrat stranice u trokutu jednak je zbroju kvadrata drugih dviju stranica, umanjenom za dvostruki umnožak tih stranica i kosinusa kuta između njih:
+        ○ a² = b² + c² - 2bc cos α
+        ○ b² = a² + c² - 2ac cos β
+        ○ c² = a² + b² - 2ab cos γ
+    ● Ako je γ = 90°, formula prelazi u Pitagorin poučak (c² = a² + b²).
+
+===================================================
+● Rješavanje trokuta (primjenom poučka o kosinusu)
+○ Poučak o kosinusu koristimo za preostala dva slučaja zadavanja trokuta:
+    ○ (c) zadane su dvije stranice i kut među njima
+    ○ (d) zadane su tri stranice
+
+○ (c) Dvije stranice i kut među njima
+    ● Najprije se pomoću poučka o kosinusu odredi treća stranica, a zatim se pomoću poučka o sinusima ili kosinusu odrede preostali kutovi.
+    ○ 1. zad
+        ○ Trokut: a = 7 cm, b = 5 cm, γ = 50°. Odredite c, α, β.
+        ○ c² = a² + b² - 2ab cos γ = 49 + 25 - 2·7·5·cos 50° ≈ 74 - 70·0.6428 ≈ 74 - 45.0 = 29.0
+        ○ c ≈ √29.0 ≈ 5.39 cm
+        ○ sin α = (a · sin γ) / c = (7 · sin 50°) / 5.39 ≈ (7 · 0.7660) / 5.39 ≈ 5.362 / 5.39 ≈ 0.995. α ≈ 84.2°.
+        ○ β = 180° - α - γ ≈ 180° - 84.2° - 50° = 45.8°.
+
+○ (d) Tri stranice
+    ● Pomoću poučka o kosinusu odredi se bilo koji kut. Preporuča se najprije odrediti kut nasuprot najvećoj stranici radi jednoznačnosti.
+    ● Drugi kut se može odrediti poučkom o sinusima.
+    ○ 2. zad
+        ○ Trokut: a = 6 cm, b = 5 cm, c = 4 cm. Odredite kut α (nasuprot najvećoj stranici a).
+        ○ cos α = (b² + c² - a²) / (2bc) = (25 + 16 - 36) / (2·5·4) = 5 / 40 = 0.125. α ≈ 82.8°.
+        ○ sin β = (b · sin α) / a = (5 · sin 82.8°) / 6 ≈ (5 · 0.992) / 6 ≈ 4.96 / 6 ≈ 0.8267. β ≈ 55.8°.
+        ○ γ = 180° - 82.8° - 55.8° = 41.4°.
+    ○ 3. zad, 4. zad, 5. zad, 6. zad, 7. zad
+        ○ (Ovdje su navedeni brojni primjeri za vježbu, no bez detaljnog opisa u priloženom tekstu. Postupak rješavanja je isti kao u 2. primjeru.)
+
+===================================================
+● Trigonometrija trokuta
+○ Primjena trigonometrije u planimetriji i stereometriji.
+○ Standardne oznake u trokutu ABC:
+    ● a, b, c – stranice
+    ● α, β, γ – kutovi
+    ● t_a, t_b, t_c – težišnice
+    ● v_a, v_b, v_c – visine
+    ● s_α, s_β, s_γ – simetrale kutova
+    ● R – polumjer opisane kružnice
+    ● r – polumjer upisane kružnice
+    ● s – poluopseg
+    ● P – površina
+
+===================================================
+● Površina trokuta
+○ (SLIKA 1 - poglavlja Trigonometrija trokuta)
+○ Osnovna trigonometrijska formula za površinu:
+    ● Površina trokuta jednaka je polovici umnoška dviju stranica i sinusa kuta između njih:
+        ○ P = ½ a b sin γ = ½ b c sin α = ½ a c sin β    (1)
+    ○ 1. zad
+        ○ Trokut: a = 8 cm, b = 6 cm, γ = 60°.
+        ○ P = ½ · 8 · 6 · sin 60° = 24 · (√3/2) = 12√3 cm² ≈ 20.78 cm².
+
+○ Formula za površinu ako su poznati kutovi i jedna stranica:
+    ● P = (a² sin β sin γ) / (2 sin α) = ... (ciklička zamjena)
+    ○ 2. zad
+        ○ Trokut: a = 10 cm, β = 45°, γ = 60°. Odredite P.
+        ○ α = 180° - 45° - 60° = 75°.
+        ○ P = (a² sin β sin γ) / (2 sin α) = (100 · sin45° · sin60°) / (2 · sin75°) ≈ (100 · 0.7071 · 0.8660) / (2 · 0.9659) ≈ 61.24 / 1.9318 ≈ 31.7 cm².
+
+○ Heronova formula (za površinu iz stranica):
+    ● P = √[s(s - a)(s - b)(s - c)], gdje je s = (a + b + c) / 2
+
+===================================================
+● Polumjer opisane (R) i upisane (r) kružnice
+○ (SLIKA 2 - poglavlja Trigonometrija trokuta)
+○ Polumjer opisane kružnice i poučak o sinusima:
+    ● a / sin α = b / sin β = c / sin γ = 2R    (2)
+○ (SLIKA 3 - poglavlja Trigonometrija trokuta)
+○ Površina trokuta iz polumjera upisane kružnice:
+    ● P = r · s    (3)
+○ Površina trokuta iz polumjera opisane kružnice:
+    ● P = (a b c) / (4R)    (4)
+
+===================================================
+● Visine trokuta
+○ Visine su obrnuto proporcionalne duljinama odgovarajućih stranica:
+    ● a / b = v_b / v_a
+    ● b / c = v_c / v_b
+    ● c / a = v_a / v_c
+○ 3. zad
+    ○ U trokutu je a : b : c = 5 : 6 : 7. U kojem su omjeru visine?
+    ○ v_a : v_b : v_c = 1/a : 1/b : 1/c = 1/5 : 1/6 : 1/7 = (42/210 : 35/210 : 30/210) = 42 : 35 : 30.
+
+===================================================
+● Simetrale kutova
+○ (SLIKA 5 - poglavlja Trigonometrija trokuta)
+○ Simetrala unutarnjeg kuta dijeli suprotnu stranicu u omjeru jednakom omjeru duljina stranica koje zatvaraju taj kut:
+    ● x / y = b / c
+    ○ gdje su x i y dijelovi stranice a na koje ju simetrala dijeli.
+
+===================================================
+● Težišnice
+○ (SLIKA 6 - poglavlja Trigonometrija trokuta)
+○ Duljine težišnica:
+    ● 4 t_a² = 2 b² + 2 c² - a²
+    ● 4 t_b² = 2 a² + 2 c² - b²
+    ● 4 t_c² = 2 a² + 2 b² - c²
+○ Stranice izražene preko težišnica:
+    ● a² = 4/9 (2 t_b² + 2 t_c² - t_a²)    (5)
+    ● b² = 4/9 (2 t_a² + 2 t_c² - t_b²)
+    ● c² = 4/9 (2 t_a² + 2 t_b² - t_c²)
+
+===================================================
+● Četverokut
+○ (SLIKA 1 - poglavlja Četverokut)
+○ Četverokut je općenito određen s 5 elemenata (najviše 3 kuta).
+○ Posebne vrste četverokuta zahtijevaju manje elemenata za jednoznačno određivanje.
+
+===================================================
+● Paralelogram
+○ (SLIKA 2 - poglavlja Četverokut)
+○ Dijagonale paralelograma (a, b, α):
+    ● e² = a² + b² + 2ab cos α
+    ● f² = a² + b² - 2ab cos α
+○ Zbroj kvadrata dijagonala:
+    ● e² + f² = 2 (a² + b²)
+○ Površina paralelograma:
+    ● Preko stranica: P = a b sin α
+    ● Preko dijagonala: P = ½ e f sin φ  (φ je kut između dijagonala)
+    ○ 1. zad
+        ○ Stranice paralelograma su 6 cm i 4 cm, a kut među njima 50°. Odredite duljine dijagonala i površinu.
+        ○ e² = 36 + 16 + 2·6·4·cos50° ≈ 52 + 48·0.6428 ≈ 52 + 30.85 = 82.85, e ≈ 9.10 cm.
+        ○ f² = 36 + 16 - 48·cos50° ≈ 52 - 30.85 = 21.15, f ≈ 4.60 cm.
+        ○ P = a b sin α = 6·4·sin50° ≈ 24·0.7660 = 18.38 cm².
+
+===================================================
+● Površina četverokuta
+○ (SLIKA 3 - poglavlja Četverokut)
+○ Površina bilo kojeg četverokuta može se izračunati ako su poznate duljine dijagonala (e, f) i kut (φ) među njima:
+    ● P = ½ e f sin φ
+
+===================================================
+● Trapez
+○ (SLIKA - uz poglavlje Trapez)
+○ Povlačenjem vrha D paralele s krakom BC dobiva se trokut sa stranicama (a - c), b, d i kutovima uz osnovicu α i β.
+○ 2. zad
+    ○ Trapez ima osnovice a = 10 cm, c = 4 cm i krakove b = 5 cm, d = 4.5 cm. Odredite kutove α i β.
+    ○ (SLIKA)
+    ○ U pomoćnom trokutu: stranice su: a-c = 6 cm, b=5 cm, d=4.5 cm.
+    ○ Kut nasuprot stranice d je α. cos α = ((a-c)² + b² - d²) / (2·(a-c)·b) = (36 + 25 - 20.25) / (2·6·5) = (40.75) / 60 ≈ 0.6792. α ≈ 47.2°.
+    ○ Kut β = 180° - kut nasuprot stranice b? Bolje: Kut nasuprot stranice b (u pomoćnom trokutu) je kut β' = 180° - α. Tada je β = 180° - β' = 180° - (180° - α) = α = 47.2°. Ovo ne valja.
+    ○ Ispravno: U pomoćnom trokutu, kut uz stranicu (a-c) i b je β. Računamo cos β = ((a-c)² + d² - b²) / (2·(a-c)·d) = (36 + 20.25 - 25) / (2·6·4.5) = (31.25) / 54 ≈ 0.5787. β ≈ 54.6°.
+    ○ U trapezu, kutovi uz osnovicu su upravo α i β. Dakle, α ≈ 47.2°, β ≈ 54.6°.
+
+===================================================
+● Tetivni četverokut
+○ Četverokut upisan kružnici.
+○ Osnovno svojstvo: Zbrojevi nasuprotnih kutova su 180° (suplementarni).
+    ● α + γ = 180°
+    ● β + δ = 180°
+
+===================================================

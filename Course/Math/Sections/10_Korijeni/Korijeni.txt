@@ -161,3 +161,194 @@ U postupku kvadriranja iracionalne jednadžbe dobivamo jednadžbu koja ne mora b
 PRIMJER 1
 PRIMJER 2
 
+
+MODIFIEED
+● Drugi i treći korijen realnog broja
+○ Za neki realni broj x i prirodni broj n definiramo potenciju kao umnožak n jednakih faktora:
+    x^n = x ⋅ x ⋅ ⋯ ⋅ x
+
+○ Najjednostavnija potencija, izuzmemo li x^1 = x, potencija je x^2, koju zovemo još i kvadratom broja x
+○ Ova se potencija često susreće u raznim prirodnim zakonima, geometrijskim problemima i sl.
+○ Spomenuli smo površinu kvadrata kojemu je poznata duljina stranice
+○ Slično tome, površina kruga s polumjerom duljine r jednaka je π r^2
+○ Prijeđeni put kod jednoliko ubrzanog gibanja s ubrzanjem a računamo po formuli s = (a/2) ⋅ t^2
+
+○ U nekim ćemo zadatcima trebati odrediti kvadrat nekog broja, a u nekima ćemo morati odgovoriti na obrnuto pitanje
+
+● 1. zad
+○ Ako je površina kvadrata jednaka 225 cm^2, kolika je duljina njegove stranice?
+○ Očito, valja potražiti pozitivan broj a za koji vrijedi a^2 = 225
+○ Jednostavno je naći odgovor, a = 15 cm
+○ Rješenje: broj 15 drugi je ili kvadratni korijen broja 225
+○ Pišemo √225 = 15
+
+● 2. zad
+○ Ako je pri slobodnom padu neko tijelo prevalilo put od 50 metara, koliko je trajao pad?
+○ Dakle, iz jednadžbe s = (g/2) ⋅ t^2 treba izračunati t
+○ Pritom je s = 50 m, a konstanta gravitacije je g = 9,81 m/s^2
+○ Slijedi približno 50 ≈ 5 t^2, t^2 ≈ 10, t ≈ 3,16
+○ Ovaj posljednji rezultat odredili smo džepnim računalom
+
+● Drugi korijen pozitivnog broja
+○ Drugi ili kvadratni korijen pozitivnog broja a je pozitivan broj √a za koji vrijedi (√a)^2 = a
+○ Također je √0 = 0
+○ Za bilo koji realni broj a vrijedi √(a^2) = |a|
+
+● PRIMJER 1
+● PRIMJER 2
+● PRIMJER 3
+
+===================================================
+
+● Drugi korijen negativnog broja
+○ Drugi korijen pozitivnog realnog broja je pozitivan realan broj
+○ Drugi korijen iz nule je nula
+○ Drugi korijen negativnog broja nije realan broj
+○ Ova činjenica povlači za sobom potrebu za proširenjem skupa realnih brojeva
+○ Uvodi se pojam imaginarne jedinice, broja i za koji vrijedi i^2 = -1
+○ Tada ćemo, primjerice, zapisati √(-4) = √(-1 ⋅ 4) = √(-1) ⋅ √4 = 2i
+○ Analogno tome √(-0,09) = 0,3i, √(-144) = 12i, itd.
+○ Brojevi oblika b i, gdje je b realan broj, a i imaginarna jedinica, zovu se imaginarni brojevi
+
+===================================================
+
+● Treći korijen
+○ Problemi slični onima navedenima na početku ovog potpoglavlja, koji su nas potaknuli na uvođenje drugog korijena, navode na proširenje tog pojma
+
+● 3. zad
+○ Kako odrediti duljinu brida kocke čiji je obujam 125 cm^3?
+○ Obujam kocke s bridom duljine a je a^3, pa se traži takav broj a za koji je a^3 = 125
+○ Očito je a = 5, jer je 5^3 = 125
+○ Pišemo ∛125 = 5
+
+(KORIJENI_1.png)
+
+● 4. zad
+○ Teže je odgovoriti na pitanje kolika je duljina brida kocke čiji je obujam 100 cm^3
+○ Tada imamo jednadžbu a^3 = 100 čije rješenje odmah ne vidimo
+○ Pitamo se: postoji li, i ako postoji, koji je to broj a za koji je a ⋅ a ⋅ a = 100?
+○ Da, takav broj postoji
+○ To je broj veći od 4 i manji od 5
+○ Ali koji?
+
+● Treći korijen realnog broja a je broj ∛a za koji vrijedi (∛a)^3 = a
+○ Za svaki realni broj a vrijedi ∛(a^3) = a
+
+● PRIMJER 4
+
+===================================================
+
+● Računanje s korijenima
+● Množenje i dijeljenje drugih korijena
+○ U osnovnoj školi učili smo o pravilima koja se primjenjuju pri računanju s drugim korijenima
+○ Ponovimo ta pravila za množenje i dijeljenje
+
+● Množenje i dijeljenje drugih korijena
+○ Za svaka dva pozitivna broja a i b vrijedi:
+    √a ⋅ √b = √(a ⋅ b)
+    √a / √b = √(a / b) (b > 0)
+
+● PRIMJER 1
+
+===================================================
+
+● Množenje i dijeljenje trećih korijena
+○ Pravila koja smo primjenjivali pri računanju s drugim korijenima proširujemo i na računanje s trećim korijenima
+
+● Množenje i dijeljenje trećih korijena
+○ Za svaka dva realna broja a i b vrijedi:
+    ∛a ⋅ ∛b = ∛(a b)
+    ∛a / ∛b = ∛(a / b) (b ≠ 0)
+
+● PRIMJER 2
+
+===================================================
+
+● Kvadriranje i kubiranje
+○ Pri računanju s algebarskim izrazima u kojima se pojavljuju drugi i treći korijeni primjenjujemo algebarske identitete obrađene u 1. razredu te slijedimo pravila računanja s korijenima
+
+● PRIMJER 3
+
+===================================================
+
+● Razlika kvadrata. Zbroj i razlika kubova
+○ Primijetimo kako za svaki realni broj a vrijedi:
+    (∛a)^2 = ∛a ⋅ ∛a = ∛(a ⋅ a) = ∛(a^2)
+
+○ U skupinu osnovnih algebarskih identiteta svrstavamo razliku kvadrata te razliku i zbroj kubova
+○ Drugi i treći korijen omogućuju nam proširenje tih identiteta
+○ Tako, primjerice, razliku a - b dvaju brojeva možemo shvatiti kao razliku kvadrata
+○ Zapisat ćemo a - b = (√a)^2 - (√b)^2, pa je onda a - b = (√a - √b)(√a + √b)
+○ Istu razliku možemo tumačiti i kao razliku kubova pa imamo:
+    a - b = (∛a)^3 - (∛b)^3 = (∛a - ∛b)(∛(a^2) + ∛(a b) + ∛(b^2))
+○ Jednako tako možemo zapisati:
+    a + b = (∛a)^3 + (∛b)^3 = (∛a + ∛b)(∛(a^2) - ∛(a b) + ∛(b^2))
+
+===================================================
+
+● Djelomično korjenovanje
+○ Pravila za računanje s korijenima primjenjuju se, između ostalog, i pri djelomičnom korjenovanju
+○ Djelomičnim korjenovanjem nekih brojeva dobivaju se njihovi zapisi koji su pogodniji pri procjeni tih brojeva
+○ Evo primjera:
+    √98 = √(49 ⋅ 2) = √49 ⋅ √2 = 7√2
+    √108 = √(36 ⋅ 3) = √36 ⋅ √3 = 6√3
+○ Djelomično korjenovanje možemo provesti i s trećim korijenima
+
+● 5. zad
+○ Obujam kocke s bridom duljine a jednak je 875 cm^3
+○ Procijenimo duljinu brida kocke
+○ Kako je obujam kocke s bridom duljine a jednak a^3, onda je a = ∛875 cm
+○ Možemo računati:
+    ∛875 = ∛(125 ⋅ 7) = ∛125 ⋅ ∛7 = 5 ∛7
+○ Procijenimo ∛7 ≈ 1,9, pa je a = 5 ∛7 ≈ 5 ⋅ 1,9 = 9,5 cm
+○ Provjera ovog rezultata džepnim računalom dala bi a ≈ 9,56 cm
+
+● PRIMJER 7
+
+===================================================
+
+● Racionalizacija nazivnika u razlomku
+○ Još jedan postupak proveden nad drugim i trećim korijenima može ponekad biti od koristi
+○ To je racionalizacija nazivnika, odnosno "uklanjanje" korijena iz nazivnika razlomka
+○ Evo jednostavnog primjera:
+    1/√2 = (1/√2) ⋅ (√2/√2) = √2/2
+○ Proširili smo brojnik i nazivnik razlomka brojem √2 kako bismo se riješili korijena u nazivniku
+○ No, ponekad se u nazivniku razlomka može naći dvočlan, pa i višečlan brojevni izraz u kojem se nalazi i korijen
+○ Navedimo primjer:
+    1/(√2 - 1) = 1/(√2 - 1) ⋅ (√2 + 1)/(√2 + 1) = (√2 + 1)/((√2)^2 - 1) = √2 + 1
+○ Što smo učinili? Proširili smo izraz u nazivniku tako da dobijemo razliku kvadrata
+○ U nazivniku razlomka može se zateći treći korijen
+○ I tada možemo provesti racionalizaciju nazivnika, odstraniti korijen u njemu
+
+● PRIMJER 8
+● PRIMJER 9
+
+===================================================
+
+● Iracionalne jednadžbe
+● Iracionalne jednadžbe, definicija
+○ Iracionalne jednadžbe su jednadžbe koje sadrže nepoznanicu x pod znakom korijena, poput jednadžbi:
+    x - 1 = √(x + 1)
+    ∛(x^3 - 1) + 1 = x
+○ Iracionalne jednadžbe rješavamo tako da potenciranjem (kvadriranjem, kubiranjem...) uklanjamo korijen u njima
+
+● 6. zad
+○ Tako ćemo kvadriranjem prve jednadžbe dobiti:
+    (x - 1)^2 = x + 1
+    x^2 - 2x + 1 = x + 1
+    x^2 - 3x = 0
+    x(x - 3) = 0
+○ Zaključujemo da su x_1 = 0 i x_2 = 3 rješenja ove jednadžbe
+○ Međutim, to nije istina
+○ Provjerimo
+○ Za x = 0 početna jednakost glasi -1 = √1, odnosno -1 = 1, što nije točno jer je korijen pozitivnog broja uvijek pozitivan
+○ Zato x_1 = 0 nije rješenje jednadžbe
+○ Za x = 3 početna jednakost glasi 2 = √4, što je istina
+○ Zato je x_2 = 3 jedino rješenje jednadžbe
+○ U postupku kvadriranja iracionalne jednadžbe dobivamo jednadžbu koja ne mora biti ekvivalentna s početnom, ali će skup njezinih rješenja sadržavati sva rješenja početne jednadžbe
+○ Zato nakon određivanja rješenja dobivene algebarske jednadžbe moramo provjeriti zadovoljavaju li ona početnu jednadžbu
+
+● PRIMJER 1
+● PRIMJER 2
+
+===================================================
