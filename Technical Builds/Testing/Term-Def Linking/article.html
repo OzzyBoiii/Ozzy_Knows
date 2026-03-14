@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The art of accidental discovery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: #1e2a2f;
+            background: #fefefc;
+            max-width: 750px;
+            margin: 2.5rem auto;
+            padding: 0 1.8rem;
+            scroll-behavior: smooth;
+        }
+        h1, h2 {
+            font-weight: 400;
+            margin: 2rem 0 1rem;
+            color: #1f3a4b;
+        }
+        h1 {
+            border-bottom: 1px solid #ced9e0;
+            padding-bottom: 0.3rem;
+        }
+        p {
+            margin-bottom: 1.6rem;
+        }
+
+        a.term-link {
+            color: #c0392b;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.2s ease, background-color 0.2s ease;
+            cursor: pointer;
+            padding: 0 2px;
+            border-radius: 3px;
+        }
+        a.term-link:hover {
+            color: #a0231a;
+            background-color: #fce4e4;
+        }
+
+        .definition {
+            scroll-margin-top: 2rem;
+        }
+        .definition:target {
+            background-color: #f6f2eb;
+            transition: background-color 0.3s;
+            padding: 0.2rem 0.5rem;
+            margin: 0 -0.5rem;
+            border-radius: 4px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #d3dee6;
+            margin: 2rem 0;
+        }
+        .footnote {
+            font-size: 0.9rem;
+            color: #4a5c69;
+            border-top: 1px dashed #cbd2da;
+            margin-top: 3rem;
+            padding-top: 1rem;
+        }
+        .back-link {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        /* ========== SPLASH SCREEN ========== */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: white;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            transition: opacity 1s ease;
+            overflow: hidden;
+        }
+        #splash-screen.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Large bright logo - more visible */
+        .background-logo {
+            position: absolute;
+            width: 100vmin;
+            height: 100vmin;
+            object-fit: contain;
+            opacity: 0.45; /* Increased brightness */
+            filter: blur(1px) brightness(1.5); /* Brighter */
+            z-index: 1;
+            pointer-events: none;
+            animation: slowRotate 20s infinite linear;
+        }
+
+        @keyframes slowRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .thank-you-text {
+            font-size: 5rem;
+            font-weight: 800;
+            letter-spacing: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+            line-height: 1.2;
+            color: #ffd700;
+            text-shadow: 0 0 30px #ffaa00, 0 0 60px #ff7700;
+            position: relative;
+            z-index: 3;
+            animation: glowPulse 2s infinite;
+            mix-blend-mode: overlay;
+        }
+
+        @keyframes glowPulse {
+            0% { text-shadow: 0 0 30px #ffaa00, 0 0 60px #ff7700; opacity: 0.9; }
+            50% { text-shadow: 0 0 50px #ffdd00, 0 0 90px #ff9900; opacity: 1; }
+            100% { text-shadow: 0 0 30px #ffaa00, 0 0 60px #ff7700; opacity: 0.9; }
+        }
+
+        /* Names container - completely transparent */
+        .names-container {
+            display: flex;
+            gap: 4rem;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 3;
+            width: 90%;
+            max-width: 1200px;
+            height: 60vh;
+            background: transparent; /* No background */
+            border: none; /* Remove border */
+            box-shadow: none; /* Remove shadow */
+        }
+
+        .name-column {
+            text-align: center;
+            flex: 1;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            background: transparent; /* Transparent */
+        }
+
+        /* No column headers */
+        .column-header {
+            display: none;
+        }
+
+        /* Name lists with rolling animations */
+        .name-list {
+            font-family: 'Courier New', monospace;
+            font-size: 1.3rem;
+            line-height: 2.2;
+            list-style: none;
+            color: #ffd700;
+            text-shadow: 0 0 15px #ffaa00, 0 0 30px #ff5500;
+            font-weight: 700;
+            position: relative;
+            background: transparent;
+        }
+
+        /* Left column: scroll from top to bottom */
+        .left-list {
+            animation: scrollTopToBottom 25s linear infinite;
+        }
+
+        /* Right column: scroll from bottom to top */
+        .right-list {
+            animation: scrollBottomToTop 25s linear infinite;
+        }
+
+        @keyframes scrollTopToBottom {
+            0% { transform: translateY(-50%); }
+            100% { transform: translateY(0%); }
+        }
+
+        @keyframes scrollBottomToTop {
+            0% { transform: translateY(0%); }
+            100% { transform: translateY(-50%); }
+        }
+
+        .name-list li {
+            background: transparent; /* No background */
+            margin: 4px 0;
+            padding: 2px 0;
+            white-space: nowrap;
+            opacity: 0.95;
+            border: none; /* Remove borders */
+            transition: all 0.3s;
+            list-style-type: none;
+        }
+
+        .name-list li:hover {
+            color: #ffffff;
+            text-shadow: 0 0 25px #ffdd00, 0 0 45px #ffaa00;
+            transform: scale(1.05);
+            opacity: 1;
+        }
+
+        /* Hide scrollbar completely */
+        .name-list::-webkit-scrollbar {
+            display: none;
+        }
+        .name-list {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Name count badge - subtle */
+        .name-count {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            color: rgba(255, 215, 0, 0.6);
+            font-size: 1rem;
+            z-index: 4;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+            background: transparent;
+            padding: 5px 15px;
+            border-radius: 30px;
+            backdrop-filter: none;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        /* Ensure all names are visible immediately */
+        .name-list li {
+            opacity: 1 !important;
+            animation: none !important;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== SPLASH SCREEN ========== -->
+<div id="splash-screen">
+    <!-- Large bright background logo -->
+    <img src="../../../../logo.png"
+         alt=""
+         class="background-logo"
+         onerror="this.style.display='none';">
+
+    <div class="thank-you-text">THANK YOU!!!</div>
+
+    <div class="names-container">
+        <!-- left column (scrolls top to bottom) -->
+        <div class="name-column">
+            <ul class="name-list left-list" id="left-names"></ul>
+        </div>
+        <!-- right column (scrolls bottom to top) -->
+        <div class="name-column">
+            <ul class="name-list right-list" id="right-names"></ul>
+        </div>
+    </div>
+    <div class="name-count" id="name-count"></div>
+</div>
+
+<!-- ========== MAIN CONTENT ========== -->
+<h1>Chance & the prepared mind</h1>
+
+<p>
+    In the history of science, few concepts are as captivating as
+    <a href="glossary.html#serendipity" class="term-link">serendipity</a>.
+    The word itself seems fortunate, as if coined by accident.
+    It describes the moment when an unexpected event meets a perceptive observer,
+    yielding a valuable discovery. This essay explores the many faces of serendipity,
+    from penicillin to Post‑it notes.
+</p>
+
+<p>
+    Alexander Fleming's discovery of penicillin is the classic example.
+    A neglected petri dish became mouldy; instead of throwing it away,
+    Fleming noticed the bacteria‑free zone around the mould. His trained mind
+    recognised its potential — a perfect illustration of serendipity.
+</p>
+
+<p>
+    Central to serendipity is the quality of <a href="#sagacity" class="term-link">sagacity</a> —
+    the sharpness of perception that turns an ordinary accident into a discovery.
+    Without sagacity, the mouldy dish would have been washed away, the melted chocolate ignored.
+</p>
+
+<h2>More happy accidents</h2>
+<p>
+    The microwave oven emerged from a melted chocolate bar. Percy Spencer,
+    an engineer at Raytheon, was testing a magnetron when he realised the candy
+    in his pocket had softened. Curious, he aimed the device at popcorn kernels —
+    they popped. Today, microwaves are in nearly every kitchen.
+</p>
+
+<p>
+    Similar stories abound: the adhesive for Post‑it Notes was a failed superglue;
+    Teflon was a refrigerant that polymerised accidentally; the slinky was born
+    from a tension spring that "walked" off a shelf. Each time, someone paid
+    attention to the unexpected.
+</p>
+
+<hr>
+
+<p>
+    The term itself has a precise origin. It was coined by Horace Walpole in 1754,
+    inspired by a Persian fairy tale, <em>The Three Princes of Serendip</em>.
+    For a full definition, see the
+    <a href="glossary.html#serendipity" class="term-link">glossary entry</a>
+    in the companion file.
+</p>
+
+<h2 id="sagacity" class="definition">Sagacity</h2>
+<p>
+    <strong>Sagacity</strong> — keen and farsighted perception, discernment, or wisdom.
+    In the context of serendipity, sagacity is the ability to recognise the value of an
+    unexpected event and to connect it to existing knowledge. It is the "prepared mind"
+    that Louis Pasteur spoke of: without it, chance remains mere chance.
+</p>
+<p class="back-link">
+    ← <a href="#sagacity-link" style="color:#c0392b; font-weight:bold; text-decoration:none;" onclick="history.back(); return false;">Return to the earlier mention</a>
+</p>
+
+<hr>
+
+<p>
+    Serendipity is not mere luck — it requires sagacity, the ability to recognise
+    a gift when chance offers it. In a world that values predictability,
+    we might do well to cultivate a serendipity mindset: stay curious, embrace
+    anomalies, and leave room for the unplanned.
+</p>
+
+<div class="footnote">
+    ✻ This article contains two types of links: an <strong>external link</strong> to
+    <code>glossary.html#serendipity</code> and an
+    <strong>internal link</strong> to <code>#sagacity</code>. Both are bold and red.
+</div>
+
+<span id="sagacity-link" style="display: none;"></span>
+
+<script>
+    (function() {
+        // ========== ALL NAMES FROM Thank_You.txt ==========
+        const names = [
+            "Alexandra Elbakyan", "Anton Napolsky", "Valeriia Ermakova", "Anna Archivist (pseudonym)",
+            "bookwarrior (pseudonym)", "Daniel Khromov", "Igor Osychenko", "Maxim Moshkov",
+            "Gottfrid Svartholm Warg", "Fredrik Neij", "Peter Sunde", "Carl Lundström",
+            "Anakata (alias of Gottfrid Svartholm)", "TiAMO", "Aaron Swartz", "Julian Assange",
+            "Chelsea Manning", "Edward Snowden", "Jeremy Hammond", "Barrett Brown",
+            "Bram Cohen", "Shawn Fanning", "Sean Parker", "Kim Dotcom", "Mark Gorton",
+            "Niklas Zennström", "Janus Friis", "Brewster Kahle", "Carl Malamud", "Rick Prelinger",
+            "Jason Scott", "Aaron Halfaker", "Andy Baio", "Maria A. Matienzo", "James Jacobs",
+            "Lawrence Lessig", "Jimmy Wales", "Richard Stallman", "Linus Torvalds", "Eric S. Raymond",
+            "Cory Doctorow", "Yochai Benkler", "John Gilmore", "Mitch Kapor", "Rick Falkvinge",
+            "Julia Reda", "Amelia Andersdotter", "Christian Engström", "Mikuláš Peksa", "Falkvinge supporters",
+            "Daniel Ellsberg", "Glenn Greenwald", "Laura Poitras", "Jacob Appelbaum", "Andy Müller-Maguhn",
+            "Jeremie Zimmermann", "Cory Ondrejka", "Markus Persson", "Ernesto Van der Sar", "Andy Maxwell",
+            "Balázs Bodó", "Katarzyna Szymielewicz", "Joe Karaganis", "Gabriel Weinberg", "Benkler collaborators (multiple)",
+            "Rasmus Fleischer", "Jonas Andersson Schwarz", "Felix Stalder", "Gabriella Coleman", "Nathan Schneider",
+            "Ethan Zuckerman", "Clay Shirky", "Aaron Shaw", "Aram Sinnreich", "Siva Vaidhyanathan",
+            "Wendy Seltzer", "James Boyle", "Pamela Samuelson", "Michael Geist", "Hal Abelson",
+            "Eben Moglen", "Lawrence Liang", "Nader El-Sayed", "Pranesh Prakash", "Renata Avila",
+            "Corynne McSherry", "Danny O'Brien", "Rebecca Giblin", "Timothy Vollmer", "Heather Joseph",
+            "Peter Suber", "Stevan Harnad"
+        ];
+
+        // Sort names alphabetically
+        const sortedNames = [...names].sort((a, b) => a.localeCompare(b));
+
+        // Create duplicate list for seamless rolling (more names for continuous flow)
+        const extendedNames = [...sortedNames, ...sortedNames, ...sortedNames];
+
+        // ========== POPULATE LISTS ==========
+        const leftList = document.getElementById('left-names');
+        const rightList = document.getElementById('right-names');
+        const nameCount = document.getElementById('name-count');
+
+        if (leftList && rightList) {
+            // Left column: original order (top to bottom rolling)
+            extendedNames.forEach(name => {
+                const li = document.createElement('li');
+                li.textContent = name;
+                leftList.appendChild(li);
+            });
+
+            // Right column: reversed order (bottom to top rolling)
+            [...extendedNames].reverse().forEach(name => {
+                const li = document.createElement('li');
+                li.textContent = name;
+                rightList.appendChild(li);
+            });
+
+            // Show total unique name count
+            if (nameCount) {
+                nameCount.textContent = `✨ ${sortedNames.length} names ✨`;
+            }
+        }
+
+        // ========== SPLASH SCREEN TIMING ==========
+        const splash = document.getElementById('splash-screen');
+
+        // Hide splash after 10 seconds
+        setTimeout(() => {
+            if (splash) {
+                splash.classList.add('hide');
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                }, 1000);
+            }
+        }, 10000);
+    })();
+</script>
+</body>
+</html>
