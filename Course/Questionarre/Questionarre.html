@@ -5,33 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ozzy Knows · Recall + Anki AI</title>
     <style>
+        /* ========== Improved CSS with better responsiveness, accessibility, and dark mode support ========== */
         * {
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
             margin: 0;
             padding: 0;
         }
+        :root {
+            --bg-gradient-start: #f0f2f5;
+            --bg-gradient-end: #e6e9f0;
+            --card-bg: rgba(255,255,255,0.75);
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+            --border-light: #cbd5e1;
+            --border-dash: #94a3b8;
+            --wrong-bg: #fee2e2;
+            --wrong-text: #7f1d1d;
+            --attention-bg: #ffedd5;
+            --attention-text: #9a3412;
+            --hint-bg: #fef9c3;
+            --hint-border: #eab308;
+            --shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            --transition: 0.2s;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-gradient-start: #1e293b;
+                --bg-gradient-end: #0f172a;
+                --card-bg: rgba(30,41,59,0.85);
+                --text-primary: #f1f5f9;
+                --text-secondary: #cbd5e1;
+                --accent: #3b82f6;
+                --accent-dark: #2563eb;
+                --border-light: #334155;
+                --border-dash: #4b5563;
+                --wrong-bg: #451a1a;
+                --wrong-text: #fecaca;
+                --attention-bg: #422006;
+                --attention-text: #fed7aa;
+                --hint-bg: #3b2e0b;
+                --hint-border: #b45309;
+                --shadow: 0 25px 50px -12px #000000;
+            }
+        }
         body {
-            background: linear-gradient(145deg, #f0f2f5 0%, #e6e9f0 100%);
+            background: linear-gradient(145deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 16px;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: background 0.3s, color 0.3s;
         }
         .app-container {
             max-width: 1100px;
             width: 100%;
-            background: rgba(255,255,255,0.75);
+            background: var(--card-bg);
             backdrop-filter: blur(12px);
             border-radius: 48px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            box-shadow: var(--shadow);
             padding: 32px;
-            border: 1px solid rgba(255,255,255,0.7);
+            border: 1px solid rgba(255,255,255,0.2);
         }
         h1, h2, h3 {
             font-weight: 500;
-            color: #1e293b;
+            color: var(--text-primary);
         }
         .screen {
             display: none;
@@ -47,12 +90,13 @@
             font-size: 3.2rem;
             margin-bottom: 16px;
             background: linear-gradient(135deg, #2563eb, #7c3aed);
-            -webkit-background-clip: text  ;
+            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .subtitle {
             font-size: 1.2rem;
-            color: #475569;
+            color: var(--text-secondary);
             margin-bottom: 40px;
         }
         .file-input-area {
@@ -68,39 +112,40 @@
             justify-content: center;
         }
         .file-card, .paste-card {
-            background: white;
-            border: 2px dashed #94a3b8;
+            background: var(--card-bg);
+            border: 2px dashed var(--border-dash);
             border-radius: 32px;
             padding: 30px 40px;
             cursor: pointer;
-            transition: 0.2s;
+            transition: var(--transition);
             min-width: 200px;
+            color: var(--text-primary);
         }
         .file-card:hover, .paste-card:hover {
-            border-color: #2563eb;
-            background: #f8fafc;
+            border-color: var(--accent);
+            background: rgba(37,99,235,0.05);
         }
         .file-card span, .paste-card span {
             font-size: 1.2rem;
-            color: #334155;
         }
         #fileInput {
             display: none;
         }
         .lesson-info {
             margin-top: 20px;
-            background: white;
+            background: var(--card-bg);
             border-radius: 24px;
             padding: 16px 24px;
-            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.1);
             width: 100%;
             max-width: 500px;
+            border: 1px solid var(--border-light);
         }
         .lesson-info p {
             margin: 4px 0;
         }
         .start-btn {
-            background: #2563eb;
+            background: var(--accent);
             color: white;
             border: none;
             border-radius: 60px;
@@ -109,26 +154,28 @@
             font-weight: 600;
             cursor: pointer;
             margin-top: 24px;
-            box-shadow: 0 8px 16px -4px #2563eb80;
-            transition: 0.15s;
+            box-shadow: 0 8px 16px -4px var(--accent);
+            transition: var(--transition);
         }
-        .start-btn:hover {
-            background: #1d4ed8;
+        .start-btn:hover:not(:disabled) {
+            background: var(--accent-dark);
             transform: scale(1.02);
         }
         .start-btn:disabled {
             opacity: 0.5;
             pointer-events: none;
+            filter: grayscale(0.5);
         }
         .quiz-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 24px;
-            background: white;
+            background: var(--card-bg);
             border-radius: 100px;
             padding: 12px 24px;
-            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-light);
         }
         .phase-badge {
             background: #e2e8f0;
@@ -141,7 +188,21 @@
         }
         .progress {
             font-weight: 600;
-            color: #2563eb;
+            color: var(--accent);
+        }
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background: var(--border-light);
+            border-radius: 4px;
+            margin: 8px 0 16px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.3s ease;
         }
         .cards-container {
             display: flex;
@@ -150,29 +211,29 @@
             margin: 28px 0;
         }
         .quiz-card {
-            background: white;
+            background: var(--card-bg);
             border-radius: 32px;
             padding: 28px;
-            box-shadow: 0 10px 20px -8px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 10px 20px -8px rgba(0,0,0,0.2);
+            border: 1px solid var(--border-light);
         }
         .term-title {
             font-size: 1.6rem;
             font-weight: 600;
-            color: #0f172a;
+            color: var(--text-primary);
             margin-bottom: 20px;
-            border-left: 8px solid #2563eb;
+            border-left: 8px solid var(--accent);
             padding-left: 20px;
         }
         .sentence-box {
-            background: #f1f5f9;
+            background: rgba(241,245,249,0.5);
             border-radius: 24px;
             padding: 24px;
             margin-bottom: 24px;
             font-size: 1.2rem;
             line-height: 1.6;
-            color: #1e293b;
-            border: 1px solid #cbd5e1;
+            color: var(--text-primary);
+            border: 1px solid var(--border-light);
         }
         .chosen-words {
             display: flex;
@@ -190,30 +251,32 @@
             border: 1px solid #bfdbfe;
         }
         .hint-text {
-            background: #fef9c3;
-            border-left: 6px solid #eab308;
+            background: var(--hint-bg);
+            border-left: 6px solid var(--hint-border);
             padding: 16px 22px;
             border-radius: 16px;
-            color: #854d0e;
+            color: var(--attention-text);
             margin: 20px 0;
         }
-        .recall-input {
+        .recall-input, .recall-textarea {
             width: 100%;
             padding: 16px;
             border-radius: 40px;
-            border: 2px solid #cbd5e1;
+            border: 2px solid var(--border-light);
             font-size: 1.1rem;
             margin: 16px 0;
+            background: var(--card-bg);
+            color: var(--text-primary);
         }
         .recall-textarea {
-            width: 100%;
-            padding: 16px;
             border-radius: 24px;
-            border: 2px solid #cbd5e1;
-            font-size: 1.1rem;
-            margin: 16px 0;
             resize: vertical;
             min-height: 120px;
+        }
+        .recall-input:focus, .recall-textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.2);
         }
         .footer-actions {
             display: flex;
@@ -229,27 +292,26 @@
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: 0.15s;
+            transition: var(--transition);
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: var(--card-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--border-light);
         }
-        #checkPhaseBtn {
-            background: #2563eb;
+        #checkPhaseBtn, #importPasteBtn, #continueAfterRecallBtn {
+            background: var(--accent);
             color: white;
+            border: none;
         }
-        #checkPhaseBtn:hover {
-            background: #1d4ed8;
-        }
-        .secondary {
-            background: white;
-            color: #1e293b;
-            border: 1px solid #cbd5e1;
+        #checkPhaseBtn:hover, #importPasteBtn:hover, #continueAfterRecallBtn:hover {
+            background: var(--accent-dark);
         }
         .secondary:hover {
-            background: #f8fafc;
-            border-color: #94a3b8;
+            background: rgba(0,0,0,0.05);
+            border-color: var(--border-dash);
         }
         #exportWrongBtn {
             background: #8b5cf6;
@@ -258,13 +320,6 @@
         }
         #exportWrongBtn:hover {
             background: #7c3aed;
-        }
-        #backToWelcomeBtn {
-            background: #f1f5f9;
-            color: #475569;
-        }
-        #backToWelcomeBtn:hover {
-            background: #e2e8f0;
         }
         .modal {
             position: fixed;
@@ -277,32 +332,29 @@
             backdrop-filter: blur(4px);
         }
         .modal.hidden { display: none; }
-        .modal-small {
-            background: white;
-            padding: 24px;
-            border-radius: 40px;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-        .modal-large {
-            background: white;
+        .modal-small, .modal-large {
+            background: var(--card-bg);
             padding: 24px;
             border-radius: 40px;
             max-width: 700px;
             width: 90%;
             max-height: 80vh;
             overflow-y: auto;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-light);
         }
+        .modal-small { max-width: 400px; }
         .modal-large textarea {
             width: 100%;
             min-height: 200px;
             padding: 16px;
             border-radius: 24px;
-            border: 1px solid #cbd5e1;
+            border: 1px solid var(--border-light);
             font-size: 0.95rem;
             margin-bottom: 16px;
             resize: vertical;
+            background: var(--card-bg);
+            color: var(--text-primary);
         }
         .modal-actions {
             display: flex;
@@ -315,12 +367,12 @@
             padding: 6px 12px;
             border-radius: 40px;
             margin: 4px 0;
-            background: #fee2e2;
-            color: #7f1d1d;
+            background: var(--wrong-bg);
+            color: var(--wrong-text);
         }
         .wrong-item.orange {
-            background: #ffedd5;
-            color: #9a3412;
+            background: var(--attention-bg);
+            color: var(--attention-text);
         }
         .warning-text {
             color: #b45309;
@@ -330,9 +382,30 @@
             margin: 8px 0;
             font-size: 0.9rem;
         }
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
         @media (max-width: 600px) {
             .app-container { padding: 20px; }
             .footer-actions button { width: 100%; }
+            .file-card, .paste-card { padding: 20px; }
         }
     </style>
 </head>
@@ -345,24 +418,24 @@
                 <div class="subtitle">Recall + AI‑powered Anki export</div>
                 <div class="file-input-area">
                     <div class="file-row">
-                        <div class="file-card" id="fileUploadCard">
+                        <div class="file-card" id="fileUploadCard" role="button" tabindex="0" aria-label="Upload files">
                             <span>📁 choose files</span>
                         </div>
-                        <div class="paste-card" id="openPasteModalBtn">
+                        <div class="paste-card" id="openPasteModalBtn" role="button" tabindex="0" aria-label="Paste lesson">
                             <span>📋 paste lesson</span>
                         </div>
                     </div>
                     <input type="file" id="fileInput" accept=".json,.csv,.txt,.md" multiple style="display: none;">
-                    <div id="lessonInfo" class="lesson-info" style="display: none;">
+                    <div id="lessonInfo" class="lesson-info" style="display: none;" aria-live="polite">
                         <p><strong>loaded:</strong> <span id="lessonTitle"></span></p>
                         <p><span id="termCount"></span> terms</p>
                         <p><span id="fileList"></span></p>
                     </div>
                     <div class="file-row" style="margin-top: 16px;">
-                        <button id="showWrongBtn" class="secondary">📋 show wrong</button>
-                        <button id="resetWrongBtn" class="secondary">🗑️ reset wrong</button>
+                        <button id="showWrongBtn" class="secondary" aria-label="Show wrong answers">📋 show wrong</button>
+                        <button id="resetWrongBtn" class="secondary" aria-label="Reset wrong answers">🗑️ reset wrong</button>
                     </div>
-                    <div id="wrongWarning" class="warning-text hidden">⚠️ no wrong answers stored</div>
+                    <div id="wrongWarning" class="warning-text hidden" role="alert">⚠️ no wrong answers stored</div>
                     <button id="startLessonBtn" class="start-btn" disabled>▶ start recall</button>
                 </div>
             </div>
@@ -374,23 +447,26 @@
                 <span class="phase-badge" id="phaseLabel">Recall</span>
                 <span class="progress" id="progressText">0/0</span>
             </div>
-            <div id="cardsContainer" class="cards-container">
+            <div class="progress-bar-container" aria-label="recall progress">
+                <div id="progressBarFill" class="progress-bar-fill" style="width: 0%;"></div>
+            </div>
+            <div id="cardsContainer" class="cards-container" aria-live="polite">
                 <!-- dynamically populated -->
             </div>
             <div class="footer-actions">
-                <button id="backToWelcomeBtn" class="secondary">↩ back</button>
+                <button id="backToWelcomeBtn" class="secondary" aria-label="Back to welcome screen">↩ back</button>
                 <button id="hintBtn" class="secondary" style="display: none;">💡 hint</button>
-                <button id="exportWrongBtn" class="secondary" style="display: none;">🧠 export wrong → Anki AI</button>
-                <button id="checkPhaseBtn">✅ check answers</button>
-                <button id="finishPhaseBtn" class="secondary" style="display: none;">🏁 finish</button>
+                <button id="exportWrongBtn" class="secondary" style="display: none;" aria-label="Export wrong terms to Anki">🧠 export wrong → Anki AI</button>
+                <button id="checkPhaseBtn" aria-label="Check answers">✅ check answers</button>
+                <button id="finishPhaseBtn" class="secondary" style="display: none;" aria-label="Finish review">🏁 finish</button>
             </div>
         </div>
     </div>
 
     <!-- Paste Modal -->
-    <div id="pasteModal" class="modal hidden">
+    <div id="pasteModal" class="modal hidden" aria-modal="true" role="dialog" aria-labelledby="pasteModalTitle">
         <div class="modal-large" onclick="event.stopPropagation()">
-            <h3>📋 paste lesson content</h3>
+            <h3 id="pasteModalTitle">📋 paste lesson content</h3>
             <textarea id="pasteContent" placeholder="Paste your .txt, .md, .json or .csv content here..."></textarea>
             <div class="modal-actions">
                 <button id="cancelPasteBtn" class="secondary">Cancel</button>
@@ -400,10 +476,10 @@
     </div>
 
     <!-- Wrong list modal -->
-    <div id="wrongListModal" class="modal hidden">
+    <div id="wrongListModal" class="modal hidden" aria-modal="true" role="dialog" aria-labelledby="wrongListTitle">
         <div class="modal-small" onclick="event.stopPropagation()">
-            <h3>❌ wrong answers</h3>
-            <div id="wrongListContent" style="max-height:300px; overflow-y:auto; background:#f1f5f9; border-radius:24px; padding:12px; margin-bottom:16px;"></div>
+            <h3 id="wrongListTitle">❌ wrong answers</h3>
+            <div id="wrongListContent" style="max-height:300px; overflow-y:auto; background:var(--card-bg); border-radius:24px; padding:12px; margin-bottom:16px;"></div>
             <div class="modal-actions">
                 <button class="secondary" onclick="document.getElementById('wrongListModal').classList.add('hidden')">Close</button>
             </div>
@@ -411,9 +487,9 @@
     </div>
 
     <!-- Summary modal after recall -->
-    <div id="recallSummaryModal" class="modal hidden">
+    <div id="recallSummaryModal" class="modal hidden" aria-modal="true" role="dialog" aria-labelledby="recallSummaryTitle">
         <div class="modal-small" onclick="event.stopPropagation()">
-            <h3>📊 recall results</h3>
+            <h3 id="recallSummaryTitle">📊 recall results</h3>
             <p id="recallSummaryText"></p>
             <div class="modal-actions">
                 <button id="continueAfterRecallBtn">Continue</button>
@@ -423,19 +499,27 @@
     </div>
 
     <!-- Error modal -->
-    <div id="errorModal" class="modal hidden">
+    <div id="errorModal" class="modal hidden" aria-modal="true" role="dialog" aria-labelledby="errorModalTitle">
         <div class="modal-small" onclick="event.stopPropagation()">
-            <h3>⚠️ parsing errors</h3>
+            <h3 id="errorModalTitle">⚠️ parsing errors</h3>
             <div id="errorList" style="max-height:300px; overflow-y:auto;"></div>
             <div class="modal-actions"><button class="secondary" onclick="document.getElementById('errorModal').classList.add('hidden')">Close</button></div>
         </div>
     </div>
 
+    <!-- Loading indicator (hidden by default) -->
+    <div id="loadingIndicator" class="modal hidden" style="background: transparent; backdrop-filter: none;" aria-hidden="true">
+        <div class="modal-small" style="text-align: center; background: var(--card-bg);">
+            <div class="loading-spinner" style="margin: 20px auto;"></div>
+            <p>Processing...</p>
+        </div>
+    </div>
+
     <script>
         (function() {
-            // ==================== 1. INDEXEDDB ====================
+            // ==================== 1. INDEXEDDB (with version upgrade robustness) ====================
             const DB_NAME = 'QuizDB';
-            const DB_VERSION = 3;
+            const DB_VERSION = 4;  // increased version to ensure upgrade runs
             const STORE_WRONG = 'wrongSets';
             const STORE_COUNTS = 'correctCounts';
             let db = null;
@@ -444,7 +528,7 @@
                 return new Promise((resolve, reject) => {
                     if (db) return resolve(db);
                     if (!window.indexedDB) {
-                        reject(new Error('IndexedDB not supported'));
+                        reject(new Error('IndexedDB not supported. Your answers will not persist.'));
                         return;
                     }
                     const request = indexedDB.open(DB_NAME, DB_VERSION);
@@ -452,12 +536,14 @@
                     request.onsuccess = () => { db = request.result; resolve(db); };
                     request.onupgradeneeded = (e) => {
                         const db = e.target.result;
+                        // Create stores if they don't exist (safe for version upgrades)
                         if (!db.objectStoreNames.contains(STORE_WRONG)) {
                             db.createObjectStore(STORE_WRONG, { keyPath: 'id' });
                         }
                         if (!db.objectStoreNames.contains(STORE_COUNTS)) {
                             db.createObjectStore(STORE_COUNTS, { keyPath: 'id' });
                         }
+                        // Additional upgrade logic for future versions can be added here
                     };
                 });
             }
@@ -553,30 +639,56 @@
                 });
             }
 
-            // ==================== 3. PARSER (iz drugog programa) ====================
+            // Debounce function for performance (e.g., input saving)
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+
+            // Show/hide loading indicator
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            function showLoading() { loadingIndicator.classList.remove('hidden'); }
+            function hideLoading() { loadingIndicator.classList.add('hidden'); }
+
+            // ==================== 3. PARSER (Improved CSV with quoted fields, better error handling) ====================
             function parseLessonFromText(content, fileName = 'pasted') {
                 const errors = [];
-                if (content.charCodeAt(0) === 0xFEFF) content = content.slice(1);
+                if (content.charCodeAt(0) === 0xFEFF) content = content.slice(1); // remove BOM
                 const ext = fileName.split('.').pop().toLowerCase();
 
                 if (ext === 'json') {
                     try {
                         const data = JSON.parse(content);
+                        // Basic validation: should have title and terms array
+                        if (!data.terms || !Array.isArray(data.terms)) {
+                            errors.push('JSON missing "terms" array.');
+                        } else {
+                            // Ensure each term has required fields
+                            data.terms = data.terms.filter(t => t.sentence && t.chosen && t.chosen.length);
+                        }
                         return { lesson: data, errors };
                     } catch (e) {
                         errors.push('Invalid JSON: ' + e.message);
                         return { lesson: null, errors };
                     }
                 } else if (ext === 'csv') {
-                    const lines = content.split('\n').map(l => l.trim()).filter(l => l);
+                    // Improved CSV parser (handles quotes, commas)
+                    const lines = content.split(/\r?\n/).map(l => l.trim()).filter(l => l);
                     if (lines.length < 2) {
-                        errors.push('CSV must have header + data.');
+                        errors.push('CSV must have header + at least one data row.');
                         return { lesson: null, errors };
                     }
-                    const headers = lines[0].split(',').map(h => h.trim());
+                    const headers = parseCSVLine(lines[0]);
                     const terms = [];
                     for (let i = 1; i < lines.length; i++) {
-                        const values = lines[i].split(',').map(v => v.trim());
+                        const values = parseCSVLine(lines[i]);
                         let term = { term: '', sentence: '', chosen: [], immortal: [], image: '', hint: '' };
                         headers.forEach((h, idx) => {
                             const val = values[idx] || '';
@@ -595,7 +707,7 @@
                     }
                     return { lesson: { title: fileName.replace('.csv',''), terms }, errors };
                 } else {
-                    // Plain text / markdown
+                    // Plain text / markdown (existing parser)
                     const lines = content.split('\n');
                     let title = 'Untitled';
                     const terms = [];
@@ -637,10 +749,27 @@
                 }
             }
 
+            // Simple CSV line parser (handles quoted fields with commas)
+            function parseCSVLine(line) {
+                const result = [];
+                let start = 0;
+                let inQuotes = false;
+                for (let i = 0; i < line.length; i++) {
+                    if (line[i] === '"') {
+                        inQuotes = !inQuotes;
+                    } else if (line[i] === ',' && !inQuotes) {
+                        result.push(line.substring(start, i).replace(/^"|"$/g, '').trim());
+                        start = i + 1;
+                    }
+                }
+                result.push(line.substring(start).replace(/^"|"$/g, '').trim());
+                return result;
+            }
+
             // ==================== 4. STATE ====================
             let currentLesson = null;
             let currentFileIdentifier = '';
-            let phase = 'recall';          // only recall and reveal
+            let phase = 'recall';          // recall or reveal
             let currentTermsIndices = [];   // indices of terms being shown
             let wrongIndicesGlobal = new Set();
             let correctStreakMap = new Map();
@@ -664,6 +793,7 @@
             const finishPhaseBtn = document.getElementById('finishPhaseBtn');
             const phaseLabel = document.getElementById('phaseLabel');
             const progressText = document.getElementById('progressText');
+            const progressBarFill = document.getElementById('progressBarFill');
             const cardsContainer = document.getElementById('cardsContainer');
             const showWrongBtn = document.getElementById('showWrongBtn');
             const resetWrongBtn = document.getElementById('resetWrongBtn');
@@ -706,15 +836,14 @@
                     const savedDef = userDefInputs[idx] || '';
 
                     html += `<div class="quiz-card" data-index="${idx}">`;
-                    html += `<div class="term-title">${t.term || '?'}</div>`;
+                    html += `<div class="term-title">${escapeHTML(t.term) || '?'}</div>`;
 
                     if (phase === 'recall') {
-                        html += `<input type="text" class="recall-input term-input" data-index="${idx}" value="${escapeHTML(savedTerm)}" placeholder="Enter term...">`;
-                        html += `<textarea class="recall-textarea def-input" data-index="${idx}" placeholder="Write the full sentence from memory...">${escapeHTML(savedDef)}</textarea>`;
+                        html += `<input type="text" class="recall-input term-input" data-index="${idx}" value="${escapeHTML(savedTerm)}" placeholder="Enter term..." aria-label="Your answer for term">`;
+                        html += `<textarea class="recall-textarea def-input" data-index="${idx}" placeholder="Write the full sentence from memory..." aria-label="Your answer for sentence">${escapeHTML(savedDef)}</textarea>`;
                     } else if (phase === 'reveal') {
-                        // Show hint if available
                         if (t.hint) {
-                            html += `<div class="hint-text">💡 ${t.hint}</div>`;
+                            html += `<div class="hint-text">💡 ${escapeHTML(t.hint)}</div>`;
                         } else {
                             html += `<p>No hint available.</p>`;
                         }
@@ -723,7 +852,7 @@
                     if (t.chosen && t.chosen.length) {
                         html += '<div class="chosen-words">';
                         t.chosen.forEach(word => {
-                            html += `<span class="chosen-tag">${word}</span>`;
+                            html += `<span class="chosen-tag">${escapeHTML(word)}</span>`;
                         });
                         html += '</div>';
                     }
@@ -732,28 +861,10 @@
                 }
                 cardsContainer.innerHTML = html;
 
-                // Attach input listeners if recall
-                if (phase === 'recall') {
-                    document.querySelectorAll('.term-input').forEach(inp => {
-                        inp.addEventListener('input', (e) => {
-                            const idx = e.target.dataset.index;
-                            userTermInputs[idx] = e.target.value;
-                            updateProgress();
-                        });
-                    });
-                    document.querySelectorAll('.def-input').forEach(ta => {
-                        ta.addEventListener('input', (e) => {
-                            const idx = e.target.dataset.index;
-                            userDefInputs[idx] = e.target.value;
-                            updateProgress();
-                        });
-                    });
-                }
-
                 // Update header
                 phaseLabel.textContent = phase === 'recall' ? 'Recall' : 'Review';
                 progressText.textContent = `${indices.length}/${currentLesson.terms.length}`;
-                updateProgress();
+                updateProgressBar();
 
                 // Button visibility
                 backToWelcomeBtn.style.display = 'inline-block';
@@ -768,9 +879,29 @@
                     checkPhaseBtn.style.display = 'none';
                     finishPhaseBtn.style.display = 'inline-block';
                 }
+
+                // Attach input listeners using event delegation (performance)
+                if (phase === 'recall') {
+                    cardsContainer.addEventListener('input', handleInput);
+                } else {
+                    cardsContainer.removeEventListener('input', handleInput);
+                }
             }
 
-            function updateProgress() {
+            function handleInput(e) {
+                const target = e.target;
+                if (target.classList.contains('term-input') || target.classList.contains('def-input')) {
+                    const idx = target.dataset.index;
+                    if (target.classList.contains('term-input')) {
+                        userTermInputs[idx] = target.value;
+                    } else {
+                        userDefInputs[idx] = target.value;
+                    }
+                    updateProgressBar();
+                }
+            }
+
+            function updateProgressBar() {
                 if (phase === 'recall') {
                     const termInputs = document.querySelectorAll('.term-input');
                     const defTextareas = document.querySelectorAll('.def-input');
@@ -779,7 +910,9 @@
                     defTextareas.forEach(ta => { if (ta.value.trim() !== '') filled++; });
                     const total = termInputs.length * 2;
                     const percent = total > 0 ? (filled / total) * 100 : 0;
-                    document.getElementById('progress-fill')?.style?.setProperty('width', percent + '%');
+                    progressBarFill.style.width = percent + '%';
+                } else {
+                    progressBarFill.style.width = '0%';
                 }
             }
 
@@ -808,7 +941,6 @@
 
                     if (termCorrect && defCorrect) {
                         correctCount++;
-                        // Increase streak
                         let streak = correctStreakMap.get(idx) || 0;
                         streak++;
                         correctStreakMap.set(idx, streak);
@@ -828,13 +960,7 @@
                 recallSummaryText.innerText = `You got ${correctCount} out of ${termInputs.length} correct.`;
                 recallSummaryModal.classList.remove('hidden');
 
-                // After recall, we move to reveal phase with the wrong terms
-                // But we keep all terms in the display? For reveal we show only wrong ones with hints.
-                // We'll set currentTermsIndices to wrongIndicesGlobal (only those that are still wrong)
-                // But note: some might have been removed due to streak >=3, but we only add wrong ones now.
-                // Actually wrongIndicesGlobal now contains all that were wrong in this session (and previously).
-                // We want to show only those that are still wrong (i.e., not removed by streak).
-                // But we just updated wrongIndicesGlobal with adds/deletes. So we can set currentTermsIndices to Array.from(wrongIndicesGlobal).
+                // Move to reveal phase with wrong terms only
                 currentTermsIndices = Array.from(wrongIndicesGlobal).filter(i => i < currentLesson.terms.length);
                 phase = 'reveal';
                 renderQuiz();
@@ -879,10 +1005,10 @@
                     wrongTerms: wrongTerms
                 };
 
-                // Try local server
+                // Try local server with timeout
                 try {
                     const controller = new AbortController();
-                    const timeoutId = setTimeout(() => controller.abort(), 1000);
+                    const timeoutId = setTimeout(() => controller.abort(), 2000); // increased timeout
 
                     const response = await fetch('http://localhost:8000/export', {
                         method: 'POST',
@@ -947,13 +1073,44 @@
                 }
             }
 
-            // ==================== 10. EVENT LISTENERS ====================
+            // ==================== 10. EVENT LISTENERS (with improved accessibility) ====================
             fileUploadCard.addEventListener('click', () => fileInput.click());
+            fileUploadCard.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); } });
+
+            openPasteModalBtn.addEventListener('click', () => {
+                pasteContent.value = '';
+                pasteModal.classList.remove('hidden');
+                pasteContent.focus();
+            });
+            openPasteModalBtn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pasteModal.classList.remove('hidden'); pasteContent.focus(); } });
+
+            cancelPasteBtn.addEventListener('click', () => pasteModal.classList.add('hidden'));
+            importPasteBtn.addEventListener('click', async () => {
+                const text = pasteContent.value.trim();
+                if (!text) { alert('Please paste some content.'); return; }
+                showLoading();
+                setTimeout(async () => { // allow UI update
+                    const { lesson, errors } = parseLessonFromText(text, 'pasted.txt');
+                    hideLoading();
+                    if (errors.length > 0) {
+                        errorList.innerHTML = errors.map(e => `<div>⚠️ ${escapeHTML(e)}</div>`).join('');
+                        errorModal.classList.remove('hidden');
+                    }
+                    if (!lesson || !lesson.terms.length) {
+                        alert('No valid terms found.');
+                        return;
+                    }
+                    const identifier = 'pasted_' + Date.now();
+                    await loadLesson(lesson, identifier, ['pasted content']);
+                    pasteModal.classList.add('hidden');
+                }, 50);
+            });
 
             fileInput.addEventListener('change', async (e) => {
                 const files = Array.from(e.target.files);
                 if (files.length === 0) return;
 
+                showLoading();
                 let allTerms = [];
                 let mainTitle = 'Combined lesson';
                 let fileIdentifier = '';
@@ -973,6 +1130,7 @@
                         }
                     }
                 }
+                hideLoading();
 
                 if (allErrors.length > 0) {
                     errorList.innerHTML = allErrors.map(e => `<div>⚠️ ${escapeHTML(e)}</div>`).join('');
@@ -989,56 +1147,45 @@
                 await loadLesson(lesson, identifier, fileNames);
             });
 
-            openPasteModalBtn.addEventListener('click', () => {
-                pasteContent.value = '';
-                pasteModal.classList.remove('hidden');
-            });
-
-            cancelPasteBtn.addEventListener('click', () => pasteModal.classList.add('hidden'));
-
-            importPasteBtn.addEventListener('click', async () => {
-                const text = pasteContent.value.trim();
-                if (!text) { alert('Please paste some content.'); return; }
-                const { lesson, errors } = parseLessonFromText(text, 'pasted.txt');
-                if (errors.length > 0) {
-                    errorList.innerHTML = errors.map(e => `<div>⚠️ ${escapeHTML(e)}</div>`).join('');
-                    errorModal.classList.remove('hidden');
-                }
-                if (!lesson || !lesson.terms.length) {
-                    alert('No valid terms found.');
-                    return;
-                }
-                const identifier = 'pasted_' + Date.now();
-                await loadLesson(lesson, identifier, ['pasted content']);
-                pasteModal.classList.add('hidden');
-            });
-
             startBtn.addEventListener('click', () => {
                 if (!currentLesson) return;
-                // Start with all terms
                 currentTermsIndices = currentLesson.terms.map((_, i) => i);
                 phase = 'recall';
                 renderQuiz();
                 welcomeScreen.classList.remove('active');
                 quizScreen.classList.add('active');
+                // Focus on first input for accessibility
+                setTimeout(() => {
+                    const firstInput = document.querySelector('.term-input');
+                    if (firstInput) firstInput.focus();
+                }, 100);
             });
 
             backToWelcomeBtn.addEventListener('click', () => {
                 quizScreen.classList.remove('active');
                 welcomeScreen.classList.add('active');
+                // Clean up event listener
+                cardsContainer.removeEventListener('input', handleInput);
+            });
+
+            // Keyboard shortcut: Ctrl+Enter to check answers
+            document.addEventListener('keydown', (e) => {
+                if (e.ctrlKey && e.key === 'Enter' && quizScreen.classList.contains('active') && phase === 'recall') {
+                    e.preventDefault();
+                    checkAnswers();
+                }
             });
 
             checkPhaseBtn.addEventListener('click', checkAnswers);
 
             continueAfterRecallBtn.addEventListener('click', () => {
                 recallSummaryModal.classList.add('hidden');
-                // Already moved to reveal in checkAnswers
             });
 
             finishPhaseBtn.addEventListener('click', async () => {
-                // Return to welcome
                 quizScreen.classList.remove('active');
                 welcomeScreen.classList.add('active');
+                cardsContainer.removeEventListener('input', handleInput);
             });
 
             exportWrongBtn.addEventListener('click', exportWrongTerms);
@@ -1077,27 +1224,31 @@
                 }
             });
 
-            // Close modals on background click
+            // Close modals on background click and with Escape key
             [pasteModal, wrongListModal, recallSummaryModal, errorModal].forEach(m => {
                 m.addEventListener('click', (e) => { if (e.target === m) m.classList.add('hidden'); });
+                m.addEventListener('keydown', (e) => { if (e.key === 'Escape') m.classList.add('hidden'); });
             });
 
             // ==================== 11. INIT ====================
-            // Add progress-fill element if not present
-            const progressContainer = document.querySelector('.progress-container');
-            if (!progressContainer) {
-                const newDiv = document.createElement('div');
-                newDiv.className = 'progress-container';
-                newDiv.innerHTML = '<div id="progress-fill" style="height:100%; background:#2563eb; width:0%;"></div>';
-                document.querySelector('.quiz-header').after(newDiv);
-            } else {
-                if (!document.getElementById('progress-fill')) {
-                    progressContainer.innerHTML = '<div id="progress-fill" style="height:100%; background:#2563eb; width:0%;"></div>';
-                }
-            }
-
             // Disable start button initially
             startBtn.disabled = true;
+
+            // Add instruction for keyboard shortcut
+            const shortcutHint = document.createElement('div');
+            shortcutHint.className = 'visually-hidden';
+            shortcutHint.setAttribute('aria-live', 'polite');
+            shortcutHint.textContent = 'In recall phase, press Ctrl+Enter to check answers.';
+            document.body.appendChild(shortcutHint);
+
+            // Ensure progress bar exists
+            if (!progressBarFill) {
+                console.warn('Progress bar element missing, creating it.');
+                const container = document.querySelector('.progress-bar-container');
+                if (container) {
+                    container.innerHTML = '<div id="progressBarFill" class="progress-bar-fill" style="width:0%;"></div>';
+                }
+            }
         })();
     </script>
 </body>

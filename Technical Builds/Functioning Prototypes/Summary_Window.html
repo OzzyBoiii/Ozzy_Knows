@@ -14,6 +14,24 @@
             font-family: "Asap", sans-serif;
         }
 
+        :root {
+            --primary-gradient: linear-gradient(to right, #667eea, #764ba2);
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --bg-dark: #1e293b;
+            --bg-darker: #0f172a;
+            --text-light: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #16a34a;
+            --accent-purple: #9333ea;
+            --border-color: #334155;
+            --status-green: #2ecc71;
+            --status-yellow: #f1c40f;
+            --status-red: #e74c3c;
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
         section {
             min-height: 100vh;
             display: flex;
@@ -22,16 +40,15 @@
             padding: 20px;
             transition: all 0.5s ease;
         }
-        /* ============================================
-           SECURITY SYSTEM STYLES
-        ============================================ */
+
+        /* SECURITY SYSTEM STYLES */
         .security-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            background: var(--primary-gradient);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -42,7 +59,7 @@
         .security-container {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            box-shadow: var(--shadow);
             width: 90%;
             max-width: 500px;
             overflow: hidden;
@@ -50,18 +67,12 @@
         }
 
         @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .security-header {
-            background: linear-gradient(to right, #667eea, #764ba2);
+            background: var(--primary-gradient);
             color: white;
             padding: 40px 30px;
             text-align: center;
@@ -99,7 +110,7 @@
 
         .password-input:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
@@ -125,7 +136,7 @@
         .login-button {
             width: 100%;
             padding: 20px;
-            background: linear-gradient(to right, #667eea, #764ba2);
+            background: var(--primary-gradient);
             color: white;
             border: none;
             border-radius: 15px;
@@ -205,9 +216,7 @@
             font-family: 'Courier New', monospace;
         }
 
-        /* ============================================
-           MAIN DASHBOARD STYLES
-        ============================================ */
+        /* MAIN DASHBOARD */
         .dashboard {
             padding: 40px;
             max-width: 1400px;
@@ -234,15 +243,13 @@
         .header h1 {
             font-size: 48px;
             margin-bottom: 15px;
-            background: linear-gradient(to right, #667eea, #764ba2);
+            background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        /* ============================================
-           POLYPHASIC SCHEDULE STYLES
-        ============================================ */
+        /* POLYPHASIC SCHEDULE STYLES */
         .polyphasic-schedule {
             margin-top: 40px;
             opacity: 0;
@@ -270,13 +277,13 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            background-color: #1e293b;
+            background-color: var(--bg-dark);
             color: #cbd5e1;
             border: 2px solid #334155;
         }
 
         .schedule-btn.active {
-            background-color: #3b82f6;
+            background-color: var(--accent-blue);
             color: white;
             border-color: #60a5fa;
             box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
@@ -288,7 +295,7 @@
         }
 
         .current-schedule-info {
-            background-color: #1e293b;
+            background-color: var(--bg-dark);
             border-radius: 12px;
             padding: 25px;
             margin-top: 30px;
@@ -303,9 +310,7 @@
             border-bottom: 2px solid #334155;
         }
 
-        /* ============================================
-           ALERT & NOTIFICATION STYLES
-        ============================================ */
+        /* ALERT & NOTIFICATION */
         .stage-alert {
             position: fixed;
             top: 0;
@@ -470,9 +475,7 @@
             color: #94a3b8;
         }
 
-        /* ============================================
-           CONTROL PANEL STYLES
-        ============================================ */
+        /* CONTROL PANEL */
         .mute-toggle {
             background-color: #1e293b;
             border-radius: 50%;
@@ -510,9 +513,7 @@
             font-size: 0.9rem;
         }
 
-        /* ============================================
-           ANIMATIONS
-        ============================================ */
+        /* ANIMATIONS */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -524,26 +525,17 @@
             100% { transform: scale(1); }
         }
 
-        @keyframes slideIn {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
         @keyframes slideInRight {
             from { transform: translateX(100%); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
         }
 
-        /* ============================================
-           UTILITY CLASSES
-        ============================================ */
+        /* UTILITY */
         .hidden {
             display: none !important;
         }
 
-        /* ============================================
-           POLYPHASIC OVERVIEW WINDOW STYLES
-        ============================================ */
+        /* POLYPHASIC OVERVIEW WINDOW */
         .polyphasic-overview-window {
             position: fixed;
             top: 5%;
@@ -557,7 +549,7 @@
             box-sizing: border-box;
             overflow: hidden;
             border-radius: 15px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+            box-shadow: var(--shadow);
             z-index: 1000;
         }
 
@@ -601,14 +593,12 @@
             border-radius: 10px;
         }
 
-        /* ============================================
-           OPEN POLYPHASIC BUTTON STYLE
-        ============================================ */
+        /* OPEN POLYPHASIC BUTTON */
         .open-polyphasic-btn {
             display: block;
             margin: 20px auto;
             padding: 15px 30px;
-            background: linear-gradient(to right, #667eea, #764ba2);
+            background: var(--primary-gradient);
             color: white;
             border: none;
             border-radius: 10px;
@@ -623,9 +613,7 @@
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
 
-        /* ============================================
-           MOBILE RESPONSIVE
-        ============================================ */
+        /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
             .security-container {
                 width: 95%;
@@ -673,6 +661,7 @@
                 gap: 15px;
             }
         }
+
         /* FLEXIBLE WEBSITE */
         .container {
             width: 100%;
@@ -681,7 +670,6 @@
             padding: 0 20px;
         }
 
-        /* Background */
         body {
             margin: 0;
             height: 100vh;
@@ -722,11 +710,6 @@
             50% { top: 0vh; opacity: 0.8; }
             75% { opacity: 1; }
             100% { top: -100vh; opacity: 0; }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         /* SCROLLING ANIMATION */
@@ -815,39 +798,21 @@
         }
 
         @keyframes fade-bottom {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
         }
 
         @keyframes fade-left {
-            0% {
-                transform: translateX(-100px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            0% { transform: translateX(-100px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
         }
 
         @keyframes fade-right {
-            0% {
-                transform: translateX(100px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            0% { transform: translateX(100px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
         }
 
-        /* Button */
+        /* Buttons */
         button {
             animation: shimmer 1.5s ease infinite alternate;
             background: linear-gradient(90deg, #ffe27d 0%, #64e3ff 30%, #9192ff 85%);
@@ -874,7 +839,7 @@
             to { background-size: 100% 100%; box-shadow: -2px -2px 6px rgba(255, 227, 126, 0.5), 2px 2px 6px rgba(144, 148, 255, 0.5); }
         }
 
-        /* NEW: SUMMARY TEXTBOX STYLES */
+        /* SUMMARY TEXTBOX STYLES */
         .summary-container {
             width: 100%;
             max-width: 800px;
@@ -1004,19 +969,17 @@
             font-style: italic;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 850px) {
             .summary-box {
                 padding: 20px;
                 font-size: 16px;
             }
-
             .summary-header {
                 font-size: 20px;
             }
         }
 
-        /* STATUS INDICATOR STYLES */
+        /* STATUS INDICATOR */
         .section-header {
             display: flex;
             justify-content: center;
@@ -1035,7 +998,6 @@
             cursor: help;
         }
 
-        /* Summary status indicators */
         .summary-status-indicator {
             position: absolute;
             right: 10px;
@@ -1048,17 +1010,17 @@
         }
 
         .status-green {
-            background-color: #2ecc71;
+            background-color: var(--status-green);
             animation: pulse-green 2s infinite;
         }
 
         .status-yellow {
-            background-color: #f1c40f;
+            background-color: var(--status-yellow);
             animation: pulse-yellow 2s infinite;
         }
 
         .status-red {
-            background-color: #e74c3c;
+            background-color: var(--status-red);
             animation: pulse-red 2s infinite;
         }
 
@@ -1112,18 +1074,13 @@
             box-sizing: border-box;
             overflow: hidden;
             border-radius: 15px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+            box-shadow: var(--shadow);
             z-index: 1000;
         }
 
         .newWindow.active {
             display: block;
             animation: popIn 0.5s ease-out;
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
         }
 
         .window-header {
@@ -1218,7 +1175,7 @@
             box-shadow: 0 8px 20px rgba(0,194,203,0.6);
         }
 
-        /* SEARCH BAR STYLE */
+        /* SEARCH BAR */
         .search-bar {
             width: 100%;
             max-width: 700px;
@@ -1291,12 +1248,6 @@
             padding: 2px 8px;
             border-radius: 10px;
             margin-left: auto;
-        }
-
-        @media (min-width: 768px) {
-            .content-container {
-                grid-template-columns: 1fr 1fr;
-            }
         }
 
         .content-section {
@@ -1418,7 +1369,7 @@
             border-radius: 4px;
         }
 
-        /* NEW STYLES FOR TOGGLE FUNCTIONALITY */
+        /* TOGGLE FUNCTIONALITY */
         .summary-line.subheading {
             display: none;
         }
@@ -1433,18 +1384,9 @@
             transition: all 0.3s ease;
         }
 
-        .bracket-letter.A {
-            color: #FF5733; /* Vibrant orange-red */
-        }
-
-        .bracket-letter.B {
-            color: #33C4FF; /* Bright blue */
-            cursor: pointer;
-        }
-
-        .bracket-letter.C {
-            color: #33FF57; /* Bright green */
-        }
+        .bracket-letter.A { color: #FF5733; }
+        .bracket-letter.B { color: #33C4FF; }
+        .bracket-letter.C { color: #33FF57; }
 
         .bracket-letter.B:hover {
             text-shadow: 0 0 8px rgba(51, 196, 255, 0.8);
@@ -1461,7 +1403,7 @@
             transform: rotate(90deg);
         }
 
-        /* Debug panel */
+        /* DEBUG PANEL */
         .debug-panel {
             position: fixed;
             bottom: 10px;
@@ -1486,7 +1428,6 @@
             margin-top: 5px;
         }
 
-        /* NEW: Active section styles */
         section.active {
             background: rgba(100, 227, 255, 0.1);
             border: 2px solid rgba(100, 227, 255, 0.5);
@@ -1498,13 +1439,16 @@
             text-shadow: 0 0 10px rgba(100, 227, 255, 0.7);
             background: rgba(100, 227, 255, 0.2);
         }
+
+        /* Accessibility - focus visible */
+        :focus-visible {
+            outline: 3px solid #ff9800;
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
-     <!-- ============================================
-         SECURITY SYSTEM OVERLAY
-         (Always shown on page load)
-    ============================================ -->
+    <!-- SECURITY SYSTEM OVERLAY -->
     <div id="security-overlay" class="security-overlay">
         <div class="security-container" id="login-container">
             <div class="security-header">
@@ -1514,16 +1458,17 @@
             <div class="security-body">
                 <div class="password-group">
                     <input type="password" id="password-input" class="password-input"
-                           placeholder="Enter master password" autocomplete="off" autofocus>
-                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">
+                           placeholder="Enter master password" autocomplete="off" autofocus
+                           aria-label="Master password">
+                    <button type="button" class="toggle-password" id="togglePasswordBtn" aria-label="Toggle password visibility">
                         <i class="fas fa-eye"></i>
                     </button>
                 </div>
-                <button id="login-button" class="login-button" onclick="checkPassword()">
+                <button id="login-button" class="login-button" aria-label="Access system">
                     <i class="fas fa-unlock-alt"></i> Access System
                 </button>
-                <div id="error-message" class="error-message"></div>
-                <div id="attempts-info" class="attempts-info"></div>
+                <div id="error-message" class="error-message" role="alert"></div>
+                <div id="attempts-info" class="attempts-info" role="status"></div>
                 <div class="security-footer">
                     <p><i class="fas fa-shield-alt"></i> Secure Access System v2.0</p>
                 </div>
@@ -1535,7 +1480,7 @@
                 <div class="lockout-icon"><i class="fas fa-lock"></i></div>
                 <h2 style="color: #e74c3c; margin-bottom: 10px;">Security Lockout</h2>
                 <p style="color: #666; margin-bottom: 20px;">Too many failed login attempts</p>
-                <div id="lockout-timer">15:00</div>
+                <div id="lockout-timer" aria-live="polite">15:00</div>
                 <p style="color: #999; font-size: 12px; margin-top: 30px;">
                     <i class="fas fa-exclamation-triangle"></i> System temporarily locked
                 </p>
@@ -1543,29 +1488,23 @@
         </div>
     </div>
 
-    <!-- ============================================
-         MAIN DASHBOARD
-         (Only shown after successful authentication)
-    ============================================ -->
+    <!-- MAIN DASHBOARD -->
     <div class="container">
         <div class="dashboard" id="dashboard">
             <div class="header">
                 <h1><i class="fas fa-shield-alt"></i> Secure Schedule System</h1>
             </div>
 
-            <!-- Button to open Polyphasic Overview -->
-            <button class="open-polyphasic-btn" onclick="toggleWindow('polyphasic-overview-window')">
+            <button class="open-polyphasic-btn" id="openPolyphasicBtn" aria-label="Open polyphasic overview">
                 <i class="fas fa-chart-bar"></i> Open Polyphasic Overview
             </button>
         </div>
     </div>
 
-    <!-- ============================================
-         POLYPHASIC OVERVIEW WINDOW
-    ============================================ -->
-    <div class="polyphasic-overview-window" id="polyphasic-overview-window">
+    <!-- POLYPHASIC OVERVIEW WINDOW -->
+    <div class="polyphasic-overview-window" id="polyphasic-overview-window" role="dialog" aria-modal="true" aria-labelledby="polyphasicWindowTitle">
         <div class="polyphasic-window-header">
-            <h1 style="color: #60a5fa; margin-bottom: 10px; font-size: 2.2rem; letter-spacing: 1px;">
+            <h1 id="polyphasicWindowTitle" style="color: #60a5fa; margin-bottom: 10px; font-size: 2.2rem; letter-spacing: 1px;">
                 Polyphasic Schedule Monitor
             </h1>
             <p class="subtitle" style="color: #94a3b8; font-size: 1rem; max-width: 800px; margin: 0 auto;">
@@ -1574,7 +1513,6 @@
         </div>
 
         <div class="polyphasic-window-content">
-            <!-- Polyphasic Schedule Section -->
             <div class="polyphasic-schedule" id="polyphasic-schedule">
                 <div class="schedule-type-selector">
                     <button class="schedule-btn active" id="workdayBtn">Workday Schedule</button>
@@ -1592,9 +1530,8 @@
                 </div>
             </div>
 
-            <!-- Control Panel Inside Window -->
             <div class="polyphasic-controls">
-                <div class="mute-toggle" id="muteToggle">
+                <div class="mute-toggle" id="muteToggle" role="button" tabindex="0" aria-label="Toggle sound">
                     <div class="mute-icon" id="muteIcon">🔔</div>
                 </div>
                 <div class="next-stage-countdown" id="nextStageCountdown">
@@ -1604,10 +1541,8 @@
         </div>
     </div>
 
-    <!-- ============================================
-         STAGE ALERTS & NOTIFICATIONS
-    ============================================ -->
-    <div class="stage-alert" id="stageAlert">
+    <!-- STAGE ALERTS & NOTIFICATIONS -->
+    <div class="stage-alert" id="stageAlert" role="alertdialog" aria-modal="true" aria-labelledby="alertActivity">
         <div class="alert-content" id="alertContent">
             <h2 class="alert-title">Stage Change</h2>
             <div class="alert-activity rest" id="alertActivity">REST</div>
@@ -1615,18 +1550,19 @@
             <div class="alert-countdown" id="alertCountdown">
                 Alert will close in <span id="countdownTimer">5</span> seconds
             </div>
-            <button class="close-alert-btn" id="closeAlertBtn">Continue</button>
+            <button class="close-alert-btn" id="closeAlertBtn" aria-label="Close alert">Continue</button>
             <div class="alert-footer">Next stage will start automatically</div>
         </div>
     </div>
 
-    <div class="stage-notification" id="stageNotification">
+    <div class="stage-notification" id="stageNotification" role="status" aria-live="polite">
         <div class="notification-icon" id="notificationIcon">⏰</div>
         <div class="notification-content">
             <div class="notification-activity" id="notificationActivity">Rest Stage</div>
             <div class="notification-interval" id="notificationInterval">1:30 - 6:00</div>
         </div>
     </div>
+
     <!-- Background lights -->
     <div class="light x1"></div>
     <div class="light x2"></div>
@@ -1639,115 +1575,22 @@
     <div class="light x9"></div>
 
     <!-- Status Overview Button -->
-    <button class="status-overview-btn" onclick="toggleWindow('statusOverview')">
+    <button class="status-overview-btn" id="statusOverviewBtn" aria-label="View section status">
         <i class="fas fa-clock"></i> View Status
     </button>
 
     <!-- Debug panel -->
-    <div class="debug-panel" id="debugPanel">
+    <div class="debug-panel" id="debugPanel" role="complementary" aria-label="Debug information">
         <strong>Debug Information</strong>
         <div id="debugContent">Loading...</div>
     </div>
 
-    <section>
-        <div class="container reveal fade-bottom">
-            <div class="section-header">
-                <h1 onclick="toggleDebugPanel()">Content summary</h1>
-            </div>
-            <div class="text-container">
-                <div class="text-box">
-                    <div class="search-bar">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" id="search" placeholder="&#x1F50D; Start typing to search..." list="search-suggestions">
-                        <div class="search-results" id="search-results"></div>
-                    </div>
-                    <datalist id="search-suggestions">
-                        <option value="JavaScript"></option>
-                        <option value="CSS"></option>
-                        <option value="Accessibility"></option>
-                        <option value="Web Design"></option>
-                    </datalist>
-                    </div>
-                    <div class="summary-container">
-                        <div class="summary-box">
-                            <div class="summary-header" onclick="toggleWindow('statusOverview')">Subject Summary</div>
-
-                            <div class="summary-line">
-                                <div class="summary-content">
-                                    <span class="summary-dots">.......................................................</span>
-                                    <span class="summary-text"><a href="#Ozzy_1"><span class="bracket-letter A">(A)</span> Overheading</a></span>
-                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_1"></div>
-                                </div>
-                                <input type="text" class="summary-number" value="42" data-section="Ozzy_1">
-                            </div>
-
-                             <div class="summary-line heading" data-group="group1">
-                                <div class="summary-content">
-                                    <span class="summary-dots">.......................................................</span>
-                                    <span class="summary-text"><a href="#Ozzy_2"><span class="bracket-letter B">(B)</span> Heading_1 <span class="toggle-indicator">❯</span></a></span>
-                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_2"></div>
-                                </div>
-                                <input type="text" class="summary-number" value="87" data-section="Ozzy_2">
-                            </div>
-
-                             <div class="summary-line subheading" data-group="group1">
-                                <div class="summary-content">
-                                    <span class="summary-dots">.......................................................</span>
-                                    <span class="summary-text"><a href="#Ozzy_3"><span class="bracket-letter C">(C)</span> Subheading_1</a></span>
-                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_3"></div>
-                                </div>
-                                <input type="text" class="summary-number" value="105" data-section="Ozzy_3">
-                            </div>
-
-                             <div class="summary-line subheading" data-group="group1">
-                                <div class="summary-content">
-                                    <span class="summary-dots">.......................................................</span>
-                                    <span class="summary-text"><a href="#Ozzy_4"><span class="bracket-letter C">(C)</span> Subeading_2</a></span>
-                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_4"></div>
-                                </div>
-                                <input type="text" class="summary-number" value="122" data-section="Ozzy_4">
-                            </div>
-
-                             <div class="summary-line subheading" data-group="group1">
-                                <div class="summary-content">
-                                    <span class="summary-dots">.......................................................</span>
-                                    <span class="summary-text"><a href="#Ozzy_5"><span class="bracket-letter C">(C)</span> Subheading_3</a></span>
-                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_5"></div>
-                                </div>
-                                <input type="text" class="summary-number" value="145" data-section="Ozzy_5">
-                            </div>
-
-                             <div class="summary-line heading" data-group="group2">
-                                <div class="summary-content">
-                                    <span class="summary-dots">.......................................................</span>
-                                    <span class="summary-text"><a href="#Ozzy_6"><span class="bracket-letter B">(B)</span> Heading_2 <span class="toggle-indicator">❯</span></a></span>
-                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_6"></div>
-                                </div>
-                                <input type="text" class="summary-number" value="201" data-section="Ozzy_6">
-                            </div>
-
-                             <div class="summary-line">
-                                <div class="summary-content">
-                                    <span class="summary-dots">.......................................................</span>
-                                    <span class="summary-text"><a href="#Ozzy_7"><span class="bracket-letter A">(A)</span> Overheading_2</a></span>
-                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_7"></div>
-                                </div>
-                                <input type="text" class="summary-number" value="245" data-section="Ozzy_7">
-                            </div>
-
-                            <div class="summary-hint">Tip: Click on (B) items to toggle subheadings visibility</div>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </section>
-
     <section id="Ozzy_1">
         <div class="container reveal fade-bottom">
             <div class="section-header">
-                <h2 onclick="setActiveSection('Ozzy_1')">Matematika</h2>
-                <div class="status-indicator" id="status-indicator-Ozzy_1"></div>
-                <div class="status-tooltip">Last visited: Never</div>
+                <h2 tabindex="0">Matematika</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_1" role="status" aria-label="Status indicator"></div>
+                <div class="status-tooltip" role="tooltip">Last visited: Never</div>
             </div>
             <div class="text-container">
                 <div class="text-box">
@@ -1762,9 +1605,9 @@
     <section id="Ozzy_2">
         <div class="container reveal fade-bottom">
             <div class="section-header">
-                <h2 onclick="setActiveSection('Ozzy_2')">Hrvatski</h2>
-                <div class="status-indicator" id="status-indicator-Ozzy_2"></div>
-                <div class="status-tooltip">Last visited: Never</div>
+                <h2 tabindex="0">Hrvatski</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_2" role="status"></div>
+                <div class="status-tooltip" role="tooltip">Last visited: Never</div>
             </div>
             <div class="text-container">
                 <div class="text-box">
@@ -1779,9 +1622,9 @@
     <section id="Ozzy_3">
         <div class="container reveal fade-bottom">
             <div class="section-header">
-                <h2 onclick="setActiveSection('Ozzy_3')">Biologija</h2>
-                <div class="status-indicator" id="status-indicator-Ozzy_3"></div>
-                <div class="status-tooltip">Last visited: Never</div>
+                <h2 tabindex="0">Biologija</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_3" role="status"></div>
+                <div class="status-tooltip" role="tooltip">Last visited: Never</div>
             </div>
             <div class="text-container">
                 <div class="text-box">
@@ -1795,9 +1638,9 @@
     <section id="Ozzy_4">
         <div class="container reveal fade-bottom">
             <div class="section-header">
-                <h2 onclick="setActiveSection('Ozzy_4')">Kemija</h2>
-                <div class="status-indicator" id="status-indicator-Ozzy_4"></div>
-                <div class="status-tooltip">Last visited: Never</div>
+                <h2 tabindex="0">Kemija</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_4" role="status"></div>
+                <div class="status-tooltip" role="tooltip">Last visited: Never</div>
             </div>
             <div class="text-container">
                 <div class="text-box">
@@ -1811,9 +1654,9 @@
     <section id="Ozzy_5">
         <div class="container reveal fade-bottom">
             <div class="section-header">
-                <h2 onclick="setActiveSection('Ozzy_5')">Fizika</h2>
-                <div class="status-indicator" id="status-indicator-Ozzy_5"></div>
-                <div class="status-tooltip">Last visited: Never</div>
+                <h2 tabindex="0">Fizika</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_5" role="status"></div>
+                <div class="status-tooltip" role="tooltip">Last visited: Never</div>
             </div>
             <div class="text-container">
                 <div class="text-box">
@@ -1824,12 +1667,12 @@
         </div>
     </section>
 
-     <section id="Ozzy_6">
+    <section id="Ozzy_6">
         <div class="container reveal fade-bottom">
             <div class="section-header">
-                <h2 onclick="setActiveSection('Ozzy_6')">Informatika</h2>
-                <div class="status-indicator" id="status-indicator-Ozzy_6"></div>
-                <div class="status-tooltip">Last visited: Never</div>
+                <h2 tabindex="0">Informatika</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_6" role="status"></div>
+                <div class="status-tooltip" role="tooltip">Last visited: Never</div>
             </div>
             <div class="text-container">
                 <div class="text-box">
@@ -1840,12 +1683,12 @@
         </div>
     </section>
 
-     <section id="Ozzy_7">
+    <section id="Ozzy_7">
         <div class="container reveal fade-bottom">
             <div class="section-header">
-                <h2 onclick="setActiveSection('Ozzy_7')">Povijest</h2>
-                <div class="status-indicator" id="status-indicator-Ozzy_7"></div>
-                <div class="status-tooltip">Last visited: Never</div>
+                <h2 tabindex="0">Povijest</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_7" role="status"></div>
+                <div class="status-tooltip" role="tooltip">Last visited: Never</div>
             </div>
             <div class="text-container">
                 <div class="text-box">
@@ -1856,12 +1699,12 @@
         </div>
     </section>
 
-     <section id="Ozzy_8">
+    <section id="Ozzy_8">
         <div class="container reveal fade-bottom">
             <div class="section-header">
-                <h2 onclick="setActiveSection('Ozzy_8')">Geografija</h2>
-                <div class="status-indicator" id="status-indicator-Ozzy_8"></div>
-                <div class="status-tooltip">Last visited: Never</div>
+                <h2 tabindex="0">Geografija</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_8" role="status"></div>
+                <div class="status-tooltip" role="tooltip">Last visited: Never</div>
             </div>
             <div class="text-container">
                 <div class="text-box">
@@ -1872,12 +1715,12 @@
         </div>
     </section>
 
-     <section id="Ozzy_9">
+    <section id="Ozzy_9">
         <div class="container reveal fade-bottom">
             <div class="section-header">
-                <h2 onclick="setActiveSection('Ozzy_9')">Glazbeni</h2>
-                <div class="status-indicator" id="status-indicator-Ozzy_9"></div>
-                <div class="status-tooltip">Last visited: Never</div>
+                <h2 tabindex="0">Glazbeni</h2>
+                <div class="status-indicator" id="status-indicator-Ozzy_9" role="status"></div>
+                <div class="status-tooltip" role="tooltip">Last visited: Never</div>
             </div>
             <div class="text-container">
                 <div class="text-box">
@@ -1888,11 +1731,99 @@
         </div>
     </section>
 
+    <!-- Summary Section (moved outside sections for layout) -->
+    <section>
+        <div class="container reveal fade-bottom">
+            <div class="section-header">
+                <h1 tabindex="0" id="summaryTitle">Content summary</h1>
+            </div>
+            <div class="text-container">
+                <div class="text-box">
+                    <div class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="search" placeholder="&#x1F50D; Start typing to search..." aria-label="Search" aria-describedby="search-results">
+                        <div class="search-results" id="search-results" role="listbox"></div>
+                    </div>
+                    <div class="summary-container">
+                        <div class="summary-box">
+                            <div class="summary-header" id="summaryHeader" tabindex="0">Subject Summary</div>
+
+                            <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_1" class="summary-link"><span class="bracket-letter A">(A)</span> Overheading</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_1" role="status"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="42" data-section="Ozzy_1" aria-label="Page number for Overheading">
+                            </div>
+
+                            <div class="summary-line heading" data-group="group1">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_2" class="summary-link"><span class="bracket-letter B" role="button" tabindex="0" aria-label="Toggle subheadings for Heading_1">(B)</span> Heading_1 <span class="toggle-indicator">❯</span></a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_2" role="status"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="87" data-section="Ozzy_2" aria-label="Page number for Heading_1">
+                            </div>
+
+                            <div class="summary-line subheading" data-group="group1">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_3" class="summary-link"><span class="bracket-letter C">(C)</span> Subheading_1</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_3" role="status"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="105" data-section="Ozzy_3" aria-label="Page number for Subheading_1">
+                            </div>
+
+                            <div class="summary-line subheading" data-group="group1">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_4" class="summary-link"><span class="bracket-letter C">(C)</span> Subeading_2</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_4" role="status"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="122" data-section="Ozzy_4" aria-label="Page number for Subheading_2">
+                            </div>
+
+                            <div class="summary-line subheading" data-group="group1">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_5" class="summary-link"><span class="bracket-letter C">(C)</span> Subheading_3</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_5" role="status"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="145" data-section="Ozzy_5" aria-label="Page number for Subheading_3">
+                            </div>
+
+                            <div class="summary-line heading" data-group="group2">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_6" class="summary-link"><span class="bracket-letter B" role="button" tabindex="0" aria-label="Toggle subheadings for Heading_2">(B)</span> Heading_2 <span class="toggle-indicator">❯</span></a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_6" role="status"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="201" data-section="Ozzy_6" aria-label="Page number for Heading_2">
+                            </div>
+
+                            <div class="summary-line">
+                                <div class="summary-content">
+                                    <span class="summary-dots">.......................................................</span>
+                                    <span class="summary-text"><a href="#Ozzy_7" class="summary-link"><span class="bracket-letter A">(A)</span> Overheading_2</a></span>
+                                    <div class="status-indicator summary-status-indicator" id="summary-status-indicator-Ozzy_7" role="status"></div>
+                                </div>
+                                <input type="text" class="summary-number" value="245" data-section="Ozzy_7" aria-label="Page number for Overheading_2">
+                            </div>
+
+                            <div class="summary-hint">Tip: Click on (B) items to toggle subheadings visibility</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Status Overview Window -->
-    <div id="statusOverview" class="newWindow">
+    <div id="statusOverview" class="newWindow" role="dialog" aria-modal="true" aria-labelledby="statusOverviewTitle">
         <div class="window-header">
-            <h3>Section Status Overview</h3>
-            <button class="close-btn" onclick="toggleWindow('statusOverview')">Close</button>
+            <h3 id="statusOverviewTitle">Section Status Overview</h3>
+            <button class="close-btn" id="closeStatusOverview" aria-label="Close">Close</button>
         </div>
 
         <div class="status-categories">
@@ -1901,1449 +1832,1025 @@
                     <div class="status-indicator status-green"></div>
                     <h4>Recently Viewed (≤ 3 days)</h4>
                 </div>
-                <ul class="status-list" id="green-list">
-                    <!-- Will be populated by JavaScript -->
-                </ul>
+                <ul class="status-list" id="green-list" role="list"></ul>
             </div>
-
             <div class="status-category">
                 <div class="status-title">
                     <div class="status-indicator status-yellow"></div>
                     <h4>Viewed Recently (3-7 days)</h4>
                 </div>
-                <ul class="status-list" id="yellow-list">
-                    <!-- Will be populated by JavaScript -->
-                </ul>
+                <ul class="status-list" id="yellow-list" role="list"></ul>
             </div>
-
             <div class="status-category">
                 <div class="status-title">
                     <div class="status-indicator status-red"></div>
                     <h4>Needs Review (> 7 days)</h4>
                 </div>
-                <ul class="status-list" id="red-list">
-                    <!-- Will be populated by JavaScript -->
-                </ul>
+                <ul class="status-list" id="red-list" role="list"></ul>
             </div>
         </div>
     </div>
 
     <script>
-        // ============================================
-        // SECURITY SYSTEM CONFIGURATION
-        // ============================================
-        const SECURITY_CONFIG = {
-            MASTER_PASSWORD: "cross123!",
-            MAX_ATTEMPTS: 5,
-            LOCKOUT_MINUTES: 1
-        };
+        (function() {
+            // ============================================
+            // CONFIGURATION
+            // ============================================
+            const CONFIG = {
+                MASTER_PASSWORD: "cross123!",
+                MAX_ATTEMPTS: 5,
+                LOCKOUT_MINUTES: 1,
+                YELLOW_THRESHOLD: 72,  // hours
+                RED_THRESHOLD: 168      // hours
+            };
 
-        // ============================================
-        // SECURITY SYSTEM STATE
-        // ============================================
-        let securityState = {
-            authenticated: false,
-            failedAttempts: 0,
-            lockoutUntil: 0
-        };
-
-        // ============================================
-        // SCHEDULE SYSTEM CONFIGURATION
-        // ============================================
-        const SCHEDULES = {
-            workday: {
-                name: "Workday Schedule",
-                period1: {
-                    title: "1:30 - 13:30",
-                    segments: [
-                        { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
-                        { activity: "Work", start: "6:00", end: "13:30", duration: 7.5, color: "#16a34a" }
-                    ]
+            const SCHEDULES = {
+                workday: {
+                    name: "Workday Schedule",
+                    period1: {
+                        title: "1:30 - 13:30",
+                        segments: [
+                            { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
+                            { activity: "Work", start: "6:00", end: "13:30", duration: 7.5, color: "#16a34a" }
+                        ]
+                    },
+                    period2: {
+                        title: "13:30 - 1:30",
+                        segments: [
+                            { activity: "Work", start: "13:30", end: "17:00", duration: 3.5, color: "#16a34a" },
+                            { activity: "Rest", start: "17:00", end: "17:45", duration: 0.75, color: "#3b82f6" },
+                            { activity: "Work", start: "17:45", end: "19:50", duration: 2.083, color: "#16a34a" },
+                            { activity: "Rest", start: "19:50", end: "20:35", duration: 0.75, color: "#3b82f6" },
+                            { activity: "Work", start: "20:35", end: "22:40", duration: 2.083, color: "#16a34a" },
+                            { activity: "Rest", start: "22:40", end: "23:25", duration: 0.75, color: "#3b82f6" },
+                            { activity: "Work", start: "23:25", end: "1:30", duration: 2.083, color: "#16a34a" }
+                        ]
+                    }
                 },
-                period2: {
-                    title: "13:30 - 1:30",
-                    segments: [
-                        { activity: "Work", start: "13:30", end: "17:00", duration: 3.5, color: "#16a34a" },
-                        { activity: "Rest", start: "17:00", end: "17:45", duration: 0.75, color: "#3b82f6" },
-                        { activity: "Work", start: "17:45", end: "19:50", duration: 2.083, color: "#16a34a" },
-                        { activity: "Rest", start: "19:50", end: "20:35", duration: 0.75, color: "#3b82f6" },
-                        { activity: "Work", start: "20:35", end: "22:40", duration: 2.083, color: "#16a34a" },
-                        { activity: "Rest", start: "22:40", end: "23:25", duration: 0.75, color: "#3b82f6" },
-                        { activity: "Work", start: "23:25", end: "1:30", duration: 2.083, color: "#16a34a" }
-                    ]
-                }
-            },
-            restday: {
-                name: "Restday Schedule",
-                period1: {
-                    title: "1:30 - 13:30",
-                    segments: [
-                        { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
-                        { activity: "Work", start: "6:00", end: "8:30", duration: 2.5, color: "#16a34a" },
-                        { activity: "Rest", start: "8:30", end: "9:25", duration: 0.917, color: "#3b82f6" },
-                        { activity: "Work", start: "9:25", end: "11:55", duration: 2.5, color: "#16a34a" },
-                        { activity: "Rest", start: "11:55", end: "12:50", duration: 0.917, color: "#3b82f6" },
-                        { activity: "Work", start: "12:50", end: "13:30", duration: 0.667, color: "#16a34a" }
-                    ]
-                },
-                period2: {
-                    title: "13:30 - 1:30",
-                    segments: [
-                        { activity: "Work", start: "13:30", end: "15:20", duration: 1.833, color: "#16a34a" },
-                        { activity: "Rest", start: "15:20", end: "16:15", duration: 0.917, color: "#3b82f6" },
-                        { activity: "Work", start: "16:15", end: "18:45", duration: 2.5, color: "#16a34a" },
-                        { activity: "Rest", start: "18:45", end: "19:40", duration: 0.917, color: "#3b82f6" },
-                        { activity: "Gaming", start: "19:40", end: "23:00", duration: 3.333, color: "#9333ea" },
-                        { activity: "Work", start: "23:00", end: "1:30", duration: 2.5, color: "#16a34a" }
-                    ]
-                }
-            }
-        };
-
-        // ============================================
-        // SCHEDULE SYSTEM STATE
-        // ============================================
-        let currentSchedule = 'workday';
-        let isMuted = false;
-        let currentSegmentIndex = -1;
-        let alertTimeout = null;
-        let countdownInterval = null;
-        let stageCheckInterval = null;
-
-        // ============================================
-        // DOM ELEMENT REFERENCES
-        // ============================================
-        // Security elements
-        const passwordInput = document.getElementById('password-input');
-        const loginButton = document.getElementById('login-button');
-        const errorMessage = document.getElementById('error-message');
-        const attemptsInfo = document.getElementById('attempts-info');
-        const securityOverlay = document.getElementById('security-overlay');
-        const loginContainer = document.getElementById('login-container');
-        const lockoutContainer = document.getElementById('lockout-container');
-        const lockoutTimer = document.getElementById('lockout-timer');
-
-        // Dashboard elements
-        const dashboard = document.getElementById('dashboard');
-
-        // Schedule control elements
-        const workdayBtn = document.getElementById('workdayBtn');
-        const restdayBtn = document.getElementById('restdayBtn');
-        const scheduleName = document.getElementById('scheduleName');
-
-        // Alert elements
-        const stageAlert = document.getElementById('stageAlert');
-        const alertContent = document.getElementById('alertContent');
-        const alertActivity = document.getElementById('alertActivity');
-        const alertInterval = document.getElementById('alertInterval');
-        const countdownTimer = document.getElementById('countdownTimer');
-        const closeAlertBtn = document.getElementById('closeAlertBtn');
-
-        // Notification elements
-        const stageNotification = document.getElementById('stageNotification');
-        const notificationActivity = document.getElementById('notificationActivity');
-        const notificationInterval = document.getElementById('notificationInterval');
-        const notificationIcon = document.getElementById('notificationIcon');
-
-        // Control panel elements
-        const muteToggle = document.getElementById('muteToggle');
-        const muteIcon = document.getElementById('muteIcon');
-        const nextStageCountdown = document.getElementById('nextStageCountdown');
-        const nextStageTime = document.getElementById('nextStageTime');
-
-        // Polyphasic overview elements
-        const polyphasicSchedule = document.getElementById('polyphasic-schedule');
-        const currentActivity = document.getElementById('currentActivity');
-
-        // ============================================
-        // INITIALIZATION
-        // ============================================
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('🔒 Secure Schedule System Initializing...');
-            initializeSecuritySystem();
-            initializeScheduleSystem();
-        });
-
-        // ============================================
-        // SECURITY SYSTEM FUNCTIONS
-        // ============================================
-        function initializeSecuritySystem() {
-            // Always start with login screen
-            showLoginScreen();
-
-            // Load lockout state if exists
-            loadLockoutState();
-
-            // Setup event listeners
-            setupSecurityEventListeners();
-        }
-
-        function loadLockoutState() {
-            try {
-                const savedAttempts = localStorage.getItem('secure_schedule_attempts');
-                const lockoutTime = localStorage.getItem('secure_schedule_lockout');
-
-                if (savedAttempts) {
-                    securityState.failedAttempts = parseInt(savedAttempts);
-                }
-
-                if (lockoutTime) {
-                    securityState.lockoutUntil = parseInt(lockoutTime);
-
-                    // Check if still in lockout period
-                    if (Date.now() < securityState.lockoutUntil) {
-                        showLockoutScreen();
-                        startLockoutTimer();
-                        return;
-                    } else {
-                        // Lockout period expired
-                        securityState.failedAttempts = 0;
-                        securityState.lockoutUntil = 0;
-                        localStorage.removeItem('secure_schedule_lockout');
-                        localStorage.setItem('secure_schedule_attempts', '0');
+                restday: {
+                    name: "Restday Schedule",
+                    period1: {
+                        title: "1:30 - 13:30",
+                        segments: [
+                            { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
+                            { activity: "Work", start: "6:00", end: "8:30", duration: 2.5, color: "#16a34a" },
+                            { activity: "Rest", start: "8:30", end: "9:25", duration: 0.917, color: "#3b82f6" },
+                            { activity: "Work", start: "9:25", end: "11:55", duration: 2.5, color: "#16a34a" },
+                            { activity: "Rest", start: "11:55", end: "12:50", duration: 0.917, color: "#3b82f6" },
+                            { activity: "Work", start: "12:50", end: "13:30", duration: 0.667, color: "#16a34a" }
+                        ]
+                    },
+                    period2: {
+                        title: "13:30 - 1:30",
+                        segments: [
+                            { activity: "Work", start: "13:30", end: "15:20", duration: 1.833, color: "#16a34a" },
+                            { activity: "Rest", start: "15:20", end: "16:15", duration: 0.917, color: "#3b82f6" },
+                            { activity: "Work", start: "16:15", end: "18:45", duration: 2.5, color: "#16a34a" },
+                            { activity: "Rest", start: "18:45", end: "19:40", duration: 0.917, color: "#3b82f6" },
+                            { activity: "Gaming", start: "19:40", end: "23:00", duration: 3.333, color: "#9333ea" },
+                            { activity: "Work", start: "23:00", end: "1:30", duration: 2.5, color: "#16a34a" }
+                        ]
                     }
                 }
-
-                // Show attempts info if there are failed attempts
-                if (securityState.failedAttempts > 0) {
-                    updateAttemptsDisplay();
-                }
-
-            } catch (error) {
-                console.error('Error loading security state:', error);
-                resetSecurityState();
-            }
-        }
-
-        function setupSecurityEventListeners() {
-            // Password input enter key
-            passwordInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    checkPassword();
-                }
-            });
-
-            // Close alert button
-            if (closeAlertBtn) {
-                closeAlertBtn.addEventListener('click', closeStageAlert);
-            }
-
-            // Close alert when clicking outside
-            if (stageAlert) {
-                stageAlert.addEventListener('click', function(e) {
-                    if (e.target === stageAlert) {
-                        closeStageAlert();
-                    }
-                });
-            }
-        }
-
-        function checkPassword() {
-            // Check if locked out
-            if (securityState.lockoutUntil && Date.now() < securityState.lockoutUntil) {
-                showLockoutScreen();
-                return;
-            }
-
-            const password = passwordInput.value.trim();
-            if (errorMessage) errorMessage.style.display = 'none';
-
-            if (!password) {
-                showError('Please enter the master password');
-                return;
-            }
-
-            // Disable button during verification
-            loginButton.disabled = true;
-            loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
-
-            // Simulate verification delay
-            setTimeout(() => {
-                if (password === SECURITY_CONFIG.MASTER_PASSWORD) {
-                    handleLoginSuccess();
-                } else {
-                    handleLoginFailure();
-                }
-
-                // Re-enable button
-                loginButton.disabled = false;
-                loginButton.innerHTML = '<i class="fas fa-unlock-alt"></i> Access System';
-            }, 800);
-        }
-
-        function handleLoginSuccess() {
-            // Reset failed attempts
-            securityState.failedAttempts = 0;
-            securityState.lockoutUntil = 0;
-            securityState.authenticated = true;
-
-            // Clear storage
-            localStorage.removeItem('secure_schedule_attempts');
-            localStorage.removeItem('secure_schedule_lockout');
-
-            // Grant access
-            grantAccess();
-
-            // Clear password field
-            passwordInput.value = '';
-        }
-
-        function handleLoginFailure() {
-            securityState.failedAttempts++;
-
-            // Save to localStorage
-            localStorage.setItem('secure_schedule_attempts', securityState.failedAttempts.toString());
-
-            // Show error
-            showError('<i class="fas fa-times-circle"></i> Invalid master password');
-
-            // Update attempts display
-            updateAttemptsDisplay();
-
-            // Clear password field and refocus
-            passwordInput.value = '';
-            passwordInput.focus();
-
-            // Check for lockout
-            if (securityState.failedAttempts >= SECURITY_CONFIG.MAX_ATTEMPTS) {
-                activateLockout();
-            }
-        }
-
-        function showError(message) {
-            if (errorMessage) {
-                errorMessage.innerHTML = message;
-                errorMessage.style.display = 'block';
-            }
-        }
-
-        function updateAttemptsDisplay() {
-            if (attemptsInfo) {
-                attemptsInfo.textContent = `Attempt ${securityState.failedAttempts} of ${SECURITY_CONFIG.MAX_ATTEMPTS}`;
-                attemptsInfo.style.display = 'block';
-            }
-        }
-
-        function showLoginScreen() {
-            if (loginContainer) loginContainer.classList.remove('hidden');
-            if (lockoutContainer) lockoutContainer.classList.add('hidden');
-            passwordInput.focus();
-        }
-
-        function showLockoutScreen() {
-            if (loginContainer) loginContainer.classList.add('hidden');
-            if (lockoutContainer) lockoutContainer.classList.remove('hidden');
-        }
-
-        function activateLockout() {
-            const lockoutTime = Date.now() + (SECURITY_CONFIG.LOCKOUT_MINUTES * 60 * 1000);
-            securityState.lockoutUntil = lockoutTime;
-
-            // Save to localStorage
-            localStorage.setItem('secure_schedule_lockout', lockoutTime.toString());
-
-            // Show lockout screen
-            showLockoutScreen();
-
-            // Start lockout timer
-            startLockoutTimer();
-        }
-
-        function startLockoutTimer() {
-            const lockoutTime = securityState.lockoutUntil - Date.now();
-            let seconds = Math.floor(lockoutTime / 1000);
-
-            const updateTimer = () => {
-                seconds--;
-
-                if (seconds <= 0) {
-                    clearInterval(interval);
-                    if (lockoutTimer) lockoutTimer.textContent = '00:00';
-
-                    setTimeout(() => {
-                        // Reset lockout
-                        securityState.lockoutUntil = 0;
-                        securityState.failedAttempts = 0;
-                        localStorage.removeItem('secure_schedule_lockout');
-                        localStorage.setItem('secure_schedule_attempts', '0');
-
-                        // Show login screen
-                        showLoginScreen();
-                    }, 1000);
-                    return;
-                }
-
-                const mins = Math.floor(seconds / 60);
-                const secs = seconds % 60;
-                if (lockoutTimer) {
-                    lockoutTimer.textContent =
-                        (mins < 10 ? '0' : '') + mins + ':' +
-                        (secs < 10 ? '0' : '') + secs;
-                }
             };
 
-            // Update immediately
-            updateTimer();
-
-            // Update every second
-            const interval = setInterval(updateTimer, 1000);
-        }
-
-        function grantAccess() {
-            console.log('✅ Authentication successful');
-
-            // Hide security overlay
-            if (securityOverlay) {
-                securityOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    securityOverlay.style.display = 'none';
-                }, 500);
-            }
-
-            // Show dashboard
-            if (dashboard) dashboard.classList.add('visible');
-
-            // Show schedule system
-            if (polyphasicSchedule) polyphasicSchedule.classList.add('visible');
-
-            // Start schedule monitoring
-            startScheduleMonitoring();
-        }
-
-        function togglePasswordVisibility() {
-            const toggleIcon = document.querySelector('.toggle-password i');
-            if (!toggleIcon) return;
-
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                toggleIcon.className = 'fas fa-eye-slash';
-            } else {
-                passwordInput.type = 'password';
-                toggleIcon.className = 'fas fa-eye';
-            }
-        }
-
-        function resetSecurityState() {
-            securityState = {
-                authenticated: false,
-                failedAttempts: 0,
-                lockoutUntil: 0
-            };
-
-            localStorage.removeItem('secure_schedule_attempts');
-            localStorage.removeItem('secure_schedule_lockout');
-        }
-
-        // ============================================
-        // SCHEDULE SYSTEM FUNCTIONS
-        // ============================================
-        function initializeScheduleSystem() {
-            // Load saved preferences
-            loadSchedulePreferences();
-
-            // Setup event listeners
-            setupScheduleEventListeners();
-        }
-
-        function setupScheduleEventListeners() {
-            // Schedule buttons
-            if (workdayBtn) workdayBtn.addEventListener('click', () => switchSchedule('workday'));
-            if (restdayBtn) restdayBtn.addEventListener('click', () => switchSchedule('restday'));
-
-            // Mute toggle
-            if (muteToggle) muteToggle.addEventListener('click', toggleMute);
-        }
-
-        function loadSchedulePreferences() {
-            const saved = localStorage.getItem('schedule_preferences');
-            if (saved) {
-                try {
-                    const preferences = JSON.parse(saved);
-                    currentSchedule = preferences.currentSchedule || 'workday';
-                    isMuted = preferences.isMuted || false;
-
-                    // Update UI
-                    updateScheduleButtons();
-                    updateMuteToggle();
-
-                } catch (error) {
-                    console.log('Error loading schedule preferences:', error);
-                }
-            }
-        }
-
-        function saveSchedulePreferences() {
-            const preferences = {
-                currentSchedule: currentSchedule,
-                isMuted: isMuted
-            };
-            localStorage.setItem('schedule_preferences', JSON.stringify(preferences));
-        }
-
-        function startScheduleMonitoring() {
-            // Initial check
-            checkCurrentStage();
-
-            // Check every second
-            stageCheckInterval = setInterval(checkCurrentStage, 1000);
-
-            console.log('📅 Schedule monitoring started');
-        }
-
-        function checkCurrentStage() {
-            const now = new Date();
-            const currentTimeInMinutes = now.getHours() * 60 + now.getMinutes();
-
-            const schedule = SCHEDULES[currentSchedule];
-            const allSegments = [...schedule.period1.segments, ...schedule.period2.segments];
-
-            // Find current segment
-            let currentSegment = null;
-            let nextSegment = null;
-
-            for (let i = 0; i < allSegments.length; i++) {
-                const segment = allSegments[i];
-                const startMinutes = timeToMinutes(segment.start);
-                const endMinutes = timeToMinutes(segment.end);
-
-                let isCurrent = false;
-
-                if (endMinutes > startMinutes) {
-                    // Normal case: start and end in same day
-                    isCurrent = currentTimeInMinutes >= startMinutes &&
-                                currentTimeInMinutes < endMinutes;
-                } else {
-                    // Case spanning midnight
-                    isCurrent = currentTimeInMinutes >= startMinutes ||
-                                currentTimeInMinutes < endMinutes;
-                }
-
-                if (isCurrent) {
-                    currentSegment = {
-                        ...segment,
-                        index: i
+            // ============================================
+            // SECURITY SYSTEM CLASS
+            // ============================================
+            class SecuritySystem {
+                constructor(config) {
+                    this.config = config;
+                    this.state = {
+                        authenticated: false,
+                        failedAttempts: 0,
+                        lockoutUntil: 0
                     };
-
-                    // Get next segment (wrap around)
-                    nextSegment = allSegments[(i + 1) % allSegments.length];
-                    break;
-                }
-            }
-
-            // Update display
-            if (currentSegment) {
-                if (currentActivity) {
-                    currentActivity.textContent = `${currentSegment.activity} (${currentSegment.start}-${currentSegment.end})`;
-                }
-
-                // Check if this is a new segment
-                if (currentSegment.index !== currentSegmentIndex) {
-                    currentSegmentIndex = currentSegment.index;
-                    showStageAlert(currentSegment);
-                    showStageNotification(currentSegment);
+                    this.elements = {
+                        overlay: document.getElementById('security-overlay'),
+                        loginContainer: document.getElementById('login-container'),
+                        lockoutContainer: document.getElementById('lockout-container'),
+                        passwordInput: document.getElementById('password-input'),
+                        loginButton: document.getElementById('login-button'),
+                        errorMessage: document.getElementById('error-message'),
+                        attemptsInfo: document.getElementById('attempts-info'),
+                        lockoutTimer: document.getElementById('lockout-timer'),
+                        togglePasswordBtn: document.getElementById('togglePasswordBtn')
+                    };
                 }
 
-                // Update next stage countdown
-                if (nextSegment && nextStageTime) {
-                    updateNextStageCountdown(currentTimeInMinutes, nextSegment);
-                }
-            }
-        }
-
-        function updateNextStageCountdown(currentMinutes, nextSegment) {
-            const nextStartMinutes = timeToMinutes(nextSegment.start);
-            let minutesUntilNext;
-
-            if (nextStartMinutes > currentMinutes) {
-                minutesUntilNext = nextStartMinutes - currentMinutes;
-            } else {
-                // Next segment starts tomorrow
-                minutesUntilNext = (24 * 60 - currentMinutes) + nextStartMinutes;
-            }
-
-            const hours = Math.floor(minutesUntilNext / 60);
-            const minutes = minutesUntilNext % 60;
-
-            let timeText = '';
-            if (hours > 0) timeText += `${hours}h `;
-            timeText += `${minutes}m`;
-
-            if (nextStageTime) {
-                nextStageTime.textContent = timeText;
-            }
-        }
-
-        function switchSchedule(scheduleType) {
-            if (currentSchedule !== scheduleType) {
-                currentSchedule = scheduleType;
-                currentSegmentIndex = -1; // Reset to trigger new alert
-
-                // Update buttons
-                updateScheduleButtons();
-
-                // Update display
-                if (scheduleName) {
-                    scheduleName.textContent = `${SCHEDULES[currentSchedule].name} Active`;
+                init() {
+                    this.loadState();
+                    this.setupEventListeners();
                 }
 
-                // Save preferences
-                saveSchedulePreferences();
-
-                console.log(`🔄 Switched to ${scheduleType} schedule`);
-            }
-        }
-
-        function updateScheduleButtons() {
-            if (workdayBtn && restdayBtn) {
-                if (currentSchedule === 'workday') {
-                    workdayBtn.classList.add('active');
-                    restdayBtn.classList.remove('active');
-                } else {
-                    restdayBtn.classList.add('active');
-                    workdayBtn.classList.remove('active');
-                }
-            }
-        }
-
-        function showStageAlert(segment) {
-            // Clear any existing timeout/interval
-            clearAlertTimers();
-
-            // Update alert content
-            if (alertActivity) {
-                alertActivity.textContent = segment.activity.toUpperCase();
-                alertActivity.className = `alert-activity ${segment.activity.toLowerCase()}`;
-            }
-            if (alertInterval) {
-                alertInterval.textContent = `${segment.start} - ${segment.end}`;
-            }
-
-            // Update alert style
-            if (alertContent) {
-                alertContent.className = `alert-content alert-${segment.activity.toLowerCase()}`;
-            }
-
-            // Reset countdown
-            let countdown = 5;
-            if (countdownTimer) {
-                countdownTimer.textContent = countdown;
-            }
-
-            // Show alert
-            if (stageAlert) {
-                stageAlert.classList.add('active');
-            }
-
-            // Play sound if not muted
-            if (!isMuted) {
-                playAlertSound();
-            }
-
-            // Start countdown
-            countdownInterval = setInterval(() => {
-                countdown--;
-                if (countdownTimer) {
-                    countdownTimer.textContent = countdown;
-                }
-
-                if (countdown <= 0) {
-                    closeStageAlert();
-                }
-            }, 1000);
-
-            // Auto-close after 5 seconds
-            alertTimeout = setTimeout(closeStageAlert, 5000);
-        }
-
-        function closeStageAlert() {
-            if (stageAlert) {
-                stageAlert.classList.remove('active');
-            }
-            clearAlertTimers();
-        }
-
-        function clearAlertTimers() {
-            if (alertTimeout) {
-                clearTimeout(alertTimeout);
-                alertTimeout = null;
-            }
-            if (countdownInterval) {
-                clearInterval(countdownInterval);
-                countdownInterval = null;
-            }
-        }
-
-        function showStageNotification(segment) {
-            if (notificationActivity) {
-                notificationActivity.textContent = `${segment.activity} Stage`;
-            }
-            if (notificationInterval) {
-                notificationInterval.textContent = `${segment.start} - ${segment.end}`;
-            }
-
-            // Set icon based on activity
-            let icon = "⏰";
-            if (segment.activity === "Rest") icon = "😴";
-            else if (segment.activity === "Work") icon = "💼";
-            else if (segment.activity === "Gaming") icon = "🎮";
-
-            if (notificationIcon) {
-                notificationIcon.textContent = icon;
-            }
-
-            // Set notification style
-            if (stageNotification) {
-                stageNotification.className = `stage-notification active notification-${segment.activity.toLowerCase()}`;
-            }
-
-            // Auto hide after 3 seconds
-            setTimeout(() => {
-                if (stageNotification) {
-                    stageNotification.classList.remove('active');
-                }
-            }, 3000);
-        }
-
-        function toggleMute() {
-            isMuted = !isMuted;
-            if (muteToggle) {
-                muteToggle.classList.toggle('muted', isMuted);
-            }
-            if (muteIcon) {
-                muteIcon.textContent = isMuted ? '🔕' : '🔔';
-            }
-            saveSchedulePreferences();
-
-            console.log(`🔇 Mute ${isMuted ? 'enabled' : 'disabled'}`);
-        }
-
-        function updateMuteToggle() {
-            if (muteToggle) {
-                muteToggle.classList.toggle('muted', isMuted);
-            }
-            if (muteIcon) {
-                muteIcon.textContent = isMuted ? '🔕' : '🔔';
-            }
-        }
-
-        function playAlertSound() {
-            try {
-                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                const oscillator = audioContext.createOscillator();
-                const gainNode = audioContext.createGain();
-
-                oscillator.connect(gainNode);
-                gainNode.connect(audioContext.destination);
-
-                oscillator.frequency.value = 800;
-                oscillator.type = 'sine';
-
-                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-
-                oscillator.start(audioContext.currentTime);
-                oscillator.stop(audioContext.currentTime + 0.5);
-            } catch (error) {
-                console.log("Audio not supported or blocked by browser");
-            }
-        }
-
-        // ============================================
-        // UTILITY FUNCTIONS
-        // ============================================
-        function timeToMinutes(timeStr) {
-            const [hours, minutes] = timeStr.split(':').map(Number);
-            return hours * 60 + minutes;
-        }
-
-        // ============================================
-        // WINDOW MANAGEMENT FUNCTIONS
-        // ============================================
-        function toggleWindow(windowId) {
-            const window = document.getElementById(windowId);
-            if (!window) return;
-
-            if (window.classList.contains('active')) {
-                window.classList.remove('active');
-                document.body.style.overflow = '';
-            } else {
-                document.querySelectorAll('.polyphasic-overview-window.active').forEach(w => {
-                    w.classList.remove('active');
-                });
-                window.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        // Close windows when clicking outside
-        document.addEventListener('click', function(event) {
-            const windows = document.querySelectorAll('.polyphasic-overview-window.active');
-            windows.forEach(window => {
-                if (!window.contains(event.target) && !event.target.closest('.open-polyphasic-btn')) {
-                    window.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-
-        // Escape key closes windows
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.polyphasic-overview-window.active').forEach(window => {
-                    window.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            }
-        });
-        // Time tracking data for sections
-        const sectionData = {
-            Ozzy_1: { name: "Matematika", lastOpened: null, totalTime: 0, pageNumber: 42 },
-            Ozzy_2: { name: "Hrvatski", lastOpened: null, totalTime: 0, pageNumber: 87 },
-            Ozzy_3: { name: "Biologija", lastOpened: null, totalTime: 0, pageNumber: 105 },
-            Ozzy_4: { name: "Kemija", lastOpened: null, totalTime: 0, pageNumber: 122 },
-            Ozzy_5: { name: "Fizika", lastOpened: null, totalTime: 0, pageNumber: 145 },
-            Ozzy_6: { name: "Informatika", lastOpened: null, totalTime: 0, pageNumber: 201 },
-            Ozzy_7: { name: "Povijest", lastOpened: null, totalTime: 0, pageNumber: 245 },
-            Ozzy_8: { name: "Geografija", lastOpened: null, totalTime: 0, pageNumber: 278 },
-            Ozzy_9: { name: "Glazbeni", lastOpened: null, totalTime: 0, pageNumber: 305 }
-        };
-
-        // Active section tracking
-        let currentlyActiveSection = null;
-        let activeSectionStartTime = null;
-        let lastUnloadTime = null;
-
-        // Updated time thresholds in hours
-        const YELLOW_THRESHOLD = 72;  // 3 days
-        const RED_THRESHOLD = 168;    // 7 days
-
-        // Timer interval for checking status updates
-        let statusCheckInterval = null;
-        let overviewUpdateInterval = null;
-
-        // Toggle debug panel
-        function toggleDebugPanel() {
-            const debugPanel = document.getElementById('debugPanel');
-            debugPanel.classList.toggle('active');
-        }
-
-        // Debug function
-        function updateDebugInfo() {
-            const debugContent = document.getElementById('debugContent');
-            if (!debugContent) return;
-
-            let debugText = `Active Section: ${currentlyActiveSection || 'None'}<br>`;
-            debugText += `Active Start: ${activeSectionStartTime || 'None'}<br>`;
-            debugText += `Last Unload: ${lastUnloadTime || 'None'}<br>`;
-
-            for (const sectionId in sectionData) {
-                const lastOpened = sectionData[sectionId].lastOpened;
-                const timeSinceLastOpened = lastOpened ?
-                    formatDetailedTime((new Date() - lastOpened) / 1000) : 'Never';
-                debugText += `<div>${sectionId}: Page ${sectionData[sectionId].pageNumber}</div>`;
-                debugText += `<div class="time-details">Last: ${timeSinceLastOpened}</div>`;
-            }
-
-            debugContent.innerHTML = debugText;
-        }
-
-        // Format time in days, hours, minutes, seconds
-        function formatDetailedTime(totalSeconds) {
-            const days = Math.floor(totalSeconds / (24 * 60 * 60));
-            const hours = Math.floor((totalSeconds % (24 * 60 * 60)) / (60 * 60));
-            const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
-            const seconds = Math.floor(totalSeconds % 60);
-
-            let result = '';
-            if (days > 0) result += `${days}d `;
-            if (hours > 0) result += `${hours}h `;
-            if (minutes > 0) result += `${minutes}m `;
-            result += `${seconds}s`;
-
-            return result;
-        }
-
-        // NEW: Function to set active section when clicking on h2
-        function setActiveSection(sectionId) {
-            // Remove active class from all sections
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.remove('active');
-            });
-
-            // Add active class to clicked section
-            const clickedSection = document.getElementById(sectionId);
-            if (clickedSection) {
-                clickedSection.classList.add('active');
-
-                // Scroll to the section
-                clickedSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-            }
-
-            // If the same section is already active, do nothing
-            if (currentlyActiveSection === sectionId) {
-                return;
-            }
-
-            // Stop the timer for the current active section
-            if (currentlyActiveSection) {
-                const endTime = new Date();
-                const timeSpent = (endTime - activeSectionStartTime) / (1000 * 60 * 60);
-                sectionData[currentlyActiveSection].totalTime += timeSpent;
-                localStorage.setItem(`totalTime_${currentlyActiveSection}`, sectionData[currentlyActiveSection].totalTime);
-
-                console.log(`Stopped timer for ${currentlyActiveSection}: ${timeSpent.toFixed(2)} hours added`);
-            }
-
-            // Start timer for new active section
-            currentlyActiveSection = sectionId;
-            activeSectionStartTime = new Date();
-            localStorage.setItem('activeSection', currentlyActiveSection);
-
-            // Update the lastOpened time and status indicator
-            sectionData[sectionId].lastOpened = new Date();
-            localStorage.setItem(`lastOpened_${sectionId}`, sectionData[sectionId].lastOpened.getTime());
-            updateStatusIndicator(sectionId);
-
-            // Update debug info
-            updateDebugInfo();
-
-            console.log(`Started timer for ${sectionId} via click`);
-        }
-
-        // Initialize section data from localStorage
-        function initializeSectionData() {
-            // Load last unload time
-            const storedUnloadTime = localStorage.getItem('lastUnloadTime');
-            if (storedUnloadTime) {
-                lastUnloadTime = new Date(parseInt(storedUnloadTime));
-            }
-
-            // Load active section from previous session
-            const storedActiveSection = localStorage.getItem('activeSection');
-
-            for (const sectionId in sectionData) {
-                // Load last opened time
-                const storedTime = localStorage.getItem(`lastOpened_${sectionId}`);
-                if (storedTime) {
-                    sectionData[sectionId].lastOpened = new Date(parseInt(storedTime));
-                }
-
-                // Load total time
-                const storedTotalTime = localStorage.getItem(`totalTime_${sectionId}`);
-                if (storedTotalTime) {
-                    sectionData[sectionId].totalTime = parseFloat(storedTotalTime);
-                }
-
-                // Load page number
-                const storedPageNumber = localStorage.getItem(`pageNumber_${sectionId}`);
-                if (storedPageNumber) {
-                    sectionData[sectionId].pageNumber = parseInt(storedPageNumber);
-                }
-
-                // Update summary number display with page number
-                updateSummaryNumber(sectionId, sectionData[sectionId].pageNumber);
-            }
-
-            // Calculate elapsed time since last unload if there was an active section
-            if (storedActiveSection && sectionData[storedActiveSection] && lastUnloadTime) {
-                const now = new Date();
-                const elapsedHours = (now - lastUnloadTime) / (1000 * 60 * 60);
-
-                // Add elapsed time to the previously active section
-                sectionData[storedActiveSection].totalTime += elapsedHours;
-                localStorage.setItem(`totalTime_${storedActiveSection}`, sectionData[storedActiveSection].totalTime);
-
-                console.log(`Added ${elapsedHours.toFixed(2)} hours to ${storedActiveSection}`);
-            }
-
-            // Update all status indicators
-            updateAllStatusIndicators();
-
-            // Start the status check interval
-            startStatusCheckInterval();
-
-            // Update debug info
-            updateDebugInfo();
-
-            // Set up page number change listeners
-            setupPageNumberListeners();
-
-            // Set up click listeners for h2 elements
-            setupH2ClickListeners();
-        }
-
-        // Set up click listeners for h2 elements
-        function setupH2ClickListeners() {
-            const h2Elements = document.querySelectorAll('section h2');
-            h2Elements.forEach(h2 => {
-                h2.addEventListener('click', function() {
-                    const sectionId = this.closest('section').id;
-                    setActiveSection(sectionId);
-                });
-            });
-        }
-
-        // Set up listeners for page number inputs
-        function setupPageNumberListeners() {
-            const pageInputs = document.querySelectorAll('.summary-number');
-            pageInputs.forEach(input => {
-                input.addEventListener('change', function() {
-                    const sectionId = this.getAttribute('data-section');
-                    const pageNumber = parseInt(this.value) || 0;
-
-                    if (sectionId && sectionData[sectionId]) {
-                        sectionData[sectionId].pageNumber = pageNumber;
-                        localStorage.setItem(`pageNumber_${sectionId}`, pageNumber);
-                        console.log(`Updated ${sectionId} page number to ${pageNumber}`);
-                    }
-                });
-            });
-        }
-
-        // Start interval for checking status updates
-        function startStatusCheckInterval() {
-            if (statusCheckInterval) {
-                clearInterval(statusCheckInterval);
-            }
-
-            // Check status every second for real-time updates
-            statusCheckInterval = setInterval(() => {
-                updateAllStatusIndicators();
-                updateDebugInfo();
-            }, 1000);
-        }
-
-        // Start interval for updating overview window
-        function startOverviewUpdateInterval() {
-            if (overviewUpdateInterval) {
-                clearInterval(overviewUpdateInterval);
-            }
-
-            // Update overview every second when it's open
-            overviewUpdateInterval = setInterval(() => {
-                if (document.getElementById('statusOverview').classList.contains('active')) {
-                    populateStatusOverview();
-                }
-            }, 1000);
-        }
-
-        // Stop overview update interval
-        function stopOverviewUpdateInterval() {
-            if (overviewUpdateInterval) {
-                clearInterval(overviewUpdateInterval);
-                overviewUpdateInterval = null;
-            }
-        }
-
-        // Update status indicators based on time elapsed
-        function updateStatusIndicator(sectionId) {
-            const headerIndicator = document.getElementById(`status-indicator-${sectionId}`);
-            const summaryIndicator = document.getElementById(`summary-status-indicator-${sectionId}`);
-            const tooltip = headerIndicator ? headerIndicator.nextElementSibling : null;
-
-            if (!sectionData[sectionId].lastOpened) {
-                if (headerIndicator) headerIndicator.className = "status-indicator status-red";
-                if (summaryIndicator) summaryIndicator.className = "status-indicator summary-status-indicator status-red";
-                if (tooltip) tooltip.textContent = "Never visited";
-                return;
-            }
-
-            const now = new Date();
-            const diffHours = (now - sectionData[sectionId].lastOpened) / (1000 * 60 * 60);
-
-            // Format last visited time
-            const lastVisited = formatLastVisited(diffHours);
-            if (tooltip) tooltip.textContent = `Last visited: ${lastVisited}`;
-
-            // Set indicator color based on time thresholds
-            let statusClass;
-            if (diffHours <= YELLOW_THRESHOLD) {
-                statusClass = "status-green";
-            } else if (diffHours <= RED_THRESHOLD) {
-                statusClass = "status-yellow";
-            } else {
-                statusClass = "status-red";
-            }
-
-            if (headerIndicator) headerIndicator.className = `status-indicator ${statusClass}`;
-            if (summaryIndicator) summaryIndicator.className = `status-indicator summary-status-indicator ${statusClass}`;
-        }
-
-        // Format last visited time for display
-        function formatLastVisited(hours) {
-            if (hours < 1) return "Just now";
-            if (hours < 24) return `${Math.floor(hours)} hours ago`;
-
-            const days = Math.floor(hours / 24);
-            if (days === 1) return "1 day ago";
-            if (days < 7) return `${days} days ago`;
-
-            const weeks = Math.floor(days / 7);
-            if (weeks === 1) return "1 week ago";
-            if (weeks < 4) return `${weeks} weeks ago`;
-
-            const months = Math.floor(days / 30);
-            if (months === 1) return "1 month ago";
-            return `${months} months ago`;
-        }
-
-        // Update all status indicators
-        function updateAllStatusIndicators() {
-            for (const sectionId in sectionData) {
-                updateStatusIndicator(sectionId);
-            }
-        }
-
-        // Update summary number display with page number
-        function updateSummaryNumber(sectionId, pageNumber) {
-            const summaryNumber = document.querySelector(`.summary-content a[href="#${sectionId}"]`)
-                ?.closest('.summary-line')
-                ?.querySelector('.summary-number');
-
-            if (summaryNumber) {
-                summaryNumber.value = pageNumber;
-            }
-        }
-
-        // Populate the status overview window
-        function populateStatusOverview() {
-            const greenList = document.getElementById('green-list');
-            const yellowList = document.getElementById('yellow-list');
-            const redList = document.getElementById('red-list');
-
-            // Clear existing lists
-            greenList.innerHTML = '';
-            yellowList.innerHTML = '';
-            redList.innerHTML = '';
-
-            const now = new Date();
-
-            for (const sectionId in sectionData) {
-                if (!sectionData[sectionId].lastOpened) {
-                    // Never opened - red status
-                    const li = createStatusListItem(sectionId, 'red');
-                    redList.appendChild(li);
-                    continue;
-                }
-
-                const diffHours = (now - sectionData[sectionId].lastOpened) / (1000 * 60 * 60);
-
-                if (diffHours <= YELLOW_THRESHOLD) {
-                    const li = createStatusListItem(sectionId, 'green');
-                    greenList.appendChild(li);
-                } else if (diffHours <= RED_THRESHOLD) {
-                    const li = createStatusListItem(sectionId, 'yellow');
-                    yellowList.appendChild(li);
-                } else {
-                    const li = createStatusListItem(sectionId, 'red');
-                    redList.appendChild(li);
-                }
-            }
-        }
-
-        // Create a list item for the status overview
-        function createStatusListItem(sectionId, status) {
-            const li = document.createElement('li');
-            const indicator = document.createElement('div');
-            indicator.className = `status-indicator status-${status}`;
-
-            const timeSinceLastOpened = sectionData[sectionId].lastOpened ?
-                formatDetailedTime((new Date() - sectionData[sectionId].lastOpened) / 1000) : 'Never';
-
-            li.innerHTML = `
-                <span>
-                    ${indicator.outerHTML}
-                    <a href="#${sectionId}" onclick="toggleWindow('statusOverview')">${sectionData[sectionId].name}</a>
-                </span>
-                <span>Page ${sectionData[sectionId].pageNumber} • (${timeSinceLastOpened})</span>
-            `;
-
-            return li;
-        }
-
-        // Toggle window visibility
-        function toggleWindow(windowId) {
-            const window = document.getElementById(windowId);
-            const isActive = window.classList.contains('active');
-
-            window.classList.toggle('active');
-            document.body.style.overflow = window.classList.contains('active') ? 'hidden' : '';
-
-            if (windowId === 'statusOverview') {
-                if (window.classList.contains('active')) {
-                    populateStatusOverview();
-                    startOverviewUpdateInterval();
-                } else {
-                    stopOverviewUpdateInterval();
-                }
-            }
-        }
-
-        // Scroll reveal animation
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                } else {
-                    reveals[i].classList.remove("active");
-                }
-            }
-        }
-
-        // Handle page unload
-        function handlePageUnload() {
-            if (currentlyActiveSection) {
-                const endTime = new Date();
-                const timeSpent = (endTime - activeSectionStartTime) / (1000 * 60 * 60);
-                sectionData[currentlyActiveSection].totalTime += timeSpent;
-                localStorage.setItem(`totalTime_${currentlyActiveSection}`, sectionData[currentlyActiveSection].totalTime);
-                console.log(`On unload: Added ${timeSpent.toFixed(2)} hours to ${currentlyActiveSection}`);
-            }
-
-            // Store unload time and active section
-            localStorage.setItem('lastUnloadTime', new Date().getTime());
-            if (currentlyActiveSection) {
-                localStorage.setItem('activeSection', currentlyActiveSection);
-            }
-            console.log("Saved unload time and active section");
-        }
-
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeSectionData();
-
-            // Initialize scroll event listener for reveal animations only
-            window.addEventListener("scroll", reveal, { passive: true });
-            reveal(); // Initialize sections
-
-            // Set up beforeunload event
-            window.addEventListener('beforeunload', handlePageUnload);
-
-            // Update debug info
-            updateDebugInfo();
-        });
-
-        // Search functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('search');
-            const searchResults = document.getElementById('search-results');
-
-            // Sample data for demonstration
-            const elementsWithIds = [
-                { id: 'printBtn', text: 'Print Page Button', type: 'button' },
-                { id: 'themeBtn', text: 'Toggle Theme Button', type: 'button' },
-                { id: 'refreshBtn', text: 'Refresh Content Button', type: 'button' },
-                { id: 'helpBtn', text: 'Get Help Button', type: 'button' },
-                { id: 'shareBtn', text: 'Share Button', type: 'button' },
-                { id: 'downloadBtn', text: 'Download Button', type: 'button' }
-            ];
-
-            // Function to find bold text on the page
-            function findBoldText() {
-                const boldElements = Array.from(document.querySelectorAll('b, strong'));
-                return boldElements.map(el => ({
-                    element: el,
-                    text: el.textContent,
-                    type: 'bold text'
-                }));
-            }
-
-            // Function to search for matching items
-            function searchItems(query) {
-                const results = [];
-                const lowerQuery = query.toLowerCase().trim();
-
-                if (!lowerQuery) return [];
-
-                // Search section names
-                for (const sectionId in sectionData) {
-                    if (sectionData[sectionId].name.toLowerCase().includes(lowerQuery)) {
-                        const element = document.getElementById(sectionId);
-                        if (element) {
-                            results.push({
-                                element: element,
-                                text: sectionData[sectionId].name,
-                                type: 'section'
-                            });
+                loadState() {
+                    try {
+                        const savedAttempts = localStorage.getItem('secure_schedule_attempts');
+                        const lockoutTime = localStorage.getItem('secure_schedule_lockout');
+                        if (savedAttempts) this.state.failedAttempts = parseInt(savedAttempts);
+                        if (lockoutTime) {
+                            this.state.lockoutUntil = parseInt(lockoutTime);
+                            if (Date.now() < this.state.lockoutUntil) {
+                                this.showLockoutScreen();
+                                this.startLockoutTimer();
+                                return;
+                            } else {
+                                this.state.failedAttempts = 0;
+                                this.state.lockoutUntil = 0;
+                                localStorage.removeItem('secure_schedule_lockout');
+                                localStorage.setItem('secure_schedule_attempts', '0');
+                            }
                         }
+                        this.showLoginScreen();
+                        if (this.state.failedAttempts > 0) this.updateAttemptsDisplay();
+                    } catch (error) {
+                        console.error('Error loading security state:', error);
+                        this.resetState();
                     }
                 }
 
-                // Search bold text
-                const boldItems = findBoldText();
-                for (const item of boldItems) {
-                    if (item.text.toLowerCase().includes(lowerQuery)) {
-                        results.push({
-                            element: item.element,
-                            text: item.text,
-                            type: 'bold text'
-                        });
+                setupEventListeners() {
+                    this.elements.passwordInput?.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') this.checkPassword();
+                    });
+                    this.elements.loginButton?.addEventListener('click', () => this.checkPassword());
+                    this.elements.togglePasswordBtn?.addEventListener('click', () => this.togglePasswordVisibility());
+                }
+
+                togglePasswordVisibility() {
+                    const input = this.elements.passwordInput;
+                    const icon = this.elements.togglePasswordBtn.querySelector('i');
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        icon.className = 'fas fa-eye-slash';
+                    } else {
+                        input.type = 'password';
+                        icon.className = 'fas fa-eye';
                     }
                 }
 
-                // Search elements with IDs
-                for (const item of elementsWithIds) {
-                    if (item.id.toLowerCase().includes(lowerQuery) ||
-                        item.text.toLowerCase().includes(lowerQuery)) {
-                        const element = document.getElementById(item.id);
-                        if (element) {
-                            results.push({
-                                element: element,
-                                text: item.text,
-                                type: 'element ID'
-                            });
+                checkPassword() {
+                    if (this.state.lockoutUntil && Date.now() < this.state.lockoutUntil) {
+                        this.showLockoutScreen();
+                        return;
+                    }
+                    const password = this.elements.passwordInput.value.trim();
+                    if (!password) {
+                        this.showError('Please enter the master password');
+                        return;
+                    }
+                    this.elements.loginButton.disabled = true;
+                    this.elements.loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
+                    setTimeout(() => {
+                        if (password === this.config.MASTER_PASSWORD) {
+                            this.handleSuccess();
+                        } else {
+                            this.handleFailure();
                         }
+                        this.elements.loginButton.disabled = false;
+                        this.elements.loginButton.innerHTML = '<i class="fas fa-unlock-alt"></i> Access System';
+                    }, 800);
+                }
+
+                handleSuccess() {
+                    this.state.failedAttempts = 0;
+                    this.state.lockoutUntil = 0;
+                    this.state.authenticated = true;
+                    localStorage.removeItem('secure_schedule_attempts');
+                    localStorage.removeItem('secure_schedule_lockout');
+                    this.grantAccess();
+                    this.elements.passwordInput.value = '';
+                }
+
+                handleFailure() {
+                    this.state.failedAttempts++;
+                    localStorage.setItem('secure_schedule_attempts', this.state.failedAttempts.toString());
+                    this.showError('<i class="fas fa-times-circle"></i> Invalid master password');
+                    this.updateAttemptsDisplay();
+                    this.elements.passwordInput.value = '';
+                    this.elements.passwordInput.focus();
+                    if (this.state.failedAttempts >= this.config.MAX_ATTEMPTS) {
+                        this.activateLockout();
                     }
                 }
 
-                return results;
-            }
-
-            // Function to display search results
-            function displayResults(results, query) {
-                searchResults.innerHTML = '';
-
-                if (results.length === 0) {
-                    searchResults.innerHTML = '<div class="no-results">No results found for "' + query + '"</div>';
-                    searchResults.style.display = 'block';
-                    return;
+                showError(message) {
+                    if (this.elements.errorMessage) {
+                        this.elements.errorMessage.innerHTML = message;
+                        this.elements.errorMessage.style.display = 'block';
+                    }
                 }
 
-                // Show search stats
-                const stats = document.createElement('div');
-                stats.className = 'search-stats';
-                stats.textContent = results.length + ' result' + (results.length !== 1 ? 's' : '') + ' for "' + query + '"';
-                searchResults.appendChild(stats);
+                updateAttemptsDisplay() {
+                    if (this.elements.attemptsInfo) {
+                        this.elements.attemptsInfo.textContent = `Attempt ${this.state.failedAttempts} of ${this.config.MAX_ATTEMPTS}`;
+                        this.elements.attemptsInfo.style.display = 'block';
+                    }
+                }
 
-                // Add results
-                results.forEach(result => {
-                    const resultItem = document.createElement('div');
-                    resultItem.className = 'result-item';
+                showLoginScreen() {
+                    this.elements.loginContainer?.classList.remove('hidden');
+                    this.elements.lockoutContainer?.classList.add('hidden');
+                    this.elements.passwordInput?.focus();
+                }
 
-                    const icon = document.createElement('i');
-                    icon.className = result.type === 'section' ?
-                        'fas fa-book result-icon' :
-                        (result.type === 'bold text' ? 'fas fa-bold result-icon' : 'fas fa-hashtag result-icon');
+                showLockoutScreen() {
+                    this.elements.loginContainer?.classList.add('hidden');
+                    this.elements.lockoutContainer?.classList.remove('hidden');
+                }
 
-                    const text = document.createElement('span');
-                    text.textContent = result.text;
+                activateLockout() {
+                    const lockoutTime = Date.now() + (this.config.LOCKOUT_MINUTES * 60 * 1000);
+                    this.state.lockoutUntil = lockoutTime;
+                    localStorage.setItem('secure_schedule_lockout', lockoutTime.toString());
+                    this.showLockoutScreen();
+                    this.startLockoutTimer();
+                }
 
-                    const type = document.createElement('span');
-                    type.className = 'result-type';
-                    type.textContent = result.type;
+                startLockoutTimer() {
+                    const lockoutTime = this.state.lockoutUntil - Date.now();
+                    let seconds = Math.floor(lockoutTime / 1000);
+                    const interval = setInterval(() => {
+                        seconds--;
+                        if (seconds <= 0) {
+                            clearInterval(interval);
+                            if (this.elements.lockoutTimer) this.elements.lockoutTimer.textContent = '00:00';
+                            setTimeout(() => {
+                                this.state.lockoutUntil = 0;
+                                this.state.failedAttempts = 0;
+                                localStorage.removeItem('secure_schedule_lockout');
+                                localStorage.setItem('secure_schedule_attempts', '0');
+                                this.showLoginScreen();
+                            }, 1000);
+                            return;
+                        }
+                        const mins = Math.floor(seconds / 60);
+                        const secs = seconds % 60;
+                        if (this.elements.lockoutTimer) {
+                            this.elements.lockoutTimer.textContent =
+                                (mins < 10 ? '0' : '') + mins + ':' +
+                                (secs < 10 ? '0' : '') + secs;
+                        }
+                    }, 1000);
+                }
 
-                    resultItem.appendChild(icon);
-                    resultItem.appendChild(text);
-                    resultItem.appendChild(type);
-
-                    resultItem.addEventListener('click', () => {
-                        // Highlight the target element
-                        result.element.classList.add('highlight');
-
-                        // Scroll to the element
-                        result.element.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'center'
-                        });
-
-                        // Remove highlight after animation completes
+                grantAccess() {
+                    console.log('✅ Authentication successful');
+                    if (this.elements.overlay) {
+                        this.elements.overlay.style.opacity = '0';
                         setTimeout(() => {
-                            result.element.classList.remove('highlight');
-                        }, 2000);
+                            this.elements.overlay.style.display = 'none';
+                        }, 500);
+                    }
+                    document.dispatchEvent(new CustomEvent('security:accessGranted'));
+                }
 
-                        // Clear search
-                        searchInput.value = '';
-                        searchResults.style.display = 'none';
-                    });
-
-                    searchResults.appendChild(resultItem);
-                });
-
-                searchResults.style.display = 'block';
+                resetState() {
+                    this.state = { authenticated: false, failedAttempts: 0, lockoutUntil: 0 };
+                    localStorage.removeItem('secure_schedule_attempts');
+                    localStorage.removeItem('secure_schedule_lockout');
+                }
             }
 
-            // Event listeners
-            searchInput.addEventListener('input', function() {
-                const query = this.value.trim();
-
-                if (query.length < 2) {
-                    searchResults.style.display = 'none';
-                    return;
+            // ============================================
+            // SCHEDULE SYSTEM CLASS
+            // ============================================
+            class ScheduleSystem {
+                constructor(schedules) {
+                    this.schedules = schedules;
+                    this.currentSchedule = 'workday';
+                    this.isMuted = false;
+                    this.currentSegmentIndex = -1;
+                    this.alertTimeout = null;
+                    this.countdownInterval = null;
+                    this.stageCheckInterval = null;
+                    this.elements = {
+                        workdayBtn: document.getElementById('workdayBtn'),
+                        restdayBtn: document.getElementById('restdayBtn'),
+                        scheduleName: document.getElementById('scheduleName'),
+                        currentActivity: document.getElementById('currentActivity'),
+                        stageAlert: document.getElementById('stageAlert'),
+                        alertContent: document.getElementById('alertContent'),
+                        alertActivity: document.getElementById('alertActivity'),
+                        alertInterval: document.getElementById('alertInterval'),
+                        countdownTimer: document.getElementById('countdownTimer'),
+                        closeAlertBtn: document.getElementById('closeAlertBtn'),
+                        stageNotification: document.getElementById('stageNotification'),
+                        notificationActivity: document.getElementById('notificationActivity'),
+                        notificationInterval: document.getElementById('notificationInterval'),
+                        notificationIcon: document.getElementById('notificationIcon'),
+                        muteToggle: document.getElementById('muteToggle'),
+                        muteIcon: document.getElementById('muteIcon'),
+                        nextStageTime: document.getElementById('nextStageTime'),
+                        polyphasicSchedule: document.getElementById('polyphasic-schedule')
+                    };
                 }
 
-                const results = searchItems(query);
-                displayResults(results, query);
-            });
-
-            searchInput.addEventListener('focus', function() {
-                const query = this.value.trim();
-                if (query.length >= 2) {
-                    const results = searchItems(query);
-                    displayResults(results, query);
+                init() {
+                    this.loadPreferences();
+                    this.setupEventListeners();
+                    document.addEventListener('security:accessGranted', () => this.start());
                 }
-            });
 
-            document.addEventListener('click', function(e) {
-                if (!searchResults.contains(e.target) && e.target !== searchInput) {
-                    searchResults.style.display = 'none';
+                setupEventListeners() {
+                    this.elements.workdayBtn?.addEventListener('click', () => this.switchSchedule('workday'));
+                    this.elements.restdayBtn?.addEventListener('click', () => this.switchSchedule('restday'));
+                    this.elements.muteToggle?.addEventListener('click', () => this.toggleMute());
+                    this.elements.closeAlertBtn?.addEventListener('click', () => this.closeStageAlert());
+                    this.elements.stageAlert?.addEventListener('click', (e) => {
+                        if (e.target === this.elements.stageAlert) this.closeStageAlert();
+                    });
+                    // Keyboard support for mute toggle
+                    this.elements.muteToggle?.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            this.toggleMute();
+                        }
+                    });
                 }
-            });
-        });
 
-        // Functionality to toggle subheadings
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add click event listeners to all (B) headings
-            const bHeadings = document.querySelectorAll('.summary-line.heading .bracket-letter.B');
+                loadPreferences() {
+                    try {
+                        const saved = localStorage.getItem('schedule_preferences');
+                        if (saved) {
+                            const prefs = JSON.parse(saved);
+                            this.currentSchedule = prefs.currentSchedule || 'workday';
+                            this.isMuted = prefs.isMuted || false;
+                            this.updateScheduleButtons();
+                            this.updateMuteUI();
+                        }
+                    } catch (error) {
+                        console.log('Error loading schedule preferences:', error);
+                    }
+                }
 
-            bHeadings.forEach(heading => {
-                heading.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
+                savePreferences() {
+                    localStorage.setItem('schedule_preferences', JSON.stringify({
+                        currentSchedule: this.currentSchedule,
+                        isMuted: this.isMuted
+                    }));
+                }
 
-                    const parentLine = this.closest('.summary-line');
-                    const group = parentLine.getAttribute('data-group');
+                start() {
+                    this.checkCurrentStage();
+                    this.stageCheckInterval = setInterval(() => this.checkCurrentStage(), 1000);
+                    if (this.elements.polyphasicSchedule) this.elements.polyphasicSchedule.classList.add('visible');
+                    document.getElementById('dashboard')?.classList.add('visible');
+                }
 
-                    // Toggle all subheadings with the same group
-                    const subheadings = document.querySelectorAll(`.summary-line.subheading[data-group="${group}"]`);
-                    const toggleIndicator = parentLine.querySelector('.toggle-indicator');
+                checkCurrentStage() {
+                    const now = new Date();
+                    const currentMinutes = now.getHours() * 60 + now.getMinutes();
+                    const schedule = this.schedules[this.currentSchedule];
+                    const allSegments = [...schedule.period1.segments, ...schedule.period2.segments];
 
-                    subheadings.forEach(subheading => {
-                        subheading.classList.toggle('visible');
+                    let currentSegment = null;
+                    let nextSegment = null;
+
+                    for (let i = 0; i < allSegments.length; i++) {
+                        const segment = allSegments[i];
+                        const start = this.timeToMinutes(segment.start);
+                        const end = this.timeToMinutes(segment.end);
+                        let isCurrent = false;
+                        if (end > start) {
+                            isCurrent = currentMinutes >= start && currentMinutes < end;
+                        } else {
+                            isCurrent = currentMinutes >= start || currentMinutes < end;
+                        }
+                        if (isCurrent) {
+                            currentSegment = { ...segment, index: i };
+                            nextSegment = allSegments[(i + 1) % allSegments.length];
+                            break;
+                        }
+                    }
+
+                    if (currentSegment) {
+                        if (this.elements.currentActivity) {
+                            this.elements.currentActivity.textContent = `${currentSegment.activity} (${currentSegment.start}-${currentSegment.end})`;
+                        }
+                        if (currentSegment.index !== this.currentSegmentIndex) {
+                            this.currentSegmentIndex = currentSegment.index;
+                            this.showStageAlert(currentSegment);
+                            this.showStageNotification(currentSegment);
+                        }
+                        if (nextSegment && this.elements.nextStageTime) {
+                            this.updateNextStageCountdown(currentMinutes, nextSegment);
+                        }
+                    }
+                }
+
+                timeToMinutes(timeStr) {
+                    const [h, m] = timeStr.split(':').map(Number);
+                    return h * 60 + m;
+                }
+
+                updateNextStageCountdown(currentMinutes, nextSegment) {
+                    const nextStart = this.timeToMinutes(nextSegment.start);
+                    let minutesUntil = nextStart > currentMinutes ? nextStart - currentMinutes : (24*60 - currentMinutes) + nextStart;
+                    const hours = Math.floor(minutesUntil / 60);
+                    const minutes = minutesUntil % 60;
+                    this.elements.nextStageTime.textContent = hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m`;
+                }
+
+                switchSchedule(scheduleType) {
+                    if (this.currentSchedule !== scheduleType) {
+                        this.currentSchedule = scheduleType;
+                        this.currentSegmentIndex = -1;
+                        this.updateScheduleButtons();
+                        if (this.elements.scheduleName) {
+                            this.elements.scheduleName.textContent = `${this.schedules[scheduleType].name} Active`;
+                        }
+                        this.savePreferences();
+                        console.log(`🔄 Switched to ${scheduleType}`);
+                    }
+                }
+
+                updateScheduleButtons() {
+                    if (this.elements.workdayBtn && this.elements.restdayBtn) {
+                        if (this.currentSchedule === 'workday') {
+                            this.elements.workdayBtn.classList.add('active');
+                            this.elements.restdayBtn.classList.remove('active');
+                        } else {
+                            this.elements.restdayBtn.classList.add('active');
+                            this.elements.workdayBtn.classList.remove('active');
+                        }
+                    }
+                }
+
+                toggleMute() {
+                    this.isMuted = !this.isMuted;
+                    this.updateMuteUI();
+                    this.savePreferences();
+                    console.log(`🔇 Mute ${this.isMuted ? 'enabled' : 'disabled'}`);
+                }
+
+                updateMuteUI() {
+                    if (this.elements.muteToggle) {
+                        this.elements.muteToggle.classList.toggle('muted', this.isMuted);
+                        this.elements.muteToggle.setAttribute('aria-pressed', this.isMuted);
+                    }
+                    if (this.elements.muteIcon) {
+                        this.elements.muteIcon.textContent = this.isMuted ? '🔕' : '🔔';
+                    }
+                }
+
+                showStageAlert(segment) {
+                    this.clearAlertTimers();
+                    if (this.elements.alertActivity) {
+                        this.elements.alertActivity.textContent = segment.activity.toUpperCase();
+                        this.elements.alertActivity.className = `alert-activity ${segment.activity.toLowerCase()}`;
+                    }
+                    if (this.elements.alertInterval) {
+                        this.elements.alertInterval.textContent = `${segment.start} - ${segment.end}`;
+                    }
+                    if (this.elements.alertContent) {
+                        this.elements.alertContent.className = `alert-content alert-${segment.activity.toLowerCase()}`;
+                    }
+                    let countdown = 5;
+                    if (this.elements.countdownTimer) {
+                        this.elements.countdownTimer.textContent = countdown;
+                    }
+                    if (this.elements.stageAlert) {
+                        this.elements.stageAlert.classList.add('active');
+                    }
+                    if (!this.isMuted) this.playAlertSound();
+
+                    this.countdownInterval = setInterval(() => {
+                        countdown--;
+                        if (this.elements.countdownTimer) {
+                            this.elements.countdownTimer.textContent = countdown;
+                        }
+                        if (countdown <= 0) this.closeStageAlert();
+                    }, 1000);
+
+                    this.alertTimeout = setTimeout(() => this.closeStageAlert(), 5000);
+                }
+
+                closeStageAlert() {
+                    if (this.elements.stageAlert) {
+                        this.elements.stageAlert.classList.remove('active');
+                    }
+                    this.clearAlertTimers();
+                }
+
+                clearAlertTimers() {
+                    if (this.alertTimeout) {
+                        clearTimeout(this.alertTimeout);
+                        this.alertTimeout = null;
+                    }
+                    if (this.countdownInterval) {
+                        clearInterval(this.countdownInterval);
+                        this.countdownInterval = null;
+                    }
+                }
+
+                showStageNotification(segment) {
+                    if (this.elements.notificationActivity) {
+                        this.elements.notificationActivity.textContent = `${segment.activity} Stage`;
+                    }
+                    if (this.elements.notificationInterval) {
+                        this.elements.notificationInterval.textContent = `${segment.start} - ${segment.end}`;
+                    }
+                    const icon = segment.activity === 'Rest' ? '😴' : (segment.activity === 'Work' ? '💼' : '🎮');
+                    if (this.elements.notificationIcon) this.elements.notificationIcon.textContent = icon;
+                    if (this.elements.stageNotification) {
+                        this.elements.stageNotification.className = `stage-notification active notification-${segment.activity.toLowerCase()}`;
+                        setTimeout(() => {
+                            this.elements.stageNotification.classList.remove('active');
+                        }, 3000);
+                    }
+                }
+
+                playAlertSound() {
+                    try {
+                        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                        audioContext.resume().then(() => {
+                            const osc = audioContext.createOscillator();
+                            const gain = audioContext.createGain();
+                            osc.connect(gain);
+                            gain.connect(audioContext.destination);
+                            osc.frequency.value = 800;
+                            osc.type = 'sine';
+                            gain.gain.setValueAtTime(0.3, audioContext.currentTime);
+                            gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                            osc.start(audioContext.currentTime);
+                            osc.stop(audioContext.currentTime + 0.5);
+                        });
+                    } catch (error) {
+                        console.log("Audio not supported or blocked");
+                    }
+                }
+            }
+
+            // ============================================
+            // SECTION TRACKER CLASS
+            // ============================================
+            class SectionTracker {
+                constructor(config) {
+                    this.config = config;
+                    this.sectionData = new Map();
+                    this.currentlyActiveSection = null;
+                    this.activeSectionStartTime = null;
+                    this.lastUnloadTime = null;
+                    this.statusCheckInterval = null;
+                    this.overviewUpdateInterval = null;
+                    this.elements = {
+                        debugPanel: document.getElementById('debugPanel'),
+                        debugContent: document.getElementById('debugContent'),
+                        statusOverview: document.getElementById('statusOverview'),
+                        greenList: document.getElementById('green-list'),
+                        yellowList: document.getElementById('yellow-list'),
+                        redList: document.getElementById('red-list'),
+                        closeStatusBtn: document.getElementById('closeStatusOverview')
+                    };
+                }
+
+                init() {
+                    this.initializeData();
+                    this.setupEventListeners();
+                    this.startStatusCheckInterval();
+                    this.setupPageNumberListeners();
+                    this.setupH2ClickListeners();
+                    this.setupToggleListeners();
+                    this.setupIntersectionObserver();
+                }
+
+                initializeData() {
+                    const sectionIds = ['Ozzy_1','Ozzy_2','Ozzy_3','Ozzy_4','Ozzy_5','Ozzy_6','Ozzy_7','Ozzy_8','Ozzy_9'];
+                    const sectionNames = ['Matematika','Hrvatski','Biologija','Kemija','Fizika','Informatika','Povijest','Geografija','Glazbeni'];
+                    const defaultPages = [42,87,105,122,145,201,245,278,305];
+
+                    sectionIds.forEach((id, idx) => {
+                        let lastOpened = null;
+                        let totalTime = 0;
+                        let pageNumber = defaultPages[idx];
+                        try {
+                            const storedTime = localStorage.getItem(`lastOpened_${id}`);
+                            if (storedTime) lastOpened = new Date(parseInt(storedTime));
+                            const storedTotal = localStorage.getItem(`totalTime_${id}`);
+                            if (storedTotal) totalTime = parseFloat(storedTotal);
+                            const storedPage = localStorage.getItem(`pageNumber_${id}`);
+                            if (storedPage) pageNumber = parseInt(storedPage);
+                        } catch (e) { console.warn('Error loading section data', e); }
+                        this.sectionData.set(id, {
+                            name: sectionNames[idx],
+                            lastOpened,
+                            totalTime,
+                            pageNumber
+                        });
+                        this.updateSummaryNumber(id, pageNumber);
                     });
 
-                    // Rotate the toggle indicator
-                    if (toggleIndicator) {
-                        toggleIndicator.classList.toggle('open');
+                    const storedActive = localStorage.getItem('activeSection');
+                    const storedUnload = localStorage.getItem('lastUnloadTime');
+                    if (storedUnload) this.lastUnloadTime = new Date(parseInt(storedUnload));
+                    if (storedActive && this.sectionData.has(storedActive) && this.lastUnloadTime) {
+                        const elapsedHours = (new Date() - this.lastUnloadTime) / (1000 * 60 * 60);
+                        const data = this.sectionData.get(storedActive);
+                        data.totalTime += elapsedHours;
+                        localStorage.setItem(`totalTime_${storedActive}`, data.totalTime);
+                        console.log(`Added ${elapsedHours.toFixed(2)} hours to ${storedActive}`);
+                    }
+
+                    this.updateAllStatusIndicators();
+                }
+
+                setupEventListeners() {
+                    document.getElementById('summaryHeader')?.addEventListener('click', () => this.toggleWindow('statusOverview'));
+                    document.getElementById('statusOverviewBtn')?.addEventListener('click', () => this.toggleWindow('statusOverview'));
+                    this.elements.closeStatusBtn?.addEventListener('click', () => this.toggleWindow('statusOverview'));
+                    document.addEventListener('keydown', (e) => {
+                        if (e.key === 'Escape' && this.elements.statusOverview?.classList.contains('active')) {
+                            this.toggleWindow('statusOverview');
+                        }
+                    });
+                    // Close windows when clicking outside
+                    document.addEventListener('click', (e) => {
+                        if (this.elements.statusOverview?.classList.contains('active') &&
+                            !this.elements.statusOverview.contains(e.target) &&
+                            !e.target.closest('.status-overview-btn') &&
+                            !e.target.closest('.summary-header')) {
+                            this.toggleWindow('statusOverview');
+                        }
+                        const polyWindow = document.getElementById('polyphasic-overview-window');
+                        if (polyWindow?.classList.contains('active') &&
+                            !polyWindow.contains(e.target) &&
+                            !e.target.closest('.open-polyphasic-btn')) {
+                            polyWindow.classList.remove('active');
+                            document.body.style.overflow = '';
+                        }
+                    });
+                }
+
+                toggleWindow(windowId) {
+                    const win = document.getElementById(windowId);
+                    if (!win) return;
+                    const isActive = win.classList.contains('active');
+                    win.classList.toggle('active');
+                    document.body.style.overflow = isActive ? '' : 'hidden';
+                    if (windowId === 'statusOverview') {
+                        if (!isActive) {
+                            this.populateStatusOverview();
+                            this.startOverviewUpdateInterval();
+                        } else {
+                            this.stopOverviewUpdateInterval();
+                        }
+                    }
+                }
+
+                populateStatusOverview() {
+                    const now = new Date();
+                    const green = [], yellow = [], red = [];
+                    for (const [id, data] of this.sectionData) {
+                        if (!data.lastOpened) {
+                            red.push({ id, name: data.name, page: data.pageNumber });
+                            continue;
+                        }
+                        const diffHours = (now - data.lastOpened) / (1000 * 60 * 60);
+                        if (diffHours <= this.config.YELLOW_THRESHOLD) {
+                            green.push({ id, name: data.name, page: data.pageNumber, diffHours });
+                        } else if (diffHours <= this.config.RED_THRESHOLD) {
+                            yellow.push({ id, name: data.name, page: data.pageNumber, diffHours });
+                        } else {
+                            red.push({ id, name: data.name, page: data.pageNumber, diffHours });
+                        }
+                    }
+                    this.renderList(this.elements.greenList, green);
+                    this.renderList(this.elements.yellowList, yellow);
+                    this.renderList(this.elements.redList, red);
+                }
+
+                renderList(listElement, items) {
+                    if (!listElement) return;
+                    listElement.innerHTML = '';
+                    items.forEach(item => {
+                        const li = document.createElement('li');
+                        const timeStr = item.diffHours !== undefined ? this.formatDetailedTime(item.diffHours * 3600) : 'Never';
+                        li.innerHTML = `
+                            <span>
+                                <div class="status-indicator status-${item.diffHours <= this.config.YELLOW_THRESHOLD ? 'green' : (item.diffHours <= this.config.RED_THRESHOLD ? 'yellow' : 'red')}"></div>
+                                <a href="#${item.id}" onclick="document.getElementById('statusOverview').classList.remove('active'); document.body.style.overflow='';">${item.name}</a>
+                            </span>
+                            <span>Page ${item.page} • (${timeStr})</span>
+                        `;
+                        listElement.appendChild(li);
+                    });
+                }
+
+                formatDetailedTime(totalSeconds) {
+                    const days = Math.floor(totalSeconds / (24*3600));
+                    const hours = Math.floor((totalSeconds % (24*3600)) / 3600);
+                    const minutes = Math.floor((totalSeconds % 3600) / 60);
+                    const seconds = Math.floor(totalSeconds % 60);
+                    let result = '';
+                    if (days > 0) result += `${days}d `;
+                    if (hours > 0) result += `${hours}h `;
+                    if (minutes > 0) result += `${minutes}m `;
+                    if (seconds > 0 && days === 0 && hours === 0) result += `${seconds}s`;
+                    return result.trim() || '0s';
+                }
+
+                setActiveSection(sectionId) {
+                    if (this.currentlyActiveSection === sectionId) return;
+                    if (this.currentlyActiveSection) {
+                        const end = new Date();
+                        const spent = (end - this.activeSectionStartTime) / (1000*60*60);
+                        const data = this.sectionData.get(this.currentlyActiveSection);
+                        if (data) {
+                            data.totalTime += spent;
+                            localStorage.setItem(`totalTime_${this.currentlyActiveSection}`, data.totalTime);
+                        }
+                    }
+                    this.currentlyActiveSection = sectionId;
+                    this.activeSectionStartTime = new Date();
+                    localStorage.setItem('activeSection', sectionId);
+                    const data = this.sectionData.get(sectionId);
+                    if (data) {
+                        data.lastOpened = new Date();
+                        localStorage.setItem(`lastOpened_${sectionId}`, data.lastOpened.getTime());
+                        this.updateStatusIndicator(sectionId);
+                    }
+                    this.updateDebugInfo();
+                }
+
+                updateStatusIndicator(sectionId) {
+                    const data = this.sectionData.get(sectionId);
+                    if (!data) return;
+                    const headerInd = document.getElementById(`status-indicator-${sectionId}`);
+                    const summaryInd = document.getElementById(`summary-status-indicator-${sectionId}`);
+                    const tooltip = headerInd?.nextElementSibling;
+                    if (!data.lastOpened) {
+                        if (headerInd) headerInd.className = 'status-indicator status-red';
+                        if (summaryInd) summaryInd.className = 'status-indicator summary-status-indicator status-red';
+                        if (tooltip) tooltip.textContent = 'Never visited';
+                        return;
+                    }
+                    const diffHours = (new Date() - data.lastOpened) / (1000*60*60);
+                    let statusClass;
+                    if (diffHours <= this.config.YELLOW_THRESHOLD) {
+                        statusClass = 'status-green';
+                    } else if (diffHours <= this.config.RED_THRESHOLD) {
+                        statusClass = 'status-yellow';
+                    } else {
+                        statusClass = 'status-red';
+                    }
+                    if (headerInd) headerInd.className = `status-indicator ${statusClass}`;
+                    if (summaryInd) summaryInd.className = `status-indicator summary-status-indicator ${statusClass}`;
+                    if (tooltip) tooltip.textContent = `Last visited: ${this.formatLastVisited(diffHours)}`;
+                }
+
+                formatLastVisited(hours) {
+                    if (hours < 1) return 'Just now';
+                    if (hours < 24) return `${Math.floor(hours)} hours ago`;
+                    const days = Math.floor(hours / 24);
+                    if (days === 1) return '1 day ago';
+                    if (days < 7) return `${days} days ago`;
+                    const weeks = Math.floor(days / 7);
+                    if (weeks === 1) return '1 week ago';
+                    if (weeks < 4) return `${weeks} weeks ago`;
+                    const months = Math.floor(days / 30);
+                    if (months === 1) return '1 month ago';
+                    return `${months} months ago`;
+                }
+
+                updateAllStatusIndicators() {
+                    for (const id of this.sectionData.keys()) {
+                        this.updateStatusIndicator(id);
+                    }
+                }
+
+                updateSummaryNumber(sectionId, pageNumber) {
+                    const input = document.querySelector(`.summary-number[data-section="${sectionId}"]`);
+                    if (input) input.value = pageNumber;
+                }
+
+                setupPageNumberListeners() {
+                    document.querySelectorAll('.summary-number').forEach(input => {
+                        input.addEventListener('change', (e) => {
+                            const sectionId = input.dataset.section;
+                            const page = parseInt(input.value) || 0;
+                            const data = this.sectionData.get(sectionId);
+                            if (data) {
+                                data.pageNumber = page;
+                                localStorage.setItem(`pageNumber_${sectionId}`, page);
+                            }
+                        });
+                    });
+                }
+
+                setupH2ClickListeners() {
+                    document.querySelectorAll('section h2').forEach(h2 => {
+                        h2.addEventListener('click', (e) => {
+                            const section = e.target.closest('section');
+                            if (section) {
+                                this.setActiveSection(section.id);
+                                section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                        });
+                    });
+                }
+
+                setupToggleListeners() {
+                    document.querySelectorAll('.bracket-letter.B').forEach(b => {
+                        b.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const parent = e.target.closest('.summary-line');
+                            const group = parent?.dataset.group;
+                            if (!group) return;
+                            document.querySelectorAll(`.summary-line.subheading[data-group="${group}"]`).forEach(el => {
+                                el.classList.toggle('visible');
+                            });
+                            const indicator = parent.querySelector('.toggle-indicator');
+                            if (indicator) indicator.classList.toggle('open');
+                        });
+                    });
+                }
+
+                startStatusCheckInterval() {
+                    this.statusCheckInterval = setInterval(() => {
+                        this.updateAllStatusIndicators();
+                        this.updateDebugInfo();
+                    }, 1000);
+                }
+
+                startOverviewUpdateInterval() {
+                    this.overviewUpdateInterval = setInterval(() => {
+                        if (this.elements.statusOverview?.classList.contains('active')) {
+                            this.populateStatusOverview();
+                        }
+                    }, 1000);
+                }
+
+                stopOverviewUpdateInterval() {
+                    if (this.overviewUpdateInterval) {
+                        clearInterval(this.overviewUpdateInterval);
+                        this.overviewUpdateInterval = null;
+                    }
+                }
+
+                updateDebugInfo() {
+                    if (!this.elements.debugContent) return;
+                    let html = `Active: ${this.currentlyActiveSection || 'None'}<br>`;
+                    for (const [id, data] of this.sectionData) {
+                        const last = data.lastOpened ? this.formatDetailedTime((new Date() - data.lastOpened)/1000) : 'Never';
+                        html += `<div>${id}: Page ${data.pageNumber}</div><div class="time-details">Last: ${last}</div>`;
+                    }
+                    this.elements.debugContent.innerHTML = html;
+                }
+
+                setupIntersectionObserver() {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('active');
+                            } else {
+                                entry.target.classList.remove('active');
+                            }
+                        });
+                    }, { threshold: 0.1 });
+                    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+                }
+            }
+
+            // ============================================
+            // SEARCH MANAGER CLASS
+            // ============================================
+            class SearchManager {
+                constructor(sectionTracker) {
+                    this.sectionTracker = sectionTracker;
+                    this.searchInput = document.getElementById('search');
+                    this.resultsDiv = document.getElementById('search-results');
+                    this.debounceTimer = null;
+                }
+
+                init() {
+                    if (!this.searchInput) return;
+                    this.searchInput.addEventListener('input', () => {
+                        clearTimeout(this.debounceTimer);
+                        this.debounceTimer = setTimeout(() => this.performSearch(), 300);
+                    });
+                    this.searchInput.addEventListener('focus', () => {
+                        if (this.searchInput.value.trim().length >= 2) this.performSearch();
+                    });
+                    document.addEventListener('click', (e) => {
+                        if (!this.resultsDiv.contains(e.target) && e.target !== this.searchInput) {
+                            this.resultsDiv.style.display = 'none';
+                        }
+                    });
+                }
+
+                performSearch() {
+                    const query = this.searchInput.value.trim().toLowerCase();
+                    if (query.length < 2) {
+                        this.resultsDiv.style.display = 'none';
+                        return;
+                    }
+                    const results = [];
+                    // Search sections
+                    for (const [id, data] of this.sectionTracker.sectionData) {
+                        if (data.name.toLowerCase().includes(query)) {
+                            results.push({ element: document.getElementById(id), text: data.name, type: 'section', id });
+                        }
+                    }
+                    // Search bold text
+                    document.querySelectorAll('b, strong').forEach(el => {
+                        if (el.textContent.toLowerCase().includes(query)) {
+                            results.push({ element: el, text: el.textContent, type: 'bold text' });
+                        }
+                    });
+                    // Search elements with IDs (sample)
+                    const sampleIds = ['printBtn','themeBtn','refreshBtn','helpBtn','shareBtn','downloadBtn'];
+                    sampleIds.forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el && (id.toLowerCase().includes(query) || el.textContent.toLowerCase().includes(query))) {
+                            results.push({ element: el, text: el.textContent || id, type: 'element ID' });
+                        }
+                    });
+
+                    this.displayResults(results, query);
+                }
+
+                displayResults(results, query) {
+                    this.resultsDiv.innerHTML = '';
+                    if (results.length === 0) {
+                        this.resultsDiv.innerHTML = `<div class="no-results">No results for "${query}"</div>`;
+                        this.resultsDiv.style.display = 'block';
+                        return;
+                    }
+                    const stats = document.createElement('div');
+                    stats.className = 'search-stats';
+                    stats.textContent = `${results.length} result${results.length!==1?'s':''} for "${query}"`;
+                    this.resultsDiv.appendChild(stats);
+
+                    results.forEach(r => {
+                        const item = document.createElement('div');
+                        item.className = 'result-item';
+                        const icon = r.type === 'section' ? 'fa-book' : (r.type === 'bold text' ? 'fa-bold' : 'fa-hashtag');
+                        item.innerHTML = `
+                            <i class="fas ${icon} result-icon"></i>
+                            <span>${r.text}</span>
+                            <span class="result-type">${r.type}</span>
+                        `;
+                        item.addEventListener('click', () => {
+                            r.element?.classList.add('highlight');
+                            r.element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            setTimeout(() => r.element?.classList.remove('highlight'), 2000);
+                            this.searchInput.value = '';
+                            this.resultsDiv.style.display = 'none';
+                        });
+                        this.resultsDiv.appendChild(item);
+                    });
+                    this.resultsDiv.style.display = 'block';
+                }
+            }
+
+            // ============================================
+            // INITIALIZATION
+            // ============================================
+            document.addEventListener('DOMContentLoaded', () => {
+                // Instantiate systems
+                const security = new SecuritySystem(CONFIG);
+                const schedule = new ScheduleSystem(SCHEDULES);
+                const tracker = new SectionTracker(CONFIG);
+                const search = new SearchManager(tracker);
+
+                // Initialize
+                security.init();
+                schedule.init();
+                tracker.init();
+                search.init();
+
+                // Additional UI setup
+                document.getElementById('openPolyphasicBtn')?.addEventListener('click', () => {
+                    document.getElementById('polyphasic-overview-window')?.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                // Handle beforeunload
+                window.addEventListener('beforeunload', () => {
+                    if (tracker.currentlyActiveSection) {
+                        const end = new Date();
+                        const spent = (end - tracker.activeSectionStartTime) / (1000*60*60);
+                        const data = tracker.sectionData.get(tracker.currentlyActiveSection);
+                        if (data) {
+                            data.totalTime += spent;
+                            localStorage.setItem(`totalTime_${tracker.currentlyActiveSection}`, data.totalTime);
+                        }
+                    }
+                    localStorage.setItem('lastUnloadTime', new Date().getTime());
+                    if (tracker.currentlyActiveSection) {
+                        localStorage.setItem('activeSection', tracker.currentlyActiveSection);
                     }
                 });
+
+                // Expose some functions globally for inline onclick compatibility (if needed)
+                window.togglePasswordVisibility = () => security.togglePasswordVisibility();
+                window.checkPassword = () => security.checkPassword();
+                window.toggleWindow = (id) => tracker.toggleWindow(id);
+                window.setActiveSection = (id) => tracker.setActiveSection(id);
+                window.toggleDebugPanel = () => document.getElementById('debugPanel').classList.toggle('active');
             });
-        });
-    (function(){
-      if (window.__pageLocalStubsInserted) return; window.__pageLocalStubsInserted = true;
-      const makeNoop = (name) => { if (!window[name]) window[name] = function(){ console.warn('stubbed', name, arguments); }; };
-      const names = [
-        'toggleDebugPanel','refreshDebugInfo','clearDebugData','toggleStatusOverview','toggleWindow',
-        'startZoom','stopZoom','resetZoom','zoomInText','zoomOutText','resetZoomText','cycleLayout','slideExample',
-        'switchMode','clearSelectedFile','loadSelectedFile','clearAllFiles','loadWebURL','openSelectedFiles','removeSelectedFiles',
-        'openFileInNewTab','removeSingleFile','togglePasswordVisibility','checkPassword','closeMonitor','logout','openMonitor',
-        'openDebugPanel','showSetupInstructions','startEmbeddedServer','exportAllData','testAllConnections','generateReport',
-        'exportTrackingLogs','showServerConsole','switchTab','toggleFavorite','copyToClipboard','toggleNewWindow','scrollToTop',
-        'showShortcuts','closeAllWindows','copyAllLinks','watchStart','watchStop','confirmReset','addLap','filterPortal','searchPortal'
-      ];
-      names.forEach(n=>{ try{ if(!n.includes('.')) makeNoop(n); }catch(e){} });
-      if(!window.DebugSystem) {
-        window.DebugSystem = new Proxy({}, { get: (t,p)=> { if(!(p in t)) t[p]=function(){ console.warn('DebugSystem stub',p); }; return t[p]; } });
-      }
-    })();
+        })();
     </script>
 </body>
 </html>

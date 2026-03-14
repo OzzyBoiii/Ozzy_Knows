@@ -36,7 +36,7 @@ kanban-plugin: board
 - [x] Obsidian checklist implementation ✅ 2026-03-13
 - [ ] AI questionare
 - [x] Implement the Online Security checks and tracking regarding the usage of Ozzy_Knows ✅ 2026-03-14
-- [ ] Adding thank you list for all humble supporters of free education
+- [x] Adding thank you list for all humble supporters of free education ✅ 2026-03-14
 - [ ] Adding intro to every website loading window
 - [x] Organization folder overhaul ✅ 2026-03-14
 - [x] Logo implementation ✅ 2026-03-13

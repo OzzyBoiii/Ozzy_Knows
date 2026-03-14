@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozzy_Knows · Obsidian-like graph view</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #1e1e2f;
+        color: #ddd;
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      #graph-container {
+        width: 100%;
+        height: 100%;
+        background: #0d0d17;
+        position: relative;
+      }
+
+      .info-panel {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: rgba(20, 20, 35, 0.8);
+        backdrop-filter: blur(8px);
+        padding: 12px 20px;
+        border-radius: 40px;
+        border: 1px solid #3c3c54;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        font-size: 14px;
+        color: #c0c0e0;
+        pointer-events: none;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .badge {
+        background: #2d2d44;
+        padding: 4px 12px;
+        border-radius: 30px;
+        color: #a9b7ff;
+        font-weight: 500;
+        border: 1px solid #4b4b6e;
+      }
+
+      .legend {
+        display: flex;
+        gap: 20px;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #7aa2f7;
+        box-shadow: 0 0 8px #7aa2f7;
+      }
+
+      .dot-file {
+        background: #bb9af7;
+        box-shadow: 0 0 8px #bb9af7;
+      }
+
+      .line-sample {
+        width: 24px;
+        height: 2px;
+        background: #565f89;
+        border-radius: 2px;
+      }
+
+      .note {
+        color: #9aa5ce;
+        font-style: italic;
+      }
+
+      #status {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(30, 30, 50, 0.7);
+        backdrop-filter: blur(4px);
+        padding: 8px 16px;
+        border-radius: 30px;
+        font-size: 13px;
+        border: 1px solid #41416a;
+        color: #b4b4e4;
+        z-index: 10;
+      }
+
+      /* graph styling */
+      .links line {
+        stroke: #565f89;
+        stroke-width: 1.5;
+        stroke-opacity: 0.4;
+        transition: stroke-opacity 0.15s, stroke 0.15s;
+      }
+
+      .nodes circle {
+        fill: #7aa2f7;
+        stroke: #0d0d17;
+        stroke-width: 2;
+        cursor: pointer;
+        transition: filter 0.2s, r 0.2s;
+        filter: drop-shadow(0 0 6px rgba(90, 140, 255, 0.5));
+      }
+
+      .nodes circle:hover {
+        filter: drop-shadow(0 0 14px #7aa2f7);
+      }
+
+      .node-label {
+        font-size: 11px;
+        fill: #bcbcda;
+        paint-order: stroke;
+        stroke: #1a1a2a;
+        stroke-width: 2px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0.9;
+        pointer-events: none;
+        user-select: none;
+        transition: opacity 0.2s, fill 0.2s;
+      }
+
+      .node-label.highlight {
+        fill: white;
+        font-weight: 500;
+        stroke: #0a0a14;
+        stroke-width: 2.5px;
+      }
+
+      .links line.highlight {
+        stroke: #bb9af7;
+        stroke-opacity: 0.9;
+        stroke-width: 2.5;
+      }
+    </style>
+    <!-- D3 library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+
+  <body>
+    <div id="graph-container"></div>
+    <div class="info-panel">
+      <span class="badge">📁 Ozzy_Knows</span>
+      <div class="legend">
+        <div class="legend-item"><span class="dot"></span> HTML file (node)</div>
+        <div class="legend-item"><span class="line-sample"></span> hyperlink / relation</div>
+      </div>
+      <span class="note">✨ drag • hover to highlight connections</span>
+    </div>
+    <div id="status">⚡ interactive graph · 12 files shown</div>
+
+    <script>
+      (function () {
+        // ----------------------------------------------------------------
+        // SIMULATED DATASET: "Ozzy_Knows" folder HTML files and their links
+        // In a real scenario, you would parse the folder and extract links.
+        // Here we create a realistic force graph to demonstrate layout & style.
+        // ----------------------------------------------------------------
+        const files = [
+          // core pages
+          { id: "index", name: "index.html", group: 1 },
+          { id: "about", name: "about.html", group: 1 },
+          { id: "blog", name: "blog.html", group: 1 },
+          { id: "projects", name: "projects.html", group: 1 },
+          { id: "contact", name: "contact.html", group: 1 },
+          // blog posts
+          { id: "post1", name: "2025/ozzy-discography.html", group: 2 },
+          { id: "post2", name: "2025/blizzard-of-ozz.html", group: 2 },
+          { id: "post3", name: "2025/diary-madman.html", group: 2 },
+          // project pages
+          { id: "proj1", name: "projects/ozzybot.html", group: 3 },
+          { id: "proj2", name: "projects/sabbath-timeline.html", group: 3 },
+          // notes / deep files
+          { id: "note1", name: "notes/lyrics-analysis.html", group: 4 },
+          { id: "note2", name: "notes/ozzy-interviews.html", group: 4 }
+        ];
+
+        // Links (directed, but we draw as undirected for clarity)
+        const linksData = [
+          { source: "index", target: "about" },
+          { source: "index", target: "blog" },
+          { source: "index", target: "projects" },
+          { source: "index", target: "contact" },
+          { source: "blog", target: "post1" },
+          { source: "blog", target: "post2" },
+          { source: "blog", target: "post3" },
+          { source: "projects", target: "proj1" },
+          { source: "projects", target: "proj2" },
+          { source: "post1", target: "note1" },
+          { source: "post2", target: "note1" },
+          { source: "post3", target: "note2" },
+          { source: "proj1", target: "note2" },
+          { source: "about", target: "note2" },
+          // extra connections to make it richer
+          { source: "post1", target: "post2" },
+          { source: "proj1", target: "proj2" },
+          { source: "note1", target: "note2" }
+        ];
+
+        // Build node map and ensure links use object references
+        const nodeMap = new Map(files.map(f => [f.id, { ...f }])); // shallow copy
+
+        const nodes = Array.from(nodeMap.values());
+
+        const links = linksData.map(l => {
+          const src = nodeMap.get(l.source);
+          const tgt = nodeMap.get(l.target);
+          if (!src || !tgt) {
+            console.warn(`Missing node for link ${l.source} -> ${l.target}`);
+            return null;
+          }
+          return { source: src, target: tgt };
+        }).filter(l => l !== null);
+
+        // ----------------------------------------------------------------
+        // SETUP SVG AND FORCE SIMULATION
+        // ----------------------------------------------------------------
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        const svg = d3.select("#graph-container")
+          .append("svg")
+          .attr("width", width)
+          .attr("height", height)
+          .attr("viewBox", [0, 0, width, height])
+          .style("display", "block")
+          .style("background", "#0d0d17")
+          .call(d3.zoom()
+            .scaleExtent([0.1, 8])
+            .on("zoom", (event) => {
+              container.attr("transform", event.transform);
+            }))
+          .append("g");
+
+        const container = svg.append("g")
+          .attr("class", "everything");
+
+        // Add arrows / defs for potential markers (optional)
+        svg.append("defs").append("marker")
+          .attr("id", "arrowhead")
+          .attr("viewBox", "0 -5 10 10")
+          .attr("refX", 20)
+          .attr("refY", 0)
+          .attr("markerWidth", 6)
+          .attr("markerHeight", 6)
+          .attr("orient", "auto")
+          .append("path")
+          .attr("d", "M0,-5L10,0L0,5")
+          .attr("fill", "#565f89")
+          .attr("stroke", "none");
+
+        // Create groups for links and nodes (order matters: links behind)
+        const linkGroup = container.append("g")
+          .attr("class", "links")
+          .selectAll("line")
+          .data(links)
+          .enter()
+          .append("line")
+          .attr("stroke", "#565f89")
+          .attr("stroke-width", 1.5)
+          .attr("stroke-opacity", 0.4)
+          // .attr("marker-end", "url(#arrowhead)") // optional arrows (commented)
+          .attr("data-source", d => d.source.id)
+          .attr("data-target", d => d.target.id);
+
+        const nodeGroup = container.append("g")
+          .attr("class", "nodes")
+          .selectAll("circle")
+          .data(nodes)
+          .enter()
+          .append("circle")
+          .attr("r", 10)
+          .attr("fill", d => {
+            // different shades based on group
+            switch (d.group) {
+              case 1: return "#7aa2f7"; // main pages
+              case 2: return "#bb9af7"; // blog posts
+              case 3: return "#f7768e"; // projects
+              case 4: return "#e0af68"; // notes
+              default: return "#7dcfff";
+            }
+          })
+          .attr("stroke", "#0d0d17")
+          .attr("stroke-width", 2)
+          .attr("data-id", d => d.id)
+          .call(d3.drag()
+            .on("start", dragStart)
+            .on("drag", dragging)
+            .on("end", dragEnd));
+
+        // Labels for nodes (file names, shortened for clarity)
+        const labelGroup = container.append("g")
+          .attr("class", "labels")
+          .selectAll("text")
+          .data(nodes)
+          .enter()
+          .append("text")
+          .attr("class", "node-label")
+          .attr("dx", 14)
+          .attr("dy", 4)
+          .text(d => {
+            // show only filename (not full path) to keep tidy
+            const parts = d.name.split('/');
+            return parts[parts.length - 1];
+          });
+
+        // Force simulation
+        const simulation = d3.forceSimulation(nodes)
+          .force("link", d3.forceLink(links).id(d => d.id).distance(130).strength(0.7))
+          .force("charge", d3.forceManyBody().strength(-300))
+          .force("center", d3.forceCenter(width / 2, height / 2))
+          .force("collide", d3.forceCollide().radius(30).strength(0.5))
+          .on("tick", ticked);
+
+        // Update positions on tick
+        function ticked() {
+          linkGroup
+            .attr("x1", d => d.source.x)
+            .attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.x)
+            .attr("y2", d => d.target.y);
+
+          nodeGroup
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y);
+
+          labelGroup
+            .attr("x", d => d.x)
+            .attr("y", d => d.y);
+        }
+
+        // Drag handlers
+        function dragStart(event, d) {
+          if (!event.active) simulation.alphaTarget(0.3).restart();
+          d.fx = d.x;
+          d.fy = d.y;
+        }
+
+        function dragging(event, d) {
+          d.fx = event.x;
+          d.fy = event.y;
+        }
+
+        function dragEnd(event, d) {
+          if (!event.active) simulation.alphaTarget(0);
+          d.fx = null;
+          d.fy = null;
+        }
+
+        // ----------------------------------------------------------------
+        // HIGHLIGHT CONNECTIONS ON HOVER (like Obsidian)
+        // ----------------------------------------------------------------
+        nodeGroup.on("mouseenter", function (event, d) {
+          // highlight connected links
+          linkGroup.classed("highlight", l => (l.source.id === d.id || l.target.id === d.id));
+          // highlight connected nodes (including self)
+          nodeGroup.classed("highlight", n => {
+            if (n.id === d.id) return true;
+            return links.some(l =>
+              (l.source.id === d.id && l.target.id === n.id) ||
+              (l.target.id === d.id && l.source.id === n.id)
+            );
+          });
+          // also highlight labels of those nodes
+          labelGroup.classed("highlight", n => {
+            if (n.id === d.id) return true;
+            return links.some(l =>
+              (l.source.id === d.id && l.target.id === n.id) ||
+              (l.target.id === d.id && l.source.id === n.id)
+            );
+          });
+          // emphasize the hovered node itself with larger radius
+          d3.select(this).attr("r", 14);
+        });
+
+        nodeGroup.on("mouseleave", function (event, d) {
+          // remove all highlight classes
+          linkGroup.classed("highlight", false);
+          nodeGroup.classed("highlight", false);
+          labelGroup.classed("highlight", false);
+          // reset radius
+          d3.select(this).attr("r", 10);
+        });
+
+        // Additional hover for link lines (optional)
+        linkGroup.on("mouseenter", function (event, l) {
+          d3.select(this).classed("highlight", true);
+          // highlight both connected nodes
+          nodeGroup.classed("highlight", n => n.id === l.source.id || n.id === l.target.id);
+          labelGroup.classed("highlight", n => n.id === l.source.id || n.id === l.target.id);
+        }).on("mouseleave", function () {
+          linkGroup.classed("highlight", false);
+          nodeGroup.classed("highlight", false);
+          labelGroup.classed("highlight", false);
+        });
+
+        // ----------------------------------------------------------------
+        // RESIZE HANDLER
+        // ----------------------------------------------------------------
+        window.addEventListener("resize", () => {
+          const newWidth = window.innerWidth;
+          const newHeight = window.innerHeight;
+          d3.select("svg")
+            .attr("width", newWidth)
+            .attr("height", newHeight)
+            .attr("viewBox", [0, 0, newWidth, newHeight]);
+          simulation.force("center", d3.forceCenter(newWidth / 2, newHeight / 2));
+          simulation.alpha(0.3).restart();
+        });
+
+        // tweak initial positions a bit (optional)
+        simulation.alpha(1).restart();
+
+        // ----------------------------------------------------------------
+        // CUSTOM NOTE: To use with your actual Ozzy_Knows folder,
+        // replace the `files` and `linksData` arrays with parsed data.
+        // Example: you could run a local script to scan .html files and
+        // extract href links to generate a JSON, then paste it here.
+        // ----------------------------------------------------------------
+      })();
+    </script>
+  </body>
+
+</html>

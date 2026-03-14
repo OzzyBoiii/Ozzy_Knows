@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table :)</title>
+    <title>Secure Schedule System · Enhanced</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        /* ============================================
-           SECURITY SYSTEM STYLES
-        ============================================ */
+        /* ========== RESET & GLOBAL ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0f1e;
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+
+        /* ========== SECURITY OVERLAY ========== */
         .security-overlay {
             position: fixed;
             top: 0;
@@ -34,14 +46,8 @@
         }
 
         @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(50px); opacity: 0; }
+            to   { transform: translateY(0); opacity: 1; }
         }
 
         .security-header {
@@ -121,20 +127,18 @@
             margin-bottom: 20px;
         }
 
-        .login-button:hover {
+        .login-button:hover:not(:disabled) {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
 
-        .login-button:active {
+        .login-button:active:not(:disabled) {
             transform: translateY(0);
         }
 
         .login-button:disabled {
-            opacity: 0.7;
+            opacity: 0.6;
             cursor: not-allowed;
-            transform: none !important;
-            box-shadow: none !important;
         }
 
         .error-message {
@@ -189,9 +193,7 @@
             font-family: 'Courier New', monospace;
         }
 
-        /* ============================================
-           MAIN DASHBOARD STYLES
-        ============================================ */
+        /* ========== MAIN DASHBOARD ========== */
         .dashboard {
             padding: 40px;
             max-width: 1400px;
@@ -224,21 +226,55 @@
             background-clip: text;
         }
 
-        /* ============================================
-           POLYPHASIC SCHEDULE STYLES
-        ============================================ */
-        .polyphasic-schedule {
-            margin-top: 40px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s;
+        /* ========== POLYPHASIC OVERVIEW WINDOW ========== */
+        .polyphasic-overview-window {
+            position: fixed;
+            top: 5%;
+            left: 5%;
+            height: 90%;
+            width: 90%;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border: 2px solid #667eea;
+            display: none;
+            padding: 15px;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+            z-index: 1000;
         }
 
-        .polyphasic-schedule.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .polyphasic-overview-window.active {
+            display: block;
+            animation: popIn 0.5s ease-out;
         }
 
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .polyphasic-window-header {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .polyphasic-window-header h1 {
+            color: #60a5fa;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+
+        .polyphasic-window-content {
+            padding: 20px;
+            height: calc(100% - 120px);
+            overflow-y: auto;
+        }
+
+        /* schedule selector */
         .schedule-type-selector {
             display: flex;
             justify-content: center;
@@ -287,9 +323,75 @@
             border-bottom: 2px solid #334155;
         }
 
-        /* ============================================
-           ALERT & NOTIFICATION STYLES
-        ============================================ */
+        /* control panel inside window */
+        .polyphasic-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 10px;
+        }
+
+        .mute-toggle {
+            background-color: #1e293b;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: 2px solid #475569;
+            transition: all 0.3s;
+        }
+
+        .mute-toggle:hover {
+            background-color: #334155;
+            transform: scale(1.1);
+        }
+
+        .mute-toggle.muted {
+            background-color: #7c2d12;
+            border-color: #dc2626;
+        }
+
+        .mute-icon {
+            font-size: 1.8rem;
+            color: #f1f5f9;
+        }
+
+        .next-stage-countdown {
+            background-color: #1e293b;
+            border-radius: 10px;
+            padding: 15px 20px;
+            border: 2px solid #475569;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* open polyphasic button */
+        .open-polyphasic-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .open-polyphasic-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* ========== STAGE ALERTS & NOTIFICATIONS ========== */
         .stage-alert {
             position: fixed;
             top: 0;
@@ -398,12 +500,6 @@
             box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
         }
 
-        .alert-footer {
-            margin-top: 30px;
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-
         .stage-notification {
             position: fixed;
             top: 20px;
@@ -454,52 +550,75 @@
             color: #94a3b8;
         }
 
-        /* ============================================
-           CONTROL PANEL STYLES
-        ============================================ */
-        .mute-toggle {
-            background-color: #1e293b;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            border: 2px solid #475569;
-            transition: all 0.3s;
+        /* ========== TABLE STYLES (Enhanced readability) ========== */
+        .table-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
         }
 
-        .mute-toggle:hover {
-            background-color: #334155;
-            transform: scale(1.1);
+        .enhanced-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(15, 25, 45, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(100, 180, 255, 0.15);
         }
 
-        .mute-toggle.muted {
-            background-color: #7c2d12;
-            border-color: #dc2626;
+        .enhanced-table th {
+            background: linear-gradient(145deg, #1a2b4c, #0f1a30);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 20px 16px;
+            text-align: left;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #2d4b7c;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
         }
 
-        .mute-icon {
-            font-size: 1.8rem;
-            color: #f1f5f9;
+        .enhanced-table td {
+            padding: 18px 16px;
+            color: #f0f8ff;
+            font-weight: 500;
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(100, 160, 255, 0.2);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
 
-        .next-stage-countdown {
-            background-color: #1e293b;
-            border-radius: 10px;
-            padding: 15px 20px;
-            border: 2px solid #475569;
-            color: #94a3b8;
-            font-size: 0.9rem;
+        .enhanced-table tr:last-child td {
+            border-bottom: none;
         }
 
-        /* ============================================
-           ANIMATIONS
-        ============================================ */
+        .enhanced-table tr:nth-child(even) {
+            background-color: rgba(25, 40, 65, 0.6);
+        }
+
+        .enhanced-table tr:nth-child(odd) {
+            background-color: rgba(15, 25, 45, 0.4);
+        }
+
+        /* highlight class for special rows (e.g., question type) */
+        .enhanced-table .highlight {
+            background: rgba(75, 130, 220, 0.25) !important;
+            font-weight: 600;
+            color: #c8e2ff;
+            border-left: 4px solid #3b82f6;
+        }
+
+        /* No hover effects — removed as requested */
+        /* ========== UTILITY CLASSES ========== */
+        .hidden {
+            display: none !important;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; }
-            to { opacity: 1; }
+            to   { opacity: 1; }
         }
 
         @keyframes pulse {
@@ -508,343 +627,29 @@
             100% { transform: scale(1); }
         }
 
-        @keyframes slideIn {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
         @keyframes slideInRight {
             from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+            to   { transform: translateX(0); opacity: 1; }
         }
 
-        /* ============================================
-           UTILITY CLASSES
-        ============================================ */
-        .hidden {
-            display: none !important;
-        }
-
-        /* ============================================
-           POLYPHASIC OVERVIEW WINDOW STYLES
-        ============================================ */
-        .polyphasic-overview-window {
-            position: fixed;
-            top: 5%;
-            left: 5%;
-            height: 90%;
-            width: 90%;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            border: 2px solid #667eea;
-            display: none;
-            padding: 15px;
-            box-sizing: border-box;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
-            z-index: 1000;
-        }
-
-        .polyphasic-overview-window.active {
-            display: block;
-            animation: popIn 0.5s ease-out;
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .polyphasic-window-header {
-            text-align: center;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .polyphasic-window-header h1 {
-            color: #60a5fa;
-            margin-bottom: 10px;
-            font-size: 2.2rem;
-            letter-spacing: 1px;
-        }
-
-        .polyphasic-window-content {
-            padding: 20px;
-            height: calc(100% - 120px);
-            overflow-y: auto;
-        }
-
-        .polyphasic-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(30, 41, 59, 0.5);
-            border-radius: 10px;
-        }
-
-        /* ============================================
-           OPEN POLYPHASIC BUTTON STYLE
-        ============================================ */
-        .open-polyphasic-btn {
-            display: block;
-            margin: 20px auto;
-            padding: 15px 30px;
-            background: linear-gradient(to right, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .open-polyphasic-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        /* ============================================
-           MOBILE RESPONSIVE
-        ============================================ */
+        /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
-            .security-container {
-                width: 95%;
-                padding: 20px;
-            }
-
-            .security-header h1 {
-                font-size: 24px;
-            }
-
-            .password-input {
-                padding: 15px 50px 15px 20px;
-                font-size: 16px;
-            }
-
-            .login-button {
-                padding: 15px;
-                font-size: 16px;
-            }
-
-            .header h1 {
-                font-size: 32px;
-            }
-
-            .alert-activity {
-                font-size: 3rem;
-            }
-
-            .alert-interval {
-                font-size: 1.5rem;
-            }
-
-            .schedule-btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-
-            .polyphasic-overview-window {
-                width: 95%;
-                left: 2.5%;
-            }
-
-            .polyphasic-controls {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
-        /*TABLE STYLE*/
-        /*TABLE STYLE*/
-        /*TABLE STYLE*/
-
-        /* Improved text visibility: lighter color and subtle text shadow */
-        .enhanced-table td,
-        .enhanced-table th {
-            color: #f0f4ff;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        .table-container {
-            background: rgba(10, 15, 35, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(100, 200, 255, 0.2);
-            overflow: hidden;
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .table-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(100, 200, 255, 0.1) 0%, transparent 70%);
-            z-index: -1;
-            animation: rotate 30s linear infinite;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .enhanced-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            border-radius: 15px;
-            overflow: hidden;
-            margin: 20px auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            background: rgba(20, 30, 60, 0.6);
-            backdrop-filter: blur(5px);
-            position: relative;
-        }
-
-        .enhanced-table th {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: #fff;
-            font-weight: 600;
-            padding: 18px 15px;
-            text-align: left;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 1.1rem;
-            position: relative;
-            border-bottom: 2px solid rgba(100, 200, 255, 0.3);
-        }
-
-        .enhanced-table th:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 15%;
-            height: 70%;
-            width: 1px;
-            background: rgba(100, 200, 255, 0.3);
-        }
-
-        .enhanced-table td {
-            padding: 15px;
-            border-bottom: 1px solid rgba(100, 200, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .enhanced-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .enhanced-table tr:nth-child(even) {
-            background: rgba(30, 40, 80, 0.3);
-        }
-
-        /* ----- HOVER EFFECTS REMOVED ----- */
-        /* The following blocks have been removed to eliminate distracting visuals:
-           .enhanced-table tr:hover td { ... }
-           .enhanced-table tr:hover { ... }
-        */
-
-        .highlight {
-            background: rgba(255, 184, 77, 0.2) !important;
-            font-weight: bold;
-            color: #ffb84d;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .table-container {
-                padding: 20px;
-            }
-
-            .enhanced-table {
-                font-size: 0.9rem;
-            }
-
+            .security-header h1 { font-size: 24px; }
+            .password-input { padding: 15px 50px 15px 20px; font-size: 16px; }
+            .login-button { padding: 15px; font-size: 16px; }
+            .header h1 { font-size: 32px; }
+            .alert-activity { font-size: 3rem; }
+            .alert-interval { font-size: 1.5rem; }
+            .schedule-btn { padding: 10px 20px; font-size: 0.9rem; }
+            .polyphasic-overview-window { width: 95%; left: 2.5%; }
+            .polyphasic-controls { flex-direction: column; gap: 15px; }
             .enhanced-table th,
-            .enhanced-table td {
-                padding: 12px 10px;
-            }
-
-            .table-controls {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .control-btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
+            .enhanced-table td { padding: 14px 10px; font-size: 0.9rem; }
         }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.6rem;
-            }
-
-            .enhanced-table {
-                display: block;
-                overflow-x: auto;
-            }
-        }
-
-        /* Animation for table rows */
-        @keyframes fadeInRow {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .enhanced-table tr {
-            animation: fadeInRow 0.5s ease forwards;
-        }
-
-        /* Delay each row animation */
-        .enhanced-table tr:nth-child(1) { animation-delay: 0.1s; }
-        .enhanced-table tr:nth-child(2) { animation-delay: 0.2s; }
-        .enhanced-table tr:nth-child(3) { animation-delay: 0.3s; }
-        .enhanced-table tr:nth-child(4) { animation-delay: 0.4s; }
-        .enhanced-table tr:nth-child(5) { animation-delay: 0.5s; }
-        .enhanced-table tr:nth-child(6) { animation-delay: 0.6s; }
-        .enhanced-table tr:nth-child(7) { animation-delay: 0.7s; }
-        .enhanced-table tr:nth-child(8) { animation-delay: 0.8s; }
     </style>
-    </head>
-        <body>
-             <!-- ============================================
-         SECURITY SYSTEM OVERLAY
-         (Always shown on page load)
-    ============================================ -->
+</head>
+<body>
+    <!-- ========== SECURITY OVERLAY ========== -->
     <div id="security-overlay" class="security-overlay">
         <div class="security-container" id="login-container">
             <div class="security-header">
@@ -854,18 +659,19 @@
             <div class="security-body">
                 <div class="password-group">
                     <input type="password" id="password-input" class="password-input"
-                           placeholder="Enter master password" autocomplete="off" autofocus>
-                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">
+                           placeholder="Enter master password" autocomplete="off" autofocus
+                           maxlength="20" aria-label="Master password">
+                    <button type="button" class="toggle-password" onclick="togglePasswordVisibility()" aria-label="Toggle password visibility">
                         <i class="fas fa-eye"></i>
                     </button>
                 </div>
-                <button id="login-button" class="login-button" onclick="checkPassword()">
+                <button id="login-button" class="login-button" onclick="checkPassword()" aria-label="Login">
                     <i class="fas fa-unlock-alt"></i> Access System
                 </button>
-                <div id="error-message" class="error-message"></div>
+                <div id="error-message" class="error-message" role="alert"></div>
                 <div id="attempts-info" class="attempts-info"></div>
                 <div class="security-footer">
-                    <p><i class="fas fa-shield-alt"></i> Secure Access System v2.0</p>
+                    <p><i class="fas fa-shield-alt"></i> Secure Access System v2.1</p>
                 </div>
             </div>
         </div>
@@ -883,38 +689,26 @@
         </div>
     </div>
 
-    <!-- ============================================
-         MAIN DASHBOARD
-         (Only shown after successful authentication)
-    ============================================ -->
-    <div class="container">
-        <div class="dashboard" id="dashboard">
-            <div class="header">
-                <h1><i class="fas fa-shield-alt"></i> Secure Schedule System</h1>
-            </div>
-
-            <!-- Button to open Polyphasic Overview -->
-            <button class="open-polyphasic-btn" onclick="toggleWindow('polyphasic-overview-window')">
-                <i class="fas fa-chart-bar"></i> Open Polyphasic Overview
-            </button>
+    <!-- ========== MAIN DASHBOARD ========== -->
+    <div class="dashboard" id="dashboard">
+        <div class="header">
+            <h1><i class="fas fa-shield-alt"></i> Secure Schedule System</h1>
         </div>
+
+        <!-- Button to open Polyphasic Overview -->
+        <button class="open-polyphasic-btn" onclick="toggleWindow('polyphasic-overview-window')" aria-label="Open polyphasic overview">
+            <i class="fas fa-chart-bar"></i> Open Polyphasic Overview
+        </button>
     </div>
 
-    <!-- ============================================
-         POLYPHASIC OVERVIEW WINDOW
-    ============================================ -->
+    <!-- ========== POLYPHASIC OVERVIEW WINDOW ========== -->
     <div class="polyphasic-overview-window" id="polyphasic-overview-window">
         <div class="polyphasic-window-header">
-            <h1 style="color: #60a5fa; margin-bottom: 10px; font-size: 2.2rem; letter-spacing: 1px;">
-                Polyphasic Schedule Monitor
-            </h1>
-            <p class="subtitle" style="color: #94a3b8; font-size: 1rem; max-width: 800px; margin: 0 auto;">
-                Automated stage alerts for workday and restday schedules
-            </p>
+            <h1>Polyphasic Schedule Monitor</h1>
+            <p class="subtitle" style="color: #94a3b8;">Automated stage alerts for workday and restday schedules</p>
         </div>
 
         <div class="polyphasic-window-content">
-            <!-- Polyphasic Schedule Section -->
             <div class="polyphasic-schedule" id="polyphasic-schedule">
                 <div class="schedule-type-selector">
                     <button class="schedule-btn active" id="workdayBtn">Workday Schedule</button>
@@ -932,9 +726,8 @@
                 </div>
             </div>
 
-            <!-- Control Panel Inside Window -->
             <div class="polyphasic-controls">
-                <div class="mute-toggle" id="muteToggle">
+                <div class="mute-toggle" id="muteToggle" role="button" tabindex="0" aria-label="Toggle mute">
                     <div class="mute-icon" id="muteIcon">🔔</div>
                 </div>
                 <div class="next-stage-countdown" id="nextStageCountdown">
@@ -944,9 +737,7 @@
         </div>
     </div>
 
-    <!-- ============================================
-         STAGE ALERTS & NOTIFICATIONS
-    ============================================ -->
+    <!-- ========== STAGE ALERT & NOTIFICATION ========== -->
     <div class="stage-alert" id="stageAlert">
         <div class="alert-content" id="alertContent">
             <h2 class="alert-title">Stage Change</h2>
@@ -967,623 +758,470 @@
             <div class="notification-interval" id="notificationInterval">1:30 - 6:00</div>
         </div>
     </div>
-<table class="enhanced-table">
-                <thead>
-                    <tr>
-                        <th>Question Type</th>
-                        <th>Structure</th>
-                        <th>Examples</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="highlight">Yes/No Questions</td>
-                        <td>Am + I + verb-ing?</td>
-                        <td>Am I working now?</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>Are + you/we/they + verb-ing?</td>
-                        <td>Are you working now?</td>
-                    </tr>
-                    <tr>
-                        <td class="highlight">Wh- Questions</td>
-                        <td>Wh-word + do + I/you/we/they + verb?</td>
-                        <td>What languages do you speak?</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>Wh-word + does + he/she/it + verb?</td>
-                        <td>What languages does she speak?</td>
-                    </tr>
-                    <tr>
-                        <td class="highlight">Subject Questions</td>
-                        <td>Who + verb + ...?</td>
-                        <td>Who speaks English?</td>
-                    </tr>
-                    <tr>
-                        <td class="highlight">Negative Form</td>
-                        <td>Subject + am/is/are + not + verb-ing</td>
-                        <td>I am not working now.</td>
-                    </tr>
-                    <tr>
-                        <td class="highlight">Time Expressions</td>
-                        <td colspan="2">now, at the moment, currently, today, this week</td>
-                    </tr>
-                    <tr>
-                        <td class="highlight">Special Cases</td>
-                        <td colspan="2">Stative verbs (know, believe) don't use continuous form</td>
-                    </tr>
-                </tbody>
-            </table>
-            </body>
-            <script>
-                // ============================================
-        // SECURITY SYSTEM CONFIGURATION
-        // ============================================
-        const SECURITY_CONFIG = {
-            MASTER_PASSWORD: "cross123!",
-            MAX_ATTEMPTS: 5,
-            LOCKOUT_MINUTES: 1
-        };
 
-        // ============================================
-        // SECURITY SYSTEM STATE
-        // ============================================
-        let securityState = {
-            authenticated: false,
-            failedAttempts: 0,
-            lockoutUntil: 0
-        };
+    <!-- ========== ENHANCED TABLE (Improved readability, no hover) ========== -->
+    <section class="table-section">
+        <table class="enhanced-table">
+            <thead>
+                <tr>
+                    <th>Question Type</th>
+                    <th>Structure</th>
+                    <th>Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="highlight">Yes/No Questions</td>
+                    <td>Am + I + verb-ing?</td>
+                    <td>Am I working now?</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Are + you/we/they + verb-ing?</td>
+                    <td>Are you working now?</td>
+                </tr>
+                <tr>
+                    <td class="highlight">Wh- Questions</td>
+                    <td>Wh-word + do + I/you/we/they + verb?</td>
+                    <td>What languages do you speak?</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Wh-word + does + he/she/it + verb?</td>
+                    <td>What languages does she speak?</td>
+                </tr>
+                <tr>
+                    <td class="highlight">Subject Questions</td>
+                    <td>Who + verb + ...?</td>
+                    <td>Who speaks English?</td>
+                </tr>
+                <tr>
+                    <td class="highlight">Negative Form</td>
+                    <td>Subject + am/is/are + not + verb-ing</td>
+                    <td>I am not working now.</td>
+                </tr>
+                <tr>
+                    <td class="highlight">Time Expressions</td>
+                    <td colspan="2">now, at the moment, currently, today, this week</td>
+                </tr>
+                <tr>
+                    <td class="highlight">Special Cases</td>
+                    <td colspan="2">Stative verbs (know, believe) don't use continuous form</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-        // ============================================
-        // SCHEDULE SYSTEM CONFIGURATION
-        // ============================================
-        const SCHEDULES = {
-            workday: {
-                name: "Workday Schedule",
-                period1: {
-                    title: "1:30 - 13:30",
-                    segments: [
-                        { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
-                        { activity: "Work", start: "6:00", end: "13:30", duration: 7.5, color: "#16a34a" }
-                    ]
-                },
-                period2: {
-                    title: "13:30 - 1:30",
-                    segments: [
-                        { activity: "Work", start: "13:30", end: "17:00", duration: 3.5, color: "#16a34a" },
-                        { activity: "Rest", start: "17:00", end: "17:45", duration: 0.75, color: "#3b82f6" },
-                        { activity: "Work", start: "17:45", end: "19:50", duration: 2.083, color: "#16a34a" },
-                        { activity: "Rest", start: "19:50", end: "20:35", duration: 0.75, color: "#3b82f6" },
-                        { activity: "Work", start: "20:35", end: "22:40", duration: 2.083, color: "#16a34a" },
-                        { activity: "Rest", start: "22:40", end: "23:25", duration: 0.75, color: "#3b82f6" },
-                        { activity: "Work", start: "23:25", end: "1:30", duration: 2.083, color: "#16a34a" }
-                    ]
-                }
-            },
-            restday: {
-                name: "Restday Schedule",
-                period1: {
-                    title: "1:30 - 13:30",
-                    segments: [
-                        { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
-                        { activity: "Work", start: "6:00", end: "8:30", duration: 2.5, color: "#16a34a" },
-                        { activity: "Rest", start: "8:30", end: "9:25", duration: 0.917, color: "#3b82f6" },
-                        { activity: "Work", start: "9:25", end: "11:55", duration: 2.5, color: "#16a34a" },
-                        { activity: "Rest", start: "11:55", end: "12:50", duration: 0.917, color: "#3b82f6" },
-                        { activity: "Work", start: "12:50", end: "13:30", duration: 0.667, color: "#16a34a" }
-                    ]
-                },
-                period2: {
-                    title: "13:30 - 1:30",
-                    segments: [
-                        { activity: "Work", start: "13:30", end: "15:20", duration: 1.833, color: "#16a34a" },
-                        { activity: "Rest", start: "15:20", end: "16:15", duration: 0.917, color: "#3b82f6" },
-                        { activity: "Work", start: "16:15", end: "18:45", duration: 2.5, color: "#16a34a" },
-                        { activity: "Rest", start: "18:45", end: "19:40", duration: 0.917, color: "#3b82f6" },
-                        { activity: "Gaming", start: "19:40", end: "23:00", duration: 3.333, color: "#9333ea" },
-                        { activity: "Work", start: "23:00", end: "1:30", duration: 2.5, color: "#16a34a" }
-                    ]
-                }
-            }
-        };
+    <script>
+        (function() {
+            "use strict";
 
-        // ============================================
-        // SCHEDULE SYSTEM STATE
-        // ============================================
-        let currentSchedule = 'workday';
-        let isMuted = false;
-        let currentSegmentIndex = -1;
-        let alertTimeout = null;
-        let countdownInterval = null;
-        let stageCheckInterval = null;
+            // ========== CONFIGURATION ==========
+            const SECURITY_CONFIG = {
+                MASTER_PASSWORD: "cross123!",
+                MAX_ATTEMPTS: 5,
+                LOCKOUT_MINUTES: 1
+            };
 
-        // ============================================
-        // DOM ELEMENT REFERENCES
-        // ============================================
-        // Security elements
-        const passwordInput = document.getElementById('password-input');
-        const loginButton = document.getElementById('login-button');
-        const errorMessage = document.getElementById('error-message');
-        const attemptsInfo = document.getElementById('attempts-info');
-        const securityOverlay = document.getElementById('security-overlay');
-        const loginContainer = document.getElementById('login-container');
-        const lockoutContainer = document.getElementById('lockout-container');
-        const lockoutTimer = document.getElementById('lockout-timer');
-
-        // Dashboard elements
-        const dashboard = document.getElementById('dashboard');
-
-        // Schedule control elements
-        const workdayBtn = document.getElementById('workdayBtn');
-        const restdayBtn = document.getElementById('restdayBtn');
-        const scheduleName = document.getElementById('scheduleName');
-
-        // Alert elements
-        const stageAlert = document.getElementById('stageAlert');
-        const alertContent = document.getElementById('alertContent');
-        const alertActivity = document.getElementById('alertActivity');
-        const alertInterval = document.getElementById('alertInterval');
-        const countdownTimer = document.getElementById('countdownTimer');
-        const closeAlertBtn = document.getElementById('closeAlertBtn');
-
-        // Notification elements
-        const stageNotification = document.getElementById('stageNotification');
-        const notificationActivity = document.getElementById('notificationActivity');
-        const notificationInterval = document.getElementById('notificationInterval');
-        const notificationIcon = document.getElementById('notificationIcon');
-
-        // Control panel elements
-        const muteToggle = document.getElementById('muteToggle');
-        const muteIcon = document.getElementById('muteIcon');
-        const nextStageCountdown = document.getElementById('nextStageCountdown');
-        const nextStageTime = document.getElementById('nextStageTime');
-
-        // Polyphasic overview elements
-        const polyphasicSchedule = document.getElementById('polyphasic-schedule');
-        const currentActivity = document.getElementById('currentActivity');
-
-        // ============================================
-        // INITIALIZATION
-        // ============================================
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('🔒 Secure Schedule System Initializing...');
-            initializeSecuritySystem();
-            initializeScheduleSystem();
-        });
-
-        // ============================================
-        // SECURITY SYSTEM FUNCTIONS
-        // ============================================
-        function initializeSecuritySystem() {
-            // Always start with login screen
-            showLoginScreen();
-
-            // Load lockout state if exists
-            loadLockoutState();
-
-            // Setup event listeners
-            setupSecurityEventListeners();
-        }
-
-        function loadLockoutState() {
-            try {
-                const savedAttempts = localStorage.getItem('secure_schedule_attempts');
-                const lockoutTime = localStorage.getItem('secure_schedule_lockout');
-
-                if (savedAttempts) {
-                    securityState.failedAttempts = parseInt(savedAttempts);
-                }
-
-                if (lockoutTime) {
-                    securityState.lockoutUntil = parseInt(lockoutTime);
-
-                    // Check if still in lockout period
-                    if (Date.now() < securityState.lockoutUntil) {
-                        showLockoutScreen();
-                        startLockoutTimer();
-                        return;
-                    } else {
-                        // Lockout period expired
-                        securityState.failedAttempts = 0;
-                        securityState.lockoutUntil = 0;
-                        localStorage.removeItem('secure_schedule_lockout');
-                        localStorage.setItem('secure_schedule_attempts', '0');
+            const SCHEDULES = {
+                workday: {
+                    name: "Workday Schedule",
+                    period1: {
+                        title: "1:30 - 13:30",
+                        segments: [
+                            { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
+                            { activity: "Work", start: "6:00", end: "13:30", duration: 7.5, color: "#16a34a" }
+                        ]
+                    },
+                    period2: {
+                        title: "13:30 - 1:30",
+                        segments: [
+                            { activity: "Work", start: "13:30", end: "17:00", duration: 3.5, color: "#16a34a" },
+                            { activity: "Rest", start: "17:00", end: "17:45", duration: 0.75, color: "#3b82f6" },
+                            { activity: "Work", start: "17:45", end: "19:50", duration: 2.083, color: "#16a34a" },
+                            { activity: "Rest", start: "19:50", end: "20:35", duration: 0.75, color: "#3b82f6" },
+                            { activity: "Work", start: "20:35", end: "22:40", duration: 2.083, color: "#16a34a" },
+                            { activity: "Rest", start: "22:40", end: "23:25", duration: 0.75, color: "#3b82f6" },
+                            { activity: "Work", start: "23:25", end: "1:30", duration: 2.083, color: "#16a34a" }
+                        ]
                     }
-                }
-
-                // Show attempts info if there are failed attempts
-                if (securityState.failedAttempts > 0) {
-                    updateAttemptsDisplay();
-                }
-
-            } catch (error) {
-                console.error('Error loading security state:', error);
-                resetSecurityState();
-            }
-        }
-
-        function setupSecurityEventListeners() {
-            // Password input enter key
-            passwordInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    checkPassword();
-                }
-            });
-
-            // Close alert button
-            if (closeAlertBtn) {
-                closeAlertBtn.addEventListener('click', closeStageAlert);
-            }
-
-            // Close alert when clicking outside
-            if (stageAlert) {
-                stageAlert.addEventListener('click', function(e) {
-                    if (e.target === stageAlert) {
-                        closeStageAlert();
+                },
+                restday: {
+                    name: "Restday Schedule",
+                    period1: {
+                        title: "1:30 - 13:30",
+                        segments: [
+                            { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
+                            { activity: "Work", start: "6:00", end: "8:30", duration: 2.5, color: "#16a34a" },
+                            { activity: "Rest", start: "8:30", end: "9:25", duration: 0.917, color: "#3b82f6" },
+                            { activity: "Work", start: "9:25", end: "11:55", duration: 2.5, color: "#16a34a" },
+                            { activity: "Rest", start: "11:55", end: "12:50", duration: 0.917, color: "#3b82f6" },
+                            { activity: "Work", start: "12:50", end: "13:30", duration: 0.667, color: "#16a34a" }
+                        ]
+                    },
+                    period2: {
+                        title: "13:30 - 1:30",
+                        segments: [
+                            { activity: "Work", start: "13:30", end: "15:20", duration: 1.833, color: "#16a34a" },
+                            { activity: "Rest", start: "15:20", end: "16:15", duration: 0.917, color: "#3b82f6" },
+                            { activity: "Work", start: "16:15", end: "18:45", duration: 2.5, color: "#16a34a" },
+                            { activity: "Rest", start: "18:45", end: "19:40", duration: 0.917, color: "#3b82f6" },
+                            { activity: "Gaming", start: "19:40", end: "23:00", duration: 3.333, color: "#9333ea" },
+                            { activity: "Work", start: "23:00", end: "1:30", duration: 2.5, color: "#16a34a" }
+                        ]
                     }
-                });
-            }
-        }
-
-        function checkPassword() {
-            // Check if locked out
-            if (securityState.lockoutUntil && Date.now() < securityState.lockoutUntil) {
-                showLockoutScreen();
-                return;
-            }
-
-            const password = passwordInput.value.trim();
-            if (errorMessage) errorMessage.style.display = 'none';
-
-            if (!password) {
-                showError('Please enter the master password');
-                return;
-            }
-
-            // Disable button during verification
-            loginButton.disabled = true;
-            loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
-
-            // Simulate verification delay
-            setTimeout(() => {
-                if (password === SECURITY_CONFIG.MASTER_PASSWORD) {
-                    handleLoginSuccess();
-                } else {
-                    handleLoginFailure();
-                }
-
-                // Re-enable button
-                loginButton.disabled = false;
-                loginButton.innerHTML = '<i class="fas fa-unlock-alt"></i> Access System';
-            }, 800);
-        }
-
-        function handleLoginSuccess() {
-            // Reset failed attempts
-            securityState.failedAttempts = 0;
-            securityState.lockoutUntil = 0;
-            securityState.authenticated = true;
-
-            // Clear storage
-            localStorage.removeItem('secure_schedule_attempts');
-            localStorage.removeItem('secure_schedule_lockout');
-
-            // Grant access
-            grantAccess();
-
-            // Clear password field
-            passwordInput.value = '';
-        }
-
-        function handleLoginFailure() {
-            securityState.failedAttempts++;
-
-            // Save to localStorage
-            localStorage.setItem('secure_schedule_attempts', securityState.failedAttempts.toString());
-
-            // Show error
-            showError('<i class="fas fa-times-circle"></i> Invalid master password');
-
-            // Update attempts display
-            updateAttemptsDisplay();
-
-            // Clear password field and refocus
-            passwordInput.value = '';
-            passwordInput.focus();
-
-            // Check for lockout
-            if (securityState.failedAttempts >= SECURITY_CONFIG.MAX_ATTEMPTS) {
-                activateLockout();
-            }
-        }
-
-        function showError(message) {
-            if (errorMessage) {
-                errorMessage.innerHTML = message;
-                errorMessage.style.display = 'block';
-            }
-        }
-
-        function updateAttemptsDisplay() {
-            if (attemptsInfo) {
-                attemptsInfo.textContent = `Attempt ${securityState.failedAttempts} of ${SECURITY_CONFIG.MAX_ATTEMPTS}`;
-                attemptsInfo.style.display = 'block';
-            }
-        }
-
-        function showLoginScreen() {
-            if (loginContainer) loginContainer.classList.remove('hidden');
-            if (lockoutContainer) lockoutContainer.classList.add('hidden');
-            passwordInput.focus();
-        }
-
-        function showLockoutScreen() {
-            if (loginContainer) loginContainer.classList.add('hidden');
-            if (lockoutContainer) lockoutContainer.classList.remove('hidden');
-        }
-
-        function activateLockout() {
-            const lockoutTime = Date.now() + (SECURITY_CONFIG.LOCKOUT_MINUTES * 60 * 1000);
-            securityState.lockoutUntil = lockoutTime;
-
-            // Save to localStorage
-            localStorage.setItem('secure_schedule_lockout', lockoutTime.toString());
-
-            // Show lockout screen
-            showLockoutScreen();
-
-            // Start lockout timer
-            startLockoutTimer();
-        }
-
-        function startLockoutTimer() {
-            const lockoutTime = securityState.lockoutUntil - Date.now();
-            let seconds = Math.floor(lockoutTime / 1000);
-
-            const updateTimer = () => {
-                seconds--;
-
-                if (seconds <= 0) {
-                    clearInterval(interval);
-                    if (lockoutTimer) lockoutTimer.textContent = '00:00';
-
-                    setTimeout(() => {
-                        // Reset lockout
-                        securityState.lockoutUntil = 0;
-                        securityState.failedAttempts = 0;
-                        localStorage.removeItem('secure_schedule_lockout');
-                        localStorage.setItem('secure_schedule_attempts', '0');
-
-                        // Show login screen
-                        showLoginScreen();
-                    }, 1000);
-                    return;
-                }
-
-                const mins = Math.floor(seconds / 60);
-                const secs = seconds % 60;
-                if (lockoutTimer) {
-                    lockoutTimer.textContent =
-                        (mins < 10 ? '0' : '') + mins + ':' +
-                        (secs < 10 ? '0' : '') + secs;
                 }
             };
 
-            // Update immediately
-            updateTimer();
-
-            // Update every second
-            const interval = setInterval(updateTimer, 1000);
-        }
-
-        function grantAccess() {
-            console.log('✅ Authentication successful');
-
-            // Hide security overlay
-            if (securityOverlay) {
-                securityOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    securityOverlay.style.display = 'none';
-                }, 500);
-            }
-
-            // Show dashboard
-            if (dashboard) dashboard.classList.add('visible');
-
-            // Show schedule system
-            if (polyphasicSchedule) polyphasicSchedule.classList.add('visible');
-
-            // Start schedule monitoring
-            startScheduleMonitoring();
-        }
-
-        function togglePasswordVisibility() {
-            const toggleIcon = document.querySelector('.toggle-password i');
-            if (!toggleIcon) return;
-
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                toggleIcon.className = 'fas fa-eye-slash';
-            } else {
-                passwordInput.type = 'password';
-                toggleIcon.className = 'fas fa-eye';
-            }
-        }
-
-        function resetSecurityState() {
-            securityState = {
+            // ========== STATE ==========
+            let securityState = {
                 authenticated: false,
                 failedAttempts: 0,
                 lockoutUntil: 0
             };
 
-            localStorage.removeItem('secure_schedule_attempts');
-            localStorage.removeItem('secure_schedule_lockout');
-        }
+            let currentSchedule = 'workday';
+            let isMuted = false;
+            let currentSegmentIndex = -1;
+            let alertTimeout = null;
+            let countdownInterval = null;
+            let stageCheckInterval = null;
+            let lockoutTimerInterval = null;
 
-        // ============================================
-        // SCHEDULE SYSTEM FUNCTIONS
-        // ============================================
-        function initializeScheduleSystem() {
-            // Load saved preferences
-            loadSchedulePreferences();
+            // ========== DOM ELEMENTS ==========
+            // Security
+            const passwordInput = document.getElementById('password-input');
+            const loginButton = document.getElementById('login-button');
+            const errorMessage = document.getElementById('error-message');
+            const attemptsInfo = document.getElementById('attempts-info');
+            const securityOverlay = document.getElementById('security-overlay');
+            const loginContainer = document.getElementById('login-container');
+            const lockoutContainer = document.getElementById('lockout-container');
+            const lockoutTimerEl = document.getElementById('lockout-timer');
 
-            // Setup event listeners
-            setupScheduleEventListeners();
-        }
+            // Dashboard
+            const dashboard = document.getElementById('dashboard');
 
-        function setupScheduleEventListeners() {
-            // Schedule buttons
-            if (workdayBtn) workdayBtn.addEventListener('click', () => switchSchedule('workday'));
-            if (restdayBtn) restdayBtn.addEventListener('click', () => switchSchedule('restday'));
+            // Schedule controls
+            const workdayBtn = document.getElementById('workdayBtn');
+            const restdayBtn = document.getElementById('restdayBtn');
+            const scheduleName = document.getElementById('scheduleName');
+            const currentActivity = document.getElementById('currentActivity');
+            const muteToggle = document.getElementById('muteToggle');
+            const muteIcon = document.getElementById('muteIcon');
+            const nextStageTime = document.getElementById('nextStageTime');
 
-            // Mute toggle
-            if (muteToggle) muteToggle.addEventListener('click', toggleMute);
-        }
+            // Alerts
+            const stageAlert = document.getElementById('stageAlert');
+            const alertContent = document.getElementById('alertContent');
+            const alertActivity = document.getElementById('alertActivity');
+            const alertInterval = document.getElementById('alertInterval');
+            const countdownTimer = document.getElementById('countdownTimer');
+            const closeAlertBtn = document.getElementById('closeAlertBtn');
 
-        function loadSchedulePreferences() {
-            const saved = localStorage.getItem('schedule_preferences');
-            if (saved) {
+            // Notification
+            const stageNotification = document.getElementById('stageNotification');
+            const notificationActivity = document.getElementById('notificationActivity');
+            const notificationInterval = document.getElementById('notificationInterval');
+            const notificationIcon = document.getElementById('notificationIcon');
+
+            // Polyphasic window
+            const polyphasicSchedule = document.getElementById('polyphasic-schedule');
+
+            // ========== INIT ==========
+            document.addEventListener('DOMContentLoaded', () => {
+                console.log('🔒 Secure Schedule System Initializing (Enhanced)...');
+                initializeSecuritySystem();
+                initializeScheduleSystem();
+
+                // Remove any lingering hover effects on table (just to be safe)
+                const tableRows = document.querySelectorAll('.enhanced-table tr');
+                tableRows.forEach(row => {
+                    row.style.transition = 'none';
+                });
+            });
+
+            // Cleanup on page unload
+            window.addEventListener('beforeunload', () => {
+                clearAllIntervals();
+            });
+
+            function clearAllIntervals() {
+                if (stageCheckInterval) clearInterval(stageCheckInterval);
+                if (lockoutTimerInterval) clearInterval(lockoutTimerInterval);
+                if (alertTimeout) clearTimeout(alertTimeout);
+                if (countdownInterval) clearInterval(countdownInterval);
+            }
+
+            // ========== SECURITY SYSTEM ==========
+            function initializeSecuritySystem() {
+                loadLockoutState();
+                setupSecurityEventListeners();
+                showLoginScreen();
+            }
+
+            function loadLockoutState() {
                 try {
-                    const preferences = JSON.parse(saved);
-                    currentSchedule = preferences.currentSchedule || 'workday';
-                    isMuted = preferences.isMuted || false;
+                    const savedAttempts = localStorage.getItem('secure_schedule_attempts');
+                    const lockoutTime = localStorage.getItem('secure_schedule_lockout');
 
-                    // Update UI
+                    if (savedAttempts) {
+                        securityState.failedAttempts = parseInt(savedAttempts, 10) || 0;
+                    }
+
+                    if (lockoutTime) {
+                        securityState.lockoutUntil = parseInt(lockoutTime, 10) || 0;
+
+                        if (Date.now() < securityState.lockoutUntil) {
+                            showLockoutScreen();
+                            startLockoutTimer();
+                            return;
+                        } else {
+                            // Lockout expired
+                            securityState.failedAttempts = 0;
+                            securityState.lockoutUntil = 0;
+                            localStorage.removeItem('secure_schedule_lockout');
+                            localStorage.setItem('secure_schedule_attempts', '0');
+                        }
+                    }
+
+                    if (securityState.failedAttempts > 0) {
+                        updateAttemptsDisplay();
+                    }
+                } catch (e) {
+                    console.warn('Failed to load lockout state', e);
+                    resetSecurityState();
+                }
+            }
+
+            function setupSecurityEventListeners() {
+                passwordInput?.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') checkPassword();
+                });
+
+                closeAlertBtn?.addEventListener('click', closeStageAlert);
+
+                stageAlert?.addEventListener('click', (e) => {
+                    if (e.target === stageAlert) closeStageAlert();
+                });
+
+                // Mute toggle
+                muteToggle?.addEventListener('click', toggleMute);
+                muteToggle?.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleMute();
+                    }
+                });
+            }
+
+            function checkPassword() {
+                if (securityState.lockoutUntil && Date.now() < securityState.lockoutUntil) {
+                    showLockoutScreen();
+                    return;
+                }
+
+                const password = passwordInput?.value.trim() || '';
+                if (!password) {
+                    showError('Please enter the master password');
+                    return;
+                }
+
+                // Disable button during verification
+                if (loginButton) {
+                    loginButton.disabled = true;
+                    loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
+                }
+
+                setTimeout(() => {
+                    if (password === SECURITY_CONFIG.MASTER_PASSWORD) {
+                        handleLoginSuccess();
+                    } else {
+                        handleLoginFailure();
+                    }
+
+                    if (loginButton) {
+                        loginButton.disabled = false;
+                        loginButton.innerHTML = '<i class="fas fa-unlock-alt"></i> Access System';
+                    }
+                }, 800); // small delay to prevent brute force
+            }
+
+            function handleLoginSuccess() {
+                securityState.failedAttempts = 0;
+                securityState.lockoutUntil = 0;
+                securityState.authenticated = true;
+
+                localStorage.removeItem('secure_schedule_attempts');
+                localStorage.removeItem('secure_schedule_lockout');
+
+                grantAccess();
+
+                if (passwordInput) passwordInput.value = '';
+            }
+
+            function handleLoginFailure() {
+                securityState.failedAttempts++;
+                localStorage.setItem('secure_schedule_attempts', securityState.failedAttempts.toString());
+
+                showError('<i class="fas fa-times-circle"></i> Invalid master password');
+                updateAttemptsDisplay();
+
+                if (passwordInput) {
+                    passwordInput.value = '';
+                    passwordInput.focus();
+                }
+
+                if (securityState.failedAttempts >= SECURITY_CONFIG.MAX_ATTEMPTS) {
+                    activateLockout();
+                }
+            }
+
+            function showError(msg) {
+                if (errorMessage) {
+                    errorMessage.innerHTML = msg;
+                    errorMessage.style.display = 'block';
+                }
+            }
+
+            function updateAttemptsDisplay() {
+                if (attemptsInfo) {
+                    attemptsInfo.textContent = `Attempt ${securityState.failedAttempts} of ${SECURITY_CONFIG.MAX_ATTEMPTS}`;
+                    attemptsInfo.style.display = 'block';
+                }
+            }
+
+            function showLoginScreen() {
+                loginContainer?.classList.remove('hidden');
+                lockoutContainer?.classList.add('hidden');
+                passwordInput?.focus();
+            }
+
+            function showLockoutScreen() {
+                loginContainer?.classList.add('hidden');
+                lockoutContainer?.classList.remove('hidden');
+            }
+
+            function activateLockout() {
+                const lockoutTime = Date.now() + (SECURITY_CONFIG.LOCKOUT_MINUTES * 60 * 1000);
+                securityState.lockoutUntil = lockoutTime;
+                localStorage.setItem('secure_schedule_lockout', lockoutTime.toString());
+
+                showLockoutScreen();
+                startLockoutTimer();
+            }
+
+            function startLockoutTimer() {
+                if (lockoutTimerInterval) clearInterval(lockoutTimerInterval);
+
+                const update = () => {
+                    const remaining = Math.max(0, securityState.lockoutUntil - Date.now());
+                    const seconds = Math.floor(remaining / 1000);
+
+                    if (seconds <= 0) {
+                        clearInterval(lockoutTimerInterval);
+                        lockoutTimerInterval = null;
+                        if (lockoutTimerEl) lockoutTimerEl.textContent = '00:00';
+
+                        // Auto reset lockout
+                        securityState.lockoutUntil = 0;
+                        securityState.failedAttempts = 0;
+                        localStorage.removeItem('secure_schedule_lockout');
+                        localStorage.setItem('secure_schedule_attempts', '0');
+                        showLoginScreen();
+                        return;
+                    }
+
+                    const mins = Math.floor(seconds / 60);
+                    const secs = seconds % 60;
+                    if (lockoutTimerEl) {
+                        lockoutTimerEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                    }
+                };
+
+                update();
+                lockoutTimerInterval = setInterval(update, 200);
+            }
+
+            function grantAccess() {
+                console.log('✅ Authentication successful');
+                if (securityOverlay) {
+                    securityOverlay.style.opacity = '0';
+                    setTimeout(() => {
+                        securityOverlay.style.display = 'none';
+                    }, 500);
+                }
+                dashboard?.classList.add('visible');
+                polyphasicSchedule?.classList.add('visible');
+                startScheduleMonitoring();
+            }
+
+            function togglePasswordVisibility() {
+                if (!passwordInput) return;
+                const type = passwordInput.type === 'password' ? 'text' : 'password';
+                passwordInput.type = type;
+                const icon = document.querySelector('.toggle-password i');
+                if (icon) {
+                    icon.className = type === 'password' ? 'fas fa-eye' : 'fas fa-eye-slash';
+                }
+            }
+
+            function resetSecurityState() {
+                securityState = { authenticated: false, failedAttempts: 0, lockoutUntil: 0 };
+                localStorage.removeItem('secure_schedule_attempts');
+                localStorage.removeItem('secure_schedule_lockout');
+            }
+
+            // ========== SCHEDULE SYSTEM ==========
+            function initializeScheduleSystem() {
+                loadSchedulePreferences();
+                setupScheduleButtons();
+                updateMuteToggle();
+            }
+
+            function setupScheduleButtons() {
+                workdayBtn?.addEventListener('click', () => switchSchedule('workday'));
+                restdayBtn?.addEventListener('click', () => switchSchedule('restday'));
+            }
+
+            function loadSchedulePreferences() {
+                try {
+                    const saved = localStorage.getItem('schedule_preferences');
+                    if (saved) {
+                        const prefs = JSON.parse(saved);
+                        currentSchedule = prefs.currentSchedule === 'restday' ? 'restday' : 'workday';
+                        isMuted = !!prefs.isMuted;
+                        updateScheduleButtons();
+                        updateMuteToggle();
+                    }
+                } catch (e) {
+                    console.warn('Failed to load schedule prefs', e);
+                }
+            }
+
+            function saveSchedulePreferences() {
+                localStorage.setItem('schedule_preferences', JSON.stringify({
+                    currentSchedule,
+                    isMuted
+                }));
+            }
+
+            function switchSchedule(scheduleType) {
+                if (currentSchedule !== scheduleType) {
+                    currentSchedule = scheduleType;
+                    currentSegmentIndex = -1; // force new alert
+
                     updateScheduleButtons();
-                    updateMuteToggle();
-
-                } catch (error) {
-                    console.log('Error loading schedule preferences:', error);
-                }
-            }
-        }
-
-        function saveSchedulePreferences() {
-            const preferences = {
-                currentSchedule: currentSchedule,
-                isMuted: isMuted
-            };
-            localStorage.setItem('schedule_preferences', JSON.stringify(preferences));
-        }
-
-        function startScheduleMonitoring() {
-            // Initial check
-            checkCurrentStage();
-
-            // Check every second
-            stageCheckInterval = setInterval(checkCurrentStage, 1000);
-
-            console.log('📅 Schedule monitoring started');
-        }
-
-        function checkCurrentStage() {
-            const now = new Date();
-            const currentTimeInMinutes = now.getHours() * 60 + now.getMinutes();
-
-            const schedule = SCHEDULES[currentSchedule];
-            const allSegments = [...schedule.period1.segments, ...schedule.period2.segments];
-
-            // Find current segment
-            let currentSegment = null;
-            let nextSegment = null;
-
-            for (let i = 0; i < allSegments.length; i++) {
-                const segment = allSegments[i];
-                const startMinutes = timeToMinutes(segment.start);
-                const endMinutes = timeToMinutes(segment.end);
-
-                let isCurrent = false;
-
-                if (endMinutes > startMinutes) {
-                    // Normal case: start and end in same day
-                    isCurrent = currentTimeInMinutes >= startMinutes &&
-                                currentTimeInMinutes < endMinutes;
-                } else {
-                    // Case spanning midnight
-                    isCurrent = currentTimeInMinutes >= startMinutes ||
-                                currentTimeInMinutes < endMinutes;
-                }
-
-                if (isCurrent) {
-                    currentSegment = {
-                        ...segment,
-                        index: i
-                    };
-
-                    // Get next segment (wrap around)
-                    nextSegment = allSegments[(i + 1) % allSegments.length];
-                    break;
+                    if (scheduleName) {
+                        scheduleName.textContent = `${SCHEDULES[currentSchedule].name} Active`;
+                    }
+                    saveSchedulePreferences();
+                    console.log(`🔄 Switched to ${scheduleType}`);
                 }
             }
 
-            // Update display
-            if (currentSegment) {
-                if (currentActivity) {
-                    currentActivity.textContent = `${currentSegment.activity} (${currentSegment.start}-${currentSegment.end})`;
-                }
-
-                // Check if this is a new segment
-                if (currentSegment.index !== currentSegmentIndex) {
-                    currentSegmentIndex = currentSegment.index;
-                    showStageAlert(currentSegment);
-                    showStageNotification(currentSegment);
-                }
-
-                // Update next stage countdown
-                if (nextSegment && nextStageTime) {
-                    updateNextStageCountdown(currentTimeInMinutes, nextSegment);
-                }
-            }
-        }
-
-        function updateNextStageCountdown(currentMinutes, nextSegment) {
-            const nextStartMinutes = timeToMinutes(nextSegment.start);
-            let minutesUntilNext;
-
-            if (nextStartMinutes > currentMinutes) {
-                minutesUntilNext = nextStartMinutes - currentMinutes;
-            } else {
-                // Next segment starts tomorrow
-                minutesUntilNext = (24 * 60 - currentMinutes) + nextStartMinutes;
-            }
-
-            const hours = Math.floor(minutesUntilNext / 60);
-            const minutes = minutesUntilNext % 60;
-
-            let timeText = '';
-            if (hours > 0) timeText += `${hours}h `;
-            timeText += `${minutes}m`;
-
-            if (nextStageTime) {
-                nextStageTime.textContent = timeText;
-            }
-        }
-
-        function switchSchedule(scheduleType) {
-            if (currentSchedule !== scheduleType) {
-                currentSchedule = scheduleType;
-                currentSegmentIndex = -1; // Reset to trigger new alert
-
-                // Update buttons
-                updateScheduleButtons();
-
-                // Update display
-                if (scheduleName) {
-                    scheduleName.textContent = `${SCHEDULES[currentSchedule].name} Active`;
-                }
-
-                // Save preferences
-                saveSchedulePreferences();
-
-                console.log(`🔄 Switched to ${scheduleType} schedule`);
-            }
-        }
-
-        function updateScheduleButtons() {
-            if (workdayBtn && restdayBtn) {
+            function updateScheduleButtons() {
+                if (!workdayBtn || !restdayBtn) return;
                 if (currentSchedule === 'workday') {
                     workdayBtn.classList.add('active');
                     restdayBtn.classList.remove('active');
@@ -1592,209 +1230,218 @@
                     workdayBtn.classList.remove('active');
                 }
             }
-        }
 
-        function showStageAlert(segment) {
-            // Clear any existing timeout/interval
-            clearAlertTimers();
-
-            // Update alert content
-            if (alertActivity) {
-                alertActivity.textContent = segment.activity.toUpperCase();
-                alertActivity.className = `alert-activity ${segment.activity.toLowerCase()}`;
-            }
-            if (alertInterval) {
-                alertInterval.textContent = `${segment.start} - ${segment.end}`;
+            function toggleMute() {
+                isMuted = !isMuted;
+                updateMuteToggle();
+                saveSchedulePreferences();
+                console.log(`🔇 Mute ${isMuted ? 'ON' : 'OFF'}`);
             }
 
-            // Update alert style
-            if (alertContent) {
-                alertContent.className = `alert-content alert-${segment.activity.toLowerCase()}`;
+            function updateMuteToggle() {
+                if (muteToggle) muteToggle.classList.toggle('muted', isMuted);
+                if (muteIcon) muteIcon.textContent = isMuted ? '🔕' : '🔔';
             }
 
-            // Reset countdown
-            let countdown = 5;
-            if (countdownTimer) {
-                countdownTimer.textContent = countdown;
+            function startScheduleMonitoring() {
+                checkCurrentStage();
+                if (stageCheckInterval) clearInterval(stageCheckInterval);
+                stageCheckInterval = setInterval(checkCurrentStage, 1000);
+
+                // Stop checking when page hidden
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden) {
+                        if (stageCheckInterval) clearInterval(stageCheckInterval);
+                    } else {
+                        stageCheckInterval = setInterval(checkCurrentStage, 1000);
+                    }
+                });
             }
 
-            // Show alert
-            if (stageAlert) {
-                stageAlert.classList.add('active');
-            }
+            function checkCurrentStage() {
+                const now = new Date();
+                const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
-            // Play sound if not muted
-            if (!isMuted) {
-                playAlertSound();
-            }
+                const schedule = SCHEDULES[currentSchedule];
+                const allSegments = [...schedule.period1.segments, ...schedule.period2.segments];
 
-            // Start countdown
-            countdownInterval = setInterval(() => {
-                countdown--;
-                if (countdownTimer) {
-                    countdownTimer.textContent = countdown;
+                let currentSegment = null;
+                let nextSegment = null;
+
+                for (let i = 0; i < allSegments.length; i++) {
+                    const seg = allSegments[i];
+                    const start = timeToMinutes(seg.start);
+                    const end = timeToMinutes(seg.end);
+                    let isCurrent = false;
+
+                    if (end > start) {
+                        isCurrent = currentMinutes >= start && currentMinutes < end;
+                    } else {
+                        // crosses midnight
+                        isCurrent = currentMinutes >= start || currentMinutes < end;
+                    }
+
+                    if (isCurrent) {
+                        currentSegment = { ...seg, index: i };
+                        nextSegment = allSegments[(i + 1) % allSegments.length];
+                        break;
+                    }
                 }
 
-                if (countdown <= 0) {
-                    closeStageAlert();
+                if (currentSegment) {
+                    if (currentActivity) {
+                        currentActivity.textContent = `${currentSegment.activity} (${currentSegment.start}-${currentSegment.end})`;
+                    }
+
+                    if (currentSegment.index !== currentSegmentIndex) {
+                        currentSegmentIndex = currentSegment.index;
+                        showStageAlert(currentSegment);
+                        showStageNotification(currentSegment);
+                    }
+
+                    if (nextSegment && nextStageTime) {
+                        updateNextStageCountdown(currentMinutes, nextSegment);
+                    }
                 }
-            }, 1000);
-
-            // Auto-close after 5 seconds
-            alertTimeout = setTimeout(closeStageAlert, 5000);
-        }
-
-        function closeStageAlert() {
-            if (stageAlert) {
-                stageAlert.classList.remove('active');
             }
-            clearAlertTimers();
-        }
 
-        function clearAlertTimers() {
-            if (alertTimeout) {
-                clearTimeout(alertTimeout);
+            function updateNextStageCountdown(currentMinutes, nextSegment) {
+                const nextStart = timeToMinutes(nextSegment.start);
+                let diff;
+                if (nextStart > currentMinutes) {
+                    diff = nextStart - currentMinutes;
+                } else {
+                    diff = (24 * 60 - currentMinutes) + nextStart;
+                }
+                const hours = Math.floor(diff / 60);
+                const mins = diff % 60;
+                nextStageTime.textContent = hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
+            }
+
+            function showStageAlert(segment) {
+                clearAlertTimers();
+
+                if (alertActivity) {
+                    alertActivity.textContent = segment.activity.toUpperCase();
+                    alertActivity.className = `alert-activity ${segment.activity.toLowerCase()}`;
+                }
+                if (alertInterval) alertInterval.textContent = `${segment.start} - ${segment.end}`;
+                if (alertContent) alertContent.className = `alert-content alert-${segment.activity.toLowerCase()}`;
+
+                let countdown = 5;
+                if (countdownTimer) countdownTimer.textContent = countdown;
+
+                stageAlert?.classList.add('active');
+
+                if (!isMuted) playAlertSound();
+
+                countdownInterval = setInterval(() => {
+                    countdown--;
+                    if (countdownTimer) countdownTimer.textContent = countdown;
+                    if (countdown <= 0) closeStageAlert();
+                }, 1000);
+
+                alertTimeout = setTimeout(closeStageAlert, 5000);
+            }
+
+            function closeStageAlert() {
+                stageAlert?.classList.remove('active');
+                clearAlertTimers();
+            }
+
+            function clearAlertTimers() {
+                if (alertTimeout) clearTimeout(alertTimeout);
+                if (countdownInterval) clearInterval(countdownInterval);
                 alertTimeout = null;
-            }
-            if (countdownInterval) {
-                clearInterval(countdownInterval);
                 countdownInterval = null;
             }
-        }
 
-        function showStageNotification(segment) {
-            if (notificationActivity) {
-                notificationActivity.textContent = `${segment.activity} Stage`;
-            }
-            if (notificationInterval) {
-                notificationInterval.textContent = `${segment.start} - ${segment.end}`;
-            }
+            function showStageNotification(segment) {
+                if (notificationActivity) notificationActivity.textContent = `${segment.activity} Stage`;
+                if (notificationInterval) notificationInterval.textContent = `${segment.start} - ${segment.end}`;
 
-            // Set icon based on activity
-            let icon = "⏰";
-            if (segment.activity === "Rest") icon = "😴";
-            else if (segment.activity === "Work") icon = "💼";
-            else if (segment.activity === "Gaming") icon = "🎮";
+                const iconMap = { Rest: '😴', Work: '💼', Gaming: '🎮' };
+                if (notificationIcon) notificationIcon.textContent = iconMap[segment.activity] || '⏰';
 
-            if (notificationIcon) {
-                notificationIcon.textContent = icon;
-            }
-
-            // Set notification style
-            if (stageNotification) {
-                stageNotification.className = `stage-notification active notification-${segment.activity.toLowerCase()}`;
-            }
-
-            // Auto hide after 3 seconds
-            setTimeout(() => {
                 if (stageNotification) {
-                    stageNotification.classList.remove('active');
+                    stageNotification.className = `stage-notification active notification-${segment.activity.toLowerCase()}`;
                 }
-            }, 3000);
-        }
 
-        function toggleMute() {
-            isMuted = !isMuted;
-            if (muteToggle) {
-                muteToggle.classList.toggle('muted', isMuted);
+                setTimeout(() => {
+                    stageNotification?.classList.remove('active');
+                }, 3000);
             }
-            if (muteIcon) {
-                muteIcon.textContent = isMuted ? '🔕' : '🔔';
-            }
-            saveSchedulePreferences();
 
-            console.log(`🔇 Mute ${isMuted ? 'enabled' : 'disabled'}`);
-        }
-
-        function updateMuteToggle() {
-            if (muteToggle) {
-                muteToggle.classList.toggle('muted', isMuted);
-            }
-            if (muteIcon) {
-                muteIcon.textContent = isMuted ? '🔕' : '🔔';
-            }
-        }
-
-        function playAlertSound() {
-            try {
-                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                const oscillator = audioContext.createOscillator();
-                const gainNode = audioContext.createGain();
-
-                oscillator.connect(gainNode);
-                gainNode.connect(audioContext.destination);
-
-                oscillator.frequency.value = 800;
-                oscillator.type = 'sine';
-
-                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-
-                oscillator.start(audioContext.currentTime);
-                oscillator.stop(audioContext.currentTime + 0.5);
-            } catch (error) {
-                console.log("Audio not supported or blocked by browser");
-            }
-        }
-
-        // ============================================
-        // UTILITY FUNCTIONS
-        // ============================================
-        function timeToMinutes(timeStr) {
-            const [hours, minutes] = timeStr.split(':').map(Number);
-            return hours * 60 + minutes;
-        }
-
-        // ============================================
-        // WINDOW MANAGEMENT FUNCTIONS
-        // ============================================
-        function toggleWindow(windowId) {
-            const window = document.getElementById(windowId);
-            if (!window) return;
-
-            if (window.classList.contains('active')) {
-                window.classList.remove('active');
-                document.body.style.overflow = '';
-            } else {
-                document.querySelectorAll('.polyphasic-overview-window.active').forEach(w => {
-                    w.classList.remove('active');
-                });
-                window.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        // Close windows when clicking outside
-        document.addEventListener('click', function(event) {
-            const windows = document.querySelectorAll('.polyphasic-overview-window.active');
-            windows.forEach(window => {
-                if (!window.contains(event.target) && !event.target.closest('.open-polyphasic-btn')) {
-                    window.classList.remove('active');
-                    document.body.style.overflow = '';
+            function playAlertSound() {
+                try {
+                    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    if (audioCtx.state === 'suspended') {
+                        audioCtx.resume().then(() => beep(audioCtx));
+                    } else {
+                        beep(audioCtx);
+                    }
+                } catch (e) {
+                    console.log('Audio not supported');
                 }
-            });
-        });
-
-        // Escape key closes windows
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.polyphasic-overview-window.active').forEach(window => {
-                    window.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
             }
-        });
-                 // Initialize particles and animations
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
 
-            // Add hover effect to table rows
-            const tableRows = document.querySelectorAll('.enhanced-table tr');
-            tableRows.forEach(row => {
-                row.addEventListener('mouseenter', () => {
-                    row.style.transition = 'all 0.3s ease';
+            function beep(ctx) {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.frequency.value = 800;
+                gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.3);
+            }
+
+            // ========== UTILS ==========
+            function timeToMinutes(t) {
+                const [h, m] = t.split(':').map(Number);
+                return h * 60 + m;
+            }
+
+            // ========== WINDOW MANAGEMENT ==========
+            window.toggleWindow = function(windowId) {
+                const win = document.getElementById(windowId);
+                if (!win) return;
+
+                if (win.classList.contains('active')) {
+                    win.classList.remove('active');
+                    document.body.style.overflow = '';
+                } else {
+                    document.querySelectorAll('.polyphasic-overview-window.active').forEach(w => w.classList.remove('active'));
+                    win.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+
+            // Close windows on outside click
+            document.addEventListener('click', (e) => {
+                document.querySelectorAll('.polyphasic-overview-window.active').forEach(win => {
+                    if (!win.contains(e.target) && !e.target.closest('.open-polyphasic-btn')) {
+                        win.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
                 });
             });
-        });
-            </script>
-            </html>
+
+            // ESC key closes windows
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.polyphasic-overview-window.active').forEach(win => {
+                        win.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                }
+            });
+
+            // Expose functions needed globally (for onclick attributes)
+            window.checkPassword = checkPassword;
+            window.togglePasswordVisibility = togglePasswordVisibility;
+        })();
+    </script>
+</body>
+</html>

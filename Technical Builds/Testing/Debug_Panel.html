@@ -17,7 +17,6 @@
             font-family: "Segoe UI", "Asap", sans-serif;
         }
 
-        /* NEW: Clean professional background - dark theme */
         body {
             margin: 0;
             min-height: 100vh;
@@ -55,14 +54,8 @@
         }
 
         @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .security-header {
@@ -294,7 +287,6 @@
             line-height: 1.6;
         }
 
-        /* Single action button in header */
         .header-action {
             display: inline-block;
             padding: 14px 32px;
@@ -320,7 +312,6 @@
             transform: translateY(0);
         }
 
-        /* Open Polyphasic Button Style */
         .open-polyphasic-btn {
             display: block;
             margin: 20px auto;
@@ -369,7 +360,6 @@
             display: flex;
         }
 
-        /* Simplified debug header */
         .debug-header {
             display: flex;
             justify-content: space-between;
@@ -393,7 +383,6 @@
             font-size: 20px;
         }
 
-        /* Minimal debug controls - only close and refresh */
         .debug-controls {
             display: flex;
             gap: 8px;
@@ -418,7 +407,6 @@
             transform: translateY(-1px);
         }
 
-        /* Debug content layout */
         .debug-content {
             display: flex;
             gap: 0;
@@ -427,7 +415,6 @@
             height: calc(100% - 70px);
         }
 
-        /* Tabs sidebar - clean and simple */
         .debug-tabs {
             display: flex;
             flex-direction: column;
@@ -471,7 +458,6 @@
             text-align: center;
         }
 
-        /* Tab content area */
         .debug-tab-content {
             flex: 1;
             overflow-y: auto;
@@ -565,7 +551,6 @@
             }
         }
 
-        /* Security Status Card - Enhanced */
         .security-card {
             background: rgba(30, 41, 59, 0.7);
             border-radius: 10px;
@@ -597,7 +582,6 @@
             gap: 8px;
         }
 
-        /* Enhanced Lock Status Display */
         .lock-status-display {
             display: flex;
             align-items: center;
@@ -645,7 +629,6 @@
             100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
-        /* HTML Files Lock Monitoring */
         .html-files-lock-status {
             margin-top: 20px;
             padding: 15px;
@@ -707,7 +690,6 @@
             gap: 8px;
         }
 
-        /* Enhanced Security Status */
         .security-status-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -764,7 +746,6 @@
             white-space: nowrap;
         }
 
-        /* Enhanced Password Input */
         .password-input-group {
             display: flex;
             gap: 10px;
@@ -789,7 +770,6 @@
             box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
         }
 
-        /* Enhanced Security Actions */
         .security-actions {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -956,7 +936,6 @@
             font-size: 0.9rem;
         }
 
-        /* Stage Notification */
         .stage-notification {
             position: fixed;
             top: 20px;
@@ -1073,7 +1052,6 @@
             border-bottom: 2px solid #334155;
         }
 
-        /* Polyphasic Overview Window */
         .polyphasic-overview-window {
             position: fixed;
             top: 5%;
@@ -1194,7 +1172,6 @@
             gap: 10px;
         }
 
-        /* Mode Switch */
         .mode-switch {
             display: flex;
             background: rgba(15, 23, 42, 0.6);
@@ -1228,7 +1205,6 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* File Input Area */
         .file-input-section, .url-input-section {
             margin-bottom: 25px;
         }
@@ -1355,7 +1331,6 @@
             background: rgba(239, 68, 68, 0.3);
         }
 
-        /* Files List */
         .files-header {
             display: flex;
             justify-content: space-between;
@@ -1641,7 +1616,6 @@
             background: rgba(59, 130, 246, 0.2);
         }
 
-        /* Main Console Display */
         .console-display {
             flex: 1;
             background: rgba(15, 23, 42, 0.8);
@@ -1701,7 +1675,6 @@
             transform: translateY(-1px);
         }
 
-        /* Console Log Entries */
         .log-entry {
             margin-bottom: 8px;
             padding: 8px 10px;
@@ -1737,7 +1710,6 @@
             color: #e2e8f0;
         }
 
-        /* Log Types */
         .log-error {
             border-left-color: #ef4444;
             background: rgba(239, 68, 68, 0.1);
@@ -1792,7 +1764,6 @@
             color: #cbd5e1;
         }
 
-        /* Console Stats */
         .console-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -1832,7 +1803,6 @@
         .stat-warnings .stat-value { color: #f59e0b; }
         .stat-security .stat-value { color: #8b5cf6; }
 
-        /* Console Test Panel */
         .console-test-panel {
             margin-top: 15px;
             padding: 15px;
@@ -2077,7 +2047,6 @@
             }
         }
 
-        /* Scrollbar Styling */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -2097,7 +2066,6 @@
             background: rgba(59, 130, 246, 0.7);
         }
 
-        /* Loading Animation */
         .loading-spinner {
             display: inline-block;
             width: 16px;
@@ -2307,23 +2275,21 @@
                     <div class="debug-section-title">
                         <i class="fas fa-chart-line"></i> Performance Metrics
                     </div>
-                    <div class="performance-metrics">
-                        <div class="metric-card metric-fps">
-                            <div class="metric-value" id="debug-fps">0</div>
-                            <div class="metric-label">FPS</div>
-                        </div>
-                        <div class="metric-card metric-memory">
-                            <div class="metric-value" id="debug-memory">--</div>
-                            <div class="metric-label">Memory</div>
-                        </div>
-                        <div class="metric-card metric-cpu">
-                            <div class="metric-value" id="debug-cpu">--</div>
-                            <div class="metric-label">CPU</div>
-                        </div>
-                        <div class="metric-card metric-uptime">
-                            <div class="metric-value" id="debug-uptime">0s</div>
-                            <div class="metric-label">Uptime</div>
-                        </div>
+                    <div class="debug-item">
+                        <span class="debug-label">FPS:</span>
+                        <span class="debug-value" id="debug-fps">0</span>
+                    </div>
+                    <div class="debug-item">
+                        <span class="debug-label">Memory:</span>
+                        <span class="debug-value" id="debug-memory">--</span>
+                    </div>
+                    <div class="debug-item">
+                        <span class="debug-label">CPU (simulated):</span>
+                        <span class="debug-value" id="debug-cpu">--</span>
+                    </div>
+                    <div class="debug-item">
+                        <span class="debug-label">Uptime:</span>
+                        <span class="debug-value" id="debug-uptime">0s</span>
                     </div>
                     <div class="debug-item">
                         <span class="debug-label">DOM Elements:</span>
@@ -2342,7 +2308,7 @@
                     <div class="debug-item">
                         <span class="debug-label">Status:</span>
                         <span class="debug-value">
-                            <span class="status-indicator status-online"></span>
+                            <span class="status-indicator status-online" id="connection-indicator"></span>
                             <span id="debug-connection-status">Online</span>
                         </span>
                     </div>
@@ -2505,22 +2471,25 @@
                     </div>
 
                     <!-- File Statistics -->
-                    <div class="performance-metrics">
-                        <div class="metric-card">
-                            <div class="metric-value" id="html-total-files">0</div>
-                            <div class="metric-label">Total Files</div>
+                    <div class="debug-section">
+                        <div class="debug-section-title">
+                            <i class="fas fa-chart-pie"></i> File Statistics
                         </div>
-                        <div class="metric-card">
-                            <div class="metric-value" id="html-locked-files">0</div>
-                            <div class="metric-label">Locked</div>
+                        <div class="debug-item">
+                            <span class="debug-label">Total Files:</span>
+                            <span class="debug-value" id="html-total-files">0</span>
                         </div>
-                        <div class="metric-card">
-                            <div class="metric-value" id="html-unlocked-files">0</div>
-                            <div class="metric-label">Unlocked</div>
+                        <div class="debug-item">
+                            <span class="debug-label">Locked:</span>
+                            <span class="debug-value" id="html-locked-files">0</span>
                         </div>
-                        <div class="metric-card">
-                            <div class="metric-value" id="html-loaded-files">0</div>
-                            <div class="metric-label">Loaded</div>
+                        <div class="debug-item">
+                            <span class="debug-label">Unlocked:</span>
+                            <span class="debug-value" id="html-unlocked-files">0</span>
+                        </div>
+                        <div class="debug-item">
+                            <span class="debug-label">Loaded:</span>
+                            <span class="debug-value" id="html-loaded-files">0</span>
                         </div>
                     </div>
 
@@ -2800,6 +2769,14 @@
 // ===================================================================
 
 // ====================
+// GLOBAL DECLARATIONS (Moved up to avoid reference errors)
+// ====================
+let countdownInterval = null;
+let alertTimeout = null;
+let lockoutInterval = null; // For managing lockout timer updates
+let performanceInterval = null;
+
+// ====================
 // SECURITY SYSTEM CONFIGURATION
 // ====================
 const SECURITY_CONFIG = {
@@ -2865,25 +2842,18 @@ const SCHEDULES = {
 // GLOBAL CONFIGURATION
 // ====================
 const DEBUG_CONFIG = {
-    // Security configuration
     LOCK_STATUS_KEY: 'debug_files_locked',
     LOCK_HISTORY_KEY: 'debug_lock_history',
     SECURITY_EVENTS_KEY: 'debug_security_events',
     HTML_FILES_KEY: 'debug_html_files',
     HTML_LOCKS_KEY: 'debug_html_locks',
     CONSOLE_LOGS_KEY: 'debug_console_logs',
-
-    // Performance settings
-    AUTO_BACKUP_INTERVAL: 300000, // 5 minutes
-    SECURITY_CHECK_INTERVAL: 30000, // 30 seconds
+    AUTO_BACKUP_INTERVAL: 300000,
+    SECURITY_CHECK_INTERVAL: 30000,
     FPS_UPDATE_INTERVAL: 1000,
-    SCHEDULE_CHECK_INTERVAL: 1000, // 1 second
-
-    // File system
+    SCHEDULE_CHECK_INTERVAL: 1000,
     MAX_CACHE_SIZE: 100,
     CONCURRENT_SCANS: 3,
-
-    // Console settings
     MAX_CONSOLE_LOGS: 500,
     LOG_RETENTION_DAYS: 7
 };
@@ -2906,7 +2876,923 @@ const debugData = {
     }
 };
 
-// HTML File Manager Data
+// ====================
+// UTILITY FUNCTIONS (Defined early)
+// ====================
+
+// Format time in seconds to readable string
+function formatTime(seconds) {
+    if (typeof seconds !== 'number' || isNaN(seconds)) return '0s';
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    if (hours > 0) return `${hours}h ${minutes}m ${secs}s`;
+    if (minutes > 0) return `${minutes}m ${secs}s`;
+    return `${Math.round(secs)}s`;
+}
+
+// Log to console (will be called before consoleSystem is defined, but we define it now)
+let logToConsole = function(message, type = 'info', source = 'SYSTEM') {
+    // If consoleSystem exists, use it; otherwise fallback to console
+    if (typeof consoleSystem !== 'undefined' && consoleSystem.addLog) {
+        consoleSystem.addLog(message, type, source);
+    } else {
+        console.log(`[${source}] ${message}`);
+    }
+};
+
+// Show stage alert (original style)
+function showStageAlert(title, message, type = 'security') {
+    const stageAlert = document.getElementById('stageAlert');
+    const alertContent = document.getElementById('alertContent');
+    const alertActivity = document.getElementById('alertActivity');
+    const alertInterval = document.getElementById('alertInterval');
+    const countdownTimer = document.getElementById('countdownTimer');
+    const closeAlertBtn = document.getElementById('closeAlertBtn');
+
+    if (!stageAlert || !alertContent) return;
+
+    // Clear any existing timers
+    if (alertTimeout) clearTimeout(alertTimeout);
+    if (countdownInterval) clearInterval(countdownInterval);
+
+    // Set alert content
+    if (alertActivity) {
+        alertActivity.textContent = title.toUpperCase();
+        alertActivity.className = `alert-activity ${type}`;
+    }
+
+    if (alertInterval) {
+        alertInterval.textContent = message;
+    }
+
+    // Set alert style
+    alertContent.className = `alert-content alert-${type}`;
+
+    // Reset countdown
+    let countdown = 5;
+    if (countdownTimer) {
+        countdownTimer.textContent = countdown;
+    }
+
+    if (closeAlertBtn) {
+        closeAlertBtn.textContent = type === 'error' ? 'Fix Issue' :
+                                  type === 'warning' ? 'Acknowledge' :
+                                  'Continue';
+    }
+
+    // Show alert
+    stageAlert.classList.add('active');
+
+    // Play sound if schedule is not muted
+    if (typeof scheduleSystem !== 'undefined' && !scheduleSystem.isMuted && type !== 'security') {
+        try {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.frequency.value = 800;
+            oscillator.type = 'sine';
+
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.5);
+        } catch (error) {
+            logToConsole("Audio not supported or blocked by browser", 'warning', 'SCHEDULE');
+        }
+    }
+
+    // Start countdown
+    countdownInterval = setInterval(() => {
+        countdown--;
+        if (countdownTimer) {
+            countdownTimer.textContent = countdown;
+        }
+
+        if (countdown <= 0) {
+            closeStageAlert();
+        }
+    }, 1000);
+
+    // Auto-close after 5 seconds for non-critical alerts
+    if (type !== 'error') {
+        alertTimeout = setTimeout(closeStageAlert, 5000);
+    }
+
+    logToConsole(`Stage alert: ${title} - ${message}`, type === 'error' ? 'error' : 'info', 'ALERT');
+}
+
+function closeStageAlert() {
+    const stageAlert = document.getElementById('stageAlert');
+    if (stageAlert) {
+        stageAlert.classList.remove('active');
+    }
+    if (countdownInterval) {
+        clearInterval(countdownInterval);
+        countdownInterval = null;
+    }
+    if (alertTimeout) {
+        clearTimeout(alertTimeout);
+        alertTimeout = null;
+    }
+}
+
+// ====================
+// SECURITY MANAGEMENT
+// ====================
+
+const securityState = {
+    authenticated: false,
+    failedAttempts: 0,
+    lockoutUntil: 0,
+    securityEvents: [],
+    lastSecurityCheck: null,
+    integrityStatus: 'unknown'
+};
+
+function logSecurityEvent(message, severity = 'info') {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString();
+
+    const event = {
+        time: timeString,
+        message: message,
+        severity: severity,
+        timestamp: now
+    };
+
+    securityState.securityEvents.unshift(event);
+
+    if (securityState.securityEvents.length > 50) {
+        securityState.securityEvents.pop();
+    }
+
+    try {
+        localStorage.setItem(DEBUG_CONFIG.SECURITY_EVENTS_KEY, JSON.stringify(securityState.securityEvents));
+    } catch (e) {
+        console.error('Error saving security events:', e);
+    }
+
+    updateSecurityEventsDisplay();
+    logToConsole(message, severity === 'critical' ? 'error' : severity, 'SECURITY');
+
+    const eventCountEl = document.getElementById('security-event-count');
+    if (eventCountEl) {
+        eventCountEl.textContent = securityState.securityEvents.length;
+    }
+}
+
+function updateSecurityEventsDisplay() {
+    const eventsList = document.getElementById('security-events-list');
+    if (!eventsList) return;
+
+    if (securityState.securityEvents.length === 0) {
+        eventsList.innerHTML = `
+            <div style="color: #94a3b8; font-size: 12px; text-align: center; padding: 10px;">
+                No security events recorded
+            </div>
+        `;
+        return;
+    }
+
+    eventsList.innerHTML = securityState.securityEvents.slice(0, 10).map(event => `
+        <div class="security-event-item">
+            <span>${event.message}</span>
+            <span class="security-event-time">${event.time}</span>
+        </div>
+    `).join('');
+}
+
+function loadSecurityState() {
+    try {
+        const savedAttempts = localStorage.getItem('debug_security_attempts');
+        const lockoutTime = localStorage.getItem('debug_security_lockout');
+        const savedEvents = localStorage.getItem(DEBUG_CONFIG.SECURITY_EVENTS_KEY);
+
+        if (savedAttempts) {
+            securityState.failedAttempts = parseInt(savedAttempts);
+        }
+
+        if (lockoutTime) {
+            securityState.lockoutUntil = parseInt(lockoutTime);
+
+            if (Date.now() < securityState.lockoutUntil) {
+                showLockoutScreen();
+                startLockoutTimer();
+                return;
+            } else {
+                securityState.failedAttempts = 0;
+                securityState.lockoutUntil = 0;
+                localStorage.removeItem('debug_security_lockout');
+                localStorage.setItem('debug_security_attempts', '0');
+            }
+        }
+
+        if (savedEvents) {
+            securityState.securityEvents = JSON.parse(savedEvents);
+            updateSecurityEventsDisplay();
+        }
+
+    } catch (error) {
+        console.error('Error loading security state:', error);
+        resetSecurityState();
+    }
+}
+
+function setupSecurityEventListeners() {
+    const passwordInput = document.getElementById('password-input');
+    const loginButton = document.getElementById('login-button');
+
+    if (passwordInput) {
+        passwordInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    }
+
+    if (loginButton) {
+        loginButton.addEventListener('click', checkPassword);
+    }
+}
+
+function checkPassword() {
+    if (securityState.lockoutUntil && Date.now() < securityState.lockoutUntil) {
+        showLockoutScreen();
+        return;
+    }
+
+    const passwordInput = document.getElementById('password-input');
+    const loginButton = document.getElementById('login-button');
+    const errorMessage = document.getElementById('error-message');
+    const attemptsInfo = document.getElementById('attempts-info');
+
+    const password = passwordInput ? passwordInput.value.trim() : '';
+    if (errorMessage) errorMessage.style.display = 'none';
+
+    if (!password) {
+        showError('Please enter the master password');
+        return;
+    }
+
+    loginButton.disabled = true;
+    loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
+
+    setTimeout(() => {
+        if (password === SECURITY_CONFIG.MASTER_PASSWORD) {
+            handleLoginSuccess();
+        } else {
+            handleLoginFailure();
+        }
+
+        loginButton.disabled = false;
+        loginButton.innerHTML = '<i class="fas fa-unlock-alt"></i> Access System';
+    }, 800);
+}
+
+function handleLoginSuccess() {
+    securityState.failedAttempts = 0;
+    securityState.lockoutUntil = 0;
+    securityState.authenticated = true;
+
+    localStorage.removeItem('debug_security_attempts');
+    localStorage.removeItem('debug_security_lockout');
+
+    grantAccess();
+
+    if (document.getElementById('password-input')) {
+        document.getElementById('password-input').value = '';
+    }
+
+    logSecurityEvent('User logged in successfully', 'info');
+}
+
+function handleLoginFailure() {
+    securityState.failedAttempts++;
+    localStorage.setItem('debug_security_attempts', securityState.failedAttempts.toString());
+
+    showError('<i class="fas fa-times-circle"></i> Invalid master password');
+
+    updateAttemptsDisplay();
+
+    const passwordInput = document.getElementById('password-input');
+    if (passwordInput) {
+        passwordInput.value = '';
+        passwordInput.focus();
+    }
+
+    logSecurityEvent(`Failed login attempt (${securityState.failedAttempts}/${SECURITY_CONFIG.MAX_ATTEMPTS})`, 'warning');
+
+    if (securityState.failedAttempts >= SECURITY_CONFIG.MAX_ATTEMPTS) {
+        activateLockout();
+    }
+}
+
+function showError(message) {
+    const errorMessage = document.getElementById('error-message');
+    if (errorMessage) {
+        errorMessage.innerHTML = message;
+        errorMessage.style.display = 'block';
+    }
+}
+
+function updateAttemptsDisplay() {
+    const attemptsInfo = document.getElementById('attempts-info');
+    if (attemptsInfo) {
+        attemptsInfo.textContent = `Attempt ${securityState.failedAttempts} of ${SECURITY_CONFIG.MAX_ATTEMPTS}`;
+        attemptsInfo.style.display = 'block';
+    }
+}
+
+function showLoginScreen() {
+    const loginContainer = document.getElementById('login-container');
+    const lockoutContainer = document.getElementById('lockout-container');
+
+    if (loginContainer) loginContainer.classList.remove('hidden');
+    if (lockoutContainer) lockoutContainer.classList.add('hidden');
+
+    const passwordInput = document.getElementById('password-input');
+    if (passwordInput) passwordInput.focus();
+}
+
+function showLockoutScreen() {
+    const loginContainer = document.getElementById('login-container');
+    const lockoutContainer = document.getElementById('lockout-container');
+
+    if (loginContainer) loginContainer.classList.add('hidden');
+    if (lockoutContainer) lockoutContainer.classList.remove('hidden');
+}
+
+function activateLockout() {
+    const lockoutTime = Date.now() + (SECURITY_CONFIG.LOCKOUT_MINUTES * 60 * 1000);
+    securityState.lockoutUntil = lockoutTime;
+
+    localStorage.setItem('debug_security_lockout', lockoutTime.toString());
+
+    showLockoutScreen();
+    startLockoutTimer();
+
+    logSecurityEvent('Security lockout activated due to multiple failed login attempts', 'critical');
+    showStageAlert('Security Lockout', 'Too many failed login attempts. System locked for 1 minute.', 'error');
+}
+
+function startLockoutTimer() {
+    // Clear any existing lockout interval
+    if (lockoutInterval) clearInterval(lockoutInterval);
+
+    const lockoutTime = securityState.lockoutUntil - Date.now();
+    let seconds = Math.floor(lockoutTime / 1000);
+
+    const updateTimer = () => {
+        seconds--;
+
+        if (seconds <= 0) {
+            clearInterval(lockoutInterval);
+            const lockoutTimer = document.getElementById('lockout-timer');
+            if (lockoutTimer) lockoutTimer.textContent = '00:00';
+
+            setTimeout(() => {
+                securityState.lockoutUntil = 0;
+                securityState.failedAttempts = 0;
+                localStorage.removeItem('debug_security_lockout');
+                localStorage.setItem('debug_security_attempts', '0');
+
+                showLoginScreen();
+                logSecurityEvent('Security lockout expired', 'info');
+            }, 1000);
+            return;
+        }
+
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        const lockoutTimer = document.getElementById('lockout-timer');
+        if (lockoutTimer) {
+            lockoutTimer.textContent =
+                (mins < 10 ? '0' : '') + mins + ':' +
+                (secs < 10 ? '0' : '') + secs;
+        }
+    };
+
+    updateTimer();
+    lockoutInterval = setInterval(updateTimer, 1000);
+}
+
+function grantAccess() {
+    console.log('✅ Authentication successful');
+
+    const securityOverlay = document.getElementById('security-overlay');
+    if (securityOverlay) {
+        securityOverlay.style.opacity = '0';
+        setTimeout(() => {
+            securityOverlay.style.display = 'none';
+        }, 500);
+    }
+
+    logToConsole('User authenticated successfully', 'success', 'SECURITY');
+    showStageAlert('Access Granted', 'Welcome to the Universal Debug Tool', 'security');
+}
+
+function togglePasswordVisibility() {
+    const passwordInput = document.getElementById('password-input');
+    const toggleIcon = document.querySelector('.toggle-password i');
+
+    if (!passwordInput || !toggleIcon) return;
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.className = 'fas fa-eye-slash';
+    } else {
+        passwordInput.type = 'password';
+        toggleIcon.className = 'fas fa-eye';
+    }
+}
+
+function resetSecurityState() {
+    securityState.authenticated = false;
+    securityState.failedAttempts = 0;
+    securityState.lockoutUntil = 0;
+    securityState.securityEvents = [];
+    securityState.lastSecurityCheck = null;
+    securityState.integrityStatus = 'unknown';
+
+    localStorage.removeItem('debug_security_attempts');
+    localStorage.removeItem('debug_security_lockout');
+}
+
+function initializeSecuritySystem() {
+    loadSecurityState();
+    setupSecurityEventListeners();
+
+    setInterval(checkSecurityStatus, DEBUG_CONFIG.SECURITY_CHECK_INTERVAL);
+    setInterval(runIntegrityCheck, 60000);
+
+    setTimeout(checkSecurityStatus, 1000);
+    setTimeout(runIntegrityCheck, 2000);
+}
+
+// ====================
+// FILE LOCK MANAGEMENT
+// ====================
+
+function checkSecurityStatus() {
+    try {
+        const lockStatus = localStorage.getItem(DEBUG_CONFIG.LOCK_STATUS_KEY);
+        const isLocked = lockStatus === 'true';
+
+        const indicator = document.getElementById('lock-status-indicator');
+        const statusText = document.getElementById('lock-status-text');
+
+        if (indicator) {
+            indicator.className = 'lock-status-indicator ' + (isLocked ? 'locked-status' : 'unlocked-status');
+        }
+
+        if (statusText) {
+            statusText.textContent = isLocked ? 'Files are LOCKED' : 'Files are UNLOCKED';
+            statusText.style.color = isLocked ? '#ef4444' : '#10b981';
+        }
+
+        const lockBtn = document.getElementById('lock-btn');
+        const unlockBtn = document.getElementById('unlock-btn');
+
+        if (lockBtn) lockBtn.disabled = isLocked;
+        if (unlockBtn) unlockBtn.disabled = !isLocked;
+
+        const now = new Date();
+        securityState.lastSecurityCheck = now;
+        const lastCheckEl = document.getElementById('last-security-check');
+        if (lastCheckEl) lastCheckEl.textContent = now.toLocaleTimeString();
+
+        const eventCountEl = document.getElementById('security-event-count');
+        if (eventCountEl) eventCountEl.textContent = securityState.securityEvents.length;
+
+        const sessionValidEl = document.getElementById('session-text');
+        if (sessionValidEl) {
+            sessionValidEl.textContent = securityState.authenticated ? 'Valid' : 'Invalid';
+        }
+
+        logToConsole('Security status checked: ' + (isLocked ? 'LOCKED' : 'UNLOCKED'), 'info', 'SECURITY');
+
+    } catch (error) {
+        console.error('Error checking security status:', error);
+        logToConsole('Error checking security status: ' + error.message, 'error', 'SECURITY');
+    }
+}
+
+function showLockPrompt() {
+    const unlockPrompt = document.getElementById('unlock-password-prompt');
+    if (unlockPrompt) unlockPrompt.style.display = 'none';
+
+    const lockPrompt = document.getElementById('lock-password-prompt');
+    if (lockPrompt) {
+        lockPrompt.style.display = 'flex';
+        const passwordInput = document.getElementById('lock-password-input');
+        if (passwordInput) {
+            passwordInput.value = '';
+            passwordInput.focus();
+        }
+        const errorEl = document.getElementById('password-error');
+        if (errorEl) errorEl.style.display = 'none';
+    }
+}
+
+function showUnlockPrompt() {
+    const lockPrompt = document.getElementById('lock-password-prompt');
+    if (lockPrompt) lockPrompt.style.display = 'none';
+
+    const unlockPrompt = document.getElementById('unlock-password-prompt');
+    if (unlockPrompt) {
+        unlockPrompt.style.display = 'flex';
+        const passwordInput = document.getElementById('unlock-password-input');
+        if (passwordInput) {
+            passwordInput.value = '';
+            passwordInput.focus();
+        }
+        const errorEl = document.getElementById('password-error');
+        if (errorEl) errorEl.style.display = 'none';
+    }
+}
+
+function lockAllFiles() {
+    try {
+        const passwordInput = document.getElementById('lock-password-input');
+        if (!passwordInput) return;
+
+        const password = passwordInput.value;
+
+        if (password !== SECURITY_CONFIG.MASTER_PASSWORD) {
+            const errorEl = document.getElementById('password-error');
+            if (errorEl) {
+                errorEl.textContent = 'Invalid password. Files not locked.';
+                errorEl.style.display = 'block';
+            }
+            logSecurityEvent('Failed attempt to lock all files (invalid password)', 'warning');
+            return;
+        }
+
+        localStorage.setItem(DEBUG_CONFIG.LOCK_STATUS_KEY, 'true');
+
+        if (typeof htmlFileManager !== 'undefined' && htmlFileManager.fileLocks) {
+            Object.keys(htmlFileManager.fileLocks).forEach(fileId => {
+                htmlFileManager.fileLocks[fileId] = {
+                    locked: true,
+                    password: password
+                };
+            });
+            htmlFileManager.saveFileLocks();
+        }
+
+        const lockEvent = {
+            action: 'lock_all',
+            timestamp: new Date().toISOString(),
+            filesAffected: Object.keys(htmlFileManager?.fileLocks || {}).length
+        };
+
+        let lockHistory = JSON.parse(localStorage.getItem(DEBUG_CONFIG.LOCK_HISTORY_KEY) || '[]');
+        lockHistory.unshift(lockEvent);
+        if (lockHistory.length > 20) lockHistory = lockHistory.slice(0, 20);
+        localStorage.setItem(DEBUG_CONFIG.LOCK_HISTORY_KEY, JSON.stringify(lockHistory));
+
+        logSecurityEvent(`All files locked (${Object.keys(htmlFileManager?.fileLocks || {}).length} files)`, 'info');
+
+        checkSecurityStatus();
+        if (htmlFileManager) {
+            htmlFileManager.updateFileList();
+            htmlFileManager.updateFileStatistics();
+        }
+        updateHTMLFilesLockStatus();
+
+        const lockPrompt = document.getElementById('lock-password-prompt');
+        if (lockPrompt) lockPrompt.style.display = 'none';
+        passwordInput.value = '';
+
+        logToConsole('All files locked successfully', 'security', 'SECURITY');
+        showStageAlert('Files Locked', 'All files have been locked with the master password', 'security');
+
+    } catch (error) {
+        console.error('Error locking all files:', error);
+        logToConsole('Error locking all files: ' + error.message, 'error', 'SECURITY');
+    }
+}
+
+function unlockAllFiles() {
+    try {
+        const passwordInput = document.getElementById('unlock-password-input');
+        if (!passwordInput) return;
+
+        const password = passwordInput.value;
+
+        if (password !== SECURITY_CONFIG.MASTER_PASSWORD) {
+            const errorEl = document.getElementById('password-error');
+            if (errorEl) {
+                errorEl.textContent = 'Invalid password. Files remain locked.';
+                errorEl.style.display = 'block';
+            }
+            logSecurityEvent('Failed attempt to unlock all files (invalid password)', 'warning');
+            return;
+        }
+
+        localStorage.removeItem(DEBUG_CONFIG.LOCK_STATUS_KEY);
+
+        if (typeof htmlFileManager !== 'undefined' && htmlFileManager.fileLocks) {
+            Object.keys(htmlFileManager.fileLocks).forEach(fileId => {
+                htmlFileManager.fileLocks[fileId] = {
+                    locked: false,
+                    password: null
+                };
+            });
+            htmlFileManager.saveFileLocks();
+        }
+
+        const unlockEvent = {
+            action: 'unlock_all',
+            timestamp: new Date().toISOString(),
+            filesAffected: Object.keys(htmlFileManager?.fileLocks || {}).length
+        };
+
+        let lockHistory = JSON.parse(localStorage.getItem(DEBUG_CONFIG.LOCK_HISTORY_KEY) || '[]');
+        lockHistory.unshift(unlockEvent);
+        if (lockHistory.length > 20) lockHistory = lockHistory.slice(0, 20);
+        localStorage.setItem(DEBUG_CONFIG.LOCK_HISTORY_KEY, JSON.stringify(lockHistory));
+
+        logSecurityEvent(`All files unlocked (${Object.keys(htmlFileManager?.fileLocks || {}).length} files)`, 'info');
+
+        checkSecurityStatus();
+        if (htmlFileManager) {
+            htmlFileManager.updateFileList();
+            htmlFileManager.updateFileStatistics();
+        }
+        updateHTMLFilesLockStatus();
+
+        const unlockPrompt = document.getElementById('unlock-password-prompt');
+        if (unlockPrompt) unlockPrompt.style.display = 'none';
+        passwordInput.value = '';
+
+        logToConsole('All files unlocked successfully', 'security', 'SECURITY');
+        showStageAlert('Files Unlocked', 'All files have been unlocked', 'security');
+
+    } catch (error) {
+        console.error('Error unlocking all files:', error);
+        logToConsole('Error unlocking all files: ' + error.message, 'error', 'SECURITY');
+    }
+}
+
+function updateHTMLFilesLockStatus() {
+    const container = document.getElementById('html-files-list');
+    if (!container) return;
+
+    const files = htmlFileManager?.loadedFiles || [];
+    const locks = htmlFileManager?.fileLocks || {};
+
+    if (files.length === 0) {
+        container.innerHTML = `
+            <div style="color: #94a3b8; font-size: 12px; text-align: center; padding: 10px;">
+                No HTML files added yet
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = files.map(file => {
+        const lock = locks[file.id] || { locked: false, password: null };
+
+        return `
+            <div class="html-file-lock-item ${lock.locked ? 'locked' : 'unlocked'}">
+                <div>
+                    <div class="html-file-name">${htmlFileManager?.truncateText ? htmlFileManager.truncateText(file.name, 30) : file.name}</div>
+                    ${lock.password ? `
+                        <div class="html-file-password">Password: ${lock.password}</div>
+                    ` : ''}
+                </div>
+                <div class="html-file-status">
+                    <span style="color: ${lock.locked ? '#ef4444' : '#10b981'}; font-size: 12px;">
+                        ${lock.locked ? '🔒 Locked' : '🔓 Unlocked'}
+                    </span>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function runSecurityScan() {
+    logToConsole('Starting security scan...', 'info', 'SECURITY');
+
+    setTimeout(() => {
+        const vulnerabilities = [];
+        if (htmlFileManager?.loadedFiles.length > 10) vulnerabilities.push('Too many files loaded');
+        if (Object.values(htmlFileManager?.fileLocks || {}).filter(l => l.locked).length === 0) vulnerabilities.push('No files locked');
+        if (localStorage.length > 50) vulnerabilities.push('LocalStorage usage high');
+
+        if (vulnerabilities.length > 0) {
+            securityState.integrityStatus = 'warning';
+            const integrityText = document.getElementById('integrity-text');
+            if (integrityText) {
+                integrityText.textContent = `${vulnerabilities.length} issue(s) found`;
+                integrityText.style.color = '#f59e0b';
+            }
+            const integrityIndicator = document.querySelector('#integrity-status .status-indicator');
+            if (integrityIndicator) {
+                integrityIndicator.className = 'status-indicator status-warning';
+            }
+
+            showStageAlert('Security Scan Complete',
+                `Found ${vulnerabilities.length} potential security issue(s)`,
+                'warning');
+
+            vulnerabilities.forEach(vuln => {
+                logSecurityEvent(`Security issue: ${vuln}`, 'warning');
+            });
+        } else {
+            securityState.integrityStatus = 'good';
+            const integrityText = document.getElementById('integrity-text');
+            if (integrityText) {
+                integrityText.textContent = 'All checks passed';
+                integrityText.style.color = '#10b981';
+            }
+            const integrityIndicator = document.querySelector('#integrity-status .status-indicator');
+            if (integrityIndicator) {
+                integrityIndicator.className = 'status-indicator status-online';
+            }
+
+            showStageAlert('Security Scan Complete', 'All security checks passed', 'security');
+        }
+
+        logToConsole(`Security scan completed: ${vulnerabilities.length} issue(s) found`,
+                    vulnerabilities.length > 0 ? 'warning' : 'success', 'SECURITY');
+    }, 2000);
+}
+
+function runIntegrityCheck() {
+    const checks = [
+        checkLocalStorageIntegrity(),
+        checkFileSystemIntegrity(),
+        checkSecurityStateIntegrity()
+    ];
+
+    const failedChecks = checks.filter(check => !check.passed);
+
+    if (failedChecks.length > 0) {
+        securityState.integrityStatus = 'failed';
+        const integrityText = document.getElementById('integrity-text');
+        if (integrityText) {
+            integrityText.textContent = `${failedChecks.length} integrity issue(s)`;
+            integrityText.style.color = '#ef4444';
+        }
+        const integrityIndicator = document.querySelector('#integrity-status .status-indicator');
+        if (integrityIndicator) {
+            integrityIndicator.className = 'status-indicator status-offline';
+        }
+
+        failedChecks.forEach(check => {
+            logSecurityEvent(`Integrity check failed: ${check.message}`, 'warning');
+        });
+    } else {
+        securityState.integrityStatus = 'good';
+        const integrityText = document.getElementById('integrity-text');
+        if (integrityText) {
+            integrityText.textContent = 'Integrity verified';
+            integrityText.style.color = '#10b981';
+        }
+        const integrityIndicator = document.querySelector('#integrity-status .status-indicator');
+        if (integrityIndicator) {
+            integrityIndicator.className = 'status-indicator status-online';
+        }
+    }
+}
+
+function checkLocalStorageIntegrity() {
+    try {
+        const testKey = 'debug_integrity_test_' + Date.now();
+        localStorage.setItem(testKey, 'test');
+        const value = localStorage.getItem(testKey);
+        localStorage.removeItem(testKey);
+
+        if (value !== 'test') {
+            return { passed: false, message: 'LocalStorage read/write test failed' };
+        }
+
+        return { passed: true, message: 'LocalStorage integrity verified' };
+    } catch (e) {
+        return { passed: false, message: 'LocalStorage access error' };
+    }
+}
+
+function checkFileSystemIntegrity() {
+    try {
+        const savedFiles = localStorage.getItem(DEBUG_CONFIG.HTML_FILES_KEY);
+        if (savedFiles) {
+            JSON.parse(savedFiles);
+        }
+        return { passed: true, message: 'File system integrity verified' };
+    } catch (e) {
+        return { passed: false, message: 'File system data corrupted' };
+    }
+}
+
+function checkSecurityStateIntegrity() {
+    try {
+        if (securityState.failedAttempts < 0 || securityState.failedAttempts > SECURITY_CONFIG.MAX_ATTEMPTS) {
+            return { passed: false, message: 'Security state corrupted' };
+        }
+        return { passed: true, message: 'Security state integrity verified' };
+    } catch (e) {
+        return { passed: false, message: 'Security state check failed' };
+    }
+}
+
+function clearSecurityLogs() {
+    if (confirm('Clear all security logs? This cannot be undone.')) {
+        securityState.securityEvents = [];
+        localStorage.removeItem(DEBUG_CONFIG.SECURITY_EVENTS_KEY);
+        updateSecurityEventsDisplay();
+
+        const eventCountEl = document.getElementById('security-event-count');
+        if (eventCountEl) {
+            eventCountEl.textContent = '0';
+        }
+
+        logToConsole('Security logs cleared', 'info', 'SECURITY');
+        showStageAlert('Logs Cleared', 'All security logs have been cleared', 'security');
+    }
+}
+
+function exportSecurityReport() {
+    try {
+        const report = {
+            generated: new Date().toISOString(),
+            securityStatus: {
+                integrity: securityState.integrityStatus,
+                sessionValid: securityState.authenticated,
+                lastCheck: securityState.lastSecurityCheck,
+                totalEvents: securityState.securityEvents.length
+            },
+            fileSecurity: {
+                totalFiles: htmlFileManager?.loadedFiles.length || 0,
+                lockedFiles: Object.values(htmlFileManager?.fileLocks || {}).filter(l => l.locked).length,
+                unlockedFiles: Object.values(htmlFileManager?.fileLocks || {}).filter(l => !l.locked).length
+            },
+            recentEvents: securityState.securityEvents.slice(0, 20),
+            recommendations: generateSecurityRecommendations()
+        };
+
+        const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `security-report-${new Date().toISOString().split('T')[0]}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        logToConsole('Security report exported', 'success', 'SECURITY');
+        showStageAlert('Report Exported', 'Security report has been downloaded', 'security');
+
+    } catch (error) {
+        console.error('Error exporting security report:', error);
+        logToConsole('Error exporting security report: ' + error.message, 'error', 'SECURITY');
+    }
+}
+
+function generateSecurityRecommendations() {
+    const recommendations = [];
+
+    const unlockedFiles = Object.values(htmlFileManager?.fileLocks || {}).filter(l => !l.locked).length;
+    if (unlockedFiles > 0) {
+        recommendations.push(`Lock ${unlockedFiles} unlocked file(s) for better security`);
+    }
+
+    const filesWithPasswords = Object.values(htmlFileManager?.fileLocks || {}).filter(l => l.password);
+    if (filesWithPasswords.length > 0) {
+        recommendations.push('Consider using stronger passwords for locked files');
+    }
+
+    if (htmlFileManager?.loadedFiles.length > 20) {
+        recommendations.push('Consider removing unused files to reduce attack surface');
+    }
+
+    const now = new Date();
+    const oldFiles = (htmlFileManager?.loadedFiles || []).filter(file => {
+        const fileDate = new Date(file.timestamp);
+        const daysOld = (now - fileDate) / (1000 * 60 * 60 * 24);
+        return daysOld > 30;
+    });
+
+    if (oldFiles.length > 0) {
+        recommendations.push(`Review ${oldFiles.length} file(s) older than 30 days`);
+    }
+
+    return recommendations.length > 0 ? recommendations : ['All security best practices are being followed'];
+}
+
+// ====================
+// HTML FILE MANAGER
+// ====================
+
 const htmlFileManager = {
     loadedFiles: [],
     selectedFile: null,
@@ -2915,7 +3801,6 @@ const htmlFileManager = {
     selectedFileIds: new Set(),
     fileLocks: {},
 
-    // Initialize
     init: function() {
         this.loadSavedFiles();
         this.loadFileLocks();
@@ -2924,7 +3809,6 @@ const htmlFileManager = {
         this.updateFileStatistics();
         this.setupDragAndDrop();
 
-        // Set up event listeners
         document.getElementById('webUrlInput')?.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') this.loadWebURL();
         });
@@ -2945,19 +3829,16 @@ const htmlFileManager = {
             }
         });
 
-        // Monitor file locks
         setInterval(() => this.monitorFileLocks(), 5000);
 
         logToConsole('HTML File Manager initialized', 'info', 'FILE-MANAGER');
     },
 
-    // Load saved files from localStorage
     loadSavedFiles: function() {
         const savedFiles = localStorage.getItem(DEBUG_CONFIG.HTML_FILES_KEY);
         if (savedFiles) {
             try {
                 this.loadedFiles = JSON.parse(savedFiles);
-                // Revoke old blob URLs and create new ones
                 this.loadedFiles.forEach(file => {
                     if (file.type === 'html' && file.blobData) {
                         file.url = URL.createObjectURL(new Blob([file.blobData], { type: 'text/html' }));
@@ -2972,7 +3853,6 @@ const htmlFileManager = {
         }
     },
 
-    // Load file locks from localStorage
     loadFileLocks: function() {
         const savedLocks = localStorage.getItem(DEBUG_CONFIG.HTML_LOCKS_KEY);
         if (savedLocks) {
@@ -2987,14 +3867,10 @@ const htmlFileManager = {
         }
     },
 
-    // Save files to localStorage
     saveFiles: function() {
-        // Convert blob URLs to data for storage
         const filesToSave = this.loadedFiles.map(file => {
             const fileCopy = { ...file };
             if (file.type === 'html' && file.url.startsWith('blob:')) {
-                // We can't save blob URLs, so we'll store the file data
-                // In a real implementation, you'd need to store the actual file content
                 fileCopy.blobData = file.blobData || '';
                 delete fileCopy.url;
             }
@@ -3004,26 +3880,21 @@ const htmlFileManager = {
         localStorage.setItem(DEBUG_CONFIG.HTML_FILES_KEY, JSON.stringify(filesToSave));
     },
 
-    // Save file locks to localStorage
     saveFileLocks: function() {
         localStorage.setItem(DEBUG_CONFIG.HTML_LOCKS_KEY, JSON.stringify(this.fileLocks));
     },
 
-    // Switch between file and URL modes
     switchMode: function(mode) {
         this.currentMode = mode;
 
-        // Update mode buttons
         document.querySelectorAll('.mode-btn').forEach(btn => {
             btn.classList.remove('active');
         });
         event.currentTarget.classList.add('active');
 
-        // Show/hide input sections
         document.getElementById('fileMode').style.display = mode === 'file' ? 'block' : 'none';
         document.getElementById('urlMode').style.display = mode === 'url' ? 'block' : 'none';
 
-        // Clear inputs when switching
         if (mode === 'url') {
             this.clearSelectedFile();
         } else {
@@ -3033,12 +3904,10 @@ const htmlFileManager = {
         logToConsole(`Switched to ${mode} mode`, 'info', 'FILE-MANAGER');
     },
 
-    // Handle file selection
     handleFileSelect: function(event) {
         const file = event.target.files[0];
         if (!file) return;
 
-        // Check if it's an HTML file
         if (!file.name.toLowerCase().endsWith('.html') && !file.name.toLowerCase().endsWith('.htm')) {
             showStageAlert('Invalid File Type', 'Please select an HTML file (.html or .htm)', 'error');
             logToConsole(`Invalid file type selected: ${file.name}`, 'warning', 'FILE-MANAGER');
@@ -3047,11 +3916,9 @@ const htmlFileManager = {
 
         this.selectedFile = file;
 
-        // Update selected file info
         document.getElementById('selectedFileName').textContent = file.name;
         document.getElementById('selectedFileInfo').style.display = 'flex';
 
-        // Read file content for storage
         const reader = new FileReader();
         reader.onload = (e) => {
             this.selectedFile.content = e.target.result;
@@ -3061,27 +3928,23 @@ const htmlFileManager = {
         logToConsole(`File selected: ${file.name}`, 'info', 'FILE-MANAGER');
     },
 
-    // Clear selected file
     clearSelectedFile: function() {
         this.selectedFile = null;
         document.getElementById('htmlFileInput').value = '';
         document.getElementById('selectedFileInfo').style.display = 'none';
     },
 
-    // Load selected file
     loadSelectedFile: async function() {
         if (!this.selectedFile) {
             showStageAlert('No File Selected', 'Please select an HTML file first', 'warning');
             return;
         }
 
-        // Check if file already exists
         const existingFile = this.loadedFiles.find(f => f.name === this.selectedFile.name);
         if (existingFile) {
             if (!confirm(`"${this.selectedFile.name}" already exists. Add it again?`)) {
                 return;
             }
-            // Remove existing file
             this.loadedFiles = this.loadedFiles.filter(f => f.id !== existingFile.id);
             logToConsole(`Replacing existing file: ${this.selectedFile.name}`, 'warning', 'FILE-MANAGER');
         }
@@ -3102,30 +3965,25 @@ const htmlFileManager = {
 
         this.loadedFiles.unshift(newFile);
 
-        // Initialize lock status if not exists
         if (!this.fileLocks[fileId]) {
             this.fileLocks[fileId] = { locked: false, password: null };
         }
 
-        // Save to storage
         this.saveFiles();
         this.saveFileLocks();
 
-        // Clear selection and update UI
         this.clearSelectedFile();
         this.updateFileList();
         this.updateFileCount();
         this.updateFileStatistics();
         updateHTMLFilesLockStatus();
 
-        // Scroll to top of file list
         document.getElementById('filesList').scrollTop = 0;
 
         logToConsole(`Added HTML file: ${newFile.name}`, 'success', 'FILE-MANAGER');
         showStageAlert('File Added', `${newFile.name} has been added to the file manager`, 'security');
     },
 
-    // Load web URL
     loadWebURL: function() {
         let url = document.getElementById('webUrlInput').value.trim();
         if (!url) {
@@ -3133,13 +3991,11 @@ const htmlFileManager = {
             return;
         }
 
-        // Add https:// if no protocol specified
         if (!url.startsWith('http://') && !url.startsWith('https://')) {
             url = 'https://' + url;
             document.getElementById('webUrlInput').value = url;
         }
 
-        // Validate URL
         try {
             new URL(url);
         } catch (e) {
@@ -3148,20 +4004,17 @@ const htmlFileManager = {
             return;
         }
 
-        // Generate a name from the URL
         const urlObj = new URL(url);
         let name = urlObj.hostname;
         if (urlObj.pathname !== '/' && urlObj.pathname.length > 1) {
             name += urlObj.pathname.replace(/\//g, ' - ');
         }
 
-        // Check if URL already exists
         const existingFile = this.loadedFiles.find(f => f.url === url);
         if (existingFile) {
             if (!confirm(`"${name}" already exists. Add it again?`)) {
                 return;
             }
-            // Remove existing file
             this.loadedFiles = this.loadedFiles.filter(f => f.id !== existingFile.id);
             logToConsole(`Replacing existing URL: ${name}`, 'warning', 'FILE-MANAGER');
         }
@@ -3178,30 +4031,25 @@ const htmlFileManager = {
             lockStatus: this.fileLocks[fileId] || { locked: false, password: null }
         });
 
-        // Initialize lock status if not exists
         if (!this.fileLocks[fileId]) {
             this.fileLocks[fileId] = { locked: false, password: null };
         }
 
-        // Save to storage
         this.saveFiles();
         this.saveFileLocks();
 
-        // Clear input and update UI
         document.getElementById('webUrlInput').value = '';
         this.updateFileList();
         this.updateFileCount();
         this.updateFileStatistics();
         updateHTMLFilesLockStatus();
 
-        // Scroll to top of file list
         document.getElementById('filesList').scrollTop = 0;
 
         logToConsole(`Added web URL: ${name} (${url})`, 'success', 'FILE-MANAGER');
         showStageAlert('URL Added', `${name} has been added to the file manager`, 'security');
     },
 
-    // Update file list display
     updateFileList: function() {
         const container = document.getElementById('filesList');
         const filteredFiles = this.getFilteredFiles();
@@ -3264,7 +4112,6 @@ const htmlFileManager = {
         this.updateBatchActions();
     },
 
-    // Get filtered files based on search
     getFilteredFiles: function() {
         if (!this.currentSearch) return this.loadedFiles;
 
@@ -3275,13 +4122,11 @@ const htmlFileManager = {
         );
     },
 
-    // Filter files based on search input
     filterFiles: function() {
         this.currentSearch = document.getElementById('fileSearch').value.toLowerCase();
         this.updateFileList();
     },
 
-    // Toggle file selection
     toggleFileSelection: function(fileId, isSelected) {
         const file = this.loadedFiles.find(f => f.id === fileId);
         if (file) {
@@ -3299,7 +4144,6 @@ const htmlFileManager = {
         }
     },
 
-    // Update batch actions visibility
     updateBatchActions: function() {
         const batchActions = document.getElementById('batchActions');
         const selectedCount = Array.from(this.selectedFileIds).length;
@@ -3313,17 +4157,13 @@ const htmlFileManager = {
         }
     },
 
-    // Open selected files in new tabs
     openSelectedFiles: function() {
         if (this.selectedFileIds.size === 0) {
             showStageAlert('No Selection', 'No files selected', 'warning');
             return;
         }
 
-        // Get selected files
         const selectedFiles = this.loadedFiles.filter(file => this.selectedFileIds.has(file.id));
-
-        // Check for locked files
         const lockedFiles = selectedFiles.filter(file => {
             const lock = this.fileLocks[file.id];
             return lock && lock.locked;
@@ -3336,19 +4176,16 @@ const htmlFileManager = {
             return;
         }
 
-        // Open each file in a new tab
         selectedFiles.forEach(file => {
             window.open(file.url, '_blank');
             logToConsole(`Opened file in new tab: ${file.name}`, 'info', 'FILE-MANAGER');
         });
 
-        // Clear selection after opening
         this.clearSelection();
 
         showStageAlert('Files Opened', `${selectedFiles.length} file(s) opened in new tabs`, 'security');
     },
 
-    // Remove selected files
     removeSelectedFiles: function() {
         if (this.selectedFileIds.size === 0) {
             showStageAlert('No Selection', 'No files selected', 'warning');
@@ -3359,14 +4196,11 @@ const htmlFileManager = {
             return;
         }
 
-        // Filter out selected files
         this.loadedFiles = this.loadedFiles.filter(file => {
             if (this.selectedFileIds.has(file.id)) {
-                // Revoke object URL if it's a blob (HTML file)
                 if (file.type === 'html' && file.url.startsWith('blob:')) {
                     URL.revokeObjectURL(file.url);
                 }
-                // Remove lock status
                 delete this.fileLocks[file.id];
                 logToConsole(`Removing file: ${file.name}`, 'info', 'FILE-MANAGER');
                 return false;
@@ -3374,10 +4208,8 @@ const htmlFileManager = {
             return true;
         });
 
-        // Clear selection
         this.clearSelection();
 
-        // Save and update UI
         this.saveFiles();
         this.saveFileLocks();
         this.updateFileList();
@@ -3389,11 +4221,9 @@ const htmlFileManager = {
         showStageAlert('Files Removed', `${this.selectedFileIds.size} file(s) removed`, 'security');
     },
 
-    // Open single file in new tab
     openFileInNewTab: function(fileId) {
         const file = this.loadedFiles.find(f => f.id === fileId);
         if (file) {
-            // Check if file is locked
             const lock = this.fileLocks[file.id];
             if (lock && lock.locked) {
                 showStageAlert('File Locked', `"${file.name}" is locked and cannot be opened`, 'error');
@@ -3406,7 +4236,6 @@ const htmlFileManager = {
         }
     },
 
-    // Toggle file lock
     toggleFileLock: function(fileId) {
         const file = this.loadedFiles.find(f => f.id === fileId);
         if (!file) return;
@@ -3414,7 +4243,6 @@ const htmlFileManager = {
         const lock = this.fileLocks[file.id] || { locked: false, password: null };
 
         if (lock.locked) {
-            // Unlock file
             const password = prompt(`Enter password to unlock "${file.name}":`);
             if (password === lock.password) {
                 lock.locked = false;
@@ -3432,7 +4260,6 @@ const htmlFileManager = {
                 logToConsole(`Failed unlock attempt for file: ${file.name}`, 'warning', 'SECURITY');
             }
         } else {
-            // Lock file
             const password = prompt(`Enter password to lock "${file.name}":`);
             if (password) {
                 lock.locked = true;
@@ -3449,7 +4276,6 @@ const htmlFileManager = {
         }
     },
 
-    // Remove single file
     removeSingleFile: function(fileId) {
         const file = this.loadedFiles.find(f => f.id === fileId);
         if (!file) return;
@@ -3458,23 +4284,18 @@ const htmlFileManager = {
             return;
         }
 
-        // Revoke object URL if it's a blob (HTML file)
         if (file.type === 'html' && file.url.startsWith('blob:')) {
             URL.revokeObjectURL(file.url);
         }
 
-        // Remove from array
         this.loadedFiles = this.loadedFiles.filter(f => f.id !== fileId);
 
-        // Remove from selection if it was selected
         if (this.selectedFileIds.has(fileId)) {
             this.selectedFileIds.delete(fileId);
         }
 
-        // Remove lock status
         delete this.fileLocks[fileId];
 
-        // Save and update UI
         this.saveFiles();
         this.saveFileLocks();
         this.updateFileList();
@@ -3486,7 +4307,6 @@ const htmlFileManager = {
         showStageAlert('File Removed', `"${file.name}" has been removed`, 'security');
     },
 
-    // Clear all files
     clearAllFiles: function() {
         if (this.loadedFiles.length === 0) return;
 
@@ -3494,19 +4314,16 @@ const htmlFileManager = {
             return;
         }
 
-        // Revoke all blob URLs
         this.loadedFiles.forEach(file => {
             if (file.type === 'html' && file.url.startsWith('blob:')) {
                 URL.revokeObjectURL(file.url);
             }
         });
 
-        // Clear all data
         this.loadedFiles = [];
         this.selectedFileIds.clear();
         this.fileLocks = {};
 
-        // Save and update UI
         this.saveFiles();
         this.saveFileLocks();
         this.updateFileList();
@@ -3519,23 +4336,18 @@ const htmlFileManager = {
         showStageAlert('All Files Cleared', 'All files have been removed from the manager', 'security');
     },
 
-    // Clear selection
     clearSelection: function() {
-        // Update all files to not selected
         this.loadedFiles.forEach(file => {
             file.isSelected = false;
         });
 
-        // Clear the set
         this.selectedFileIds.clear();
 
-        // Save and update UI
         this.saveFiles();
         this.updateFileList();
         this.updateBatchActions();
     },
 
-    // Update file count
     updateFileCount: function() {
         const countElement = document.getElementById('fileCount');
         if (countElement) {
@@ -3543,7 +4355,6 @@ const htmlFileManager = {
         }
     },
 
-    // Update file statistics
     updateFileStatistics: function() {
         const total = this.loadedFiles.length;
         const locked = Object.values(this.fileLocks).filter(lock => lock.locked).length;
@@ -3559,7 +4370,6 @@ const htmlFileManager = {
         document.getElementById('html-loaded-files').textContent = loaded;
     },
 
-    // Setup drag and drop
     setupDragAndDrop: function() {
         const dropArea = document.querySelector('.file-input-label');
         if (!dropArea) return;
@@ -3600,20 +4410,17 @@ const htmlFileManager = {
             if (files.length > 0) {
                 const file = files[0];
 
-                // Check if it's an HTML file
                 if (!file.name.toLowerCase().endsWith('.html') && !file.name.toLowerCase().endsWith('.htm')) {
                     showStageAlert('Invalid File', 'Please drop an HTML file (.html or .htm)', 'error');
                     logToConsole(`Invalid file dropped: ${file.name}`, 'warning', 'FILE-MANAGER');
                     return;
                 }
 
-                // Create a fake event for the file input
                 const input = document.getElementById('htmlFileInput');
                 const dataTransfer = new DataTransfer();
                 dataTransfer.items.add(file);
                 input.files = dataTransfer.files;
 
-                // Trigger the change event
                 const event = new Event('change', { bubbles: true });
                 input.dispatchEvent(event);
 
@@ -3622,21 +4429,15 @@ const htmlFileManager = {
         }, false);
     },
 
-    // Monitor file locks
     monitorFileLocks: function() {
-        // Check for password changes in locked files
         Object.keys(this.fileLocks).forEach(fileId => {
             const lock = this.fileLocks[fileId];
             if (lock.locked) {
-                // In a real implementation, you would check if the password
-                // has been changed in the actual HTML file
-                // For now, we'll just update the display
                 updateHTMLFilesLockStatus();
             }
         });
     },
 
-    // Scan all HTML files
     scanAllHTMLFiles: function() {
         if (this.loadedFiles.length === 0) {
             showStageAlert('No Files', 'No HTML files to scan', 'warning');
@@ -3645,7 +4446,6 @@ const htmlFileManager = {
 
         logToConsole('Scanning all HTML files...', 'info', 'FILE-MANAGER');
 
-        // Simulate scanning process
         let scanned = 0;
         const total = this.loadedFiles.length;
 
@@ -3656,7 +4456,6 @@ const htmlFileManager = {
                 logToConsole(`Scanned ${total} HTML file(s)`, 'success', 'FILE-MANAGER');
                 showStageAlert('Scan Complete', `Scanned ${total} HTML file(s)`, 'security');
 
-                // Update file statistics
                 this.updateFileStatistics();
                 updateHTMLFilesLockStatus();
             }
@@ -3665,7 +4464,6 @@ const htmlFileManager = {
         logToConsole(`Started scanning ${total} HTML file(s)`, 'info', 'FILE-MANAGER');
     },
 
-    // Utility function to truncate text
     truncateText: function(text, maxLength) {
         if (!text || text.length <= maxLength) return text;
         return text.substring(0, maxLength - 3) + '...';
@@ -3684,7 +4482,6 @@ const scheduleSystem = {
     stageCheckInterval: null,
     debugMode: true,
 
-    // Initialize schedule system
     init: function() {
         this.loadSchedulePreferences();
         this.setupEventListeners();
@@ -3697,7 +4494,6 @@ const scheduleSystem = {
         logToConsole('Polyphasic Schedule Monitor initialized', 'success', 'SCHEDULE');
     },
 
-    // Load schedule preferences
     loadSchedulePreferences: function() {
         const saved = localStorage.getItem('schedule_preferences');
         if (saved) {
@@ -3713,7 +4509,6 @@ const scheduleSystem = {
         }
     },
 
-    // Save schedule preferences
     saveSchedulePreferences: function() {
         const preferences = {
             currentSchedule: this.currentSchedule,
@@ -3722,9 +4517,7 @@ const scheduleSystem = {
         localStorage.setItem('schedule_preferences', JSON.stringify(preferences));
     },
 
-    // Setup event listeners
     setupEventListeners: function() {
-        // Schedule buttons in polyphasic window
         const workdayBtn = document.getElementById('workdayBtn');
         const restdayBtn = document.getElementById('restdayBtn');
         const debugWorkdayBtn = document.getElementById('debug-workdayBtn');
@@ -3735,42 +4528,33 @@ const scheduleSystem = {
         if (debugWorkdayBtn) debugWorkdayBtn.addEventListener('click', () => this.switchSchedule('workday'));
         if (debugRestdayBtn) debugRestdayBtn.addEventListener('click', () => this.switchSchedule('restday'));
 
-        // Mute toggle
         const muteToggle = document.getElementById('muteToggle');
         const debugMuteToggle = document.getElementById('debug-muteToggle');
 
         if (muteToggle) muteToggle.addEventListener('click', () => this.toggleMute());
         if (debugMuteToggle) debugMuteToggle.addEventListener('click', () => this.toggleMute());
 
-        // Close alert button
         const closeAlertBtn = document.getElementById('closeAlertBtn');
         if (closeAlertBtn) {
-            closeAlertBtn.addEventListener('click', () => this.closeStageAlert());
+            closeAlertBtn.addEventListener('click', () => closeStageAlert());
         }
 
-        // Close alert when clicking outside
         const stageAlert = document.getElementById('stageAlert');
         if (stageAlert) {
             stageAlert.addEventListener('click', (e) => {
                 if (e.target === stageAlert) {
-                    this.closeStageAlert();
+                    closeStageAlert();
                 }
             });
         }
     },
 
-    // Start schedule monitoring
     startScheduleMonitoring: function() {
-        // Initial check
         this.checkCurrentStage();
-
-        // Check every second
         this.stageCheckInterval = setInterval(() => this.checkCurrentStage(), DEBUG_CONFIG.SCHEDULE_CHECK_INTERVAL);
-
         logToConsole('Schedule monitoring started', 'info', 'SCHEDULE');
     },
 
-    // Check current stage
     checkCurrentStage: function() {
         const now = new Date();
         const currentTimeInMinutes = now.getHours() * 60 + now.getMinutes();
@@ -3778,7 +4562,6 @@ const scheduleSystem = {
         const schedule = SCHEDULES[this.currentSchedule];
         const allSegments = [...schedule.period1.segments, ...schedule.period2.segments];
 
-        // Find current segment
         let currentSegment = null;
         let nextSegment = null;
 
@@ -3790,11 +4573,9 @@ const scheduleSystem = {
             let isCurrent = false;
 
             if (endMinutes > startMinutes) {
-                // Normal case: start and end in same day
                 isCurrent = currentTimeInMinutes >= startMinutes &&
                             currentTimeInMinutes < endMinutes;
             } else {
-                // Case spanning midnight
                 isCurrent = currentTimeInMinutes >= startMinutes ||
                             currentTimeInMinutes < endMinutes;
             }
@@ -3805,48 +4586,39 @@ const scheduleSystem = {
                     index: i
                 };
 
-                // Get next segment (wrap around)
                 nextSegment = allSegments[(i + 1) % allSegments.length];
                 break;
             }
         }
 
-        // Update display
         if (currentSegment) {
-            // Update main window
             const currentActivity = document.getElementById('currentActivity');
             if (currentActivity) {
                 currentActivity.textContent = `${currentSegment.activity} (${currentSegment.start}-${currentSegment.end})`;
             }
 
-            // Update debug panel
             const debugCurrentActivity = document.getElementById('debug-currentActivity');
             if (debugCurrentActivity) {
                 debugCurrentActivity.textContent = `${currentSegment.activity} (${currentSegment.start}-${currentSegment.end})`;
             }
 
-            // Check if this is a new segment
             if (currentSegment.index !== this.currentSegmentIndex) {
                 this.currentSegmentIndex = currentSegment.index;
                 this.showStageAlert(currentSegment);
                 this.showStageNotification(currentSegment);
 
-                // Log to console
                 logToConsole(`Schedule change: ${currentSegment.activity} (${currentSegment.start}-${currentSegment.end})`,
                            'info', 'SCHEDULE');
             }
 
-            // Update next stage countdown
             if (nextSegment) {
                 this.updateNextStageCountdown(currentTimeInMinutes, nextSegment);
             }
         }
 
-        // Update schedule details in debug panel
         this.updateScheduleDetails();
     },
 
-    // Update next stage countdown
     updateNextStageCountdown: function(currentMinutes, nextSegment) {
         const nextStartMinutes = this.timeToMinutes(nextSegment.start);
         let minutesUntilNext;
@@ -3854,7 +4626,6 @@ const scheduleSystem = {
         if (nextStartMinutes > currentMinutes) {
             minutesUntilNext = nextStartMinutes - currentMinutes;
         } else {
-            // Next segment starts tomorrow
             minutesUntilNext = (24 * 60 - currentMinutes) + nextStartMinutes;
         }
 
@@ -3865,30 +4636,25 @@ const scheduleSystem = {
         if (hours > 0) timeText += `${hours}h `;
         timeText += `${minutes}m`;
 
-        // Update both displays
         const nextStageTime = document.getElementById('nextStageTime');
         const debugNextStageTime = document.getElementById('debug-nextStageTime');
 
         if (nextStageTime) nextStageTime.textContent = timeText;
         if (debugNextStageTime) debugNextStageTime.textContent = timeText;
 
-        // Update next stage info
         const debugNextStageInfo = document.getElementById('debug-nextStageInfo');
         if (debugNextStageInfo) {
             debugNextStageInfo.textContent = `${nextSegment.activity} at ${nextSegment.start}`;
         }
     },
 
-    // Switch schedule
     switchSchedule: function(scheduleType) {
         if (this.currentSchedule !== scheduleType) {
             this.currentSchedule = scheduleType;
-            this.currentSegmentIndex = -1; // Reset to trigger new alert
+            this.currentSegmentIndex = -1;
 
-            // Update buttons
             this.updateUI();
 
-            // Update display
             const scheduleName = document.getElementById('scheduleName');
             const debugScheduleName = document.getElementById('debug-scheduleName');
 
@@ -3899,19 +4665,15 @@ const scheduleSystem = {
                 debugScheduleName.textContent = `${SCHEDULES[this.currentSchedule].name} Active`;
             }
 
-            // Save preferences
             this.saveSchedulePreferences();
 
             logToConsole(`Switched to ${scheduleType} schedule`, 'info', 'SCHEDULE');
 
-            // Update schedule details
             this.updateScheduleDetails();
         }
     },
 
-    // Update UI elements
     updateUI: function() {
-        // Update schedule buttons
         const buttons = [
             document.getElementById('workdayBtn'),
             document.getElementById('restdayBtn'),
@@ -3929,7 +4691,6 @@ const scheduleSystem = {
             }
         });
 
-        // Update mute toggle
         const muteIcon = document.getElementById('muteIcon');
         const debugMuteIcon = document.getElementById('debug-muteIcon');
         const muteToggle = document.getElementById('muteToggle');
@@ -3942,85 +4703,10 @@ const scheduleSystem = {
         if (debugMuteToggle) debugMuteToggle.classList.toggle('muted', this.isMuted);
     },
 
-    // Show stage alert
     showStageAlert: function(segment) {
-        // Clear any existing timeout/interval
-        this.clearAlertTimers();
-
-        // Update alert content
-        const alertActivity = document.getElementById('alertActivity');
-        const alertInterval = document.getElementById('alertInterval');
-        const alertContent = document.getElementById('alertContent');
-        const countdownTimer = document.getElementById('countdownTimer');
-
-        if (alertActivity) {
-            alertActivity.textContent = segment.activity.toUpperCase();
-            alertActivity.className = `alert-activity ${segment.activity.toLowerCase()}`;
-        }
-        if (alertInterval) {
-            alertInterval.textContent = `${segment.start} - ${segment.end}`;
-        }
-
-        // Update alert style
-        if (alertContent) {
-            alertContent.className = `alert-content alert-${segment.activity.toLowerCase()}`;
-        }
-
-        // Reset countdown
-        let countdown = 5;
-        if (countdownTimer) {
-            countdownTimer.textContent = countdown;
-        }
-
-        // Show alert
-        const stageAlert = document.getElementById('stageAlert');
-        if (stageAlert) {
-            stageAlert.classList.add('active');
-        }
-
-        // Play sound if not muted
-        if (!this.isMuted) {
-            this.playAlertSound();
-        }
-
-        // Start countdown
-        this.countdownInterval = setInterval(() => {
-            countdown--;
-            if (countdownTimer) {
-                countdownTimer.textContent = countdown;
-            }
-
-            if (countdown <= 0) {
-                this.closeStageAlert();
-            }
-        }, 1000);
-
-        // Auto-close after 5 seconds
-        this.alertTimeout = setTimeout(() => this.closeStageAlert(), 5000);
+        showStageAlert(segment.activity, `${segment.start} - ${segment.end}`, segment.activity.toLowerCase());
     },
 
-    // Close stage alert
-    closeStageAlert: function() {
-        const stageAlert = document.getElementById('stageAlert');
-        if (stageAlert) {
-            stageAlert.classList.remove('active');
-        }
-        this.clearAlertTimers();
-    },
-
-    // Clear alert timers
-    clearAlertTimers: function() {
-        if (this.alertTimeout) {
-            clearTimeout(this.alertTimeout);
-            this.alertTimeout = null;
-        }
-        if (this.countdownInterval) {
-            clearInterval(this.countdownInterval);
-            this.countdownInterval = null;
-        }
-    },
-
-    // Show stage notification
     showStageNotification: function(segment) {
         const notificationActivity = document.getElementById('notificationActivity');
         const notificationInterval = document.getElementById('notificationInterval');
@@ -4034,7 +4720,6 @@ const scheduleSystem = {
             notificationInterval.textContent = `${segment.start} - ${segment.end}`;
         }
 
-        // Set icon based on activity
         let icon = "⏰";
         if (segment.activity === "Rest") icon = "😴";
         else if (segment.activity === "Work") icon = "💼";
@@ -4044,12 +4729,10 @@ const scheduleSystem = {
             notificationIcon.textContent = icon;
         }
 
-        // Set notification style
         if (stageNotification) {
             stageNotification.className = `stage-notification active notification-${segment.activity.toLowerCase()}`;
         }
 
-        // Auto hide after 3 seconds
         setTimeout(() => {
             if (stageNotification) {
                 stageNotification.classList.remove('active');
@@ -4057,7 +4740,6 @@ const scheduleSystem = {
         }, 3000);
     },
 
-    // Toggle mute
     toggleMute: function() {
         this.isMuted = !this.isMuted;
         this.updateUI();
@@ -4066,46 +4748,28 @@ const scheduleSystem = {
         logToConsole(`Mute ${this.isMuted ? 'enabled' : 'disabled'}`, 'info', 'SCHEDULE');
     },
 
-    // Play alert sound
-    playAlertSound: function() {
-        try {
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-
-            oscillator.frequency.value = 800;
-            oscillator.type = 'sine';
-
-            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + 0.5);
-        } catch (error) {
-            logToConsole("Audio not supported or blocked by browser", 'warning', 'SCHEDULE');
-        }
+    updateScheduleDisplay: function() {
+        this.updateScheduleDetails();
     },
 
-    // Update schedule details in debug panel
     updateScheduleDetails: function() {
         const schedule = SCHEDULES[this.currentSchedule];
         const allSegments = [...schedule.period1.segments, ...schedule.period2.segments];
 
-        // Update segment counts
         const totalSegments = allSegments.length;
         const workSegments = allSegments.filter(s => s.activity === "Work").length;
         const restSegments = allSegments.filter(s => s.activity === "Rest").length;
         const gamingSegments = allSegments.filter(s => s.activity === "Gaming").length;
 
-        document.getElementById('debug-totalSegments').textContent = totalSegments;
-        document.getElementById('debug-workSegments').textContent = workSegments;
-        document.getElementById('debug-restSegments').textContent = restSegments;
-        document.getElementById('debug-gamingSegments').textContent = gamingSegments;
+        const totalEl = document.getElementById('debug-totalSegments');
+        if (totalEl) totalEl.textContent = totalSegments;
+        const workEl = document.getElementById('debug-workSegments');
+        if (workEl) workEl.textContent = workSegments;
+        const restEl = document.getElementById('debug-restSegments');
+        if (restEl) restEl.textContent = restSegments;
+        const gamingEl = document.getElementById('debug-gamingSegments');
+        if (gamingEl) gamingEl.textContent = gamingSegments;
 
-        // Update schedule details display
         const detailsContainer = document.getElementById('debug-scheduleDetails');
         if (detailsContainer) {
             let html = `
@@ -4148,7 +4812,6 @@ const scheduleSystem = {
         }
     },
 
-    // Test schedule alert
     testScheduleAlert: function() {
         const testSegment = {
             activity: "Test",
@@ -4156,12 +4819,10 @@ const scheduleSystem = {
             end: "00:05",
             color: "#f59e0b"
         };
-
         this.showStageAlert(testSegment);
         logToConsole('Test schedule alert triggered', 'info', 'SCHEDULE');
     },
 
-    // Utility function to convert time to minutes
     timeToMinutes: function(timeStr) {
         const [hours, minutes] = timeStr.split(':').map(Number);
         return hours * 60 + minutes;
@@ -4184,7 +4845,6 @@ const consoleSystem = {
         debug: 0
     },
 
-    // Initialize console system
     init: function() {
         this.loadLogs();
         this.updateConsoleDisplay();
@@ -4194,7 +4854,6 @@ const consoleSystem = {
         logToConsole('Enhanced console system initialized', 'success', 'CONSOLE');
     },
 
-    // Load logs from localStorage
     loadLogs: function() {
         const savedLogs = localStorage.getItem(DEBUG_CONFIG.CONSOLE_LOGS_KEY);
         if (savedLogs) {
@@ -4211,14 +4870,11 @@ const consoleSystem = {
         }
     },
 
-    // Save logs to localStorage
     saveLogs: function() {
         try {
-            // Keep only recent logs (last 7 days)
             const sevenDaysAgo = Date.now() - (DEBUG_CONFIG.LOG_RETENTION_DAYS * 24 * 60 * 60 * 1000);
             this.logs = this.logs.filter(log => new Date(log.timestamp).getTime() > sevenDaysAgo);
 
-            // Limit total logs
             if (this.logs.length > DEBUG_CONFIG.MAX_CONSOLE_LOGS) {
                 this.logs = this.logs.slice(-DEBUG_CONFIG.MAX_CONSOLE_LOGS);
             }
@@ -4229,7 +4885,6 @@ const consoleSystem = {
         }
     },
 
-    // Add log entry
     addLog: function(message, type = 'info', source = 'SYSTEM') {
         const now = new Date();
         const logEntry = {
@@ -4242,28 +4897,22 @@ const consoleSystem = {
 
         this.logs.push(logEntry);
         this.logCounts.total++;
-        this.logCounts[type]++;
+        this.logCounts[type] = (this.logCounts[type] || 0) + 1;
 
-        // Save logs
         this.saveLogs();
 
-        // Update display if console is active
         if (document.getElementById('overall-log')?.classList.contains('active')) {
             this.updateConsoleDisplay();
         }
 
-        // Update stats
         this.updateStatsDisplay();
 
-        // Also log to browser console for debugging
         const consoleMethod = type === 'error' ? 'error' :
                             type === 'warning' ? 'warn' : 'log';
         console[consoleMethod](`[${source}] ${message}`);
     },
 
-    // Update log counts
     updateLogCounts: function() {
-        // Reset counts
         this.logCounts = {
             total: this.logs.length,
             error: 0,
@@ -4274,7 +4923,6 @@ const consoleSystem = {
             debug: 0
         };
 
-        // Count by type
         this.logs.forEach(log => {
             if (this.logCounts[log.type] !== undefined) {
                 this.logCounts[log.type]++;
@@ -4282,20 +4930,16 @@ const consoleSystem = {
         });
     },
 
-    // Update console display
     updateConsoleDisplay: function() {
         const output = document.getElementById('console-output');
         if (!output) return;
 
-        // Filter logs
         const filteredLogs = this.filter === 'all'
             ? this.logs
             : this.logs.filter(log => log.type === this.filter);
 
-        // Clear and add logs
         output.innerHTML = '';
 
-        // Add logs in reverse order (newest first)
         filteredLogs.slice().reverse().forEach(log => {
             const logEntry = document.createElement('div');
             logEntry.className = `log-entry log-${log.type}`;
@@ -4307,23 +4951,23 @@ const consoleSystem = {
             output.appendChild(logEntry);
         });
 
-        // Scroll to bottom
         output.scrollTop = output.scrollHeight;
     },
 
-    // Update stats display
     updateStatsDisplay: function() {
-        document.getElementById('console-total-logs').textContent = this.logCounts.total;
-        document.getElementById('console-error-logs').textContent = this.logCounts.error;
-        document.getElementById('console-warning-logs').textContent = this.logCounts.warning;
-        document.getElementById('console-security-logs').textContent = this.logCounts.security;
+        const totalEl = document.getElementById('console-total-logs');
+        if (totalEl) totalEl.textContent = this.logCounts.total;
+        const errorEl = document.getElementById('console-error-logs');
+        if (errorEl) errorEl.textContent = this.logCounts.error;
+        const warningEl = document.getElementById('console-warning-logs');
+        if (warningEl) warningEl.textContent = this.logCounts.warning;
+        const securityEl = document.getElementById('console-security-logs');
+        if (securityEl) securityEl.textContent = this.logCounts.security;
     },
 
-    // Set log filter
     setLogFilter: function(filter) {
         this.filter = filter;
 
-        // Update filter buttons
         document.querySelectorAll('.console-filter-btn').forEach(btn => {
             btn.classList.remove('active');
         });
@@ -4332,7 +4976,6 @@ const consoleSystem = {
         this.updateConsoleDisplay();
     },
 
-    // Clear console
     clearConsole: function() {
         if (confirm('Clear all console logs? This cannot be undone.')) {
             this.logs = [];
@@ -4352,21 +4995,17 @@ const consoleSystem = {
         }
     },
 
-    // Setup global error handlers
     setupGlobalErrorHandlers: function() {
-        // JavaScript errors
         window.addEventListener('error', (event) => {
             const errorMessage = `${event.message} (${event.filename}:${event.lineno}:${event.colno})`;
             this.addLog(errorMessage, 'error', 'JAVASCRIPT');
         });
 
-        // Unhandled promise rejections
         window.addEventListener('unhandledrejection', (event) => {
             const errorMessage = event.reason?.message || 'Unhandled promise rejection';
             this.addLog(errorMessage, 'error', 'PROMISE');
         });
 
-        // Resource loading errors
         window.addEventListener('error', (event) => {
             const target = event.target;
             if (target && (target.tagName === 'IMG' || target.tagName === 'SCRIPT' || target.tagName === 'LINK')) {
@@ -4376,7 +5015,6 @@ const consoleSystem = {
             }
         }, true);
 
-        // Network errors
         window.addEventListener('offline', () => {
             this.addLog('Network connection lost', 'warning', 'NETWORK');
         });
@@ -4386,9 +5024,7 @@ const consoleSystem = {
         });
     },
 
-    // Start resource monitoring
     startResourceMonitoring: function() {
-        // Monitor broken images
         setInterval(() => {
             document.querySelectorAll('img').forEach(img => {
                 if (img.complete && img.naturalHeight === 0) {
@@ -4398,17 +5034,15 @@ const consoleSystem = {
                     }
                 }
             });
-        }, 10000); // Check every 10 seconds
+        }, 10000);
     },
 
-    // Handle console input
     handleConsoleInput: function(event) {
         if (event.key === 'Enter') {
             this.sendConsoleCommand();
         }
     },
 
-    // Send console command
     sendConsoleCommand: function() {
         const input = document.getElementById('console-input');
         if (!input || !input.value.trim()) return;
@@ -4416,14 +5050,11 @@ const consoleSystem = {
         const command = input.value.trim();
         this.addLog(`> ${command}`, 'debug', 'USER');
 
-        // Process command
         this.processCommand(command);
 
-        // Clear input
         input.value = '';
     },
 
-    // Process console command
     processCommand: function(command) {
         const cmd = command.toLowerCase();
 
@@ -4450,7 +5081,10 @@ const consoleSystem = {
                 this.addLog(`- Warnings: ${this.logCounts.warning}`, 'info', 'SYSTEM');
                 this.addLog(`- Security events: ${this.logCounts.security}`, 'info', 'SYSTEM');
                 this.addLog(`- Uptime: ${formatTime(debugData.performanceMetrics.uptime)}`, 'info', 'SYSTEM');
-                this.addLog(`- Memory: ${debugData.performanceMetrics.memoryHistory.slice(-1)[0] || 0}MB`, 'info', 'SYSTEM');
+                if (performance.memory) {
+                    const usedMB = Math.round(performance.memory.usedJSHeapSize / 1048576);
+                    this.addLog(`- Memory: ${usedMB}MB`, 'info', 'SYSTEM');
+                }
                 this.addLog(`- FPS: ${debugData.fps}`, 'info', 'SYSTEM');
                 break;
 
@@ -4469,14 +5103,14 @@ const consoleSystem = {
                 this.addLog(`Security Status:`, 'info', 'SECURITY');
                 this.addLog(`- Authenticated: ${securityState.authenticated}`, 'info', 'SECURITY');
                 this.addLog(`- Failed attempts: ${securityState.failedAttempts}`, 'info', 'SECURITY');
-                this.addLog(`- Files locked: ${Object.values(htmlFileManager.fileLocks).filter(l => l.locked).length}`, 'info', 'SECURITY');
+                this.addLog(`- Files locked: ${Object.values(htmlFileManager?.fileLocks || {}).filter(l => l.locked).length}`, 'info', 'SECURITY');
                 break;
 
             case 'files count':
                 this.addLog(`File Manager Statistics:`, 'info', 'FILE-MANAGER');
-                this.addLog(`- Total files: ${htmlFileManager.loadedFiles.length}`, 'info', 'FILE-MANAGER');
-                this.addLog(`- Locked files: ${Object.values(htmlFileManager.fileLocks).filter(l => l.locked).length}`, 'info', 'FILE-MANAGER');
-                this.addLog(`- Unlocked files: ${Object.values(htmlFileManager.fileLocks).filter(l => !l.locked).length}`, 'info', 'FILE-MANAGER');
+                this.addLog(`- Total files: ${htmlFileManager?.loadedFiles.length || 0}`, 'info', 'FILE-MANAGER');
+                this.addLog(`- Locked files: ${Object.values(htmlFileManager?.fileLocks || {}).filter(l => l.locked).length}`, 'info', 'FILE-MANAGER');
+                this.addLog(`- Unlocked files: ${Object.values(htmlFileManager?.fileLocks || {}).filter(l => !l.locked).length}`, 'info', 'FILE-MANAGER');
                 break;
 
             default:
@@ -4484,7 +5118,6 @@ const consoleSystem = {
         }
     },
 
-    // Test console logging
     testConsoleLog: function(type) {
         const messages = {
             info: 'This is a test info message',
@@ -4507,7 +5140,6 @@ const consoleSystem = {
         this.addLog(messages[type], type, sources[type]);
     },
 
-    // Run all console tests
     runAllConsoleTests: function() {
         this.addLog('Starting console tests...', 'info', 'TEST');
 
@@ -4518,7 +5150,7 @@ const consoleSystem = {
             setTimeout(() => {
                 this.testConsoleLog(type);
             }, delay);
-            delay += 500; // 500ms between tests
+            delay += 500;
         });
 
         setTimeout(() => {
@@ -4526,7 +5158,6 @@ const consoleSystem = {
         }, delay);
     },
 
-    // Escape HTML for safe display
     escapeHtml: function(text) {
         const div = document.createElement('div');
         div.textContent = text;
@@ -4535,700 +5166,12 @@ const consoleSystem = {
 };
 
 // ====================
-// SECURITY MANAGEMENT
-// ====================
-
-// Security System State
-const securityState = {
-    authenticated: false,
-    failedAttempts: 0,
-    lockoutUntil: 0,
-    securityEvents: [],
-    lastSecurityCheck: null,
-    integrityStatus: 'unknown'
-};
-
-// Initialize security system
-function initializeSecuritySystem() {
-    loadSecurityState();
-    setupSecurityEventListeners();
-
-    // Start periodic security checks
-    setInterval(checkSecurityStatus, DEBUG_CONFIG.SECURITY_CHECK_INTERVAL);
-    setInterval(runIntegrityCheck, 60000); // Every minute
-
-    // Initial security check
-    setTimeout(checkSecurityStatus, 1000);
-    setTimeout(runIntegrityCheck, 2000);
-}
-
-// Load security state from localStorage
-function loadSecurityState() {
-    try {
-        const savedAttempts = localStorage.getItem('debug_security_attempts');
-        const lockoutTime = localStorage.getItem('debug_security_lockout');
-        const savedEvents = localStorage.getItem(DEBUG_CONFIG.SECURITY_EVENTS_KEY);
-
-        if (savedAttempts) {
-            securityState.failedAttempts = parseInt(savedAttempts);
-        }
-
-        if (lockoutTime) {
-            securityState.lockoutUntil = parseInt(lockoutTime);
-
-            // Check if still in lockout period
-            if (Date.now() < securityState.lockoutUntil) {
-                showLockoutScreen();
-                startLockoutTimer();
-                return;
-            } else {
-                // Lockout period expired
-                securityState.failedAttempts = 0;
-                securityState.lockoutUntil = 0;
-                localStorage.removeItem('debug_security_lockout');
-                localStorage.setItem('debug_security_attempts', '0');
-            }
-        }
-
-        if (savedEvents) {
-            securityState.securityEvents = JSON.parse(savedEvents);
-            updateSecurityEventsDisplay();
-        }
-
-    } catch (error) {
-        console.error('Error loading security state:', error);
-        resetSecurityState();
-    }
-}
-
-// Setup security event listeners
-function setupSecurityEventListeners() {
-    const passwordInput = document.getElementById('password-input');
-    const loginButton = document.getElementById('login-button');
-
-    if (passwordInput) {
-        passwordInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkPassword();
-            }
-        });
-    }
-
-    if (loginButton) {
-        loginButton.addEventListener('click', checkPassword);
-    }
-}
-
-// Check password
-function checkPassword() {
-    // Check if locked out
-    if (securityState.lockoutUntil && Date.now() < securityState.lockoutUntil) {
-        showLockoutScreen();
-        return;
-    }
-
-    const passwordInput = document.getElementById('password-input');
-    const loginButton = document.getElementById('login-button');
-    const errorMessage = document.getElementById('error-message');
-    const attemptsInfo = document.getElementById('attempts-info');
-
-    const password = passwordInput.value.trim();
-    if (errorMessage) errorMessage.style.display = 'none';
-
-    if (!password) {
-        showError('Please enter the master password');
-        return;
-    }
-
-    // Disable button during verification
-    loginButton.disabled = true;
-    loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
-
-    // Simulate verification delay
-    setTimeout(() => {
-        if (password === SECURITY_CONFIG.MASTER_PASSWORD) {
-            handleLoginSuccess();
-        } else {
-            handleLoginFailure();
-        }
-
-        // Re-enable button
-        loginButton.disabled = false;
-        loginButton.innerHTML = '<i class="fas fa-unlock-alt"></i> Access System';
-    }, 800);
-}
-
-// Handle login success
-function handleLoginSuccess() {
-    // Reset failed attempts
-    securityState.failedAttempts = 0;
-    securityState.lockoutUntil = 0;
-    securityState.authenticated = true;
-
-    // Clear storage
-    localStorage.removeItem('debug_security_attempts');
-    localStorage.removeItem('debug_security_lockout');
-
-    // Grant access
-    grantAccess();
-
-    // Clear password field
-    document.getElementById('password-input').value = '';
-
-    // Log security event
-    logSecurityEvent('User logged in successfully', 'info');
-}
-
-// Handle login failure
-function handleLoginFailure() {
-    securityState.failedAttempts++;
-
-    // Save to localStorage
-    localStorage.setItem('debug_security_attempts', securityState.failedAttempts.toString());
-
-    // Show error
-    showError('<i class="fas fa-times-circle"></i> Invalid master password');
-
-    // Update attempts display
-    updateAttemptsDisplay();
-
-    // Clear password field and refocus
-    const passwordInput = document.getElementById('password-input');
-    passwordInput.value = '';
-    passwordInput.focus();
-
-    // Log security event
-    logSecurityEvent(`Failed login attempt (${securityState.failedAttempts}/${SECURITY_CONFIG.MAX_ATTEMPTS})`, 'warning');
-
-    // Check for lockout
-    if (securityState.failedAttempts >= SECURITY_CONFIG.MAX_ATTEMPTS) {
-        activateLockout();
-    }
-}
-
-// Show error message
-function showError(message) {
-    const errorMessage = document.getElementById('error-message');
-    if (errorMessage) {
-        errorMessage.innerHTML = message;
-        errorMessage.style.display = 'block';
-    }
-}
-
-// Update attempts display
-function updateAttemptsDisplay() {
-    const attemptsInfo = document.getElementById('attempts-info');
-    if (attemptsInfo) {
-        attemptsInfo.textContent = `Attempt ${securityState.failedAttempts} of ${SECURITY_CONFIG.MAX_ATTEMPTS}`;
-        attemptsInfo.style.display = 'block';
-    }
-}
-
-// Show login screen
-function showLoginScreen() {
-    const loginContainer = document.getElementById('login-container');
-    const lockoutContainer = document.getElementById('lockout-container');
-
-    if (loginContainer) loginContainer.classList.remove('hidden');
-    if (lockoutContainer) lockoutContainer.classList.add('hidden');
-
-    const passwordInput = document.getElementById('password-input');
-    if (passwordInput) passwordInput.focus();
-}
-
-// Show lockout screen
-function showLockoutScreen() {
-    const loginContainer = document.getElementById('login-container');
-    const lockoutContainer = document.getElementById('lockout-container');
-
-    if (loginContainer) loginContainer.classList.add('hidden');
-    if (lockoutContainer) lockoutContainer.classList.remove('hidden');
-}
-
-// Activate lockout
-function activateLockout() {
-    const lockoutTime = Date.now() + (SECURITY_CONFIG.LOCKOUT_MINUTES * 60 * 1000);
-    securityState.lockoutUntil = lockoutTime;
-
-    // Save to localStorage
-    localStorage.setItem('debug_security_lockout', lockoutTime.toString());
-
-    // Show lockout screen
-    showLockoutScreen();
-
-    // Start lockout timer
-    startLockoutTimer();
-
-    // Log security event
-    logSecurityEvent('Security lockout activated due to multiple failed login attempts', 'critical');
-    showStageAlert('Security Lockout', 'Too many failed login attempts. System locked for 1 minute.', 'error');
-}
-
-// Start lockout timer
-function startLockoutTimer() {
-    const lockoutTime = securityState.lockoutUntil - Date.now();
-    let seconds = Math.floor(lockoutTime / 1000);
-
-    const updateTimer = () => {
-        seconds--;
-
-        if (seconds <= 0) {
-            clearInterval(interval);
-            const lockoutTimer = document.getElementById('lockout-timer');
-            if (lockoutTimer) lockoutTimer.textContent = '00:00';
-
-            setTimeout(() => {
-                // Reset lockout
-                securityState.lockoutUntil = 0;
-                securityState.failedAttempts = 0;
-                localStorage.removeItem('debug_security_lockout');
-                localStorage.setItem('debug_security_attempts', '0');
-
-                // Show login screen
-                showLoginScreen();
-
-                // Log security event
-                logSecurityEvent('Security lockout expired', 'info');
-            }, 1000);
-            return;
-        }
-
-        const mins = Math.floor(seconds / 60);
-        const secs = seconds % 60;
-        const lockoutTimer = document.getElementById('lockout-timer');
-        if (lockoutTimer) {
-            lockoutTimer.textContent =
-                (mins < 10 ? '0' : '') + mins + ':' +
-                (secs < 10 ? '0' : '') + secs;
-        }
-    };
-
-    // Update immediately
-    updateTimer();
-
-    // Update every second
-    const interval = setInterval(updateTimer, 1000);
-}
-
-// Grant access
-function grantAccess() {
-    console.log('✅ Authentication successful');
-
-    // Hide security overlay
-    const securityOverlay = document.getElementById('security-overlay');
-    if (securityOverlay) {
-        securityOverlay.style.opacity = '0';
-        setTimeout(() => {
-            securityOverlay.style.display = 'none';
-        }, 500);
-    }
-
-    logToConsole('User authenticated successfully', 'success', 'SECURITY');
-    showStageAlert('Access Granted', 'Welcome to the Universal Debug Tool', 'security');
-}
-
-// Toggle password visibility
-function togglePasswordVisibility() {
-    const passwordInput = document.getElementById('password-input');
-    const toggleIcon = document.querySelector('.toggle-password i');
-
-    if (!passwordInput || !toggleIcon) return;
-
-    if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        toggleIcon.className = 'fas fa-eye-slash';
-    } else {
-        passwordInput.type = 'password';
-        toggleIcon.className = 'fas fa-eye';
-    }
-}
-
-// Reset security state
-function resetSecurityState() {
-    securityState.authenticated = false;
-    securityState.failedAttempts = 0;
-    securityState.lockoutUntil = 0;
-    securityState.securityEvents = [];
-    securityState.lastSecurityCheck = null;
-    securityState.integrityStatus = 'unknown';
-
-    localStorage.removeItem('debug_security_attempts');
-    localStorage.removeItem('debug_security_lockout');
-}
-
-// ====================
-// FILE LOCK MANAGEMENT
-// ====================
-
-// Check and update security status
-function checkSecurityStatus() {
-    try {
-        const lockStatus = localStorage.getItem(DEBUG_CONFIG.LOCK_STATUS_KEY);
-        const isLocked = lockStatus === 'true';
-
-        // Update lock status indicator
-        const indicator = document.getElementById('lock-status-indicator');
-        const statusText = document.getElementById('lock-status-text');
-
-        if (indicator) {
-            indicator.className = 'lock-status-indicator ' + (isLocked ? 'locked-status' : 'unlocked-status');
-        }
-
-        if (statusText) {
-            statusText.textContent = isLocked ? 'Files are LOCKED' : 'Files are UNLOCKED';
-            statusText.style.color = isLocked ? '#ef4444' : '#10b981';
-        }
-
-        // Update button states
-        const lockBtn = document.getElementById('lock-btn');
-        const unlockBtn = document.getElementById('unlock-btn');
-
-        if (lockBtn) lockBtn.disabled = isLocked;
-        if (unlockBtn) unlockBtn.disabled = !isLocked;
-
-        // Update last security check time
-        const now = new Date();
-        securityState.lastSecurityCheck = now;
-        const lastCheckEl = document.getElementById('last-security-check');
-        if (lastCheckEl) lastCheckEl.textContent = now.toLocaleTimeString();
-
-        // Update security event count
-        const eventCountEl = document.getElementById('security-event-count');
-        if (eventCountEl) eventCountEl.textContent = securityState.securityEvents.length;
-
-        // Update session validity
-        const sessionValidEl = document.getElementById('session-text');
-        if (sessionValidEl) {
-            sessionValidEl.textContent = securityState.authenticated ? 'Valid' : 'Invalid';
-        }
-
-        logToConsole('Security status checked: ' + (isLocked ? 'LOCKED' : 'UNLOCKED'), 'info', 'SECURITY');
-
-    } catch (error) {
-        console.error('Error checking security status:', error);
-        logToConsole('Error checking security status: ' + error.message, 'error', 'SECURITY');
-    }
-}
-
-// Show password prompt for locking files
-function showLockPrompt() {
-    // Hide unlock prompt if visible
-    const unlockPrompt = document.getElementById('unlock-password-prompt');
-    if (unlockPrompt) unlockPrompt.style.display = 'none';
-
-    // Show lock prompt
-    const lockPrompt = document.getElementById('lock-password-prompt');
-    if (lockPrompt) {
-        lockPrompt.style.display = 'flex';
-        // Clear input and errors
-        const passwordInput = document.getElementById('lock-password-input');
-        if (passwordInput) passwordInput.value = '';
-        const errorEl = document.getElementById('password-error');
-        if (errorEl) errorEl.style.display = 'none';
-        passwordInput.focus();
-    }
-}
-
-// Show password prompt for unlocking files
-function showUnlockPrompt() {
-    // Hide lock prompt if visible
-    const lockPrompt = document.getElementById('lock-password-prompt');
-    if (lockPrompt) lockPrompt.style.display = 'none';
-
-    // Show unlock prompt
-    const unlockPrompt = document.getElementById('unlock-password-prompt');
-    if (unlockPrompt) {
-        unlockPrompt.style.display = 'flex';
-        // Clear input and errors
-        const passwordInput = document.getElementById('unlock-password-input');
-        if (passwordInput) passwordInput.value = '';
-        const errorEl = document.getElementById('password-error');
-        if (errorEl) errorEl.style.display = 'none';
-        passwordInput.focus();
-    }
-}
-
-// Lock all files with password verification
-function lockAllFiles() {
-    try {
-        const passwordInput = document.getElementById('lock-password-input');
-        if (!passwordInput) {
-            console.warn('Password input element not found');
-            return;
-        }
-
-        const password = passwordInput.value;
-
-        if (password !== SECURITY_CONFIG.MASTER_PASSWORD) {
-            const errorEl = document.getElementById('password-error');
-            if (errorEl) {
-                errorEl.textContent = 'Invalid password. Files not locked.';
-                errorEl.style.display = 'block';
-            }
-
-            logSecurityEvent('Failed attempt to lock all files (invalid password)', 'warning');
-            return;
-        }
-
-        // Set lock flag for system files
-        localStorage.setItem(DEBUG_CONFIG.LOCK_STATUS_KEY, 'true');
-
-        // Lock all HTML files
-        Object.keys(htmlFileManager.fileLocks).forEach(fileId => {
-            htmlFileManager.fileLocks[fileId] = {
-                locked: true,
-                password: password
-            };
-        });
-
-        // Save lock status
-        htmlFileManager.saveFileLocks();
-
-        // Record lock event
-        const lockEvent = {
-            action: 'lock_all',
-            timestamp: new Date().toISOString(),
-            filesAffected: Object.keys(htmlFileManager.fileLocks).length
-        };
-
-        let lockHistory = JSON.parse(localStorage.getItem(DEBUG_CONFIG.LOCK_HISTORY_KEY) || '[]');
-        lockHistory.unshift(lockEvent);
-        if (lockHistory.length > 20) lockHistory = lockHistory.slice(0, 20);
-        localStorage.setItem(DEBUG_CONFIG.LOCK_HISTORY_KEY, JSON.stringify(lockHistory));
-
-        // Log security event
-        logSecurityEvent(`All files locked (${Object.keys(htmlFileManager.fileLocks).length} files)`, 'info');
-
-        // Update UI
-        checkSecurityStatus();
-        htmlFileManager.updateFileList();
-        htmlFileManager.updateFileStatistics();
-        updateHTMLFilesLockStatus();
-
-        // Hide prompt and clear password
-        const lockPrompt = document.getElementById('lock-password-prompt');
-        if (lockPrompt) lockPrompt.style.display = 'none';
-        passwordInput.value = '';
-
-        logToConsole('All files locked successfully', 'security', 'SECURITY');
-        showStageAlert('Files Locked', 'All files have been locked with the master password', 'security');
-
-    } catch (error) {
-        console.error('Error locking all files:', error);
-        logToConsole('Error locking all files: ' + error.message, 'error', 'SECURITY');
-    }
-}
-
-// Unlock all files with password verification
-function unlockAllFiles() {
-    try {
-        const passwordInput = document.getElementById('unlock-password-input');
-        if (!passwordInput) {
-            console.warn('Password input element not found');
-            return;
-        }
-
-        const password = passwordInput.value;
-
-        if (password !== SECURITY_CONFIG.MASTER_PASSWORD) {
-            const errorEl = document.getElementById('password-error');
-            if (errorEl) {
-                errorEl.textContent = 'Invalid password. Files remain locked.';
-                errorEl.style.display = 'block';
-            }
-
-            logSecurityEvent('Failed attempt to unlock all files (invalid password)', 'warning');
-            return;
-        }
-
-        // Remove lock flag for system files
-        localStorage.removeItem(DEBUG_CONFIG.LOCK_STATUS_KEY);
-
-        // Unlock all HTML files
-        Object.keys(htmlFileManager.fileLocks).forEach(fileId => {
-            htmlFileManager.fileLocks[fileId] = {
-                locked: false,
-                password: null
-            };
-        });
-
-        // Save lock status
-        htmlFileManager.saveFileLocks();
-
-        // Record unlock event
-        const unlockEvent = {
-            action: 'unlock_all',
-            timestamp: new Date().toISOString(),
-            filesAffected: Object.keys(htmlFileManager.fileLocks).length
-        };
-
-        let lockHistory = JSON.parse(localStorage.getItem(DEBUG_CONFIG.LOCK_HISTORY_KEY) || '[]');
-        lockHistory.unshift(unlockEvent);
-        if (lockHistory.length > 20) lockHistory = lockHistory.slice(0, 20);
-        localStorage.setItem(DEBUG_CONFIG.LOCK_HISTORY_KEY, JSON.stringify(lockHistory));
-
-        // Log security event
-        logSecurityEvent(`All files unlocked (${Object.keys(htmlFileManager.fileLocks).length} files)`, 'info');
-
-        // Update UI
-        checkSecurityStatus();
-        htmlFileManager.updateFileList();
-        htmlFileManager.updateFileStatistics();
-        updateHTMLFilesLockStatus();
-
-        // Hide prompt and clear password
-        const unlockPrompt = document.getElementById('unlock-password-prompt');
-        if (unlockPrompt) unlockPrompt.style.display = 'none';
-        passwordInput.value = '';
-
-        logToConsole('All files unlocked successfully', 'security', 'SECURITY');
-        showStageAlert('Files Unlocked', 'All files have been unlocked', 'security');
-
-    } catch (error) {
-        console.error('Error unlocking all files:', error);
-        logToConsole('Error unlocking all files: ' + error.message, 'error', 'SECURITY');
-    }
-}
-
-// Update HTML files lock status display
-function updateHTMLFilesLockStatus() {
-    const container = document.getElementById('html-files-list');
-    if (!container) return;
-
-    const files = htmlFileManager.loadedFiles;
-    const locks = htmlFileManager.fileLocks;
-
-    if (files.length === 0) {
-        container.innerHTML = `
-            <div style="color: #94a3b8; font-size: 12px; text-align: center; padding: 10px;">
-                No HTML files added yet
-            </div>
-        `;
-        return;
-    }
-
-    container.innerHTML = files.map(file => {
-        const lock = locks[file.id] || { locked: false, password: null };
-
-        return `
-            <div class="html-file-lock-item ${lock.locked ? 'locked' : 'unlocked'}">
-                <div>
-                    <div class="html-file-name">${htmlFileManager.truncateText(file.name, 30)}</div>
-                    ${lock.password ? `
-                        <div class="html-file-password">Password: ${lock.password}</div>
-                    ` : ''}
-                </div>
-                <div class="html-file-status">
-                    <span style="color: ${lock.locked ? '#ef4444' : '#10b981'}; font-size: 12px;">
-                        ${lock.locked ? '🔒 Locked' : '🔓 Unlocked'}
-                    </span>
-                </div>
-            </div>
-        `;
-    }).join('');
-}
-
-// ====================
-// STAGE ALERT SYSTEM
-// ====================
-
-// Show stage alert (original style)
-function showStageAlert(title, message, type = 'security') {
-    const stageAlert = document.getElementById('stageAlert');
-    const alertContent = document.getElementById('alertContent');
-    const alertActivity = document.getElementById('alertActivity');
-    const alertInterval = document.getElementById('alertInterval');
-    const countdownTimer = document.getElementById('countdownTimer');
-    const closeAlertBtn = document.getElementById('closeAlertBtn');
-
-    if (!stageAlert || !alertContent) return;
-
-    // Set alert content
-    if (alertActivity) {
-        alertActivity.textContent = title.toUpperCase();
-        alertActivity.className = `alert-activity ${type}`;
-    }
-
-    if (alertInterval) {
-        alertInterval.textContent = message;
-    }
-
-    // Set alert style
-    alertContent.className = `alert-content alert-${type}`;
-
-    // Reset countdown
-    let countdown = 5;
-    if (countdownTimer) {
-        countdownTimer.textContent = countdown;
-    }
-
-    // Set close button text based on type
-    if (closeAlertBtn) {
-        closeAlertBtn.textContent = type === 'error' ? 'Fix Issue' :
-                                  type === 'warning' ? 'Acknowledge' :
-                                  'Continue';
-    }
-
-    // Show alert
-    stageAlert.classList.add('active');
-
-    // Play sound if schedule is not muted
-    if (!scheduleSystem.isMuted && type !== 'security') {
-        scheduleSystem.playAlertSound();
-    }
-
-    // Start countdown
-    if (countdownInterval) clearInterval(countdownInterval);
-    countdownInterval = setInterval(() => {
-        countdown--;
-        if (countdownTimer) {
-            countdownTimer.textContent = countdown;
-        }
-
-        if (countdown <= 0) {
-            closeStageAlert();
-        }
-    }, 1000);
-
-    // Auto-close after 5 seconds for non-critical alerts
-    if (type !== 'error') {
-        if (alertTimeout) clearTimeout(alertTimeout);
-        alertTimeout = setTimeout(closeStageAlert, 5000);
-    }
-
-    // Log the alert
-    logToConsole(`Stage alert: ${title} - ${message}`, type === 'error' ? 'error' : 'info', 'ALERT');
-}
-
-// Close stage alert
-function closeStageAlert() {
-    const stageAlert = document.getElementById('stageAlert');
-    if (stageAlert) {
-        stageAlert.classList.remove('active');
-    }
-
-    if (countdownInterval) {
-        clearInterval(countdownInterval);
-        countdownInterval = null;
-    }
-
-    if (alertTimeout) {
-        clearTimeout(alertTimeout);
-        alertTimeout = null;
-    }
-}
-
-// ====================
 // DEBUG PANEL CONTROLS
 // ====================
 
-// Toggle debug panel visibility
 function toggleDebugPanel() {
     const debugPanel = document.getElementById('debugPanel');
-    if (!debugPanel) {
-        console.warn('Debug panel element not found');
-        return;
-    }
+    if (!debugPanel) return;
 
     debugPanel.classList.toggle('active');
 
@@ -5237,31 +5180,23 @@ function toggleDebugPanel() {
         updateDebugInfo();
         switchDebugTab('system');
         logToConsole('Debug panel opened', 'info', 'SYSTEM');
-
-        // Start performance monitoring when panel is open
         startPerformanceMonitoring();
     } else {
         document.body.style.overflow = '';
         logToConsole('Debug panel closed', 'info', 'SYSTEM');
-
-        // Stop performance monitoring when panel is closed
         stopPerformanceMonitoring();
     }
 }
 
-// Switch between debug tabs
 function switchDebugTab(tabName) {
-    // Hide all tab content
     document.querySelectorAll('.debug-tab-content').forEach(content => {
         content.classList.remove('active');
     });
 
-    // Deactivate all tab buttons
     document.querySelectorAll('.debug-tab').forEach(tab => {
         tab.classList.remove('active');
     });
 
-    // Activate selected tab
     const tabButton = document.querySelector(`.debug-tab[onclick*="${tabName}"]`);
     if (tabButton) tabButton.classList.add('active');
 
@@ -5269,7 +5204,6 @@ function switchDebugTab(tabName) {
     if (tabContent) {
         tabContent.classList.add('active');
 
-        // Load tab-specific content
         switch(tabName) {
             case 'html-file-addon':
                 htmlFileManager.updateFileList();
@@ -5293,7 +5227,6 @@ function switchDebugTab(tabName) {
     logToConsole(`Switched to ${tabName} tab`, 'info', 'DEBUG-PANEL');
 }
 
-// Refresh debug information
 function refreshDebugInfo() {
     updateDebugInfo();
     logToConsole('Debug information refreshed', 'info', 'DEBUG-PANEL');
@@ -5303,29 +5236,23 @@ function refreshDebugInfo() {
 // DEBUG INFO UPDATER
 // ====================
 
-// Update all debug information displays
 function updateDebugInfo() {
     try {
         const now = new Date();
 
-        // Session duration
         const sessionDuration = Math.floor((now - debugData.sessionStartTime) / 1000);
         const durationEl = document.getElementById('debug-session-duration');
         if (durationEl) durationEl.textContent = formatTime(sessionDuration);
 
-        // Current time
         const timeEl = document.getElementById('debug-current-time');
         if (timeEl) timeEl.textContent = now.toLocaleTimeString();
 
-        // Session ID
         const sessionIdEl = document.getElementById('debug-session-id');
         if (sessionIdEl) sessionIdEl.textContent = 'session_' + debugData.sessionStartTime.getTime();
 
-        // FPS
         const fpsEl = document.getElementById('debug-fps');
         if (fpsEl) fpsEl.textContent = debugData.fps;
 
-        // Memory usage (if available)
         if (performance.memory) {
             const usedMB = Math.round(performance.memory.usedJSHeapSize / 1048576);
             const totalMB = Math.round(performance.memory.totalJSHeapSize / 1048576);
@@ -5334,29 +5261,29 @@ function updateDebugInfo() {
             const memoryEl = document.getElementById('debug-memory');
             if (memoryEl) memoryEl.textContent = `${usedMB}MB (${percentage}%)`;
 
-            // Update performance metrics
             debugData.performanceMetrics.memoryHistory.push(usedMB);
             if (debugData.performanceMetrics.memoryHistory.length > 10) {
                 debugData.performanceMetrics.memoryHistory.shift();
             }
         }
 
-        // DOM elements count
         const domEl = document.getElementById('debug-dom-elements');
         if (domEl) domEl.textContent = document.getElementsByTagName('*').length;
 
-        // Connection status
         const connectionEl = document.getElementById('debug-connection-status');
+        const connectionIndicator = document.getElementById('connection-indicator');
         if (connectionEl) {
-            connectionEl.textContent = navigator.onLine ? 'Online' : 'Offline';
-            connectionEl.style.color = navigator.onLine ? '#10b981' : '#ef4444';
+            const isOnline = navigator.onLine;
+            connectionEl.textContent = isOnline ? 'Online' : 'Offline';
+            connectionEl.style.color = isOnline ? '#10b981' : '#ef4444';
+            if (connectionIndicator) {
+                connectionIndicator.className = 'status-indicator ' + (isOnline ? 'status-online' : 'status-offline');
+            }
         }
 
-        // File statistics
         const filesLoadedEl = document.getElementById('debug-files-loaded');
         if (filesLoadedEl) filesLoadedEl.textContent = `${htmlFileManager.loadedFiles.length}/${htmlFileManager.loadedFiles.length}`;
 
-        // Storage used
         let storageUsed = 0;
         try {
             for (let i = 0; i < localStorage.length; i++) {
@@ -5372,26 +5299,21 @@ function updateDebugInfo() {
         const storageEl = document.getElementById('debug-storage-used');
         if (storageEl) storageEl.textContent = `${storageKB} KB`;
 
-        // Last backup time
         const lastBackup = localStorage.getItem('lastBackupTime');
         const backupEl = document.getElementById('debug-last-backup');
         if (backupEl) backupEl.textContent = lastBackup ? new Date(lastBackup).toLocaleTimeString() : 'Never';
 
-        // Cache size
         const cacheEl = document.getElementById('debug-cache-size');
         if (cacheEl) cacheEl.textContent = htmlFileManager.loadedFiles.length;
 
-        // Uptime
         const uptimeEl = document.getElementById('debug-uptime');
         if (uptimeEl) uptimeEl.textContent = formatTime(debugData.performanceMetrics.uptime);
 
-        // CPU usage (simulated)
         const cpuEl = document.getElementById('debug-cpu');
         if (cpuEl) {
-            const cpuUsage = Math.floor(Math.random() * 30) + 10; // Simulated CPU usage
+            const cpuUsage = Math.floor(Math.random() * 30) + 10;
             cpuEl.textContent = `${cpuUsage}%`;
 
-            // Update performance metrics
             debugData.performanceMetrics.cpuHistory.push(cpuUsage);
             if (debugData.performanceMetrics.cpuHistory.length > 10) {
                 debugData.performanceMetrics.cpuHistory.shift();
@@ -5405,346 +5327,10 @@ function updateDebugInfo() {
 }
 
 // ====================
-// SECURITY FUNCTIONS
-// ====================
-
-// Log security event
-function logSecurityEvent(message, severity = 'info') {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString();
-
-    const event = {
-        time: timeString,
-        message: message,
-        severity: severity,
-        timestamp: now
-    };
-
-    securityState.securityEvents.unshift(event);
-
-    // Keep only last 50 security events
-    if (securityState.securityEvents.length > 50) {
-        securityState.securityEvents.pop();
-    }
-
-    // Save to localStorage
-    try {
-        localStorage.setItem(DEBUG_CONFIG.SECURITY_EVENTS_KEY, JSON.stringify(securityState.securityEvents));
-    } catch (e) {
-        console.error('Error saving security events:', e);
-    }
-
-    updateSecurityEventsDisplay();
-
-    // Also log to console
-    logToConsole(message, severity === 'critical' ? 'error' : severity, 'SECURITY');
-
-    // Update security event count
-    const eventCountEl = document.getElementById('security-event-count');
-    if (eventCountEl) {
-        eventCountEl.textContent = securityState.securityEvents.length;
-    }
-}
-
-// Update security events display
-function updateSecurityEventsDisplay() {
-    const eventsList = document.getElementById('security-events-list');
-    if (!eventsList) return;
-
-    if (securityState.securityEvents.length === 0) {
-        eventsList.innerHTML = `
-            <div style="color: #94a3b8; font-size: 12px; text-align: center; padding: 10px;">
-                No security events recorded
-            </div>
-        `;
-        return;
-    }
-
-    eventsList.innerHTML = securityState.securityEvents.slice(0, 10).map(event => `
-        <div class="security-event-item">
-            <span>${event.message}</span>
-            <span class="security-event-time">${event.time}</span>
-        </div>
-    `).join('');
-}
-
-// Run security scan
-function runSecurityScan() {
-    logToConsole('Starting security scan...', 'info', 'SECURITY');
-
-    // Simulate scanning process
-    setTimeout(() => {
-        // Check for vulnerabilities
-        const vulnerabilities = [
-            htmlFileManager.loadedFiles.length > 10 ? 'Too many files loaded' : null,
-            Object.values(htmlFileManager.fileLocks).filter(l => l.locked).length === 0 ? 'No files locked' : null,
-            localStorage.length > 50 ? 'LocalStorage usage high' : null
-        ].filter(v => v !== null);
-
-        if (vulnerabilities.length > 0) {
-            securityState.integrityStatus = 'warning';
-            const integrityText = document.getElementById('integrity-text');
-            if (integrityText) {
-                integrityText.textContent = `${vulnerabilities.length} issue(s) found`;
-                integrityText.style.color = '#f59e0b';
-            }
-
-            showStageAlert('Security Scan Complete',
-                `Found ${vulnerabilities.length} potential security issue(s)`,
-                'warning');
-
-            vulnerabilities.forEach(vuln => {
-                logSecurityEvent(`Security issue: ${vuln}`, 'warning');
-            });
-        } else {
-            securityState.integrityStatus = 'good';
-            const integrityText = document.getElementById('integrity-text');
-            if (integrityText) {
-                integrityText.textContent = 'All checks passed';
-                integrityText.style.color = '#10b981';
-            }
-
-            showStageAlert('Security Scan Complete', 'All security checks passed', 'security');
-        }
-
-        logToConsole(`Security scan completed: ${vulnerabilities.length} issue(s) found`,
-                    vulnerabilities.length > 0 ? 'warning' : 'success', 'SECURITY');
-    }, 2000);
-}
-
-// Run integrity check
-function runIntegrityCheck() {
-    // Check system integrity
-    const checks = [
-        checkLocalStorageIntegrity(),
-        checkFileSystemIntegrity(),
-        checkSecurityStateIntegrity()
-    ];
-
-    const failedChecks = checks.filter(check => !check.passed);
-
-    if (failedChecks.length > 0) {
-        securityState.integrityStatus = 'failed';
-        const integrityText = document.getElementById('integrity-text');
-        if (integrityText) {
-            integrityText.textContent = `${failedChecks.length} integrity issue(s)`;
-            integrityText.style.color = '#ef4444';
-        }
-
-        failedChecks.forEach(check => {
-            logSecurityEvent(`Integrity check failed: ${check.message}`, 'warning');
-        });
-    } else {
-        securityState.integrityStatus = 'good';
-        const integrityText = document.getElementById('integrity-text');
-        if (integrityText) {
-            integrityText.textContent = 'Integrity verified';
-            integrityText.style.color = '#10b981';
-        }
-    }
-}
-
-// Check localStorage integrity
-function checkLocalStorageIntegrity() {
-    try {
-        // Check if we can read/write to localStorage
-        const testKey = 'debug_integrity_test_' + Date.now();
-        localStorage.setItem(testKey, 'test');
-        const value = localStorage.getItem(testKey);
-        localStorage.removeItem(testKey);
-
-        if (value !== 'test') {
-            return { passed: false, message: 'LocalStorage read/write test failed' };
-        }
-
-        return { passed: true, message: 'LocalStorage integrity verified' };
-    } catch (e) {
-        return { passed: false, message: 'LocalStorage access error' };
-    }
-}
-
-// Check file system integrity
-function checkFileSystemIntegrity() {
-    try {
-        // Check if HTML files data is valid
-        const savedFiles = localStorage.getItem(DEBUG_CONFIG.HTML_FILES_KEY);
-        if (savedFiles) {
-            JSON.parse(savedFiles);
-        }
-
-        return { passed: true, message: 'File system integrity verified' };
-    } catch (e) {
-        return { passed: false, message: 'File system data corrupted' };
-    }
-}
-
-// Check security state integrity
-function checkSecurityStateIntegrity() {
-    try {
-        // Check if security state is valid
-        if (securityState.failedAttempts < 0 || securityState.failedAttempts > SECURITY_CONFIG.MAX_ATTEMPTS) {
-            return { passed: false, message: 'Security state corrupted' };
-        }
-
-        return { passed: true, message: 'Security state integrity verified' };
-    } catch (e) {
-        return { passed: false, message: 'Security state check failed' };
-    }
-}
-
-// Clear security logs
-function clearSecurityLogs() {
-    if (confirm('Clear all security logs? This cannot be undone.')) {
-        securityState.securityEvents = [];
-        localStorage.removeItem(DEBUG_CONFIG.SECURITY_EVENTS_KEY);
-        updateSecurityEventsDisplay();
-
-        const eventCountEl = document.getElementById('security-event-count');
-        if (eventCountEl) {
-            eventCountEl.textContent = '0';
-        }
-
-        logToConsole('Security logs cleared', 'info', 'SECURITY');
-        showStageAlert('Logs Cleared', 'All security logs have been cleared', 'security');
-    }
-}
-
-// Export security report
-function exportSecurityReport() {
-    try {
-        const report = {
-            generated: new Date().toISOString(),
-            securityStatus: {
-                integrity: securityState.integrityStatus,
-                sessionValid: securityState.authenticated,
-                lastCheck: securityState.lastSecurityCheck,
-                totalEvents: securityState.securityEvents.length
-            },
-            fileSecurity: {
-                totalFiles: htmlFileManager.loadedFiles.length,
-                lockedFiles: Object.values(htmlFileManager.fileLocks).filter(l => l.locked).length,
-                unlockedFiles: Object.values(htmlFileManager.fileLocks).filter(l => !l.locked).length
-            },
-            recentEvents: securityState.securityEvents.slice(0, 20),
-            recommendations: generateSecurityRecommendations()
-        };
-
-        const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `security-report-${new Date().toISOString().split('T')[0]}.json`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-
-        logToConsole('Security report exported', 'success', 'SECURITY');
-        showStageAlert('Report Exported', 'Security report has been downloaded', 'security');
-
-    } catch (error) {
-        console.error('Error exporting security report:', error);
-        logToConsole('Error exporting security report: ' + error.message, 'error', 'SECURITY');
-    }
-}
-
-// Generate security recommendations
-function generateSecurityRecommendations() {
-    const recommendations = [];
-
-    // Check for unlocked files
-    const unlockedFiles = Object.values(htmlFileManager.fileLocks).filter(l => !l.locked).length;
-    if (unlockedFiles > 0) {
-        recommendations.push(`Lock ${unlockedFiles} unlocked file(s) for better security`);
-    }
-
-    // Check for weak passwords
-    const filesWithPasswords = Object.values(htmlFileManager.fileLocks).filter(l => l.password);
-    if (filesWithPasswords.length > 0) {
-        recommendations.push('Consider using stronger passwords for locked files');
-    }
-
-    // Check for too many files
-    if (htmlFileManager.loadedFiles.length > 20) {
-        recommendations.push('Consider removing unused files to reduce attack surface');
-    }
-
-    // Check for old files
-    const now = new Date();
-    const oldFiles = htmlFileManager.loadedFiles.filter(file => {
-        const fileDate = new Date(file.timestamp);
-        const daysOld = (now - fileDate) / (1000 * 60 * 60 * 24);
-        return daysOld > 30;
-    });
-
-    if (oldFiles.length > 0) {
-        recommendations.push(`Review ${oldFiles.length} file(s) older than 30 days`);
-    }
-
-    return recommendations.length > 0 ? recommendations : ['All security best practices are being followed'];
-}
-
-// ====================
-// UTILITY FUNCTIONS
-// ====================
-
-// Format time in seconds to readable string
-function formatTime(seconds) {
-    if (typeof seconds !== 'number' || isNaN(seconds)) return '0s';
-
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const secs = seconds % 60;
-
-    if (hours > 0) return `${hours}h ${minutes}m ${secs}s`;
-    if (minutes > 0) return `${minutes}m ${secs}s`;
-    return `${Math.round(secs)}s`;
-}
-
-// Log to console (wrapper for consoleSystem.addLog)
-function logToConsole(message, type = 'info', source = 'SYSTEM') {
-    consoleSystem.addLog(message, type, source);
-}
-
-// Test console logging (for test buttons)
-function testConsoleLog(type) {
-    consoleSystem.testConsoleLog(type);
-}
-
-// Run all console tests
-function runAllConsoleTests() {
-    consoleSystem.runAllConsoleTests();
-}
-
-// Clear console
-function clearConsole() {
-    consoleSystem.clearConsole();
-}
-
-// Set console filter
-function setLogFilter(filter) {
-    consoleSystem.setLogFilter(filter);
-}
-
-// Handle console input
-function handleConsoleInput(event) {
-    consoleSystem.handleConsoleInput(event);
-}
-
-// Send console command
-function sendConsoleCommand() {
-    consoleSystem.sendConsoleCommand();
-}
-
-// ====================
 // PERFORMANCE MONITORING
 // ====================
 
-let performanceInterval = null;
-
-// Start performance monitoring
 function startPerformanceMonitoring() {
-    // FPS counter
     function updateFPS() {
         debugData.frameCount++;
         const now = performance.now();
@@ -5753,13 +5339,11 @@ function startPerformanceMonitoring() {
             debugData.frameCount = 0;
             debugData.lastFpsUpdate = now;
 
-            // Update performance metrics
             debugData.performanceMetrics.fpsHistory.push(debugData.fps);
             if (debugData.performanceMetrics.fpsHistory.length > 10) {
                 debugData.performanceMetrics.fpsHistory.shift();
             }
 
-            // Update display if debug panel is open
             if (document.getElementById('debugPanel')?.classList.contains('active')) {
                 updateDebugInfo();
             }
@@ -5767,27 +5351,21 @@ function startPerformanceMonitoring() {
         requestAnimationFrame(updateFPS);
     }
 
-    // Start FPS monitoring
     updateFPS();
 
-    // Update uptime
     performanceInterval = setInterval(() => {
         debugData.performanceMetrics.uptime++;
 
-        // Update display if debug panel is open
         if (document.getElementById('debugPanel')?.classList.contains('active')) {
             updateDebugInfo();
         }
 
-        // Periodic debug info updates
         updateDebugInfo();
     }, 1000);
 
-    // Auto-backup
     setInterval(createBackup, DEBUG_CONFIG.AUTO_BACKUP_INTERVAL);
 }
 
-// Stop performance monitoring
 function stopPerformanceMonitoring() {
     if (performanceInterval) {
         clearInterval(performanceInterval);
@@ -5795,7 +5373,6 @@ function stopPerformanceMonitoring() {
     }
 }
 
-// Create system backup
 function createBackup() {
     try {
         const backupData = {
@@ -5803,7 +5380,7 @@ function createBackup() {
             htmlFiles: htmlFileManager.loadedFiles,
             fileLocks: htmlFileManager.fileLocks,
             securityEvents: securityState.securityEvents,
-            consoleLogs: consoleSystem.logs.slice(-100), // Last 100 logs
+            consoleLogs: consoleSystem.logs.slice(-100),
             debugData: {
                 sessionStartTime: debugData.sessionStartTime
             },
@@ -5821,7 +5398,6 @@ function createBackup() {
         const backupKey = `backup_${Date.now()}`;
         localStorage.setItem(backupKey, JSON.stringify(backupData));
 
-        // Clean up old backups (keep last 5)
         const backups = Object.keys(localStorage)
             .filter(key => key.startsWith('backup_'))
             .sort()
@@ -5842,24 +5418,24 @@ function createBackup() {
 // WINDOW MANAGEMENT
 // ====================
 
-// Toggle window visibility
 function toggleWindow(windowId) {
-    const window = document.getElementById(windowId);
-    if (!window) return;
+    const windowEl = document.getElementById(windowId);
+    if (!windowEl) return;
 
-    if (window.classList.contains('active')) {
-        window.classList.remove('active');
+    if (windowEl.classList.contains('active')) {
+        windowEl.classList.remove('active');
         document.body.style.overflow = '';
     } else {
         document.querySelectorAll('.polyphasic-overview-window.active').forEach(w => {
             w.classList.remove('active');
         });
-        window.classList.add('active');
+        windowEl.classList.add('active');
         document.body.style.overflow = 'hidden';
+        // Update schedule details when window opens
+        scheduleSystem.updateScheduleDetails();
     }
 }
 
-// Close windows when clicking outside
 document.addEventListener('click', function(event) {
     const windows = document.querySelectorAll('.polyphasic-overview-window.active');
     windows.forEach(window => {
@@ -5870,7 +5446,6 @@ document.addEventListener('click', function(event) {
     });
 });
 
-// Escape key closes windows
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         document.querySelectorAll('.polyphasic-overview-window.active').forEach(window => {
@@ -5881,40 +5456,63 @@ document.addEventListener('keydown', function(e) {
 });
 
 // ====================
+// TEST FUNCTIONS (Wrappers)
+// ====================
+
+function testConsoleLog(type) {
+    consoleSystem.testConsoleLog(type);
+}
+
+function runAllConsoleTests() {
+    consoleSystem.runAllConsoleTests();
+}
+
+function clearConsole() {
+    consoleSystem.clearConsole();
+}
+
+function setLogFilter(filter) {
+    consoleSystem.setLogFilter(filter);
+}
+
+function handleConsoleInput(event) {
+    consoleSystem.handleConsoleInput(event);
+}
+
+function sendConsoleCommand() {
+    consoleSystem.sendConsoleCommand();
+}
+
+function testScheduleAlert() {
+    scheduleSystem.testScheduleAlert();
+}
+
+// ====================
 // INITIALIZATION
 // ====================
 
-// Initialize the entire application
 function initializeApplication() {
-    // Set page load time
     debugData.pageLoadTime = new Date();
     debugData.lastFpsUpdate = performance.now();
     debugData.performanceMetrics.uptime = 0;
 
-    // Initialize systems
     initializeSecuritySystem();
     htmlFileManager.init();
     scheduleSystem.init();
     consoleSystem.init();
 
-    // Log initialization
     logToConsole('Universal Debug Tool with Polyphasic Monitor initialized', 'success', 'SYSTEM');
     logToConsole('All systems ready and operational', 'success', 'SYSTEM');
 
-    // Initial performance check
     updateDebugInfo();
 
-    // Update current time displays
-    updateCurrentTimeDisplays();
     setInterval(updateCurrentTimeDisplays, 1000);
 }
 
-// Update current time displays
 function updateCurrentTimeDisplays() {
     const now = new Date();
     const timeString = now.toLocaleTimeString();
 
-    // Update various time displays
     const timeElements = [
         'current-activity-time',
         'current-connection-time',
@@ -5929,10 +5527,18 @@ function updateCurrentTimeDisplays() {
     });
 }
 
+// Clean up intervals on page unload
+window.addEventListener('beforeunload', function() {
+    if (countdownInterval) clearInterval(countdownInterval);
+    if (alertTimeout) clearTimeout(alertTimeout);
+    if (lockoutInterval) clearInterval(lockoutInterval);
+    if (performanceInterval) clearInterval(performanceInterval);
+    if (scheduleSystem.stageCheckInterval) clearInterval(scheduleSystem.stageCheckInterval);
+});
+
 // ====================
 // GLOBAL EXPORTS
 // ====================
-// Make essential functions available globally
 window.toggleDebugPanel = toggleDebugPanel;
 window.switchDebugTab = switchDebugTab;
 window.refreshDebugInfo = refreshDebugInfo;
@@ -5949,7 +5555,6 @@ window.togglePasswordVisibility = togglePasswordVisibility;
 window.checkPassword = checkPassword;
 window.toggleWindow = toggleWindow;
 
-// HTML File Manager functions
 window.switchMode = (mode) => htmlFileManager.switchMode(mode);
 window.handleFileSelect = (event) => htmlFileManager.handleFileSelect(event);
 window.clearSelectedFile = () => htmlFileManager.clearSelectedFile();
@@ -5957,7 +5562,6 @@ window.loadSelectedFile = () => htmlFileManager.loadSelectedFile();
 window.loadWebURL = () => htmlFileManager.loadWebURL();
 window.clearAllFiles = () => htmlFileManager.clearAllFiles();
 window.filterFiles = () => htmlFileManager.filterFiles();
-window.toggleFileSelection = (fileId, isSelected) => htmlFileManager.toggleFileSelection(fileId, isSelected);
 window.openSelectedFiles = () => htmlFileManager.openSelectedFiles();
 window.removeSelectedFiles = () => htmlFileManager.removeSelectedFiles();
 window.openFileInNewTab = (fileId) => htmlFileManager.openFileInNewTab(fileId);
@@ -5965,25 +5569,20 @@ window.toggleFileLock = (fileId) => htmlFileManager.toggleFileLock(fileId);
 window.removeSingleFile = (fileId) => htmlFileManager.removeSingleFile(fileId);
 window.scanAllHTMLFiles = () => htmlFileManager.scanAllHTMLFiles();
 
-// Console functions
 window.testConsoleLog = testConsoleLog;
 window.runAllConsoleTests = runAllConsoleTests;
 window.clearConsole = clearConsole;
 window.setLogFilter = setLogFilter;
 window.handleConsoleInput = handleConsoleInput;
 window.sendConsoleCommand = sendConsoleCommand;
-
-// Schedule functions
-window.testScheduleAlert = () => scheduleSystem.testScheduleAlert();
+window.testScheduleAlert = testScheduleAlert;
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     try {
         initializeApplication();
-
     } catch (error) {
         console.error('Failed to initialize application:', error);
-        // Emergency fallback - at least show the debug panel button works
         document.querySelector('.header-action').onclick = toggleDebugPanel;
         logToConsole('Application initialization failed: ' + error.message, 'error', 'SYSTEM');
         showStageAlert('Initialization Error', 'The application failed to initialize properly', 'error');

@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polyphasic Schedule • radni dan / dan opuštanja</title>
+    <title>Polyphasic Schedule • radni dan / dan opuštanja (enhanced)</title>
     <style>
+        /* ----- (styles mostly unchanged, only additions) ----- */
         * {
             margin: 0;
             padding: 0;
@@ -30,6 +31,7 @@
             margin-bottom: 25px;
             padding-bottom: 15px;
             border-bottom: 1px solid #334155;
+            position: relative;
         }
 
         h1 {
@@ -44,6 +46,23 @@
             font-size: 1rem;
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        .current-time {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background: #1e293b;
+            padding: 8px 16px;
+            border-radius: 40px;
+            border: 1px solid #3b82f6;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #60a5fa;
+            box-shadow: 0 0 15px rgba(59,130,246,0.3);
+        }
+        @media (max-width: 700px) {
+            .current-time { position: static; margin-top: 10px; display: inline-block; }
         }
 
         .schedule-type-selector {
@@ -124,6 +143,9 @@
         canvas {
             max-width: 100%;
             max-height: 100%;
+            display: block;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
         .chart-period {
@@ -175,6 +197,7 @@
             height: 20px;
             border-radius: 4px;
             border: 2px solid #475569;
+            background-size: 20px 20px;
         }
 
         .segment-hover-display {
@@ -195,6 +218,7 @@
             opacity: 0;
             transition: opacity 0.3s;
             z-index: 10;
+            pointer-events: none;
         }
 
         .segment-hover-display.show {
@@ -215,10 +239,11 @@
         .color-controls {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             margin-top: 20px;
             margin-bottom: 30px;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .color-control {
@@ -239,6 +264,31 @@
             border-radius: 8px;
             cursor: pointer;
             background: transparent;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .action-btn {
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: #e2e8f0;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+            background: #334155;
+            border-color: #60a5fa;
+            transform: translateY(-2px);
         }
 
         .schedule-details {
@@ -284,6 +334,11 @@
 
         .schedule-table tr:hover {
             background-color: rgba(51, 65, 85, 0.3);
+        }
+
+        .schedule-table tr.current-stage {
+            background-color: rgba(59, 130, 246, 0.15);
+            border-left: 4px solid #3b82f6;
         }
 
         .activity-cell {
@@ -374,21 +429,10 @@
             transition: width 0.5s ease;
         }
 
-        .progress-rest {
-            background: linear-gradient(90deg, #3b82f6, #60a5fa);
-        }
-
-        .progress-work {
-            background: linear-gradient(90deg, #16a34a, #4ade80);
-        }
-
-        .progress-gaming {
-            background: linear-gradient(90deg, #9333ea, #a855f7);
-        }
-
-        .progress-finance {
-            background: linear-gradient(90deg, #f59e0b, #fbbf24);
-        }
+        .progress-rest { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+        .progress-work { background: linear-gradient(90deg, #16a34a, #4ade80); }
+        .progress-gaming { background: linear-gradient(90deg, #9333ea, #a855f7); }
+        .progress-finance { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
 
         /* Full screen stage alert */
         .stage-alert {
@@ -421,25 +465,10 @@
             animation: pulse 2s infinite;
         }
 
-        .alert-rest {
-            border-color: #3b82f6;
-            box-shadow: 0 0 50px rgba(59, 130, 246, 0.5);
-        }
-
-        .alert-work {
-            border-color: #16a34a;
-            box-shadow: 0 0 50px rgba(22, 163, 74, 0.5);
-        }
-
-        .alert-gaming {
-            border-color: #9333ea;
-            box-shadow: 0 0 50px rgba(147, 51, 234, 0.5);
-        }
-
-        .alert-finance {
-            border-color: #f59e0b;
-            box-shadow: 0 0 50px rgba(245, 158, 11, 0.5);
-        }
+        .alert-rest { border-color: #3b82f6; box-shadow: 0 0 50px rgba(59, 130, 246, 0.5); }
+        .alert-work { border-color: #16a34a; box-shadow: 0 0 50px rgba(22, 163, 74, 0.5); }
+        .alert-gaming { border-color: #9333ea; box-shadow: 0 0 50px rgba(147, 51, 234, 0.5); }
+        .alert-finance { border-color: #f59e0b; box-shadow: 0 0 50px rgba(245, 158, 11, 0.5); }
 
         .alert-title {
             font-size: 2.5rem;
@@ -455,25 +484,10 @@
             text-transform: uppercase;
         }
 
-        .alert-activity.rest {
-            color: #60a5fa;
-            text-shadow: 0 0 20px rgba(96, 165, 250, 0.7);
-        }
-
-        .alert-activity.work {
-            color: #4ade80;
-            text-shadow: 0 0 20px rgba(74, 222, 128, 0.7);
-        }
-
-        .alert-activity.gaming {
-            color: #a855f7;
-            text-shadow: 0 0 20px rgba(168, 85, 247, 0.7);
-        }
-
-        .alert-activity.finance {
-            color: #fbbf24;
-            text-shadow: 0 0 20px rgba(251, 191, 36, 0.7);
-        }
+        .alert-activity.rest { color: #60a5fa; text-shadow: 0 0 20px rgba(96, 165, 250, 0.7); }
+        .alert-activity.work { color: #4ade80; text-shadow: 0 0 20px rgba(74, 222, 128, 0.7); }
+        .alert-activity.gaming { color: #a855f7; text-shadow: 0 0 20px rgba(168, 85, 247, 0.7); }
+        .alert-activity.finance { color: #fbbf24; text-shadow: 0 0 20px rgba(251, 191, 36, 0.7); }
 
         .alert-interval {
             font-size: 2rem;
@@ -515,16 +529,8 @@
             font-size: 0.9rem;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
         /* Hidden hover window */
         .hidden-hover-window {
@@ -589,19 +595,16 @@
             color: #60a5fa;
             border: 2px solid rgba(59, 130, 246, 0.5);
         }
-
         .hover-window-activity.work {
             background-color: rgba(34, 197, 94, 0.2);
             color: #4ade80;
             border: 2px solid rgba(34, 197, 94, 0.5);
         }
-
         .hover-window-activity.gaming {
             background-color: rgba(168, 85, 247, 0.2);
             color: #a855f7;
             border: 2px solid rgba(168, 85, 247, 0.5);
         }
-
         .hover-window-activity.finance {
             background-color: rgba(245, 158, 11, 0.2);
             color: #fbbf24;
@@ -621,16 +624,14 @@
             background: none;
             border: none;
             color: #94a3b8;
-            font-size: 1.5rem;
+            font-size: 2rem;
             cursor: pointer;
             transition: color 0.3s;
+            line-height: 1;
         }
+        .hover-window-close:hover { color: #f1f5f9; }
 
-        .hover-window-close:hover {
-            color: #f1f5f9;
-        }
-
-        /* Notification for new stage starting */
+        /* Stage notification */
         .stage-notification {
             position: fixed;
             top: 20px;
@@ -646,49 +647,17 @@
             z-index: 800;
             animation: slideIn 0.5s ease;
         }
+        .stage-notification.active { display: flex; }
+        .notification-rest { border-left-color: #3b82f6; }
+        .notification-work { border-left-color: #16a34a; }
+        .notification-gaming { border-left-color: #9333ea; }
+        .notification-finance { border-left-color: #f59e0b; }
+        .notification-icon { font-size: 1.8rem; }
+        .notification-content { color: #f1f5f9; }
+        .notification-activity { font-weight: 600; font-size: 1.2rem; }
+        .notification-interval { font-size: 0.9rem; color: #94a3b8; }
 
-        .stage-notification.active {
-            display: flex;
-        }
-
-        .notification-rest {
-            border-left-color: #3b82f6;
-        }
-
-        .notification-work {
-            border-left-color: #16a34a;
-        }
-
-        .notification-gaming {
-            border-left-color: #9333ea;
-        }
-
-        .notification-finance {
-            border-left-color: #f59e0b;
-        }
-
-        .notification-icon {
-            font-size: 1.8rem;
-        }
-
-        .notification-content {
-            color: #f1f5f9;
-        }
-
-        .notification-activity {
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-
-        .notification-interval {
-            font-size: 0.9rem;
-            color: #94a3b8;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
         /* Mute toggle */
         .mute-toggle {
@@ -707,21 +676,9 @@
             z-index: 700;
             transition: all 0.3s;
         }
-
-        .mute-toggle:hover {
-            background-color: #334155;
-            transform: scale(1.1);
-        }
-
-        .mute-toggle.muted {
-            background-color: #7c2d12;
-            border-color: #dc2626;
-        }
-
-        .mute-icon {
-            font-size: 1.8rem;
-            color: #f1f5f9;
-        }
+        .mute-toggle:hover { background-color: #334155; transform: scale(1.1); }
+        .mute-toggle.muted { background-color: #7c2d12; border-color: #dc2626; }
+        .mute-icon { font-size: 1.8rem; color: #f1f5f9; }
 
         /* Next stage countdown */
         .next-stage-countdown {
@@ -736,19 +693,27 @@
             font-size: 0.9rem;
             z-index: 700;
         }
+        .next-stage-countdown span { color: #60a5fa; font-weight: 600; font-size: 1.1rem; }
 
-        .next-stage-countdown span {
-            color: #60a5fa;
-            font-weight: 600;
-            font-size: 1.1rem;
+        /* live indicator */
+        .live-badge {
+            background: #dc2626;
+            color: white;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            margin-left: 8px;
+            text-transform: uppercase;
+            vertical-align: middle;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Polifazni raspored</h1>
-            <p class="subtitle">Radni dan / Dan opuštanja · automatski podsjetnici</p>
+            <h1>Polifazni raspored <span class="live-badge" id="liveIndicator">LIVE</span></h1>
+            <p class="subtitle">Radni dan / Dan opuštanja · automatski podsjetnici + tehnička poboljšanja</p>
+            <div class="current-time" id="currentTimeDisplay"></div>
         </header>
 
         <div class="schedule-type-selector">
@@ -762,7 +727,7 @@
                 <div class="chart-wrapper">
                     <div class="chart-period" id="period1Title">1:30 - 13:30</div>
                     <div class="chart-container">
-                        <canvas id="chart1" width="380" height="380"></canvas>
+                        <canvas id="chart1" width="380" height="380" tabindex="0" role="img" aria-label="Pie chart prvih 12 sati"></canvas>
                         <div class="segment-hover-display" id="segmentHover1">
                             <div class="segment-activity" id="segmentActivity1">Odmor</div>
                             <div class="segment-interval" id="segmentInterval1">1:30 - 6:00</div>
@@ -777,7 +742,7 @@
                 <div class="chart-wrapper">
                     <div class="chart-period" id="period2Title">13:30 - 1:30</div>
                     <div class="chart-container">
-                        <canvas id="chart2" width="380" height="380"></canvas>
+                        <canvas id="chart2" width="380" height="380" tabindex="0" role="img" aria-label="Pie chart drugih 12 sati"></canvas>
                         <div class="segment-hover-display" id="segmentHover2">
                             <div class="segment-activity" id="segmentActivity2">Rad</div>
                             <div class="segment-interval" id="segmentInterval2">13:30 - 17:00</div>
@@ -805,18 +770,23 @@
                 <label for="financeColor">Financije:</label>
                 <input type="color" id="financeColor" value="#f59e0b">
             </div>
+            <div class="action-buttons">
+                <button class="action-btn" id="resetColorsBtn">↺ Zadane boje</button>
+                <button class="action-btn" id="testAlertBtn">🔔 Test alert</button>
+            </div>
         </div>
 
         <div class="schedule-details">
             <h2 class="details-title" id="scheduleName">Radni dan — detalji</h2>
-            <table class="schedule-table" id="scheduleTable"></table>
-
+            <div style="overflow-x: auto;">
+                <table class="schedule-table" id="scheduleTable"></table>
+            </div>
             <div class="summary" id="summaryStats"></div>
         </div>
 
         <!-- Hidden hover window for detailed segment info -->
-        <div class="hidden-hover-window" id="hiddenHoverWindow">
-            <button class="hover-window-close" id="closeHoverWindow">×</button>
+        <div class="hidden-hover-window" id="hiddenHoverWindow" role="dialog" aria-modal="true">
+            <button class="hover-window-close" id="closeHoverWindow" aria-label="Zatvori">×</button>
             <div class="hover-window-content">
                 <h2 class="hover-window-title">Segment</h2>
                 <div class="hover-window-interval" id="hoverWindowInterval">1:30 - 6:00</div>
@@ -826,7 +796,7 @@
         </div>
 
         <!-- Full screen stage alert -->
-        <div class="stage-alert" id="stageAlert">
+        <div class="stage-alert" id="stageAlert" role="alert" aria-live="assertive">
             <div class="alert-content" id="alertContent">
                 <h2 class="alert-title">Nova faza</h2>
                 <div class="alert-activity rest" id="alertActivity">ODMOR</div>
@@ -847,7 +817,7 @@
         </div>
 
         <!-- Mute toggle -->
-        <div class="mute-toggle" id="muteToggle">
+        <div class="mute-toggle" id="muteToggle" role="button" tabindex="0" aria-label="Uključi/isključi zvuk">
             <div class="mute-icon" id="muteIcon">🔔</div>
         </div>
 
@@ -858,471 +828,609 @@
     </div>
 
     <script>
-        // --- NOVI RASPOREDI (prema korisnikovom unosu) ---
-        const schedules = {
-            workday: {
-                name: "📆 Radni dan",
-                period1: {
-                    title: "1:30 - 13:30",
-                    segments: [
-                        { activity: "Rest", start: "1:30", end: "1:54", duration: 0.4, color: "#3b82f6" },      // 24 min
-                        { activity: "Work", start: "1:54", end: "3:12", duration: 1.3, color: "#16a34a" },      // 78 min
-                        { activity: "Rest", start: "3:12", end: "4:42", duration: 1.5, color: "#3b82f6" },      // 90 min
-                        { activity: "Work", start: "4:42", end: "13:30", duration: 8.8, color: "#16a34a" }      // 528 min
-                    ]
+        (function(){
+            "use strict";
+
+            // ---------- CONSTANTS ----------
+            const DEFAULT_COLORS = {
+                rest: "#3b82f6",
+                work: "#16a34a",
+                gaming: "#9333ea",
+                finance: "#f59e0b"
+            };
+            const SCHEDULES = {
+                workday: {
+                    name: "📆 Radni dan",
+                    period1: {
+                        title: "1:30 - 13:30",
+                        segments: [
+                            { activity: "Rest", start: "1:30", end: "1:54", duration: 0.4 },
+                            { activity: "Work", start: "1:54", end: "3:12", duration: 1.3 },
+                            { activity: "Rest", start: "3:12", end: "4:42", duration: 1.5 },
+                            { activity: "Work", start: "4:42", end: "13:30", duration: 8.8 }
+                        ]
+                    },
+                    period2: {
+                        title: "13:30 - 1:30",
+                        segments: [
+                            { activity: "Work", start: "13:30", end: "16:00", duration: 2.5 },
+                            { activity: "Rest", start: "16:00", end: "17:30", duration: 1.5 },
+                            { activity: "Work", start: "17:30", end: "18:48", duration: 1.3 },
+                            { activity: "Rest", start: "18:48", end: "20:18", duration: 1.5 },
+                            { activity: "Work", start: "20:18", end: "21:36", duration: 1.3 },
+                            { activity: "Rest", start: "21:36", end: "23:06", duration: 1.5 },
+                            { activity: "Work", start: "23:06", end: "0:24", duration: 1.3 },
+                            { activity: "Rest", start: "0:24", end: "1:30", duration: 1.1 }
+                        ]
+                    }
                 },
-                period2: {
-                    title: "13:30 - 1:30",
-                    segments: [
-                        { activity: "Work", start: "13:30", end: "16:00", duration: 2.5, color: "#16a34a" },    // 150 min
-                        { activity: "Rest", start: "16:00", end: "17:30", duration: 1.5, color: "#3b82f6" },    // 90 min
-                        { activity: "Work", start: "17:30", end: "18:48", duration: 1.3, color: "#16a34a" },    // 78 min
-                        { activity: "Rest", start: "18:48", end: "20:18", duration: 1.5, color: "#3b82f6" },    // 90 min
-                        { activity: "Work", start: "20:18", end: "21:36", duration: 1.3, color: "#16a34a" },    // 78 min
-                        { activity: "Rest", start: "21:36", end: "23:06", duration: 1.5, color: "#3b82f6" },    // 90 min
-                        { activity: "Work", start: "23:06", end: "0:24", duration: 1.3, color: "#16a34a" },     // 78 min
-                        { activity: "Rest", start: "0:24", end: "1:30", duration: 1.1, color: "#3b82f6" }       // 66 min
-                    ]
+                restday: {
+                    name: "😎 Dan opuštanja",
+                    period1: {
+                        title: "1:30 - 13:30",
+                        segments: [
+                            { activity: "Work", start: "1:30", end: "2:48", duration: 1.3 },
+                            { activity: "Rest", start: "2:48", end: "4:18", duration: 1.5 },
+                            { activity: "Work", start: "4:18", end: "6:30", duration: 2.2 },
+                            { activity: "Rest", start: "6:30", end: "8:00", duration: 1.5 },
+                            { activity: "Finance", start: "8:00", end: "10:30", duration: 2.5 },
+                            { activity: "Rest", start: "10:30", end: "12:42", duration: 2.2 },
+                            { activity: "Work", start: "12:42", end: "13:30", duration: 0.8 }
+                        ]
+                    },
+                    period2: {
+                        title: "13:30 - 1:30",
+                        segments: [
+                            { activity: "Work", start: "13:30", end: "14:12", duration: 0.7 },
+                            { activity: "Rest", start: "14:12", end: "16:24", duration: 2.2 },
+                            { activity: "Work", start: "16:24", end: "17:54", duration: 1.5 },
+                            { activity: "Rest", start: "17:54", end: "20:06", duration: 2.2 },
+                            { activity: "Gaming", start: "20:06", end: "23:06", duration: 3.0 },
+                            { activity: "Rest", start: "23:06", end: "0:36", duration: 1.5 },
+                            { activity: "Work", start: "0:36", end: "1:30", duration: 0.9 }
+                        ]
+                    }
                 }
-            },
-            restday: {
-                name: "😎 Dan opuštanja",
-                period1: {
-                    title: "1:30 - 13:30",
-                    segments: [
-                        { activity: "Work", start: "1:30", end: "2:48", duration: 1.3, color: "#16a34a" },      // 78 min
-                        { activity: "Rest", start: "2:48", end: "4:18", duration: 1.5, color: "#3b82f6" },      // 90 min
-                        { activity: "Work", start: "4:18", end: "6:30", duration: 2.2, color: "#16a34a" },      // 132 min
-                        { activity: "Rest", start: "6:30", end: "8:00", duration: 1.5, color: "#3b82f6" },      // 90 min
-                        { activity: "Finance", start: "8:00", end: "10:30", duration: 2.5, color: "#f59e0b" },  // 150 min
-                        { activity: "Rest", start: "10:30", end: "12:42", duration: 2.2, color: "#3b82f6" },    // 132 min (dodano)
-                        { activity: "Work", start: "12:42", end: "13:30", duration: 0.8, color: "#16a34a" }     // 48 min
-                    ]
-                },
-                period2: {
-                    title: "13:30 - 1:30",
-                    segments: [
-                        { activity: "Work", start: "13:30", end: "14:12", duration: 0.7, color: "#16a34a" },    // 42 min
-                        { activity: "Rest", start: "14:12", end: "16:24", duration: 2.2, color: "#3b82f6" },    // 132 min
-                        { activity: "Work", start: "16:24", end: "17:54", duration: 1.5, color: "#16a34a" },    // 90 min
-                        { activity: "Rest", start: "17:54", end: "20:06", duration: 2.2, color: "#3b82f6" },    // 132 min
-                        { activity: "Gaming", start: "20:06", end: "23:06", duration: 3.0, color: "#9333ea" },  // 180 min
-                        { activity: "Rest", start: "23:06", end: "0:36", duration: 1.5, color: "#3b82f6" },     // 90 min
-                        { activity: "Work", start: "0:36", end: "1:30", duration: 0.9, color: "#16a34a" }       // 54 min
-                    ]
+            };
+
+            // ---------- GLOBAL STATE ----------
+            let currentSchedule = 'workday';
+            let colors = { ...DEFAULT_COLORS };
+            let isMuted = false;
+            let currentSegmentIndex = -1;
+            let alertTimeout = null;
+            let countdownInterval = null;
+
+            // DOM elements
+            const elements = {
+                workdayBtn: document.getElementById('workdayBtn'),
+                restdayBtn: document.getElementById('restdayBtn'),
+                period1Title: document.getElementById('period1Title'),
+                period2Title: document.getElementById('period2Title'),
+                chart1: document.getElementById('chart1'),
+                chart2: document.getElementById('chart2'),
+                legend1: document.getElementById('legend1'),
+                legend2: document.getElementById('legend2'),
+                scheduleName: document.getElementById('scheduleName'),
+                scheduleTable: document.getElementById('scheduleTable'),
+                summaryStats: document.getElementById('summaryStats'),
+                restColor: document.getElementById('restColor'),
+                workColor: document.getElementById('workColor'),
+                gamingColor: document.getElementById('gamingColor'),
+                financeColor: document.getElementById('financeColor'),
+                segmentHover1: document.getElementById('segmentHover1'),
+                segmentActivity1: document.getElementById('segmentActivity1'),
+                segmentInterval1: document.getElementById('segmentInterval1'),
+                segmentHover2: document.getElementById('segmentHover2'),
+                segmentActivity2: document.getElementById('segmentActivity2'),
+                segmentInterval2: document.getElementById('segmentInterval2'),
+                hiddenHoverWindow: document.getElementById('hiddenHoverWindow'),
+                hoverWindowInterval: document.getElementById('hoverWindowInterval'),
+                hoverWindowActivity: document.getElementById('hoverWindowActivity'),
+                hoverWindowDuration: document.getElementById('hoverWindowDuration'),
+                closeHoverWindow: document.getElementById('closeHoverWindow'),
+                stageAlert: document.getElementById('stageAlert'),
+                alertActivity: document.getElementById('alertActivity'),
+                alertInterval: document.getElementById('alertInterval'),
+                alertContent: document.getElementById('alertContent'),
+                countdownTimer: document.getElementById('countdownTimer'),
+                closeAlertBtn: document.getElementById('closeAlertBtn'),
+                stageNotification: document.getElementById('stageNotification'),
+                notificationActivity: document.getElementById('notificationActivity'),
+                notificationInterval: document.getElementById('notificationInterval'),
+                notificationIcon: document.getElementById('notificationIcon'),
+                muteToggle: document.getElementById('muteToggle'),
+                muteIcon: document.getElementById('muteIcon'),
+                nextStageTime: document.getElementById('nextStageTime'),
+                currentTimeDisplay: document.getElementById('currentTimeDisplay'),
+                resetColorsBtn: document.getElementById('resetColorsBtn'),
+                testAlertBtn: document.getElementById('testAlertBtn'),
+                liveIndicator: document.getElementById('liveIndicator')
+            };
+
+            const ctx1 = elements.chart1.getContext('2d');
+            const ctx2 = elements.chart2.getContext('2d');
+
+            // ---------- UTILS ----------
+            const timeToMinutes = (t) => {
+                const [h, m] = t.split(':').map(Number);
+                return h * 60 + m;
+            };
+
+            const formatDuration = (hours) => {
+                const h = Math.floor(hours);
+                const m = Math.round((hours - h) * 60);
+                return (h ? h + 'h ' : '') + (m ? m + 'm' : '');
+            };
+
+            const getLocalizedActivity = (act) => {
+                switch(act) {
+                    case 'Rest': return 'Odmor';
+                    case 'Work': return 'Rad';
+                    case 'Gaming': return 'Igrice';
+                    case 'Finance': return 'Financije';
+                    default: return act;
                 }
+            };
+
+            // ---------- APPLY COLORS TO SCHEDULE DATA (immutable update) ----------
+            function getColoredSegments(period) {
+                return period.segments.map(seg => ({
+                    ...seg,
+                    color: seg.activity === 'Rest' ? colors.rest :
+                           seg.activity === 'Work' ? colors.work :
+                           seg.activity === 'Gaming' ? colors.gaming : colors.finance
+                }));
             }
-        };
 
-        // Trenutni odabir i boje
-        let currentSchedule = 'workday';
-        let restColor = "#3b82f6";
-        let workColor = "#16a34a";
-        let gamingColor = "#9333ea";
-        let financeColor = "#f59e0b";
-        let isMuted = false;
-        let currentSegmentIndex = -1;
-        let alertTimeout = null;
-        let countdownInterval = null;
-        let stageCheckInterval = null;
+            function getCurrentScheduleData() {
+                const base = SCHEDULES[currentSchedule];
+                return {
+                    name: base.name,
+                    period1: { ...base.period1, segments: getColoredSegments(base.period1) },
+                    period2: { ...base.period2, segments: getColoredSegments(base.period2) }
+                };
+            }
 
-        // DOM elementi
-        const workdayBtn = document.getElementById('workdayBtn');
-        const restdayBtn = document.getElementById('restdayBtn');
-        const period1Title = document.getElementById('period1Title');
-        const period2Title = document.getElementById('period2Title');
-        const chart1 = document.getElementById('chart1');
-        const chart2 = document.getElementById('chart2');
-        const legend1 = document.getElementById('legend1');
-        const legend2 = document.getElementById('legend2');
-        const scheduleName = document.getElementById('scheduleName');
-        const scheduleTable = document.getElementById('scheduleTable');
-        const summaryStats = document.getElementById('summaryStats');
-        const restColorInput = document.getElementById('restColor');
-        const workColorInput = document.getElementById('workColor');
-        const gamingColorInput = document.getElementById('gamingColor');
-        const financeColorInput = document.getElementById('financeColor');
+            // ---------- GAMING PATTERN (cached) ----------
+            const patternCache = new Map();
+            function getGamingPattern(ctx, baseColor, stripeColor) {
+                const key = baseColor + stripeColor;
+                if (patternCache.has(key)) return patternCache.get(key);
+                const pCanvas = document.createElement('canvas');
+                pCanvas.width = pCanvas.height = 60;
+                const pCtx = pCanvas.getContext('2d');
+                pCtx.fillStyle = baseColor;
+                pCtx.fillRect(0, 0, 60, 60);
+                pCtx.strokeStyle = stripeColor;
+                pCtx.lineWidth = 12;
+                for (let i = -60; i < 60; i += 25) {
+                    pCtx.beginPath();
+                    pCtx.moveTo(i, 0);
+                    pCtx.lineTo(i + 60, 60);
+                    pCtx.stroke();
+                }
+                const pattern = ctx.createPattern(pCanvas, 'repeat');
+                patternCache.set(key, pattern);
+                return pattern;
+            }
 
-        // Hover i prozori
-        const segmentHover1 = document.getElementById('segmentHover1');
-        const segmentActivity1 = document.getElementById('segmentActivity1');
-        const segmentInterval1 = document.getElementById('segmentInterval1');
-        const segmentHover2 = document.getElementById('segmentHover2');
-        const segmentActivity2 = document.getElementById('segmentActivity2');
-        const segmentInterval2 = document.getElementById('segmentInterval2');
-        const hiddenHoverWindow = document.getElementById('hiddenHoverWindow');
-        const hoverWindowInterval = document.getElementById('hoverWindowInterval');
-        const hoverWindowActivity = document.getElementById('hoverWindowActivity');
-        const hoverWindowDuration = document.getElementById('hoverWindowDuration');
-        const closeHoverWindow = document.getElementById('closeHoverWindow');
-        const stageAlert = document.getElementById('stageAlert');
-        const alertContent = document.getElementById('alertContent');
-        const alertActivity = document.getElementById('alertActivity');
-        const alertInterval = document.getElementById('alertInterval');
-        const countdownTimer = document.getElementById('countdownTimer');
-        const closeAlertBtn = document.getElementById('closeAlertBtn');
-        const stageNotification = document.getElementById('stageNotification');
-        const notificationActivity = document.getElementById('notificationActivity');
-        const notificationInterval = document.getElementById('notificationInterval');
-        const notificationIcon = document.getElementById('notificationIcon');
-        const muteToggle = document.getElementById('muteToggle');
-        const muteIcon = document.getElementById('muteIcon');
-        const nextStageTime = document.getElementById('nextStageTime');
-
-        const ctx1 = chart1.getContext('2d');
-        const ctx2 = chart2.getContext('2d');
-
-        // Inicijalizacija
-        document.addEventListener('DOMContentLoaded', function() {
-            loadFromLocalStorage();
-            setupEventListeners();
-            renderSchedule();
-            startStageMonitoring();
-            setupCanvasHover();
-        });
-
-        function setupEventListeners() {
-            workdayBtn.addEventListener('click', () => {
-                currentSchedule = 'workday';
-                workdayBtn.classList.add('active');
-                restdayBtn.classList.remove('active');
-                renderSchedule();
-                saveToLocalStorage();
-            });
-            restdayBtn.addEventListener('click', () => {
-                currentSchedule = 'restday';
-                restdayBtn.classList.add('active');
-                workdayBtn.classList.remove('active');
-                renderSchedule();
-                saveToLocalStorage();
-            });
-            restColorInput.addEventListener('input', (e) => {
-                restColor = e.target.value;
-                updateColorsInSchedule();
-                renderSchedule();
-                saveToLocalStorage();
-            });
-            workColorInput.addEventListener('input', (e) => {
-                workColor = e.target.value;
-                updateColorsInSchedule();
-                renderSchedule();
-                saveToLocalStorage();
-            });
-            gamingColorInput.addEventListener('input', (e) => {
-                gamingColor = e.target.value;
-                updateColorsInSchedule();
-                renderSchedule();
-                saveToLocalStorage();
-            });
-            financeColorInput.addEventListener('input', (e) => {
-                financeColor = e.target.value;
-                updateColorsInSchedule();
-                renderSchedule();
-                saveToLocalStorage();
-            });
-            closeHoverWindow.addEventListener('click', () => hiddenHoverWindow.classList.remove('active'));
-            closeAlertBtn.addEventListener('click', closeStageAlert);
-            muteToggle.addEventListener('click', () => {
-                isMuted = !isMuted;
-                muteToggle.classList.toggle('muted', isMuted);
-                muteIcon.textContent = isMuted ? '🔕' : '🔔';
-                saveToLocalStorage();
-            });
-            stageAlert.addEventListener('click', (e) => { if (e.target === stageAlert) closeStageAlert(); });
-            hiddenHoverWindow.addEventListener('click', (e) => { if (e.target === hiddenHoverWindow) hiddenHoverWindow.classList.remove('active'); });
-        }
-
-        function setupCanvasHover() {
-            [chart1, chart2].forEach((canvas, idx) => {
-                canvas.addEventListener('mousemove', (e) => handleCanvasHover(e, canvas, idx));
-                canvas.addEventListener('mouseleave', () => {
-                    if (idx === 0) segmentHover1.classList.remove('show');
-                    else segmentHover2.classList.remove('show');
+            // ---------- DRAW PIE CHART ----------
+            function drawPieChart(ctx, segments, w, h) {
+                ctx.clearRect(0, 0, w, h);
+                const total = segments.reduce((s, seg) => s + seg.duration, 0);
+                const cx = w / 2, cy = h / 2, r = Math.min(cx, cy) - 15;
+                let start = -Math.PI / 2;
+                segments.forEach(seg => {
+                    const slice = (seg.duration / total) * 2 * Math.PI;
+                    const end = start + slice;
+                    ctx.beginPath();
+                    ctx.moveTo(cx, cy);
+                    ctx.arc(cx, cy, r, start, end);
+                    ctx.closePath();
+                    if (seg.activity === 'Gaming') {
+                        ctx.fillStyle = getGamingPattern(ctx, colors.gaming, colors.work);
+                    } else {
+                        ctx.fillStyle = seg.color;
+                    }
+                    ctx.fill();
+                    ctx.lineWidth = 3;
+                    ctx.strokeStyle = '#0f172a';
+                    ctx.stroke();
+                    start = end;
                 });
-                canvas.addEventListener('click', (e) => handleCanvasClick(e, canvas, idx));
-            });
-        }
+            }
 
-        function handleCanvasHover(e, canvas, periodIdx) {
-            const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const seg = getSegmentAtPoint(canvas, periodIdx, x, y);
-            if (seg) {
-                const schedule = schedules[currentSchedule];
+            // ---------- LEGEND UPDATE ----------
+            function updateLegend(legendEl, segments) {
+                const groups = {};
+                segments.forEach(seg => {
+                    if (!groups[seg.activity]) groups[seg.activity] = 0;
+                    groups[seg.activity] += seg.duration;
+                });
+                legendEl.innerHTML = Object.entries(groups).map(([act, dur]) => {
+                    const localized = getLocalizedActivity(act);
+                    const durStr = formatDuration(dur);
+                    if (act === 'Gaming') {
+                        return `<div class="legend-item" role="button" tabindex="0" aria-label="${localized} ${durStr}">
+                            <div class="legend-pattern" style="background-color:${colors.gaming}; background-image: repeating-linear-gradient(45deg, ${colors.work}, ${colors.work} 10px, transparent 10px, transparent 20px);"></div>
+                            <span>${localized}: ${durStr}</span>
+                        </div>`;
+                    } else {
+                        const col = act === 'Rest' ? colors.rest : act === 'Work' ? colors.work : colors.finance;
+                        return `<div class="legend-item" role="button" tabindex="0" aria-label="${localized} ${durStr}">
+                            <div class="legend-color" style="background-color:${col};"></div>
+                            <span>${localized}: ${durStr}</span>
+                        </div>`;
+                    }
+                }).join('');
+            }
+
+            // ---------- TABLE + SUMMARY ----------
+            function updateScheduleTable(schedule) {
+                const all = [...schedule.period1.segments, ...schedule.period2.segments];
+                all.sort((a, b) => timeToMinutes(a.start) - timeToMinutes(b.start));
+                let html = '<thead><tr><th>Početak</th><th>Kraj</th><th>Aktivnost</th><th>Trajanje</th></tr></thead><tbody>';
+                all.forEach(seg => {
+                    const dur = formatDuration(seg.duration);
+                    const localized = getLocalizedActivity(seg.activity);
+                    html += `<tr data-start="${seg.start}" data-activity="${seg.activity}">
+                        <td>${seg.start}</td><td>${seg.end}</td>
+                        <td><span class="activity-cell ${seg.activity.toLowerCase()}">${localized}</span></td>
+                        <td>${dur}</td>
+                    </tr>`;
+                });
+                html += '</tbody>';
+                elements.scheduleTable.innerHTML = html;
+            }
+
+            function updateSummaryStats(schedule) {
+                const all = [...schedule.period1.segments, ...schedule.period2.segments];
+                const rest = all.filter(x => x.activity === 'Rest').reduce((acc, x) => acc + x.duration, 0);
+                const work = all.filter(x => x.activity === 'Work').reduce((acc, x) => acc + x.duration, 0);
+                const gaming = all.filter(x => x.activity === 'Gaming').reduce((acc, x) => acc + x.duration, 0);
+                const finance = all.filter(x => x.activity === 'Finance').reduce((acc, x) => acc + x.duration, 0);
+                const total = 24;
+                elements.summaryStats.innerHTML = `
+                    <div class="summary-item"><div class="summary-title">Ukupno odmor</div><div class="summary-value rest">${formatDuration(rest)}</div><div class="time-progress"><div class="time-progress-fill progress-rest" style="width:${(rest/total)*100}%"></div></div></div>
+                    <div class="summary-item"><div class="summary-title">Ukupno rad</div><div class="summary-value work">${formatDuration(work)}</div><div class="time-progress"><div class="time-progress-fill progress-work" style="width:${(work/total)*100}%"></div></div></div>
+                    <div class="summary-item"><div class="summary-title">Ukupno gaming</div><div class="summary-value gaming">${formatDuration(gaming)}</div><div class="time-progress"><div class="time-progress-fill progress-gaming" style="width:${(gaming/total)*100}%"></div></div></div>
+                    <div class="summary-item"><div class="summary-title">Ukupno financije</div><div class="summary-value finance">${formatDuration(finance)}</div><div class="time-progress"><div class="time-progress-fill progress-finance" style="width:${(finance/total)*100}%"></div></div></div>
+                    <div class="summary-item"><div class="summary-title">Aktivno ukupno</div><div class="summary-value">${formatDuration(work+gaming+finance)}</div><div class="time-progress"><div class="time-progress-fill progress-work" style="width:${((work+gaming+finance)/total)*100}%"></div></div></div>
+                `;
+            }
+
+            // ---------- RENDER ALL ----------
+            function renderSchedule() {
+                const schedule = getCurrentScheduleData();
+                elements.scheduleName.textContent = schedule.name;
+                elements.period1Title.textContent = schedule.period1.title;
+                elements.period2Title.textContent = schedule.period2.title;
+                drawPieChart(ctx1, schedule.period1.segments, 380, 380);
+                drawPieChart(ctx2, schedule.period2.segments, 380, 380);
+                updateLegend(elements.legend1, schedule.period1.segments);
+                updateLegend(elements.legend2, schedule.period2.segments);
+                updateScheduleTable(schedule);
+                updateSummaryStats(schedule);
+                // highlight current row if any
+                highlightCurrentStageRow();
+            }
+
+            // ---------- HOVER / CLICK DETECTION ----------
+            function getSegmentAtPoint(canvas, periodIdx, x, y) {
+                const width = canvas.width, height = canvas.height;
+                const cx = width/2, cy = height/2;
+                const r = Math.min(cx, cy) - 15;
+                const dx = x - cx, dy = y - cy;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist > r) return null;
+                let angle = Math.atan2(dy, dx);
+                if (angle < 0) angle += 2*Math.PI;
+                angle = (angle + Math.PI/2) % (2*Math.PI); // start at top
+                const schedule = getCurrentScheduleData();
                 const period = periodIdx === 0 ? schedule.period1 : schedule.period2;
-                const data = period.segments[seg.index];
-                if (periodIdx === 0) {
-                    segmentActivity1.textContent = data.activity === 'Rest' ? 'Odmor' : data.activity === 'Work' ? 'Rad' : data.activity === 'Gaming' ? 'Igrice' : 'Financije';
-                    segmentInterval1.textContent = `${data.start} - ${data.end}`;
-                    segmentHover1.classList.add('show');
+                let start = 0;
+                for (let i = 0; i < period.segments.length; i++) {
+                    const seg = period.segments[i];
+                    const slice = (seg.duration / 12) * 2 * Math.PI;
+                    const end = start + slice;
+                    if (angle >= start && angle <= end) return { index: i, segment: seg };
+                    start = end;
+                }
+                return null;
+            }
+
+            function handleCanvasHover(e, canvas, periodIdx) {
+                const rect = canvas.getBoundingClientRect();
+                const scaleX = canvas.width / rect.width;
+                const scaleY = canvas.height / rect.height;
+                const x = (e.clientX - rect.left) * scaleX;
+                const y = (e.clientY - rect.top) * scaleY;
+                const hit = getSegmentAtPoint(canvas, periodIdx, x, y);
+                const hoverEl = periodIdx === 0 ? elements.segmentHover1 : elements.segmentHover2;
+                const activityEl = periodIdx === 0 ? elements.segmentActivity1 : elements.segmentActivity2;
+                const intervalEl = periodIdx === 0 ? elements.segmentInterval1 : elements.segmentInterval2;
+                if (hit) {
+                    activityEl.textContent = getLocalizedActivity(hit.segment.activity);
+                    intervalEl.textContent = `${hit.segment.start} - ${hit.segment.end}`;
+                    hoverEl.classList.add('show');
                 } else {
-                    segmentActivity2.textContent = data.activity === 'Rest' ? 'Odmor' : data.activity === 'Work' ? 'Rad' : data.activity === 'Gaming' ? 'Igrice' : 'Financije';
-                    segmentInterval2.textContent = `${data.start} - ${data.end}`;
-                    segmentHover2.classList.add('show');
+                    hoverEl.classList.remove('show');
                 }
-            } else {
-                if (periodIdx === 0) segmentHover1.classList.remove('show');
-                else segmentHover2.classList.remove('show');
             }
-        }
 
-        function handleCanvasClick(e, canvas, periodIdx) {
-            const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const seg = getSegmentAtPoint(canvas, periodIdx, x, y);
-            if (seg) {
-                const schedule = schedules[currentSchedule];
-                const period = periodIdx === 0 ? schedule.period1 : schedule.period2;
-                const data = period.segments[seg.index];
-                hoverWindowInterval.textContent = `${data.start} - ${data.end}`;
-                hoverWindowActivity.textContent = data.activity === 'Rest' ? 'Odmor' : data.activity === 'Work' ? 'Rad' : data.activity === 'Gaming' ? 'Igrice' : 'Financije';
-                hoverWindowActivity.className = `hover-window-activity ${data.activity.toLowerCase()}`;
-                const h = Math.floor(data.duration);
-                const m = Math.round((data.duration - h) * 60);
-                hoverWindowDuration.textContent = `Trajanje: ${h>0?h+'h ':''}${m>0?m+'m':''}`;
-                hiddenHoverWindow.classList.add('active');
+            function handleCanvasClick(e, canvas, periodIdx) {
+                const rect = canvas.getBoundingClientRect();
+                const scaleX = canvas.width / rect.width;
+                const scaleY = canvas.height / rect.height;
+                const x = (e.clientX - rect.left) * scaleX;
+                const y = (e.clientY - rect.top) * scaleY;
+                const hit = getSegmentAtPoint(canvas, periodIdx, x, y);
+                if (hit) {
+                    elements.hoverWindowInterval.textContent = `${hit.segment.start} - ${hit.segment.end}`;
+                    elements.hoverWindowActivity.textContent = getLocalizedActivity(hit.segment.activity);
+                    elements.hoverWindowActivity.className = `hover-window-activity ${hit.segment.activity.toLowerCase()}`;
+                    elements.hoverWindowDuration.textContent = `Trajanje: ${formatDuration(hit.segment.duration)}`;
+                    elements.hiddenHoverWindow.classList.add('active');
+                }
             }
-        }
 
-        function getSegmentAtPoint(canvas, periodIdx, x, y) {
-            const width = canvas.width, height = canvas.height;
-            const cx = width/2, cy = height/2;
-            const r = Math.min(cx, cy) - 10;
-            const dx = x - cx, dy = y - cy;
-            const dist = Math.sqrt(dx*dx + dy*dy);
-            if (dist > r) return null;
-            let angle = Math.atan2(dy, dx);
-            if (angle < 0) angle += 2*Math.PI;
-            angle = (angle + Math.PI/2) % (2*Math.PI);
-            const schedule = schedules[currentSchedule];
-            const period = periodIdx === 0 ? schedule.period1 : schedule.period2;
-            let start = 0;
-            for (let i=0; i<period.segments.length; i++) {
-                const seg = period.segments[i];
-                const slice = (seg.duration / 12) * 2*Math.PI;
-                const end = start + slice;
-                if (angle >= start && angle <= end) return { index: i };
-                start = end;
-            }
-            return null;
-        }
-
-        function updateColorsInSchedule() {
-            [schedules.workday, schedules.restday].forEach(s => {
-                s.period1.segments.concat(s.period2.segments).forEach(seg => {
-                    if (seg.activity === 'Rest') seg.color = restColor;
-                    else if (seg.activity === 'Work') seg.color = workColor;
-                    else if (seg.activity === 'Gaming') seg.color = gamingColor;
-                    else if (seg.activity === 'Finance') seg.color = financeColor;
-                });
-            });
-        }
-
-        function createGamingPattern(ctx, c1, c2) {
-            const p = document.createElement('canvas'); p.width = p.height = 60;
-            const pc = p.getContext('2d');
-            pc.fillStyle = c1; pc.fillRect(0,0,60,60);
-            pc.strokeStyle = c2; pc.lineWidth = 15;
-            for (let i=-60; i<60; i+=30) { pc.beginPath(); pc.moveTo(i,0); pc.lineTo(i+60,60); pc.stroke(); }
-            return ctx.createPattern(p, 'repeat');
-        }
-
-        function drawPieChart(ctx, segments, w, h) {
-            ctx.clearRect(0,0,w,h);
-            const total = segments.reduce((s,seg)=>s+seg.duration,0);
-            const cx = w/2, cy = h/2, r = Math.min(cx,cy)-15;
-            let start = -Math.PI/2;
-            segments.forEach(seg => {
-                const slice = (seg.duration/total)*2*Math.PI;
-                const end = start+slice;
-                ctx.beginPath(); ctx.moveTo(cx,cy); ctx.arc(cx,cy,r,start,end); ctx.closePath();
-                if (seg.activity === 'Gaming') ctx.fillStyle = createGamingPattern(ctx, gamingColor, workColor);
-                else ctx.fillStyle = seg.color;
-                ctx.fill();
-                ctx.lineWidth=3; ctx.strokeStyle='#0f172a'; ctx.stroke();
-                start = end;
-            });
-        }
-
-        function updateLegend(legendEl, segments) {
-            const acts = [];
-            segments.forEach(seg => {
-                const a = seg.activity;
-                if (!acts.find(x=>x.activity===a)) {
-                    acts.push({
-                        activity: a,
-                        color: seg.color,
-                        duration: segments.filter(s=>s.activity===a).reduce((s,seg)=>s+seg.duration,0)
+            // ---------- STAGE MONITORING ----------
+            function checkCurrentStage() {
+                const now = new Date();
+                const cur = now.getHours() * 60 + now.getMinutes();
+                const schedule = getCurrentScheduleData();
+                const all = [...schedule.period1.segments, ...schedule.period2.segments];
+                let found = null, foundIndex = -1;
+                for (let i = 0; i < all.length; i++) {
+                    const seg = all[i];
+                    let start = timeToMinutes(seg.start);
+                    let end = timeToMinutes(seg.end);
+                    if (end <= start) end += 1440; // overnight
+                    let curAdj = cur;
+                    if (start > 1440 - 120) curAdj += 1440; // handle late start
+                    if (curAdj >= start && curAdj < end) {
+                        found = seg;
+                        foundIndex = i;
+                        break;
+                    }
+                }
+                // update next stage timer
+                let next = null;
+                if (foundIndex !== -1) {
+                    next = all[(foundIndex + 1) % all.length];
+                } else {
+                    // find first upcoming
+                    let earliest = Infinity;
+                    all.forEach((seg, idx) => {
+                        let s = timeToMinutes(seg.start);
+                        if (s < cur) s += 1440;
+                        if (s < earliest) {
+                            earliest = s;
+                            next = seg;
+                        }
                     });
                 }
-            });
-            legendEl.innerHTML = acts.map(a => {
-                const h = Math.floor(a.duration);
-                const m = Math.round((a.duration-h)*60);
-                const txt = `${a.activity==='Rest'?'Odmor':a.activity==='Work'?'Rad':a.activity==='Gaming'?'Igrice':'Financije'}: ${h}h ${m}m`;
-                if (a.activity === 'Gaming') {
-                    return `<div class="legend-item"><div class="legend-pattern" style="background-color:${gamingColor}; background-image: repeating-linear-gradient(45deg, ${workColor}, ${workColor} 15px, transparent 15px, transparent 30px);"></div><span>${txt}</span></div>`;
-                } else {
-                    return `<div class="legend-item"><div class="legend-color" style="background-color:${a.color};"></div><span>${txt}</span></div>`;
+                if (next) {
+                    let nextStart = timeToMinutes(next.start);
+                    if (nextStart < cur) nextStart += 1440;
+                    let diff = nextStart - cur;
+                    const h = Math.floor(diff / 60), m = diff % 60;
+                    elements.nextStageTime.textContent = `${h}h ${m}m`;
                 }
-            }).join('');
-        }
 
-        function renderSchedule() {
-            const s = schedules[currentSchedule];
-            scheduleName.textContent = s.name;
-            period1Title.textContent = s.period1.title;
-            period2Title.textContent = s.period2.title;
-            drawPieChart(ctx1, s.period1.segments, chart1.width, chart1.height);
-            drawPieChart(ctx2, s.period2.segments, chart2.width, chart2.height);
-            updateLegend(legend1, s.period1.segments);
-            updateLegend(legend2, s.period2.segments);
-            updateScheduleTable(s);
-            updateSummaryStats(s);
-        }
-
-        function updateScheduleTable(s) {
-            const all = [...s.period1.segments, ...s.period2.segments];
-            all.sort((a,b)=>timeToMinutes(a.start)-timeToMinutes(b.start));
-            let html = '<thead><tr><th>Početak</th><th>Kraj</th><th>Aktivnost</th><th>Trajanje</th></tr></thead><tbody>';
-            all.forEach(seg => {
-                const h = Math.floor(seg.duration);
-                const m = Math.round((seg.duration-h)*60);
-                const dur = (h?h+'h ':'') + (m?m+'m':'');
-                html += `<tr><td>${seg.start}</td><td>${seg.end}</td><td><span class="activity-cell ${seg.activity.toLowerCase()}">${seg.activity==='Rest'?'Odmor':seg.activity==='Work'?'Rad':seg.activity==='Gaming'?'Igrice':'Financije'}</span></td><td>${dur}</td></tr>`;
-            });
-            html += '</tbody>';
-            scheduleTable.innerHTML = html;
-        }
-
-        function updateSummaryStats(s) {
-            const all = [...s.period1.segments, ...s.period2.segments];
-            const rest = all.filter(x=>x.activity==='Rest').reduce((acc,x)=>acc+x.duration,0);
-            const work = all.filter(x=>x.activity==='Work').reduce((acc,x)=>acc+x.duration,0);
-            const gaming = all.filter(x=>x.activity==='Gaming').reduce((acc,x)=>acc+x.duration,0);
-            const finance = all.filter(x=>x.activity==='Finance').reduce((acc,x)=>acc+x.duration,0);
-            const total = 24;
-            const fmt = (h) => { const hr = Math.floor(h); const mn = Math.round((h-hr)*60); return (hr?hr+'h ':'')+(mn?mn+'m':''); };
-            summaryStats.innerHTML = `
-                <div class="summary-item"><div class="summary-title">Ukupno odmor</div><div class="summary-value rest">${fmt(rest)}</div><div class="time-progress"><div class="time-progress-fill progress-rest" style="width:${(rest/total)*100}%"></div></div></div>
-                <div class="summary-item"><div class="summary-title">Ukupno rad</div><div class="summary-value work">${fmt(work)}</div><div class="time-progress"><div class="time-progress-fill progress-work" style="width:${(work/total)*100}%"></div></div></div>
-                <div class="summary-item"><div class="summary-title">Ukupno gaming</div><div class="summary-value gaming">${fmt(gaming)}</div><div class="time-progress"><div class="time-progress-fill progress-gaming" style="width:${(gaming/total)*100}%"></div></div></div>
-                <div class="summary-item"><div class="summary-title">Ukupno financije</div><div class="summary-value finance">${fmt(finance)}</div><div class="time-progress"><div class="time-progress-fill progress-finance" style="width:${(finance/total)*100}%"></div></div></div>
-                <div class="summary-item"><div class="summary-title">Aktivno ukupno</div><div class="summary-value">${fmt(work+gaming+finance)}</div><div class="time-progress"><div class="time-progress-fill progress-work" style="width:${((work+gaming+finance)/total)*100}%"></div></div></div>
-            `;
-        }
-
-        function startStageMonitoring() {
-            checkCurrentStage();
-            stageCheckInterval = setInterval(checkCurrentStage, 1000);
-        }
-
-        function checkCurrentStage() {
-            const now = new Date();
-            const cur = now.getHours()*60 + now.getMinutes();
-            const s = schedules[currentSchedule];
-            const all = [...s.period1.segments, ...s.period2.segments];
-            let found = null, next = null;
-            for (let i=0; i<all.length; i++) {
-                const seg = all[i];
-                const start = timeToMinutes(seg.start);
-                let end = timeToMinutes(seg.end);
-                if (end <= start) end += 1440; // prelazak preko ponoći
-                let curAdjusted = cur;
-                if (start > 1440-60) curAdjusted += 1440; // za segmente koji počinju kasno
-                if (curAdjusted >= start && curAdjusted < end) {
-                    found = seg; found.index = i;
-                    next = all[(i+1)%all.length];
-                    break;
-                }
-            }
-            if (found && next) {
-                const nextStart = timeToMinutes(next.start);
-                let until = nextStart - cur;
-                if (until < 0) until += 1440;
-                const h = Math.floor(until/60), m = until%60;
-                nextStageTime.textContent = `${h}h ${m}m`;
-                if (found.index !== currentSegmentIndex) {
-                    currentSegmentIndex = found.index;
+                if (found && foundIndex !== currentSegmentIndex) {
+                    currentSegmentIndex = foundIndex;
                     showStageAlert(found);
                     showStageNotification(found);
                 }
+                highlightCurrentStageRow(found);
             }
-        }
 
-        function showStageAlert(seg) {
-            if (alertTimeout) clearTimeout(alertTimeout);
-            if (countdownInterval) clearInterval(countdownInterval);
-            alertActivity.textContent = seg.activity==='Rest'?'ODMOR':seg.activity==='Work'?'RAD':seg.activity==='Gaming'?'IGRICE':'FINANCIJE';
-            alertActivity.className = `alert-activity ${seg.activity.toLowerCase()}`;
-            alertInterval.textContent = `${seg.start} - ${seg.end}`;
-            alertContent.className = `alert-content alert-${seg.activity.toLowerCase()}`;
-            let cnt = 5;
-            countdownTimer.textContent = cnt;
-            stageAlert.classList.add('active');
-            if (!isMuted) playAlertSound();
-            countdownInterval = setInterval(() => { cnt--; countdownTimer.textContent = cnt; if (cnt<=0) closeStageAlert(); }, 1000);
-            alertTimeout = setTimeout(closeStageAlert, 5000);
-        }
+            function highlightCurrentStageRow(seg = null) {
+                const rows = document.querySelectorAll('#scheduleTable tbody tr');
+                rows.forEach(r => r.classList.remove('current-stage'));
+                if (!seg) {
+                    // try to find from global index (fallback)
+                    if (currentSegmentIndex === -1) return;
+                    const schedule = getCurrentScheduleData();
+                    const all = [...schedule.period1.segments, ...schedule.period2.segments];
+                    if (currentSegmentIndex < all.length) seg = all[currentSegmentIndex];
+                    else return;
+                }
+                rows.forEach(r => {
+                    if (r.cells[0]?.textContent === seg.start && r.cells[2]?.textContent.includes(getLocalizedActivity(seg.activity))) {
+                        r.classList.add('current-stage');
+                    }
+                });
+            }
 
-        function closeStageAlert() {
-            stageAlert.classList.remove('active');
-            if (alertTimeout) clearTimeout(alertTimeout);
-            if (countdownInterval) clearInterval(countdownInterval);
-        }
-
-        function showStageNotification(seg) {
-            notificationActivity.textContent = `${seg.activity==='Rest'?'Odmor':seg.activity==='Work'?'Rad':seg.activity==='Gaming'?'Igrice':'Financije'} faza`;
-            notificationInterval.textContent = `${seg.start} - ${seg.end}`;
-            notificationIcon.textContent = seg.activity==='Rest'?'😴':seg.activity==='Work'?'💼':seg.activity==='Gaming'?'🎮':'💰';
-            stageNotification.className = `stage-notification active notification-${seg.activity.toLowerCase()}`;
-            setTimeout(() => stageNotification.classList.remove('active'), 3000);
-        }
-
-        function playAlertSound() {
-            try {
-                const a = new (window.AudioContext||window.webkitAudioContext)();
-                const o = a.createOscillator(); o.frequency.value = 800;
-                const g = a.createGain(); g.gain.value = 0.3;
-                o.connect(g); g.connect(a.destination);
-                o.start(); o.stop(a.currentTime+0.4);
-            } catch(e){}
-        }
-
-        function timeToMinutes(t) {
-            const [h,m] = t.split(':').map(Number);
-            return h*60 + m;
-        }
-
-        function saveToLocalStorage() {
-            localStorage.setItem('polyData', JSON.stringify({restColor,workColor,gamingColor,financeColor,currentSchedule,isMuted}));
-        }
-
-        function loadFromLocalStorage() {
-            const d = localStorage.getItem('polyData');
-            if (d) {
+            // ---------- ALERTS ----------
+            function playAlertSound() {
+                if (isMuted) return;
                 try {
-                    const p = JSON.parse(d);
-                    restColor = p.restColor || "#3b82f6";
-                    workColor = p.workColor || "#16a34a";
-                    gamingColor = p.gamingColor || "#9333ea";
-                    financeColor = p.financeColor || "#f59e0b";
-                    currentSchedule = p.currentSchedule || "workday";
-                    isMuted = p.isMuted || false;
-                    restColorInput.value = restColor;
-                    workColorInput.value = workColor;
-                    gamingColorInput.value = gamingColor;
-                    financeColorInput.value = financeColor;
-                    muteToggle.classList.toggle('muted', isMuted);
-                    muteIcon.textContent = isMuted ? '🔕' : '🔔';
-                    if (currentSchedule==='workday') { workdayBtn.classList.add('active'); restdayBtn.classList.remove('active'); }
-                    else { restdayBtn.classList.add('active'); workdayBtn.classList.remove('active'); }
-                    updateColorsInSchedule();
-                } catch(e){}
+                    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.value = 880;
+                    gain.gain.value = 0.2;
+                    osc.connect(gain).connect(audioCtx.destination);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.3);
+                    // resume if suspended
+                    if (audioCtx.state === 'suspended') audioCtx.resume();
+                } catch (e) { /* fallback silent */ }
             }
-        }
+
+            function showStageAlert(seg) {
+                if (alertTimeout) clearTimeout(alertTimeout);
+                if (countdownInterval) clearInterval(countdownInterval);
+                const activity = seg.activity;
+                elements.alertActivity.textContent = activity === 'Rest' ? 'ODMOR' : activity === 'Work' ? 'RAD' : activity === 'Gaming' ? 'IGRICE' : 'FINANCIJE';
+                elements.alertActivity.className = `alert-activity ${activity.toLowerCase()}`;
+                elements.alertInterval.textContent = `${seg.start} - ${seg.end}`;
+                elements.alertContent.className = `alert-content alert-${activity.toLowerCase()}`;
+                let cnt = 5;
+                elements.countdownTimer.textContent = cnt;
+                elements.stageAlert.classList.add('active');
+                if (!isMuted) playAlertSound();
+
+                countdownInterval = setInterval(() => {
+                    cnt -= 1;
+                    elements.countdownTimer.textContent = cnt;
+                    if (cnt <= 0) closeStageAlert();
+                }, 1000);
+                alertTimeout = setTimeout(closeStageAlert, 5000);
+            }
+
+            function closeStageAlert() {
+                elements.stageAlert.classList.remove('active');
+                if (alertTimeout) { clearTimeout(alertTimeout); alertTimeout = null; }
+                if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
+            }
+
+            function showStageNotification(seg) {
+                elements.notificationActivity.textContent = `${getLocalizedActivity(seg.activity)} faza`;
+                elements.notificationInterval.textContent = `${seg.start} - ${seg.end}`;
+                elements.notificationIcon.textContent = seg.activity === 'Rest' ? '😴' : seg.activity === 'Work' ? '💼' : seg.activity === 'Gaming' ? '🎮' : '💰';
+                elements.stageNotification.className = `stage-notification active notification-${seg.activity.toLowerCase()}`;
+                setTimeout(() => elements.stageNotification.classList.remove('active'), 3000);
+            }
+
+            // ---------- LIVE CLOCK ----------
+            function updateClock() {
+                const d = new Date();
+                elements.currentTimeDisplay.textContent = d.toLocaleTimeString('hr-HR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            }
+
+            // ---------- STORAGE ----------
+            function saveToLocalStorage() {
+                try {
+                    localStorage.setItem('polyData', JSON.stringify({
+                        colors, currentSchedule, isMuted
+                    }));
+                } catch (e) {}
+            }
+
+            function loadFromLocalStorage() {
+                try {
+                    const data = JSON.parse(localStorage.getItem('polyData'));
+                    if (data) {
+                        if (data.colors) colors = { ...DEFAULT_COLORS, ...data.colors };
+                        if (data.currentSchedule) currentSchedule = data.currentSchedule;
+                        if (data.isMuted !== undefined) isMuted = data.isMuted;
+                    }
+                } catch (e) { /* ignore */ }
+                // sync inputs
+                elements.restColor.value = colors.rest;
+                elements.workColor.value = colors.work;
+                elements.gamingColor.value = colors.gaming;
+                elements.financeColor.value = colors.finance;
+                elements.muteToggle.classList.toggle('muted', isMuted);
+                elements.muteIcon.textContent = isMuted ? '🔕' : '🔔';
+                if (currentSchedule === 'workday') {
+                    elements.workdayBtn.classList.add('active');
+                    elements.restdayBtn.classList.remove('active');
+                } else {
+                    elements.restdayBtn.classList.add('active');
+                    elements.workdayBtn.classList.remove('active');
+                }
+            }
+
+            // ---------- RESET COLORS ----------
+            function resetColors() {
+                colors = { ...DEFAULT_COLORS };
+                elements.restColor.value = colors.rest;
+                elements.workColor.value = colors.work;
+                elements.gamingColor.value = colors.gaming;
+                elements.financeColor.value = colors.finance;
+                renderSchedule();
+                saveToLocalStorage();
+            }
+
+            // ---------- INIT & EVENT LISTENERS ----------
+            function init() {
+                loadFromLocalStorage();
+                renderSchedule();
+
+                // schedule switch
+                elements.workdayBtn.addEventListener('click', () => {
+                    currentSchedule = 'workday';
+                    elements.workdayBtn.classList.add('active');
+                    elements.restdayBtn.classList.remove('active');
+                    renderSchedule();
+                    saveToLocalStorage();
+                });
+                elements.restdayBtn.addEventListener('click', () => {
+                    currentSchedule = 'restday';
+                    elements.restdayBtn.classList.add('active');
+                    elements.workdayBtn.classList.remove('active');
+                    renderSchedule();
+                    saveToLocalStorage();
+                });
+
+                // color inputs
+                elements.restColor.addEventListener('input', (e) => { colors.rest = e.target.value; renderSchedule(); saveToLocalStorage(); });
+                elements.workColor.addEventListener('input', (e) => { colors.work = e.target.value; renderSchedule(); saveToLocalStorage(); });
+                elements.gamingColor.addEventListener('input', (e) => { colors.gaming = e.target.value; renderSchedule(); saveToLocalStorage(); });
+                elements.financeColor.addEventListener('input', (e) => { colors.finance = e.target.value; renderSchedule(); saveToLocalStorage(); });
+
+                // reset colors
+                elements.resetColorsBtn.addEventListener('click', resetColors);
+
+                // test alert
+                elements.testAlertBtn.addEventListener('click', () => {
+                    const fakeSeg = { activity: 'Rest', start: '12:00', end: '13:00', duration: 1 };
+                    showStageAlert(fakeSeg);
+                    showStageNotification(fakeSeg);
+                });
+
+                // hover / click
+                elements.chart1.addEventListener('mousemove', (e) => handleCanvasHover(e, elements.chart1, 0));
+                elements.chart1.addEventListener('mouseleave', () => elements.segmentHover1.classList.remove('show'));
+                elements.chart1.addEventListener('click', (e) => handleCanvasClick(e, elements.chart1, 0));
+                elements.chart2.addEventListener('mousemove', (e) => handleCanvasHover(e, elements.chart2, 1));
+                elements.chart2.addEventListener('mouseleave', () => elements.segmentHover2.classList.remove('show'));
+                elements.chart2.addEventListener('click', (e) => handleCanvasClick(e, elements.chart2, 1));
+
+                // close hover modal
+                elements.closeHoverWindow.addEventListener('click', () => elements.hiddenHoverWindow.classList.remove('active'));
+                elements.hiddenHoverWindow.addEventListener('click', (e) => { if (e.target === elements.hiddenHoverWindow) elements.hiddenHoverWindow.classList.remove('active'); });
+
+                // alert close
+                elements.closeAlertBtn.addEventListener('click', closeStageAlert);
+                elements.stageAlert.addEventListener('click', (e) => { if (e.target === elements.stageAlert) closeStageAlert(); });
+
+                // mute toggle
+                elements.muteToggle.addEventListener('click', () => {
+                    isMuted = !isMuted;
+                    elements.muteToggle.classList.toggle('muted', isMuted);
+                    elements.muteIcon.textContent = isMuted ? '🔕' : '🔔';
+                    saveToLocalStorage();
+                });
+
+                // keyboard mute (enter/space)
+                elements.muteToggle.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); elements.muteToggle.click(); } });
+
+                // start monitoring
+                setInterval(() => {
+                    checkCurrentStage();
+                    updateClock();
+                }, 1000);
+                updateClock();
+
+                // initial highlight
+                setTimeout(checkCurrentStage, 200);
+            }
+
+            // start when ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
     </script>
 </body>
 </html>

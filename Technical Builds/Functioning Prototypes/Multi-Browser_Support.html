@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English</title>
+    <title>Secure Schedule System + Subject Explorer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        /* (All existing CSS remains the same) */
-        /* ... existing CSS ... */
+        /* ============================================
+           RESET & BASE STYLES
+        ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
+        }
+
         /* ============================================
            SECURITY SYSTEM STYLES
         ============================================ */
@@ -36,14 +50,8 @@
         }
 
         @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .security-header {
@@ -497,37 +505,6 @@
         }
 
         /* ============================================
-           ANIMATIONS
-        ============================================ */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes slideInRight {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        /* ============================================
-           UTILITY CLASSES
-        ============================================ */
-        .hidden {
-            display: none !important;
-        }
-
-        /* ============================================
            POLYPHASIC OVERVIEW WINDOW STYLES
         ============================================ */
         .polyphasic-overview-window {
@@ -610,6 +587,236 @@
         }
 
         /* ============================================
+           NEW WINDOW STYLES (Subject Windows)
+        ============================================ */
+        .newWindow {
+            position: fixed;
+            top: 5%;
+            left: 5%;
+            width: 90%;
+            height: 90%;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 2px solid #3b82f6;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            z-index: 2000;
+            overflow: hidden;
+            color: #e2e8f0;
+        }
+
+        .newWindow.active {
+            display: grid;
+            animation: popIn 0.4s ease-out;
+        }
+
+        /* Layout variants */
+        .newWindow.swapped {
+            grid-template-columns: 1fr 1fr;
+            direction: rtl;
+        }
+        .newWindow.swapped > * {
+            direction: ltr;
+        }
+        .newWindow.no-images .window-column {
+            display: none;
+        }
+        .newWindow.no-images .content-container {
+            grid-column: 1 / -1;
+        }
+
+        .window-column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .title-grid-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1e293b;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #334155;
+        }
+
+        .title-grid-container h3 {
+            color: #60a5fa;
+            margin: 0;
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .image-square {
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid #334155;
+        }
+
+        .image-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            justify-content: center;
+        }
+
+        .image-display {
+            width: 100%;
+            height: 200px;
+            overflow: auto;
+            border: 2px solid #334155;
+            border-radius: 8px;
+            background: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zoomable-image {
+            max-width: none;
+            transition: transform 0.1s;
+            transform-origin: center;
+            cursor: grab;
+        }
+
+        .image-info h3 {
+            text-align: center;
+            margin-top: 10px;
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+        }
+
+        .text-controls-container {
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid #334155;
+        }
+
+        .text-controls-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .text-zoom-controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .layout-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .text-content {
+            flex: 1;
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 20px;
+            overflow-y: auto;
+            border: 1px solid #334155;
+        }
+
+        .zoomable-text {
+            font-size: 16px;
+            line-height: 1.6;
+            transition: font-size 0.2s;
+        }
+
+        .subject-content-display {
+            color: #cbd5e1;
+        }
+
+        .loading-indicator {
+            text-align: center;
+            padding: 40px;
+            color: #60a5fa;
+        }
+
+        .loading-indicator i {
+            animation: spin 1s infinite linear;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ============================================
+           BUTTON-87 STYLE (Reused)
+        ============================================ */
+        .button-87 {
+            background: #2d3b4f;
+            border: 1px solid #60a5fa;
+            color: #e2e8f0;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .button-87:hover {
+            background: #3b82f6;
+            border-color: #93c5fd;
+            transform: translateY(-2px);
+        }
+
+        .button-87.text-close-button {
+            background: #7f1d1d;
+            border-color: #ef4444;
+        }
+
+        .button-87.text-close-button:hover {
+            background: #b91c1c;
+        }
+
+        /* ============================================
+           ANIMATIONS & UTILITIES
+        ============================================ */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* ============================================
            MOBILE RESPONSIVE
         ============================================ */
         @media (max-width: 768px) {
@@ -649,9 +856,15 @@
                 font-size: 0.9rem;
             }
 
-            .polyphasic-overview-window {
+            .polyphasic-overview-window,
+            .newWindow {
                 width: 95%;
                 left: 2.5%;
+                grid-template-columns: 1fr;
+            }
+
+            .newWindow.swapped {
+                grid-template-columns: 1fr;
             }
 
             .polyphasic-controls {
@@ -662,9 +875,8 @@
     </style>
 </head>
 <body>
-     <!-- ============================================
+    <!-- ============================================
          SECURITY SYSTEM OVERLAY
-         (Always shown on page load)
     ============================================ -->
     <div id="security-overlay" class="security-overlay">
         <div class="security-container" id="login-container">
@@ -706,7 +918,6 @@
 
     <!-- ============================================
          MAIN DASHBOARD
-         (Only shown after successful authentication)
     ============================================ -->
     <div class="container">
         <div class="dashboard" id="dashboard">
@@ -718,6 +929,14 @@
             <button class="open-polyphasic-btn" onclick="toggleWindow('polyphasic-overview-window')">
                 <i class="fas fa-chart-bar"></i> Open Polyphasic Overview
             </button>
+
+            <!-- Subject quick-launch buttons (optional) -->
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px; flex-wrap: wrap;">
+                <button class="button-87" onclick="toggleWindow('newWindow_mathematics')">Mathematics</button>
+                <button class="button-87" onclick="toggleWindow('newWindow_physics')">Physics</button>
+                <button class="button-87" onclick="toggleWindow('newWindow_chemistry')">Chemistry</button>
+                <button class="button-87" onclick="toggleWindow('newWindow_biology')">Biology</button>
+            </div>
         </div>
     </div>
 
@@ -788,12 +1007,11 @@
             <div class="notification-interval" id="notificationInterval">1:30 - 6:00</div>
         </div>
     </div>
-    <!-- Background modeling and all existing sections remain the same -->
-    <!-- ... existing HTML ... -->
 
-    <!-- UPDATED SUBJECT CONTENT NEW WINDOWS WITH IMAGE CONTAINERS -->
-
-    <!-- Mathematics Window with Image Container -->
+    <!-- ============================================
+         SUBJECT WINDOWS WITH IMAGE CONTAINERS
+    ============================================ -->
+    <!-- Mathematics Window -->
     <div id="newWindow_mathematics" class="newWindow">
         <div class="window-column">
             <div class="title-grid-container">
@@ -808,10 +1026,10 @@
                         <button class="button-87" onclick="resetZoom('math_image1')">Reset</button>
                     </div>
                     <div class="image-display">
-                        <img id="math_image1" src="https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Math+Concepts+Visualized" class="zoomable-image">
+                        <img id="math_image1" src="https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Algebra+Concepts" class="zoomable-image" alt="Algebra">
                     </div>
                     <div class="image-info">
-                        <h3>Mathematical Concepts</h3>
+                        <h3>Algebra Concepts</h3>
                     </div>
                 </div>
 
@@ -822,7 +1040,7 @@
                         <button class="button-87" onclick="resetZoom('math_image2')">Reset</button>
                     </div>
                     <div class="image-display">
-                        <img id="math_image2" src="https://via.placeholder.com/600x400/2a5298/ffffff?text=Geometry+Visualization" class="zoomable-image">
+                        <img id="math_image2" src="https://via.placeholder.com/600x400/2a5298/ffffff?text=Geometric+Principles" class="zoomable-image" alt="Geometry">
                     </div>
                     <div class="image-info">
                         <h3>Geometric Principles</h3>
@@ -846,10 +1064,10 @@
                 </div>
             </div>
             <div class="text-content">
-                <div class="zoomable-text">
+                <div class="zoomable-text" id="math_text">
                     <div class="subject-content-display" id="mathematics-content">
                         <div class="loading-indicator">
-                            <i class="fas fa-spinner"></i> Loading mathematics content...
+                            <i class="fas fa-spinner fa-spin"></i> Loading mathematics content...
                         </div>
                     </div>
                 </div>
@@ -857,7 +1075,7 @@
         </div>
     </div>
 
-    <!-- Physics Window with Image Container -->
+    <!-- Physics Window (similar structure) -->
     <div id="newWindow_physics" class="newWindow">
         <div class="window-column">
             <div class="title-grid-container">
@@ -872,13 +1090,12 @@
                         <button class="button-87" onclick="resetZoom('physics_image1')">Reset</button>
                     </div>
                     <div class="image-display">
-                        <img id="physics_image1" src="https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Physics+Laws+Visualized" class="zoomable-image">
+                        <img id="physics_image1" src="https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Physics+Laws" class="zoomable-image" alt="Physics Laws">
                     </div>
                     <div class="image-info">
                         <h3>Physics Laws</h3>
                     </div>
                 </div>
-
                 <div class="image-square">
                     <div class="image-controls">
                         <button class="button-87" onmousedown="startZoom('in', 'physics_image2')" onmouseup="stopZoom()" onmouseleave="stopZoom()">+</button>
@@ -886,7 +1103,7 @@
                         <button class="button-87" onclick="resetZoom('physics_image2')">Reset</button>
                     </div>
                     <div class="image-display">
-                        <img id="physics_image2" src="https://via.placeholder.com/600x400/2a5298/ffffff?text=Force+Diagrams" class="zoomable-image">
+                        <img id="physics_image2" src="https://via.placeholder.com/600x400/2a5298/ffffff?text=Force+Diagrams" class="zoomable-image" alt="Force Diagrams">
                     </div>
                     <div class="image-info">
                         <h3>Force Diagrams</h3>
@@ -894,7 +1111,6 @@
                 </div>
             </div>
         </div>
-
         <div class="content-container">
             <div class="text-controls-container">
                 <div class="text-controls-grid">
@@ -910,10 +1126,10 @@
                 </div>
             </div>
             <div class="text-content">
-                <div class="zoomable-text">
+                <div class="zoomable-text" id="physics_text">
                     <div class="subject-content-display" id="physics-content">
                         <div class="loading-indicator">
-                            <i class="fas fa-spinner"></i> Loading physics content...
+                            <i class="fas fa-spinner fa-spin"></i> Loading physics content...
                         </div>
                     </div>
                 </div>
@@ -921,7 +1137,7 @@
         </div>
     </div>
 
-    <!-- Chemistry Window with Image Container -->
+    <!-- Chemistry Window -->
     <div id="newWindow_chemistry" class="newWindow">
         <div class="window-column">
             <div class="title-grid-container">
@@ -936,13 +1152,12 @@
                         <button class="button-87" onclick="resetZoom('chemistry_image1')">Reset</button>
                     </div>
                     <div class="image-display">
-                        <img id="chemistry_image1" src="https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Chemical+Structures" class="zoomable-image">
+                        <img id="chemistry_image1" src="https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Chemical+Structures" class="zoomable-image" alt="Chemical Structures">
                     </div>
                     <div class="image-info">
                         <h3>Chemical Structures</h3>
                     </div>
                 </div>
-
                 <div class="image-square">
                     <div class="image-controls">
                         <button class="button-87" onmousedown="startZoom('in', 'chemistry_image2')" onmouseup="stopZoom()" onmouseleave="stopZoom()">+</button>
@@ -950,7 +1165,7 @@
                         <button class="button-87" onclick="resetZoom('chemistry_image2')">Reset</button>
                     </div>
                     <div class="image-display">
-                        <img id="chemistry_image2" src="https://via.placeholder.com/600x400/2a5298/ffffff?text=Lab+Equipment" class="zoomable-image">
+                        <img id="chemistry_image2" src="https://via.placeholder.com/600x400/2a5298/ffffff?text=Lab+Equipment" class="zoomable-image" alt="Lab Equipment">
                     </div>
                     <div class="image-info">
                         <h3>Lab Equipment</h3>
@@ -958,7 +1173,6 @@
                 </div>
             </div>
         </div>
-
         <div class="content-container">
             <div class="text-controls-container">
                 <div class="text-controls-grid">
@@ -974,10 +1188,10 @@
                 </div>
             </div>
             <div class="text-content">
-                <div class="zoomable-text">
+                <div class="zoomable-text" id="chemistry_text">
                     <div class="subject-content-display" id="chemistry-content">
                         <div class="loading-indicator">
-                            <i class="fas fa-spinner"></i> Loading chemistry content...
+                            <i class="fas fa-spinner fa-spin"></i> Loading chemistry content...
                         </div>
                     </div>
                 </div>
@@ -985,7 +1199,7 @@
         </div>
     </div>
 
-    <!-- Biology Window with Image Container -->
+    <!-- Biology Window -->
     <div id="newWindow_biology" class="newWindow">
         <div class="window-column">
             <div class="title-grid-container">
@@ -1000,13 +1214,12 @@
                         <button class="button-87" onclick="resetZoom('biology_image1')">Reset</button>
                     </div>
                     <div class="image-display">
-                        <img id="biology_image1" src="https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Cell+Structure" class="zoomable-image">
+                        <img id="biology_image1" src="https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Cell+Structure" class="zoomable-image" alt="Cell Structure">
                     </div>
                     <div class="image-info">
                         <h3>Cell Structure</h3>
                     </div>
                 </div>
-
                 <div class="image-square">
                     <div class="image-controls">
                         <button class="button-87" onmousedown="startZoom('in', 'biology_image2')" onmouseup="stopZoom()" onmouseleave="stopZoom()">+</button>
@@ -1014,7 +1227,7 @@
                         <button class="button-87" onclick="resetZoom('biology_image2')">Reset</button>
                     </div>
                     <div class="image-display">
-                        <img id="biology_image2" src="https://via.placeholder.com/600x400/2a5298/ffffff?text=DNA+Structure" class="zoomable-image">
+                        <img id="biology_image2" src="https://via.placeholder.com/600x400/2a5298/ffffff?text=DNA+Structure" class="zoomable-image" alt="DNA Structure">
                     </div>
                     <div class="image-info">
                         <h3>DNA Structure</h3>
@@ -1022,7 +1235,6 @@
                 </div>
             </div>
         </div>
-
         <div class="content-container">
             <div class="text-controls-container">
                 <div class="text-controls-grid">
@@ -1038,10 +1250,10 @@
                 </div>
             </div>
             <div class="text-content">
-                <div class="zoomable-text">
+                <div class="zoomable-text" id="biology_text">
                     <div class="subject-content-display" id="biology-content">
                         <div class="loading-indicator">
-                            <i class="fas fa-spinner"></i> Loading biology content...
+                            <i class="fas fa-spinner fa-spin"></i> Loading biology content...
                         </div>
                     </div>
                 </div>
@@ -1049,12 +1261,9 @@
         </div>
     </div>
 
-    <!-- (All other existing windows remain the same) -->
-    <!-- ... rest of existing HTML ... -->
-
     <script>
         // ============================================
-        // SECURITY SYSTEM CONFIGURATION
+        // GLOBAL VARIABLES & CONFIGURATION
         // ============================================
         const SECURITY_CONFIG = {
             MASTER_PASSWORD: "cross123!",
@@ -1062,71 +1271,51 @@
             LOCKOUT_MINUTES: 1
         };
 
-        // ============================================
-        // SECURITY SYSTEM STATE
-        // ============================================
         let securityState = {
             authenticated: false,
             failedAttempts: 0,
             lockoutUntil: 0
         };
 
-        // ============================================
-        // SCHEDULE SYSTEM CONFIGURATION
-        // ============================================
         const SCHEDULES = {
             workday: {
                 name: "Workday Schedule",
-                period1: {
-                    title: "1:30 - 13:30",
-                    segments: [
-                        { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
-                        { activity: "Work", start: "6:00", end: "13:30", duration: 7.5, color: "#16a34a" }
-                    ]
-                },
-                period2: {
-                    title: "13:30 - 1:30",
-                    segments: [
-                        { activity: "Work", start: "13:30", end: "17:00", duration: 3.5, color: "#16a34a" },
-                        { activity: "Rest", start: "17:00", end: "17:45", duration: 0.75, color: "#3b82f6" },
-                        { activity: "Work", start: "17:45", end: "19:50", duration: 2.083, color: "#16a34a" },
-                        { activity: "Rest", start: "19:50", end: "20:35", duration: 0.75, color: "#3b82f6" },
-                        { activity: "Work", start: "20:35", end: "22:40", duration: 2.083, color: "#16a34a" },
-                        { activity: "Rest", start: "22:40", end: "23:25", duration: 0.75, color: "#3b82f6" },
-                        { activity: "Work", start: "23:25", end: "1:30", duration: 2.083, color: "#16a34a" }
-                    ]
-                }
+                period1: { title: "1:30 - 13:30", segments: [
+                    { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
+                    { activity: "Work", start: "6:00", end: "13:30", duration: 7.5, color: "#16a34a" }
+                ]},
+                period2: { title: "13:30 - 1:30", segments: [
+                    { activity: "Work", start: "13:30", end: "17:00", duration: 3.5, color: "#16a34a" },
+                    { activity: "Rest", start: "17:00", end: "17:45", duration: 0.75, color: "#3b82f6" },
+                    { activity: "Work", start: "17:45", end: "19:50", duration: 2.083, color: "#16a34a" },
+                    { activity: "Rest", start: "19:50", end: "20:35", duration: 0.75, color: "#3b82f6" },
+                    { activity: "Work", start: "20:35", end: "22:40", duration: 2.083, color: "#16a34a" },
+                    { activity: "Rest", start: "22:40", end: "23:25", duration: 0.75, color: "#3b82f6" },
+                    { activity: "Work", start: "23:25", end: "1:30", duration: 2.083, color: "#16a34a" }
+                ]}
             },
             restday: {
                 name: "Restday Schedule",
-                period1: {
-                    title: "1:30 - 13:30",
-                    segments: [
-                        { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
-                        { activity: "Work", start: "6:00", end: "8:30", duration: 2.5, color: "#16a34a" },
-                        { activity: "Rest", start: "8:30", end: "9:25", duration: 0.917, color: "#3b82f6" },
-                        { activity: "Work", start: "9:25", end: "11:55", duration: 2.5, color: "#16a34a" },
-                        { activity: "Rest", start: "11:55", end: "12:50", duration: 0.917, color: "#3b82f6" },
-                        { activity: "Work", start: "12:50", end: "13:30", duration: 0.667, color: "#16a34a" }
-                    ]
-                },
-                period2: {
-                    title: "13:30 - 1:30",
-                    segments: [
-                        { activity: "Work", start: "13:30", end: "15:20", duration: 1.833, color: "#16a34a" },
-                        { activity: "Rest", start: "15:20", end: "16:15", duration: 0.917, color: "#3b82f6" },
-                        { activity: "Work", start: "16:15", end: "18:45", duration: 2.5, color: "#16a34a" },
-                        { activity: "Rest", start: "18:45", end: "19:40", duration: 0.917, color: "#3b82f6" },
-                        { activity: "Gaming", start: "19:40", end: "23:00", duration: 3.333, color: "#9333ea" },
-                        { activity: "Work", start: "23:00", end: "1:30", duration: 2.5, color: "#16a34a" }
-                    ]
-                }
+                period1: { title: "1:30 - 13:30", segments: [
+                    { activity: "Rest", start: "1:30", end: "6:00", duration: 4.5, color: "#3b82f6" },
+                    { activity: "Work", start: "6:00", end: "8:30", duration: 2.5, color: "#16a34a" },
+                    { activity: "Rest", start: "8:30", end: "9:25", duration: 0.917, color: "#3b82f6" },
+                    { activity: "Work", start: "9:25", end: "11:55", duration: 2.5, color: "#16a34a" },
+                    { activity: "Rest", start: "11:55", end: "12:50", duration: 0.917, color: "#3b82f6" },
+                    { activity: "Work", start: "12:50", end: "13:30", duration: 0.667, color: "#16a34a" }
+                ]},
+                period2: { title: "13:30 - 1:30", segments: [
+                    { activity: "Work", start: "13:30", end: "15:20", duration: 1.833, color: "#16a34a" },
+                    { activity: "Rest", start: "15:20", end: "16:15", duration: 0.917, color: "#3b82f6" },
+                    { activity: "Work", start: "16:15", end: "18:45", duration: 2.5, color: "#16a34a" },
+                    { activity: "Rest", start: "18:45", end: "19:40", duration: 0.917, color: "#3b82f6" },
+                    { activity: "Gaming", start: "19:40", end: "23:00", duration: 3.333, color: "#9333ea" },
+                    { activity: "Work", start: "23:00", end: "1:30", duration: 2.5, color: "#16a34a" }
+                ]}
             }
         };
 
-        // ============================================
-        // SCHEDULE SYSTEM STATE
-        // ============================================
+        // Schedule state
         let currentSchedule = 'workday';
         let isMuted = false;
         let currentSegmentIndex = -1;
@@ -1134,10 +1323,20 @@
         let countdownInterval = null;
         let stageCheckInterval = null;
 
-        // ============================================
-        // DOM ELEMENT REFERENCES
-        // ============================================
-        // Security elements
+        // Image zoom state
+        const imageScales = {};
+        const ZOOM_SPEED = 0.1;
+        let zoomInterval = null;
+
+        // Text zoom state
+        const textSizes = {}; // windowId -> current font size (px)
+        const DEFAULT_TEXT_SIZE = 16;
+
+        // Layout state
+        const layoutStates = ['default', 'swapped', 'no-images'];
+        let currentLayoutIndex = 0;
+
+        // DOM element references
         const passwordInput = document.getElementById('password-input');
         const loginButton = document.getElementById('login-button');
         const errorMessage = document.getElementById('error-message');
@@ -1146,59 +1345,38 @@
         const loginContainer = document.getElementById('login-container');
         const lockoutContainer = document.getElementById('lockout-container');
         const lockoutTimer = document.getElementById('lockout-timer');
-
-        // Dashboard elements
         const dashboard = document.getElementById('dashboard');
-
-        // Schedule control elements
         const workdayBtn = document.getElementById('workdayBtn');
         const restdayBtn = document.getElementById('restdayBtn');
         const scheduleName = document.getElementById('scheduleName');
-
-        // Alert elements
         const stageAlert = document.getElementById('stageAlert');
         const alertContent = document.getElementById('alertContent');
         const alertActivity = document.getElementById('alertActivity');
         const alertInterval = document.getElementById('alertInterval');
         const countdownTimer = document.getElementById('countdownTimer');
         const closeAlertBtn = document.getElementById('closeAlertBtn');
-
-        // Notification elements
         const stageNotification = document.getElementById('stageNotification');
         const notificationActivity = document.getElementById('notificationActivity');
         const notificationInterval = document.getElementById('notificationInterval');
         const notificationIcon = document.getElementById('notificationIcon');
-
-        // Control panel elements
         const muteToggle = document.getElementById('muteToggle');
         const muteIcon = document.getElementById('muteIcon');
-        const nextStageCountdown = document.getElementById('nextStageCountdown');
         const nextStageTime = document.getElementById('nextStageTime');
-
-        // Polyphasic overview elements
-        const polyphasicSchedule = document.getElementById('polyphasic-schedule');
         const currentActivity = document.getElementById('currentActivity');
 
         // ============================================
         // INITIALIZATION
         // ============================================
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🔒 Secure Schedule System Initializing...');
+            console.log('🔒 Initializing system...');
             initializeSecuritySystem();
             initializeScheduleSystem();
+            initializeSubjectWindows();
         });
 
-        // ============================================
-        // SECURITY SYSTEM FUNCTIONS
-        // ============================================
         function initializeSecuritySystem() {
-            // Always start with login screen
             showLoginScreen();
-
-            // Load lockout state if exists
             loadLockoutState();
-
-            // Setup event listeners
             setupSecurityEventListeners();
         }
 
@@ -1207,32 +1385,21 @@
                 const savedAttempts = localStorage.getItem('secure_schedule_attempts');
                 const lockoutTime = localStorage.getItem('secure_schedule_lockout');
 
-                if (savedAttempts) {
-                    securityState.failedAttempts = parseInt(savedAttempts);
+                if (savedAttempts) securityState.failedAttempts = parseInt(savedAttempts);
+                if (lockoutTime) securityState.lockoutUntil = parseInt(lockoutTime);
+
+                if (Date.now() < securityState.lockoutUntil) {
+                    showLockoutScreen();
+                    startLockoutTimer();
+                } else if (securityState.lockoutUntil) {
+                    // Lockout expired
+                    securityState.failedAttempts = 0;
+                    securityState.lockoutUntil = 0;
+                    localStorage.removeItem('secure_schedule_lockout');
+                    localStorage.setItem('secure_schedule_attempts', '0');
                 }
 
-                if (lockoutTime) {
-                    securityState.lockoutUntil = parseInt(lockoutTime);
-
-                    // Check if still in lockout period
-                    if (Date.now() < securityState.lockoutUntil) {
-                        showLockoutScreen();
-                        startLockoutTimer();
-                        return;
-                    } else {
-                        // Lockout period expired
-                        securityState.failedAttempts = 0;
-                        securityState.lockoutUntil = 0;
-                        localStorage.removeItem('secure_schedule_lockout');
-                        localStorage.setItem('secure_schedule_attempts', '0');
-                    }
-                }
-
-                // Show attempts info if there are failed attempts
-                if (securityState.failedAttempts > 0) {
-                    updateAttemptsDisplay();
-                }
-
+                if (securityState.failedAttempts > 0) updateAttemptsDisplay();
             } catch (error) {
                 console.error('Error loading security state:', error);
                 resetSecurityState();
@@ -1240,30 +1407,12 @@
         }
 
         function setupSecurityEventListeners() {
-            // Password input enter key
-            passwordInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    checkPassword();
-                }
-            });
-
-            // Close alert button
-            if (closeAlertBtn) {
-                closeAlertBtn.addEventListener('click', closeStageAlert);
-            }
-
-            // Close alert when clicking outside
-            if (stageAlert) {
-                stageAlert.addEventListener('click', function(e) {
-                    if (e.target === stageAlert) {
-                        closeStageAlert();
-                    }
-                });
-            }
+            passwordInput.addEventListener('keypress', e => { if (e.key === 'Enter') checkPassword(); });
+            if (closeAlertBtn) closeAlertBtn.addEventListener('click', closeStageAlert);
+            if (stageAlert) stageAlert.addEventListener('click', e => { if (e.target === stageAlert) closeStageAlert(); });
         }
 
         function checkPassword() {
-            // Check if locked out
             if (securityState.lockoutUntil && Date.now() < securityState.lockoutUntil) {
                 showLockoutScreen();
                 return;
@@ -1277,58 +1426,41 @@
                 return;
             }
 
-            // Disable button during verification
             loginButton.disabled = true;
             loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
 
-            // Simulate verification delay
             setTimeout(() => {
                 if (password === SECURITY_CONFIG.MASTER_PASSWORD) {
                     handleLoginSuccess();
                 } else {
                     handleLoginFailure();
                 }
-
-                // Re-enable button
                 loginButton.disabled = false;
                 loginButton.innerHTML = '<i class="fas fa-unlock-alt"></i> Access System';
             }, 800);
         }
 
         function handleLoginSuccess() {
-            // Reset failed attempts
             securityState.failedAttempts = 0;
             securityState.lockoutUntil = 0;
             securityState.authenticated = true;
 
-            // Clear storage
             localStorage.removeItem('secure_schedule_attempts');
             localStorage.removeItem('secure_schedule_lockout');
 
-            // Grant access
             grantAccess();
-
-            // Clear password field
             passwordInput.value = '';
         }
 
         function handleLoginFailure() {
             securityState.failedAttempts++;
-
-            // Save to localStorage
             localStorage.setItem('secure_schedule_attempts', securityState.failedAttempts.toString());
 
-            // Show error
             showError('<i class="fas fa-times-circle"></i> Invalid master password');
-
-            // Update attempts display
             updateAttemptsDisplay();
-
-            // Clear password field and refocus
             passwordInput.value = '';
             passwordInput.focus();
 
-            // Check for lockout
             if (securityState.failedAttempts >= SECURITY_CONFIG.MAX_ATTEMPTS) {
                 activateLockout();
             }
@@ -1362,98 +1494,56 @@
         function activateLockout() {
             const lockoutTime = Date.now() + (SECURITY_CONFIG.LOCKOUT_MINUTES * 60 * 1000);
             securityState.lockoutUntil = lockoutTime;
-
-            // Save to localStorage
             localStorage.setItem('secure_schedule_lockout', lockoutTime.toString());
-
-            // Show lockout screen
             showLockoutScreen();
-
-            // Start lockout timer
             startLockoutTimer();
         }
 
         function startLockoutTimer() {
-            const lockoutTime = securityState.lockoutUntil - Date.now();
-            let seconds = Math.floor(lockoutTime / 1000);
-
             const updateTimer = () => {
-                seconds--;
-
-                if (seconds <= 0) {
+                const remaining = Math.max(0, Math.floor((securityState.lockoutUntil - Date.now()) / 1000));
+                if (remaining <= 0) {
                     clearInterval(interval);
                     if (lockoutTimer) lockoutTimer.textContent = '00:00';
-
                     setTimeout(() => {
-                        // Reset lockout
                         securityState.lockoutUntil = 0;
                         securityState.failedAttempts = 0;
                         localStorage.removeItem('secure_schedule_lockout');
                         localStorage.setItem('secure_schedule_attempts', '0');
-
-                        // Show login screen
                         showLoginScreen();
                     }, 1000);
                     return;
                 }
-
-                const mins = Math.floor(seconds / 60);
-                const secs = seconds % 60;
-                if (lockoutTimer) {
-                    lockoutTimer.textContent =
-                        (mins < 10 ? '0' : '') + mins + ':' +
-                        (secs < 10 ? '0' : '') + secs;
-                }
+                const mins = Math.floor(remaining / 60);
+                const secs = remaining % 60;
+                if (lockoutTimer) lockoutTimer.textContent = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
             };
-
-            // Update immediately
             updateTimer();
-
-            // Update every second
             const interval = setInterval(updateTimer, 1000);
         }
 
         function grantAccess() {
-            console.log('✅ Authentication successful');
-
-            // Hide security overlay
-            if (securityOverlay) {
-                securityOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    securityOverlay.style.display = 'none';
-                }, 500);
-            }
-
-            // Show dashboard
-            if (dashboard) dashboard.classList.add('visible');
-
-            // Show schedule system
-            if (polyphasicSchedule) polyphasicSchedule.classList.add('visible');
-
-            // Start schedule monitoring
+            console.log('✅ Access granted');
+            securityOverlay.style.opacity = '0';
+            setTimeout(() => securityOverlay.style.display = 'none', 500);
+            dashboard.classList.add('visible');
+            document.querySelector('.polyphasic-schedule').classList.add('visible');
             startScheduleMonitoring();
         }
 
         function togglePasswordVisibility() {
-            const toggleIcon = document.querySelector('.toggle-password i');
-            if (!toggleIcon) return;
-
+            const icon = document.querySelector('.toggle-password i');
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
-                toggleIcon.className = 'fas fa-eye-slash';
+                icon.className = 'fas fa-eye-slash';
             } else {
                 passwordInput.type = 'password';
-                toggleIcon.className = 'fas fa-eye';
+                icon.className = 'fas fa-eye';
             }
         }
 
         function resetSecurityState() {
-            securityState = {
-                authenticated: false,
-                failedAttempts: 0,
-                lockoutUntil: 0
-            };
-
+            securityState = { authenticated: false, failedAttempts: 0, lockoutUntil: 0 };
             localStorage.removeItem('secure_schedule_attempts');
             localStorage.removeItem('secure_schedule_lockout');
         }
@@ -1462,19 +1552,13 @@
         // SCHEDULE SYSTEM FUNCTIONS
         // ============================================
         function initializeScheduleSystem() {
-            // Load saved preferences
             loadSchedulePreferences();
-
-            // Setup event listeners
             setupScheduleEventListeners();
         }
 
         function setupScheduleEventListeners() {
-            // Schedule buttons
             if (workdayBtn) workdayBtn.addEventListener('click', () => switchSchedule('workday'));
             if (restdayBtn) restdayBtn.addEventListener('click', () => switchSchedule('restday'));
-
-            // Mute toggle
             if (muteToggle) muteToggle.addEventListener('click', toggleMute);
         }
 
@@ -1482,138 +1566,83 @@
             const saved = localStorage.getItem('schedule_preferences');
             if (saved) {
                 try {
-                    const preferences = JSON.parse(saved);
-                    currentSchedule = preferences.currentSchedule || 'workday';
-                    isMuted = preferences.isMuted || false;
-
-                    // Update UI
+                    const prefs = JSON.parse(saved);
+                    currentSchedule = prefs.currentSchedule || 'workday';
+                    isMuted = prefs.isMuted || false;
                     updateScheduleButtons();
                     updateMuteToggle();
-
-                } catch (error) {
-                    console.log('Error loading schedule preferences:', error);
-                }
+                } catch (e) { console.log('Error loading schedule prefs', e); }
             }
         }
 
         function saveSchedulePreferences() {
-            const preferences = {
-                currentSchedule: currentSchedule,
-                isMuted: isMuted
-            };
-            localStorage.setItem('schedule_preferences', JSON.stringify(preferences));
+            localStorage.setItem('schedule_preferences', JSON.stringify({ currentSchedule, isMuted }));
         }
 
         function startScheduleMonitoring() {
-            // Initial check
             checkCurrentStage();
-
-            // Check every second
             stageCheckInterval = setInterval(checkCurrentStage, 1000);
-
-            console.log('📅 Schedule monitoring started');
         }
 
         function checkCurrentStage() {
             const now = new Date();
-            const currentTimeInMinutes = now.getHours() * 60 + now.getMinutes();
+            const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
             const schedule = SCHEDULES[currentSchedule];
             const allSegments = [...schedule.period1.segments, ...schedule.period2.segments];
 
-            // Find current segment
             let currentSegment = null;
             let nextSegment = null;
 
             for (let i = 0; i < allSegments.length; i++) {
-                const segment = allSegments[i];
-                const startMinutes = timeToMinutes(segment.start);
-                const endMinutes = timeToMinutes(segment.end);
+                const seg = allSegments[i];
+                const start = timeToMinutes(seg.start);
+                const end = timeToMinutes(seg.end);
 
                 let isCurrent = false;
-
-                if (endMinutes > startMinutes) {
-                    // Normal case: start and end in same day
-                    isCurrent = currentTimeInMinutes >= startMinutes &&
-                                currentTimeInMinutes < endMinutes;
+                if (end > start) {
+                    isCurrent = currentMinutes >= start && currentMinutes < end;
                 } else {
-                    // Case spanning midnight
-                    isCurrent = currentTimeInMinutes >= startMinutes ||
-                                currentTimeInMinutes < endMinutes;
+                    isCurrent = currentMinutes >= start || currentMinutes < end;
                 }
 
                 if (isCurrent) {
-                    currentSegment = {
-                        ...segment,
-                        index: i
-                    };
-
-                    // Get next segment (wrap around)
+                    currentSegment = { ...seg, index: i };
                     nextSegment = allSegments[(i + 1) % allSegments.length];
                     break;
                 }
             }
 
-            // Update display
             if (currentSegment) {
-                if (currentActivity) {
-                    currentActivity.textContent = `${currentSegment.activity} (${currentSegment.start}-${currentSegment.end})`;
-                }
+                if (currentActivity) currentActivity.textContent = `${currentSegment.activity} (${currentSegment.start}-${currentSegment.end})`;
 
-                // Check if this is a new segment
                 if (currentSegment.index !== currentSegmentIndex) {
                     currentSegmentIndex = currentSegment.index;
                     showStageAlert(currentSegment);
                     showStageNotification(currentSegment);
                 }
 
-                // Update next stage countdown
                 if (nextSegment && nextStageTime) {
-                    updateNextStageCountdown(currentTimeInMinutes, nextSegment);
+                    updateNextStageCountdown(currentMinutes, nextSegment);
                 }
             }
         }
 
         function updateNextStageCountdown(currentMinutes, nextSegment) {
-            const nextStartMinutes = timeToMinutes(nextSegment.start);
-            let minutesUntilNext;
-
-            if (nextStartMinutes > currentMinutes) {
-                minutesUntilNext = nextStartMinutes - currentMinutes;
-            } else {
-                // Next segment starts tomorrow
-                minutesUntilNext = (24 * 60 - currentMinutes) + nextStartMinutes;
-            }
-
-            const hours = Math.floor(minutesUntilNext / 60);
-            const minutes = minutesUntilNext % 60;
-
-            let timeText = '';
-            if (hours > 0) timeText += `${hours}h `;
-            timeText += `${minutes}m`;
-
-            if (nextStageTime) {
-                nextStageTime.textContent = timeText;
-            }
+            const nextStart = timeToMinutes(nextSegment.start);
+            let minutesUntil = nextStart > currentMinutes ? nextStart - currentMinutes : (24*60 - currentMinutes) + nextStart;
+            const hours = Math.floor(minutesUntil / 60);
+            const mins = minutesUntil % 60;
+            nextStageTime.textContent = (hours ? hours + 'h ' : '') + mins + 'm';
         }
 
         function switchSchedule(scheduleType) {
             if (currentSchedule !== scheduleType) {
                 currentSchedule = scheduleType;
-                currentSegmentIndex = -1; // Reset to trigger new alert
-
-                // Update buttons
+                currentSegmentIndex = -1;
                 updateScheduleButtons();
-
-                // Update display
-                if (scheduleName) {
-                    scheduleName.textContent = `${SCHEDULES[currentSchedule].name} Active`;
-                }
-
-                // Save preferences
+                if (scheduleName) scheduleName.textContent = `${SCHEDULES[currentSchedule].name} Active`;
                 saveSchedulePreferences();
-
-                console.log(`🔄 Switched to ${scheduleType} schedule`);
             }
         }
 
@@ -1630,529 +1659,298 @@
         }
 
         function showStageAlert(segment) {
-            // Clear any existing timeout/interval
             clearAlertTimers();
-
-            // Update alert content
             if (alertActivity) {
                 alertActivity.textContent = segment.activity.toUpperCase();
                 alertActivity.className = `alert-activity ${segment.activity.toLowerCase()}`;
             }
-            if (alertInterval) {
-                alertInterval.textContent = `${segment.start} - ${segment.end}`;
-            }
+            if (alertInterval) alertInterval.textContent = `${segment.start} - ${segment.end}`;
+            if (alertContent) alertContent.className = `alert-content alert-${segment.activity.toLowerCase()}`;
 
-            // Update alert style
-            if (alertContent) {
-                alertContent.className = `alert-content alert-${segment.activity.toLowerCase()}`;
-            }
-
-            // Reset countdown
             let countdown = 5;
-            if (countdownTimer) {
-                countdownTimer.textContent = countdown;
-            }
+            if (countdownTimer) countdownTimer.textContent = countdown;
 
-            // Show alert
-            if (stageAlert) {
-                stageAlert.classList.add('active');
-            }
+            stageAlert.classList.add('active');
 
-            // Play sound if not muted
-            if (!isMuted) {
-                playAlertSound();
-            }
+            if (!isMuted) playAlertSound();
 
-            // Start countdown
             countdownInterval = setInterval(() => {
                 countdown--;
-                if (countdownTimer) {
-                    countdownTimer.textContent = countdown;
-                }
-
-                if (countdown <= 0) {
-                    closeStageAlert();
-                }
+                if (countdownTimer) countdownTimer.textContent = countdown;
+                if (countdown <= 0) closeStageAlert();
             }, 1000);
 
-            // Auto-close after 5 seconds
             alertTimeout = setTimeout(closeStageAlert, 5000);
         }
 
         function closeStageAlert() {
-            if (stageAlert) {
-                stageAlert.classList.remove('active');
-            }
+            stageAlert.classList.remove('active');
             clearAlertTimers();
         }
 
         function clearAlertTimers() {
-            if (alertTimeout) {
-                clearTimeout(alertTimeout);
-                alertTimeout = null;
-            }
-            if (countdownInterval) {
-                clearInterval(countdownInterval);
-                countdownInterval = null;
-            }
+            if (alertTimeout) clearTimeout(alertTimeout);
+            if (countdownInterval) clearInterval(countdownInterval);
+            alertTimeout = null;
+            countdownInterval = null;
         }
 
         function showStageNotification(segment) {
-            if (notificationActivity) {
-                notificationActivity.textContent = `${segment.activity} Stage`;
-            }
-            if (notificationInterval) {
-                notificationInterval.textContent = `${segment.start} - ${segment.end}`;
-            }
-
-            // Set icon based on activity
+            notificationActivity.textContent = `${segment.activity} Stage`;
+            notificationInterval.textContent = `${segment.start} - ${segment.end}`;
             let icon = "⏰";
             if (segment.activity === "Rest") icon = "😴";
             else if (segment.activity === "Work") icon = "💼";
             else if (segment.activity === "Gaming") icon = "🎮";
-
-            if (notificationIcon) {
-                notificationIcon.textContent = icon;
-            }
-
-            // Set notification style
-            if (stageNotification) {
-                stageNotification.className = `stage-notification active notification-${segment.activity.toLowerCase()}`;
-            }
-
-            // Auto hide after 3 seconds
-            setTimeout(() => {
-                if (stageNotification) {
-                    stageNotification.classList.remove('active');
-                }
-            }, 3000);
+            notificationIcon.textContent = icon;
+            stageNotification.className = `stage-notification active notification-${segment.activity.toLowerCase()}`;
+            setTimeout(() => stageNotification.classList.remove('active'), 3000);
         }
 
         function toggleMute() {
             isMuted = !isMuted;
-            if (muteToggle) {
-                muteToggle.classList.toggle('muted', isMuted);
-            }
-            if (muteIcon) {
-                muteIcon.textContent = isMuted ? '🔕' : '🔔';
-            }
+            muteToggle.classList.toggle('muted', isMuted);
+            muteIcon.textContent = isMuted ? '🔕' : '🔔';
             saveSchedulePreferences();
-
-            console.log(`🔇 Mute ${isMuted ? 'enabled' : 'disabled'}`);
         }
 
         function updateMuteToggle() {
-            if (muteToggle) {
-                muteToggle.classList.toggle('muted', isMuted);
-            }
-            if (muteIcon) {
-                muteIcon.textContent = isMuted ? '🔕' : '🔔';
-            }
+            muteToggle.classList.toggle('muted', isMuted);
+            muteIcon.textContent = isMuted ? '🔕' : '🔔';
         }
 
         function playAlertSound() {
             try {
-                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                const oscillator = audioContext.createOscillator();
-                const gainNode = audioContext.createGain();
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.frequency.value = 800;
+                osc.type = 'sine';
+                gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
+                osc.start(audioCtx.currentTime);
+                osc.stop(audioCtx.currentTime + 0.5);
+            } catch (e) { console.log('Audio not supported'); }
+        }
 
-                oscillator.connect(gainNode);
-                gainNode.connect(audioContext.destination);
-
-                oscillator.frequency.value = 800;
-                oscillator.type = 'sine';
-
-                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-
-                oscillator.start(audioContext.currentTime);
-                oscillator.stop(audioContext.currentTime + 0.5);
-            } catch (error) {
-                console.log("Audio not supported or blocked by browser");
-            }
+        function timeToMinutes(t) {
+            const [h, m] = t.split(':').map(Number);
+            return h * 60 + m;
         }
 
         // ============================================
-        // UTILITY FUNCTIONS
-        // ============================================
-        function timeToMinutes(timeStr) {
-            const [hours, minutes] = timeStr.split(':').map(Number);
-            return hours * 60 + minutes;
-        }
-
-        // ============================================
-        // WINDOW MANAGEMENT FUNCTIONS
+        // WINDOW MANAGEMENT
         // ============================================
         function toggleWindow(windowId) {
-            const window = document.getElementById(windowId);
-            if (!window) return;
+            const win = document.getElementById(windowId);
+            if (!win) return;
 
-            if (window.classList.contains('active')) {
-                window.classList.remove('active');
+            if (win.classList.contains('active')) {
+                win.classList.remove('active');
                 document.body.style.overflow = '';
             } else {
-                document.querySelectorAll('.polyphasic-overview-window.active').forEach(w => {
-                    w.classList.remove('active');
-                });
-                window.classList.add('active');
+                document.querySelectorAll('.polyphasic-overview-window.active, .newWindow.active').forEach(w => w.classList.remove('active'));
+                win.classList.add('active');
                 document.body.style.overflow = 'hidden';
+
+                // Load subject content if it's a subject window
+                if (windowId.startsWith('newWindow_') && !windowId.includes('polyphasic')) {
+                    const subject = windowId.replace('newWindow_', '');
+                    const capital = subject.charAt(0).toUpperCase() + subject.slice(1);
+                    loadSubjectContent(capital);
+                }
             }
         }
 
         // Close windows when clicking outside
-        document.addEventListener('click', function(event) {
-            const windows = document.querySelectorAll('.polyphasic-overview-window.active');
-            windows.forEach(window => {
-                if (!window.contains(event.target) && !event.target.closest('.open-polyphasic-btn')) {
-                    window.classList.remove('active');
+        document.addEventListener('click', function(e) {
+            const activeWindows = document.querySelectorAll('.polyphasic-overview-window.active, .newWindow.active');
+            activeWindows.forEach(win => {
+                if (!win.contains(e.target) && !e.target.closest('.open-polyphasic-btn') && !e.target.closest('.button-87')) {
+                    win.classList.remove('active');
                     document.body.style.overflow = '';
                 }
             });
         });
 
-        // Escape key closes windows
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', e => {
             if (e.key === 'Escape') {
-                document.querySelectorAll('.polyphasic-overview-window.active').forEach(window => {
-                    window.classList.remove('active');
+                document.querySelectorAll('.polyphasic-overview-window.active, .newWindow.active').forEach(win => {
+                    win.classList.remove('active');
                     document.body.style.overflow = '';
                 });
             }
         });
-        // Update the loadSubjectContent function to also set up images for each subject
-        async function loadSubjectContent(subject) {
-            const contentElement = document.getElementById(`${subject.toLowerCase()}-content`);
-            if (!contentElement) return;
 
-            // Show loading indicator
-            contentElement.innerHTML = `
-                <div class="loading-indicator">
-                    <i class="fas fa-spinner"></i> Loading ${subject.toLowerCase()} content...
-                </div>
-            `;
-
-            // Also update the title in the window-column
-            const subjectWindow = document.getElementById(`newWindow_${subject.toLowerCase()}`);
-            if (subjectWindow) {
-                const titleElement = subjectWindow.querySelector('.title-grid-container h3');
-                if (titleElement) {
-                    titleElement.textContent = `${subject} Content`;
-                }
-            }
-
-            try {
-                // Try multiple possible file paths
-                const filePaths = [
-                    `${subject.toLowerCase()}.txt`,
-                    `content/${subject.toLowerCase()}.txt`,
-                    `text_files/${subject.toLowerCase()}.txt`,
-                    `./${subject.toLowerCase()}.txt`,
-                    `Project_Z/${subject.toLowerCase()}.txt`
-                ];
-
-                let content = null;
-                let usedPath = '';
-
-                for (const path of filePaths) {
-                    try {
-                        const response = await fetch(path);
-                        if (response.ok) {
-                            content = await response.text();
-                            usedPath = path;
-                            break;
-                        }
-                    } catch (error) {
-                        // Continue to next path
-                        console.log(`Failed to load from ${path}:`, error);
-                    }
-                }
-
-                if (content) {
-                    // Process the text content
-                    const processedContent = processTextContent(content, subject);
-                    contentElement.innerHTML = processedContent;
-
-                    // Update file load status
-                    fileLoadStatus[subject].loaded = true;
-                    fileLoadStatus[subject].error = false;
-                    fileLoadStatus[subject].path = usedPath;
-
-                    // Update debug info
-                    addDebugActivity(`Loaded ${subject} content from ${usedPath}`);
-                    updateDebugInfo();
-
-                    // Update file status display if open
-                    if (document.getElementById('statusOverview').classList.contains('active')) {
-                        populateFileStatus();
-                    }
-
-                    // Set up image data for this subject
-                    setupSubjectImages(subject);
+        // ============================================
+        // IMAGE ZOOM FUNCTIONS
+        // ============================================
+        function startZoom(direction, imageId) {
+            stopZoom(); // clear any existing interval
+            zoomInterval = setInterval(() => {
+                const img = document.getElementById(imageId);
+                if (!img) return;
+                if (!imageScales[imageId]) imageScales[imageId] = 1;
+                if (direction === 'in') {
+                    imageScales[imageId] += ZOOM_SPEED;
                 } else {
-                    throw new Error('No content found in any path');
+                    imageScales[imageId] = Math.max(0.5, imageScales[imageId] - ZOOM_SPEED);
                 }
-            } catch (error) {
-                console.error(`Error loading ${subject} content:`, error);
+                img.style.transform = `scale(${imageScales[imageId]})`;
+            }, 50);
+        }
 
-                // Show error message
-                contentElement.innerHTML = `
-                    <div style="background: rgba(231, 76, 60, 0.2); padding: 20px; border-radius: 10px; border-left: 4px solid #e74c3c;">
-                        <h4 style="color: #e74c3c; margin-top: 0;">
-                            <i class="fas fa-exclamation-triangle"></i> Error Loading Content
-                        </h4>
-                        <p>Unable to load ${subject} content from text file.</p>
-                        <p style="font-size: 0.9em; color: #ccc;">
-                            Create a <strong>${subject.toLowerCase()}.txt</strong> file in your project directory.
-                        </p>
-                        <button class="button-87" style="margin-top: 10px;" onclick="loadSubjectContent('${subject}')">
-                            <i class="fas fa-redo"></i> Try Again
-                        </button>
-                    </div>
-                `;
-
-                // Update file load status
-                fileLoadStatus[subject].loaded = false;
-                fileLoadStatus[subject].error = true;
-
-                // Update file status display if open
-                if (document.getElementById('statusOverview').classList.contains('active')) {
-                    populateFileStatus();
-                }
+        function stopZoom() {
+            if (zoomInterval) {
+                clearInterval(zoomInterval);
+                zoomInterval = null;
             }
         }
 
-        // Function to set up subject-specific images
-        function setupSubjectImages(subject) {
-            const subjectLower = subject.toLowerCase();
-
-            // Define image URLs for each subject
-            const subjectImages = {
-                mathematics: [
-                    'https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Algebra+Visualization',
-                    'https://via.placeholder.com/600x400/2a5298/ffffff?text=Calculus+Graph'
-                ],
-                physics: [
-                    'https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Physics+Experiments',
-                    'https://via.placeholder.com/600x400/2a5298/ffffff?text=Quantum+Mechanics'
-                ],
-                chemistry: [
-                    'https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Chemical+Reactions',
-                    'https://via.placeholder.com/600x400/2a5298/ffffff?text=Periodic+Table'
-                ],
-                biology: [
-                    'https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Human+Anatomy',
-                    'https://via.placeholder.com/600x400/2a5298/ffffff?text=Ecosystems'
-                ]
-            };
-
-            // Get the images for this subject
-            const images = subjectImages[subjectLower];
-            if (!images) return;
-
-            // Update the image sources
-            const windowId = `newWindow_${subjectLower}`;
-            const windowElement = document.getElementById(windowId);
-
-            if (windowElement) {
-                const img1 = windowElement.querySelector(`#${subjectLower}_image1`);
-                const img2 = windowElement.querySelector(`#${subjectLower}_image2`);
-
-                if (img1 && images[0]) {
-                    img1.src = images[0];
-                    img1.alt = `${subject} Visualization 1`;
-                }
-
-                if (img2 && images[1]) {
-                    img2.src = images[1];
-                    img2.alt = `${subject} Visualization 2`;
-                }
-            }
-        }
-
-        // Update the toggleWindow function to handle the new layout
-        function toggleWindow(windowId) {
-            const window = document.getElementById(windowId);
-            if (window.classList.contains('active')) {
-                window.classList.remove('active');
-                document.body.style.overflow = '';
-            } else {
-                // Close all other windows first
-                document.querySelectorAll('.newWindow.active, .status-overview-window.active').forEach(w => {
-                    w.classList.remove('active');
-                });
-                window.classList.add('active');
-                document.body.style.overflow = 'hidden';
-
-                // Initialize specific window features
-                if (windowId === 'newWindow_3') {
-                    initExampleSlider();
-                }
-
-                // Load subject content automatically when window is opened
-                if (windowId.includes('newWindow_') && windowId !== 'newWindow_1' && windowId !== 'newWindow_2' && windowId !== 'newWindow_3' && windowId !== 'newWindow_parameter') {
-                    const subject = windowId.replace('newWindow_', '');
-                    if (subject && ['mathematics', 'physics', 'chemistry', 'biology'].includes(subject)) {
-                        const subjectCapitalized = subject.charAt(0).toUpperCase() + subject.slice(1);
-                        loadSubjectContent(subjectCapitalized);
-
-                        // Set up the layout for the window
-                        setupWindowLayout(windowId);
-                    }
-                }
-            }
-        }
-
-        // Function to set up window layout
-        function setupWindowLayout(windowId) {
-            const window = document.getElementById(windowId);
-            if (!window) return;
-
-            // Reset to default layout
-            window.classList.remove('swapped', 'no-images');
-            currentLayoutIndex = 0;
-
-            // Ensure images are visible
-            const imageContainer = window.querySelector('.image-container');
-            if (imageContainer) {
-                imageContainer.style.display = 'flex';
-            }
-        }
-
-        // Update the cycleLayout function to work with the new windows
-        function cycleLayout(windowId) {
-            const window = document.getElementById(windowId);
-            if (!window) return;
-
-            const imageContainer = window.querySelector('.image-container');
-
-            window.classList.remove('swapped', 'no-images');
-
-            currentLayoutIndex = (currentLayoutIndex + 1) % layoutStates.length;
-            const nextLayout = layoutStates[currentLayoutIndex];
-
-            if (imageContainer && imageContainer.children.length > 0) {
-                if (nextLayout !== 'default') {
-                    window.classList.add(nextLayout);
-                }
-            } else {
-                window.classList.add('no-images');
-                currentLayoutIndex = layoutStates.indexOf('no-images');
-            }
-        }
-
-        // Update the resetZoom function to handle new image IDs
         function resetZoom(imageId) {
             imageScales[imageId] = 1;
-            const image = document.getElementById(imageId);
-            if (image) {
-                image.style.transform = 'scale(1)';
-                const parent = image.parentElement;
-                if (parent) {
-                    parent.scrollTo(0, 0);
-                }
+            const img = document.getElementById(imageId);
+            if (img) {
+                img.style.transform = 'scale(1)';
+                const parent = img.parentElement;
+                if (parent) parent.scrollTo(0, 0);
             }
         }
 
-        // Update zoom functions to handle new image IDs
-        function zoomIn(imageId) {
-            if (!imageScales[imageId]) imageScales[imageId] = 1;
-            imageScales[imageId] += ZOOM_SPEED;
-            const image = document.getElementById(imageId);
-            if (image) {
-                image.style.transform = `scale(${imageScales[imageId]})`;
-            }
+        // ============================================
+        // TEXT ZOOM FUNCTIONS
+        // ============================================
+        function getTextElement(windowId) {
+            const win = document.getElementById(windowId);
+            return win ? win.querySelector('.zoomable-text') : null;
         }
 
-        function zoomOut(imageId) {
-            if (!imageScales[imageId]) imageScales[imageId] = 1;
-            imageScales[imageId] = Math.max(0.5, imageScales[imageId] - ZOOM_SPEED);
-            const image = document.getElementById(imageId);
-            if (image) {
-                image.style.transform = `scale(${imageScales[imageId]})`;
-            }
+        function zoomInText(windowId) {
+            const el = getTextElement(windowId);
+            if (!el) return;
+            let current = parseFloat(el.style.fontSize) || DEFAULT_TEXT_SIZE;
+            current = Math.min(32, current + 2);
+            el.style.fontSize = current + 'px';
+            textSizes[windowId] = current;
         }
 
-        // Initialize the app with the new setup
-        function initializeApp() {
-            console.log("Initializing application...");
-
-            // Initialize section data from localStorage
-            initializeSectionData();
-
-            // Initialize enhanced example window
-            initializeEnhancedExampleWindow();
-
-            // Initialize parameter visualization
-            initializeParameterVisualization();
-
-            // Initialize debug panel
-            initializeDebugPanel();
-
-            // Set up event listeners
-            window.addEventListener("scroll", reveal);
-            reveal();
-
-            setupSearch();
-            setupClickListeners();
-
-            // Initialize summary toggle functionality
-            initializeSummaryToggle();
-
-            // Update all status indicators
-            updateAllStatusIndicators();
-
-            // Pre-load subject images data
-            preloadSubjectImages();
-
-            // Add debug activity
-            addDebugActivity("Application initialized");
-
-            console.log("Application initialized successfully");
+        function zoomOutText(windowId) {
+            const el = getTextElement(windowId);
+            if (!el) return;
+            let current = parseFloat(el.style.fontSize) || DEFAULT_TEXT_SIZE;
+            current = Math.max(8, current - 2);
+            el.style.fontSize = current + 'px';
+            textSizes[windowId] = current;
         }
 
-        // Function to pre-load subject images
-        function preloadSubjectImages() {
+        function resetZoomText(windowId) {
+            const el = getTextElement(windowId);
+            if (!el) return;
+            el.style.fontSize = DEFAULT_TEXT_SIZE + 'px';
+            textSizes[windowId] = DEFAULT_TEXT_SIZE;
+        }
+
+        // ============================================
+        // LAYOUT CYCLE
+        // ============================================
+        function cycleLayout(windowId) {
+            const win = document.getElementById(windowId);
+            if (!win) return;
+
+            // Remove existing layout classes
+            win.classList.remove('swapped', 'no-images');
+
+            currentLayoutIndex = (currentLayoutIndex + 1) % layoutStates.length;
+            const next = layoutStates[currentLayoutIndex];
+            if (next !== 'default') win.classList.add(next);
+        }
+
+        // ============================================
+        // SUBJECT CONTENT LOADING
+        // ============================================
+        function initializeSubjectWindows() {
+            // Preload subject images and titles
             const subjects = ['mathematics', 'physics', 'chemistry', 'biology'];
+            subjects.forEach(subj => {
+                const win = document.getElementById(`newWindow_${subj}`);
+                if (!win) return;
 
-            subjects.forEach(subject => {
-                const subjectCapitalized = subject.charAt(0).toUpperCase() + subject.slice(1);
+                // Set image alt texts and titles from placeholders
+                const img1 = document.getElementById(`${subj}_image1`);
+                const img2 = document.getElementById(`${subj}_image2`);
+                if (img1) img1.alt = `${subj} visualization 1`;
+                if (img2) img2.alt = `${subj} visualization 2`;
 
-                // Pre-set image titles and alt text
-                const windowElement = document.getElementById(`newWindow_${subject}`);
-                if (windowElement) {
-                    const imageInfos = windowElement.querySelectorAll('.image-info h3');
-
-                    // Set subject-specific titles
-                    switch(subject) {
-                        case 'mathematics':
-                            if (imageInfos[0]) imageInfos[0].textContent = 'Algebra Concepts';
-                            if (imageInfos[1]) imageInfos[1].textContent = 'Geometric Principles';
-                            break;
-                        case 'physics':
-                            if (imageInfos[0]) imageInfos[0].textContent = 'Physics Laws';
-                            if (imageInfos[1]) imageInfos[1].textContent = 'Force Diagrams';
-                            break;
-                        case 'chemistry':
-                            if (imageInfos[0]) imageInfos[0].textContent = 'Chemical Structures';
-                            if (imageInfos[1]) imageInfos[1].textContent = 'Lab Equipment';
-                            break;
-                        case 'biology':
-                            if (imageInfos[0]) imageInfos[0].textContent = 'Cell Structure';
-                            if (imageInfos[1]) imageInfos[1].textContent = 'DNA Structure';
-                            break;
-                    }
-                }
+                // Load content when window opens (already in toggleWindow)
             });
         }
 
-        // All other existing JavaScript functions remain the same
-        // ... rest of existing JavaScript ...
-    (function(){
-      if (window.__pageLocalStubsInserted) return; window.__pageLocalStubsInserted = true;
-      const makeNoop = (name) => { if (!window[name]) window[name] = function(){ console.warn('stubbed', name, arguments); }; };
-      const names = ['toggleDebugPanel','toggleWindow','toggleStatusOverview','startZoom','stopZoom','resetZoom','zoomInText','zoomOutText','resetZoomText','cycleLayout'];
-      names.forEach(n=>{ try{ if(!n.includes('.')) makeNoop(n); }catch(e){} });
-    })();
+        async function loadSubjectContent(subject) {
+            const contentDiv = document.getElementById(`${subject.toLowerCase()}-content`);
+            if (!contentDiv) return;
+
+            contentDiv.innerHTML = `<div class="loading-indicator"><i class="fas fa-spinner fa-spin"></i> Loading ${subject} content...</div>`;
+
+            const paths = [
+                `${subject.toLowerCase()}.txt`,
+                `content/${subject.toLowerCase()}.txt`,
+                `text_files/${subject.toLowerCase()}.txt`,
+                `./${subject.toLowerCase()}.txt`,
+                `Project_Z/${subject.toLowerCase()}.txt`
+            ];
+
+            let loaded = false;
+            for (const path of paths) {
+                try {
+                    const resp = await fetch(path);
+                    if (resp.ok) {
+                        const text = await resp.text();
+                        contentDiv.innerHTML = `<pre style="white-space: pre-wrap; font-family: inherit;">${escapeHtml(text)}</pre>`;
+                        loaded = true;
+                        break;
+                    }
+                } catch (e) { /* ignore */ }
+            }
+
+            if (!loaded) {
+                contentDiv.innerHTML = `
+                    <div style="background: rgba(231, 76, 60, 0.2); padding: 20px; border-radius: 10px; border-left: 4px solid #e74c3c;">
+                        <h4 style="color: #e74c3c;"><i class="fas fa-exclamation-triangle"></i> Error Loading Content</h4>
+                        <p>Unable to load ${subject} content from text file.</p>
+                        <p style="font-size: 0.9em; color: #ccc;">Create a <strong>${subject.toLowerCase()}.txt</strong> file in your project directory.</p>
+                        <button class="button-87" style="margin-top: 10px;" onclick="loadSubjectContent('${subject}')"><i class="fas fa-redo"></i> Try Again</button>
+                    </div>
+                `;
+            }
+        }
+
+        function escapeHtml(unsafe) {
+            return unsafe.replace(/[&<>"]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                if (m === '"') return '&quot;';
+                return m;
+            });
+        }
+
+        // ============================================
+        // ADDITIONAL UTILITIES
+        // ============================================
+        // Make functions global so inline event handlers work
+        window.toggleWindow = toggleWindow;
+        window.startZoom = startZoom;
+        window.stopZoom = stopZoom;
+        window.resetZoom = resetZoom;
+        window.zoomInText = zoomInText;
+        window.zoomOutText = zoomOutText;
+        window.resetZoomText = resetZoomText;
+        window.cycleLayout = cycleLayout;
+        window.togglePasswordVisibility = togglePasswordVisibility;
+        window.checkPassword = checkPassword;
+        window.loadSubjectContent = loadSubjectContent;
     </script>
 </body>
 </html>
