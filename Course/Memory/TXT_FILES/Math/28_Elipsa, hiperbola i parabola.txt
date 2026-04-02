@@ -1,0 +1,361 @@
+Konstrukcija i jednadžba elipse
+________________________________________
+Definicije elipse
+(Pravac_i_kružnica_1.png)
+Danski je astronom Tycho Brahe (1546. − 1601.) bio posljednji veliki astronom koji je nebeski svod promatrao bez pomoći teleskopa. Unatoč tome, napravio je toliko precizna mjerenja položaja planeta da je doveo u nedoumicu i pristaše heliocentričnog sustava, koji su pretpostavljali da se planeti gibaju oko Sunca po idealnim − dakle kružnim putanjama. Njemački astronom i matematičar Johannes Kepler (1571. − 1630.), Braheov učenik, pokazao je da su rezultati Braheovih mjerenja logični ako te staze nisu kružne, nego eliptične. Tek je dva stoljeća kasnije ta tvrdnja dokazana matematičkim putem. Tako se i Zemlja giba oko Sunca po elipsi i udaljena je od njega 147 mil. km u perihelu − položaju u kojem je najbliža Suncu (početkom siječnja), te 152 mil. km u afelu − položaju u kojem je najudaljenija od Sunca (početkom srpnja). Najdrastičniji primjer odstupanja od kružne staze susrećemo promatrajući komete: Halleyjev komet, primjerice, u svom je perihelu oko 60 puta bliži Suncu nego u afelu.
+Neka gibanja odvijaju se u prirodi po krivuljama koje nisu eliptične. Tako će se, primjerice, topovsko tane gibati po krivulji paraboličnog oblika. Pri svom putovanju u svemir letjelica Voyager 1 prošla je blizu Jupitera iskoristivši njegovu masu za korekciju putanje prema Saturnu. Pritom se gibala po luku hiperbole.
+Elipsu, hiperbolu i parabolu nazivamo krivuljama drugog reda. U ovom ćemo poglavlju upoznati te krivulje i njihova najvažnija svojstva.
+Definicije elipse
+U Descartesovoj Dioptriji, jednom od triju dodataka njegovu djelu Rasprava o metodi iz 1637. godine nalazi se i ovaj crtež. Pozorno ga promotrite, jer riječ je o crtanju elipse na temelju njezine definicije. Takvu konstrukciju zovemo vrtlarskom jer je to najjednostavniji način crtanja elipse za praktične potrebe.
+(konstrukcija_i_jednadžba_elipse_1)
+Elipsa se dobije povlačenjem olovke pri vrhu B trokuta HIB danog opsega.
+Što je elipsa?
+Elipsa je skup svih točaka ravnine kojima je zbroj udaljenosti od dviju zadanih točaka uvijek isti.
+Neka su zadane dvije točke F_1 i F_2. Njihovu udaljenost označimo s 2e:
+∣F_1 F_2∣=2e.
+
+(konstrukcija_i_jednadžba_elipse_2)
+Udaljenost točke T u ravnini do točaka F_1 i F_2 označimo s r_1 i r_2:
+r_1=∣F_1 T∣,r_2=∣F_2 T∣.
+
+Neka je a bilo koji broj veći od e.
+Definicija elipse
+Elipsa je skup svih točaka T ravnine za koje vrijedi
+r_1+r_2=2a.
+
+Točke F_1 i F_2 nazivaju se žarišta (fokusi) elipse. Polovica udaljenosti između žarišta je broj e, koji nazivamo linearni ekscentricitet elipse. Vektore (F_1 T) ⃗ i (F_2 T) ⃗ nazivamo radijus-vektorima elipse.
+r_1 i r_2 su, dakle, duljine radijus-vektora elipse. Polovište O dužine (F_1 F_2 ) ‾ zovemo središte (centar) elipse.
+Pravac kroz žarišta siječe elipsu u točkama A i B. Dužina (AB) ‾ naziva se velika os elipse, pa su dužine (OA) ‾ i (OB) ‾ velike poluosi elipse. Duljina velike osi je 2a, pa je duljina velike poluosi jednaka a.
+Pravac koji prolazi središtem okomito na veliku os siječe elipsu u točkama C i D. Dužinu (CD) ‾ nazivamo mala os, pa su (OC) ‾ i (OD) ‾ male poluosi elipse. Njihove duljine označavamo s b. Točke A,B,C i D nazivaju se tjemenima elipse.
+Za točku D vrijedi pak ∣F_1 D∣=∣F_2 D∣, pa kako je zbroj ovih udaljenosti jednak 2a, onda je ∣F_2 D∣=a. Iz Pitagorina poučka za pravokutni trokut OF_2 D onda slijedi
+a^2-b^2=e^2.
+
+(Napomena: ponekad radijus-vektorima ne nazivamo vektore, nego dužine (F_1 T) ‾ i (F_2 T) ‾.)
+________________________________________
+Konstrukcije elipse
+(Pravac_i_kružnica_3.png)
+Za konstrukciju pravca ili kružnice rabimo jednostavne naprave − ravnalo i šestar. One su dio geometrijskog pribora svake škole. Nekada su tome priboru pripadali i krivuljari poput ovoga na slici lijevo. No takvim se krivuljarom može nacrtati jedna jedina elipsa pa je to njegova velika mana.
+Ipak, za tehničku konstrukciju elipse izumljeno je više naprava, zovu se elipsografi, a možemo ih naći još samo u muzejima. Jedan elipsograf, načinjen po zamisli Leonarda da Vincija, vidimo na slici desno.
+Napomenimo kako je danas crtanje elipse standardni alat svih grafičkih računalnih programa.
+Želimo li ipak sami nacrtati geometrijsku konstrukciju elipse, učinit ćemo to na osnovi njezine definicije. Ravnalom i šestarom odredit ćemo po volji mnogo točaka elipse pa te točke zatim povezati glatkom krivuljom.
+(konstrukcija_i_jednadžba_elipse_4)
+Nacrtajmo veliku os (AB) ‾ i sa strane pomoćnu dužinu iste duljine. Odredimo najprije središte elipse i povucimo okomitu os na kojoj će ležati druga dva tjemena. Ako su zadana žarišta (tj. njihova udaljenost do središta elipse), tad ih ucrtamo na veliku os i šestarom otvora a zasiječemo iz bilo kojeg žarišta malu os. Dobit ćemo druga dva tjemena elipse, C i D. Ako su pak zadane velika i mala os, tad iz tjemena C šestarom otvora a zasiječemo veliku os i dobijemo žarišta elipse.
+Podijelimo sad pomoćnu dužinu na dva dijela duljina r_1 i r_2. Šestarom otvora r_1 povucimo lukove iz oba žarišta. Zatim šestarom otvora r_2 povucimo nova četiri luka koji sijeku navedena četiri u točkama koje pripadaju elipsi. Postupak možemo ponoviti s po volji odabranim novim udaljenostima r_1 i r_2 i tako svaki put odrediti nove četiri točke elipse. Na kraju spojimo dobivene točke glatkom krivuljom.
+Zakrivljenost elipse. Dijelovi elipse nalikuju na kružni luk. To znači da se može povući kružnica koja dobro prianja uz dio elipse. Polumjer te kružnice bit će različit za različite točke elipse. Ako je taj polumjer malen, kažemo da elipsa ima u pripadnoj točki veliku zakrivljenost, ako je polumjer velik, onda je riječ o točki u kojoj elipsa ima malu zakrivljenost. Tjemena elipse su točke u kojima elipsa ima najmanju, odnosno najveću zakrivljenost.
+Elipsu možemo preciznije nacrtati s pomoću kružnica koje je diraju u njezinim tjemenima. Polumjere tih kružnica odredimo ovako.
+Nacrtajmo pravokutnik kojemu stranice prolaze tjemenima, paralelno s osima elipse. Iz vrha pravokutnika povucimo okomicu na spojnicu susjednih tjemena A i D. Neka ona siječe pravce s osima elipse u točkama T_1 i S_1. Označimo s T_2 i S_2 njima simetrične točke s obzirom na središte elipse. Onda su T_1 i T_2 središta kružnica koje diraju elipsu u tjemenima A i B, a S_1 i S_2 središta kružnica koje je diraju u tjemenima C i D. Nacrtajmo dijelove lukova tih kružnica i uvjerimo se da oni dobro priliježu uz elipsu. Tako se sama elipsa može nacrtati preciznije.
+Kružnica je posebni slučaj elipse, u kojem oba žarišta padnu u istu točku. Kružnica u svakoj svojoj točki ima istu zakrivljenost. Zato kružnica nema tjemena.
+(konstrukcija_i_jednadžba_elipse_4)
+(konstrukcija_i_jednadžba_elipse_5)
+Simetrija elipse
+Elipsa je simetrična s obzirom na obje svoje osi. U to se možemo uvjeriti s pomoću njezine jednadžbe. Naime, ako točka T(x,y) leži na elipsi, onda ona zadovoljava jednadžbu
+x^2/a^2 +y^2/b^2 =1.
+
+Tu istu jednadžbu zadovoljavaju i koordinate točaka (-x,y), (x,-y) i (-x,-y). Ove točke leže simetrično točki (xⓜ,y) u odnosu na koordinatne osi i ishodište O.
+(konstrukcija_i_jednadžba_elipse_7)
+Elipsa sa žarištima na osi ordinata
+Što predstavlja jednadžba
+x^2/a^2 +y^2/b^2 =1
+
+ako je b>a? Tu su velika i mala os zamijenile mjesta uz nepoznanice pa ćemo ponovno dobiti elipsu, ali s glavnom osi na osi ordinata. Tako će i žarišta biti na osi ordinata, u točkama F_1 (0,-e) i F_2 (0,e). Linearni ekscentricitet očitava se iz pravokutnog trokuta, a njega čine žarište, središte i tjeme elipse, pa je
+e=√(b^2-a^2 ).
+
+Dakako, za radijus-vektore točke na elipsi sad vrijedi
+r_1+r_2=2b,
+
+jer je 2b duljina velike osi.
+(konstrukcija_i_jednadžba_elipse_8)
+Jednadžba elipse
+Jednadžbom
+x^2/a^2 +y^2/b^2 =1
+
+definirana je elipsa. Ako je a>b, njezina velika os (duljine 2a) i žarišta leže na osi apscisa, a ako je a<b, onda velika os (duljine 2b) i žarišta leže na osi ordinata. Ako je a=b, elipsa postaje kružnica.
+PRIMJER 5
+PRIMJER 6
+________________________________________
+Jednadžba elipse
+Odredimo jednadžbu koju zadovoljavaju sve točke na elipsi. Ona će ovisiti o položaju elipse u koordinatnom sustavu. Najjednostavniju ćemo jednadžbu dobiti ako položaj elipse odaberemo tako da njezino središte bude u ishodištu sustava te da velika os leži na osi apscisa, a mala na osi ordinata. Tjemena elipse su onda u točkama A(-a,0), B(a,0), C(0,-b), D(0,b), a žarišta su F_1 (-e,0), F_2 (e,0).
+Izaberimo bilo koju točku T(x,y) elipse. Duljine njezinih radijus-vektora su
+r_1=∣F_1 T∣=√((xⓜ+e)^2ⓜ+y^2 ┤ ),r_2=∣F_2 T∣=√((x-e)^2+y^2 ┤ ).
+
+(konstrukcija_i_jednadžba_elipse_6)
+Znamo da za točku elipse vrijedi
+r_1+r_2=2a,
+
+pa dobivamo
+√((xⓜ+e)^2ⓜ+y^2 ┤ )+√((x-e)^2+y^2 ┤ )=2a.
+
+Prebacimo jedan korijen na drugu stranu jednadžbe i nakon toga kvadrirajmo obje strane:
+√((xⓜ+e)^2ⓜ+y^2 ┤ )=2a-√((x-e)^2+y^2 ┤ ),
+(x+e)^2+y^2=4a^2-4a√((x-e)^2+y^2 ┤ )+(x-e)^2+y^2.┤
+
+Nakon sređivanja dobivamo
+a√((x-e)^2+y^2 ┤ )=a^2-ex.
+
+Ponovnim kvadriranjem slijedi
+a^2 ((x-e)^2+y^2)=a^4-2a^2 ex+e^2 x^2,
+(a^2-e^2)x^2+a^2 y^2=a^2 (a^2-e^2).
+
+Budući da je
+a^2-e^2=b^2,
+
+dobivamo
+b^2 x^2+a^2 y^2=a^2 b^2.
+
+Kanonska jednadžba elipse
+Jednadžba elipse sa središtem u ishodištu i osima koje leže na koordinatnim osima glasi
+b^2 x^2+a^2 y^2=a^2 b^2,
+
+tj.
+■(&x^2/a^2 +y^2/b^2 =1.&&"(1)" )
+
+PRIMJER 1
+PRIMJER 2
+Količnik e/a označavamo s ε i nazivamo numerički ekscentricitet elipse. Za njega vrijedi
+0≤ε<1.
+
+Za kružnicu je ε=0 (jer je e=0). Što je ε bliži nuli, elipsa je sličnija kružnici, a kad se ε približava broju 1, elipsa postaje sve spljoštenija. Za duljine radijus-vektora točaka elipse vrijedi
+r_1=a+εx,r_2=a-εx.
+
+PRIMJER 3
+PRIMJER 4
+Jednadžba translatirane elipse
+Središte elipse ne mora biti u ishodištu niti njezine osi moraju biti paralelne s koordinatnim osima. Međutim, jednadžbe takvih elipsa postat će složenije. Opišimo jednadžbu elipse kojoj je središte pomaknuto u točku S=(p,q), a osi su i dalje paralelne koordinatnim osima.
+Neka ishodište translatiranog sustava (O^';x^',y^' ) bude točka O^' (p,q). U tom je sustavu elipsa središnja, pa je njezina jednadžba
+x^'2/a^2 +y^'2/b^2 =1.
+
+Veza koordinata početnog i translatiranog sustava je
+x^'=x-p,y^'=y-q.
+
+Zato jednadžba translatirane elipse u sustavu (O;x,y) glasi
+(xⓜ-p)^2 ┤/a^2 +(yⓜ-q)^2 ┤/b^2 =1.
+
+(konstrukcija_i_jednadžba_elipse_9)
+PRIMJER 7
+________________________________________
+________________________________________
+________________________________________
+Konstrukcija i jednadžba hiperbole
+________________________________________
+Konstrukcija i jednadžba hiperbole
+(Pravac_i_kružnica_1.png)
+(Pravac_i_kružnica_2.png)
+Definicija hiperbole slična je definiciji elipse. Neka su F_1 i F_2 dvije čvrste točke ravnine (žarišta hiperbole). Označimo s 2e udaljenost između njih:
+2e=∣F_1 F_2∣,
+
+a s r_1,r_2 duljine radijus-vektora neke točke T hiperbole:
+r_1=∣F_1 T∣,r_2=∣F_2 T∣.
+
+Neka je a pozitivan realni broj manji od e.
+Definicija hiperbole
+Hiperbola je skup svih točaka T u ravnini za koje vrijedi
+∣r_1-r_2∣=2a.
+
+(konstrukcija_i_jednadžba_hiperbole_1)
+Razlika ∣r_1-r_2∣ predstavlja razliku duljina dviju stranica trokuta F_1 F_2 T i zato je uvijek manja od duljine treće stranice. Dakle, mora biti
+∣r_1-r_2∣<∣F_1 F_2∣," tj." 2a<2e,
+
+pa zato zahtijevamo da bude a<e.
+Označimo s O središte hiperbole. Točka O je polovište dužine (F_1 F_2 ) ‾. Povucimo pravac kroz žarišta i na njemu s A i B označimo točke kojima je udaljenost do središta jednaka a.
+Za točku A vrijedi:
+∣AF_2∣-∣AF_1∣=∣AO∣+∣OF_2∣-(∣OF_1∣-∣AO∣)=2∣AO∣+∣OF_2∣-∣OF_1∣=2a,
+
+pa točka A pripada hiperboli. Isto vrijedi i za točku B. Točke A i B nazivamo tjemenima hiperbole. Dužinu (AB) ‾ zovemo realna (glavna) os hiperbole. Njezina je duljina 2a, pa se a naziva realna poluos hiperbole. Udaljenost e žarišta do središta O hiperbole naziva se linearni ekscentricitet hiperbole. Zapamtimo da sad vrijedi e>a. Broj
+ε=e/a
+
+zove se numerički ekscentricitet hiperbole. Primijetimo da vrijedi ε>1.
+Konstrukcija hiperbole
+Nacrtajmo pravac na kojem će ležati realna os hiperbole. Na njemu naznačimo središte O hiperbole. Na udaljenostima a od središta nalaze se tjemena A i B, a na udaljenostima e žarišta F_1 i F_2. Nacrtajmo pomoćni polupravac i na njemu naznačimo veličinu 2a. Izaberimo bilo koji radijus-vektor s duljinom r_1>2a. Šestarom otvora r_1 povucimo iz svakog žarišta po dva luka. Nakon toga šestarom otvora
+r_2=r_1-2a
+
+zasijecimo iz svakog žarišta prije povučene lukove. Dobili smo četiri točke koje leže na hiperboli. Postupak nastavimo s promijenjenom vrijednošću za r_1 dok ne dobijemo dovoljan broj točaka hiperbole.
+________________________________________
+Konstrukcija hiperbole
+(Pravac_i_kružnica_3.png)
+(Pravac_i_kružnica_4.png)
+Konstrukcija hiperbole
+Nacrtajmo pravac na kojem će ležati realna os hiperbole. Na njemu naznačimo središte O hiperbole. Na udaljenostima a od središta nalaze se tjemena A i B, a na udaljenostima e žarišta F_1 i F_2. Nacrtajmo pomoćni polupravac i na njemu naznačimo veličinu 2a. Izaberimo bilo koji radijus-vektor s duljinom r_1>2a. Šestarom otvora r_1 povucimo iz svakog žarišta po dva luka. Nakon toga šestarom otvora
+r_2=r_1-2a
+
+zasijecimo iz svakog žarišta prije povučene lukove. Dobili smo četiri točke koje leže na hiperboli. Postupak nastavimo s promijenjenom vrijednošću za r_1 dok ne dobijemo dovoljan broj točaka hiperbole.
+(konstrukcija_i_jednadžba_hiperbole_2)
+________________________________________
+Jednadžba hiperbole
+(Pravac_i_kružnica_5.png)
+(Pravac_i_kružnica_6.png)
+Definicija hiperbole slična je definiciji elipse, pa će i njihove jednadžbe biti slične. Jednadžba hiperbole ovisi o njezinom položaju u koordinatnom sustavu. Izabrat ćemo najjednostavniji položaj: središte hiperbole bit će u ishodištu, a realna os na osi apscisa.
+(konstrukcija_i_jednadžbe_hiperbole_3)
+Udaljenosti točke T(x,y) od žarišta F_1 i F_2 su
+r_1=∣F_1 T∣=√((xⓜ+e)^2ⓜ+y^2 ┤ ),r_2=∣F_2 T∣=√((x-e)^2+y^2 ┤ ).
+
+Ako točka leži na hiperboli, onda vrijedi ∣r_1-r_2∣=2a, tj.
+√((xⓜ+e)^2ⓜ+y^2 ┤ )-√((x-e)^2+y^2 ┤ )=±2a.
+
+Prebacimo jedan korijen na drugu stranu i kvadrirajmo. Identičnim postupkom kao i za elipsu dobit ćemo
+√((xⓜ+e)^2ⓜ+y^2 ┤ )=±2a+√((x-e)^2+y^2 ┤ ),
+(x+e)^2+y^2=4a^2±4a√((x-e)^2+y^2 ┤ )+(x-e)^2+y^2 ,
+ex-a^2=±a√((x-e)^2+y^2 ┤ ),
+e^2 x^2-2ea^2 x+a^4=a^2 (x^2-2ex+e^2+y^2),
+(e^2-a^2)x^2-a^2 y^2=a^2 (e^2-a^2).
+
+Označimo
+e^2-a^2=b^2.
+
+Tako smo dobili
+b^2 x^2-a^2 y^2=a^2 b^2.
+
+Kanonska jednadžba hiperbole
+Hiperbola kojoj središte leži u ishodištu koordinatnog sustava, a realna os na osi apscisa, ima jednadžbu
+b^2 x^2-a^2 y^2=a^2 b^2,
+
+tj.
+x^2/a^2 -y^2/b^2 =1.
+
+Žarišta hiperbole su F_1 (-e,0), F_2 (e,0), a tjemena A(-a,0), B(a,0).
+Imaginarna poluos hiperbole
+Iz jednadžbe hiperbole dobivamo
+y=±b/a √(x^2-a^2 ).
+
+Da bi postojala točka hiperbole kojoj je apscisa jednaka x, mora biti ∣x∣≥a. Za x=-a i x=a dobivamo y=0; točke (-a,0) i (aⓜ,0) tjemena su hiperbole. Ako je x>a ili x<-a, onda postoje dvije točke hiperbole s apscisom x, a ordinate im računamo iz gornje jednadžbe. Ako je -a<x<a, tada ne postoji točka na hiperboli s tom apscisom. Zato će se hiperbola sastojati od dviju odvojenih grana: desne grane, za koju vrijedi r_1-r_2=2a, odnosno x≥a; te lijeve grane, za koju vrijedi r_2-r_1=2a, odnosno x≤-a. 
+Stavimo li x=0, slijedi y=±bi. Po analogiji s elipsom, s C(0,-b), D(0,b) označavamo imaginarna tjemena hiperbole, a dužinu (CD) ‾ nazivamo imaginarna (sporedna) os hiperbole. Njezina je duljina 2b, pa broj b nazivamo imaginarna poluos hiperbole. Zapamtimo da broj b nije ničim uvjetovan, on može biti i manji i veći od a. Ako točka (xⓜ,y) leži na hiperboli, tada iz jednadžbe hiperbole vidimo da isto vrijedi i za točke (-x,y), (x,-y) i (-x,-y). Zato je hiperbola, baš kao i elipsa, simetrična s obzirom na svoju glavnu i sporednu os, te s obzirom na središte.
+________________________________________
+Asimptota hiperbole
+(Pravac_i_kružnica_5.png)
+(Pravac_i_kružnica_6.png)
+Asimptote hiperbole
+Elipsa je omeđena krivulja: pravokutnik sa stranicama duljina 2a i 2b paralelnim s osima i središtem u središtu elipse potpuno je obuhvaća. Hiperbola, međutim, nije omeđena krivulja, jer se za ma kako velik x može odrediti ordinata točke na hiperboli. Crtamo li precizno hiperbolu, primijetit ćemo da se udaljene točke hiperbole približavaju jednom pravcu. Jednadžba tog pravca je y=b/a x, odnosno y=-b/a x.
+Da je to istina, naslućujemo iz same jednadžbe hiperbole
+y=±b/a √(x^2-a^2 ).
+
+Promotrimo, jednostavnosti radi, točke s desne grane hiperbole, za koje je x>0. Ako se vrijednost apscise točke x povećava, tada broj a postaje zanemariv prema x, pa vrijedi
+√(x^2-a^2 )≈√(x^2 )=x.
+
+(Usporedite, npr., za a=2 i x=1000.) Zato za točke na hiperboli vrijedi
+y=±b/a √(x^2-a^2 )≈±b/a x.
+
+Asimptote hiperbole
+Asimptote hiperbole
+x^2/a^2 -y^2/b^2 =1
+
+su pravci
+y=b/a x"i" y=-b/a x.
+
+Udaljenost točaka s hiperbole do jednog od tih pravaca teži k nuli kad se točka udaljava od ishodišta.
+Pokažimo kako se crtaju asimptote ako su zadana tjemena na realnoj osi i žarišta hiperbole. Iz jednog od tjemena (iz tjemena B) zasijecimo šestarom otvora e imaginarnu os. Neka su C i D presječne točke. Tada je
+∣OD∣=√(e^2-a^2 )=b.
+
+Nacrtajmo pravokutnik sa središtem u ishodištu, a koji prolazi tjemenima B i D, kao na slici. Povucimo pravce koji prolaze dijagonalama tog pravokutnika. Njihove su jednadžbe y=b/a x, y=-b/a x, te su to asimptote hiperbole.
+(konstrukcija_i_jednadžbe_hiperbole_4)
+Pri crtanju hiperbole vrlo je korisno nacrtati njezine asimptote, jer se s pomoću njih i tjemena hiperbola može preciznije i lakše nacrtati.
+PRIMJER 1
+PRIMJER 2
+________________________________________
+Hiperbola s tjemenima na osi ordinata
+(Pravac_i_kružnica_5.png)
+(Pravac_i_kružnica_6.png)
+Promotrimo jednadžbu
+-x^2/a^2 +y^2/b^2 =1,
+
+koja se od jednadžbe hiperbole razlikuje po drukčijem odabiru predznaka. Ona će također definirati hiperbolu, ali sa zamijenjenim ulogama realne i imaginarne osi.
+Potražimo presjek te hiperbole s koordinatnim osima. Ako je y=0, onda ne postoji realni x koji zadovoljava danu jednadžbu, zato hiperbola ne siječe os apscisa. Stavimo li pak x=0, dobit ćemo y=±b.
+(konstrukcija_i_jednadžbe_hiperbole_5)
+Tjemena ove hiperbole su točke A=(0,-b) i B=(0,b) na osi ordinata, pa njezina realna poluos iznosi b. Imaginarna je poluos a, a za linearni ekscentricitet vrijedi ista formula
+e=√(a^2+b^2 ).
+
+Zato su žarišta ove hiperbole u točkama F_1=(0,-e) i F_2=(0,e) na osi ordinata.
+Odredimo njezine asimptote. Kad je apscisa x vrlo velika, onda vrijedi
+y^2/b^2 =1+x^2/a^2 ⟹y=±b/a √(x^2+a^2 )≈±b/a x,
+
+pa su pravci y=±b/a x asimptote ove hiperbole.
+Dakako, za radijus-vektore točke hiperbole vrijedi ∣r_1-r_2∣=2b, jer je sad 2b realna os.
+Hiperbola s tjemenima na osi ordinata
+Jednadžbom
+-x^2/a^2 +y^2/b^2 =1
+
+zadana je hiperbola kojoj je realna poluos b, a leži na osi ordinata. Imaginarna poluos je a i leži na osi apscisa. Tjemena su točke A(0,-b), B(0,b), a žarišta F_1 (0,-e), F2(0,e). Asimptote ove hiperbole su pravci y=±b/a x.
+PRIMJER 3
+________________________________________
+________________________________________
+________________________________________
+Konstrukcija i jednadžba parabole
+________________________________________
+Konstrukcija i jednadžba parabole
+(Pravac_i_kružnica_1.png)
+(Pravac_i_kružnica_2.png)
+(konstrukcija_i_jednadžba_parabole_1)
+Parabolu smo upoznali u drugom razredu. Naime, graf kvadratne funkcije
+f(x)=ax^2+bx+c
+
+je parabola kojoj je os usporedna s osi ordinata, a tjeme se nalazi u točki s koordinatama
+T(-b/2a,-(b^2-4ac)/4a).
+
+No grafom kvadratne funkcije koristili smo se kako bismo izučavali njezina svojstva ili za učinkovitije rješavanje nekih zadataka, prije svega rješavanje kvadratnih nejednadžbi. Pritom nismo izučavali samu parabolu, nismo je niti definirali niti konstruirali, već smo je samo skicirali, što je bilo sasvim dovoljno za naše tadašnje potrebe.
+Parabola je vrlo važna krivulja i to ne samo u matematici. Kolika je njezina uloga u fizici zasigurno ste se i sami osvjedočili. U sljedećem odjeljku podrobnije ćemo je upoznati.
+(konstrukcija_i_jednadžba_parabole_2)
+________________________________________
+Definicija parabole
+(konstrukcija_i_jednadžba_parabole_3)
+Definicija parabole
+Parabola je skup svih točaka ravnine koje su jednako udaljene od jednog čvrstog pravca d i jedne čvrste točke F u toj ravnini koja ne leži na tom pravcu. Pravac d nazivamo ravnalica (direktrisa) parabole, a točku F žarište (fokus) parabole. Udaljenost žarišta do ravnalice označavamo s p i nazivamo poluparametar parabole.
+Na temelju definicije opišimo konstrukciju parabole.
+Nacrtajmo pravac d (ravnalica) i neka je F (žarište) po volji odabrana točka koja ne leži na tom pravcu. Povucimo pravac s točkom F okomito na ravnalicu d. Taj pravac nazivamo os parabole.
+(konstrukcija_i_jednadžba_parabole_4)
+Neka je b pravac paralelan s ravnalicom i od nje udaljen za barem p/2 (polovina udaljenosti do žarišta) i neka taj pravac siječe os s u točki N. Oko točke F opišimo luk kružnice s polumjerom r duljine ∣ON∣. Sjecište tog luka i pravca b jest točka R koja pripada paraboli.
+Paraboli pripada i polovište V dužine (OF) ‾. To je točka parabole najbliža ravnalici. Nju nazivamo tjeme ili vrh parabole.
+PRIMJER 1
+________________________________________
+Jednadžba parabole
+Konstrukcija parabole ovisi samo o udaljenosti žarišta od ravnalice, a ne ovisi, primjerice, o tome gdje se u koordinatnom sustavu nalaze ravnalica i žarište. Međutim, jednadžba parabole bitno ovisi o tom položaju. Prošle smo se godine upoznali s parabolom kojoj je jednadžba bila
+y=ax^2+bx+c,
+
+a os paralelna s osi ordinata.
+Zapravo, tek sad ćemo pokazati da je graf kvadratne funkcije uistinu parabola.
+Postavimo koordinatni sustav tako da se tjeme (vrh) parabole podudara s ishodištem sustava, os s osi apscisa, a žarište leži na pozitivnom dijelu osi apscisa. Takvu parabolu zvat ćemo vršna parabola.
+(konstrukcija_i_jednadžba_parabole_5)
+Tjeme V raspolavlja udaljenost od žarišta do ravnalice. Ta je udaljenost jednaka poluparametru p parabole. Zato su koordinate žarišta
+F( p/2ⓜ,0),
+
+a jednadžba ravnalice
+x=-p/2.
+
+Izaberimo bilo koju točku T(x,y) na paraboli. Njezina udaljenost do ravnalice je
+x+p/2.
+
+Po definiciji parabole ta udaljenost mora biti jednaka udaljenosti točke T do žarišta parabole:
+x+p/2=√((xⓜ-p/2)^2+y^2 ).
+
+Budući da su obje strane u ovoj jednadžbi pozitivne veličine, kvadriranjem ćemo dobiti ekvivalentnu jednadžbu:
+x^2+px+p^2/4=x^2-px+p^2/4+y^2,
+
+tj.
+2px=y^2.
+
+Dakle, točka leži na paraboli ako i samo ako njezine koordinate zadovoljavaju ovu jednadžbu.
+Jednadžbu parabole, koja je dobivena translacijom iz vršne tako da joj vrh bude točka V(x_0,y_0), dobivamo na uobičajeni način.
+Jednadžba parabole
+Parabola kojoj tjeme leži u ishodištu, a žarište na pozitivnom dijelu osi apscisa, ima jednadžbu
+y^2=2px.
+
+Translatirana parabola s tjemenom u točki V(x_0,y_0) ima jednadžbu
+(y-y_0 )^2=2p(x-x_0).
+
+PRIMJER 2
+PRIMJER 3
+PRIMJER 4
+Pravac i krivulje drugog reda
+________________________________________
+Presjek pravca i krivulje
+Pravac može sjeći krivulju drugog reda u najviše dvjema točkama (zbog ovog se svojstva elipsa, parabola i hiperbola zovu krivuljama drugog reda). U to se možemo uvjeriti iz njihovih jednadžbi.
+Primjerice, presjek pravca i elipse dobivamo rješavanjem sustava
+{█(y=kx+l,@(b^2 x^2+a^2 y^2)/(a^2 b^2 )=1"  odnosno  " b^2 x^2+a^2 y^2=a^2 b^2.)┤
+
+Eliminacijom nepoznanice y dobivamo
+b^2 x^2+a^2 (kx+l)^2=a^2 b^2,
+(b^2+k^2 a^2)x^2+2kla^2 x+a^2 (l^2-b^2)=0.
+
+Dobili smo kvadratnu jednadžbu po nepoznanici x. Ona može imati najviše dva realna rješenja, x_1 i x_2. To su apscise presječnih točaka. Ordinate računamo iz veze y=kx+l. [][]
+PRIMJER 1
+Jednako kao u primjeru pravca i elipse rješavaju se analogni zadatci i za ostale krivulje 2. reda. Pri određivanju odnosa pravca i neke od tih krivulja rješava se sustav dviju jednadžbi, linearne i kvadratne. Zamjenom jedne od nepoznanica iz jednadžbe pravca u jednadžbu krivulje dobije se kvadratna jednadžba.
+Ako je diskriminanta te kvadratne jednadžbe pozitivan broj, njezina su rješenja realna pa pravac siječe krivulju u dvjema točkama. Ako je diskriminanta negativna, jednadžba nema realnih rješenja pa pravac i krivulja stoga i nemaju zajedničkih točaka. [][]
+Treći slučaj, kada je diskriminanta jednadžbe jednaka nuli, osobit je. Tada je pravac tangenta krivulje, s njom ima jednu zajedničku točku. [][]
+PRIMJER 2

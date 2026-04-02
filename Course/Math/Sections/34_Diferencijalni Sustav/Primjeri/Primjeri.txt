@@ -1,0 +1,340 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 1
+Izaberimo jednostavnu funkciju f(x)=x2. Odgovor na postavljeno pitanje možemo naslutiti gledajući graf funkcije, ali i računajući njezine vrijednosti za neki odabrani niz (xn) koji konvergira k a=2. Promotrit ćemo zapravo dva niza, jedan koji raste prema 2 i drugi koji pada prema broju 2. Račun je napisan u tablici.
+xn	f(xn)		xn	f(xn)
+1.9	3.61		2.1	4.41
+1.99	3.9601		2.01	4.0401
+1.999	3.996001		2.001	4.004001
+1.9999	3.99960001		2.0001	4.00040001
+1.99999	3.99996000		2.00001	4.00004000
+ Vidimo da se funkcijske vrijednosti približavaju k 4, a to nam sugerira i slika.
+
+Primejr 2
+Neka je f(x)=x−4√x−2. Izračunajmo limx→4f(x).
+Rješenje: Vidimo da funkcija f nije definirana za x=4, brojnik i nazivnik razlomka jednaki su nuli.
+Računanje limesa ima za osnovni cilj dati nam informaciju o ponašanju funkcije u neposrednoj okolini broja 4.
+Postupimo kao u prethodnom primjeru. Koristeći se GeoGebrom, nacrtajmo graf funkcije, a džepnim računalom ili u GeoGebri izračunajmo i funkcijske vrijednosti za dva niza koji se približavaju broju 4.
+xn	f(xn)		xn	f(xn)
+3.9	3.97484177		4.1	4.02484567
+3.99	3.99749844		4.01	4.00249844
+3.999	3.99974998		4.001	4.00024998
+3.9999	3.99997500		4.0001	4.00002500
+3.99999	3.99999750		4.00001	4.00000250
+Na temelju grafa i ovih vrijednosti, usuđujemo se napisatilimx→4x−4√x−2=4.Kad naučimo više o tehnikama računanja limesa, vidjet ćemo da je rezultat istinit.
+
+primjer 3
+Neka je f(x)={1,x≠1,2,x=1. Odredimo limx→1f(x).
+Rješenje: Vrijednost funkcije u argumentu x=1 je 2. Ta vrijednost nema nikakvog utjecaja na limes jer se limes računa rabeći vrijednosti funkcije u argumentima različitim od x=1.
+Budući da je vrijednost funkcije jednaka 1 u svim argumentima različitim od 1, vrijedilimx→1f(x)=1.
+
+Primjer 4
+Odredimo limx→0sin(1x).
+Rješenje: Slika grafa funkcije nacrtana u GeoGebri ukazuje da bi s ovim limesom moglo biti problema:
+Pokušajmo odrediti limes numerički, poput onih u prva dva primjera.
+xn	f(xn)		xn	f(xn)
+−0.1	0.544021		0.1	−0.544021
+−0.01	0.506366		0.01	−0.506366
+−0.001	−0.826880		0.001	0.826880
+−0.0001	0.305614		0.0001	−0.305614
+−0.00001	−0.035749		0.00001	0.035749
+−0.000001	0.349994		0.000001	−0.349994
+Funkcija je neparna pa je bilo dovoljno promotriti što se događa za x>0. To što se događa sugerira zaključak: kad x teži k nuli, limes ove funkcije ne postoji.
+
+Primjer 5
+Za funkciju signum vrijedi f(x)=1 za x>0. Zato, ako x teži k 0 zdesna, vrijedilimx→0+f(x)=1. Na isti način vidimo da je limx→0−f(x)=−1. Ova funkcija ima jednostrane limese u točki 0, ali su oni različiti. Zato ne postoji njezin limes u točki 0.
+
+Primejr 6
+Funkcija f(x)=x2−1x−1 nije definirana u točki 1 jer se u toj točki poništavaju i brojnik i nazivnik. Međutim, za x≠1 možemo skratiti brojnik s nazivnikom:f(x)=x2−1x−1=(x−1)(x+1)x−1=x+1,x≠1.Prema tome, postoji limes ove funkcijelimx→1f(x)=limx→1x2−1x−1=limx→11(x+1)=2.Zato je prirodno definirati f(1):=2. U tom slučaju vrijedi formula f(x)=x+1 za svaki realni x.
+
+Primejr 7
+Za funkciju f(x)=1x2 oba jednostrana limesa su +∞. Zato funkcija u nuli teži u beskonačnost:limx→01x2+∞.
+
+Primejr 8
+limx→−2x2+3x+2x2−x−6=limx→−2(x+2)(x+1)(x+2)(x−3)=limx→−2x+1x−3=15
+
+Primejr 9
+
+limx→2x2−6x+8x3−x−6=[x=u+2]=limu→0(u+2)2−6(u+2)+8(u+2)3−(u+2)−6=limu→0u2−2uu3+6u2+11u=limu→0u−2u2+6u+11=−211
+
+Primejr 10
+limx→0√x+1−1x=limx→0√x+1−1x⋅√x+1+1√x+1+1=limx→0xx(√x+1+1)=limx→01√x+1+1=12	
+
+Primjer 11
+limx→1√x−13√x−1=[x=u6]=limu→1u3−1u2−1=limu→1(u−1)(u2+u+1)(u−1)(u+1)=limu→1u2+u+1u+1=32.
+
+Primjer 12
+
+Primejr 13
+Izračunajmo limes limx→0√1+sinxx.
+Rješenje: Pozovimo se na prethodni teorem. Odaberimo g(x)=1+sinxx. Ta funkcija ima limes u x=0,limx→0(1+sinxx)=2.Funkcija f(x)=√x ima limes u svakoj točki u kojoj je definirana pa vrijediL=limx→2√x=√2=f(2).Ispunjeni su uvjeti teorema, traženi limes iznosi √2. Čitav postupak računanja zapisivat ćemo jednostavnije. Dovoljno je računati ovako:limx→0√1+sinxx=√limx→0(1+sinxx)=√1+limx→0sinxx=√1+1=√2.
+
+Primejr 14
+Izračunajmo limes L=limx→01−cosxx2.
+Rješenje: U računu ćemo koristiti zamjenu x=2u i formulu za kosinus dvostrukog kuta:cosx=cos2u=cos2u−sin2u=1−2sin2u.Sada imamo   L=limx→01−cosxx2=[x=2u]=limu→01−(1−2sin2u)4u2=12limu→0sin2uu2=12limu→0(sinuu)2=12(limu→0sinuu)2=12⋅12=12.
+
+Primjer 15
+Izračunajmo limes L=limx→0tg x−sinxx3.
+Rješenje: U ovom računu iskoristit ćemo rezultat iz prethodnog primjera:L=limx→0tg x−sinxx3=limx→0sinxcosx−sinxx3=limx→0sinx(1cosx−1)x3=limx→0sinxx⋅1−cosxx2⋅1cosx=limx→0sinxx⋅limx→01−cosxx2⋅limx→01cosx=1⋅12⋅1=12.
+
+Primjer 16
+Promotrimo funkciju f(x)=1x. Njezino ponašanje kad x→+∞ možemo razabrati iz ponašanja kad x→0+ jer je graf funkcije simetričan s obzirom na pravac y=x.
+Možemo pisati:limx→+∞1x=0.Isto zaključujemo i za negativne brojevelimx→−∞1x=0.Oba limesa zapisujemo jednom formulom:limx→±∞1x=0,gdje oznaka ±∞ znači da je svejedno teži li x u −∞ ili u +∞.
+
+Dakle, pravac y=0 (x-os) je horizontalna asimptota ove funkcije.
+
+Primjer 17
+Izračunajmo limes racionalne funkcije:limx→±∞3x+12x−1=[x=1u]=limx→031u+121u−1=limu→03+u2−u=limu→0(3+u)limu→0(2−u)=32.
+Pravac y=32 je horizontalna asimptota ove racionalne funkcije.
+
+Primejr 18
+limx→∞(√x+x2−x)=limx→∞(√x+x2−x)(√x+x2+x)√x+x2+x=limx→∞x+x2−x2√x+x2+x=limx→∞x√x+x2+x=limx→∞1√1x+1+1=12 Pravac y=12 je desna horizontalna asimptota ove funkcije.
+Pravac y=12 je desna horizontalna asimptota ove funkcije.
+
+Primjer 19
+Dokažimo da je limx→0ln(x+1)x=1.
+Rješenje: Koristimo svojstvo logaritamske funkcije i pravilo zamjene funkcije i limesa:limx→0ln(x+1)x=limx→0ln[(x+1)1x]=ln[limx→0(x+1)1x]=lne=1.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 20
+Neka je f(x)=x2−2x+2. Odredimo prirast Δy u točki x0=2.Δy=f(x0+Δx)−f(x0)=f(2+Δx)−f(2)=[(2+Δx)2−2(2+Δx)+2]−2=4Δx+(Δx)2−2Δx=2Δx+(Δx)2Vidimo da vrijedi:Δx→0⟹Δy→0.Računajući na istovjetan način, za prirast u bilo kojoj točki x0 dobivamo:Δy=2Δx(x0−1)+(Δx)2.Kako je x0 čvrsta točka, opet vrijedi:Δx→0⟹Δy→0,što možemo zapisati kaoΔx→0⟹f(x0+Δx)→f(x0),ilif(x0)=limΔx→0f(x0+Δx).
+
+Primejr 21
+Odredimo limes limx→0sin(ln2−x2+x).
+Rješenje: Računamo:limx→0sin(ln2−x2+x)=sin(limx→0ln2−x2+x)=sin(ln(limx→02−x2+x))=sinln1=sin0=0.
+
+primjer 22
+Temperatura u 8 sati ujutro iznosila je 15∘C, a u 18 sati 22∘C. Budući da se temperatura neprekinuto mijenja, postojao je trenutak u danu kad je ona iznosila točno 20∘C.
+
+Iz iskustva znamo da temperatura u 18 sati ne predstavlja maksimum temperature u razdoblju od 8 do 18 sati. Međutim, taj maksimum nam je nepoznat, a tvrdnja u primjeru je ispravna na temelju teorema 3.
+
+Primejr 23
+Riješimo jednadžbu 2x=2−x.
+Rješenje: Na slici su nacrtani grafovi funkcija y=2x i y=2−x na tenelju čega razabiremo da se rješenje nalazi u intervalu [0,1].
+Rješenje te jednadžbe možemo odrediti samo numerički jer se ono ne može iskazati formulom. Promotrit ćemo funkcijuf(x)=2x+x−2.Ona je neprekinuta na čitavom R. Vrijedi f(0)=−1, f(1)=1. Ove su vrijednosti različitih predznaka, pa prema teoremu 4 funkcija ima nul-točku unutar intervala [0,1].
+
+Sad taj interval smanjujemo računajući funkcijske vrijednosti u točkama 0.1, 0.2,..., dok ne dobijemo dvije vrijednosti suprotnog predznaka.
+
+Postupak nastavljamo s deset puta kraćim intervalima. U svakom koraku algoritma dobit ćemo novu decimalu rješenja. Postupak možemo pratiti u tablici:
+x	f(x)		x	f(x)		x	f(x)
+0.1	−0.8282		0.51	−0.065949		0.541	−0.0040193
+0.2	−0.6513		0.52	−0.046044		0.542	−0.0020105
+0.3	−0.4688		0.53	−0.026070		0.543	−0.0000009
+0.4	−0.2804		0.54	0.006027		0.544	0.0020094
+0.5	−0.0857		0.55	0.014085			
+0.6	0.1157						
+0.7							
+0.8							
+0.9							
+Vidimo da je rješenje blisko broju 0.543. S malo prakse se broj računanja može smanjiti jer ne moramo uvijek krenuti od početnih vrijednosti u stupcu. Možemo na temelju vrijednosti funkcije birati neki drugi početak.
+
+Primjerice, u prvom koraku imamo f(0)=−1, f(1)=1 pa je prikladno početi računati od sredine intervala, od točke x=0.5.
+
+U drugom koraku je f(0.5)=−0.08, f(0.6)=0.11 pa je prirodno početi računati od x=0.54.
+
+Prema potrebi, ako smo pretjerali, možemo se vratiti na prethodnu točku x=0.53.
+
+Na ovaj ćemo način uštediti velik dio nepotrebnog računa u ovoj tablici.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 24
+Neka je f(x)=x2+2x.
+
+1) Koliki je prirast te funkcije u x0=1?
+
+2) Koliki je prirast te funkcije u x0=0 ako je prirast argumenta Δx=0.5?
+
+3) Koliki je prirast te funkcije u po volji odabranom x0 za bilo koji Δx?
+Rješenje:
+
+1) Za x0=1 prirast funkcije je:Δy=f(1+Δx)−f(1)=(1+Δx)2+2(1+Δx)−3=4Δx+(Δx)2.
+2) Za x0=0 imamoΔy=f(0+Δx)−f(0)=(Δx)2+2(Δx)−0=2Δx+(Δx)2.Posebice, za Δx=0.5 dobivamo Δy=1.25.
+
+3) Općenito za prirast funkcije u x0 dobivamoΔy=f(x0+Δx)−f(x0)=(x0+Δx)2+2(x0+Δx)−x20−2x0=(2x0+2)Δx+(Δx)2.
+
+Primejr 25
+Nagib pravca. Odredimo prirast linearne funkcije f(x)=kx+l u
+
+1) x0=1,
+2) x0=3,
+3) po volji odabranom x0
+Nagib pravca jednak je koeficijentu smjera pravca i dobiva se kao omjer ΔyΔx. On je stalan u svakoj točki x0.
+Rješenje:
+1) U točki x0=1 je:Δy=f(1+Δx)−f(1)=k(1+Δx)+l−(k⋅1+l)=kΔx.2) U točki x0=3 je:Δy=f(3+Δx)−f(3)=k(3+Δx)+l−(k⋅3+l)=kΔx.3) Općenito je:Δy=f(x0+Δx)−f(x0)=k(x0+Δx)+l−(kx0+l)=kΔx.
+
+Primejr 26
+Neka je y=f(x)=x2. Nađimo nagib tangente na graf te funkcije u točki (1,1).
+Rješenje: Postavit ćemo sekantu kroz točku s koordinatama (1,1) i kroz njoj „susjednu” točku (1+Δx,f(1+Δx)). Vrijedif(1+Δx)=(1+Δx)2=1+2Δx+(Δx)2.Zato je prirast funkcije u točki x0=1 jednakΔy=f(1+Δx)−f(1)=[1+2Δx+(Δx)2]−1=2Δx+(Δx)2.Zanima nas koeficijent smjera sekante. On iznosik=ΔyΔx=2Δx+(Δx)2Δx=2+Δx.Vidimo da njegova vrijednost teži k 2 kad Δx teži k nuli. Zato je nagib tangente u točki (1,1) jednak 2.
+
+Primejr 27
+Kolika je površina trokuta što ga omeđuju tangenta na hiperbolu y=1x u točki s apscisom 2 i koordinatne osi?
+Rješenje: Najprije moramo odrediti nagib tangente u točki (2,12) na hiperboli. Prirast funkcije jeΔy=f(2+Δx)−f(2)=12+Δx−12=2−(2+Δx)2(2+Δx)=−Δx2(2+Δx).Dakle, omjer prirasta funkcije i prirasta argumenta jeΔyΔx=−12(2+Δx).Vidimo da postoji limes ovog izraza kad Δx→0. Taj limes daje koeficijent smjera tangente:k=limΔx→0ΔyΔx=−limΔx→012(2+Δx)=−14.  Jednadžba tangente na graf hiperbole u točki (2,12) jey−12=−14(x−2),y=−x4+1.
+Odresci pravca na koordinatnim osima su m=4 i n=1, pa je površina trokuta jednaka 2.
+
+Primejr 28
+Mjerenjem je utvrđeno da je prevaljeni put tijela koje slobodno pada u vakuumu dan formuloms=12gt2gdje je t vrijeme slobodnog pada. Kolika je brzina tijela u tom trenutku?
+Rješenje: Računajmo prosječnu brzinu u vremenskom intervalu od t do t+Δt:¯v=ΔsΔt=12g(t+Δt)2−12gt2Δt=gt+12g⋅Δt.Promatramo li sve kraće vremenske intervale, tada je Δt→0 i prosječna brzina postaje trenutačna brzina u trenutku t:v(t)=gt.
+
+Primejr 29
+Navedimo primjer funkcije koja je neprekinuta, a nema derivaciju u nekoj točki.1 Neka je f(x)=|x−2|. Ona je neprekinuta u svakoj točki. Tvrdimo da nema derivaciju u točki x0=2. Računamo:ΔyΔx=f(2+Δx)−f(2)Δx=|2+Δx−2|−0Δx=|Δx|Δx.Zato jelimΔx→0−ΔyΔx=limΔx→0−−ΔxΔx=−1,limΔx→0+ΔyΔx=limΔx→0+ΔxΔx=1i ne postoji limΔx→0ΔyΔx, tj. funkcija nema derivaciju u točki 2.
+
+Sa slike grafa ove funkcije vidi se zbog čega derivacija u toj točki ne postoji.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 30
+Odredimo derivaciju funkcije f(x)=kx+l. ImamoΔyΔx=f(x+Δx)−f(x)Δx=k(x+Δx)+l−kx−lΔx=k,te jef′(x)=limΔx→0ΔyΔx=ku svakoj točki x.
+
+Derivacija afine funkcije je konstanta i jednaka koeficijentu smjera pripadnog pravca. Posebice, derivacija identiteta f(x)=x je x′=1.
+
+Primejr 31
+Odredimo derivaciju funkcije f(x)=x2. Računajmo u trima koracima:
+
+1) f(x+Δx)=(x+Δx)2=x2+2xΔx+(Δx)2.
+
+2) ΔyΔx=f(x+Δx)−f(x)Δx=x2+2xΔx+(Δx)2−x2Δx=2x+Δx.
+
+3) f′(x)=limΔx→0ΔyΔx=limΔx→0(2x+Δx)=2x.
+
+Dakle, (x2)′=2x.
+
+Primejr 32
+Odredimo derivaciju funkcije f(x)=x3. Računajući na isti način imamo:
+
+1) f(x+Δx)=(x+Δx)3=x3+3x2Δx+3x(Δx)2+(Δx)3,
+
+2)ΔyΔx=f(x+Δx)−f(x)Δx=x3+3x2Δx+3x(Δx)2+(Δx)3−x3Δx=3x2+3xΔx+(Δx)2,3)f′(x)=limΔx→0ΔyΔx=limΔx→0(3x2+3xΔx+(Δx)2)=3x2.Dakle, (x3)′=3x2.
+
+primejr 33
+Izračunajmo derivaciju polinoma P(x)=12x3+34x2−2x−5.
+Rješenje:P′(x)=(12x3+34x2−2x−5)′=(12x3)′+(34x2)′+(−2x)′+(−5)′=12⋅3x2+34⋅2x−2−0=32x2+32x−2
+
+Primejr 34
+Izračunajmo derivacije nekih funkcija.
+
+1) (x√x)′=x′⋅√x+x⋅(√x)′=√x+x⋅12√x=32√x
+
+2)[x2(x3+x+1)]′=(x2)′(x3+x+1)+x2⋅(x3+x+1)′=2x(x3+x+1)+x2(3x2+1)=5x4+3x2+2x3)(1(x+1)x3)′=−[(x+1)x3]′(x+1)2(x3)2=−x3+(x+1)⋅3x2(x+1)2x6=−4x+3(x+1)2x44)(2x+1x−3)′=(2x+1)′⋅(x−3)−(2x+1)⋅(x−3)′(x−3)2=2(x−3)−(2x+1)(x−3)2=−7(x−3)2.
+
+Primejr 35
+Izračunajmo derivacije nekih funkcija.
+
+1) [(x3−x)(x2+1)]′=(3x2−1)(x2+1)+(x3−x)(2x)
+
+2) [√x(x2+1)]′=12√x(x2+1)+√x⋅(2x)
+
+3) (√x−1√x+1)′=12√x(√x+1)−(√x−1)12√x(√x+1)2=1√x(√x+1)2
+
+Primjer 36
+Ako izraz oblika x2+x−14 deriviramo poput kvocijenta, dobit ćemo točan rezultat:(x2+x−14)′=(x2+x−1)′⋅4−(x2+x−1)⋅4′42=4(2x+1)−(x2+x−1)⋅016=2x+14,ali se to tako ne radi. Riječ je o umnošku konstante i funkcije:(x2+x−14)′=14(x2+x−1)′=14(2x+1).
+
+Primejr 37
+Poljoprivredno dobro prodaje jagode po cijeni od t eura po kilogramu. Prodaja jagoda ovisi o cijeni i opisana je funkcijom f(t). Ukupna zarada je onda z=t⋅f(t).
+
+1) Koje je značenje podatka f(4)=700?
+
+2) Koje je značenje podatka f′(4)=−200?
+
+3) Koliko iznosi z′(4) i koje je značenje tog podatka?
+Rješenje:
+1) Po cijeni od 4 € po kilogramu može se postići prodaja od 700 kg.
+
+2) S porastom cijene količina će se smanjiti jer je derivacija negativna. To će smanjenje biti približno 2 kg za svaki cent povećanja cijene.
+
+3) Vrijedi, prema pravilu za derivaciju umnoška:z′(4)=f(t)+tf′(t)=700+4⋅(−200)=−100.Ovaj podatak govori da će povećanje cijene smanjiti ukupnu zaradu, ali isto tako da će smanjenje cijene povećati tu zaradu jer funkcija ukupne zarade ima negativan nagib u točki 4.
+
+Primejr 38
+Za f(x)=x4+2x3−x+1 vrijedi:f′(x)=4x3+6x2−1f”(x)=12x2+12xf”′(x)=24x+12f(4)(x)=24f(5)(x)=0.
+
+Primejr 39
+Za funkciju f(x)=1x vrijedif′(x)=−1x2f′′(x)=2x3f′′′(x)=−6x4.Pokažimo da je za tu funkciju:f(n)(x)=(−1)nn!xn+1.
+Rješenje: Dokazujemo indukcijom. Za n=1 tvrdnja vrijedi. Pretpostavimo da je tvrdnja istinita za derivaciju n-tog reda. Onda za sljedeću derivaciju vrijedif(n+1)(x)=df(n)(x)dx=ddx[(−1)n⋅n!xn+1]=(−1)nn!ddx(1xn+1)=(−1)nn!⋅(−1)n+1xn+2=(−1)n+1(n+1)!xn+2.
+
+Primejr 40
+Jednoliko i jednoliko ubrzano gibanje. Derivacija brzine naziva se akceleracija. To je, dakle, druga derivacija puta po vremenu.
+
+Pri jednolikom gibanju prevaljeni je put linearna funkcija vremena:s(t)=b1t+b0.Njegova je derivacija v(t)=s′(t)=b1 konstanta (odatle i ime gibanju). Akceleracija ovoga gibanja je nula: a(t)=b′1=0.
+
+Pri jednoliko ubrzanom gibanju put je kvadratna funkcija vremena:s(t)=b2t2+b1t+b0.Deriviravši ovu funkciju, imamo:v(t)=s′(t)=2b2t+b1a(t)=v′(t)=2b2.Dakle, akceleracija je konstantna, odakle i ime gibanju.
+	
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 41
+Odredimo derivaciju funkcije √x2+x−2.
+Rješenje: Ovdje je y=f(x)=√x, u=g(x)=x2+x−2. Po formuli (2) imamo(√x2+x−2)′=f′(u)⋅u′(x)=12√u⋅(2x+1)=2x+12√x2+x−2.
+
+primejr 42
+ddx(sin(x2))=(derivacija funkcije sinus)=cos(x2)⋅(x2)′=cos(x2)⋅2x.
+
+Primejr 43
+ddx(√x+1)3=(derivacija potencije u3)=3(√x+1)2⋅(√x+1)′=3(√x+1)2⋅12√x
+
+Primjer 44
+ddx√2x+√x=(deriviramo korijen i množimo s derivacijom argumenta)=12√2x+√x⋅(2+12√x).ddx√x+√x2+√x=12√x+√x2+√x⋅[1+12√x2+√x⋅(2x+12√x)].
+
+Primjer 45
+Cisterna oblika lijevka (obrnutog stošca) visoka je 3 m, a polumjer njezine baze iznosi 2 m. U nju se ulijeva tekućina brzinom od 15 l u sekundi. Kojom se brzinom podiže razina tekućine u trenutku kad je ona dosegla 1 m? Rješenje: Neka je h razina tekućine u trenutku t nakon početka punjenja cisterne, a r odgovarajući polumjer (slika). Tada jerh=23⟹r=23h.Veličina koju tražimo je derivacija dhdt, izračunana u točki za koju je h=1 m.
+
+Zato ćemo obujam tekućine izraziti kao funkciju varijable h:V(h)=13πr2h=4π27h3.Sada je dVdt=dVdh⋅dhdt=4π9h2⋅dhdt. Izraz dVdt je brzina kojom se cisterna puni: dVdt=15 l/s=0.015 m3/s. Zato u trenutku kad je razina tekućine h=1 m, vrijedi: 0.015m3/s=4π9⋅12m2⋅dhdt, odakle jedhdt=9⋅0.0154π m/s=1.07 cm/s.
+
+Primejr 46
+Balon se napuhava brzinom od 1 l/s. Kojom se brzinom povećava njegov polumjer u trenutku kad iznosi 30  cm?
+Rješenje: Primjer je sličan prethodnom. Obujam balona u ovisnosti o polumjeru dan je formulom V=43r3π. Veličine V i r funkcije su vremena t. VrijedidVdt=dVdr⋅drdtte jedVdt=4r2π⋅drdt.U ovoj je jednakosti zadano dVdt=1 dm3/ s, r=30  cm=3dm te je:1 dm3s=4⋅32 dm2⋅π⋅drdt,odakle je:drdt=136π⋅dms=0.88mms.
+
+primejr 47
+Osoba visoka 180 cm udaljava se brzinom od 1 m/s od svjetiljke koja se nalazi na stupu visokom 4 m. Kojom se brzinom povećava njezina sjena kada je ona 10 m udaljena od svjetiljke? Označimo s x udaljenost osobe od svjetiljke, a s y duljinu sjene. Tada jex+y4=y1.8,odakle slijedi y=911x. Brzina kojom osoba hoda je dxdt=1 ms.
+
+Brzina kojom se mijenja sjena iznosi dydt:
+dydt=911⋅dxdt=911 ms.
+Vidimo da je ova brzina u svakom trenutku jednaka, ne
+ovisi o trenutačnom položaju osobe.
+
+Primejr 48
+Pijesak curi na hrpu oblika stošca u količini 1 dm3/min. Ako je pritom visina hrpe uvijek jednaka njezinom polumjeru, kojom se brzinom ona povećava nakon 60 minuta? Rješenje: Nakon 60 minuta na hrpi će biti 60 dm3 pijeska.V=13r2πh=13h3π.U tom je trenutku visina hrpe60 dm3=13h3π⟹h=3.855 dm.Brzina njezine promjene dobiva se izdVdt=dVdh⋅dhdt=h2π⋅dhdt,gdje trebamo uvrstiti izračunanu vrijednost za h kao i brzinu promjene obujma dVdt=1 dm3/min. Zato je:dhdt=1h2π⋅dVdt=13.8552π dm2⋅1 dm3min=2.14 mmmin.
+
+Primjer 49
+Svjetionik je udaljen od ravnog dijela obale 1 km. Njegova se zraka okreće triput u minuti. Kojom se brzinom po obali pomiče zraka njegovog svjetla u mjestu T koje je 2 km udaljeno od točke A, najbliže svjetioniku? Rješenje: Neka je x udaljenost osvijetljene točke na obali od točke A. Tada je x=tg α km. Brzina okretanja zrake opisuje se promjenom kuta α. Ona je konstantna:dαdt=3 okr.min=6π radmin.Jedinice mjere korisno je pisati tijekom računa (to se pisanje može izostaviti ako su prije početka računa sve jedinice pretvorene u MSK  sustav):dxdtkmmin=dxdαkmrad⋅dαdtradmin=1cos2α⋅6πkmmin=6π(1+tg 2α)kmmin=6π(1+x2)kmmin.Tražimo ovu brzinu u trenutku kada je x=2 km:dxdtkmmin=6π(1+22)kmmin=30πkmmin=5655 km/h.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 6
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 50
+Iz y=√x slijedi x=y2. Zato je funkcija f(x)=√x inverzna funkciji g(y)=y2. Po formuli (1) računamo:(√x)′=f′(x)=1g′(y)=12y=12√x.
+
+Primejr 51
+Inverzna funkcija n-tog korijena f(x)=n√x je potencija x=g(y)=yn.(n√x)′=1(yn)′=1nyn−1=1nn√xn−1.Ova je formula u skladu s općom formulom za derivaciju potencije:(n√x)′=(x1n)′=1nx1n−1=1nx−n−1n=1nn√xn−1.

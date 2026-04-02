@@ -1,0 +1,302 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 1
+Odredimo jednadžbe tangente i normale na graf funkcije f(x)=x3−x+2 u točki s apscisom 1.
+Rješenje: Vrijedi f(1)=1−1+2=2, pa su koordinate točke na grafu funkcije (1,2). Derivacija je f′(x)=3x2−1, zato f′(1)=2. Jednadžba tangente je:t…y−2=2(x−1)⟹y=2x,a jednadžba normale:n…y−2=−12(x−1)⟹y=−12x+52.
+
+Primejr 2
+Za funkciju f(x)=sinx je f′(x)=cosx. Za x0=0 derivacija iznosi f′(0)=1. Zato jednadžba tangente u točki (0,0) na grafu funkcije glasi:y−0=f′(0)(x−0)⟹y=x.To znači da graf funkcije sinus ulazi u ishodište duž ovog pravca, dakle, pod kutom od 45∘. Na to treba paziti pri crtanju grafa ove funkcije.
+
+Primejr 3
+Pokažimo da sve tangente na graf funkcije f(x)=1x u bilo kojoj točki u prvom kvadrantu zatvaraju s koordinatnim osima trokut jednake površine. Rješenje: Neka je x0 apscisa po volji odabrane točke, a y0 njezina ordinata. Onda je y0=1x0, odnosno x0y0=1. Derivacija funkcije iznosi f′(x)=−1x2, pa je jednadžba tangente:t…y−y0=−1x20(x−x0),što nakon sređivanja daje: y=−1x20x+2x0. Neka je (m,0) točka u kojoj tangenta siječe x-os:0=−1x20m+2x0⟹m=2x0.Neka je (0,n) točka u kojoj tangenta siječe y-os. Za x=0 imamo n=2x0. Površina trokuta iznosi:P=mn2=2x0⋅2x02=2.
+
+Primejr 4
+Izračunajmo kut pod kojim se sijeku krivulje y=√x i y=x2 u točki (1,1). Rješenje: Nagib tangente u nekoj točki krivulje y=√x jednak je k1=12√x. Nagib tangente na drugu krivulju je k2=2x. Za točku T(1,1) ti su nagibi jednaki k1=12, k2=2 pa možemo računati:tg φ=k2−k11+k1k2=2−121+2⋅12=34.Kut iznosi φ=arctg34=36∘52′.
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+Primjer 5
+Odredimo intervale monotonosti za funkcijuf(x)=x3−12x+1.
+Rješenje:
+
+1) Derivacija funkcije jef′(x)=3x2−12.2) Stacionarne točke dobivamo iz3x2−12=0⟺3(x+2)(x−2)=0pa je x1=−2, x2=2. Ovim točkama je područje definicije podijeljeno na tri intervala: ⟨−∞,−2⟩, ⟨−2,2⟩ i ⟨2,+∞⟩. 
+
+3) Izaberimo po jednu točku iz svakog intervala i odredimo predznak derivacije:x=−3,f′(−3)>0⟹⟨−∞,−2⟩ je interval rastax=0,f′(0)<0⟹⟨−2,2⟩ je interval padax=3,f′(3)>0⟹⟨2,+∞⟩je interval rastaPonašanje funkcije opisujemo tablicom. Znak ↗ stavljamo na intervalu rasta, a znak ↘ na intervalu pada.
+
+Primejr 6
+Odredimo stacionarne točke i intervale monotonosti za funkcijuf(x)=x4−x3.
+Rješenje:
+
+1) Derivacija funkcije je f′(x)=4x3−3x2=x2(4x−3).
+2) Stacionarne točke tražimo iz jednadžbe f′(x)=x2(4x−3)=0 čija su rješenja x1=0 i x2=34.
+
+3) Intervali monotonosti su ⟨−∞,0⟩, ⟨0,34⟩, ⟨34,∞⟩. Izaberimo po jednu točku iz svakog intervala i odredimo predznak derivacije:x=−1,f′(−1)<0⟹⟨−∞,0⟩ je interval padax=12,f′(12)<0⟹⟨0,34⟩ je interval padax=1,f′(1)>0⟹⟨34,∞⟩ je interval rasta.Vidimo da funkcija pada i na intervalu ⟨−∞,0⟩ i na intervalu ⟨0,34⟩. Zato se može kazati da je ⟨−∞,34⟩ interval pada. Međutim, zbog važnosti stacionarne točke mi ćemo taj interval ipak rastaviti na dva dijela stacionarnom točkom.
+
+Rezultate možemo zapisati u obliku tablice koja opisuje tijek funkcije:
+Skicirajmo graf ove funkcije. U tu svrhu pomoći će nam podatak da su njezine nul-točke x=0 (trostruka) i x=1, kao i vrijednost u nekoliko karakterističnih točaka:
+x	−1	−0.5	0	0.75	1	1.5	2
+f(x)	2	0.19	0	−0.11	0	1.69	8
+Što se događa u točki x2=34? Lijevo od te točke funkcija pada, desno od te točke ona raste. U intervalu oko točke x2 najmanju vrijednost funkcija poprima baš u točki x2. Kažemo da je to točka lokalnog minimuma.
+
+Primejr 7
+Odredimo ekstrem funkcije f(x)=−x2+4x+2.
+Rješenje: Izračunajmo derivaciju:f′(x)=−2x+4.Ona je jednaka nuli za x0=2. U intervalu ⟨−∞,2⟩ derivacija je pozitivna, dakle, to je interval rasta. U intervalu ⟨2,∞⟩ derivacija je negativna, dakle, to je interval pada. Stoga funkcija raste lijevo od točke x0, a pada desno od nje, pa je x0=2 apscisa maksimuma funkcije. Maksimum funkcije je M=f(2)=6.
+
+Primejr 8
+Odredimo ekstrem funkcije f(x)=x3−3x2+3x.
+Rješenje: Izračunajmo derivaciju:f′(x)=3x2−6x+3=3(x−1)2.Ona je jednaka nuli za x0=1. U intervalu ⟨−∞,1⟩ derivacija je pozitivna, znači da je to interval rasta. U intervalu ⟨1,∞⟩ derivacija je ponovno pozitivna, te je i to interval rasta. Funkcija raste lijevo i desno od točke x0, pa x0 nije ekstrem funkcije.
+
+Primejr 9
+Bernoullijeva nejednakost. Dokažimo da za svaki r>1 i h>0 vrijedi(1+h)r>1+rh.
+Rješenje: Stavimof(h)=(1+h)r−1−rh.Moramo pokazati da za h>0 vrijedi f(h)>0:f(0)=1r−1=0,f′(h)=r(1+h)r−1−r=r[(1+h)r−1−1]>0.Zato je funkcija f rastuća. Posebice za h>0 vrijedi f(h)>f(0)=0.
+
+Primejr 10
+Funkcija f definirana je i neprekinuta na intervalu [0,7] i ima svojstvo f(0)=0. Graf njezine derivacije izgleda ovako: Opišimo ponašanje funkcije f. Na kojim je intervalima ona rastuća? U kojim točkama ona poprima lokalni ekstrem i koje su vrste ti ekstremi? Gdje su globalni ekstremi te funkcije? Nacrtajmo njezin graf.
+Rješenje: Derivacija f′ pozitivna je na intervalima [0,3] i [5,7] i to su intervali rasta za funkciju f. To znači da je točka x=3 lokalni maksimum funkcije f jer lijevo od te točke funkcija raste, a desno ona pada. Onda je x=5 lokalni minimum od f.
+
+Oblik funkcije iščitavamo iz izgleda grafa njezine derivacije. Budući da je na [0,2] i [6,7] derivacija konstantna, graf funkcije je na tim intervalima dio pravca. Na intervalima [2,4] i [4,6] derivacija je afina funkcija. Zato će na tim intervalima graf funkcije f biti dio parabole. 
+
+Graf funkcije f izgleda ovako:
+Globalni ekstremi su u točkama (0,0) (minimum) i (7,3) (maksimum).
+
+primejr 11
+Od kartona kvadratnog oblika sa stranicom duljine a treba načiniti otvorenu kutiju što je moguće većeg obujma. Koliki je taj obujam? Rješenje: Kutiju ćemo napraviti tako da od kvadrata odrežemo četiri kvadratična dijela. Obujam kutije jest:V(x)=x2⋅a−x2=12x2a−12x3,jer je 12(a−x) njezina visina, a x brid osnovke. Moramo naći maksimum ove funkcije. Njezina je derivacija:V′(x)=xa−32x2=32x(23a−x).Stacionarne točke su x1=0 i x2=2a3. Za x1=0 je V(x1)=V(0)=0 i to svakako nije traženi maksimum. Primijetimo da isto tako vrijedi V(a)=0. Jasno je da se maksimum mora postići u nekoj točki između 0 i a. To će biti druga stacionarna točka:V(x2)=V(2a3)=2a327.U to se možemo uvjeriti na sljedeći način:zax<2a3 jeV′(x)>0,zax>2a3 jeV′(x)<0,zato je x2=2a3 točka maksimuma. Maksimalni obujam je 2a327.
+
+Primejr 12
+Odredimo najveću i najmanju vrijednost funkcije f(x)=x2−x+1 na intervalu [0,2].
+Rješenje: Derivacija ove funkcije iznosi f′(x)=2x−1 i poništava se u točki x0=12. Lijevo od nje derivacija je negativna, a desno od nje pozitivna. Zato je x0=12 lokalni minimum funkcije. Nacrtajmo graf i skicirajmo tijek funkcije:
+Vrijednosti funkcije na krajevima intervala su f(0)=1 i f(2)=5. Samo u ovim točkama i u stacionarnoj točki funkcija može poprimiti svoj globalni minimum i maksimum. Vidimo da je lokalni minimum ujedno i globalni jer je 34 najmanja vrijednost funkcije na cijelom intervalu. Globalni maksimum je 5 i on se postiže u rubnoj točki 2, koja nije stacionarna točka.
+
+Primejr 13
+Odredimo ekstrem funkcije f(x)=x4−2x2.
+Rješenje:
+
+1) Prva i druga derivacija ove funkcije su:f′(x)=4x3−4x=4x(x2−1)=4x(x−1)(x+1),f′′(x)=12x2−4=4(3x2−1).2) Tri stacionarne točke:  x1=−1, x2=0 i x3=1.
+
+3) Predznaci druge derivacije u stacionarnim točkama određuju vrstu ekstrema:f′′(x1)=f′′(−1)=8>0,x1 je lokalni minimumf′′(x2)=f′′(0)=−4<0,x2 je lokalni maksimumf′′(x3)=f′′(1)=8>0,x3 je lokalni minimum.Vrijednosti funkcije u ovim točkama su y1=f(x1)=f(−1)=−1, y2=f(x2)=f(0)=0, y3=f(x3)=f(1)=−1. Graf funkcije skiciran je na slici ispod.
+
+primejr 14
+Odredimo ekstreme funkcije f(x)=x4−4x3.
+Rješenje:
+
+1) Prva i druga derivacija funkcije su:f′(x)=4x3−12x2=4x2(x−3),f′′(x)=12x2−24x=12x(x−2).2) Dvije su stacionarne točke x1=0 i x2=3.
+
+3) Vrijedi f′′(x2)=f′′(3)=36>0. Zato je u x2 minimum funkcije f. Vrijednost funkcije u toj točki je y min=f(3)=−27.
+
+U točki x1 je f′′(x1)=f′′(0)=0 i moramo ispitati predznak prve derivacije. Ona je negativna i lijevo i desno od točke x1 jer je član x2 uvijek pozitivan, a x−3 negativan. Zato x1=0 nije ekstrem. Graf funkcije skiciran je na slici lijevo.
+
+Primejr 15
+Funkcija f(x)=x2−3x+2 konveksna je na cijelom R jer je f”(x)=2>0 za svaki x.
+
+Funkcija f(x)=ex konveksna je na cijelom R jer je f′′(x)=ex>0 za svaki x.
+
+Funkcija f(x)=lnx konkavna je na ⟨0,∞⟩ jer je f′(x)=1x, f′′(x)=−1x2<0 za svaki x.
+
+Primejr 15
+Odredimo intervale konveksnosti i konkavnosti za funkcijuf(x)=x3−x.
+Rješenje: Derivacije funkcije su:f′(x)=3x2−1,f′′(x)=6x.Zato jef′′(x)>0 zax>0, na ⟨0,∞⟩ f je konveksnaf′′(x)<0 zax<0, na ⟨−∞,0⟩ f je konkavna.
+U točki x0=0 vrijedi f′′(x0)=0. To je točka pregiba jer graf prelazi iz konkavne u konveksnu granu.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+rimejr 16
+Nacrtajmo graf Cauchyjeve funkcijef(x)=1x2+1.
+Rješenje: Funkcija je definirana za svaki realni x, nema nul-točke. Funkcija je parna pa će njezin graf biti simetričan s obzirom na y-os.
+
+Ponašanje u beskonačnosti jelimx→∞1x2+1=0pa je y=0 horizontalna asimptota (i lijeva i desna).
+
+Derivacijaf′(x)=−2x(x2+1)2se poništava za x=0. Ona je pozitivna za x<0, negativna za x>0. Zato funkcija raste na ⟨−∞,0⟩, pada na ⟨0,+∞⟩ pa je M(0,1) maksimum funkcije.
+
+Druga će derivacija dati točke pregiba. Vrijedif′′(x)=−2(x2+1)2+22x⋅2x(x2+1)3=6x2−2(x2+1)3pa se druga derivacija poništava zax2=13⟹x1,2=±√33.Dvije su točke infleksije T1(−√33,14) i T2(√33,14). Sve ove podatke ucrtavamo u graf:
+
+Primejr 17
+Nacrtajmo graf funkcije f(x)=x4−2x3+1.
+Rješenje:
+
+1) Funkcija je definirana na čitavom R. Kad x teži u +∞, funkcija također teži u +∞ jer je vodeći koeficijent polinoma pozitivan. Isto vrijedi i za x→−∞. Funkcija nije niti parna niti neparna. Nul-točke ne možemo jednostavno odrediti, iako se jedna od njih može pogoditi: f(1)=14−2⋅13+1=0. Korisno je odrediti još vrijednosti u nekoliko susjednih točaka: f(−1)=4, f(0)=1, f(2)=1, f(3)=28.
+
+2) Prva derivacija iznosif′(x)=4x3−6x2=2x2(2x−3).Rješenja jednadžbe f′(x)=0 su stacionarne točke x1=0 i x2=32. Po predznacima prve derivacije određujemo intervale monotonosti funkcije f:
+Dakle, f pada na intervalu ⟨−∞,32⟩, a raste na ⟨32,+∞⟩. Točka x1 nije ekstrem, a x2 je minimum. Iznos funkcije u točki minimuma je m=f(32)=−1116.
+
+3) Druga derivacija iznosi f′′(x)=12x2−12x=12x(x−1)i jednaka je nuli u točkama x1=0 i x3=1. Po predznaku druge derivacije određujemo intervale konveksnosti, odnosno konkavnosti:
+Primijetimo da je točka x1=0 ujedno i stacionarna točka. Za nju kažemo da je točka horizontalnog pregiba jer je tangenta u toj točki paralelna s x-osi.
+
+Primejr 18
+Nacrtajmo graf funkcije f(x)=e−x2/2.
+Rješenje:
+
+1) Funkcija je definirana na čitavom R. Parna je. Vrijedi f(x)→0 kad x→∞. Nema nul-točaka jer je svuda pozitivna.
+
+2) Prva derivacija iznosi f′(x)=−xe−x2/2. Stacionarna točka je x0=0. Za x<0 derivacija je pozitivna pa funkcija raste, a za x>0 ona je negativna pa funkcija pada. Zato je x0 maksimum, M=f(0)=1.
+
+3) Druga derivacija f′′(x)=(x2−1)e−x2/2. Jednaka je nuli u točkama x1=−1 i x2=1. Funkcija je konveksna na ⟨−∞,−1⟩ i ⟨1,+∞⟩, a konkavna na ⟨−1,1⟩.
+
+Na temelju ovih podataka možemo ispisati tijek funkcije i nacrtati njezin graf. Ova se zvonkolika krivulja naziva Gaussovom krivuljom.
+
+primejr 19
+Funkcijaf(t)=L1+Ae−ktnaziva se logistička krivulja. Ovdje su k, L i A pozitivne konstante.
+
+Između ostalog, ona opisuje širenje epidemije u populaciji veličine L.
+
+Nacrtajmo graf ove funkcije. Funkcija je definirana za svaki t. Njene vrijednosti za t<0 govore kakvo je stanje u populaciji bilo u prošlosti.
+
+Limesi u kojima t→−∞ i t→+∞ dat će horizontalne asimptote. Lijeva asimptota:limt→−∞L1+Ae−kt=[L∞]=0.Desna asimptotalimt→+∞L1+Ae−kt=[L1+0]=L.Derivacija funkcije jef′(t)=−L(1+Ae−kt)2⋅A(−k)e−kt=AkLekt(A+ekt)2.Ova je funkcija svuda pozitivna, pa je stoga f rastuća. Druga derivacija jef′′(t)=Aekt(A−ekt)k2L(A+ekt)3.Ona se poništava ako je A−ekt=0⟹t=lnAk. Za tu vrijednost od t je A=ekt pa funkcija iznosif(lnAk)=L1+Ae−kt=L2.Dakle, graf funkcije ima infleksiju u točki (lnAk,L2).
+
+Nacrtat ćemo taj graf za vrijednost A>1. U tom je slučaju lnA>0 pa je točka infleksije unutar intervala [0,∞⟩. Također, početna vrijednost u tom slučaju jef(0)=L1+A<L2.
+
+Primejr 20
+1) Funkcija f(x)=tg x ima vertikalnu asimptotu x=π2.
+
+2) Eksponencijalna funkcija f(x)=2x ima lijevu horizontalnu asimptotu y=0, dok desne nema. 3) Funkcija f(x)=1x ima horizontalnu asimptotu (istovremeno lijevu i desnu) y=0. Vertikalna asimptota je pravac x=0.
+
+4) Funkcija f(x)=2x+1x−1 ima vertikalnu asimptotu x=1, a horizontalnu y=2. 
+
+Primejr 21
+Odredimo asimptote funkcije y=x3x2+x+1.
+Rješenje: Vertikalnih asimptota funkcija nema jer je nazivnik razlomka uvijek pozitivan. Odredimo kose asimptote.
+
+Računamo koeficijent k. Ako je moguće, nastojimo odrediti istovremeno koeficijente desnih i lijevih asimptota jer će se one za mnoge funkcije podudarati.k=limx→±∞yx=limx→±∞x3x(x2+x+1)=1.Sad tražimo koeficijent l:l=limx→±∞(y−kx)=limx→±∞(x3x2+x+1−x)=limx→±∞−x2−xx2+x+1=−1.Pravac y=x−1 je desna i lijeva asimptota ove funkcije. Slika govori o važnosti asimptote: ona se na dobrom dijelu područja definicije praktički podudara s funkcijom.
+
+primejr 22
+Odredimo asimptote funkcije y=e1/x−x.
+Rješenje: Točka x=0 nije u području definicije. Zato najprije ispitujemo limese slijeva i zdesna u toj točki:limx→0−(e1/x−x)=[e−∞−0]=0limx→0+(e1/x−x)=[e+∞−0]=+∞.Pravac x=0 je vertikalna asimptota ove funkcije (s desne strane). Potražimo kose asimptote:k=limx→±∞yx=limx→±∞e1/xx−1=[e0±∞−1]=−1l=limx→±∞(y−kx)=limx→±∞e1/x=1.Zato je pravac y=−x+1 lijeva i desna kosa asimptota funkcije. Derivacija funkcije glasi y′=−e1/x⋅1x2−1 i ona je uvijek negativna. Zato je funkcija padajuća na svakom intervalu iz područja defincije.
+
+Primejr 23
+Na sljedećoj slici nacrtan je graf racionalne funkcijef(x)=(x+3)(x−1)(x+1)(x+2)2(x−2).	Tu uočavamo dvije vertikalne asimptote:v1…x=−2,v2…x=2.S obje strane asimptote v1 funkcija je negativna jer je x=−2 dvostruka nul-točka nazivnika i funkcija ne mijenja predznak pri prolazu kroz tu točku.
+
+Nul-točka nazivnika x=2 je jednostruka, pa funkcija mijenja predznak pri prolazu kroz tu točku. Zato njezin graf dolazi sa suprotnih strana asimptote.
+
+Funkcija ima još horizontalnu asimptotu y=1.
+
+Primejr 24
+Nacrtajmo graf funkcije f(x)=xx2−1.
+Rješenje: Funkcija nije definirana u točkama x=±1. Pravci x=−1, x=1 njezine su vertikalne asimptote. Stupanj brojnika manji je od stupnja nazivnika. Zato je pravac y=0 horizontalna asimptota.
+
+Derivacija funkcije je f′(x)=x2−1−x⋅2x(x2−1)2=−x2+1(x2−1)2 i nigdje nije jednaka nuli.
+
+Dakle, funkcija nema ekstrema. Kako je derivacija negativna, funkcija će padati na svakom od intervala na kojem je definirana.
+
+Primjećujemo još da je ona neparna i da ima nul-točku u x=0.
+
+Da bismo je mogli nacrtati, potrebna nam je barem po jedna vrijednost na intervalima ⟨−∞,−1⟩ i ⟨1,+∞⟩. Računamo f(−2)=−23, f(2)=23.
+
+Primejr 25
+Nacrtajmo graf funkcije f(x)=3x−x2x−4.
+Rješenje: Funkcija nije definirana u točki x=4 pa je pravac x=4 njezina vertikalna asimptota. Nul-točke su x1=0 i x2=3.
+
+Stupanj brojnika za jedan je veći od stupnja nazivnika. Zato funkcija ima kosu asimptotu. Odredimo je:k=limx→±∞f(x)x=limx→±∞3x−x2x2−4x=−1,l=limx→±∞[f(x)−kx]=limx→±∞(3x−x2x−4+x)=limx→±∞−xx−4=−1.Kosa asimptota je pravac y=−x−1.
+
+Ekstreme dobivamo izf′(x)=(3−2x)(x−4)−(3x−x2)(x−4)2=−(x−2)(x−6)(x−4)2.Stacionarne točke su x=2 i x=6. Vrijednosti funkcije u tim točkama su f(2)=−1 i f(6)=−9.
+
+Na osnovi ovih podataka možemo nacrtati graf. Osnovni je podatak njezina kosa asimptota. Crtajući, vidimo da je (2,−1) minimum, a (6,−9) maksimum funkcije.
+
+Pri crtanju trebamo imati na umu da će funkcija u okolini vertikalne asimptote imati različite predznake jer nazivnik x−4 mijenja predznak lijevo i desno od točke 4. Zato graf funkcije dolazi s različitih strana vertikalne asimptote. (Za funkcije koje imaju dvostruku nul-točku u nazivniku, to se neće dogoditi.)
+
+Primejr 26
+Nacrtajmo graf funkcije f(x)=4x2+x.
+Rješenje:
+
+1) Ispitivanje funkcije. Funkcija je definirana za svaki x osim za x=0. Limes na rubu područja definicije jelimx→0(4x2+x)=+∞.Dakle, x=0 jest vertikalna asimptota.
+
+Nul-točke su: 4x2=−x⟺x3=−4⟺x=−3√4.
+
+Kose asimptote. Vrijedi limx→±∞(y−x)=limx→±∞4x2=0 pa je y=x (obostrana) kosa asimptota. Nije potrebno računanje koeficijenta i odreska ako je asimptota vidljiva i bez tog postupka.−∞−3√40+∞fnul-točkaV. A.2) Ispitivanje derivacije. Vrijediy′=−8x3+1=0⟺x3=8⟺x=2.Za x<0 derivacija je pozitivna, pa na tom intervalu funkcija raste. Za 0<x<2 derivacija je negativna jer je x3<8 pa tu funkcija pada. Za x>2 je x3>8 pa je derivacija pozitivna i funkcija ponovno raste. To znači da je xm=2 točka minimuma. Minimum funkcije (lokalni) je y(2)=3.
+3) Ispitivanje druge derivacije. Vrijediy′′(x)=24x4.Druga derivacija je svuda pozitivna, zato je funkcija konveksna na oba intervala na kojima je neprekinuta.
+Na temelju ovih podataka crtamo graf.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 27
+Fermatov zadatak. Dužinu AC treba podijeliti točkom B na dva dijela tako da pravokutnik sa stranicama ¯¯¯¯¯¯¯¯AB i ¯¯¯¯¯¯¯¯BC ima maksimalnu površinu.
+Rješenje: Označimo d=|AC|, x=|AB|. Stranice pravokutnika su x i d−x, pa je njegova površinaP(x)=x(d−x)=dx−x2.Derivacija funkcije je P′(x)=d−2x i poništava se za x=d2. Druga derivacija iznosi P”(x)=−2, pa je riječ o maksimumu. Dakle, maksimum se postiže kad B raspolavlja dužinu i kad je pravokutnik zapravo kvadrat.
+
+Primejr 28
+Lidija i Dario žele iz komada kartona koji ima oblik pravokutnog trokuta izrezati pravokutnik što je moguće veće površine.
+Lidija predlaže da se pravokutnik reže kao na slici lijevo, a Dario voli komplicirati, pa hoće rezati kao na slici desno. Tko je u pravu? Koje će se dimenzije pravokutnika dobiti u oba slučaja?
+Rješenje: Uvedimo potrebne oznake. Neka su stranice pravokutnika x i y. Njegova je površina P=xy. Odredit ćemo vezu među varijablama x i y i nakon toga pronaći maksimum funkcije P. 
+Pratit ćemo kako istovremeno Lidija (lijevo) i Dario (desno) rješavaju problem pronalaženja optimalnog rezanja.
+
+Na slici lijevo slični su trokuti ADE i ACB, a na slici desno slični su trokuti FGC i ABC. Možemo postaviti omjer odgovarajućih stranica:|AD|:|DE|=|AC|:|CB|(b−x):y=b:a|FG|:|HC|=|AB|:|IC|x:(v−y)=c:v  Odavde slijediby=a(b−x)y=a−abxodnosno(v−y)c=vxy=v−vcxSad možemo napisati površinu pravokutnika i naći maksimum te funkcije:P(x)=yx=ax−abx2P′(x)=a−2abx=0x=b2,y=a2.P(x)=yx=vx−vcx2P′(x)=v−2vcx=0x=c2,y=v2.Druga derivacija funkcije P je negativna konstanta, pa je ovdje riječ o maksimumu. To naravno vidimo i iz geometrijskih razloga, dobiveni ekstrem sigurno nije pravokutnik minimalne površine, pa zato mora biti maksimalne.
+
+Ta je površina u Lidijinom rješenju jednakaP=xy=a2⋅b2=ab4a to je točno polovina površine trokuta. Dario je dobioP=xy=c2⋅v2=cv4pa je to također polovina površine trokuta. Oba su rješenja jednako dobra.
+
+Primijetite da je uvijek a2≠c2 i isto tako b2≠c2, pa su ovi pravokutnici uvijek različitih oblika. U tom slučaju, za odabir mogu biti važni estetski ili uporabni kriteriji. Primjerice, za trokut sa stranicama 3, 4 i 5 pravokutnici imaju dimenzije 2×1.5, odnosno 2.5×1.2.
+
+Primejr 29
+Prema pravilima Hrvatske pošte za slanje paketa, mora biti ispunjeno sljedeće:
+
+1) Najveća dimenzija (nazovimo ju: duljina) mora biti manja od 1.5 m.
+2) Zbroj duljine i opsega najšireg poprečnog presjeka ne smije prijeći 3 m.
+3) Paket mora imati masu manju od 30 kg.
+
+Ivana želi poslati paket pun perja iz Virovitice u Trogir. Planira napraviti paket oblika kvadra i što je moguće većeg obujma. Iz iskustva ona zna da baza paketa mora biti kvadrat. Kolika treba biti stranica te baze, a kolika visina paketa?
+Rješenje: Označimo s v visinu paketa, a s x duljinu stranice baze. Uzet ćemo paket maksimalnih dimenzija, pa će se dostići ograničenje:v+4x=3.Obujam paketa je V=vx2=(3−4x)x2. Sad dobivamoV′=6x−12x2=0⟹x=12.Rješenje x=0 zanemarujemo, ono daje obujam 0. Vrijedi V′′=6−24x i za x=12 druga derivacija je negativna. Dakle, radi se o maksimumu obujma. Dimenzije paketa su 12×12×1 (u metrima), a njegov obujam je 250 litara.
+
+Ako je riječ o guščjem ili pačjem perju, kolika će (otprilike) biti težina paketa?
+
+Primejr 30
+Tvornica konzervi želi proizvoditi konzerve valjkastog oblika obujma 1 litre tako da upotrijebi najmanju moguću količinu lima. Koje će dimenzije imati konzerva?
+Rješenje: Neka je r polumjer osnovke, h visina konzerve, a S njezino oplošje.
+Veza ovih veličina zadana je:S=2πrh+2r2π.(1)Moramo odrediti minimum ove funkcije ako je zadano V=r2hπ. Odavde ćemo varijablu h izraziti s pomoću r i uvrstiti u (1):S=2πr⋅Vr2π+2r2π=2Vr+2r2π.Sada je: S′(r)=−2Vr2+4rπ=0 pa dobivamo veze:V=2r3π,r=3√V2π.Budući da je S′′(r)=4Vr3+4π>0, vrijedi S′′(r)>0 i dobivena vrijednost za r zaista daje minimum funkcije S. Za tu vrijednost od r slijedi:h=Vr2π=2r3πr2π=2r.Sad možemo izračunati: r2hπ=V⟹r3⋅2π=1000 cm3 pa optimalna konzerva ima promjer jednak visini i on iznosi 2r=10.8 cm.
+
+Primejr 31
+U zadanu kuglu polumjera R upišimo valjak najvećeg obujma.
+Rješenje: Označimo s R polumjer kugle, s r i h polumjer i visinu valjka. Tada je h24+r2=R2. Obujam ćemo izraziti kao funkciju visine valjka:V(h)=πr2h=π(R2−h24)h=πR2h−πh34.h se mijenja u intervalu od 0 do 2R, pri čemu je na rubovima tog intervala odgovarajući obujam jednak nuli.
+Odredimo stacionarne točkeV′(h)=πR2−3πh24=0⟹h=2R√3.Za ovu vrijednost obujam će biti maksimalan:Vmax=πR3⋅23⋅2√3=4π3√3R3,jer je V′′(h)=−3π2h<0. Da smo kao varijablu izabrali r, a ne h, dobili bismo V(r)=2πr2√R2−r2. Nalaženje nul-točke derivacije ove funkcije je složenije. Međutim, funkcije V i V2 poprimaju maksimum u istoj točki! Zato je moguće promatrati funkcijuf(r)=V2(r)=4π2r4(R2−r2)te naći njezina stacionarna točka.
+
+Primejr 32
+Od zadanog kruga polumjera R treba odrezati isječak i od njega napraviti stožac maksimalnog obujma. Koliki će biti kut α tog isječka? maksimalnog obujma.
+Rješenje: Luk l=Rα je opseg baze stošca, a njegova je visina h=√R2−r2. Kako je 2rπ=l=Rα, dobivamo h=√R2−(Rα2π)2, te je obujam:V=13r2πhh=13(Rα2π)2⋅R⋅√1−(α2π)2=R324π2α2√4π2−α2.Potrebno je naći maksimum funkcije α↦α2√4π2−α2. Promotrimo njezin kvadrat:f(α)=4π2α4−α6.Deriviravši dva puta dobivamof′(α)=16π2α3−6α5f”(α)=48π2α2−30α4.Kut α mora biti pozitivan. Jedina zanimljiva kritična točka je α1=2π√23. Druga derivacija u toj točki je negativna, pa je riječ o maksimumu. Vrijednost kuta u stupnjevima jeα=180∘⋅2π√23π=360∘⋅√23≈294∘.
+
+primejr 33
+Jačina svjetla. Jačina svjetla u nekoj točki obrnuto je proporcionalna kvadratu udaljenosti od izvora, a proporcionalna sinusu kuta pod kojim svjetlo pada na površinu. Ako se na visini h iznad središta okruglog stola polumjera r nalazi izvor svjetlosti, onda je jačina svjetlosti na rubu tog stola jednakaI=k⋅sinαr2+h2,gdje je k konstanta koja ovisi o jakosti izvora. Kolika mora biti visina h da bi rub stola bio najjače osvijetljen (a time bi i čitav stol bio najbolje osvijetljen)? Rješenje: Vrijedi h=rtg α, te jeI(α)=ksinαr2+r2tg 2α=kr2sinαcos2α.Radi jednostavnijeg postupka stavimo sinα=u.I(u)=kr2u(1−u2),pa vrijedi: I′(u)=kr2(1−3u2)=0⟹u=±√33.
+
+U obzir dolazi samo u=√33=sinα. Sada jetg α=sinαcosα=√22,te je h=r⋅√22.
+
+Primjer 34
+Lom svjetlosti.  Zakon refleksije svjetla tvrdi da se zraka koja pada na ravno zrcalo reflektira tako da je upadni kut α jednak kutu refleksije β. Fermatov princip pak govori da zraka bira onaj put između točaka A i B koji će prevaliti u najkraćem vremenu. 
+Pokažimo da su ova dva principa usklađena. Rješenje: Označimo s A1, B1 ortogonalne projekcije točaka A i B. Neka je C točka u kojoj zraka pada na zrcalo. Označimo udaljenosti s d=d(A1,B1) i x=d(A1,C), a brzinu svjetlosti s c. Ukupan prevaljeni put je|AC|+|CB|=ct.Zato vrijedi:ct=√a2+x2+√b2+(d−x)2.
+Ukupno vrijeme potrebno zraki da prijeđe taj put je:t(x)=1c√a2+x2+1c√b2+(d−x)2.Potražimo minimum ove funkcije. Njezina je derivacijat′(x)=xc√a2+x2−d−xc√b2+(d−x)2.Ona je jednaka nuli ako jex√a2+x2=d−x√b2+(d−x)2.
+Ovu je jednadžbu praktički nemoguće riješiti po nepoznanici x jer vodi na algebarsku jednadžbu četvrtog stupnja. Međutim, možemo je napisati kaocosα=cosβ,gdje je α upadni kut, a β kut refleksije. Vidimo da mora biti α=β i ovo rješenje iz fizikalnih razloga odgovara minimalnom ukupnom vremenu.
+
+Primejr 35
+Lom svjetla u sredstvu. Zraka svjetlosti prolazi točkama A i B koje se nalaze u različitim optičkim sredinama. Pri prijelazu iz jedne sredine u drugu, zraka se lomi tako da je ukupno vrijeme potrebno da ona prevali put ACB minimalno. Neka su v1 i v2 brzine svjetlosti u ovim sredinama. 
+Pokažimo da iz toga slijedi Snellius--Descartesov zakon loma svjetlosti:sinα1sinα2=v1v2=n,(1)gdje su α1 i α2 kutovi naznačeni na slici, a n indeks loma, konstanta za dvije odabrane sredine. Rješenje: Označimo veličine na slici kao u prethodnom primjeru. 
+Ukupno vrijeme dano je s:t(x)=|AC|v1+|CB|v2=1v1√a2+x2+1v2√b2+(d−x)2.Sada jet′(x)=xv1√a2+x2−d−xv2√b2+(d−x)2,što je jednako nuli ako je: 1v1⋅x√a2+x2=1v2d−x√b2+(d−x)2, to jest:sinα1v1=sinα2v2,odakle slijedi (1).
+
+primejr 36
+Dokažimo sljedeće nejednakosti za elementarne funkcije:
+
+1) √1+x≤1+x2,x≥0;
+2) sinx≤x,x≥0;
+3) cosx≥1−x22,x≥0.
+Rješenje:
+
+1) Definirajmo funkcijuf(x)=√1+x−1−x2.Vrijedi f(0)=0 Želimo dokazati da je f(x)≤0 za x>0. U tu svrhu, dovoljno je pokazati da je prva derivacija negativna za x>0. To znači da će funkcija f biti padajuća na intervalu [0,∞⟩, pa je za x>0 ispunjeno f(x)<f(0)=0. Imamof′(x)=12√1+x−12<0jer je nazivnik prvog razlomka veći od 2.
+2) Stavimo sadf(x)=sinx−x.Onda je f′(x)=cosx−1≤0. Zato je funkcija f padajuća, pa vrijedi f(x)≤f(0), za x>0. Međutim, f(0)=0, pa dobivamo f(x)≤0, odnosno sinx≤x za x>0. Uvjeri se da ovdje vrijedi stroga nejednakost čim je x>0. 3) Za funkciju f(x)=cosx−1+x22 vrijedif′(x)=−sinx+x≥0jer vrijedi nejednakost 2). Zato je f rastuća. Budući da je f(0)=0, vrijedit će f(x)>0 za sve x>0.
+
+Primejr 37

@@ -1,0 +1,263 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 1
+Zbrajajući redom neparne prirodne brojeve, dobit ćemo1=11+3=221+3+5=321+3+5+7=421+3+5+7+9=52.Jesu li ovi rezultati samo slučajna podudarnost ili ćemo ovim postupkom uvijek dobiti kvadrat prirodnog broja? Smijemo li zaključiti da vrijedi1+3+5+7+…n pribrojnika=n2
+
+Primjer 2
+Zbrajajući potencije broja 2, dobivamo1= 1=21−11+2= 3=22−11+2+4= 7=23−11+2+4+8=15=24−1 ⋮Na temelju ovih rezultata napiši formulu za zbroj prvih n potencija broja 2. No, je li ta formula točna? Provjerit ćemo to kasnije.
+
+Primejr 3
+Za polinomP(x)=160(184x−110x2+55x3−10x4+x5)vrijedi P(1)=2, P(2)=4=22, P(3)=8=23, P(4)=16=24, P(5)=32=25. Koliko je P(6) i P(7)? Što se može pretpostaviti za vrijednost P(n) za bilo koji prirodni n?
+
+Primejr 4
+Usporedimo po veličini brojeve n2 i 2n. Koji od njih je veći?
+n	2n	n2
+n=1	2	1
+n=2	4	4
+n=3	8	9
+n=4	16	16
+n=5	35	25
+n=6	64	36
+Nakon početnih prevrtanja izgleda da dominiraju brojevi u stupcu 2n. Zato možemo postaviti hipotezu koja ovisi o prirodnom broju n:T(n):Vrijedi 2n>n2 za svaki n≥5.
+
+Primejr 5
+Dokažimo da vrijedi1+3+5+7+…n pribrojnika=n2.
+Rješenje. Posljednji pribrojnik, n-ti neparni broj, ima zapis 2n−1. Trebamo dokazati da vrijedi1+3+5+...+(2n−1)=n2.(1)za svaki prirodni broj n. To je tvrdnja T(n).
+1. Baza indukcije. Provjerili smo da je formula (1) istinita za prvih pet vrijednosti broja n. (Dovoljno je provjeriti istinitost za n=1.)
+2. Pretpostavka indukcije. Pretpostavimo da je formula (1) istinita za prirodni broj n.
+3. Korak indukcije. Dodajmo zbroju s lijeve strane sljedeći član. Iskoristimo pritom pretpostavku indukcije:1+3+5+...+(2n−1)=n2+(2n+1)=n2+(2n+1)=(n+1)2.Vidimo da tvrdnja vrijedi i za broj n+1. Zato ona vrijedi za svaki prirodni broj.
+
+primejr 6
+Dokažimo da za svaki cijeli broj n≥0 vrijedi1+2+4+⋯+2n=2n+1−1.(2)
+Rješenje:
+Početna vrijednost smije biti broj n0=0.
+1. Baza indukcije. Za n=0 relacija (2) glasi 1=1 i T(0) je istinita.
+2. Pretpostavka indukcije. Pretpostavimo da je jednakost (2) istinita, tj. da vrijedi T(n).
+3. Korak indukcije. Koristeći pretpostavku za sljedeći zbroj, dobivamo1+2+4+⋯+2n+2n+1=(2n+1−1)+2n+1=2⋅2n+1−1=2n+2−1=2(n+1)+1−1.posljednja jednakost je upravo tvrdnja T(n+1). Dakle, ona je istinita, pa po principu matematičke indukcije zaključujemo da je tvrdnja istinita za svaki cijeli broj n≥0.
+
+primjer 7
+Koristeći matematičku indukciju pokažimo istinitost formule1+2+...+n=n(n+1)2.(3)
+Rješenje:
+Tvrdnja T(n) koju želimo dokazati glasi: formula (3) vrijedi za svaki prirodni broj n.
+1. Baza indukcije. T(1) vrijedi jer u zbroju s lijeve strane imamo samo jedan član, a desna strana iznosi 1:1=1⋅(1+1)2.
+2. Pretpostavka indukcije. Pretpostavimo da tvrdnja vrijedi za broj n: formula (3) je istinita.
+3. Korak indukcije. Dodajmo lijevoj strani jednakosti sljedeći pribrojnik i iskoristimo pretpostavku indukcije:1+2+....+niskoristimo T(n)+(n+1)=n(n+1)2+(n+1)=n2+n+2n+22=n2+3n+22=(n+1)(n+2)2=(n+1)[(n+1)+1]2.
+Dobili smo formulu istovjetnu formuli (3), s n+1 umjesto n. To znači da tvrdnja vrijedi za broj n+1, dakle, T(n+1) je istinita tvrdnja. Prema principu matematičke indukcije, tvrdnja vrijedi za svaki prirodni broj n.
+
+Primejr 8
+Dokaži da je n3+2n djeljiv s 3, za svaki prirodni broj n.
+Rješenje: Za n=1 imamo n3+2n=3 pa je baza indukcije istinita. Pretpostavimo da vrijedi tvrdnja za broj n i zamijenimo n s n+1:(n+1)3+2(n+1)=n3+3n2+3n+1+2n+2=(n3+2n)+3(n2+n+1).Prema pretpostavci indukcije prvi je pribrojnik djeljiv s 3, pa je i čitav izraz djeljiv s 3. Time je dokazan korak indukcije.
+
+Primjer 9
+Dokažimo da je broj 4n+15n−1 djeljiv s 9 za svaki prirodni broj n.
+Rješenje: Za n=1, broj 18 je djeljiv s 9. Pretpostavimo da tvrdnja vrijedi za broj n. Tada se može napisati4n+15n−1=9kza neki prirodni broj k. Provjerimo istinitost tvrdnje za broj n+1.4n+1+15(n+1)−1=4[4n+15n−1]−45n+18=9(4k−5n+2).Ovaj je broj djeljiv s 9 i tvrdnja je dokazana.
+
+Primjer 10
+Dokažimo da vrijedi2n>n2za svaki n≥5.
+Rješenje: Za n=5 tvrdnja glasi 25>52, što je istina. Sad trebamo dokazati istinitost od T(n+1):2n+1>(n+1)2.Tijekom dokaza koristit ćemo pretpostavku indukcije. Imamo2n+1=2⋅2n>2n2.Da bismo dovršili dokaz, moramo provjeriti da za n≥5 vrijedi2n2≥(n+1)2.Pokažimo da za svaki n≥3 vrijedi2n2≥n2+3n>n2+2n+1=(n+1)2.Time je dokaz završen.
+
+primejr 11
+Dokažimo nejednakost12⋅34⋅56⋅...⋅2n−12n<1√2n+1.
+Rješenje: Za n=1 nejednakost se svodi na 12<1√3, što je istina. Pretpostavimo da nejednakost vrijedi za prirodni broj n. Tada je12⋅34⋅56⋅...⋅2n−12n⋅2n+12(n+1)<1√2n+1⋅2n+12(n+1)=√2n+12(n+1)Sada je dovoljno dokazati da vrijedi√2n+12(n+1)<1√2n+3.Ova je nejednakost ekvivalentna s√2n+1⋅√2n+3<2n+2.Nakon kvadriranja i sređivanja dobiva se istinita nejednakost 0<1. Time je korak indukcije dokazan.
+
+Primejr 12
+(Bernoullijeva nejednakost) Za svaki prirodni broj n i svaki realni broj h>−1 vrijedi(1+h)n≥1+nh(4)Pritom jednakost vrijedi samo za n=1 ili za h=0.
+Rješenje: Za n=1 lijeva i desna strana su jednake, pa tvrdnja vrijedi. Pretpostavimo da (4) vrijedi za prirodni broj n. Sad imamo:(1+h)n+1=(1+h)n(1+h)≥(1+nh)(1+h)=1+nh+h+nh2≥1+(n+1)h,i tvrdnja vrijedi i za broj n+1. Prema principu matematičke indukcije tvrdnja vrijedi za svaki n. (Na kojem je mjestu korištena pretpostavka h>−1?)
+
+primjer 13
+Dokažimo da je zbroj kutova u svakom mnogokutu s n+2 stranice jednak n⋅180∘.
+Rješenje: Za n=1 riječ je o trokutu čiji je zbroj kutova 180∘ − tvrdnja T(1) vrijedi.
+Promotrimo mnogokut s jednom stranicom više, dakle, s n+3 stranice. Odsijecanjem bilo kojeg trokuta (kao na slici) dobivamo jedan trokut (čiji je zbroj kutova 180∘) i jedan mnogokut s n+2 stranice, čiji je zbroj kutova po pretpostavci indukcije jednak n⋅180∘. Zato je zbroj kutova u mnogokutu s n+3 stranice jednak (n+1)⋅180∘, što je i trebalo dokazati.
+Prema principu matematičke indukcije tvrdnja vrijedi za svaki prirodni broj n.
+
+Primjer 14
+U ravnini je nacrtano n kružnica tako da se svake dvije među njima sijeku, ali nikoje tri ne prolaze kroz istu točku. Dokaži da one dijele ravninu na n2−n+2 dijelova.
+Rješenje: Primijetimo da je to ujedno najveći broj dijelova na koji po volji nacrtanih n kružnica može dijeliti ravninu: taj je broj najveći ako se kružnice nalaze u opisanom položaju.
+Jedna kružnica dijeli ravninu na 2 dijela, pa je baza indukcije ispunjena.
+Korisno je znati (a nije nužno za rješenje zadatka) da dvije kružnice dijele ravninu na 4 dijela, tri kružnice na 8 dijelova, a četiri kružnice na 14 dijelova. Tu situaciju vidimo na nacrtanoj slici.
+Pretpostavimo da je tvrdnja indukcije istinita i dodajmo još jednu kružnicu. Ona će postojećih n sjeći u novih 2n točaka (svaku kružnicu u dvije točke). Time će se dobiti novih 2n kružnih lukova. Svaki od tih kružnih lukova jedno će postojeće područje podijeliti na dva nova. Time ćemo dobiti 2n novih područja. Njihov će broj onda biti(n2−n+2)+2n=(n+1)2−(n+1)+2pa vidimo da je T(n+1) također istinito. Time je dokaz indukcijom završen.
+
+primejr 15
+	Dokaži da se svaki prirodni broj n≥2 može prikazati kao umnožak prostih brojeva.
+Rješenje: Dokazujemo indukcijom. Broj n=2 je prost, pa baza indukcioje T(2) vrijedi. Pretpostavimo da je tvrdnja istinita za sve brojeve manje ili jednake n. Promotrimo broj n+1. Dvije su mogućnosti.
+1) Broj n+1 je prost. Tada je tvrdnja T(n+1) očito istinita.
+2) Broj n+1 nije prost. Onda se on može prikazati kao umnožak dvaju brojeva k i m, za koje vrijedi 0≤m<(n+1) i 0≤k<(n+1). Prema pretpostavci indukcije T(k) i T(m) su istiniite tvrdnje, pa se brojevi k i m mogu prikazati kao umnošci prostih brojeva. No, tada tvrdnja vrijedi i za broj (n+1)=km.
+Time je dokaz indukcijom završen.
+
+Primejr 16
+Dokaži da se svaka cjelobrojna količina tekućine veća od 7 litara može pretočiti u kante zapremina 3 i 5 litara.
+Rješenje: Koristit ćemo indukciju s korakom 3. Zato trebamo provjeriti bazu od tri početna broja.8 litara možemo preliti u kante od 3 i 5 litara;9 litara možemo preliti u 3 kante od tri litre;10 litara možemo preliti u 2 kante po pet litara.Pretpostavimo sad da su tvrdnje T(k) istinite za sve 8≤k≤n. Dokazujemo T(n+1). U tu je svrhu dovoljno iskoristiti istinitost tvrdnje T(n−2) i upotrebiti jednu kantu od 3 litre pa vidimo da je istinita i T(n+1).
+Time je dokaz završen. Provjeri kako ovo obrazloženje funkcionira za količine od 11, 12 i 13 litara!
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+primjer 17
+
+(primejr 18)
+
+(Primjer 19)
+
+Primejr 20
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 21
+Odredimo k i r u sljedećim primjerima:
+1) a=23, b=5. Sad je k=23/5=4 pa je r=23−4⋅5=3. Zaista, 23=4⋅5+3.
+2) a=−23, b=5. Sad je −23=(−4)5−3, ali odgovor nije k=−4 i r=−3 jer r ne smije biti negativan. Računamo:k=−23/5=⌊−4.6⌋=−5,r=a−kb=−23−(−5)5=2.Zaista, −23=(−5)5+2.
+
+primjer 22
+Djeljivost sa 7. Za djeljivost s brojem 7 nema jednostavnog pravila. Možda će nekom biti prihvatljivo ovo: udvostruči znamenku jedinica i oduzmi je od početnog broja kojemu je prekrižena znamenka jedinica. Postupak ponovi potreban broj puta. Broj je djeljiv sa 7 onda i samo onda ako je broj dobiven ovim postupkom djeljiv sa 7. Primjerice:8303↦830−6=824↦82−8=74,8792↦879−4=875↦87−10=77pa 8303 nije djeljiv sa 7, a 8792 jest. Dokažimo ovaj kriterij.
+Rješenje: Početni broj možemo napisati u obliku 10x+y. Tu je y znamenka jedinica, a x broj dobiven iz početnog križanjem te znamenke. Sada imamo10(x−2y)=10x+y−21y.Brojevi 7 i 10 su relativno prosti, pa je 10(x−2y) djeljiv sa 7 onda i samo onda ako je x−2y djeljiv sa 7. No, desna strana je djeljiva sa 7 onda i samo onda kad je početni broj 10x+y djeljiv sa 7. Time je tvrdnja dokazana.
+
+Primejr 23
+Djeljivost s 11. Zbrajamo znamenke na neparnim mjestima u broju a (slijeva nadesno) i oduzmimo zbroj znamenaka na parnim mjestima. Tako dobivamo broj b. a je djeljiv s 11 onda i samo onda kad je b djeljiv s 11. Primjerice1234567891011↦1−2+3−4+5−6+7−8+9−1+0−1+1=416253477435261↦1−6+2−5+3−4+7−7+4−3+5−2+6−1=0pa prvi broj nije djeljiv s 11, a drugi jest. Kriterij ćemo dokazati nešto kasnije, u ovom poglavlju.
+
+Primjer 24
+Za svaki prirodni broj n broj n3−n djeljiv je sa 6. Dokažimo.
+Rješenje: Napišimo broj u oblikun3−n=n(n2−1)=(n−1)n(n+1).Brojevi n−1, n, n+1 su tri uzastopna prirodna broja. Točno jedan među njima mora biti djeljiv s 3. Barem jedan od njih djeljiv je s 2. Zato je njihov umnožak djeljiv sa 6.
+
+Primejr 25
+Dokažimo da je zbroj kubova triju uzastopnih cijelih brojeva djeljiv s 9.
+Rješenje: Najprije imamo: (n−1)3+n3+(n+1)3=3n(n2+2). Ako je n djeljiv s 3, onda je ovaj broj očito djeljiv s 9. A ako n nije djeljiv s 3, tada je on oblika n=3k±1 te je broj n2+2 djeljiv s 3. Naime, (3k±1)2+2=9k2±6k+3=3(3k2±2k+1).
+
+primjer 26
+
+Primejr 27
+Odredimo M(67633813,22557247). Faktorizaciju ovih brojeva praktički je nemoguće odrediti bez uporabe računala. Najveću zajedničku mjeru koja iznosi 431 možemo odrediti bez poznavanja te faktorizacije.
+
+Primjer 28
+Odredimo mjeru brojeva a=3255 i b=2436.
+Rješenje: Koristimo Teorem o dijeljenju i Teorem 3.3255=1⋅2436+819,M(3255,2436)=M(2436,819)2436=2⋅819+798,M(2436,819)=M(819,798)819=1⋅798+21,M(819,798)=M(798,21)798=38⋅21,M(798,21)=M(21,0)=21.Dakle, tražena mjera je 21.
+
+primjer 29
+Odredimo M(67633813,22557247).
+Rješenje: Pratimo postupak dijeljenja67633813=2⋅22557247+2251931922557247=1⋅22519319+3792822519319=593⋅37928+2801537928=1⋅28015+991328015=2⋅9913+81899913=1⋅8189+17248189=4⋅1724+12931724=1⋅1293+4311293=3⋅431Najveća mjera je 431.
+Faktorizacija ovih brojeva (izračunata na računalu) je 67633813=13⋅431⋅12071, 22557247=199⋅263⋅431.
+
+primejr 30
+Koliko različitih faktora ima broj 72 (uključujući 1 i sam broj)?
+Rješenje: Prikažimo broj 72 kao umnožak prostih faktora: 72=2⋅2⋅2⋅3⋅3=23⋅32. Svaki faktor ovog broja ima oblik 2n⋅3m, pri čemu je 0≤n≤3, 0≤m≤2. Tako primjerice, za n=2 i m=1 dobivamo faktor 22⋅31=12.
+Ukupan broj faktora je 4⋅3 jer postoje 4 izbora za eksponent n i 3 izbora za eksponent m. Ispiši sve te faktore redajući ih po veličini.
+
+Primjer 31
+Broj 1005 nije prost. Zbroj njegovih znamenaka djeljiv je s 3 pa je i sam broj djeljiv s 3. Nije prost niti broj 1006. On je paran. Jasno, nije prost broj niti 1008. A što je s brojevima 1007 i 1009? Jesu li oni prosti?
+Pri provjeri je li neki broj n prost, dovoljno je ispitati njegovu djeljivost svim prostim brojevima p koji su manji ili jednaki broju √n. (Zašto?)
+Broj 1007 nije djeljiv s 3 niti s 5. Izravnim dijeljenjem sa 7, 11 13 i 17 uviđamo da mu to nisu prosti faktori. Pri dijeljenju s 19, dobivamo 1007=19⋅53. Zato 1007 nije prost.
+Provjera broja 1009 pokazuje da je on prost. Broj treba podijeliti svim prostim brojevima manjim ili jednakim 31. (Uz ovdje spomenute, treba provjeriti djeljivost s 23, 29 i 31.)
+
+primejr 32
+Uvjeri se u istinitost sljedećih kongruencija23=3(mod4)24=0(mod12)23=3(mod5)−2=2(mod4)5=23(mod6)27463529=29(mod100)23=11(mod6)3n+2=2(modn).
+
+Primejr 33
+Prema svojstvu zbrajanja kongruencija, vrijedi63+46=(3+2)(mod4)jer je 63=3(mod4) i 46=2(mod4). Dakle, u kongruenciji se svaki pribrojnik može zamijeniti brojem s kojim je kongruentan.
+Slično ovome, kad računamo63⋅46(mod4),onda nećemo množiti brojeve slijeva. Prema svojstvu množenja kongruencija, svaki od njih možemo zamijeniti brojem koji im je kongruentan i tek onda množiti:63⋅46(mod4)=3⋅2(mod4)=6(mod4)=2(mod4).
+
+Primjer 34
+Za sve cijele brojeve k i a te prirodni broj n vrijedikm+a=a(modm),(km+a)n=an(modm).
+Rješenje: U kongruenciji zanemarujemo svaki pribrojnik djeljiv s m. Druga relacija je posljedica potenciranja kongruencije.
+Primjerice, imamo3726=(35+2)26=226(mod7).
+
+Primejr 35
+Odredimo posljednje dvije znamenke broja 580314133.
+Rješenje: Rabit ćemo kongruencije modulo 100 jer su posljednje dvije znamenke broja jednake ostatku pri dijeljenju tog broja sa 100.
+Vrijedi58031413=13(mod100)zato što je 58031413−13=58031400 djeljiv sa 100. Sad je prema svojstvu potenciranja kongruencije580314133=133(mod100).Sad možemo izračunati 133=2197 i dobiti rezultat: broj 97. Pokušaj pojednostavljenja neće više dati značajnu uštedu:133=132⋅13=169⋅13=69⋅13(mod100)=(60+9)(10+3)=600+90+180+27=90+80+27=197=97(mod100).U ovom računu jasno vidimo zanemarivanje svih pribrojnika koji su djeljivi sa 100.
+
+Primejr 36
+Dokažimo pravilo o djeljivosti brojem 11: a je djeljiv s 11 ako i samo ako je s 11 djeljiv broj b, dobiven iz a tako da se naizmjence zbrajaju i oduzimaju njegove znamenke.
+Rješenje: Broj a=¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯cncn−1…c1c0 možemo napisati ovako:a=10ncn+10n−1cn−1+⋯+10c1+c0pa računajući modulo 11 imamoa=(11−1)ncn+(11−1)n−1cn−1+⋯+(11−1)c1+c0=(−1)ncn+(−1)n−1cn−1+⋯−c1+c0=c0−c1+c2−c3+…=b(mod11).
+
+primejr 37
+Kojom znamenkom završava broj 2313128?
+Rješenje: Tražimo ostatak tog broja pri dijeljenju s 10, zato računamo modulo broj 10. Vrijedi2313=231⋅10+3=3(mod10).Stoga je prema svojstvu potenciranja kongruencije2313128=3128(mod10).Sad promotrimo potencije broja 3. Vrijedi32=9=10−1=−1(mod10)pa prema istom svojstvu zaključujemo3128=(32)64=(−1)64=1(mod10).Tražena znamenka je 1.
+
+Primejr 38
+Dokažimo da je broj 255+1 djeljiv s 11.
+Rješenje: Vrijedi 25=32=−1(mod11) i stoga255+1=(−1)11+1=0(mod11).
+
+Primjer 39
+Dokažimo da je broj 3105+4105 djeljiv s 13, a nije djeljiv s 11.
+Rješenje: Imamo3105+4105=2735+6435(mod13)=(26+1)35+(65−1)35=135+(−1)35=0(mod13)te je broj djeljiv s 13.
+Međutim,3105+4105=3⋅(11−2)52+(66−2)35=3⋅252−235(mod11)=3⋅4⋅(25)10−(25)7=12⋅3210−327=12⋅(33−1)10−(33−1)7=12⋅(−1)10−(−1)7=12+1=2(mod11).
+
+Primejr 40
+Dokažimo da je za svaki prirodni broj n broj N=32n+2+26n+1 djeljiv s 11.
+Rješenje: Broj možemo napisati ovako:N=32n+2+26n+1=9⋅9n+2⋅64n=9⋅(11−2)n+2⋅(66−2)n.Zato jeN=9(−2)n+2(−2)n(mod11)=11(−2)n(mod11)=0(mod11).
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 41
+Poredajmo po veličini brojeve a=23, b=58, c=47.
+Rješenje: Riječ je o jednostavnim brojevima (s malim brojnikom i nazivnikom) pa usporedbu neće biti teško učiniti. Pritom nećemo uspoređivati po dva broja međusobno, već ćemo, određujući najmanji zajednički višekratnik svih nazivnika, odjednom odrediti poredak svih brojeva:a=112168,b=105168,c=96168,te je c<b<a.
+
+primjer 42
+0.˙3=39=13,0.˙5=59,0.˙1˙2=1299=433,0.˙23809˙5=238095999999=26455111111=240510101=5⋅13⋅373⋅7⋅13⋅37=521,1.˙4=1+49=9+49=139,2.˙07˙4=2+74999=2⋅999+74999=2072999=5627.
+
+Primejr 43
+Primjer 3.
+2.91˙6=2.91+0.˙6100=291100+6900=291⋅9+6900=2625900=3512,12.15˙74˙0=12.15+0.˙74˙0100=1215100+740999⋅100=1215⋅999+74099900=121452599900=(kratimo s 25)=485813996=1313108.1.24˙9=1.24+0.˙9100=124100+99⋅100=124+1100=125100=54.
+
+Primejr 44
+Izračunajmo:
+1) 1.2˙4+0.62˙1˙3
+2) 3.82˙3+5.7˙4˙2.
+Rješenje: Pretvaranje broja u razlomak nepotrebno bi otežalo račun. Umjesto toga, decimalne znamenke ćemo napisati tako da periodi počinju istom decimalom i jednako dugo traju. Na taj ih način možemo zbrojiti:
+1) 1.2˙4+0.62˙1˙3=1.24˙4˙4+0.62˙1˙3=1.86˙5˙7,
+2) 3.82˙3+5.7˙4˙2=3.82˙3˙3+5.74˙2˙4=9.56˙5˙7.
+
+primjer 45
+Izračunajmo 0.1˙2˙5+0.˙4˙7
+Rješenje:0.1˙2˙5+0.˙4˙7=0.1˙2˙5+0.4˙7˙4=0.5˙9˙9=0.5˙9=0.6Prevedi ove decimalne brojeve u razlomke i uvjeri se u točnost računa. Izračunaj i s pomoću džepnog računala.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 46
+Ako je p prost broj, dokažimo da √p nije racionalan.
+Rješenje: Pretpostavimo suprotno: za prirodne brojeve m i n vrijedi √p=mn. Pritom brojeve m i n po potrebi skratimo tako da na koncu budu relativno prosti. Onda kvadriranjem dobivamop=m2n2tj.n2p=m2.Lijeva je strana djeljiva s p, pa je to onda i desna strana. Kako je p prost, to je moguće samo onda kad je m djeljiv s p. Zato vrijedi m=kp za neki prirodni broj k, pa dobivamon2p=k2p2tj.n2=k2p.Sad na isti način zaključujemo da je i n djeljiv s p, što je proturječje s pretpostavkom da su m i n relativno prosti. Zato √p ne može biti racionalan.
+
+Primjer 47
+Ako n nije potencija broja 10, onda je logn iracionalan.
+Rješenje: Pretpostavimo suprotno: logn=pq, gdje su p i q relativno prosti prirodni brojevi. Ova jednakost ekvivalentna je jednakosti 10p=nq. No ona je nemoguća ako n nije potencija broja 10. Zato je pretpostavka koja je do nje dovela pogrešna, pa logn nije racionalan.
+
+Primjer 48
+Uvjerimo se da za omeđene intervale vrijedi:I=[a,b],a= minI,b=maxII=⟨a,b],a=infI,b=maxII=[a,b⟩,a= minI,b=supII=⟨a,b⟩,a=infI,b=supI.
+
+Primejr 49
+Navedimo nekoliko primjera podskupova brojevnog pravca i odredimo njihove gornje ili donje međe. Istaknimo pripadaju li one skupu ili mu ne pripadaju.S=⟨0,1⟩∪⟨1,4],    infS=0,  maxS=4S={x∈Q:x2<2},    infS=−√2,  supS=√2S={y∈R:y=−x2+2, x∈R},   infS=−∞,  maxS=2S=N={1,2,3…},     minS=1,  supS=∞.
+
+Primejr 50
+Odredimo infimum, supremum, minimum i maksimum skupaS={x2+1:x∈R, −1<x<2}.
+Rješenje: U rubnim točkama intervala funkcija f(x)=x2+1 uzima vrijednosti f(−1)=2, f(2)=5. Koordinate tjemena ove parabole su (0,1). Zato funkcija preslikava interval <−1,2> u interval S=[1,5⟩. Prema tome jeinfS= minS=1,supS=5.Maksimum skupa S ne postoji.
+
+primejr 51
+Izračunajmo prvih nekoliko decimala broja √2. Odredit ćemo ih probom. Tražimo niz decimalnih brojeva kojima će kvadrat biti manji od 2. Brojeve pritom biramo tako da svaki sljedeći ima jednu decimalu više i da budu najveći s traženim svojstvom: 12=1<2<22=4x1=11.42=1.96<2<1.52=2.25x2=1.41.412=1.9881<2<1.422=2.0164x3=1.411.4142≈1.9993<2<1.4152≈2.0022x4=1.414U svakom koraku možemo procijeniti udaljenost broja √2 i njegove aproksimacije konačnim decimalnim brojem. Kako svaka sljedeća aproksimacija ima jednu točnu znamenku više, vrijedi, primjerice:|√2−1.41|<0.01, |√2−1.414|<0.001, |√2−1.4142|<0.0001…Što ćemo dobiti `na kraju' ovog postupka? U svakom koraku otkrivamo jednu novu znamenku broja √2, zato na kraju očekujemo prikaz oblika√2=a0.b1b2b3⋯=1.414213562…To je decimalni prikaz iracionalnog broja √2.
+

@@ -1,0 +1,69 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Kutak Plus (ISPISANI PO LEKCIJI)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Graf funkcije e1/x−x
+Graf funkcije e1/x−x nacrtali smo u Primjeru 6. Postoji sitan detalj na tom grafu koji zaslužuje pozornost.
+Uočite razliku između prvih dviju slika. Slika lijevo detalj je s nacrtanog grafa. Zar ne bi bilo prirodnije da on izgleda kao na srednjoj slici?
+
+Provjerimo detalje crtajući graf u GeoGebri. Isti taj detalj vidi se na slici desno. Zaista, nešto se događa s grafom funkcije lijevo od ishodišta. Na slici u udžbeniku taj je detalj naglašen da se bolje vidi prijelaz iz konkavne u konveksnu granu u blizini ishodišta.
+
+Napišimo u GeoGebri tri naredbe.
+
+f(x)=exp(1/x)-x
+f1(x)=Derivative[f(x)]
+f2(x)=Derivative[f1(x)]
+
+One nam daju graf funkcije te graf i formule za prvu i drugu derivaciju.f′(x)=−1x2e1x−1f”(x)=(2x+1)e1xx4Za analizu ovog detalja odgovorna je druga derivacija. Na temelju formule za drugu derivaciju vidimo da se ona poništava samo u x=−12. Ta je pozicija naznačena na slici vertikalnim pravcem. Na tom mjestu prva derivacija iz pada prelazi u rast, a funkcija iz konkavne grane u konveksnu. Vrijednost prve derivacije svuda je negativna pa funkcija pada na oba intervala na kojima je definirana. Iz predznaka druge derivacije uočavamo jednu konkavnu i dvije konveksne grane funkcije.
+
+UPORABA TEHNOLOGIJE
+U mnogobrojnim primjerima u ovom i prethodnim poglavljima kombinirali smo dvije tehnike: crtanje grafa s pomoću nekog računalnog programa (ovdje preferiramo uporabu GeoGebre, ali ista je situacija i s mnogo većim programskim paketima poput Mathematice) i crtanje tog grafa „pješice”. Opravdano se postavlja pitanje: Zar nije tehnologija dovoljna i bolja za tu svrhu?
+
+Dokle god se ne pojave problemi, odgovor je pozitivan. Tehnologija je sigurno bolja, brža, jednostavnija i praktičnija. Međutim, trebamo je nadzirati. A da bismo to mogli, moramo znati što zapravo tehnologija radi.
+
+Jednostavan primjer pokazat će gdje nastaju možebitni problemi. Nacrtajmo koristeći GeoGebru graf funkcijey=3x3+2000x2+xx3+2000x2+x+2000.GeoGebra će ponuditi graf sa slike dolje na temelju kojeg bismo zaključili da je x=0 nul-točka, a y=1 horizontalna asimptota funkcije i da se ništa bitnog ovdje ne događa. gdje odjednom otkrivamo vertikalnu asimptotu x=−2000 i pravu horizontalnu asimptotu y=3, još jednu nul-točku negdje oko apscise −670, a usput smo potpuno izgubili iz vida bitno ponašanje funkcije u nuli. Što se zapravo događa u okolini nule? To je nagradno pitanje. Odaberite xAxis:yAxis=1000:1, približite se jako blizu ishodištu sve do intervala [−0.001,0.001] i pogledajte!
+
+Isto se događa i s drugim alatima. Primjerice, Mathematica je visokosofisticiran, gotovo savršen matematički paket koji će nakon naredbe Plot[x5(x−1), {x,−2,2}] nacrtati graf te funkcije, sakrivajući bitne detalje (slika ispod). Popravite ono što Mathematica nije prikazala.
+
+Kao i svaki drugi koristan alat, tehnologija pruža neprocjenjivu pomoć, pod uvjetom da se njome znamo koristiti.
+
+Diferencijalne jednadžbe
+Diferencijalni račun je iznimno jako sredstvo pri opisivanju različitih pojava u prirodnim, ekonomskim, pa i društvenim znanostima. Fizikalni ili ekonomski zakoni vrlo se često lagano izražavaju jezikom koji koristi pojam diferencijala, beskonačno malenih promjena varijabli što opisuju zadani problem.
+Radioaktivni raspad. Brzina radioaktivnog raspada proporcionalna je količini materijala koji se nije raspao. Koliko je vrijeme poluraspada? (Vrijeme potrebno da se početna količina materijala smanji na polovicu.) Neka je x(t) količina materijala koji se nije raspao do trenutka t. Brzina raspada je promjena količine u jedinici vremena, a izražava se derivacijom dxdt. Prema uvjetu zadatka možemo postaviti diferencijalnu jednadžbu: dx(t)dt=−kx(t). Koeficijent k ovisi o vrsti radioaktivnog materijala i povezan je s vremenom poluraspada.
+Funkcija koja zadovoljava ovu jednadžbu ima oblik x=Ce−kt, gdje je C zasad neodređena konstanta. Ona se određuje iz dodatnih informacija o početnom trenutku. Ako je količina materijala u trenutku t=t0 bila x0, onda se dobiva C=x0ekt0, pa je konačno rješenje dano u obliku: x(t)=x0e−k(t−t0). Vrijeme poluraspada τ računamo iz uvjeta x(τ+t0)=12x0. Dobivamo 12x0=x0e−kτ i odavde τ=ln2/k.
+Vertikalni hitac. Tijelo mase m bačeno je uvis u trenutku t=0 početnom brzinom v0. Zanemarimo li otpor zraka, odredimo položaj x(t) tijela u trenutku t te najvišu visinu do koje će se ono popeti.
+Jedina sila koja djeluje na tijelo za vrijeme leta je gravitacijska sila: F=−mg. Negativan predznak dolazi stoga što je smjer sile orijentiran suprotno od porasta varijable x. II. Newtonov zakon daje nam jednadžbu md2xdt2=−mg. Rješenje ove jednadžbe dano je s x(t)=−12gt2+v0t+x0, gdje je x0 položaj tijela u početnom trenutku t=0.
+Najvišu visinu sad možemo odrediti prema uvjetu za ekstrem funkcije. Iz x′(t)=0 slijedi −gt+v0=0 pa je t=v0g. Odatle slijedi xmax=x0+v202g.
+Titranje opruge. Kuglica mase m učvršćena je na sustav horizontalnih opruga. Ona je pomaknuta iz ravnotežnog položaja u točku s apscisom x0 i puštena. Kako će se dalje odvijati gibanje?
+Gibanje opisuje II. Newtonov zakon. Sila koja djeluje na tijelo dolazi od stezanja (istezanja) opruga. Ona je proporcionalna otklonu opruga od ravnotežnog položaja. Označimo li taj otklon s x(t), onda je sila jednaka F(t)=−k⋅x(t). (Negativan predznak govori o tome da sila djeluje u suprotnom smjeru od otklona kuglice jer želi tu kuglicu vratiti u ravnotežni položaj.) Ova je sila, prema Newtonovu zakonu proporcionalna akceleraciji tijela. Tako dobivamo diferencijalnu jednadžbu:md2x(t)dx2=−kx(t),tj.x′′(t)+ω2x(t)=0.Tu smo označili ω2=k/m. Rješenje ove jednadžbe ima oblik x(t)=C1sinωt+C2cosωt, gdje su C1 i C2 zasad neodređene konstante. Dobivamo ih iz početnih uvjeta, x(0)=x0 (otklon u početnom trenutku) i x′(0)=0 (brzina u početnom trenutku). Odatle slijedi C2=x0, C1=0, pa je titranje kuglice opisano funkcijom x(t)=x0cosωt.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================

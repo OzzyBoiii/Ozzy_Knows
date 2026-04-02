@@ -1,0 +1,68 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Kutak Plus (ISPISANI PO LEKCIJI)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Korijene računamo s pomoću tipke označene simbolom x√y. Ako ta tipka ne postoji na džepnom računalu, može se koristiti yxkoja je ugrađena u svako džepno računalo.
+Način računanja bitno ovisi o vrsti džepnog računala. Danas su u srednjoj školi većinom u uporabi računala sa simboličkom notacijom, poput ovih na slici desno dolje. Ona imaju zaslon koji se sastoji od barem dvaju redaka, u prvom se ispisuje formula koja se unosi, a u posljednjem je rezultat izračuna.
+Na džepnim računalima sa simboličkom notacijom, najprije se bira tipka operacije koja se izvodi, a tek onda se unose podatci. Primjerice, √2 se računa u poretku √ 2=. Iako su ova računala novijeg datuma, za računanje je prirodniji obratni postupak u kojem se najprije unose podatci, a zatim operacija. Kod njih je postupak ovakav: 2√ . Ako operacija zahtijeva više od jednog podatka, onda je unos podataka prekinut operacijom, primjerice 3√16 se računa kao 16x√ 3=.
+I na koncu, kod RPN džepnih računala (s inverznom, poljskom notacijom, na slici lijevo), operacija se uvijek unosi posljednja. Ta su računala najprikladnija za numeričko računanje.
+Izračunajmo: 1) 1013; 2) (−10)13.
+Kod simboličkih računala formula se ispisuje na zaslonu pa je vjerojatnost pogreške neznatna. Ako radite na takvom računalu, provjerite hoćete li dobiti rezultate identične ovima, dobivenim na standardnom džepnom računalu:
+1) 1013=3√10. Ako računamo s pomoću tipke yx, onda radimo ovako:
+10yx31/x=(2.15443…).
+Ako računamo s pomoću tipke x√y, radimo ovako:
+10x√y3=(2.15443…).
+Drugi je način neznatno jednostavniji.
+2) (−10)13=3√−10.  Pokušaj da se ovaj korijen izračuna na isti način:
+−10yx31/x=
+Većina džepnih računala će javiti pogrešku! Razlog tome je negativna baza potencije.To nije pogreška u konstrukciji računala. Naime, ona su programirana da računaju vrijednost x√a za svaki realni broj x, a on ne postoji ako je a negativan. Više o tome naučit ćete u sljedećem poglavlju. Simbolička džepna računala prepoznat će da je riječ o cjelobrojnom eksponentu i točno će izračunati rezultat.Zato za računanje neparnog korijena negativnog broja koristimo formulu
+3√−10=−3√10.
+Dakle, izračunamo vrijednost korijena pozitivnog broja i onda mu promijenimo predznak, 3√−10=−2.15443…Provjeri rezultate na svom džepnom računalu!
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Johannes Kepler
+Johannes Kepler (1571. -- 1630.), njemački je matematičar i astronom, svojim zakonima koji govore o gibanjima planeta Sunčeva sustava utemeljio je suvremenu astronomiju.
+Njegov učitelj astronom Tycho Brahe bio je posljednji veliki astronom koji je nebo promatrao golim okom. Kepler je na raspolaganju imao teleskop koji je prema nizozemskom uzorku preradio i popravio Galileo Galilei 1609. god.
+Izdvojimo treći Keplerov zakon. On glasi:
+Neka je T vrijeme potrebno da planet jednom obiđe Sunce. Neka je R prosječna udaljenost planeta od Sunca tijekom jednog obilaska. Omjer T2:R3 jednak je za sve planete.
+Udaljenost R izražava se u AU, astronomskim jedinicama za udaljenost. Ova je jedinica prvotno definirana kao srednja udaljenost Zemlje od Sunca s iznosom od 1 AU = 149597870691±30 metara.
+Zbog konzistentnosti, je od 2012. god jedinica fiksirana na vrijednost 1 AU = 149597870700 metara.
+Vrijeme T izraženo je u Zemljinim godinama. Tako je, primjerice, Jupiteru, čiji je R=5.2 AU, za jedan obilazak oko Sunca potrebno T=11.86 godina.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+ZANIMLJIVOSTI O KORIJENIMA
+1) Vrijedi√2=1.41√2√2=1.68√2√2√2=1.83Koliko je
+⎷2√2√2…√2√2 ?2) Vrijedi√2=1.41√2+√2=1.85√2+√2+√2=1.96Koliko je
+⎷2+√2+√2+…√2+√2 ?3) Vrijedi√2=1.41√2√3=1.86√2√3√2=2.03Koliko je
+⎷2√3√2…√3√2 ?4) Vrijedi√3=1.73√3√2=2.06√3√2√3=2.36Koliko je
+⎷3√2√3…√2√3 ?
+Zadatci
+1. U primjeru 1) stavi a1=√2. Označimo an+1=√2an. Uvjeri se da tako dobivaju članovi gore napisanog niza. Koliko iznosi a10?
+2. Promotri niz a1=√3, an+1=√3an. Napiši i izračunaj nekoliko prvih njegovih članova. Što uočavaš? Poopći tako da broj 3 zamijeniš bilo kojim pozitivnim brojem x.
+3. U primjeru 2) stavi a1=√2 i napiši formulu za an+1 tako da dobiješ naznačene vrijednosti. Koliko iznosi a10?
+4. Neka je a1=√3 i an+1=√3+an. Izračunaj broj a iz jednadžbe a=√3+a i uvjeri se da je a10 blizak broju a.
+5. Provjeri da će se formulom a1=√6, an+1=√6+an dobivati brojevi koji se približavaju broju 3.
+6. Neka je a1=√x, an+1=√x+an. Odredi x tako da se ovi brojevi približavaju broju 5.
+7. Stavimo a1=3√6, an+1=3√6+an. Izračunaj a2, a3, a4,\dots. Kojem se broju približavaju te vrijednosti?
+8. Uvjeri se da se brojevi u primjeru 3) približavaju ka 3√12.
+9. Uvjeri se da se brojevi u primjeru 4) približavaju ka 3√18.
+10. Odaberi x i y tako da √x√y√x…√y√x bude blizak broju a) 3√20, b) 3√6. \endZadp

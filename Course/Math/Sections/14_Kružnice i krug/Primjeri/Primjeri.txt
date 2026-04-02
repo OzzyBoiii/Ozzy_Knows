@@ -1,0 +1,85 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 1
+Oko kvadrata opisana je kružnica, a nad svakom njegovom stranicom s vanjske su strane konstruirane polukružnice. Polukružnicama i velikom kružnicom omeđene su četiri lunule (likovi osjenčani na slici). Dokažimo da je zbroj površina lunula jednak površini kvadrata.
+Rješenje: Neka je a stranica kvadrata, r polumjer polukružnica, R polumjer kruga, a P površina svih lunula. Ukupna površina lika obuhvaćenog lukovima četiriju polukružnica jednaka je, s jedne strane, četverostrukoj površini polukružnica i površini kvadrata, a s druge strane površini lunula uvećanoj za površinu velikog kruga: 4⋅12⋅r2π+a2=P+R2π. Polumjer polukružnica jednak je r=a2, a polumjer velike kružnice R=a√22, pa dobivamo 2⋅a24π+a2=P+a2(√22)2π i odavde je P=a2.
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 2
+Zadana je dužina ¯¯¯¯¯¯¯¯AB duljine 4 cm. Nad svakom od dviju njezinih polovina konstruirane su polukružnice, a iz krajeva A i B lukovi polumjera r=|AB| koji se sijeku u točki C. Izračunajmo površinu obojenog lika. 
+Rješenje: Površina dvaju polukrugova jednaka je površini kruga polumjera 1 cm. Ta je površina jednaka π cm2. Ostali dio čine površina jednakostraničnog trokuta ABC i površine dvaju kružnih odsječaka nad stranicama ¯¯¯¯¯¯¯¯AC i ¯¯¯¯¯¯¯¯BC trokuta. Izračunajmo tu površinu:P=r2√34+2(16r2π−r2√34)=13r2π−r2√34.Kad ovome pridodamo prvu površinu, dobijemo da je površina srdašca približno jednaka 13 cm2.
+
+Primjer 3
+Nad stranicama ¯¯¯¯¯¯¯¯AB i ¯¯¯¯¯¯¯¯BC kvadrata ABCD konstruirane su polukružnice, a oko vrha B opisan je luk ⌢AC. Na taj je način dobiven lik na slici. Dokažimo da su površine označene sa m i n jednake. Rješenje: Način na koji ćemo riješiti zadatak čest je pri rješavanju ovakvih problema. Označimo sa a duljinu stranice kvadrata te s  k površine dvaju sukladnih dijelova. Sukladni su zbog simetrije slike. Tada vrijedi: m+n+2k=14a2π. No, istu površinu ima kružnica polumjera a2 te je14a2π=2(k+n).Dakle, m+n+2k=2n+2k, odakle izravno slijedi m=n
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 4
+Ako su a,b i c duljine stranica, a R duljina polumjera trokutu opisane kružnice, tada je površina trokuta jednakaP=abc4R.Dokažimo to.
+Rješenje: Opišimo trokutu ABC kružnicu. Točka D je nožište visine položene iz vrha C na stranicu ¯¯¯¯¯¯¯¯AB. Povucimo još i promjer ¯¯¯¯¯¯¯¯¯¯CA1 kružnice.
+Trokuti ADC i A1BC su slični. Oni su pravokutni, a uz to je i <)CAD=<)CA1B=α, jer su to obodni kutovi nad tetivom ¯¯¯¯¯¯¯¯BC. Zbog sličnosti vrijedi: vc:b=a:2R, odakle je vc=ab2R. Ako sada to uvrstimo u formulu P=12cvc dobit ćemo P=abc4R.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 5
+Oko krajnjih točaka dužine ¯¯¯¯¯¯¯¯AB, |AB|=a opisani su kružni lukovi s polumjerom a i oni se sijeku u točki C. U dio ravnine omeđene dužinom ¯¯¯¯¯¯¯¯AB i dvama lukovima upisana je kružnica (vidi sliku). Koliki je njezin polumjer?
+Rješenje: Označimo s N diralište kružnice kojoj je središte u točki A, te kružnice upisane u lik, kojoj je središte u točki S. Onda su točke A, S i N kolinearne.
+Uočimo sad pravokutni trokut AMS. Duljine su njegovih stranica a2, r i a−r. Zato imamo: (a2)2+r2=(a−r)2, a odatle se dobije r=38a.
+
+Primjer 6
+Dvije kružnice polumjera 5 cm i 13 cm međusobno se diraju izvana. Kolike su udaljenosti središta S1 i S2 tih kružnica od sjecišta P njihovih zajedničkih vanjskih tangenata? Rješenje: Označimo s D1 i D2 dirališta jedne zajedničke tangente i tih kružnica. Povucimo diralištem D1 paralelu s pravcem PS2. Trokuti PS1D1 i D1AD2 su slični, zbog čega je|PS1|:|S1D1|=|D1A|:|AD2|,odnosno|PS1|:r1=(r1+r2):(r2−r1),odakle slijedi |PS1|:5=18:8, te je |PS1|=454 cm. Sada je lako izračunati|PS2|=|PS1|+|S1S2|=454+18=1174  cm.
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 7
+Ptolomejev poučak. Ako je ABCD tetivni četverokut, onda vrijedi|AC|⋅|BD|=|AB|⋅|CD|+|AD|⋅|BC|.Drugim riječima, umnožak duljina dijagonala tetivnog četverokuta jednak je zbroju umnožaka duljina nasuprotnih stranica. Dokažimo to.
+Rješenje: Konstruirajmo kut <)ADE jednak kutu <)BDC. Kako su <)DAE i <)DBC obodni kutovi nad istim lukom, oni su jednaki, pa su trokuti AED i BCD slični. Zbog te je sličnosti |AD|:|AE|=|BD|:|BC|, odnosno |AD|⋅|BC|=|AE|⋅|BD|. Na isti način zaključujemo da su i trokuti ABD i CDE slični, pa je |AB|:|BD|=|CE|:|CD|, odnosno|AB|⋅|CD|=|BD|⋅|CE|.Zbrojimo dvije dobivene jednakosti te imamo:|AB|⋅|CD|+|AD|⋅|BC|=|BD|⋅|CE|+|AE|⋅|BD|=|BD|(|AE|+|CE|)=|AC|⋅|BD|.
+
+Primjer 8
+Dijagonale tetivnog četverokuta ABCD sijeku se u točki S. Nožišta visina spuštenih iz točke S na stranice četverokuta padaju unutar stranica četverokuta. Dokažimo da su ta nožišta vrhovi tangencijalnog četverokuta.
+Rješenje: Četverokut ABCD je tetivan, pa je <)CBD=<)DAC jer su to kutovi nad istim lukom. Četverokut AKSN je također tetivan, jer su mu dva nasuprotna kuta prava, pa je <)SKN=<)SAN=<)CAD.
+Na isti način dobivamo da je četverokut KBLS isto tako tetivan, pa je <)SKL=<)SBL=<)DBC. Odavde slijedi da je <)SKN=<)SKL, što znači da točka S leži na simetrali kuta NKL.
+Analogno se dokazuje da je točka S na simetrali kutova <)KLM, <)LMN, <)MNK, što znači da se četverokutu KLMN može upisati kružnica, odnosno da je taj četverokut tangencijalan.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 6
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 9
+Konstruirajmo pravilni šesnaesterokut upisan kružnici zadanog polumjera.
+Rješenje: Nacrtamo bilo koji promjer kružnice i označimo s A1 i A2 njegove krajnje točke. Promjer okomit na njega dat će druga dva vrha, A3 i A4 pravilnog četverokuta (kvadrata!) upisanog u kružnicu. Uzmimo stranicu ¯¯¯¯¯¯¯¯¯¯¯¯A1A3 kvadrata i odredimo njezinu simetralu. Točka u kojoj ona siječe kružnicu je vrh A5 pravilnog osmerokuta. Uzmemo li šestar raspona |A1A5|, lako možemo konstruirati prestale vrhove osmerokuta. Simetrala dužine ¯¯¯¯¯¯¯¯¯¯¯¯A1A5 dat će vrh A9 pravilnog šesnaesterokuta.
+
+Primjer 10
+Konstruirajmo pravilni dvadesetčetverokut upisan kružnici zadanog polumjera.
+Rješenje: Konstruirajmo najprije pravilni šesterokut. Nacrtamo kružnicu i istim rasponom šestara odredimo šest vrhova pravilnog šesterokuta. Uzmemo li svaki drugi vrh šesterokuta, dobit ćemo vrhove jednakostraničnog trokuta upisanog u kružnicu. Konstruiramo li simetralu stranice šesterokuta, dobit ćemo jedan vrh A7 pravilnog dvanaesterokuta. Analogno možemo dobiti i vrh A13 pravilnog dvadesetčetverokuta.

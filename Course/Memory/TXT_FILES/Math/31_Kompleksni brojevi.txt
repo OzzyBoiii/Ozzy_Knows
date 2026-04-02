@@ -1,0 +1,412 @@
+Kompleksni broj
+________________________________________
+Imaginarna jedinica
+Uvod
+U ovom poglavlju upoznat ćemo još jedan skup brojeva, skup kompleksnih brojeva. Taj skup proširenje je skupa realnih brojeva. Premda naoko vrlo apstraktni, kompleksni brojevi imaju široku primjenu, primjerice u fizici i elektrotehnici. A sličice poput ove zasigurno ste već negdje vidjeli. Riječ je o fraktalima koji su također utemeljeni na kompleksnim brojevima. Kako? O tome je za sada rano govoriti. Stoga krenimo od samog početka, od definicije kompleksnog broja.
+(SLIKA 1)
+Algebarski prikaz kompleksnog broja
+Dosad smo upoznali četiri skupa brojeva: prirodne, cijele, racionalne i realne brojeve. Znamo također da vrijedi N⊂Z⊂Q⊂R. Svaki od skupova Z,Q i R proširenje je prethodnog. To je proširenje načinjeno zbog potrebe da se omogući provedba određene algebarske operacije.
+Primjerice, razlika dvaju prirodnih brojeva nije općenito prirodan broj. Stoga se skup N proširuje negativnim cijelim brojevima i nulom te se tako dobije skup cijelih brojeva Z. Zbog izvedivosti dijeljenja cijelih brojeva, skup Z proširuje se razlomcima odnosno periodičkim decimalnim brojevima, čime dobivamo skup racionalnih brojeva Q. Skup realnih brojeva R proširuje skup Q dodajući mu iracionalne brojeve, sve decimalne neperiodičke brojeve.
+Skup R nije završetak ovog procesa. Neke jednostavne jednadžbe, poput x^2+x+1=0, nemaju rješenja u skupu realnih brojeva. Primjerice, već odgovor na pitanje: Za koji realan broj x vrijedi x^2=-1? glasi: ne postoji takav realan broj.
+Neka je i zamišljeno rješenje jednadžbe x^2+1=0, broj sa svojstvom
+i^2+1=0.
+
+Taj novi broj nazivamo imaginarnom jedinicom.
+Imaginarna jedinica
+Imaginarna jedinica i je broj za koji vrijedi
+i^2=-1.
+
+Skup kompleksnih brojeva
+Proširenje skupa realnih brojeva
+Skup realnih brojeva proširujemo te definiramo novi skup kompleksnih brojeva C zahtijevajući da on ima sljedeća svojstva:
+	C sadrži skup realnih brojeva kao svoj podskup.
+	C sadrži imaginarnu jedinicu i.
+	U skupu C definirane su operacije zbrajanja i množenja za koje vrijede sva uobičajena pravila računanja (komutativnost, asocijativnost, distributivnost).
+Prema ovim zahtjevima, umnožak bilo kojeg realnog broja y i imaginarne jedinice i kompleksan je broj. Takve brojeve nazivamo posebnim imenom: imaginarni brojevi. Brojevi 2i,-47i,√3 i primjeri su imaginarnih brojeva.
+Imaginarni brojevi
+Imaginarni broj yi umnožak je realnog broja y i imaginarne jedinice i.
+Skup C sadrži i zbroj realnog i imaginarnog broja. Kompleksni su brojevi primjerice -1+3i,√3-i,3/4+1/2 i…
+Ovdje možemo stati. Vidjet ćemo da su brojevi ovog oblika dovoljni da željena svojstva 1) do 3) budu zadovoljena.
+Skup kompleksnih brojeva C
+Kompleksni broj z ima oblik
+z=x+yi.
+
+Tu su x i y realni brojevi, a i imaginarna jedinica. Broj x je realan dio kompleksnog broja z, a broj y je njegov imaginaran dio. Pišemo:
+x=Re⁡z,y=Im⁡z.
+
+Zapis z=x+yi zovemo algebarski (ili standardni) prikaz kompleksnog broja z. Svaki je realan broj ujedno i kompleksan broj jer se može zapisati u obliku x+0⋅i. Svaki je imaginarni broj također kompleksan broj jer je yi=0+yi.
+PRIMJER 1
+Jednakost kompleksnih brojeva i algebarske operacije
+Nakon što smo definirali kompleksne brojeve, prirodno je postaviti pitanje: kada su dva kompleksna broja jednaka?
+Jednakost kompleksnih brojeva
+Kompleksni brojevi
+z_1=x_1+y_1 i,z_2=x_2+y_2 i
+
+jednaki su ako i samo ako im se podudaraju realni i imaginarni dijelovi:
+z_1=z_2 "  "⟺"  " x_1=x_2 " i " y_1=y_2.
+
+Zaista, iz
+x_1+y_1 i=x_2+y_2 i
+
+slijedi
+x_1-x_2=(y_2-y_1)i,
+
+pa, ako bi bilo y_1≠y_2, onda bi vrijedilo
+i=(x_1-x_2)/(y_2-y_1 )∈R,
+
+što je nemoguće. Zato je y_1=y_2 i onda nužno x_1=x_2.
+PRIMJER 2
+Algebarske operacije
+Za operacije zbrajanja i množenja kompleksnih brojeva zahtijevamo da imaju uobičajena svojstva, za sve kompleksne brojeve z_1,z_2,z_3:
+Svojstva zbrajanja i množenja u skupu C
+∙ svojstvo komutativnosti za zbrajanje i množenje:
+z_1+z_2=z_2+z_1,z_1⋅z_2=z_2⋅z_1;
+
+∙ svojstvo asocijativnosti za zbrajanje i množenje:
+z_1+(z_2+z_3)=(z_1+z_2)+z_3,z_1⋅(z_2⋅z_3)=(z_1⋅z_2)⋅z_3;
+
+∙ svojstvo distributivnosti množenja prema zbrajanju:
+z_1⋅(z_2+z_3)=z_1⋅z_2+z_1⋅z_3.
+
+Sad primjerice za z_1=x_1+y_1 i,z_2=x_2+y_2 i imamo:
+z_1+z_2=(x_1+y_1 i)+(x_2+y_2 i)=x_1+y_1 i+x_2+y_2 i=x_1+x_2+(y_1+y_2)i=(x_1+x_2)+(y_1+y_2)i.
+
+U ovom smo računu koristili asocijativnost i komutativnost za zbrajanje te na koncu distributivnost, i na taj smo način izveli formulu za zbrajanje kompleksnih brojeva. S pomoću zbrajanja i množenja možemo iskazati i izvedene algebarske operacije oduzimanja i dijeljenja. Primjerice, razlika dvaju kompleksnih brojeva definira se ovako:
+z_1-z_2:=z_1+(-1)z_2.
+
+S desne su strane ove jednakosti korištene samo operacije množenja i zbrajanja.
+Zbroj, razlika i umnožak kompleksnih brojeva
+Ako su z_1=x_1+y_1 i i z_2=x_2+y_2 i bilo koja dva kompleksna broja, tada njihov zbroj, razliku i umnožak računamo na sljedeći način:
+z_1+z_2=x_1+x_2+(y_1+y_2)i,
+z_1-z_2=x_1-x_2+(y_1-y_2)i,
+z_1⋅z_2=(x_1 x_2-y_1 y_2)+(x_1 y_2+x_2 y_1)i.
+
+Formulu za računanje umnoška ne treba pamtiti, već se dva broja množe poput algebarskih izraza, uvažavajući činjenicu da je i^2=-1.
+PRIMJER 3
+Potencije imaginarne jedinice
+Pri množenju više kompleksnih brojeva pojavit će se potencije imaginarne jedinice s eksponentom većim od dva. Izračunajmo, primjerice:
+(1+i)^3=1+3i+3i^2+i^3.┤
+
+Koliko je i^3? Možemo računati:
+i^3=i^2⋅i=-1⋅i=-i.
+
+Onda je konačno:
+(1+i)^3=1+3i-3-i=-2+2i.┤
+
+Vrijedi:
+i^2=-1,i^3=i^2⋅i=-i,i^4=i^3⋅i=-i^2=1,i^5=i^4⋅i=i.
+
+Dalje se račun ponavlja. Svaki se prirodni broj n može zapisati u obliku 4k+r, gdje je k količnik, a r ostatak pri dijeljenju broja n s 4. Broj r je jedan od brojeva 0, 1, 2 ili 3. Zato možemo pisati:
+i^n=i^(4k+r)=i^4k⋅i^r=(i^4 )^k⋅i^r=1^k⋅i^r=i^r.
+
+Primjerice,
+i^23=i^(4⋅5+3)=i^3=-i,i^2010=i^(4⋅502+2)=i^2=-1
+
+i slično.
+Potencije imaginarne jedinice
+Neka je k prirodan broj. Tada za potencije imaginarne jedinice i vrijedi:
+i^4k=1,i^(4k+1)=i,i^(4k+2)=-1,i^(4k+3)=-i.
+
+PRIMJER 4
+PRIMJER 5
+PRIMJER 6
+________________________________________
+Dijeljenje kompleksnih brojeva
+Kompleksno konjugirani brojevi
+Skup racionalnih brojeva uveli smo s ciljem da možemo riješiti jednadžbu nx=m u kojoj su m i n cijeli brojevi, n≠0. Time smo definirali dijeljenje cijelih brojeva. Sad ćemo slično postupiti u skupu kompleksnih brojeva.
+Ako su z_1,z_2 bilo koji kompleksni brojevi i z_2≠0, pokazat ćemo da postoji kompleksan broj z za koji vrijedi
+z_2 z=z_1.
+
+Prirodno je taj z označavati na način
+z=z_1/z_2 ,
+
+dakle on je kvocijent kompleksnih brojeva.
+Kako se dijele kompleksni brojevi? Koliko je
+(2+3i)/(1-i)?
+
+Najprije uvedimo jedan novi pojam. Ako je z=x+yi bilo koji kompleksni broj, onda broj
+z ‾=x-yi
+
+zovemo kompleksno konjugirani broj broja z. Par kompleksnih brojeva z i z ‾ nazivamo parom kompleksno konjugiranih brojeva. To je, dakle, par čiji su realni dijelovi jednaki, a imaginarni dijelovi suprotni su realni brojevi.
+Primjerice
+(2+3i) ‾=2-3i,(1-i) ‾=1+i,(4i) ‾=-4i.
+
+Umnožak dvaju kompleksno konjugiranih brojeva (različitih od nule) pozitivan je realan broj. Lako je provjeriti ovu tvrdnju:
+(x+yi)(x-yi)=x^2-(yi)^2=x^2+y^2.
+
+PRIMJER 1
+PRIMJER 2
+________________________________________
+Dijeljenje kompleksnih brojeva
+Odgovorimo na pitanje iz uvoda. Neka je z_1=2+3i,z_2=1-i. Koliko je z_1:z_2?
+Zapišimo dijeljenje u obliku razlomka i razlomak proširimo brojem 1+i, brojem koji je konjugiran broju 1-i. Tada imamo:
+z_1/z_2 =(2+3i)/(1-i)=((2+3i)(1+i))/((1-i)(1+i) )=(2+3i+2i+3i^2)/(1-i^2 )=(2+5i-3)/(1+1)=(-1+5i)/2=-1/2+5/2 i.
+
+Isti postupak provodimo i pri dijeljenju bilo kojih dvaju kompleksnih brojeva.
+Dijeljenje kompleksnih brojeva
+Dva se kompleksna broja z_1=x_1+y_1 i i z_2=x_2+y_2 i dijele tako da se brojnik i nazivnik pomnože kompleksno konjugiranim brojem nazivnika i dobiveni razlomak sredi:
+z_1/z_2 =(x_1+y_1 i)/(x_2+y_2 i)=(x_1+y_1 i)/(x_2+y_2 i)⋅(x_2-y_2 i)/(x_2-y_2 i)=((x_1 x_2+y_1 y_2)+(x_2 y_1-x_1 y_2)i)/(x_2^2+y_2^2 ).
+
+PRIMJER 3
+PRIMJER 4
+PRONAĐI GREŠKU
+Pronađi pogrešku u sljedećem rasuđivanju ili priznaj da je 1=-1.
+Vrijedi identitet √(-c)=i√c, gdje je c realan broj. Tako za sve realne brojeve x i y imamo √(x-y)=i√(y-x). Stavivši ovdje x=a,y=b dobivamo
+√(a-b)=i√(b-a).(*)
+
+Za x=b,y=a dobivamo pak
+√(b-a)=i√(a-b).(**)
+
+Množeći jednakosti (ⓜ*) i (ⓜ*ⓜ*) dobivamo
+√(a-b)⋅√(b-a)=i^2 √(b-a)⋅√(a-b).
+
+Odavde, nakon kraćenja s √(a-b)⋅√(b-a) dobivamo 1=i^2, odnosno, 1=-1.
+(Greška je u proizvoljnom korištenju svojstava korijena za kompleksne brojeve kao da se radi o pozitivnim realnim brojevima i u nevaljanom kraćenju kada izraz može biti 0.)
+________________________________________
+________________________________________
+________________________________________
+Kompleksna ravnina
+________________________________________
+Kompleksna ravnina
+Svakom kompleksnom broju z=x+yi odgovara uređeni par realnih brojeva (xⓜ,y). Svaki kompleksni broj stoga možemo zapisati u obliku uređenog para (xⓜ,y) realnih brojeva. Primjerice:
+-1+2i=(-1,2),3+7i=(3,7),-9i=(0,-9),4=(4,0).
+
+Ovakvo zapisivanje kompleksnih brojeva nameće pomisao da bi se kompleksnim brojevima mogle pridružiti točke u koordinatnoj ravnini. Takvo je pridruživanje obostrano jednoznačno, svakom je kompleksnom broju jednoznačno pridružena točka i svakoj točki odgovara točno jedan kompleksni broj. Tako skup C možemo poistovjetiti s ravninom u koju je uveden Kartezijev koordinatni sustav.
+Os x koordinatnog sustava zove se realna os u C. Na njoj (i samo na njoj) leže realni brojevi. Os y naziva se imaginarna os i ona sadrži imaginarne brojeve.
+Koordinatna ravnina u kojoj su na opisani način smješteni svi kompleksni brojevi zove se kompleksna ravnina ili Gaussova ravnina.
+Kompleksna ili Gaussova ravnina
+Svakom kompleksnom broju z=x+yi odgovara točka M(x,y) u kompleksnoj ravnini. Na osi apscisa smješteni su realni brojevi pa se ona zove realna os. Na osi ordinata smješteni su imaginarni brojevi pa se ona zove imaginarna os. Pridruživanje kompleksnih brojeva i točaka kompleksne ravnine obostrano je jednoznačno.
+(PRIMJER 1)
+(PRIMJER 2)
+________________________________________
+Modul kompleksnog broja
+Uvođenjem kompleksne ravnine, čime su kompleksni brojevi dobili zornu podršku, omogućen je razvitak geometrije kompleksnih brojeva.
+Modul kompleksnog broja
+Modul kompleksnog broja z=x+yi je realan nenegativan broj
+∣z∣=√(x^2+y^2 ).
+
+Modul broja z jednak je udaljenosti njemu odgovarajuće točke M(x,y) od ishodišta koordinatnog sustava.
+Modul kompleksnog broja je poopćenje pojma apsolutne vrijednosti realnog broja, pa se stoga koristi ista oznaka. Naime, ako je z=x realan broj, onda imamo
+∣z∣=∣x+0i∣=√(x^2+0^2 )=√(x^2 )=∣x∣.
+
+(SLIKA 2)
+PRIMJER 3
+________________________________________
+Udaljenost točaka u ravnini
+Neka su zadana dva kompleksna broja z_1=x_1+y_1 i i z_2=x_2+y_2 i. Tada vrijedi:
+∣z_1-z_2∣=∣(x_1-x_2)+(y_1-y_2)i∣=√((x_1-x_2 )^2+(y_1-y_2 )^2 ┤ ).
+
+U ovom izrazu prepoznajemo formulu za udaljenost dviju točaka u ravnini, a točke imaju koordinate (x_1,y_1),(x_2,y_2 ). Zato je ∣z_1-z_2∣ udaljenost između točaka z_1 i z_2 u kompleksnoj brojevnoj ravnini. 
+(SLIKA 3)
+PRIMJER 4
+PRIMJER 5
+PRIMJER 6
+________________________________________
+Svojstva modula
+Modul kompleksnog broja ima sljedeća svojstva:
+	Modul umnoška dvaju kompleksnih brojeva jednak je umnošku njihovih modula:
+∣z_1⋅z_2∣=∣z_1∣⋅∣z_2∣.
+
+Provjerimo ovu jednakost:
+∣z_1⋅z_2∣=∣(x_1+y_1 i)⋅(x_2+y_2 i)∣=∣(x_1 x_2-y_1 y_2)+(x_1 y_2+x_2 y_1)i∣
+=√((x_1 x_2-y_1 y_2 )^2+(x_1 y_2+x_2 y_1 )^2 ┤ )=√(x_1^2 x_2^2+y_1^2 y_2^2+x_1^2 y_2^2+x_2^2 y_1^2 )
+=√((x_1^2+y_1^2)⋅(x_2^2+y_2^2 ) )=√(x_1^2+y_1^2 )⋅√(x_2^2+y_2^2 )=∣z_1∣⋅∣z_2∣.
+
+Navedeno se svojstvo indukcijom poopćava na umnožak bilo koliko kompleksnih brojeva. Općenito je:
+∣z_1⋅z_2⋯z_n∣=∣z_1∣⋅∣z_2∣⋯∣z_n∣.
+
+Ako su svi faktori umnoška jednaki, tada je
+∣z^n∣=∣z∣^n.
+
+	Modul količnika dvaju kompleksnih brojeva jednak je količniku njihovih modula:
+∣z_1/z_2 ∣=(∣z_1∣)/(∣z_2∣),z_2≠0.
+
+Dokažimo ovu jednakost. Najprije primijetimo da je recipročna vrijednost kompleksnog broja z=x+yi jednaka
+1/z=1/(x+yi)=x/(x^2+y^2 )-y/(x^2+y^2 ) i,
+
+pa je
+∣1/z∣=√(x^2/(x^2ⓜ+y^2 )^2 ┤ +y^2/(x^2ⓜ+y^2 )^2 ┤ )=√((x^2+y^2)/(x^2ⓜ+y^2 )^2 ┤ )=1/√(x^2+y^2 )=1/(∣z∣).
+
+I sada imamo:
+∣z_1/z_2 ∣=∣z_1⋅1/z_2 ∣=∣z_1∣⋅∣1/z_2 ∣=∣z_1∣⋅1/(∣z_2∣)=(∣z_1∣)/(∣z_2∣).
+
+Modul kompleksnog broja
+Modul kompleksnog broja z=x+yi je realan broj ∣z∣ koji se definira formulom:
+∣z∣=√((Re⁡z)^2+(Im⁡z)^2 ┤ )=√(x^2+y^2 ).
+
+Za modul kompleksnog broja vrijedi:
+∣z_1⋅z_2∣=∣z_1∣⋅∣z_2∣,∣z^n∣=∣z∣^n,∣z_1/z_2 ∣=(∣z_1∣)/(∣z_2∣)," 						" z_2≠0.
+
+PRIMJER 7
+________________________________________
+________________________________________
+________________________________________
+2.4. Trigonometrijski prikaz kompleksnog broja
+________________________________________
+Polarni sustav
+Neka je M(x,y) točka Gaussove ravnine koja odgovara broju z=x+yi, pri čemu je z≠0. Položaj točke M u ravnini obično opisujemo njezinim Kartezijevim koordinatama, a dobivamo ih ortogonalnim projiciranjem te točke na koordinatne osi. Međutim, ista se točka može zadati i s pomoću druga dva podatka:
+∙ udaljenosti r točke do ishodišta O
+∙ kuta φ između spojnice OM i pozitivnog dijela x-osi.
+Položaj točke M opisuju Kartezijeve koordinate (xⓜ,y), ali i polarne koordinate (rⓜ,φ). Broj r je realan pozitivan broj, a za mjeru kuta φ uzimamo vrijednost unutar intervala [0ⓜ,2π⟩. r i φ nazivaju se polarne koordinate kompleksnog broja z. Te su koordinate jednoznačno određene točkom z. Vrijedi i obrat: ako su r_1 i φ_1 polarne koordinate broja z_1, a r_2 i φ_2 polarne koordinate broja z_2 pa je r_1≠r_2 ili φ_1≠φ_2, onda je nužno z_1≠z_2 (razmisli zašto!).
+Broj z=0 je iznimka. Za njega vrijedi r=0, a kut φ nije određen. Koordinate (rⓜ,φ) nazivaju se koordinate točke M u polarnom sustavu.
+(SLIKA 1)
+PRIMJER 1
+________________________________________
+Koordinatna mreža
+Koordinatna krivulja u nekom sustavu obuhvaća sve točke kod kojih je jedna od koordinata stalna, dok se druga mijenja uzimajući sve moguće vrijednosti. Tako je primjerice u Kartezijevu sustavu pravac
+{(x,y):x=2}
+
+koordinatna krivulja: duž tog pravca prva je koordinata konstantna (i iznosi 2), a druga nije zadana i možemo je odabrati po volji.
+U Kartezijevu sustavu koordinatne krivulje čine pravci x=C_1 (prva koordinata stalna) te y=C_2 (druga koordinata stalna). Pritom vrijednosti konstanti C_1 i C_2 mogu biti uzete po volji.
+Kartezijeva koordinatna mreža (lijevo). Presjek dviju koordinatnih krivulja određuje položaj točke u ravnini (desno). Svaka točka u ravnini leži na presjeku točno dviju koordinatnih krivulja. Tako primjerice, točka M(2,-3) leži na presjeku dviju koordinatnih krivulja: pravaca x=2 i y=-3.
+Kako izgledaju koordinatne krivulje u polarnom sustavu? Na prvoj koordinatnoj krivulji konstantna je udaljenost r, a kut φ mijenja se po volji. Stoga je njena jednadžba r=C_1. Ta krivulja predstavlja kružnicu polumjera C_1 sa središtem u ishodištu. Na drugoj koordinatnoj krivulji čvrst je kut φ, a udaljenost se mijenja po volji. Njezina je jednadžba φ=C_2 i ona predstavlja zraku iz ishodišta.
+Polarna koordinatna mreža u ravnini (lijevo). Svaka točka (osim ishodišta) leži na presjeku točno jedne kružnice i jedne zrake (desno). Svake dvije koordinatne krivulje određuju, u svom presjeku, položaj jedne točke u ravnini. Jedino se u ishodištu siječe beskonačno mnogo zraka, tu iznos kuta φ nije određen, ali samo za tu točku vrijedi r=0.
+(SLIKA 2)
+(SLIKA 3)
+________________________________________
+Trigonometrijski prikaz kompleksnog broja
+Trigonometrijski prikaz kompleksnog broja
+Kartezijeve i polarne koordinate vezane su relacijama:
+■(&{█(x=rcos⁡φ,@y=rsin⁡φ.)┤&&"(1)" )
+
+Prikaz kompleksnog broja z u obliku
+■(&z=x+iy=r(cos⁡φ+isin⁡φ)&&"(2)" )
+
+naziva se trigonometrijski prikaz broja z. Udaljenost r kompleksnog broja od ishodišta je modul tog broja:
+■(&r=∣z∣=√(x^2+y^2 ).&&"(3)" )
+
+Kut φ nazivamo argument kompleksnog broja i označavamo s φ=arg⁡(z) te ga određujemo iz veze
+■(&tan⁡φ=y/x.&&"(4)" )
+
+Veza između Kartezijevih i polarnih koordinata
+Jednadžbom (4) kut φ nije potpuno određen. Naime, ova jednadžba ima dva rješenja unutar intervala [0ⓜ,2π⟩ (koja se međusobno razlikuju za π). Koje je od njih „pravo“, određujemo s pomoću predznaka brojeva x i y, odnosno prema informaciji o kvadrantu u kojem se nalazi broj z. Ako je x=0, tada je broj imaginaran, pa je njegov argument π/2 za y>0, odnosno 3π/2 za y<0.
+(SLIKA 4)
+PRIMJER 2
+PRIMJER 3
+PRIMJER 4
+________________________________________
+Množenje kompleksnih brojeva
+Trigonometrijski prikaz kompleksnog broja vrlo je pogodan za opis operacije množenja, a onda potenciranja i korjenovanja kompleksnih brojeva.
+Izaberimo bilo koja dva kompleksna broja (različita od nule) i prikažimo ih u trigonometrijskom obliku:
+z_1=r_1 (cos⁡φ_1+isin⁡φ_1),z_2=r_2 (cos⁡φ_2+isin⁡φ_2).
+
+Koristeći se adicijskim teoremom za trigonometrijske funkcije, za njihov umnožak dobivamo izraz:
+z_1 z_2=r_1 r_2 (cos⁡φ_1+isin⁡φ_1)(cos⁡φ_2+isin⁡φ_2)
+=r_1 r_2 [cos⁡φ_1 cos⁡φ_2-sin⁡φ_1 sin⁡φ_2+i(cos⁡φ_1 sin⁡φ_2+sin⁡φ_1 cos⁡φ_2)]
+■(&=r_1 r_2 [cos⁡(φ_1+φ_2)+isin⁡(φ_1+φ_2)].&&"(5)" )
+
+Kao rezultat dobili smo trigonometrijski prikaz broja z_1 z_2. Njegov je modul r_1 r_2, a argument φ_1+φ_2. Zato vrijedi
+■(&∣z_1 z_2∣=∣z_1∣⋅∣z_2∣,&&"(6)" )
+■(&arg⁡(z_1 z_2)=arg⁡z_1+arg⁡z_2.&&"(7)" )
+
+Množenje kompleksnih brojeva
+Kompleksni brojevi prikazani u trigonometrijskom obliku množe se tako da im se pomnože moduli, a argumenti zbroje:
+z_1 z_2=r_1 r_2 [cos⁡(φ_1+φ_2)+isin⁡(φ_1+φ_2)].
+
+________________________________________
+Potenciranje kompleksnih brojeva
+Pokazali smo da se kompleksni brojevi z_1 i z_2 množe ovako:
+z_1 z_2=r_1 r_2 [cos⁡(φ_1+φ_2)+isin⁡(φ_1+φ_2)].
+
+Uvrstimo ovdje z_1=z_2=z=r(cos⁡φ+isin⁡φ). Dobivamo
+z^2=r^2 (cos⁡2φ+isin⁡2φ).
+
+Primjenom iste formule slijedi
+z^3=z^2⋅z=r^3 (cos⁡3φ+isin⁡3φ).
+
+Indukcijom ćemo dobiti općenitu formulu.
+Potenciranje kompleksnih brojeva
+Potencija broja z napisanog u trigonometrijskom obliku računa se De Moivreovom formulom:
+■(&z^n=r^n (cos⁡nφ+isin⁡nφ).&&"(9)" )
+
+Iz nje čitamo:
+■(&∣z^n∣=∣z∣^n,&&"(10)" )
+■(&arg⁡(z^n)=narg⁡z.&&"(11)" )
+
+PRIMJER 5
+________________________________________
+Dijeljenje kompleksnih brojeva
+Formula slična onoj za množenje vrijedi i za operaciju dijeljenja.
+z_1/z_2 =(r_1 (cos⁡φ_1+isin⁡φ_1))/(r_2 (cos⁡φ_2+isin⁡φ_2))
+=r_1/r_2 ⋅(cos⁡φ_1+isin⁡φ_1)/(cos⁡φ_2+isin⁡φ_2 )⋅(cos⁡φ_2-isin⁡φ_2)/(cos⁡φ_2-isin⁡φ_2 )
+=r_1/r_2 ⋅(cos⁡φ_1+isin⁡φ_1)/(〖cos⁡〗^2 φ_2+〖sin⁡〗^2 φ_2 )(cos⁡φ_2-isin⁡φ_2)
+=r_1/r_2 (cos⁡φ_1+isin⁡φ_1)(cos⁡(-φ_2)+isin⁡(-φ_2))
+■(&=r_1/r_2 [cos⁡(φ_1-φ_2)+isin⁡(φ_1-φ_2)].&&"(12)" )
+
+Iz ovog prikaza vidimo da je modul ovog broja r_1/r_2 , a argument φ_1-φ_2:
+■(&∣z_1/z_2 ∣=(∣z_1∣)/(∣z_2∣),arg⁡(z_1/z_2 )=arg⁡z_1-arg⁡z_2.&&"(13)" )
+
+Dijeljenje kompleksnih brojeva
+Kompleksne brojeve dijelimo tako da im podijelimo module, a argumente oduzmemo:
+z_1/z_2 =r_1/r_2 [cos⁡(φ_1-φ_2)+isin⁡(φ_1-φ_2)].
+
+PRIMJER 6
+PRIMJER 7
+________________________________________
+________________________________________
+________________________________________
+Korjenovanje kompleksnih brojeva
+________________________________________
+Korjenovanje kompleksnih brojeva i n-ti korijen kompleksnog broja
+S pojmom korjenovanja upoznali smo se odavno, kad smo govorili da je to operacija inverzna operaciji potenciranja. Međutim, ograničili smo se na korjenovanje pozitivnih realnih brojeva, pri čemu takav korijen ima samo jednu vrijednost i ta je vrijednost pozitivan realan broj. Tako, primjerice, vrijedi √4=2,√5≈2,236… i sl. Isto se događa za bilo koji parni korijen pozitivna broja, primjerice √(12&16)=2,√(8&16)≈1,587…. Neparni korijen pozitivnog broja također ima samo jednu vrijednost. Ovako definirane vrijednosti korijena nazivamo aritmetički korijen pozitivnog realnog broja.
+Pojam korijena vezan je za rješavanje nekih jednadžbi. Tako primjerice, jednadžba
+x^2-3=0
+
+ima dva realna rješenja, od kojih je jedno √3, a drugo suprotnog predznaka, -√3. S druge strane, jednadžba
+x^2+4=0
+
+nema realnih rješenja.
+Za neparni eksponent slična jednadžba imat će uvijek samo jedno realno rješenje. Rješenje jednadžbe
+x^3=8
+
+je x=√(1&8)=2, a rješenje jednadžbe
+x^3=-8
+
+glasi x=-√(1&8)=-2.
+U skupu kompleksnih brojeva situacija je drukčija. Tamo jednadžba
+z^n-a=0
+
+ima uvijek točno n različitih rješenja. Primjerice, jednadžba
+x^2+4=0
+
+ima dva rješenja suprotnih predznaka: 2i i -2i, a jednadžba
+x^3-8=0
+
+imat će tri rješenja: 2,-1+i√3,-1-i√3 (provjeri!). Jednadžba
+x^4-16=0
+
+ima četiri rješenja: 2,2i,-2 i -2i.
+Zato ćemo korijen kompleksnog broja definirati na drukčiji način.
+Korijen kompleksnog broja
+n-ti korijen kompleksnog broja z je svako rješenje jednadžbe
+w^n=z.
+
+Pišemo w=√(n&z).
+Ovaj se pojam korijena razlikuje od prije navedenog aritmetičkog korijena (iako se zapisuje na isti način).
+PRIMJER 1
+Pokazat ćemo da za z≠0 uvijek postoji n njegovih različitih n-tih korijena. Uobičajeno je da se korijen kompleksnog broja označava istim simbolom kao i aritmetički korijen realnog broja i to ponekad može izazvati zabunu. Tako, primjerice, ako je z realan broj, primjerice z=8, tada je 2 jedini aritmetički treći korijen ovog broja, dok kompleksni korijen √(1&8) ima tri vrijednosti: 2,-1+i√3 i -1-i√3.
+PRIMJER 2
+Odredimo sad n-ti korijen kompleksnog broja z,z≠0. Stavimo w=√(n&z), tj. z=w^n i prikažimo te brojeve u trigonometrijskom obliku:
+z=r(cos⁡φ+isin⁡φ),w=ρ(cos⁡ψ+isin⁡ψ).
+
+Tada iz
+r(cos⁡φ+isin⁡φ)=ρ^n (cos⁡nψ+isin⁡nψ)
+
+slijedi:
+ρ^n=r⟹ρ=√(n&r),
+nψ=φ+2kπ⟹ψ=(φ+2kπ)/n.
+
+U ovoj je formuli √(n&r) aritmetički n-ti korijen pozitivnog broja r, to je pozitivan realan broj. U izrazu za argument ψ, k uzima sve cjelobrojne vrijednosti. No to ne znači da ćemo dobiti beskonačno mnogo različitih vrijednosti za argument ψ jer će se nakon nekog vremena te vrijednosti razlikovati za višekratnik od 2π, pa će stoga definirati isti argument. Uvrštavanjem redom za k=0,1,…,n-1 dobivamo sljedeće različite vrijednosti argumenta ψ:
+φ/n," 						"  (φ+2π)/n," 						"…," 						"  (φ+2(n-1)π)/n.
+
+Prva sljedeća vrijednost je (φ+2nπ)/n=φ/n+2π i ona daje isti argument kao i φ/n. Sve sljedeće vrijednosti mogu se također dobiti iz gornjih vrijednosti dodavanjem višekratnika broja 2π. Isto vrijedi i za negativne brojeve k.
+Korjenovanje kompleksnog broja
+n-ti korijen kompleksnog broja
+z=r(cos⁡φ+isin⁡φ)
+
+ima točno n različitih vrijednosti:
+√(n&z)=√(n&r)(cos⁡(φ+2kπ)/n+isin⁡(φ+2kπ)/n),k=0,1,…,n-1.
+
+Svi ti brojevi imaju isti modul √(n&r). Oni leže na kružnici sa središtem u ishodištu i polumjerom √(n&r). Argumenti uzastopnih dvaju brojeva razlikuju se za 2π/n. Zato tih n brojeva određuje pravilan n-terokut u kompleksnoj ravnini.
+(SLIKA 1)
+PRIMJER 3

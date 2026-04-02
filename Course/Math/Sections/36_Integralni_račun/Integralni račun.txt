@@ -1,0 +1,293 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Problem površine. Određeni integral
+============================================================================================================================================================================================================================================
+Problem površine
+============================================================================================================================================================================================================================================
+Uvod
+Napredne tehnike koje izučavamo pri kraju školovanja nazivaju se infinitezimalni račun, što znači račun s beskonačno malim veličinama. U engleskom govornom području koristi se samo riječ calculus. I u hrvatskom jeziku riječ račun sve više poprima istu konotaciju. Račun obuhvaća dvije glavne grane. Prva, diferencijalni račun, koju smo svladali, kreće od funkcije prema njezinim derivacijama. U ovom poglavlju upoznat ćemo integralni račun u kojem krećemo u obrnutom smjeru, od funkcije prema njezinoj antiderivaciji ili primitivnoj funkciji.
+
+Problem površine
+Jedan od osnovnih zadataka matematike bio je problem mjerenja dužina, površina i obujama. Znajući duljine dviju stranica a i b pravokutnika, znamo izmjeriti i njegovu površinu jer je ona jednaka P=ab. Transformacijom pravokutnika možemo mjeriti površinu paralelograma, trokuta, pa onda i po volji odabranog mnogokuta jer se on može razbiti na trokute.
+Međutim, na ovaj se način ne može mjeriti površina bilo kojeg lika kojemu je rub opisan nekom krivuljom. Već pri izvodu formule za površinu kruga moramo se koristiti aproksimacijama. Na taj je način još Arhimed računao površinu kruga, upisujući i opisujući mu pravilne mnogokute. Povećavajuchi broj njihovih stranica, možemo izračunati površinu kruga sa zadovoljavajućom točnošću. Na isti je način Arhimed računao i površinu omeđenu dijelovima parabole.
+Kroz povijest su matematičari na različite načine računali površine raznih likova i obujme mnogih tijela, primjenjujući metode koje su bile prilagođene konkretnom liku ili tijelu. Međutim, tek krajem 17. stoljeća problem računanja površine i obujama riješen je analitičkim, a ne geometrijskim metodama jer je uspostavljena njegova veza s diferencijalnim računom.
+Na sličan način, kao i površini kruga, možemo prići problemu računanja površine bilo kojeg lika omeđenog zakrivljenom krivuljom1.
+Horizontalnim i vertikalnim cijepanjem svaki lik možemo podijeliti na dijelove koje nazivamo krivocrtnim trapezima jer su tri njegove stranice poput stranica trapeza, a četvrta stranica opisana je lukom krivulje.
+ 
+Na taj način možemo problem računanja površine ravninskog lika dovesti u vezu s problemom računanja površine krivocrtnog trapeza ispod grafa neke funkcije.
+1Pri računanju površine uzimamo likove omeđene dijelovima `glatkih' krivulja koji će imati površinu. Nemaju svi likovi površinu. Problem računanja površine spada u područje matematike koje se naziva teorija mjere i uči detaljno na studiju matematike.
+============================================================================================================================================================================================================================================
+Površina krivocrtnog trapeza
+Promotrimo sad po volji odabranu funkciju f, neprekinutu i pozitivnu na intervalu [a,b]. Interval [a,b] podijelit ćemo na n dijelova. Ti dijelovi ne moraju biti istih duljina. Neka su djelišne točke:
+a=x0<x1<x2<…<xn=b.
+Nad svakim dijelom [xi−1,xi] postavit ćemo dva pravokutnika, jedan koji leži ispod grafa funkcije i drugi koji ga premašuje. Neka su njihove visine:
+mi= minimum funkcije f na intervalu [xi−1,xi]Mi= maksimum funkcije f na intervalu [xi−1,xi].
+Duljinu intervala označimo s Δxi:
+Δxi=xi−xi−1.
+Zbrajajući površine ovih pravokutnika, dobit ćemo donju integralnu sumu sn i gornju integralnu sumu Sn:
+sn=m1Δx1+m2Δx2+…+mnΔxn=n∑i=1miΔxiSn=M1Δx1+M2Δx2+…+MnΔxn=n∑i=1MiΔxi.
+Površina krivocrtnog trapeza uklopljena je između donje i gornje sume:
+n∑i=1miΔxi≤P≤n∑i=1MiΔxi.
+Uzimajući sve veći broj djelišnih točaka, donja se suma općenito povećava, a gornja suma smanjuje. Možemo zamisliti da broj n teži u beskonačnost, tako da duljine pojedinih intervala podjele teže nuli. U graničnom slučaju donja i gornja suma imat će isti limes, koji ćemo označiti s I. Taj limes mora biti jednak površini krivocrtnog trapeza.
+Broj I određen je samo funkcijom f i ne ovisi o načinu računanja donje i gornje sume (o načinu na koji smo podijelili interval i time odredili brojeve mi, odnosno Mi). Nazivamo ga određenim integralom funkcije f.
+Određeni integral pozitivne funkcije
+Neka je f:[a,b]→R pozitivna neprekinuta funkcija. Zajednički limes donje i gornje sume nazivamo određenim integralom funkcije f i označavamo sI=∫baf(x)dx.On je jednak površini ispod grafa funkcije, nad intervalom [a,b].
+
+Znak ∫ zovemo znakom integracije, broj a donjom granicom integrala, broj b gornjom granicom integrala, a funkciju f podintegralnom funkcijom. dx se naziva diferencijal varijable x.
+Određeni integral je zajednički limes donje i gornje integralne sume. Znak za integral nastao je iz izduženog slova S koji je sinonim za znak sumiranja nastao od grčkog istoimenog slova Σ. Diferencijal dx zamišljamo kao beskonačno mali prirast Δx, kad duljina intervala [xi−1,xi] teži u nulu. Tada se vrijednosti mi i Mi približavaju funkcijskoj vrijednosti u točki x∈[xi−1,xi]. Izračunajmo na opisani  način površinu ispod jedne relativno jednostavne krivulje.
+============================================================================================================================================================================================================================================
+Površina ispod luka parabole
+Promotrimo parabolu y=x2. Odredit ćemo površinu ispod njezinog grafa, a nad intervalom [0,a].
+Podijelimo interval [0,a] na n jednakih dijelova. Duljina svakog dijela je a/n. Upišimo ispod grafa parabole pravokutnike kojima je visina određena funkcijskim vrijednostima u točkama a/n. Tako dobivamo
+djelišne točke	a/n	2a/n	...	ka/n	...
+visina pravokutnika	(a/n)2	(2a/n)2	...	(ka/n)2	...
+Svi su pravokutnici iste širine, an. Oni određuju lik površine pn koji je sadržan u
+krivocrtnom trapezu. Njegovu površinu nazivamo donjom sumom. Ona iznosi:
+pn=an[a2n2+4a2n2+…+(n−1)2a2n2]=a3n3[12+22+…+(n−1)2]=a3(n−1)(2n−1)6n2.
+Za računanje zbroja kvadrata prvih n prirodnih brojeva koristimo formulu1+22+32+…+k2=k(k+1)(2k+1)6.
+Na sličan način dobivamo izraz za gornju sumu, površinu Pn lika koji određuju pravokutnici opisani iznad grafa parabole. Taj lik u sebi sadrži krivocrtni trapez:
+Pn=an[a2n2+4a2n2+…+n2a2n2]=a3n3[12+22+…+n2]=a3(n+1)(2n+1)6n2.
+Površina P krivocrtnog trapeza uklopljena je između donje i gornje sume:
+a3(n−1)(2n−1)6n2<P<a3(n+1)(2n+1)6n2,
+tj.
+a3⋅16(1−1n)(2−1n)<P<a316(1+1n)(2+1n).
+Povećanjem broja n očekujemo da će se granice
+približavati jedna drugoj. Uistinu, i donja i gornja suma imaju isti limes kad n teži u beskonačnost, koji iznosi a3/3. Dakle;
+P=a33.
+Time smo izračunali površinu ispod luka parabole, a iznad intervala [0,a].
+ 
+Ovaj primjer pokazuje da je račun površina težak posao već za tako jednostavnu funkciju kao što je kvadratna funkcija. Nasreću, ovaj se problem može riješiti korištenjem integralnog računa, dijela matematičke analize koji se bavi proučavanjem svojstava integrala. Pojam integrala usko je povezan s pojmom derivacija. Tako ćemo, znajući diferencijalni račun, moći rješavati i problem površina.
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+ Primitivna funkcija. Newton-Leibnizova formula
+============================================================================================================================================================================================================================================
+Integralna suma
+U praktičnom računu pri izvođenju formula s pomoću određenog integrala koristimo se pojmom integralnih suma u kojima se minimalna vrijednost mi i maksimalna vrijednost Mi zamjenjuju vrijednostima funkcije f(ξi) u nekoj točki ξi intervala [xi−1,xi]. Dakle:
+∫baf(x)dx=limn→∞n∑i=1f(ξi)Δxi.
+Suma s desne strane naziva se integralna suma. Kako je uvijek mi≤f(ξi)≤Mi, vidimo da je integralna suma zaista uklopljena između donje i gornje sume i njezin limes jednak je integralu funkcije. Ovdje se limes uzima po svim mogućim razdiobama intervala u kojima najveća duljina Δxi teži k nuli.
+
+============================================================================================================================================================================================================================================
+Svojstva određenog integrala
+Napišimo nekoliko svojstava određenog integrala koja slijede neposredno iz same definicije.
+1. Aditivnost određenog integrala. Rastavimo li interval [a,b] na dva dijela, tada je očito
+∫baf(x)dx=∫caf(x)dx+∫bcf(x)dx.
+Ovo se svojstvo naziva aditivnost određenog integrala.
+2. Određeni integral negativne funkcije. Određeni integral smo definirali samo za pozitivne funkcije f. Uzmimo sada da je funkcija negativna na intervalu [a,b]. Tada je −f pozitivna, a površina ispod grafa te funkcije jednaka je površini iznad grafa funkcije f.
+To možemo objasniti s pomoću integralnih suma ovako:
+∫ba(−f)(x)dx=limn→∞n∑i=1−f(ξi)Δxi=−limn→∞n∑i=1f(ξi)Δx=−∫baf(x)dx.
+Određeni integral negativne funkcije
+Određeni integral negativne funkcije f jednak je negativnoj vrijednosti površine krivocrtnog trapeza određenog grafom te funkcije.
+Trebamo li izračunati površinu lika koji omeđuju graf funkcije i os apscisa, na intervalu unutar kojeg funkcija mijenja predznak, moramo interval podijeliti nul-točkama funkcije na dijelove u kojima je funkcija stalnog predznaka i primijeniti aditivnost integrala. Tako se, primjerice, površina lika nacrtanog na slici računa ovako:
+P=∫caf(x)dx−∫dcf(x)dx+∫bdf(x)dx.
+3. Linearnost određenog integrala. Iz definicije integrala slijede ova dva njegova svojstva, koja zajedno nazivamo linearnost određenog integrala:
+∫bac⋅f(x)dx=c∫baf(x)dx,c∈R;∫ba[f(x)+g(x)]dx=∫baf(x)dx+∫bag(x)dx.
+Pokažimo drugo svojstvo. Prvo se dokazuje po analogiji.
+∫ba[f(x)+g(x)]dx=limn→∞n∑i=1[f(ξi)+g(ξi)]Δxi=limn→∞n∑i=1f(ξi)Δxi+limn→∞n∑i=1g(ξi)Δxi=∫baf(x)dx+∫bag(x)dx.
+============================================================================================================================================================================================================================================
+Određeni integral kao funkcija gornje granice
+Promotrimo sada po volji odabranu neprekinutu funkciju f. Označimo s G(x) sljedeći određeni integral:
+G(x)=∫xaf(t)dt.
+Podintegralnu varijablu označili smo s t jer nam x označava varijablu u gornjoj granici integracije. Za pozitivne funkcije f, G(x) označava površinu ispod grafa funkcije f, a nad intervalom [a,x].
+Kolika je derivacija ove funkcije?
+Prikazana je funkcija definirana određenim integralom, kao funkcija gornje granice. Njezina je derivacija jednaka podintegralnoj funkciji.
+Prirast Δy=G(x+Δx)−G(x) jednak je površini krivocrtnog trapeza nad intervalom [x,x+Δx]:
+Δy=∫x+Δxxf(t)dt.
+Radi jednostavnosti pretpostavimo da je funkcija na tom malom intervalu rastuća. (Slično bismo zaključivali da je ona padajuća.) Površina Δy uklopljena je između vrijednosti dvaju pravokutnika s visinama f(x) i f(x+Δx):
+f(x)Δx≤Δy≤f(x+Δx)Δx,
+te jef(x)≤ΔyΔx≤f(x+Δx).
+Neka sada Δx teži nuli. Tada f(x+Δx) teži k f(x) zbog neprekinutosti funkcije f. Zato jelimΔx→0ΔyΔx=f(x).
+Time smo pokazali sljedeće.
+Derivacija određenog integrala
+Vrijedi formula:ddx∫xaf(t)dt=f(x).Derivacija određenog integrala kojemu je x gornja granica jednaka je podintegralnoj funkciji.
+Ova će formula predstavljati temeljnu sponu između diferencijalnog i integralnog računa.
+============================================================================================================================================================================================================================================
+Primitivna funkcija
+Funkciju F nazivamo primitivnom funkcijom ili antiderivacijom funkcije f ako vrijedi F′(x)=f(x).
+Primjerice, F(x)=x3 je primitivna funkcija funkcije f(x)=3x2 jer je
+F′(x)=(x3)′=3x2=f(x).
+Međutim, to nije jedina funkcija s tim svojstvom. Tako je i F(x)=x3+2 primitivna funkcija funkcije f jer se deriviranjem gubi konstanta 2. Općenitije, primitivna funkcija funkcije f bit će bilo koja funkcija oblika F(x)=x3+C, gdje je C po volji uzeta konstanta.
+Vrijedi i obratna tvrdnja.
+Primitivna funkcija
+Primitivna funkcija funkcije f definirane na intervalu ⟨a,b⟩ je funkcija F definirana na istom intervalu sa svojstvomF′(x)=f(x).Ako su F i G primitivne funkcije iste funkcije f, onda se one razlikuju za konstantu:F(x)=G(x)+C.
+Dokaz. Neka su F i G primitivne za f. Onda vrijedi:
+F′(x)=G′(x)⟹F′(x)−G′(x)=0.
+Međutim, jedina funkcija definirana na intervalu čija je derivacija identički jednaka nuli jest konstanta. Zato je F(x)−G(x)=C.
+
+============================================================================================================================================================================================================================================
+Newton-Leibnizova formula
+Sad izvedimo temeljnu formulu integralnog računa. Ona će povezivati pojam određenog integrala s primitivnom funkcijom. Na taj ćemo način dobiti moćno sredstvo u računanju određenih integrala.
+Newton-Leibnizova formula
+Ako je F po volji uzeta primitivna funkcija neprekinute funkcije f na intervalu [a,b], onda vrijedi:∫baf(x)dx=F(b)−F(a).Riječima: određeni integral funkcije jednak je razlici vrijednosti primitivne funkcije u gornjoj i donjoj granici integrala.
+Dokaz. Označimo s G funkciju:
+G(x)=∫xaf(x)dx,a≤x≤b.
+Kako je G′(x)=f(x) za a<x<b, ova je funkcija primitivna za funkciju f. Neka je F po volji uzeta primitivna funkcija iste funkcije f. Onda se F i G razlikuju za konstantu, pa za svaki x vrijedi
+G(x)=∫xaf(x)dx=F(x)−C.
+Uvrstimo sada dvije vrijednosti za gornju granicu. Za x=a određeni integral jednak je nuli jer je interval
+integracije samo jedna točka:
+G(a)=∫aaf(t)dt=0=F(a)−C.
+Odavde slijedi da je C=F(a). Uvrstimo sad x=b:
+G(b)=∫baf(t)dt=F(b)−F(a).
+Time je Newton-Leibnizova formula dokazana.
+Zapisivanje određenog integrala
+Postupak računanja određenog integrala zapisujemo na ovaj način:∫baf(x)dx=F(x)∣∣ba=F(b)−F(a).
+(PRIMEJR 1)
+(PRIMJER 2)
+(PRIMEJR 3)
+(PRIMJER 4)
+Dobili smo formulu
+lnx=∫x11tdt
+koja se u mnogim udžbenicima koristi za definiciju logaritamske funkcije jer se iz nje mogu izvesti sva nama poznata svojstva logaritamske funkcije.
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Neodređeni integral
+============================================================================================================================================================================================================================================
+Neodređeni integral
+Veza primitivne funkcije s određenim integralom kroz Newton-Leibnizovu formulu toliko je jaka da se i sama primitivna funkcija zapisuje na sličan način, koristeći znak integrala.
+Svake se dvije primitivne funkcije razlikuju za konstantu. To znači da znajući jednu primitivnu funkciju, recimo F, neku drugu možemo napisati u obliku x↦F(x)+C, gdje je C konstanta.
+Neodređeni integral
+Neka je f po volji odabrana funkcija, a F neka njezina primitivna funkcija. Skup svih primitivnih funkcija funkcije f nazivamo neodređenim integralom funkcije f i označavamo ovako:∫f(x)dx={F+C:C∈R}.Po dogovoru koristimo jednostavniji zapis∫f(x)dx=F(x)+C.
+Evo nekih primjera:
+∫xdx=x22+C∫exdx=ex+C∫e2xdx=12e2x+C∫cosxdx=sinx+C∫cosx2dx=2sinx2+C.
+Ove se formule provjeravaju direktnim deriviranjem: derivacija desne strane mora biti jednaka podintegralnoj funkciji.
+============================================================================================================================================================================================================================================
+Račun primitivnih funkcija
+Za računanje primitivne funkcije (neodređenog integrala) nemamo strogih pravila poput onih za računanje derivacija. Većina poznatih primitivnih funkcija izvedeno je iz tablice derivacija, koju čitamo u suprotnom smjeru.
+Tablica neodređenih integrala
+f(x)	∫f(x)dx
+1	x+C
+xn	xn+1n+1+C, n≠1
+1x	ln|x|+C
+1xn	−1(n−1)xn−1+C, n≠1
+1√x	2√x+C
+ex	ex+C
+ax	axlna+C
+sinx	−cosx+C
+cosx	sinx+C
+1cos2x	tg x+C
+1sin2x	−ctg x+C
+Sve se jednakosti mogu provjeriti izravnim deriviranjem funkcije na desnoj strani. Provjerimo formulu
+∫1xdx=ln|x|+C.
+Razlog za apsolutnu vrijednost je u tome što je podintegralna funkcija definirana u svakom realnom broju x≠0, a funkcija ln samo za pozitivne vrijednosti. Ako je x>0, onda imamo:
+(ln|x|+C)′=(lnx+C)′=1x,
+a za x<0 račun glasi:
+(ln|x|+C)′=(ln(−x)+C)′=1−x⋅(−x)′=−1x⋅(−1)=1x.
+============================================================================================================================================================================================================================================
+Izračunajmo nekoliko neodređenih integrala:
+(PRIMJER 1)
+Za račun neodređenih integrala ne postoje jasna pravila kao pri deriviranju funkcija. Štoviše, neke vrlo jednostavne elementarne funkcije ne mogu se integrirati jer njihova primitivna funkcija nije elementarna, ne možemo je iskazati nama poznatim funkcijama. Evo primjera nekih takvih funkcija. Nijedna od sljedećih funkcija nema elementarnu primitivnu funkciju:
+1lnx,ex2,e1/x,√1+x3,
+i mnoge njima slične. Ovi primjeri pokazuju da je računanje neodređenih integrala složeniji problem od deriviranja.
+U nastavku ćemo pokazati neke metode integriranja.	
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Metoda supstitucije
+============================================================================================================================================================================================================================================
+Metoda supstitucije
+Iz tablice elementarnih integrala znamo da vrijedi
+∫xdx=x22+C.
+Možemo li integral oblika
+∫(2x+1)dx
+izračunati na istovjetan način? Pokušajmo zamijeniti varijablu x novom varijablom u tako da pojednostavnimo podintegralnu funkciju:
+u=2x+1.
+Da bismo nastavili s integracijom, moramo i član dx zamijeniti odgovarajućom veličinom po varijabli u.
+Dosad smo taj član dx doživljavali poput `ukrasa' pod znakom integrala jer on nije ni po čemu sudjelovao u procesu integracije. Međutim, njegova je važnost golema, on je sastavni dio pojma integrala jer opisuje kako se brzo mijenja varijabla integracije.
+Izraz dx nazivamo diferencijalom od x. Ako su dvije veličine vezane funkcijskom vezom, onda su sličnom vezom povezani i njihovi diferencijali. Tu vezu nalazimo iz dobro nam poznate relacije za zapis derivacije funkcije
+dudx=u′,
+koju možemo napisati na ovaj način:
+du=u′dx,
+gdje ona poprima potpuno drukčiji smisao.
+Diferencijal funkcije
+Diferencijal funkcije u računamo formulom:du=u′dx.
+Vratimo se na problem zamjene u postupku integracije. Iz veze u=2x+1 deriviranjem dobivamo
+du=u′dx=(2x+1)′dx=2dx.
+Sada možemo dovršiti postupak integracije. Pisat ćemo cijeli postupak:
+∫(2x+1)dx=[u=2x+1du=2dx]=∫u⋅du2=12⋅u22+C=(2x+1)24+C.
+============================================================================================================================================================================================================================================
+Integriranje zamjenom varijabli
+Vratimo se na problem zamjene u postupku integracije. Iz veze u=2x+1 deriviranjem dobivamo
+du=u′dx=(2x+1)′dx=2dx.
+Sada možemo dovršiti postupak integracije. Pisat ćemo cijeli postupak:
+∫(2x+1)dx=[u=2x+1du=2dx]=∫u⋅du2=12⋅u22+C=(2x+1)24+C.
+(PRIMEJR 1)
+Integriranje zamjenom varijabli
+Metodom zamjene varijabli neodređeni integral računamo ovako:
+
+1. Odaberemo u kao funkciju varijable x.
+2. Izrazimo x s pomoću u.
+3. Povežemo diferencijale du i dx.
+4. Zamijenimo podintegralnu funkciju i dx s izrazima po varijabli u i izračunamo neodređeni integral. Ako to nije moguće, pokušamo odrediti drugu zamjenu.
+5. Po završetku integracije rezultat napišemo kao funkciju varijable x.
+(PRIMEJR 2)
+============================================================================================================================================================================================================================================
+Zamjena u određenom integralu
+Isti se princip primjenjuje i za računanje određenog integrala. Međutim, ovdje se nakon integracije nije potrebno vraćati na polaznu varijablu jer je rezultat integracije ionako broj. Umjesto toga, zajedno s podintegralnom funkcijom mijenjamo i granice integracije.
+Zamjena u određenom integralu
+Metodom zamjene varijabli određeni integral računamo ovako:
+
+1. Odaberemo u kao funkciju varijable x.
+2. Izračunamo obrnutu vezu x s pomoću u.
+3. Povežemo diferencijale du i dx.
+4. Odredimo nove granice integracije s pomoću veza varijabli u i x.
+5. Zamijenimo podintegralnu funkciju i dx s izrazima po varijabli u i izračunamo integral.
+(PRIMEJR 3)
+============================================================================================================================================================================================================================================
+Integriranje svođenjem pod znak diferencijala
+Ovu metodu primjenjivat ćemo za integrale koji se tek neznatno razlikuju od tabličnih, poput:
+∫cos2xdx,∫e3xdx,
+ali za nešto složenije primjere poput:
+∫ctg xdx,∫xx2+1dx,∫xex2dx.
+Što je zajedničko ovim integralima? Svi se oni mogu riješiti jednostavnom zamjenom. Bit ove metode jest samo u tome da se ta zamjena eksplicitno ne piše, već se odgovarajuća varijabla piše pod znakom diferencijala.
+Pritom koristimo temeljnu definiciju diferencijala du=u′dx u računanju jednostavnih izraza  poput:
+d(3x)=3dx⟹dx=d(3x)3
+ili pak
+d(sinx)=cosxdx,d(x2+1)=2xdx
+i njima sličnih. Time se ubrzava i pojednostavnjuje postupak integracije. Izračunajmo na taj način prije navedene integrale.
+(PRIMJER 4)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjena integrala u računanju površina
+============================================================================================================================================================================================================================================
+Primjena integrala u računanju površina
+ Pogledaj zadatke 
+Uvod
+Definicija određenog integrala izvedena je iz površine krivocrtnog trapeza, lika koji određuju os apscisa, pravci x=a, x=b i graf funkcije. Stoga se određeni integral direktno rabi u računanju površine takvih likova.
+Pogledajmo tipične situacije.
+Površina krivocrtnog trapeza
+Povrssina lika na slici jednaka je
+P=∫baf(x)dx.
+Ovdje pretpostavljamo da je funkcija f pozitivna na intervalu [a,b].
+(PRIMJER 1)
+(PRIMJER 2)
+(PRIMJER 3)
+============================================================================================================================================================================================================================================
+Lik omeđen grafovima funkcija
+Promotrimo nešto općenitiji oblik krivocrtnog trapeza koji je omeđen grafovima funkcije f i g i pravcima x=a, x=b.
+Površina krivocrtnog trapeza omeđena je grafovima dviju funkcija.
+Površina P krivocrtnog trapeza razlika je površina dvaju krivocrtnih trapeza, jednog određenog funkcijom f i drugog određenog funkcijom g:
+P=P1−P2=∫baf(x)dx−∫bag(x)dx.
+Ove integrale ne računamo pojedinačno, već površinu dobivamo s pomoću jednog integrala:
+P=∫ba[f(x)−g(x)]dx.
+Formula vrijedi bez obzira na to siječe li graf neke od funkcija x-os ili ne, u što se možemo uvjeriti tako da obje funkcije povećamo za iznos bilo koje konstante. Time se čitav lik translatira prema gore, pri čemu se niti podintegralna funkcija niti površina lika ne mijenjaju.
+Međutim, formulu za površinu krivocrtnog trapeza možemo opravdati i na drugi način, koji je puno bliži pojmu integrala.
+============================================================================================================================================================================================================================================
+Element površine
+Zamislimo da je lik podijeljen prugama širine dx (`skoro beskonačno male širine'). Površinu jednog dijela označimo s dP. Nju nazivamo diferencijalom površine ili jednostavnije, elementom površine. Površinu svakog dijela možemo aproksimirati površinom pravokutnika kojem je jedna stranica dx, a druga f(x)−g(x):
+dP=[f(x)−g(x)]dx.
+Pritom je učinjena pogreška zanemariva s obzirom na iznos elementa površine. Ukupnu površinu dobit ćemo zbrajajući (=`integrirajući') elemente površine:
+P=∫ba[f(x)−g(x)]dx.
+(PRIMEJR 4)
+(PRIMJER 5)
+Riješit ćemo ovaj primjer na još jedan, prikladniji način. Lik ćemo pokriti elementima površine koji su paralelni s osi apscisa. To znači da ćemo zamijeniti uloge varijabli x i y: integrirat ćemo po varijabli y, a jednadžbe krivulja pisati u obliku x=f(y) i x=g(y). Element površine iznosi:
+dP=[f(y)−g(y)]dy.
+Ovdje je f `gornja' funkcija; to je parabola y=x22 koju pišemo u obliku:y=x22⟹x=f(y)=√2y.
+g je `donja' funkcija:
+y=2√x⟹x=g(y)=y24.
+Površina se može izračunati jednim integralom, ovako:
+P=∫20[f(y)−g(y)]dy=∫20[√2y−y24]dy=(√2⋅23y32−y312)∣∣∣20=√2⋅23⋅2√2−812=2.
+(PRIMJER 6)
+============================================================================================================================================================================================================================================

@@ -1,0 +1,252 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 1
+1) Za a:N→N, an=n dobivamo niz prirodnih brojevaa1=1, a2=2, a3=3, a4=4…
+2) Za an=2n dobivamo niz parnih prirodnih brojevaa1=2, a2=4, a3=6…Njegov opći (n-ti) član je broj 2n.
+3) Za an=2n−1 dobivamo niz neparnih prirodnih brojevaa1=1, a2=3, a3=5…Primjerice, sedamnaesti član ovog niza je a17=2⋅17−1=33.
+
+Primejr 2
+Odredimo nekoliko prvih članova niza ako je
+1) an=1n,
+2) an=n+1n+2,
+3) an=2−n,
+4) an=cosnπ2.
+Rješenje:
+1) 1, 12, 13,14
+2) 23, 34, 45, 56, 67
+3) 12, 14, 18, 116, 132
+4) 0, −1, 0, 1, 0, −1...
+
+Primejr 3
+Niz 3,1,4,1,5,9… kojemu su članovi znamenke u decimalnom prikazu broja π dobro je definiran niz kojemu ne znamo formulu za opći član.
+Isto možemo reći i za niz prostih brojeva: 2,3,5,7,11,13,17...
+
+Primejr 4
+S prvih nekoliko članova niz nije određen. Mi možemo pokušati zamisliti formulu za n-ti član niza (kako se to radi u raznim testovima domišljatosti) i onda nastaviti niz, no za to nema nikakva matematička opravdanja. Neka su napisana prva tri člana niza1, 2, 3...1, 1, 2...1, 0, 1...Pokušajte odrediti barem dva logična nastavka ovih nizova (bez zadanog općeg člana, niz se inače može nastaviti na bilo koji način).
+
+Primejr 5
+Neka jea1=1,an=n⋅an−1,n≥2.Time je definiran niza1=1,a2=2⋅1=2,a3=3⋅2⋅1=6.Zaključujemo da vrijedian=n⋅(n−1)⋅…2⋅1.Dakle, an=n!.
+
+Primjer 6
+Neka jea0=1,an=1+a1+...+an−1,n≥1.Prvih nekoliko članova ovog niza glasi:1, 2, 4, 8...Prvi je član označen indeksom 0, što je čest slučaj u zadavanju nizova. Matematičkom indukcijom pokažite da vrijedi an=2n.
+
+Primejr 7
+Niz (an) zadan je rekurzivnom formulom an+1=an+2n+1. Ako je a1=2, koliko je a55?
+Rješenje: Najprije danu jednakost zapišimo u obliku an+1−an=2n+1. Uvrštavanjem redom umjesto n brojeva od 1 do 55 dobijemo niz jednakosti:a2−a1=3a3−a2=5a4−a3=7…a55−a54=109.Zbrojimo sada sve te jednakosti, pa dobijemo: a55−a1=3+5+7+⋯+109. Iz ove jednakosti slijedi a55=2+3+5+⋯+109. Kako je zbroj prvih k neparnih brojeva jednak k2, onda je konačno a55=1+552=3026.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 8
+
+Primejr 9
+Dan je aritmetički niz 14,11,8,5,2…
+1) Odredi opći član ovoga niza.
+2) Je li broj −105 član ovog niza?
+3) Koliko je u tom nizu članova za koje je |an|<30?
+Rješenje:
+1) Prvi član niza je a1=14, razlika niza iznosi d=−3. Taj je niz padajući. Njegov je opći član jednakan=a1+(n−1)d=14+(n−1)⋅(−3)=−3n+17.
+2) Iz jednadžbe −105=−3n+17 slijedi n=1223, a to nije cijeli broj. Dakle −105 nije član ovog aritmetičkog niza.
+3) Iz uvjeta |−3n+17|<30 slijedi −30<−3n+17<30, odnosno −47<−3n<13. Taj sustav nejednakosti zapišimo u obliku−133<n<473.
+Kako je n prirodan broj, rješenje je n=1,2,3,…,15. U tom je nizu dakle prvih 15 članova po apsolutnoj vrijednosti manje od 15.
+
+Primejr 10
+Zbroj prvih n prirodnih brojeva dan je formulom1+2+3+...+n=n(n+1)2,(4)a zbroj prvih n neparnih brojeva formulom1+3+5+...+(2n−1)=n2.(5)U prvom slučaju je a1=1, an=n, a u drugom a1=1, an=(2n−1). Uvrštavanjem u (3) dobivamo traženi izraz.
+
+Primejr 11
+Zbroj prvih deset članova aritmetičkog niza jednak je 60, a zbroj prvih dvadeset članova iznosi 320. Koliki je zbroj prvih trideset članova toga niza?
+Rješenje: Iz uvjeta S10=60 i S20=320 slijedi sustav jednadžbi 5(a1+a10)=60 i 10(a1+a20)=320. Raspišemo li brojeve a10 i a20 prema formuli an=a1+(n−1)d, taj sustav možemo zapisati u obliku 2a1+9d=12 i 2a1+19d=32.
+Riješimo ga i dobijemo a1=−3, d=2.
+Konačno je S30=15(a1+a30)=15(−3+55)=15⋅52=780.
+
+Primjer 12
+Tijelo pri padu u prvoj sekundi prijeđe 4 metra, a svake sljedeće sekunde prevaljeni se put povećava za 8 metara. Koliko će dugo tijelo padati s visine od 1000 metara?
+Rješenje: Neka je Sn prevaljeni put tijela nakon n sekunda. Taj se put može dobiti kao zbroj aritmetičkog nizaSn=4+12+20+...+[4+(n−1)⋅8]Zbroj članova ovog niza jeSn=[4+4+8(n−1)]n2=4n2.Trebamo odrediti najmanji n za koji je ispunjeno4n2>1000.Odavde dobivamo n>√250=15.81… Tijelo će udariti u tlo u 16. sekundi pada.
+
+Primejr 13
+Između −6 i 15 umetni osam brojeva koji će s dva zadana činiti deset uzastopnih članova aritmetičkog niza.
+1) Koliki je zbroj svih članova niza?
+2) Odredi sve cjelobrojne članove niza.
+Rješenje: U tome je nizu ukupan broj članova 10, pa imamo a1=−6, a10=15. Zbroj svih članova možemo odrediti na temelju samo tih podataka:S=(a1+a10)⋅102=45.Budući da je a10=a1+9d, odnosno, 15=−6+9d, dobivamo d=73 te imamo sljedeći niz:−6, −113, −43, 1, 103, 173, 8, 313, 383, 15.Četiri člana ovog niza cijeli su brojevi.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 14
+
+Primejr 15
+Za a1=1 i q=2 geometrijski niz glasi1, 2, 4, 8...Njegov n-ti (opći) član jean=a1qn−1=2n−1.
+
+Primejr 16
+Četiri su broja uzastopni članovi rastućeg geometrijskog niza. Zbroj dvaju krajnjih jednak je 9, a dvaju srednjih 6. Odredimo te brojeve.
+Rješenje: Zapišimo jednadžbe:a1+a4=a1+a1q3=a1(1+q3)=9 i a2+a3=a1q+a1q2=a1q(1+q)=6.Podijelimo ih: a1(1+q3)a1q(1+q)=96. Nakon kraćenja imamo jednadžbu s jednom nepoznanicom: 1−q+q2q=32, odnosno 2q2−5q+2=0.
+Ova jednadžba ima dva rješenja, q=12 ili q=2. Zbog toga će dva rješenja imati i sam zadatak:
+1) Za q=12 nalazimo a1=8 te imamo padajući niz 8,4,2,1.
+2) Za q=2 je a1=1 i imamo rastući niz 1,2,4,8.
+Nije teško provjeriti da oba niza brojeva zadovoljavaju uvjete zadatka.
+
+Primjer 17
+Tvrtka Dobra prodaja naručila je od Marka Hakerića izradu programa za e-trgovinu. Predviđeno vrijeme rada je 14 radnih dana, a Dobra prodaja nudi tri opcije plaćanja za svaki od tih 14 dana:
+1) 500 eura po jednom radnom danu
+2) prvi dan 350 eura, a svaki sljedeći 25 eura više
+3) prvi dan 45 centa, a svaki sljedeći dvostruko više.
+Koju opciju plaćanja Marko treba prihvatiti?
+Rješenje:
+Zarada u prvoj varijanti je 7000 €.
+
+U drugoj opciji, niz je aritmetički s prvim članom a1=350, razlikom d=25 i ukupnim brojem članova n=14.
+Ukupna isplata jea1n+n(n−1)2d=7175 €.
+U trećoj opciji, red je geometrijski s prvim članom a1=0.45 i kvocijentom q=2. Njegova je sumaa1qn−1q−1=0.45⋅(214−1)=7372.35 €.Marko treba prihvatiti treću opciju (pod uvjetom da ne preskoči nijedan od tih radnih dana i da posao ne dovrši ranije).
+
+Primjer 18
+Geometrijski niz zadan je svojim članovima: a11=12 i a20=36. Koliki je zbroj a11+a12+...+a20?
+Rješenje: Ovdje se radi o zbroju dijela geometrijskog niza. Odredimo mu kvocijent. Iza20=a11q9dobivamoq9=a20a11=3612=3,te je q=9√3. U zadatku se traži razlika dviju suma, S20−S10. Prvi je dojam da ćemo morati odrediti nepoznate članove geometrijskog niza, posebice a1, kako bismo koristili formulu za zbroj niza. Međutim, možemo razmišljati i ovako: zaboravimo da je riječ o dijelu geometrijskog niza. Za nas je to novi geometrijski niz s prvim članom a11=12, posljednjim 36 i kvocijentom q. Njegova je suma, prema (5), dana sa:S=a20q−a11q−1=9√3⋅36−129√3−1.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 19
+Neka je xn=110n. Prvih nekoliko članova niza sux1=0.1,x2=0.01,x3=0.001,x4=0.0001...Svaki je sljedeći član deset puta manji od prethodnog. Vidimo da se članovi ovog niza približavaju nuli.
+
+Primejr 20
+Neka je an=1n. Članovi ovog niza sua1=1, a2=12=0.5,...,a10=110=0.1...a100=0.01,..., a1000=0.001 itd.Svaki sljedeći član manji je od prethodnog, a veći od nule. Usporedbom s prethodnim primjerom ponovno vidimo da će i članovi ovog niza težiti nuli, istina, sporije nego u tom primjeru.
+
+Primejr 21
+Neka je xn=n−1n. Ispišimo neke njegove članove:x1=0, x2=12, ..., x10=910=0.9...x1000=9991000=0.999 itd.Primjećujemo da se članovi ovoga niza približavaju broju 1. Izračunajmo udaljenost između broja 1 i općeg člana niza:|xn−1|=∣∣∣n−1n−1∣∣∣=∣∣∣1n∣∣∣=1n.Kad n teži u beskonačnost, ova razlika, prema prethodnom primjeru, teži nuli.
+
+Primejr 22
+Neka je xn=(−1)nn. Članovi su ovog niza redom −1, 2, −3, 4, −5,… On nema limes pa je divergentan.
+
+Primejr 23
+Kazali smo da (xn) teži nuli ako je limn→∞xn=0. To znači da udaljenost |xn−0| može biti po volji malena. No ta je udaljenost apsolutna vrijednost |xn| člana niza. Dakle, niz teži nuli onda i samo onda ako niz apsolutnih vrijednosti teži nuli:limn→∞xn=0⟺limn→∞|xn|=0.Evo nekoliko primjera takvih nizova: xn=1n, xn=(−1)nn, xn=1np za p>0. Njihovi su grafovi nacrtani na slici.
+
+Primjer 24
+Konstantni niz. Niz (xn) čiji su svi članovi jednaki istom realnom broju c nazivamo konstantnim nizom. On je očito konvergentan i limes mu je c jer je |xn−c|=0 za svaki n.
+Po teoremu o zbroju i umnošku limesa, u kojem ćemo za (yn) uzeti konstantni niz, vrijedilimn→∞(xn+c)=limn→∞xn+limn→∞c=limn→∞xn+c,kao ilimn→∞cxn=(limn→∞c)⋅(limn→∞xn)=c⋅limn→∞xn.
+
+Primjer 25
+Neka je a>0 i (xn) niz definiran xn=n√a. Pokažimo da vrijedilimn→∞n√a=1.
+Rješenje: Prema teoremu o limesu potencije vrijedilimn→∞n√a=limn→∞a1n=alimn→∞1n=a0=1.
+
+Primejr 26
+
+Primjer 27
+Izračunajmo limn→∞(√n2+n−n).
+Rješenje: Oba člana, i √n2+n i n teže u beskonačnost kad n→∞. (Kažemo da je ovaj limes neodređeni izraz tipa ∞−∞.) Računamo ovako:limn→∞(√n2+n−n)=limn→∞(√n2+n−n)⋅√n2+n+n√n2+n+n=limn→∞(n2+n)−n2√n2+n+n=limn→∞n√n2+n+n=[Dijelimo brojniki nazivnik s n]=limn→∞1√1+1n+1=12.Vrijednost prvih nekoliko članova niza skicirana je na slici ispod.
+
+Primejr 28
+Izračunajmo limn→∞(√n2+n−n).
+Rješenje: Oba člana, i √n2+n i n teže u beskonačnost kad n→∞. (Kažemo da je ovaj limes neodređeni izraz tipa ∞−∞.) Računamo ovako:limn→∞(√n2+n−n)=limn→∞(√n2+n−n)⋅√n2+n+n√n2+n+n=limn→∞(n2+n)−n2√n2+n+n=limn→∞n√n2+n+n=[Dijelimo brojniki nazivnik s n]=limn→∞1√1+1n+1=12.Vrijednost prvih nekoliko članova niza skicirana je na slici ispod.
+
+primejr 29
+Izračunajmo limn→∞2n+1+3n+12n+3n.
+Rješenje: Potencija 3n raste brže nego 2n. Nakon dijeljenja brojnika i nazivnika s 3n, možemo zapisatilimn→∞2n+1+3n+12n+3n=limn→∞2⋅(23)n+3(23)n+1.Primijenimo li sad teoreme o limesu kvocijenta te teorem o limesu geometrijskog niza: za |q|<1 vrijedi limn→∞qn=0, dobivamo da je traženi limes jednak 3.
+
+Primejr 30
+Niz s općim članom xn=n+1n+3 je rastući.
+Niz s općim članom yn=nn2+1 je padajući.
+Rješenje: Proučimo razliku dvaju uzastopnih članova ovih nizova:xn+1−xn=n+2n+4−n+1n+3=2(n+4)(n+3)>0pa je prvi niz rastući. Za drugi niz vrijediyn+1−yn=n+1n2+2n+2−nn2+1=−n2−n−1(n2+2n+2)(n2+1)<0i ovaj niz je padajući.
+
+Primejr 31
+Niz (xn), xn=n−1n je omeđen. Da je on omeđen odozdo, očito je jer je rastući. Donja međa je, primjerice, m=0. Gornja međa je, primjerice, broj M=1 jer vrijedixn=n−1n<1,za svaki n.Važno je primijetiti da je svaki realni broj veći od 1 također gornja međa. Među svim gornjim međama, M=1 je najmanja moguća jer niti jedan broj manji od 1 nije gornja međa ovog niza.
+Da bismo dokazali omeđenost, nismo dužni pronalaziti najmanje, već bilo kakve gornje međe, što je puno lakši zadatak.
+
+Primejr 32
+Pokažimo da je niz definiran rekurzivnom formuloman+1=an+32,a1=1,konvergentan i izračunajmo mu limes.
+Rješenje: Nekoliko prvih članova niza su: 1, 2, 52, 114 Pokažimo da je niz omeđen odozgo i da mu je međa broj 3. Vidimo da ta tvrdnja vrijedi za početne vrijednosti od n. Pretpostavimo onda da je an<3. Tada vrijedian+1=12(an+3)<12(3+3)=3i time je omeđenost dokazana. Pokažimo sad da je niz rastući:an+1−an=12(an+3)−an=12(3−an)>0.Zato je niz konvergentan. Neka je L njegov limes. Onda vrijedi: kad n→∞,an+1=12(an+3)⟹L=12(L+3)i odavde je L=3.
+
+Primejr 33
+Primjer pogrešnog zaključivanja. Pokažimo da niz 1, 3, 7, 15 definiran s x1=1, xn=2xn−1+1 ima limes jednak −1. Napišimo istinitu jednakostxn=2xn−1+1i pustimo da n teži u beskonačnost. To nam daje jednakost limesa:a=2a+1,odakle slijedi a=−1.
+U čemu je pogreška? Ne smijemo računati s nečim što ne postoji! Želimo li u računu koristiti limes a, moramo prije toga provjeriti je li on postoji. U ovom primjeru limes ne postoji jer je niz rastući i neomeđen.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 34
+Promotrimo niz (xn), xn=n. Promatrajući sumex1+x2+...+xn=1+2+...+n,vidimo da one nisu omeđene. Zato ne postoji zbroj1+2+...+n+...i red nije konvergentan.
+
+Primejr 35
+Promotrimo red12+14+...+12n+...Niz njegovih parcijalnih suma glasi:S1=12,S2=34,S3=78.n-ta parcijalna suma jednaka je zbroju konačnog geometrijskog reda. Po formuli za zbroj prvih n članova geometrijskog redaSn=12+122+...+12n=12⋅1−12n1−12.Ovaj niz ima limes. Naime, vrijedi limn→∞12n=0, te je:limn→∞Sn=12⋅11−12=1.
+
+Primejr 36
+Nad pravcem AB konstruirana je polukružnica polumjera 1, zatim do nje niz polukružnica od kojih svaka sljedeća ima dva puta manji polumjer. Kolika je duljina tako dobivene krivulje? Rješenje: Duljina prvog kružnog luka je d1=1⋅π, duljina drugog d2=12⋅π.
+Općenito, n-ti luk ima duljinu dn=(12)n−1⋅π. Zbroj ovog geometrijskog reda jed=π+12π+14π+...=11−12π=2π.
+
+Primejr 37
+U jednakokračan pravokutni trokut kraka duljine 
+a
+, upisan je kvadrat kojemu je jedan vrh u vrhu pravog kuta. Zatim su upisana dva kvadrata, potom četiri manja, osam još manjih itd., kao na slici. Izračunaj ukupnu površinu svih upisanih kvadrata.
+Rješenje: Površina prvog kvadrata je a24. Svaki sljedeći ima dvostruko manju stranicu, pa mu je površina četiri puta manja. Broj tih kvadrata raste tako da ih je u svakom sljedećem koraku dvostruko više. Zato je ukupna površina svih kvadrata zbroj geometrijskog reda:P=(a2)2+2(a4)2+22(a23)2+23(a24)2+…=a222+a223+a224+a225+…=a222(1+12+14+…)=a24⋅11−12=a22.Zbrajajući površinu svih kvadrata, dobili smo površinu početnog trokuta. Na sličnoj se ideji temelji računanje površina ispod bilo koje krivulje, što će biti obrađeno u poglavlju s integralnim računom.
+
+Primejr 38
+Pokažimo kako s pomoću geometrijskog reda možemo beskonačan decimalni prikaz racionalnog broja pretvoriti u standardni prikaz. Neka je x=0.˙2˙3. Odredimo mu standardni prikaz.x=0.˙2˙3=0.232323⋯=0.23+0.0023+0.000023+...=23⋅10−2+23⋅10−4+23⋅10−6+...Radi se o konvergentnom geometrijskom redu s prvim članom a1=23⋅10−2 i kvocijentom q=10−2. Njegova je sumax=23⋅10−21−10−2=23102−1=2399.
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 6
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 39
+Dogovore li se dva partnera o zajmu u iznosu od 100000 € s godišnjom kamatnom stopom od 4 %, pa se glavnica vrati nakon deset mjeseci, tada joj treba pridodati i kamate od100000⋅4100⋅1012jer je ovdje t=1012 godine.
+
+Primje r40
+Netko oroči 100000 € na rok od pet godina, uz godišnju kamatnu stopu od 5 %. Koliki će iznos podići na kraju tog razdoblja?
+Rješenje: Na kraju prve godine glavnica će donijeti kamate od 100000⋅5100=5000 €, tako da uvećana glavnica u tom trenutku iznosi 105000 €. Na kraju druge godine ova će glavnica donijeti 5250 kamata. Iznos kamata i vrijednost glavnice na kraju svake godine napisana je u sljedećoj tablici:
+
+	kamate	glavnica	
+n=0		100 000	C0
+n=1	5 000	105 000	C1
+n=2	5 250	110 250	C2
+n=3	5 512	115 762	C3
+n=4	5 788	121 551	C4
+n=5	6 078	127 628	C5
+
+Primejr 41
+Koliko novca treba oročiti da se nakon deset godina, uz godišnju kamatnu stopu od 4 %, dobije svota 100000 €?
+Rješenje: Stanje glavnice nakon deset godina jeC10=C0(1+4100)10=100000.Odavde jeC0=1000001.0410=1000001.482=67556.To je traženi iznos.
+
+Primejr 42
+Nakon koliko će godina glavnica C0, oročena uz godišnju kamatnu stopu od 5 %, udvostručiti svoju vrijednost?
+Rješenje: Prema uvjetima možemo napisati:Cn=C0(1+p100)n⟹2C0=C0(1+5100)n,te je1.05n=2⟹n=log2log1.05=14.206.Treba proći 15 godina.
+
+Primejr 43
+Uz koju kamatnu stopu treba posuditi glavnicu od 100000 € da bismo nakon pet godina dobili iznos od 150000 €?
+Rješenje: Sad vrijedi150000=100000(1+p100)5⟹(1+p100)5=1.5.Daljnje računanje ovisi o računalu. Ako vaše računalo posjeduje tipku yx ili x√y, računamo iz jedne od ovih dviju jednakosti:1+p100=5√1.5=1.50.2.Ako računalo posjeduje samo eksponencijalne i logaritamske funkcije, onda računamo ovako:1+p100=100.2log1.5=1.08447,te je p=8.447.
+
+Primjer 44
+Petar uplaćuje životno osiguranje u godišnjim obrocima od 800 €, uz kamatnu stopu od 3%. Kolikom će svotom raspolagati na kraju dvadesete godine?
+Rješenje: Imamo: r=1.03, S=800, n=20, pa je:S20=S⋅r⋅r20−1r−1=800⋅1.03⋅1.0320−11.03−1=22141.Primijetimo da u ovom iznosu glavnicu čini 16000 €, a 6141 € doprinos je kamata.
+
+Primjer 45
+Netko je oročio 100000 € na rok od jedne godine s kamatnom stopom od 4 % i kvartalnim pripisom kamata. Kolikom će glavnicom raspolagati krajem godine?
+Rješenje: Krajem prvog tromjesečja glavnici se pripisuje kamata od100000⋅4100⋅14=1000jer je protekla četvrtina godine. Sad je iznos glavnice 101000. Nova će glavnica za tri mjeseca donijeti kamate pa će stanje glavnice nakon šest mjeseci biti:101000+101000⋅4100⋅14=102010.Na kraju trećeg tromjesečja imamo:102010+102010⋅4100⋅14=103030.1,a na kraju godine:103030.1+103030.1⋅4100⋅14=104060.4 .Iznos od 60.4 € nastao je efektom tromjesečnog ukamaćivanja.
+	
+Primjer 46
+Popisi stanovništva obavljaju se svakih deset godina. Ako je u dvama uzastopnim popisima stanovništvo neke države povećano sa 16 000 000 na 17 500 000, koliko će ta država imati stanovnika 20 godina nakon drugog popisa, uz pretpostavku da će prirast i u sljedećim godinama biti jednak?
+Rješenje: Računat ćemo prema neprekinutom ukamaćivanju. Iz slijedi, za n=10:17500000=16000000e10p100⟹ep10=1.09375te jep=10⋅ln1.09375=0.89612 %.Sada dobivamo:C30=16000⋅e30p100=20935058.Za 20 godina bit će oko 20 935 000 stanovnika. Provjerite da će se ista vrijednost dobiti i računom složenih kamata.

@@ -1,0 +1,152 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 1
+U samom uvodu vidjeli smo primjer kvadratne funkcije oblika f(x)=ax2. Bio je to matematički zapis ovisnosti prijeđenog puta o vremenu pri slobodnom padu nekog tijela. U našem iskustvu postoji još jedan lijep primjer takve funkcije. Površina kruga izračunava se po formuli P=πr2. Očito, površina ovisi o duljini polumjera kruga, ona je dakle funkcija polumjera. Možemo zapisati
+P(r)=πr2.
+Ta je funkcija kvadratna, njezin je graf luk parabole u I. kvadrantu.
+Zbog čega samo taj luk? Odgovor je jednostavan. Obje veličine, i r i P(r) pozitivni su brojevi.
+
+Primejr 2
+Nacrtajmo grafove sljedećih kvadratnih funkcija:
+1) f(x)=x2+2, g(x)=2x2−1, h(x)=12x2+3
+2) f(x)=−x2+2, g(x)=−2x2−1, h(x)=−12x2+3. 
+
+Primjer 3
+Dana je kvadratna funkcija f(x)=−1.5(x+2)2−1 Nacrtajmo parabolu koja je graf ove funkcije. U kojoj je točki tjeme parabole? Kolika je najveća vrijednost funkcije f? Za koji x funkcija postiže tu vrijednost?
+Rješenje:
+Tjeme parabole nalazi se u točki (−2,−1). Najveća vrijednost ove funkcije jednaka je −1 a funkcija je postiže za x=−2. Primijetimo kako fukcija f prima negativne vrijednosti za sve realne brojeve x. Kako to zaključujemo iz zapisa funkcije? Jesmo li to mogli zaključiti i promatranjem njezina grafa? 
+
+Primejr 4
+Odredimo jednadžbu parabole koja je graf funkcije f(x)=a(x−x0)2+y0 ako parabola prolazi točkama (−1,1) i (2,1), i ordinata točke u kojoj presijeca os y jednaka je −3.
+Rješenje:
+Točke (−1,1) i (2,1) imaju jednake ordinate što znači da su simetrične s obzirom na pravac x=12. To znači da je tjeme parabole na tom pravcu te da je x0=12. Točka (−1,1) pripada paraboli pa njezne koordinate moraju zadovoljavati jednadžbu te parabole. Iz ovog uvjeta dobivamo jednadžbu:94a+y0=1.Ovoj jednadžbi pridružujemo još jednu koja slijedi iz podatka da točka (0,−3) pripada paraboli:14a+y0=−3.Iz ovog sustava jednadžbi dobivamo rješenje a=2 i y0=−72.
+Jednadžba parabole glasi y=2(x−12)2−72.
+
+Primjer 5
+Odredi kvadratnu funkciju kojoj su nul-točke 0 i 4, a najveća joj je vrijednost 3.
+Rješenje:
+Iz podataka za nul-točke zaključujemo da funkcija najveću vrijednost (y0=3) postiže za x0=2. Naime, apscisa tjemena je aritmetička sredina nul-točaka (Zašto?). Nadalje, iskoristimo podatak za nul-točku (0,0) te iz jednadžbe f(x)=a(x−x0)2+y0 imamo 0=a(0−2)2+3. Slijedi a=−34. Kvadratna funkcija koja je rješenje zadatka glasi: f(x)=−34(x−2)2+3.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 6
+Nacrtajmo graf kvadratne funkcijef(x)=2x2−20x+48.
+Rješenje: Načinimo postupak svođenja na potpuni kvadrat:f(x)=2x2−20x+48=2(x2−10x)+48=2(x2−10x+25−25)+48=2(x−5)2−2.Odavde čitamo x0=5 (treba paziti na izbor predznaka!) i y0=−2. Te smo vrijednosti mogli izračunati direktno po formulama:x0=−b2a=−−202⋅2=5,y0=4ac−b24a=4⋅2⋅48−(−20)24⋅2=384−4008=−2.Parabolu crtamo tako da joj je tjeme u točki T=(5,−2), a vodeći koeficijent 2 (slika).
+
+Primejr 7
+Odredimo ekstrem funkcije f(x)=−x2−4x+3.
+Rješenje: Vodeći je koeficijent negativan. To znači da je graf funkcije parabola s otvorom prema dolje. Ekstrem funkcije bit će maksimum. Odredimo najprije apscisu tjemena:x0=−b2a=−2.Vrijednost maksimuma iznosi:y0=4ac−b24a=7.Dakle, najveća vrijednost ove funkcije je y0=7, a postiže se za x0=−2. Nacrtajmo graf ove funkcije: to je parabola s otvorom prema dolje i tjemenom u točki T=(−2,7).
+
+primjer 8
+Od raznovrsnih primjera primjene polinoma drugog stupnja nama su ipak najbliži oni iz fizike. Evo još jednog: ako s tornja visokog 58.8 metara bacimo loptu vertikalno uvis brzinom 19.6 m/s, put s (u metrima) što ga lopta prevali u vremenu t (izraženom u sekundama) dan je funkcijom:s(t)=−4.9t2+19.6t+58.8.Pritom smo uzeli da je akceleracija zemlje g=9.8 m/s2.
+1) Koliko je visoko najviša točka na koju se lopta popne?
+2) Nakon koliko vremena lopta padne na tlo u podnožju tornja?
+3) Prikaži grafički ovu funkciju. Tumačeći graf opiši tijek gibanja lopte do njezinog udara o tlo.
+Rješenje:
+1) Najprije, funkcija f(t) je kvadratna funkcija. Ona najveću vrijednost 78.4 metra prima za t=2 sekunde.
+2) Valja odrediti nul-točke funkcije. Zato riješimo jednadžbu −4.9t2+19.6t+58.8=0. Ta je jednadžba ekvivalentna jednadžbi t2−4t−12=0 i njezina su rješenja t1=−2 i t2=6. Prihvaćamo drugo, pozitivno rješenje. Lopta će na tlo pasti 6 sekundi nakon bacanja.
+3) S grafa funkcije možemo čitati tijek gibanja lopte. Lopta "kreće' s visine od 58.8 metara (t=0). U sljedeće dvije sekunde ona se uspinje i dosegne najvišu točku (s=78.4 metra). Potom pada i nakon četiri sekunde udari o tlo u podnožju tornja.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 9
+Promotrimo funkciju
+f(x)=x(x−2).
+Ona ima dvije nul-točke: x1=0 i x2=2. Vodeći je koeficijent 1. Zato je graf ove funkcije parabola sukladna paraboli y=x2, ali je pomaknuta te siječe x-os u točkama s apscisama x1, x2. Želimo li graf funkcije nacrtati preciznije, odredit ćemo koordinate njezinog tjemena. Pritom nije potrebno svoditi funkciju na oblik f(x)=ax2+bx+c, već je dovoljno iskoristiti svojstvo simetrije grafa.
+Parabola je simetrična s obzirom na pravac koji prolazi njezinim tjemenom paralelno s y-osi. Jednadžba je tog pravca x=x0. Apscisa tjemena je x0=−b2a, a po Vièteovim formulama znamo da vrijedi: x1+x22=−b2a. To znači da je apscisa tjemena x0 polovište intervala [x1,x2]:x0=x1+x22.Ordinatu tjemena dobivamo izračunavanjem vrijednosti funkcije: y0=f(x0).
+U našem je primjeru x0=0+22=1 te y0=f(1)=1(1−2)=−1. Dakle, tjeme je u točki (1,−1). 
+
+Primjer 10
+Neka je
+f(x)=(12x−1)(x+4).
+Ovdje je očito riječ o polinomu drugog stupnja. Nacrtajmo njegov graf.
+Rješenje:
+1. Vodeći je koeficijent pozitivan: a=12.
+2. Nul-točke su x1=−4 i x2=2.
+3. Apscisa tjemena jex0=x1+x22=−4+22=−1.
+4. Ordinata tjemena je
+y0=f(x0)=f(−1)=(−12−1)(−1+4)=−92.
+Na osnovi ovih podataka ispisujemo tijek funkcije:
+x−∞−4−12+∞f(x)+∞↘0↘−92↗0↗+∞
+
+Primjer ¸11
+U pravokutni trokut s katetama a i b upisan je pravokutnik tako da mu jedan vrh pada u vrh pravog kuta. Kolika je njegova najveća površina?
+Rješenje: Označimo stranice pravokutnika s x i y. Trokuti ABC i DBE su slični. Zato za odgovarajuće stranice možemo postaviti omjer:ya−x=ba,te jey=ba(a−x).
+Površina pravokutnika je xy. Uvrstimo li tu upravo izračunanu vrijednost nepoznate stranice y, površinu možemo izraziti kao funkciju nepoznanice x:P(x)=ba(a−x)x.To je kvadratna funkcija s negativnim vodećim koeficijentom. Njezine su nul-točke x1=0 i x2=a (Kakav je pravokutnik u tim slučajevima?). Ona poprima maksimum u točki s apscisomx0=x1+x22=a2.Za ovu vrijednost dobivamo: y=b2 i maksimalna površina iznosi ab4. Kako se površina upisanog pravokutnika mijenja ovisno o duljini x, vidimo iz grafa funkcije P(x). Opišite te promjene te ih pratite na slici (gore).
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 12
+Odredimo područje na kojem graf kvadratne funkcije f(x)=x2−4x+3 leži iznad x-osi.
+Rješenje: Trebamo riješiti nejednadžbux2−4x+3>0.Odredimo najprije nul-točke ove funkcije. Dobivamo x1=1, x2=3. Nakon toga skiciramo njezin graf.
+Vidimo da graf leži iznad x-osi na dijelu do prve nul-točke x1 i poslije druge nul-točke x2, pri čemu je x1<x2. Taj skup zapisujemo na način: S=⟨−∞,x1⟩∪⟨x2,∞⟩=⟨−∞,1⟩∪⟨3,∞⟩. Taj isti skup predstavlja skup svih rješenja kvadratne nejednadžbe x2−4x+3>0
+
+Primjer 13
+Riješimo nejednadžbu 2x−1x−3≥1.
+Rješenje: Postupamo ovako:2x−1x−3≥1⟺2x−1x−3−1≥0⟺x+2x−3≥0.Ova je nejednadžba ekvivalentna s(x+2)(x−3)≥0,x≠3,jer je kvocijent dvaju brojeva pozitivan ako i samo ako je i njihov umnožak pozitivan. Broj x=3 mora se isključiti jer za njega nazivnik nije definiran. Nul-točke funkcije su x1=−2, x2=3, pa čitamo rješenje:x∈⟨−∞,−2]∪⟨3,∞⟩.
+
+Primjer 14
+Riješimo nejednadžbu
+(x-2)(x+2) (x-1)(x+3)
+≤0.
+Rješenje: Ova je nejednadžba ekvivalentna s dvama sustavima kvadratnih nejednadžbi
+1)
+(x-2)(x+2) ≤ 0, ili 2) (x-1)(x+3) > 0,
+((x-2)(x+2) ≥ 0,
+-
+| (x − 1)(x+3) < 0.
+Drugim riječima, promatrani razlomak bit će negativan ako su polinomi u njegovom brojniku i nazivniku suprotnog predznaka. Nadalje, vrijednost tog razlomka je nula za z=2i = −2. Rješenje zadatka
+najjednostavnije je naći promatranjem grafova dvaju polinoma. Rubovi područja (krajevi intervala) uključeni su samo u nul-točkama brojnika. Skup je svih rješenja nejednadžbe glasi: (-3, -2] U (1,2].
+
+Primjer 15
+Riješimo nejednadžbu (x−3)2≥1.
+Rješenje: Dana je nejednadžba ekvivalentna nejednadžbi |x−3|≥1. A rješenja ove su pak svi realni brojevi x za koje je x−3≤−1 ili x−3≥1, odnosno x≤2 ili x≥4.
+Nacrtajmo graf funkcije f(x)=(x−3)2. Povucimo pravac y=1. On siječe parabolu u dvjema točkama. Riješiti nejednadžbu (x−3)2≥1 znači odrediti apscise svih onih točaka parabole koje su u poluravnini iznad pravca y=1. Te dijelove parabole možemo ortogonalno projicirati na os x pa ćemo dobiti intervale kojima pripadaju sva rješenja zadatka.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 16
+Riješimo sustav jednadžbi:
+Sz+y=1
+y= x2-2x-1.
+Rješenje: Iz prve jednadžbe izrazimo y = −z +1i uvrstimo u drugu jednadžbu. Nakon sređivanja imamo kvadratnu jednadžbu 2 - -2 = 0. Rješenja te jednadžbe su z1 = -1 iz2 = 2.
+Iz y = −z +1 zatim nalazimo y1 = 2, y2 = −1.
+Rješenja danog sustava jednadžbi zapišimo kao uređene parove: (-1,2), (2, −1).
+Pogledamo li malo zadani sustav, u prvoj ćemo jednadžbi prepoznati jednadžbu pravca, a u drugoj jednadžbu parabole koja je graf polinoma f(z) = x2 - 2x-1.
+Nacrtajmo pravac i parabolu u koordinatnom sustavu. Primijetit ćemo da se ti grafovi sijeku u dvjema točkama, točki (-1,2) i točki (2, −1).
+Rješavajući sustav zapravo smo tražili točke u kojima se sijeku dani pravac i dana parabola.
+
+pRIMJER 17
+Za koji je n pravac y=2x+n tangenta parabole y=x2−4x+5?
+Rješenje: Zamjenom y=2x+n u jednadžbi y=x2−4x+5 nakon sređivanja dolazimo do kvadratne jednadžbe x2−6x+5−n=0. Njezina je diskriminanta jednaka D=4(n+4). Za n>−4 je D>0 i jednadžba ima dva realna i različita rješenja.
+Za n=−4 diskriminanta je jednaka nuli i jednadžba ima dvostruko rješenje. A za n<−4 diskriminanta je negativan broj pa jednadžba nema realnih rješenja.
+Graf jednadžbe y=x2−4x+5 je parabola. Jednadžbom y=2x+n dan je skup paralelnih pravaca. Svi oni imaju jednak nagib, a odsječak n na osi y se mijenja. Možemo zamisliti da kad n raste prema −4, pravac klizi prema paraboli i nema s njom zajedničkih točaka. Za n=−4 pravac dotakne parabolu u točki (3,2), a daljim rastom broja n pravac siječe parabolu u dvjema točkama.

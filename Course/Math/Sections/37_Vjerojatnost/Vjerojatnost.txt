@@ -1,0 +1,269 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Događaji i vjerojatnost
+============================================================================================================================================================================================================================================
+Uvod
+Teorija vjerojatnosti i s njom povezana matematička statistika daju nam ključna znanja za opisivanje složenih prirodnih i društvenih zbivanja.
+Danas teoriju vjerojatnosti doživljavamo kao granu matematike koja se bavi opisom različitih modela u kojima se pojavljuje neizvjesnost, a koji se mogu uspješno primijeniti na svakidašnje situacije.
+U drugom smo razredu upoznali vjerojatnost, njezina svojstva i način računanja vjerojatnosti događaja u nekim situacijama. U ovom uvodnom poglavlju prisjetit ćemo se nekih definicija i svojstava, ali s nešto više općenitosti.
+Događaji
+Slučajan ishod nekog stohastičkog pokusa zovemo elementaran događaj i označavamo s ω. To je primjerice
+•	 ishod bacanja nekog novčića: glava (G) ili pismo (P)
+•	rezultat bacanja jedne kocke: broj između 1 i 6
+•	 broj pojavljivanja pisama u pokusu u kojemu novčić bacamo 10 puta: neki broj iz skupa {0,1,2,…,10}
+•	 vrijeme ispravnog rada (u godinama) nekog uređaja, do prvog servisa.
+Skup svih ishoda označavamo s Ω i nazivamo skupom svih elementarnih događaja ili sigurnim događajem. Njegova suprotnost je nemoguć događaj koji se pri realizaciji pokusa nikad ne može ostvariti. Označavamo ga simbolom ∅ i zamišljamo kao prazni skup.
+Po volji odabrane događaje vezane za promatrani pokus označavat ćemo velikim slovima latinične abecede: A, B, C… Oni se sastoje od nekih elementarnih događaja. To su dakle podskupovi od Ω.
+Navedimo nekoliko primjera:
+•	 Pri bacanju kocke pojavio se paran broj. Događaj se sastoji od triju elementarnih.
+•	 U 10 ponavljanja bacanju novčića pismo se pojavilo više od 5 puta.
+•	 Uređaj se nije pokvario tijekom prve dvije godine.
+Događaje prikazujemo Vennovim dijagramima. Siguran događaj obično skiciramo u obliku nekog
+pravokutnika, a po volji odabrane događaje A, B… kao podskupove od Ω.
+Ako realizacija događaja A povlači i realizaciju događaja B, tad pišemo A⟹B ili A⊆B. To znači da su svi elementarni događaji iz A sadržani i u događaju B.
+Događaj A povlači događaj B
+Događaji A i B su disjunktni ako se istovremeno ne mogu ostvariti i jedan i drugi. Kažemo još da se A i B međusobno isključuju. Za disjunktne događaje vrijedi A∩B=∅.
+(PRIMEJR 1)
+============================================================================================================================================================================================================================================
+Operacije s događajima
+Događaji su podskupovi skupa Ω. Korištenjem skupovnih operacija možemo iz njih dobivati nove događaje. Posebno su nam zanimljive operacije unije, presjeka i komplementiranja događaja.
+Unija, presjek i komplement događaja
+Događaj koji se ostvaruje ako se ostvario barem jedan od događaja A, B nazivamo unijom tih događaja i označavamo s A∪B.
+
+Događaj koji se ostvaruje ako su se ostvarila oba događaja A i B zovemo presjekom ili umnoškom tih događaja i označavamo ga s A∩B ili s AB.
+
+Događaj koji se ostvaruje onda i samo onda ako se A nije ostvario nazivamo komplementom ili suprotnim događajem. Označavamo ga s ¯¯¯¯A, Ac ili s A′.
+
+Operacije unije i presjeka mogu se definirati i za više događaja. Unija n događaja je događaj A=A1∪A2∪…∪An koji se ostvaruje ako se ostvario barem jedan od događaja A1,…An.
+Unija (lijevo) i presjek (desno) više događaja
+Presjek n događaja je događaj A1∩A2∩…∩An koji se ostvario ako se ostvario svaki od događaja A1,…,An. Presjek događaja najčešće pišemo bez oznake (simbola) skupovne operacije: A1A2⋯An.
+(PRIMEJR 2)
+============================================================================================================================================================================================================================================
+Algebra događaja
+Familiju svih događaja nekog stohastičkog pokusa označavamo s F i zovemo algebra događaja. Ona ima sljedeća svojstva:
+
+1) siguran događaj Ω i nemoguć događaj ∅ pripadaju algebri F
+2) ako je A,B∈F, onda su A∪B, A∩B∈F
+3) ako je A∈F, onda je ¯¯¯¯A∈F.
+Vjerojatnost je funkcija definirana na algebri događaja.
+Vjerojatnost
+Neka je Ω skup elementarnih događaja i F algebra događaja na Ω. Vjerojatnost P je funkcija sa F u [0,1] koja ima svojstva:
+
+1) normiranost: P(Ω)=1
+2) pozitivnost: P(A)≥0 za sve A∈F
+3) aditivnost: ako su A,B∈F disjunktni, onda jeP(A∪B)=P(A)+P(B).Trojku {Ω,F,P} nazivamo vjerojatnosni prostor.
+Izvedimo neka svojstva vjerojatnosti, koja slijede neposredno iz definicije.
+Teorem: Vjerojatnost komplementa
+Za svaki događaj A vrijedi P(¯¯¯¯A)=1−P(A).
+Dokaz. Za svaki događaj A vrijedi A∪¯¯¯¯A=Ω. Budući da su A i ¯¯¯¯A disjunktni, onda je
+1=P(Ω)=P(A∪¯¯¯¯A)=P(A)+P(¯¯¯¯A)
+pa zaključujemo da vrijedi
+P(¯¯¯¯A)=1−P(A).
+Nemoguć događaj je komplement od Ω. Njegova vjerojatnost iznosi 0.
+Teorem: Monotonost vjerojatnosti
+1) Za svaki događaj A vrijedi 0≤P(A)≤1.
+2) Ako je A⊆B, onda vrijedi P(A)≤P(B).
+Dokaz. Dokažimo 2). Događaj B možemo prikazati kao uniju disjunktnih događaja:
+B=A∪B¯¯¯¯A.
+Zato je prema svojstvu aditivnosti
+P(B)=P(A)+P(B¯¯¯¯A).
+Iz pozitivnosti sad slijedi
+P(B)≥P(A).
+Svojstvo 1) sad slijedi iz ove monotonosti:
+∅⊆A⊆Ω⟹0=P(∅)≤P(A)≤P(Ω)=1.
+Teorem: Vjerojatnost unije
+Neka su A i B dva po volji odabrana događaja. Onda vrijediP(A∪B)=P(A)+P(B)−P(AB).
+Sljedeća slika opisuje ovu situaciju:
+Dokaz. Rastavimo događaje A∪B i B na uniju disjunktnih događaja, na sljedeći način:
+A∪B=A∪¯¯¯¯AB,B=AB∪¯¯¯¯AB.
+Zato je
+P(A∪B)=P(A)+P(¯¯¯¯AB)=P(A)+[P(¯¯¯¯AB)+P(AB)]−P(AB)=P(A)+P(B)−P(AB).
+
+============================================================================================================================================================================================================================================
+Klasični vjerojatnosni prostor. Prebrojavanje ishoda
+Klasični vjerojatnosni prostor označava model vjerojatnosnog prostora za pokus koji ima konačno mnogo ishoda i kad su svi elementarni događaji jednako vjerojatni (poput bacanja ispravnog novčića, kocke, izvlačenja broja u LOTU, lutriji ili ruletu, izbor karte iz snopa i sl.).
+Neka je Ω={ω1,…,ωN} skup svih elementarnih događaja i p1,…,pN pripadne vjerojatnosti. Svi su ti brojevi jednaki, a njihov je zbroj 1, pa vrijedi
+pi=P({ωi})=1N,i=1,…,N.
+Da bismo izračunali vjerojatnost nekog događaja A, potrebno je samo znati koliko elementarnih događaja A sadrži.
+Klasična vjerojatnost
+U klasičnom vjerojatnosnom prostoru vjerojatnost događaja računa se formulom:P(A)=MN=broj povoljnih ishodabroj mogućih ishoda.
+Reći ćemo da biramo na sreću element iz nekog skupa ako je svaki izbor jednako vjerojatan, tj. ako primjenjujemo model klasičnog vjerojatnosnog prostora. Primjerice, kad u kutiji s pet kuglica odabiremo jednu, govorimo da je biramo na sreću.
+(PRIMJER 3)
+(PRIMJER 4)
+(PRIMJER 5)
+(PRIMJER 6)
+============================================================================================================================================================================================================================================
+De Morganovi zakoni
+Veza između operacija komplementiranja, unije i presjeka iskazana je sljedećim formulama:
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯A∪B=¯¯¯¯A∩¯¯¯¯B(1)¯¯¯¯¯¯¯¯¯¯¯¯¯¯A∩B=¯¯¯¯A∪¯¯¯¯B.(2)
+Te formule nazivaju se De Morganovi zakoni. Evo slikovne interpretacije prve formule:
+De Morganovi zakoni
+Dokažimo (1):
+ω∈¯¯¯¯¯¯¯¯¯¯¯¯¯¯A∪B⟺ω∉A∪B⟺ω∉A i ω∉B⟺ω∈¯¯¯¯A i ω∈¯¯¯¯B⟺ω∈¯¯¯¯A∩¯¯¯¯B.
+Drugu formulu možemo dokazati na sličan način. Međutim, korisno je vidjeti da ona slijedi iz prve formule. Naime, za svaki događaj vrijedi ¯¯¯¯¯¯¯¯A=A, pa možemo računati ovako
+A∪B=¯¯¯¯¯¯¯¯A∪¯¯¯¯¯¯¯¯B= po  (1) =¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯A∩¯¯¯¯B,
+te je
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯A∪B=¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯A∩¯¯¯¯B=¯¯¯¯A∩¯¯¯¯B.
+(PRIMJER 7)
+(PRIMJER 8)
+(PRIMJER 9)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+8.2. Nezavisnost događaja
+============================================================================================================================================================================================================================================
+Nezavisnost događaja
+Mnogi pojmovi teorije vjerojatnosti utkani su u svakodnevni život i bez ikakvog teorijskog znanja imamo predodžbu što oni predstavljaju. U složenijim situacijama, to može čak izazivati probleme jer se na taj način dobivena intiuitivna predodžba ne slaže sa stvarnim činjenicama. Stoga je važno dobro razumjeti temeljne pojmove i kakve su veze među njima. Na taj način možemo mijenjati našu intuitivnu predodžbu tamo gdje ona nije ispravna.
+U ovom ćemo poglavlju obraditi pojam nezavisnosti događaja i ustanoviti koliko se intuitivno poimanje podudara s teorijskim postavkama.
+(PRIMJER 1)
+Na drugo pitanje u prethodnom primjeru intuicija ne može dati siguran odgovor. Ako se odlučite na odgovor DA ili NE u ovom trenutku, vrlo vjerojatno ćete pogriješiti.
+Stoga ćemo najprije dati teorijsko objašnjenje pojma nezavisnosti.
+(PRIMJER 2)
+Ovdje imamo sličnu situaciju kao u uvodnom primjeru. A i B su nezavisni jer odabir broja iz skupa X ne utječe na odabir broja iz skupa Y i obratno. Međutim, račun u ovom primjeru nas vodi do sljedeće definicije:
+Nezavisni događaji
+Događaji A i B su nezavisni ako vrijediP(AB)=P(A)P(B).
+Dakle, prema ovoj definiciji događaji A i B u prethodnom primjeru su nezavisni.
+(PRIMJER 3)
+Pojam nezavisnih događaja izuzetno je važan pa ga treba potpuno razumjeti. Stoga ćemo navesti još nekoliko primjera. Najprije ćemo analizirati primjer iz uvoda.
+(PRIMJER 4)
+============================================================================================================================================================================================================================================
+Princip o nezavisnosti rezultata uzastopnih pokusa
+Sad smo spremni napraviti kopernikanski obrat. Umjesto da računajući vjerojatnost umnoška događaja provjeravamo jesu li događaji nezavisni, mi ćemo podrazumijevajući nezavisnost, računati vjerojatnost umnoška događaja.
+Naime, u nastavku ćemo prihvatiti kao istinu sljedeću postavku:
+Princip o nezavisnosti rezultata uzastopnih pokusa
+Ako se neki pokus ponavlja na istovjetan način i u nepromijenjenim okolnostima, tada su svi događaji vezani (samo) za ishod prvog pokusa nezavisni od događaja koji su vezani (samo) za ishod drugog pokusa.
+Na taj će nam način biti omogućeno računanje umnoška dvaju nezavisnih događaja.
+(PRIMJER 5)
+(PRIMJER 6)
+(PRIMJER 7)
+(PRIMJER 8)
+============================================================================================================================================================================================================================================
+Nezavisnost komplementa
+Jedna od češćih pogrešaka jest poistovjećivanje svojstava disjunktnosti i nezavisnosti: „Događaj B disjunktan je s A, dakle, potpuno neovisan o njemu.” Ovo je pogrešna izjava. Biti disjunktan označava uvijek ovisnost dvaju događaja.
+Teorem: Disjunkti događaji nikad nisu nezavisni
+Ako su A i B disjunktni i različiti od nemogućeg događaja, onda vrijediP(AB)=0≠P(A)P(B)pa A i B nisu nezavisni.
+Teorem: Nezavisnost komplementa
+Ako su A i B nezavisni događaji, onda su također nezavisni događaji A i ¯¯¯¯B, ¯¯¯¯A i B te ¯¯¯¯A i ¯¯¯¯B.
+Dokaz. Dokažimo ove tvrdnje. Događaji AB i A¯¯¯¯B su disjunktni i vrijedi P(A)=P(AB)+P(A¯¯¯¯B). Znamo da vrijedi
+P(AB)=P(A)P(B) pa će biti
+P(A¯¯¯¯B)=P(A)−P(AB)=P(A)−P(A)P(B)=P(A)[1−P(B)]=P(A)P(¯¯¯¯B).
+Time je prva tvrdnja dokazana. Druga tvrdnja istovjetna je prvoj sa zamijenjenim događajima. Da dokažemo treću, uočimo da iz nezavisnosti od A i B slijedi nezavisnost ¯¯¯¯A i B (prema drugoj tvrdnji), pa onda i nezavisnost od ¯¯¯¯A i ¯¯¯¯B (prema prvoj tvrdnji.
+Treću tvrdnju možemo izvesti i direktno, primjenjujući De Morganove zakone:P(¯¯¯¯A)P(¯¯¯¯B)=(1−P(A))(1−P(B))=1−P(A)−P(B)+P(A)P(B)(nezavisnost od A i B)=1−P(A)−P(B)+P(AB)(vjerojatnost unije događaja)=1−P(A∪B)(vjerojatnost komplementa)=P(¯¯¯¯¯¯¯¯¯¯¯¯¯¯A∪B)(De Morganov zakon)=P(¯¯¯¯A¯¯¯¯B)
+Dobili smo P(¯¯¯¯A¯¯¯¯B)=P(¯¯¯¯A)P(¯¯¯¯B) pa su ¯¯¯¯A i ¯¯¯¯B nezavisni.
+Nezavisnost skupine događaja definira se po analogiji:
+Definicija nezavisnosti događaja
+Događaji A1,…,An su nezavisni ako za svaki izbor nekih među tim događajima vrijediP(Ai1Ai2⋯Aik)=P(Ai1)P(Ai2)⋯P(Aik).
+Primjerice, tri događaja A, B i C su nezavisna ako vrijedi
+P(AB)=P(A)P(B)P(AC)=P(A)P(C)P(BC)=P(B)P(C)P(ABC)=P(A)P(B)P(C).
+Mi nećemo nikad dokazivati nezavisnost temeljem ove definicije. Međutim, često ćemo koristiti posljedicu nezavisnosti:
+Teorem: Vjerojatnost umnoška nezavisnih događaja
+Ako su događaji A1,…,An nezavisni, onda vrijediP(A1A2⋯An)=P(A1)P(A2)⋯P(An).
+(PRIMJER 9)
+(PRIMLJER 10)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Ponavljanje pokusa
+============================================================================================================================================================================================================================================
+Vjerojatnosno stablo
+Vjerojatnosno stablo
+Promotrit ćemo sad pokus koji možemo ponavljati više puta pod istim uvjetima, poput bacanja novčića ili kocke.
+Pritom pretpostavljamo da su svi događaji tijekom jednog pokusa nezavisni s bilo kojim događajima tijekom nekog drugog pokusa.
+Pokusi koji se ponavljaju jedan za drugim imaju jasno vremensko razgraničenje. Znamo koji je pokus prvi, koji slijedi iza njega itd. Ta se situacija javlja kad, primjerice, jedan novčić bacamo četiri puta za redom.
+Pokus ekvivalentan ovome je bacanje četiriju novčića odjednom. Međutim, pritom moramo razlikovati naizgled identične ishode poput pojavljivanja jedne glave i triju pisama. To postižemo na način da rabimo različite novčiće ili novčiće obilježene na bilo koji način, pa možemo točno odgovoriti na kojem se novčiću pojavio koji ishod. Tek uz ovako pripremljen pokus možemo govoriti da je on istovjetan pokusu s bacanjem jednog novčića četiri puta.
+(PRIMJER 1)
+(PRIMJER 2)
+(PRIMJER 3)
+(PRIMJER 4)
+(PRIMJER 5)
+============================================================================================================================================================================================================================================
+Geometrijska shema
+Sad ćemo promotriti jednostavne pokuse koji se mogu ponavljati beskonačno mnogo puta. Primjer za to je bacanje novčića dok se ne pojavi pismo. Ili, bacanje kocke do pojave šestice.
+Općenito, neka je A događaj koji se može ostvariti u jednom ponavljanju pokusa. Označimo s
+p=P(A)
+njegovu vjerojatnost. Označit ćemo s
+q=1−p=P(¯¯¯¯A)
+vjerojatnost suprotnog događaja.
+Pokus ponavljamo do pojave događaja A, nakon čega se on prekida. Što su elementarni događaji i kolika im je vjerojatnost?
+Događaj A može se ostvariti već u prvom pokusu. Vjerojatnost za to je p. Dakle, ω1=A, p1=P(ω1)=p.
+Vjerojatnost da se on po prvi put ostvari u drugom pokusu je qp. Naime, ovaj događaj uključuje u sebi ishod: A se nije ostvario u prvom pokusu. Zato je ω2=¯¯¯¯AA i njegova je vjerojatnost
+p2=P(¯¯¯¯AA)=P(¯¯¯¯A)P(A)=qp.
+Na sličan način nastavljamo dalje. Sljedeći elementarni događaj je niz ω3=¯¯¯¯A¯¯¯¯AA
+p3=P(ω3)=P(¯¯¯¯A¯¯¯¯AA)=P(¯¯¯¯A)P(¯¯¯¯A)P(A)=q2p.
+Općenito će biti
+ωn=¯¯¯¯A…¯¯¯¯An−1A,P(ωn)=qn−1p.
+Vidimo da Ω ima beskonačno mnogo elementarnih događaja {ω1ω2,…}. Njihove su vjerojatnosti
+pn=qn−1p.
+Primijetimo da ove vjerojatnosti čine geometrijski niz. Zato se ova vrsta pokusa naziva geometrijska shema. Zbroj svih vjerojatnosti prema formuli za zbroj geometrijskog reda jednak je
+p1+p2+⋯=p+qp+q2p+⋯=p⋅11−q=p⋅1p=1.
+To pokazuje da smo vjerojatnosni prostor definirali na ispravan način.
+Geometrijska shema
+Ako je vjerojatnost realizacije događaja A u jednom pokušaju jednaka p, onda je vjerojatnost da se A po prvi put pojavi u n-tom ponavljanju pokusa jednakapn=(1−p)n−1p.Vjerojatnosti pn prikazane su na slici (za p=0.2).
+Vjerojatnosno stablo koje prati geometrijsku shemu je beskonačno. Ishod pokusa je mjesto gdje završava grana stabla. To se događa kad se realizira događaj A. Vjerojatnosti ishoda dobivamo množenjem vjerojatnosti grana do zadanog ishoda.
+Posljednji primjer zaslužuje dodatni komentar. Najprije, moramo razumjeti kako se time tvrdi da ovaj pokus mora jednom završiti. To se možda protivi logici jer ako u svakom bacanju može pasti glava, zbog čega bi onda moralo jednom pasti pismo? No, teorija vjerojatnosti upravo služi da nam objasni takve situacije.
+Slično računu u 2), vjerojatnost da se pismo pojavi u prvih n bacanja je
+p1+p2+⋯+pn=12+14+⋯+12n=2n−12n.
+Vjerojatnost da se pismo ne pojavi u prvih n bacanja je onda suprotna vjerojatnost
+1−2n−12n=12n.
+Povećavamo li n, ova vjerojatnost teži u nulu. Zato je vjerojatnost da se pismo neće nikad pojaviti jednaka nuli.
+(PRIMJER 6)
+(PRIMJER 7)
+============================================================================================================================================================================================================================================
+Binomna shema
+Slično kao u prethodnoj shemi, promatrat ćemo neki pokus i događaj A koji se može ostvariti pri izvođenju tog pokusa. Neka je p=P(A) njegova vjerojatnost. Zadani pokus ponavljamo u nepromijenjenim uvjetima i neovisno o prethodnim rezultatima.
+U prethodnoj geometrijskoj shemi prekidali smo ponavljanje pokusa pri prvoj pojavi događaja A. Sad ćemo postupiti drukčije.
+Pokus ćemo ponoviti točno n puta i pritom će nas zanimati broj realizacija događaja A. Ovakav se pokus naziva binomna shema.
+Pitanja poput: Kolika je vjerojatnost da se pri 20 bacanja novčića pismo pojavi 12 puta? − pripadaju ovoj shemi.
+Neka nam + označava da se A pojavio u nekom pokusu, − kad to nije slučaj. Tad rezultate pojavljivanja događaja A u svih n pokusa možemo predočiti nizom od n znakova + ili −.
+(PRIMJER 8)
+Opišimo općenitu situaciju. Označimo s pk vjerojatnost da se u n događaja A pojavio k puta. Jedan mogući povoljni ishod je niz poput sljedećeg
++,+,…+k puta,−,−,…,−n−k puta
+Vjerojatnost pojavljivanja ovog niza i bilo kojeg drugog niza u kojem se pojavljuje k znakova + jest
+pk⋅(1−p)n−k.
+Različitih nizova duljine n u kojima se A pojavljuje točno k puta ima
+(nk).
+Prema tome, možemo zaključiti sljedeće:
+Vjerojatnosti u binomnoj shemi
+Ako je p vjerojatnost da se događaj A pojavi u nekom pokusu, onda je vjerojatnost da će se on ostvariti k puta pri ponavljanju n nezavisnih pokusa jednakapk=(nk)pk(1−p)n−k,k=0,1,…,n.(1)Na slici su nacrtane te vjerojatnosti za n=8 i p=0.4:
+(PRIMEJR 9)
+(PRIMJER 10)
+(PRIMJER 11)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Uvjetna vjerojatnost
+============================================================================================================================================================================================================================================
+Pri bacanju kocke vjerojatnost da se pojavi broj 1 jednaka je 16. Nakon bacanja mi sa sigurnošću znamo je li se taj događaj realizirao ili nije. Pretpostavimo međutim da je netko pogledao kocku koju mi ne vidimo i kazao nam: kocka je pala na neparan broj. Kolika je sad vjerojatnost da je ona pala na broj 1? Očito, ta se vjerojatnost promijenila. Kako su nam preostale samo tri mogućnosti, brojevi 1, 3 i 5, ta je vjerojatnost sad 13.
+(PRIMJER 1)
+============================================================================================================================================================================================================================================
+Definicija uvjetne vjerojatnosti
+Da bismo došli do općenite formule za uvjetnu vjerojatnost, primijetimo da brojnik 1 označava broj elementarnih događaja koji su povoljni i za događaj A i za događaj B. Naime, vrijedi AB={(2,4)}. Stoga ovu vjerojatnost možemo pisati i u obliku:
+P(A|B)=15=136536=P(AB)P(B).
+Ovo razmatranje ukazuje na opravdanost sljedeće definicije.
+Uvjetna vjerojatnost
+Neka su A i B događaji, P(B)>0. Uvjetna vjerojatnost događaja A, ako je poznato da se ostvario događaj B, jest vjerojatnost P(A|B) definirana s:P(A|B):=P(AB)P(B).(1)
+(PRIMEJR 2)
+============================================================================================================================================================================================================================================
+Računanje vjerojatnosti umnoška dvaju događaja
+Definicijsku formulu (1) za račun uvjetne vjerojatnosti možemo napisati ovako
+P(AB)=P(B)P(A|B)(2)
+Ova se formula koristi u računanju vjerojatnosti umnoška dvaju događaja. Naime, uvjetna se vjerojatnost lakše računa nego vjerojatnost umnoška.
+Ako zamijenimo događaje A i B (a oba događaja imaju pozitivnu vjerojatnost), dobit ćemo istovrsnu formulu
+P(AB)=P(A)P(B|A).(3)
+(PRIMJER 3)
+============================================================================================================================================================================================================================================
+Promotrimo sljedeću inačicu jednog od prethodnih primjera.
+(PRIMJER 4)
+Neka su A i B događaji s pozitivnom vjerojatnošću.
+
+Događaji A i B su nezavisni onda i samo onda ako vrijediP(A|B)=P(A)iliP(B|A)=P(B).
+(PRIMJER 5)
+Na sličan način možemo računati vjerojatnost umnoška više događaja. Primjerice
+P(ABC)=P(A)P(B|A)P(C|AB).
+Moguće su i druge kombinacije događaja s desne strane.
+(PRIMJER 6)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================

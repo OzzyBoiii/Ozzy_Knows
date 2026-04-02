@@ -1,0 +1,104 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 1
+Odredimo skup svih točaka ravnine čije udaljenosti od točke S(3,1) iznose 2 jedinice.
+Rješenje: Neka je T(x,y) bilo koja od traženih točaka. Njezina udaljenost od točke S(3,1) mora biti jednaka 2:|TS|=√(x−3)2+(y−1)2=2.
+ Kvadriranjem dobivamo:(x−3)2+(y−1)2=4.Taj je skup točaka kružnica sa središtem S i polumjerom r=2. Za svaku njezinu točku T(x,y) vrijedi |TS|=r, odnosno√(x−3)2+(y−1)2=2.Na ovoj kružnici leže, primjerice, točke A(5,1), B(3,3), C(3−√3,2), jer njihove koordinate zadovoljavaju jednadžbu kružnice. Provjerimo to i ucrtajmo njihov položaj na kružnici!
+
+Primejr 2
+Odredimo jednadžbu kružnice čije je središte u točki S(2,−3), a prolazi točkom A(4,1).
+Rješenje: Potrebno je odrediti polumjer kružnice. On je jednak udaljenosti točaka S i A:r=|SA|=√(4−2)2+(1−(−3))2=√4+16=√20.
+Jednadžba kružnice glasi (x−2)2+(y+3)2=20.
+
+Primejr 3
+Kružnica koja dodiruje koordinatne osi. Odredimo jednadžbu kružnice koja prolazi točkom A(2,1) i dodiruje obje koordinatne osi.
+Rješenje: Nacrtajmo skicu. Nepoznato središte kružnice označimo sa S(p,q). Kružnica leži u prvom kvadrantu, pa su p i q pozitivni brojevi. Budući da kružnica dodiruje obje koordinatne osi, udaljenost od središta do njih mora biti jednaka polumjeru r. Međutim, udaljenost središta od osi y je p, a udaljenost središta od osi x je q. Središte kružnice nalazi se u I. kvadrantu pa su obje njegove koordinate pozitivni brojevi. Dakle, vrijedi p=q=r te jednadžba kružnice glasi
+Ona prolazi točkom A(2,1), pa za koordinate te točke vrijedi:(2−r)2+(1−r)2=r2.Sređivanjem dobivamo kvadratnu jednadžbur2−6r+5=0čija su rješenja r1=1 i r2=5. Tako smo dobili kružnice kojima su jednadžbe:k1...(x−1)2+(y−1)2=1,k2...(x−5)2+(y−5)2=25.Primijetimo: ako kružnica dira os x, onda je |q|=r, ako dira os y, onda je |p|=r, a ako dira obje koordinatne osi, tada je |p|=|q|=r. Dakako, o predznacima koordinata p i q ovisi u kojem je kvadrantu središte kružnice.
+
+Primjer 4
+Odredimo skup točaka u ravnini kojima koordinate x i y zadovoljavaju jednadžbu
+1) 2x2+2y2+4x−6y+6=0,
+2) 2x2+2y2+4x−6y+132=0,
+3) 2x2+2y2+4x−6y+8=0.
+Rješenje: Svaku od tri navedene jednadžbe zapisat ćemo u obliku(x−p)2+(y−q)2=c.1) Jednadžbu podijelimo s vodećim koeficijentom 2:x2+y2+2x−3y+3=0.Grupiramo članove uz pojedine nepoznanice:(x2+2x)+(y2−3y)=−3.Izraze u zagradama dopunimo do potpunih kvadrata:(x2+2x+1)+(y2−3y+94)=−3+1+94.Sređivanjem ove jednadžbe dobivamo(x+1)2+(y−32)2=14.U ovoj jednadžbi prepoznajemo jednadžbu kružnice sa središtem u točki S(−1,32) i s polumjerom r=12.
+2) Istim postupkom dobit ćemo jednadžbu(x+1)2+(y−32)2=0.Ovu jednadžbu zadovoljava samo točka (−1,32). Možemo zamisliti da je riječ o kružnici s polumjerom r=0.
+3) Sada dobivamo jednadžbu(x+1)2+(y−32)2=−34,koju ne zadovoljava niti jedna točka u ravnini.
+
+Primejr 5
+	Kako glasi jednadžba kružnice koja je koncentrična kružnici x2+y2+6x−4y+9=0 i koja dira pravac 3x−4y−8=0?
+Rješenje: Središte dane kružnice je točka S(−3,2). Koncentrična kružnica ima isto središte, a polumjer joj je jednak udaljenosti središta do pravca, tangente. Ta je udaljenost jednaka r=|3⋅(−3)−4⋅2−8|√9+16=5. 
+ Jednadžba kružnice koja je koncentrična danoj kružnici i koja dira dani pravac glasi: (x+3)2+(y−2)2=25.
+
+Primejr 6
+Kružnica zadana trima točkama. Odredimo jednadžbu kružnice koja prolazi točkama A(6,4), B(−1,5), C(7,1).
+Rješenje: Trima točkama koje ne leže na jednom pravcu određena je točno jedna kružnica. Krećemo od jednadžbe kružnice:(x−p)2+(y−q)2=r2.Zadane točke leže na kružnici, pa njihove koordinate zadovoljavaju jednadžbu. Tako dobivamo sustav od triju jednadžbi s trima nepoznanicama:⎧⎪⎨⎪⎩(6−p)2+(4−q)2=r2,(−1−p)2+(5−q)2=r2,(7−p)2+(1−q)2=r2, tj. ⎧⎨⎩p2−12p+q2−8q+52=r2,p2+2p+q2−10q+26=r2,p2−14p+q2−2q+50=r2.Ovaj ćemo sustav riješiti tako da od prve jednadžbe oduzmemo drugu, a zatim treću:{−14p+2q+26=0,2p−6q+2=0.Odavde je p=2, q=1. Sada dobivamo r2=25, pa je jednadžba kružnice k...(x−2)2+(y−1)2=25.Uočimo kako su dvije posljednje linearne jednadžbe (7p−q−13=0 i p−3q+1=0) zapravo jednadžbe simetrala stranica ¯¯¯¯¯¯¯¯AB i ¯¯¯¯¯¯¯¯AC trokuta ABC. Razmislite zbog čega.
+
+Primejr 7
+Nacrtajmo podskup ravnine određen uvjetimax2+y2≤4,y≥2x.
+Rješenje: Prvim uvjetom određen je zatvoreni krug sa središtem u ishodištu i polumjerom 2. Drugi uvjet zadovoljavaju točke zatvorene poluravnine iznad pravca y=2x. Oba uvjeta zadovoljavaju točke polovine kruga na slici.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 8
+Odredimo međusobni položaj pravca 2x+y−9=0 i kružnic x2+y2−7x−9y+20=0.
+Rješenje: Ako pravac i kružnica imaju zajedničku točku, njezine koordinate zadovoljavaju i jednadžbu pravca i jednadžbu kružnice. Zato ćemo presječne točke potražiti tako da riješimo sustav kvadratne i linearne jednadžbe:{2x+y−9=0,x2+y2−7x−9y+20=0..Sustav rješavamo tako da iz linearne jednadžbe izdvojimo jednu nepoznanicu i dobiveni izraz uvrstimo u kvadratnu jednadžbu:y=−2x+9,x2+(−2x+9)2−7x−9(−2x+9)+20=0.Sređivanjem druge jednadžbe dobivamox2−5x+4=0.Rješenja ove kvadratne jednadžbe su x1=1, x2=4. Odgovarajući iznosi za y su y1=7, y2=1.
+Dakle, pravac i kružnica sijeku se u dvjema točkama, T1(1,7) i T2(4,1).
+
+Primejr 9
+Odredimo jednadžbu pravca paralelnog s pravcem y = -2z, a koji dira kružnicu (z + 2)2+(y−7)2 = 5.
+Rješenje: Nacrtajmo skicu. Vidimo da će postojati dva pravca koji zadovoljavaju uvjete zadatka. Što je karakteristično za svaki od njih? Ako pravac dira kružnicu, onda sustav koji čine jednadžba pravca i jednadžba kružnice ima samo jedno, dvostruko, rješenje. Pravac paralelan sa zadanim ima jednadžbu y = -2x+1. Dakle, moramo riješiti sustav
+{
+y = -2x+1, (x+2)2+(y-7)2=5.
+Odavde slijedi kvadratna jednadžba po nepoznanici :
+5r* +(32–4l)r+P – 141+48 = 0.
+Ona će imati jedno dvostruko rješenje ako je diskriminanta jednaka nuli:
+odakle slijedi
+(32-41)2-20(12-141 +48) = 0,
+12-61-16=0.
+Tako dobivamo l1 = -21 ↳2 = 8 te su pravci y = -2x-2y= -2x + 8 tangente kružnice.
+
+Primejr 10
+Riješimo problem iz primjera 2. Traži se jednadžba pravca paralelnog s y=−2x, a koji dira kružnicu (x+2)2+(y−7)2=5.
+Rješenje: Iskoristimo uvjet dodira (1). Poznati su nam podatci:p=−2,q=7,k=−2,r2=5,a tražimo l:5(1+(−2)2)=(7−(−2)(−2)−l)2,(3−l)2=25,3−l=±5.Odavde slijedi l1=−2, l2=8.
+
+primejr 11
+Napišimo jednadžbe tangenata na kružnicu (x−2)2+(y−1)2=25 u točkama A(5,5), B(7,1), C(2,6).
+Rješenje: Korisno je prvo provjeriti leže li zadane točke na kružnici. Nakon što se u to uvjerimo, jednadžbe tangenata računamo po formuli (2). Tu je p=2, q=1. Za točku A je(5−2)(x−2)+(5−1)(y−1)=25,tj. 3x+4y−35=0. Za točku B dobivamo(7−2)(x−2)+(1−1)(y−1)=25,odakle slijedi x=7. Tangenta je pravac okomit na os x. Slično za tangentu u točki C dobivamo pravac y=6, okomit na os y. Preporuka je nacrtati crtež jer svakako može pomoći pri rješavanju zadatka.
+
+Primejr 12
+Iz točke T(3,4) povučene su tangente na kružnicu (x−2)2+(y−1)2=5. Odredimo njihove jednadžbe i koordinate dirališta.
+Rješenje: Udaljenost točke T do središta S(2,1) kružnice je d=√12+32=√10, a polumjer kružnice je √5, pa točka leži izvan kružnice. To je očito i na slici. Dakle, postojat će dvije tangente.
+Napišimo jednadžbu tražene tangente u obliku y=kx+l. Brojeve k i l odredit ćemo iz sustava dviju jednadžbi. Prvu ćemo dobiti iz uvjeta da pravac prolazi točkom T, a drugu iz uvjeta da taj pravac dira kružnicu:{4=3k+l,5(1+k2)=(1−2k−l)2..Iz prve je jednadžbe l=4−3k, pa nakon sređivanja dobivamo kvadratnu jednadžbu po nepoznanici k:2k2+3k−2=0,kojoj su rješenja k1=12, k2=−2. Sad je l1=52, l2=10. Jednadžbe tangenata sut1...y=12x+52,t2...y=−2x+10.Da bismo odredili dirališta, moramo riješiti dva nova sustava:⎧⎨⎩y=12x+52,(x−2)2+(y−1)2=5,i{y=−2x+10,(x−2)2+(y−1)2=5.Njihovim rješavanjem dobivamo D1=(1,3), D2=(4,2).
+
+primejr 13
+Odredimo zajedničke tangente kružnica(x+10)2+y2=45ix2+y2=125.
+Rješenje: Potražimo jednadžbu tangente u obliku y=kx+l. Ona dira obje kružnice, pa iz uvjeta dodira slijedi{45(1+k2)=(0+10k−l)2,125(1+k2)=l2.Dijeljenjem ovih jednadžbi dobivamo125(10k−l)2=45l2⟹5(10k−l)=±3l.Odavde je l=25k ili l=254k. U prvom slučaju slijedi125(1+k2)=625k2⟹k=±12,pa je onda l=±252. U drugom je slučaju125(1+k2)=62516k2⟹16+11k2=0pa rješenje ne postoji. Kružnice koje se sijeku imaju točno dvije zajedničke tangente.
+Postoje, dakle, dvije zajedničke tangente:t1...y=12x+252,t2...y=−12x−252.
+
+Primejr 14
+Pod kojim kutom pravac x+2y−5=0 siječe kružnicu x2+y2=10?
+Rješenje: Nacrtajmo sliku.
+Najprije odredimo koordinate presjecišta pravca i kružnice. Trebamo riješiti sustav{x+2y−5=0,x2+y2=10.Eliminacijom nepoznanice x dobivamoy2−4y+3=0,a odavde ordinate dirališta. Zatim izračunamo apscise. Tako dobivamo D1(3,1), D2(−1,3).
+Dalje računamo s bilo kojom od tih dviju točaka. Tangenta u D1 glasix1x+y1y=r2⟹3x+y=10.Koeficijent smjera pravca je k1=−12, a ove tangente k2=−3, pa za kut α među njima vrijeditg α=∣∣k1−k21+k1k2∣∣=−12+31+32=1.Traženi kut iznosi α=45∘.
+
+Primjer 15
+Pod kojim se kutom sijeku kružnice(x−4)2+(y+1)2=10,(x+2)2+(y−2)2=25?
+Rješenje: Točka S1(4,−1) središte je prve, a točka S2(−2,2) druge kružnice. Polumjer prve je r1=√10, polumjer druge r2=5. Budući da je |S1S2|<r1+r2 (provjeri), kružnice se sijeku u dvjema točkama. Odredimo sjecišta. Napišimo jednadžbe kružnica u općem obliku i oduzmimo ih:{x2+y2−8x+2y+7=0,x2+y2+4x−4y−17=0.Dobivamo y=2x−4. Sad iz prve jednadžbe nakon sređivanja imamox2−4x+3=0,pa je x1=1, x2=3 i onda y1=−2, y2=2. Tako su sjecišta T1(1,−2), T2(3,2).Tangente na kružnice u točki T1 su:(1−4)(x−4)+(−2+1)(y+1)=10⟹y=−3x+1,(1+2)(x+2)+(−2−2)(y−2)=25⟹y=34x−114.Koeficijenti smjera su k1=−3 i k2=34 pa za kut između tangenata, tj. između kružnica vrijeditg φ=∣∣
+∣
+∣∣−3−341−94∣∣
+∣
+∣∣=3.Dakle, φ=71∘34′. Uvjeri se računom da tangente u točki T2 zatvaraju isti kut. (Jedna je tangenta u toj točki vertikalni pravac)

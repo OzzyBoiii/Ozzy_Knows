@@ -1,0 +1,224 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 1
+Daleke 1897. godine u Prateru, bečkom zabavnom parku, pojavila se nova atrakcija. Iz vagona smještenih na velikom kotaču, koji su nazvali Das Wiener Riesenrad, građani Beča i turisti mogli su vidjeti lijepu panoramu grada. Das Wiener Riesenrad je i dandanas na svojem mjestu i zanimanje za njega ne jenjava. Promjer ovog velikog kotača je 60 metara, njegova je najniža točka 3 metra iznad tla (h0=3). Brzina njegove vrtnje na obodu kotača je 0.75 m/s.
+Zamislite da ste u jednom od vagona i da pratite visinu kabine iznad tla. Promatranje počinjemo u točki O i provodimo ga tijekom jednog punog obilaska.
+Visinu hk možemo prikazati kao funkciju središnjeg kuta αk s početnim krakom SE0 i završnim SEk,k=1,2,…,11:hk(αk)=30⋅sinαk+33.
+Podijelimo kružnicu na 12 jednakih dijelova. Na os x nanosimo veličinu kuta αk, na os y odgovarajuću visinu hk. Tako primjerice, za <)E1SE0=30∘ visina h1 iznosi 30⋅sin30∘+33=48 metara, a za <)E2SE0=60∘ imamo h2=30⋅sin60∘+33≈59 metara.
+Općenito, za svaki od 12 kutova αk izračunamo pripadnu visinu hk te tako dobijemo točku (αk,hk) grafa funkcije hk(α).
+
+Primejr 2
+Nacrtajmo graf funkcije f(x)=sin2x.
+Rješenje: Ovdje je ω=2, pa je temeljni period ove sinusoide P=2π2=π. Graf ove funkcije dobit ćemo tako da graf funkcije sinx stegnemo prema osi ordinata, tako da se čitav val sinusoide nalazi unutar intervala duljine π. Prije crtanja grafa korisno je naznačiti nul-točke te apscise maksimuma i minimuma funkcije.
+
+Primjer 3
+Nacrtajmo graf funkcije f(x)=2sin3x.
+Rješenje: Ovdje je ω=3, pa je period ove sinusoide P=2π3. Dakle, jedan val ove sinusoide `stisnuo se' unutar intervala duljine 2π3. Njezina je amplituda C=2. Sad crtamo graf. 
+
+Primejr 4
+Nacrtajmo graf funkcije f(x)=sin(x−π3).
+Rješenje: Period ove funkcije je P=2π, a amplituda C=1. Razlika prema funkciji sinus je samo u pomaku, koji iznosi x0=π3. Sad određujemo interval duljine perioda, koji počinje u nul-točki funkcije. To je interval [π3,7π3]. Na kraju nacrtamo jedan val sinusoide na tom intervalu i nastavimo jednako na svim sljedećim intervalima duljine 2π.
+
+Primjer 5
+Nacrtajmo graf funkcije f(x)=−2sinx2.
+Rješenje: Možemo postupiti na dva načina. 
+1) Rabeći svojstvo −sint=sin(t−π) riješit ćemo se negativnog predznaka:f(x)=−2sinx2=2sin(x2−π).Sad je C=2, P=2π1/2=4π i pomak je x0=π1/2=2π. Crtamo graf:
+2) Druga je mogućnost da nacrtamo graf funkcije f(x)=2sinx2 i zatim ga zrcalimo s obzirom na os apscisa. Kada to jednom učinimo, nakon toga možemo crtati graf funkcije f direktno, bez skiciranja pomoćnog grafa.
+
+Primejr 6
+Nacrtajmo graf funkcije f(x)=cos(2x−π4).
+Rješenje: Možemo postupiti na dva načina.
+1. Rabeći formulu redukcije cost=sin(t+π2) funkciju ćemo prevesti u sinusoidu:cos(2x−π4)=sin(2x−π4+π2)=sin(2x+π4)i zatim nacrtati na način kako je prije objašnjeno. Tu je amplituda C=1, period P=π, a pomak x0=−π8. Prije crtanja grafa naznačimo nul-točke funkcije te apscise minimuma i maksimuma.
+2. Druga je mogućnost da graf crtamo pozivajući se na oblik grafa kosinus funkcije. Period zadane funkcije je P=π, a amplituda C=1. Odredimo gdje funkcija poprima maksimalnu vrijednost. Drugim riječima, za koje x jecos(2x−π4)=1.To je istina ako je, primjerice, 2x−π4=0, odnosno za x=π8. Sada crtamo graf koji nalikuje na graf kosinus funkcije, ali ima maksimalnu vrijednost u broju π8 i period P=π.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 7
+
+Primejr 8
+Funkcije f(x)=sin|x| i g(x)=|sinx| su parne. Provjerimo to! Vrijedi li sin|x|=|sinx| za svaki realni broj x?
+Rješenje: Provjerimo najprije je li sin|x|=sin|−x|. Kako suprotni brojevi imaju jednake apsolutne vrijednosti (|x|=|−x|), odgovor je potvrdan. Funkcija f parna je funkcija.
+A je li g parna, tj. vrijedi li |sinx|=|sin(−x)| za svaki realan broj x? Kako je sin(−x)=−sinx, onda je to zapravo pitanje je li |sinx|=|−sinx|. Odgovor je potvrdan, razlog je i opet taj što suprotni brojevi imaju jednake apsolutne vrijednosti. Dakle, i g je parna funkcija. Jednakost sin|x|=|sinx| općenito ne vrijedi za svaki realni broj x, odnosno funkcije f i g nisu jednake funkcije. To je lako obrazložiti: sve vrijednosti od g su u intervalu [0,1], dok su vrijednosti od f u intervalu [−1,1].
+
+Primjer 9
+Funkcija f(t)=sin2t periodična je funkcija. Odredimo njezin temeljni period.
+Rješenje: Tražimo broj P>0 takav da bude f(t+P)=f(t) za svaki realni broj tsin2(t+P)=sin(2t+2P)=sin2t.Broj 2t može biti bilo koji realni broj. Da bi ova jednakost bila ispunjena za svaki takav broj, 2P mora biti period funkcije sinus2P=k⋅2πza neki prirodni broj k. Najmanji takav P dobit ćemo ako izaberemo k=1. Onda je P=π i to je temeljni period funkcije f(t)=sin2t.
+
+Primjer 10
+Funkcija f(x)=cosx3 je periodična. Koliki je njezin temeljni period?
+Rješenje: Tražimo broj P>0 takav da bude f(x+P)=f(x) za svaki realni broj xcosx+P3=cos(x3+P3)=cosx3.Broj x3 može biti bilo koji realni broj. Da bi ova jednakost bila ispunjena za svaki takav broj, P3 mora biti period funkcije kosinusP3=k⋅2πza neki prirodni broj k. Najmanji takav P dobit ćemo ako izaberemo k=1. Onda je P=6π i to je temeljni period funkcije f(x)=cosx3.
+
+primejr 11
+Dokažimo da je funkcija f(x)=sin(ωx+φ) periodična i da je njezin temeljni period 2πω.
+Rješenje: Pri dokazu tvrdnje primijenit ćemo definiciju periodičnosti funkcije. Pitamo se, dakle, postoji li takav pozitivan broj P da je jednakostsin(ω(x+P)+φ)=sin(ωx+φ)ispunjena za svaki x. Onda je ona ispunjena i za x=−φω pa nakon uvrštavanja dobijemo:sin(ωP)=0.Period P valja tražiti među brojevima P=k⋅πω,k∈Z. Pokazuje se da za k=1 broj P=πω nije period funkcije f. Za k=2 provjera pokazuje da P=2πω jest period funkcije f. To je onda i njezin temeljni period.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 12
+Spiralna je opruga učvršćena na jednom kraju, a na drugi kraj objesimo uteg. Zatim uteg potegnemo prema dolje za 10 cm i pustimo da se slobodno giba. Uteg prolazi put između dviju točaka jednako udaljenih od položaja ravnoteže, a jedna oscilacija traje 4 sekunde. 1) Prikažimo elongaciju y utega kao funkciju vremena t.
+2) Odredimo frekvenciju ovog gibanja.
+3) Grafički prikažimo funkciju y(t).
+Rješenje:
+1) Gibanje utega je harmonijsko, možemo ga opisati jednadžbom y(t)=acos(ωt). Kako je gibanje započelo iz najniže pozicije, −10. Funkciju kosinus odabrali smo zbog toga što jey(0)=−10⋅cos(ω⋅0)=−10.Period je jednak 4, dakle 2πω=4, pa je ω=π2.
+Tako konačno imamo y(t)=−10⋅cosπ2t.
+2) Frekvencija harmonijskog gibanja je recipročna periodu, ona iznosi 14.
+3) f(x)=−10cos(π2x).
+
+Primejr 13
+Sljedeća tablica prikaz je prosječnih mjesečnih temperatura za grad Osijek.
+I.	II.	III.	IV.	V.	VI.
+−0.9	1.1	6.1	11.4	16.4	19.7
+VII.	VIII.	IX.	X.	XI.	XII.
+21.5	20.7	16.7	11.2	5.6	1.3
+Tablica samo potvrđuje ono što i sami dobro znamo: najniža je temperatura zraka u Osijeku u siječnju, najviša u srpnju. A kako se kreće u ostalim mjesecima? To baš i nije razvidno iz podataka u tablici pa zato te podatke prikažimo grafički odgovarajućim točkama u pravokutnom koordinatnom sustavu. Na os apscisa nanesimo redne brojeve pojedinih mjeseci, na os ordinata prosječne vrijednosti temperature za pojedine mjesece.
+S grafa razabiremo kako se prosječne temperature ne mijenjaju ravnomjerno već po nekom zakonu koji bi se očigledno mogao opisati trigonometrijskom funkcijom sinus. Valja dakle potražiti onu sinusoidu koja je što bolje prilagođena ovim točkama. To je problem poznat kao problem regresije i njime se ne možemo ovdje baviti. Ali svakim grafičkim kalkulatorom ili računalom lako dobivamo odgovor:y=11.4sin(0.5x−1.88)+10.2.Evo tog rješenja i u vizualnom obliku:
+  Očito je da ova sinusoida vrlo dobro prati podatke iz tablice.
+
+Primejr 14
+U tablici je upisan prosječan broj sunčanih sati po mjesecima u Splitu.
+I.	II.	III.	IV.	V.	VI.
+130	145.9	186.6	215.4	270.4	305.9
+VII.	VIII.	IX.	X.	XI.	XII.
+349.1	324.7	247.5	196.5	130.1	118.2
+Ucrtajmo navedenim podatcima odgovarajuće točke u pravokutni koordinatni sustav. Što uočavamo? Kako se mijenja broj sunčanih sati u Splitu tijekom godine? Ako i u ovom slučaju postupimo kao u primjeru 2., dobit ćemo krivulju regresije čija je jednadžbay=104sin(0.6x−2.5)+230.6.I ova krivulja vrlo dobro prijanja uz ucrtane točke što nas navodi na pomisao kako se neke prirodne pojave ravnaju po zakonima čiji je matematički opis funkcija sinus.
+Je li Split naš grad s najviše sunčanih sati u godinu dana, ukupno oko 2620? Ne, sunčaniji je Hvar s godišnjim prosjekom od 2726 sati. Dubrovnik ima prosječno 2 623 sunčana sata u jednoj godini, Rijeka 2386, Pula 2480, Šibenik 2534, a Zagreb svega 1890.  Zgodno je spomenuti kako je najsunčanije mjesto na svijetu grad Yuma u Arizoni (SAD) s prosječno 4127 sunčana sata na godinu što je oko 47 % od ukupnog godišnjeg broja sati.
+
+Primejr 15
+Promotri ovaj dijagram koji prikazuje promjenu razine mora u Zadru na dan 9. ožujka 2006. godine. Na os apscisa naneseno je vrijeme u satima, a na os ordinata razina mora u metrima.
+1) Možemo li uočiti da je riječ o periodičnoj pojavi? Koliki je period?
+2) Koju je najvišu, a koju najnižu razinu dosegnulo more u Zadru tijekom 24 sata 9. ožujka 2006. godine i u koje vrijeme?
+3) Možemo li barem približno odrediti jednadžbu krivulje ako je ona oblika y=a⋅sin(2πt)+y0?
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 16
+Zašto postavljamo ove uvjete na brojeve a i b? Nema svaka trigonometrijska jednadžba rješenje. Tako primjerice rješenja nema jednadžba sinx=−3, jer funkcija sinus prima vrijednosti iz intervala [−1,1].
+S druge strane jednadžba cos22x−sin22x=cos4x ima beskonačno mnogo rješenja, njezino je rješenje svaki realni broj x. Ta jednadžba je identitet, njezino je rješenje svaki realni broj x.
+
+Primjer 17
+Riješimo jednadžbu 2cosx−1=0.
+Rješenje: Zadanu jednadžbu zapišimo u obliku cosx=12. Primjećujemo da ova jednadžba ima beskonačno mnogo rješenja. Pri njihovom određivanju poslužit će nam brojevna kružnica. Rješenja su brojevi:π3,−π3,5π3,−5π3,7π3,−7π3…
+Zornije možemo rješenja iste jednadžbe prikazati na sljedeći način:
+Nacrtajmo graf funkcije f(x)=cosx i pravac y=12. Taj pravac siječe krivulju u beskonačno mnogo točaka, a apscise tih točaka rješenja su jednadžbe.
+Zapišimo opće rješenje jednadžbe 2cosx−1=0:x=±π3+2kπ,k∈Z.
+
+Primjer 18
+Riješimo jednadžbu sin2x=12.
+Rješenje: Jednadžba je ekvivalentna s|sinx|=√22.Slijedi sinx=√22 ili sinx=−√22.
+Skup rješenja prve jednadžbe je{π4+2kπ,k∈Z}∪{3π4+2kπ,k∈Z}.
+Skup rješenja druge jednadžbe je{−π4+2kπ,k∈Z}∪{−3π4+2kπ,k∈Z}.Sva se ta rješenja mogu zapisati u obliku{π4+k⋅π2,k∈Z}.To je opće rješenje zadane jednadžbe.
+Riješimo ovu jednadžbu na još jedan način. Iskoristimo trigonometrijski identitet sin2x=1−cos2x2. Onda je jednadžba ekvivalentna s1−cos2x2=12⟺cos2x=0,pa mora biti 2x=π2+kπ i odavde x=π4+k⋅π2, k∈Z.
+
+Primejr 19
+Riješimo jednadžbu tg x=0.75.
+Rješenje: Moramo odrediti kut čiji je tangens 0.75. Rješenje će biti iskazano u stupnjevima. S pomoću računala dobivamo
+0.75 TAN−1 =36.86989765…∘) →D.MS (=36∘52′1′′).
+Dakle, vrijedi tg x=tg 36∘52′11”, pa je opće rješenje jednadžbe:x=36∘52′11”+k⋅180∘,k∈Z.
+
+Primejr 20
+Riješimo jednadžbu √3ctg 2x=1.
+Rješenje: Najprije zapišimo jednadžbu u obliku ctg 2x=√33. Slijedi 2x=π3+k⋅π, k∈Z. I konačno x=π6+k⋅π2, k∈Z.
+
+primjer 21
+Riješimo jednadžbu 2sin2x−sinx−1=0.
+Rješenje: Zamjenom sinx=u dobivamo jednostavnu kvadratnu jednadžbu2u2−u−1=0čija su rješenja u=1 ili u=−12, odnosno sinx=1 ili sinx=−12.
+Rješenje zadane trigonometrijske jednadžbe je:x=π2+k⋅2π  ili x=7π6+k⋅2π  ili x=11π6+k⋅2π, k∈Z.
+
+Primejr 22
+Riješimo jednadžbu sin2x+3sinxcosx+2cos2x=0.
+Rješenje: Ako je cosx=0, tj. x=π2+kπ, onda se jednadžba svodi na sin2x=0, što nije istina za ove vrijednosti od x. Dakle, jednadžbu smijemo podijeliti s cos2x, pa ćemo dobiti ekvivalentnu jednadžbu:sin2xcos2x+3sinxcosx+2=0.To je kvadratna jednadžba po tg x:tg 2x+3tg x+2=0⟺(tg x)1,2=−3±12.Dobili smo dvije mogućnosti: tg x=−2 ili tg x=−1. Rješenja prve jednadžbe sux=arctg(−2)+kπ=−1.107+kπ,k∈Z,a rješenja drugex=arctg(−1)+kπ=−π4+kπ,k∈Z.Trigonometrijske jednadžbe oblika kao u ovom primjeru zovu se homogene trigonometrijske jednadžbe.
+
+Primejr 23
+Riješimo jednadžbu 6sin2x+sinx⋅cosx−cos2x=2.
+Rješenje: Jednadžba se može svesti na homogenu, tako da se zdesne strane umjesto 2 stavi 2(sin2x+cos2x):6sin2x+sinx⋅cosx−cos2x=2(sin2x+cos2x),4sin2x+sinx⋅cosx−3cos2x=0,4tg 2x+tg x−3=0.Jednadžbu smo smjeli podijeliti s cos2x, jer brojevi x za koje je cos2x=0 nisu rješenja jednadžbe. Sad je 1.tg x=−1x=−π4+kπ,k∈Zili
+2.tg x=34x=arctg34+kπ,k∈Z.
+
+Primejr 24
+Riješimo jednadžbu:sinx⋅cosx2+cosx⋅sinx2=1.
+Rješenje: Lijevu stranu jednadžbe zapisat ćemo u obliku sinusa zbroja brojeva x i x2 i time odmah dobiti osnovnu trigonometrijsku jednadžbu:sin(x+x2)=1.Iz sin3x2=1 slijedi x=π3+k⋅4π3,k∈Z.
+
+Primejr 25
+Riješimo jednadžbu:1−cos(π−x)=sin(π2+x2).
+Rješenje: Budući da je cos(π−x)=−cosx te sin(π2+x2)=cosx2, jednadžba prima oblik1+cosx=cosx2.Prema identitetu cos2α=1+cos2α2 slijedi2cos2x2=cosx2,a odavde cosx2=0 ili cosx2=12. Konačno, imamo rješenje: x=(2k+1)π ili x=±2π3+k⋅4π, k∈Z.
+
+Primejr 26
+Riješimo jednadžbu: cosx⋅cos2x=cos3x.
+Rješenje: Desnu stranu jednadžbe zapišimo u oblikucos3x=cos(x+2x)=cosx⋅cos2x−sinx⋅sin2x.Nakon toga zadana jednadžba prima oblik: sinx⋅sin2x=0. Dakle je sinx=0 ili sin2x=0. Iz sinx=0 slijedi x=k⋅π, a iz sin2x=0 slijedi 2x=k⋅π. Primijetimo da skup rješenja druge jednadžbe u sebi sadrži skup rješenja prve. Zbog toga je rješenje zadane jednadžbe x=k⋅π2, k∈Z.
+
+Primejr 27
+Riješimo jednadžbu: sinx+sin3x=0.
+Rješenje: Primijenimo formulu pretvorbe zbroja sinusa u umnožak dviju trigonometrijskih funkcija:sinx+sin3x=2sinx+3x2⋅cosx−3x2=2sin2x⋅cosx.I sada zaključujemo: Ili je sin2x=0, ili je cosx=0. No primijetimo da skup rješenja jednadžbe sin2x=0 sadrži skup rješenja jednadžbe cosx=0 pa je rješenje zadane jednadžbe x=k⋅π2, k∈Z.
+
+Primejr 28
+Riješimo jednadžbu: sin4x−cos4x=sin2x.
+Rješenje: Izraz sin4x−cos4x je razlika kvadrata i pišemo:sin4x−cos4x=(sin2x−cos2x)(sin2x+cos2x)=−cos2x⋅1.Tako je zadana jednadžba ekvivalentna jednadžbi −cos2x=sin2x, a ova opet jednadžbi tg 2x=−1. Slijedi 2x=3π4+k⋅π, i konačno x=3π8+k⋅π2, k∈Z.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 6
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 29
+Riješimo nejednadžbu sinx≥12.
+Rješenje: Nacrtajmo brojevnu kružnicu i naznačimo na njoj one kutove za koje je sinx=12. To su, unutar intervala [0,2π], kutovi x1=π6 i x2=5π6.
+Sad izdvojimo onaj dio luka brojevne kružnice za koji je vrijednost sinusa veća od 12. Na slici je taj luk istaknut crvenom bojom. Rješenje nejednadžbe unutar intervala [0,2π] je skup svih realnih brojeva x za koje vrijedi π6≤x≤5π6. Zbog periodičnosti, rješenje nejednadžbe bit će skup{π6+2kπ≤x≤5π6+2kπ,k∈Z}.
+Nejednadžbu smo mogli riješiti i koristeći se grafom funkcije f(x)=sinx.
+Nacrtamo sinusoidu i povučemo pravac y=12. U poluravnini iznad tog pravca ordinate svih točaka veće su od 12. Istaknimo dijelove sinusoide koji su u toj poluravnini. Apscise svih točaka, koje pripadaju istaknutim lukovima sinusoide, pripadaju skupu rješenja nejednadžbe.
+Grafički je najjednostavnije ortogonalno projicirati lukove na os x i dobit će se skup intervala čija je unija rješenje zadatka.
+Provjeri ovo rješenje usporedbom s već ranije dobivenim.
+
+
+Primejr 30
+Riješimo nejednadžbu |cosx|<√32.
+Rješenje: Moramo odrediti sve kutove x za koje je −√32<cosx<√32. 
+Nacrtajmo brojevnu kružnicu i naznačimo na njoj kutove za koje je cosx=−√32 i cosx=√32. To su kutovi ±π6 i ±5π6. Sada je lako izdvojiti one lukove brojevne kružnice za koje vrijedi sustav nejednakosti−√32<cosx<√32.Ti su lukovi označeni crvenom bojom. Rješenje nejednadžbe u intervalu ⟨−π,π⟩ je skup svih realnih brojeva x za koje vrijedi−5π6<x<−π6 ili π6<x<5π6.
+Zbog periodičnosti funkcije kosinus potpuno je rješenje:−5π6+k⋅2π<x<−π6+k⋅2π ili π6+k⋅2π<x<5π6+k⋅2π, k∈Z.Konačno rješenje možemo navesti i u jednostavnijem zapisu:π6+kπ<x<5π6+kπ, k∈Z.I ovaj zadatak možemo riješiti koristeći se grafom funkcije kosinus. Postoje dvije mogućnosti. Prvo, iz −√32<cosx<√32 slijedi da valja istaknuti dijelove grafa funkcije f(x)=cosx koji su unutar pruge −√32<y<√32 te očitati intervale u kojima su apscise tih lukova. No možemo postupiti i na ovaj način: nacrtamo graf funkcije f(x)=|cosx| i pravac y=√32 pa izdvojimo dio grafa koji je ispod tog pravca. Projiciramo ga na os x.
+Na slici je prikazano rješenje. Opiši ga!
+
+Primejr 31
+Riješimo nejednadžbu tg x<2.
+Rješenje: Nacrtajmo brojevnu kružnicu, tangentu p i točku T=(1,2). Povucimo pravac OT. On siječe desnu polukružnicu u točki P. Za pripadni kut x1 vrijedi tg x1=2, dakle, x1=arctg2=1.107… rad (=63∘26′06”).
+Izdvojimo sada dio luka na kojem će tangens biti manji od 2.
+Rješenje nejednadžbe unutar intervala ⟨−π2,π2⟩ je skup svih realnih brojeva x za koje vrijedi−π2<x<x1.Zbog periodičnosti, rješenje nejednadžbe bit će skup{−π2+kπ<x<x1+kπ,k∈Z}.
+
+Primejr 32
+Riješimo nejednadžbu 2sin22x≤sin2x.
+Rješenje: Nakon zamjene u=sin2x nejednadžba će prijeći u algebarsku:2u2≤u⟺u(2u−1)≤0.Njezino je rješenje interval 0≤u≤12. Preostaje riješiti nejednadžbu0≤sin2x≤12.S pomoću brojevne kružnice odredimo intervale unutar kojih mora ležati broj 2x:2kπ≤2x≤π6+2kπili5π6+2kπ≤2x≤π+2kπ.Zato je rješenje nejednadžbe skup {kπ≤x≤π12+kπ,k∈Z}∪{5π12+kπ≤x≤π2+kπ,k∈Z}.
+
+Primejr 33
+Riješimo nejednadžbu: |tg x+ctg x|≤4√3.
+Rješenje: Najprije pojednostavnimo izraz unutar apsolutne vrijednosti:tg x+ctg x=sinxcosx+cosxsinx=1sinx⋅cosx=2sin2x.Zadana je nejednadžba, dakle, ekvivalentna nejednadžbi ∣∣∣2sin2x∣∣∣≤4√3, a ova je pak ekvivalentna nejednadžbi |sin2x|≥√32. Grafički prikažimo funkciju f(x)=|sin2x|. Povucimo pravac y=√32. Dalje postupamo prema već ranije riješenim primjerima. Opće rješenje glasi:x∈[π6+k⋅π2,π3+k⋅π2],k∈Z.

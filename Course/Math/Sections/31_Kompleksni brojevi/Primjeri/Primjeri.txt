@@ -1,0 +1,261 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 1
+Odredimo realni i imaginarni dio svakog od kompleksnih brojeva:
+
+1) z1=3+5i;
+2) z2=−12+i;
+3) z3=−11;
+4) z4=i√3.
+Rješenje: Prati redom odgovore i obrazloži ih:
+
+1) Rez1=3, Imz1=5;
+2) Rez2=−12, Imz2=1;
+3) Rez3=−11, Imz3=0;
+4) Rez4=0, Imz4=√3.
+
+Primjer 2
+Odredimo realne brojeve a i b iz sljedećih jednakosti kompleksnih brojeva:
+
+1) a+3i=−1+bi;
+2) (a−1)+(a+b)i=2+5i;
+3) 3a+bi=b+(a−2)i;
+4) 3−(a−b)i=2+(a+b)i.
+Rješenje:
+1) Kompleksni brojevi s lijeve i s desne strane jednakosti jednaki su ako i samo ako je a=−1 i b=3.
+
+2) Kao i u prethodnom primjeru, mora biti a−1=2 i a+b=5. Dakle, a=3, b=2.
+
+3) Sad iz jednakosti realnih dijelova dobivamo 3a=b, a iz nejednakosti imaginarnih b=a−2, pa je 3a=a−2 odakle slijedi a=−1 i onda b=−3.
+
+4) Realni dijelovi kompleksnih brojeva na lijevoj i desnoj strani jednakosti različiti su pa onda ni ti brojevi ne mogu biti jednaki ni za koji izbor realnih brojeva a i b.
+
+Primjer 3
+Izvršimo naznačene operacije:(4+2i)+(−3+i)=1+3i(3−√2i)−(√2+i)=3−√2−(√2+1)i(5+3i)⋅2i=10i+6i2=−6+10i(3+2i)(1−2i)=3+2i−6i−4i2=7−4i(2+i)2=4+4i+i2=3+4i.,(1+2i)3=1+6i+12i2+8i3=1+6i−12−8i=−11−2i.
+
+Primejr 4
+Izračunajmo:
+
+1) i12;
+2) i123;
+3) i1234;
+4) i12345.
+Rješenje:
+1) Broj 12 djeljiv je s 4, pa je i12=1.
+
+2) Pri dijeljenju s 4 broj 123 daje ostatak 3 (jer je 123=4⋅30+3) te jei123=i4⋅30+3=(i4)30⋅i3=130⋅i3=i3=−i.
+3) Ostatak pri dijeljenju nekog višeznamenkastog broja s 4 jednak je ostatku što ga pri dijeljenju s 4 daje njegov dvoznamenkasti završetak. Naime, svaki se prirodni broj n s trima ili više znamenaka može zapisati u obliku n=100t+¯¯¯¯¯¯uv, gdje je t prirodan broj, a ¯¯¯¯¯¯uv dvoznamenkasti završetak od n. Broj 100t djeljiv je s 4. Stoga na pitanje o djeljivosti broja n s 4 odgovor nalazimo promatrajući dvoznamenkasti broj ¯¯¯¯¯¯uv.
+Budući da je 1234=12⋅100+34, imamo i1234=i34=i2=−1.
+
+4) i12345=i45=i.
+
+primejr 5
+Izračunajmo: 1+i+i2+i3+i4+⋯+i1001.
+Rješenje:
+Pri uzastopnim potencijama imaginarne jedinice u jednom se periodu pojavljuju četiri vrijednosti: i, −1, −i, 1. Njihov je zbroj jednak nuli.
+
+U našem zadatku imamo 1002 pribrojnika. Kad ih od početka razvrstamo po četiri, dobit ćemo 250 skupina po 4 pribrojnika i još dva pribrojnika na kraju.
+
+U svakoj od tih 250 skupina imamo zbroj 1+i−1−i=0, a na kraju još ostaje i1000+i1001.
+
+Ukupan zbroj svih 1002 pribrojnika onda je jednak i1000+i1001=1+i.
+
+Primijetite kako smo grupiranje mogli provesti od kraja prema početku. Tako bi nam nakon poništavanja ostala prva dva člana zbroja. Rezultat je, naravno, isti.
+
+primejr 6
+Vrijednosti potencija nekih „posebnih” kompleksnih brojeva vrlo su jednostavne. Navedimo dva primjera koji to pokazuju.
+Dokažimo da za svaki prirodni broj n vrijede jednakosti:
+
+  1) (1+i√2)2n=in;
+2) (12+√32i)3n=(−1)n.
+Rješenje:
+1) Kako je z2n=(z2)n za svaki kompleksni broj z, onda imamo:(1+i√2)2n=(1+2i+i22)n=(2i2)n=in.2) I u ovom primjeru postupit ćemo slično kao i u prethodnom. Primijenit ćemo jednakost z3n=(z3)n:(12+√32i)3n=(18+3√38i+98i2+3√38i3)n=(18+3√38i−98−3√38i)n=(−1)n.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 7
+Odredimo broj ¯¯¯z za svaki od danih brojeva z te izračunajmo z⋅¯¯¯z:
+
+1) z=−3+4i;
+2) z=√2−i;
+3) z=−0.7i;
+4) z=5.
+Rješenje:
+1) Konjugirani broj broja z=−3+4i je broj ¯¯¯z=−3−4i te jez⋅¯¯¯z=(−3+4i)(−3−4i)=(−3)2−(4i)2=9−(−16)=9+16=25.2) Analogno prethodnom primjeru je ¯¯¯z=√2+i pa jez⋅¯¯¯z=(√2−i)(√2+i)=3.3) Broj z=−0.7i je imaginarni broj, njegov konjugirani broj je ¯¯¯z=0.7i te je z⋅¯¯¯z=−0.7i⋅0.7i=0.49.
+
+4) Broj z=5 je realan broj. Takvi su brojevi sami sebi konjugirani te je z⋅¯¯¯z=52=25.
+
+Primejr 8
+Dokažimo sljedeća svojstva kompleksno konjugiranih brojeva:
+1) ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯z1+z2=¯¯¯¯¯z1+¯¯¯¯¯z2;
+2) ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯z1−z2=¯¯¯¯¯z1−¯¯¯¯¯z2;
+3) ¯¯¯¯¯¯¯¯¯¯¯¯¯z1⋅z2=¯¯¯¯¯z1⋅¯¯¯¯¯z2.
+Rješenje:
+1)¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯z1+z2=¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯(x1+y1i)+(x2+y2i)=¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯(x1+x2)+(y1+y2)i=(x1+x2)−(y1+y2)i=(x1−y1i)+(x2−y2i)=¯¯¯¯¯z1+¯¯¯¯¯z2.
+
+2) Dokaz se provodi analogno prethodnom. Provedite ga sami.
+
+3)¯¯¯¯¯¯¯¯¯¯¯¯¯z1⋅z2=¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯(x1x2−y1y2)+(x1y2+x2y1)i=(x1x2−y1y2)−(x1y2+x2y1)i=(x1−y1i)(x2−y2i)=¯¯¯¯¯z1⋅¯¯¯¯¯z2.
+
+Primejr 9
+Odredimo kompleksni broj z iz jednakosti:z1−i−¯¯¯z2+i=3i.
+Rješenje: Uzmimo da je z=x+yi pa ga uvrstimo u jednakost. Trebamo zatim odrediti realne brojeve x i y. Provedimo dijeljenje kompleksnih brojeva u danoj jednakosti:(x+yi)(1+i)2−(x−yi)(2−i)5=3i.Kad sredimo lijevu stranu jednakosti, dobijemo:x−3y+(7x+9y)i=30i.Ovdje se radi o jednakosti kompleksnih brojeva iz koje slijedi sustav linearnih jednadžbi x−3y=0 i 7x+9y=30.
+Rješenje sustava je x=3,y=1 pa je rješenje zadatka kompleksni broj z=3+i.
+
+Primejr 10
+Odredi sve kompleksne brojeve za koje vrijedi z2=2¯¯¯z.
+Rješenje: Prikažimo broj z u obliku z=x+yi; što uvršteno u jednadžbu daje(x+iy)2=x2−y2+2xyi=2(x−iy).Prema tome, x i y moraju zadovoljavati sustav{x2−y2=2x2xy=−2y⟺{x2−2x−y2=02(x+1)y=0.Druga je jednadžba zadovoljena za x=−1 ili y=0. Uvrstimo li x=−1 u prvu jednadžbu, dobivamo y2=3, što daje y1,2=±√3. Uvrstimo li pak y=0 u prvu jednadžbu, dobivamo x2−2x=0 i odavde x3=0, x4=2. Postoje dakle četiri rješenja:z1=−1+i√3,z2=−1−i√3,z3=0,z4=2.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 11
+Prikažimo točkama u kompleksnoj ravnini sljedeće kompleksne brojeve:
+
+z1=−1−3i; z2=5−i; z3=−4; z4=3i.
+Rješenje: Zapišimo dane brojeve u obliku uređenih parova pa ih ucrtajmo kao točke u kompleksnu ravninu.z1=−1−3i=(−1,−3)z2=5−i=(5,−1)z3=−4=(−4,0)z4=3i=(0,3)
+
+Primejr 12
+Odredimo skup točaka z kompleksne ravnine za koje vrijediRe(z+1)=Im(z−i).
+Rješenje: Neka je z=x+yi. Tada danu jednakost možemo zapisati u obliku Re(x+1+yi)=Im(x+(y−1)i), odnosno x+1=y−1.
+Odavde vidimo da koordinate x i y zadovoljavaju jednadžbu pravca y=x+2.
+
+Primejr 13
+Odredimo modul svakog od danih kompleksnih brojeva:
+1) z=3+4i;
+2) z=2−3i;
+3) z=4i;
+4) z=−7.
+Rješenje: Promotri definiciju modula kompleksnog broja i obrazloži rješenje zadatka.
+1)  |z|=|3+4i|=√32+42=√25=5;
+2) |z|=|2−3i|=√22+(−3)2=√13;
+3) |z|=|4i|=|0+4i|=√02+42=√16=4;
+4)  |z|=|−7|=|−7+0⋅i|=√(−7)2+02=√49=7.
+
+Primjer 14
+Neka su dani kompleksni brojevi z1=3+i, z2=−1−2i, z3=−1+2i. Onda je:|z1−z2|=|3+i−(−1−2i)|=|4+3i|=√42+32=5|z1−z3|=|3+i−(−1+2i)|=|4−i|=√42+(−1)2=√17|z2−z3|=|−1−2i−(−1+2i)|=|−4i|=√02+(−4)2=4.
+
+Primejr 15
+Odredimo skup svih kompleksnih brojeva z za koje je |z−z0|=2, gdje je z0=1−2i.
+Rješenje: Neka je kompleksni broj z=x+yi rješenje zadatka. Uvrstimo ga u jednakost |z−z0|=2. Imamo redom:|z−z0|=|x+yi−(1−2i)|=|(x−1)+(y+2)i|=√(x−1)2+(y+2)2=2.Jednakošću√(x−1)2+(y+2)2=2zapisano je da je udaljenost neke točke T(x,y) od dane točke S(1,−2) jednaka 2, odnosno da je |ST|=2. Skup točaka T koje su od dane točke S udaljene za r jest kružnica sa središtem u S i polumjerom r.
+Drugim riječima, jednadžba |z−(1−2i)|=2 ima beskonačno mnogo rješenja. To su svi kompleksni brojevi kojima u kompleksnoj ravnini pripadaju točke na kružnici sa središtem u točki S(1,−2) i polumjerom r=2.
+
+primejr 16
+Odredimo skup svih kompleksnih brojeva z određenih uvjetima
+
+1) |z−1|=|z−i|;
+2) |z−i|+|z+i|=4.
+Rješenje:
+1) Ovaj skup čine sve točke koje su jednako udaljene od točaka (1,0) i (0,1). Taj je skup pravac, simetrala dužine kojoj su 1=(1,0), i=(0,1) krajnje točke.|z−1|=|z−i|(x−1)2+y2=x2+(y−1)2x2−2x+1+y2=x2+y2−2y+1−2x=−2yy=x
+2) Ovaj skup čine sve točke z=x+yi za koje je zbroj udaljenosti do točaka i, −i jednak 4. Riječ je o elipsi sa žarištima u i=(0,1) i −i=(0,−1), čiju jednadžbu možemo dobiti ovako:|x+(y−1)i|+|x+(y+1)i|=4√x2+(y−1)2+√x2+(y+1)2=4√x2+(y−1)2=4−√x2+(y+1)2x2+y2−2y+1=16+x2+y2+2y+1−8√x2+(y+1)2y+4=2√x2+(y+1)2y2+8y+16=4x2+4y2+8y+44x2+3y2=12
+
+primejr 17
+Izračunajmo modul kompleksnog broja:
+1) (1+i)(1−2i)(1+3i)
+2) (1−i)12
+3) (√3−i)5(1+i√3)7.
+Rješenje:
+1) |(1+i)(1−2i)(1+3i)|=|1+i|⋅|1−2i|⋅|1+3i|=√2⋅√5⋅√10=10
+2) |(1−i)12|=|1−i|12=(√2)12=26=64
+3) ∣∣∣(√3−i)5(1+i√3)7∣∣∣=|(√3−i)5||(1+i√3)7|=|√3−i|5|1+i√3|7=2527=14.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 18
+Za broj z=1+i vrijedi r=√2 jer je to udaljenost točke T(1,1) do ishodišta. Također φ=π4. Nacrtaj sliku!
+
+Primejr 19
+Prikažimo u trigonometrijskom obliku sljedeće brojeve:
+1) zA=√3+i;
+2) zB=−2i;
+3) zC=−√2;
+4) zD=2;
+5) zE=1−i;
+6) zF=−√2+√2i;
+7) zG=−1−√3i;
+8) zH=−1+2i.
+Rješenje:
+1) r=|√3+i|=√3+1=2,tg φ=1√3=tg π6, φ=π6⎫⎪⎬⎪⎭⟹ zA=2(cosπ6+isinπ6).
+2) r=|−2i|=2;φ=3π2 te je zB=2(cos3π2+isin3π2).
+3) r=|−√2|=√2, φ=π, zC=√2(cosπ+isinπ). Vidi sliku ispod. 
+4) r=|2|=2, φ=0, zD=2(cos0+isin0).
+5) r=√1+1=√2. Vrijedi tg φ=−1, a kako je broj u četvrtom kvadrantu, vrijedi φ=2π−π4=7π4 te slijedi:zE=√2(cos7π4+isin7π4).
+
+6) r=√2+2=2. Vrijedi ponovno tg φ=−1, ali je broj u drugom kvadrantu pa je φ=3π4. Dakle,zF=2(cos3π4+isin3π4).7) r=√1+3=2. tg φ=√3. Kut je u trećem kvadrantu pa je φ=π+π3=4π3. Dakle,
+zG=2(cos4π3+isin4π3).8) r=|−1+2i|=√5, tg φ=−2. Iz tg φ=2 slijedi φ=63∘26′6′′. Broj je u drugom kvadrantu pa je φ=180∘−63∘26′6′′=116∘33′54′′. Dobivamo zH=√5(cos116∘33′54′′+isin116∘33′54′′).
+
+Primer 20
+Prikažimo u trigonometrijskom obliku kompleksne brojeve:
+1) z=cosπ3−isin2π3
+2) z=−2cosπ6−2isin5π6.
+Rješenje:
+1) Broj z možemo zapisati u obliku z=cosπ3−isinπ3. Iako nalikuje na trigonometrijski prikaz, ovaj zapis to nije zbog predznaka ispred funkcije sinus. No, njega možemo pisati unutar sinusa (i kosinusa): z=cos(−π3)+isin(−π3). Modul broja z je 1, a argument arg(z)=φ=−π3=5π3.
+2) Broj z možemo zapisati u obliku z=2(−cosπ6−isinπ6)=−2(cosπ6+isinπ6). Vidimo da je broj suprotan broju s modulom 2 i argumentom π6, pa se nalazi u III. kvadrantu, ima modul 2 i argument 7π6
+
+Primejr 21
+Odredimo sve točke kompleksne ravnine za koje je
+1) π6<argz<π4
+2) 1<|z|<3.
+Rješenje:
+1) Neka je z=r(cosφ+isinφ). Vrijedi φ=argz. Uvjetom π6<argz<π4 postavljen je samo uvjet na kut φ, ali ne i na modul r. Dakle, r može biti bilo koji, a φ se mora nalaziti unutar intervala ⟨π6,π4⟩. Traženi je skup kut u kompleksnoj ravnini određen zrakama φ=π6 i φ=π4 (slika lijevo).
+2) Prikažimo ponovno kompleksni broj z u trigonometrijskom obliku: z=r(cosφ+isinφ). Sada je |z|=r i uvjet prelazi u 1<r<3, dok nema ograničenja na kut φ. Stoga je uvjetom određen kružni prsten na slici desno. Rubovi nisu uključeni u područje.
+
+Primjer 22
+Izračunajmo (−1+i√3)60.
+Rješenje: Prikažimo −1+i√3 u trigonometrijskom obliku. On se nalazi u drugom kvadrantu i vrijedir=√(−1)2+(√3)2=2,tg (π−φ)=√31=tg π3.Dakle, r=2, φ=2π3: −1+i√3=2(cos2π3+isin2π3).
+Sada možemo primijeniti de Moivreovu formulu:(−1+i√3)60=260[cos(60⋅2π3)+isin(60⋅2π3)]=260[cos(40π)+isin(40π)]=260.
+
+Primejr 23
+Izračunajmo (1+i)(1−i√3)(1−i)(√3+i).
+Rješenje: Prikažimo brojeve u trigonometrijskom obliku:1+i=r1(cosφ1+isinφ1)=√2(cosπ4+isinπ4)1−i√3=r2(cosφ2+isinφ2)=2(cos5π3+isin5π3)1−i=r3(cosφ3+isinφ3)=√2(cos7π4+isin7π4)√3+i=r4(cosφ4+isinφ4)=2(cosπ6+isinπ6).Stoga je traženi broj jednak:r1r2r3r4(cos(φ1+φ2−φ3−φ4)+isin(φ1+φ2−φ3−φ4))=1⋅[cos(π4+5π3−7π4−π6)+isin(π4+5π3−7π4−π6)]=cos0+isin0=1.
+
+primejr 24
+Dokažimo nejednakost trokuta|z1+z2|≤|z1|+|z2|,koristeći se trigonometrijskim prikazom kompleksnih brojeva.
+Rješenje: Neka su z1=r(cosφ1+isinφ1) i z2=r(cosφ2+isinφ2) trigonometrijski prikazi zadanih kompleksnih brojeva. Onda vrijedi, korištenjem adicijskoga teorema za funkciju kosinus:|z1+z2|2=|(r1cosφ1+r2cosφ2)+i(r1sinφ1+r2sinφ2)|2=(r1cosφ1+r2cosφ2)2+(r1sinφ1+r2sinφ2)2=r21+r22+2r1r2(cosφ1cosφ2+sinφ2sinφ2)=r21+r22+2r1r2cos(φ1−φ2)≤r21+r22+2r1r2=(r1+r2)2=(|z1|+|z2|)2.Odavde slijedi tražena nejednakost.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 25
+Odredimo sve brojeve w za koje je w3=8.
+Rješenje: Traženi brojevi su rješenja jednadžbe w3−8=0. Kako je to jednadžba trećeg stupnja, očekujemo da će ona imati tri rješenja. Ta su rješenja ujedno nul-točke polinoma w3−8. Jedna njegova nul-točka je w1=2. Dijeljenjem polinoma sa w−2 dobivamo, po formuli za razliku kubova,w3−8=(w−2)(w2+2w+4).Preostale dvije nul-točke dobivamo rješavajući jednadžbuw2+2w+4=0⟹w2,3=−1±i√3,i to su kompleksni brojevi. Uvjerimo se da za njih uistinu vrijedi w3=8. Imamo:(−1+i√3)3=(−1)3+3(−1)2i√3+3(−1)i2(√3)2+(√3)3i3=−1+3√3i+9−3√3i=8.Na isti se način dobiva (−1−i√3)3=8. Prema tome, treći korijen u skupu kompleksnih brojeva ima tri različite vrijednosti:w3=8⟺w1=2,w2=−1+i√3,w3=−1−i√3.
+
+primejr 26
+Vrijedi:(1+i)4=(1+2i+i2)2=(2i)2=−4(−1+i)4=(1−2i+i2)2=(−2i)2=−4(−1−i)4=(1+2i+i2)2=(2i)2=−4(1−i)4=(1−2i+i2)2=(−2i)2=−4.Vidimo da su brojevi 1+i, −1+i, −1−i, 1−i četvrti korijeni broja −4.
+
+Primejr 27
+Odredimo sve vrijednosti korijena:
+1) 3√−1+i
+2) 4√16
+i prikažimo ih u kompleksnoj ravnini.
+Rješenje:
+1) Napišimo broj −1+i u trigonometrijskom obliku:−1+i=√2(cos3π4+isin3π4).Prema tome, vrijedi |−1+i|=√2, φ=3π4 i po formuli dobivamo sljedeće vrijednosti:3√−1+i=3√√2( cos3π/4+2kπ3+isin3π/4+2kπ3)=6√2[cos(π4+2kπ3)+isin(π4+2kπ3)],k=0,1,2.Uvrštavanjem zadanih vrijednosti broja k dobivamo sljedeće tri vrijednosti ovoga korijena:k=0 :z1=6√2(cosπ4+isinπ4)k=1 :z2=6√2(cos11π12+isin11π12)k=2 :z3=6√2(cos19π12+isin19π12).Ti su brojevi prikazani na slici ispod.
+2) Broj 16 u trigonometrijskom obliku ima prikaz16=16(cos0+isin0),pa je4√16=4√16(cos0+2kπ4+isin0+2kπ4)=2(coskπ2+isinkπ2) ,k=0,1,2,3.Ovdje moramo razlikovati broj 4√16 s lijeve strane jednakosti: to je četvrti korijen kompleksnog(!) broja 16 i on ima četiri vrijednosti. S desne strane jednakosti 4√16 nalazi se četvrti korijen pozitivnog realnog broja 16, koji ima samo jednu (pozitivnu) vrijednost.
+Uvrštavanjem vrijednosti za k dobivamo:k=0 :z1=2(cos0+isin0)=2k=1 :z2=2(cosπ2+isinπ2)=2ik=2 :z3=2(cosπ+isinπ)=−2k=3 :z4=2(cos3π2+isin3π2)=−2i.  Vidimo da smo 4√16 mogli pronaći i bez upotrebe De Moivreove formule, znajući da je jedna vrijednost broj 2, a sljedeće tri predstavljaju preostale vrhove kvadrata sa središtem u ishodištu (slika).

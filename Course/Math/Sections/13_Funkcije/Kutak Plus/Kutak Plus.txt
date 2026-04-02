@@ -1,0 +1,101 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Kutak Plus (ISPISANI PO LEKCIJI)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Itačun plaće u Hrvatskoj
+Izračun plaće u Hrvatskoj
+Kako se računa neto plaća u Hrvatskoj? Izmjenama zakonskih propisa od 2024. godine vrijede sljedeća pravila (ponešto skraćena u odnosu na punu zakonsku normu).
+
+Plaća se obračunava u bruto iznosu B. Na taj je iznos poslodavac dužan uplatiti doprinos od 16.5% za zdravstveno osiguranje. Taj se doprinos obračunava na plaću radnika i čini ukupan trošak poslodavca.
+
+Porezi i doprinosi iz plaće radnika su kako slijedi.
+
+Doprinos za mirovinsko osiguranje iznosi 20%. Bruto plaća umanjena za taj iznos naziva se dohodak.
+
+Od dohotka se oduzimaju priznati troškovi, a na ostatak se plaćaju porezi. Veličina poreza prepuštena je jedinicama lokalne samouprave.
+
+Priznati troškovi su:
+
+Osnovni osobni odbitak u iznosu od 600 eura.
+
+Odbitak za djecu i uzdržavane članove obitelji. On se određuje tako da se osnovica od 600.00 eura množi s faktorom za svakog pojedinog člana. Za uzdržavane članove faktor je 0.5. Faktori za djecu rastu prema broju djece, što je podrška pronatalitetnoj politici.
+
+broj djece	1	2	3	4	5	6	7	8	9
+koeficijent	0.5	0.7	1	1.4	1.9	2.5	3.2	4.0	4.9
+
+
+Ovaj odbitak može koristiti samo jedan član obitelji ako postoji više zaposlenih članova. Na primjer, u šesteročlanoj obitelj u kojoj rade otac i majka, imaju troje djece i uzdržavaju baku ili djeda, otac ili majka imaju pravo na odbitak od 600(1+0.5+0.5+0.7+1)=2220 eura.
+
+Ovome se dodaje koeficijent za djelomičnu invalidnost od 0.3, odnosno za 100% invalidnost od 1.0, ako je prisutna.
+
+Nakon odbitka od dohotka ovih priznatih troškova ostatak novca naziva se osnovica. Ako je osnovica pozitivna, na nju se plaća porez. Iznos poreza određuju jedinice lokalne samouprave. On iznosi od 15% do 23% za osnovicu do 5000 eura, te od 22% do 33% za osnovicu veću od 5000 eura.
+
+Dohodak umanjen za ovaj porez predstavlja neto plaću zaposlenika.
+
+Poreza na dohodak oslobođeni su svi zaposlenici mlađi od 25. god. Oni mlađi od 30 plaćaju 50% utvrđenog iznosa. Povratnici u Hrvatsku oslobođeni su poreza u razdoblju od pet godina.
+
+Na kraju godine radi se godišnja rekapitulacija svih primitaka i priznatih odbitaka (i plaćenih akontacija poreza) i utvrđuje dodatni iznos koji treba platiti poreznoj upravi ili pak iznos povrata preplaćenog poreza.
+
+U Excel tablici sastavi protokol za određivanje plaće radnika prema ovim pravilima u sljedeće tri situacije:
+
+1) Zadana je neto plaća. Koliki je bruto, a koliki ukupni trošak poslodavca?
+
+2) Zadan je ukupni trošak poslodavca. Kolika će biti neto, a kolika bruto plaća?
+
+3) Zadana je bruto plaća. Koliki će biti ukupni trošak poslodavca, a kolika neto plaća?
+
+Predvidi sve mogućnosti osobnih odbitaka i poreza u svojoj općini/gradu.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Ponašanje plinova
+Fizikalni zakoni koji opisuju ponašanje idealnih plinova lijepa su ilustracija proporcionalnih i obrnuto proporcionalnih veličina. Neka je P tlak plina, V volumen spremnika u kojem se plin nalazi i T temperatura plina u stupnjevima Kelvina.
+Zad Boyle-Mariotteov zakon (Robert Boyle, 1627.  - 1691., irski kemičar, fizičar i filozof, Edme Meriotte, 1620.  - 1684., francuski fizičar)
+Ako je temperatura plina konstantna, onda su tlak i volumen obrnuto proporcionalni.
+Drugim riječima, za neku konstantu k1 vrijediP⋅V=k1.Sve točke (P,V) koje zadovoljavaju ovu jednadžbu, leže na hiperboli koja se naziva izoterma. Ta hiperbola ovisi o temperaturi T (jer o toj temperaturi ovisi konstanta k1). Različite temperature dat će različite izoterme. Prikaz toga dan je na slici.
+Charlesov zakon (Jacques Charles, 1746.  -  1823., francuski izumitelj, znanstvenik i matematičar)
+Ako je tlak plina konstantan, onda je njegov volumen proporcionalan temperaturi T.
+Za neku konstantu k2 vrijediV=k2⋅T.
+Gay-Lussacov zakon (Joseph Louis Gay-Lussac, 1778.  - 1850. francuski kemičar i fizičar)
+Ako je volumen plina konstantan, onda je njegov tlak proporcionalan temperaturi.
+Za neku konstantu k3 vrijediP=k3⋅T.Neka je P0 tlak pri temperaturi T0=0∘C=273.15∘K. Onda vrijedi P0=k3T0 pa dobivamoP=P0⋅T273.15.Odavde slijedi da povećanje temperature od 1∘C ima za posljedicu povišenje tlaka za 273. 15 dio tlaka koji je vrijedio kod 0∘C. Tu je zakonitost otkrio Gay-Lussac.
+Avogadrov zakon (Amadeo Carlo Avogadro, 1776.  - 1856., talijanski znanstvenik)
+Ako su temperatura i tlak plina konstantni, onda je njegov volumen proporcionalan broju molekula plina.
+VrijediV=k4⋅npri čemu je k4 konstanta, a n broj molova plina u tom spremniku. Na standardnom tlaku od 100 kPa (vrlo blizak starom standardu, tlaku na razini mora od 1 atmosfere) i temperaturi od 273. 15 \deg K (tj. 0∘C) obujam jednog mola je 22. 711 litara.
+Svi ovi zakoni sadržani su u jednadžbi stanja idealnih plinova:P⋅V=n⋅R⋅Tu kojoj uz dosad spomenute veličine sudjeluje i plinska konstanta R=8.314 JK−1mol−1. Plinske zakone prvi je objedinio 'Emile Clapeyron 1834. god. (Benoit 'Emile Clapeyron, 1799. - 1864., francuski inženjer i fizičar, jedan od utemeljitelja termodinamike)
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================

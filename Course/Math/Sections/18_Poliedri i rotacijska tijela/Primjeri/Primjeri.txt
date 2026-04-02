@@ -1,0 +1,302 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 1
+Ilustrirajmo prvi Cavalierijev princip.
+Rješenje:
+Uzmimo dva trokuta jednakih osnovica i visina. Postavimo ih tako da im osnovice leže na zadanom pravcu. Presijecimo ih bilo kojim pravcem koji je paralelan sa zadanim.
+Neka je a osnovica trokuta, v njihova visina i x udaljenost pravca do vrhova C1, odnosno C2. Trokuti A1B1C1 i A′1B′1C1 su slični. Isto su tako slični i trokuti A2B2C2 i A′2B′2C2. Zato vrijedi:a1:a=x:v=a2:a,pa je a1=a2. Dakle, presjeci obaju trokuta imaju jednaku duljinu za svaki x. Zato po Cavalierijevu principu trokuti imaju jednaku površinu.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 2
+Koliko vrhova, koliko bridova i koliko strana ima n-terostrana prizma?
+Rješenje:
+Naziv n-terostrana prizma proistječe od njezine osnovke ili baze koja je n-terokut, bilo pravilan, bilo nepravilan. Takva prizma ima 2n vrhova, n na donjoj osnovci i jednako toliko na gornjoj.
+Svaka od dviju osnovaka n-terostrane prizme ima n bridova, a još je tu i n bočnih bridova. Dakle ih je ukupno 3n. I konačno, n-terostrana prizma ima dvije osnovke i n pobočaka, dakle ima n+2 strane.
+Uočimo još:
+Broj vrhova bilo koje prizme paran je broj jednak ili veći od 6. Broj bridova bilo koje prizme djeljiv je s 3, a najmanje ih je 9. Broj strana je bilo koji broj, najmanji među njima je 5.
+
+
+Primejr 3
+Bridovi baze uspravne trostrane prizme imaju duljine a=13 cm, b=4 cm i c=15 cm, a njezina visina je v=8 cm. Koliki su obujam i oplošje prizme?
+Rješenje:
+Površinu baze računamo Heronovom formulomB=√s(s−a)(s−b)(s−c),s=a+b+c2,pa su obujam i oplošje dani s:V=B⋅v,O=2B+v(a+b+c).
+Dobivamo: V=192 cm3, O=304 cm2.
+
+Primejr 4
+Opseg osnovke kvadra je 56 cm. Dijagonalni presjek kvadra, koji je okomit na osnovku, kvadrat je površine 400 cm2. Kolika je duljina prostorne dijagonale kvadra? Koliki su oplošje i obujam kvadra?
+Rješenje:
+Kako je dijagonalni presjek kvadrat, zaključujemo da je c=20 cm. Prostorna dijagonala kvadra jest dijagonala kvadrata sa stranicom duljine 20 cm.
+Dakle, D=20√2 cm.
+Duljina dijagonale osnovke je√a2+b2=20.Opseg baze kvadra je 56 cm, što znači da je a+b=28 cm.
+Tako smo dobili sustav dviju jednadžbi s dvjema nepoznanicama:a+b=28ia2+b2=400.Konačno rješenje je O=1504 cm2, V=3840 cm3.
+
+Primjer 5
+Površine strana kvadra su u omjeru 2:3:5. Njegovo je oplošje jednako 300 cm2. Koliki je obujam ovog kvadra?
+Rješenje:
+Iz prvog podatka zaključujemo kako je ab=2k, ac=3k, bc=5k, pri čemu je k>0. Zatim iz O=2(ab+ac+bc)=2(2k+3k+5k)=20k=300 slijedi k=15. Dakle, površine strana kvadra suab=30,ac=45,bc=75 cm2.Kako bismo izračunali obujam kvadra, u ovom zadatku ne moramo računati duljine bridova. Naime, pomnožimo li površine strana, dobit ćemoab⋅bc⋅ac=(abc)2=V2.Tako je V2=30⋅45⋅75=2⋅15⋅3⋅15⋅5⋅15=2⋅154, odakle slijedi V=225√2 cm3.
+
+Primjer 6
+Osnovka uspravne prizme je romb površine 216 cm2. Površine dijagonalnih presjeka nad osnovkom iznose 198 cm2 i 264 cm2. Izračunajmo obujam te prizme.
+Rješenje:
+Označimo s e i f dijagonale baze prizme, a s v njezinu visinu. Iz podataka možemo zapisati sustav jednadžbi:
+ef=432,  ev=198,  fv=264.
+Pomnožimo li posljednje dvije jednadžbe, dobit ćemo ef⋅v2=198⋅264.
+Uvrstimo sada ef=432, te je v=11 cm. Obujam prizme je V=B⋅v. Tako je V=216⋅11=2376 cm3.
+
+Primejr 7
+Površina osnovke pravilne šesterostrane prizme je 96√3 cm2. Površina pobočja prizme iznosi 240 cm2. Koliki je obujam prizme?
+Rješenje:
+Osnovka prizme je pravilan šesterokut. Njegova je površina jednakaB=6⋅a2√34=96√3.Slijedi a2=64 te je duljina osnovnog brida prizme a=8 cm.
+Površina pobočja je P=6⋅av=240. Odatle je v=5 cm. Obujam ove prizme iznosi V=B⋅v=96√3⋅5=480⋅√3≈831 cm2
+
+===========================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 8
+Bočni bridovi pravilne trostrane piramide s ravninom osnovke zatvaraju kut od 64∘. Ako je duljina brida osnovke jednaka 12 cm, koliki je obujam ove piramide?
+Rješenje:
+Neka je točka S nožište visine piramide. Trokuti ASV, BSV i CSV su međusobno sukladni. Oni su pravokutni. Jedan kut u svakom od njih je α, a ¯¯¯¯¯¯¯¯VS je zajednička stranica.
+To onda povlači
+¯¯¯¯¯¯¯¯AS≅¯¯¯¯¯¯¯¯BS≅¯¯¯¯¯¯¯¯CS.
+Dakle, vrhovi baze △ABC su jednako udaljeni od točke S, pa je S središte kružnice opisane bazi.
+Osnovka piramide je jednakostraničan trokut pa slijedi r=a√33=4√3 cm. Površina osnovke iznosi B=a2√34=36√3 cm2. Dalje je v=|SV|=r⋅tg 64∘. I konačno imamo:V=13Bv=13⋅36√3⋅4√3tg 64∘=144⋅tg 64∘≈295.2 cm3.
+
+Primjer 9
+Sve pobočke trostrane piramide s ravninom osnovke zatvaraju kut α=58∘. Osnovka je jednakokračan trokut s osnovicom duljine 12 cm i krakom od 10 cm. Koliki je obujam piramide?
+Rješenje:
+Neka je točka S nožište osnovke ove piramide. Položimo pravcem VS tri ravnine okomite na osnovne bridove piramide. Tada je po pretpostavci <)SA1V≅<)SB1V≅<)SC1V.
+Trokuti VSA1, VSB1 i VSC1 međusobno su sukladni. Oni su pravokutni, jedan kut u svakom od njih je α, a ¯¯¯¯¯¯¯¯VS je zajednička stranica.
+To onda povlači ¯¯¯¯¯¯¯¯¯¯A1S≅¯¯¯¯¯¯¯¯¯¯B1S≅¯¯¯¯¯¯¯¯¯¯C1S. Zaključujemo:
+Točka S jednako je udaljena od osnovnih bridova piramide pa je središte kružnice upisane osnovci.
+Duljinu polumjera osnovci upisane kružnice izračunat ćemo koristeći se površinom trokuta.
+Najprije, P=12a⋅va=48 cm2. Izjednačimo P=r⋅s=48 pa odatle slijedi r=3 cm. I dalje, v=r⋅tg 58∘ te je konačno:V=13⋅48⋅3⋅tg 58∘=48⋅tg 58∘≈76.8 cm3.
+
+
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 10
+Ako je plašt uspravnog valjka razgrnut u ravninu pravokutnik čije su stranice dugačke 6 cm i 11 cm, kolika je površina osnog presjeka valjka?
+Rješenje:
+Zadatak ima dva rješenja:
+1) Ako je 2rπ=6 i v=11, onda je 2r=6π≈1.9 cm.
+Površina osnog presjeka valjka tada je P=2rv=21 cm2.
+2) Ako je 2rπ=11 i v=6, onda je 2r=11π≈3.5 cm.
+U ovom je slučaju površina osnog presjeka također jednaka P=2rv=21 cm2.
+Je li slučajno što su obje mogućnosti dale isti rezultat? Zašto? Obrazloži!
+
+Primejr 11
+Oko krova kuće koji u svojem donjem dijelu ima oblik pravokutnika veličine 8×10 metara treba postaviti limeni oluk otvora 15 cm. Koliko lima valja nabaviti?
+Rješenje:
+Oduzmimo pri svakom kutu po 0.15 m oluka (kao na slici) pa izračunajmo duljinu oluka bez odsiječenih dijelova. On je 2⋅(8+10) m. No kako je oluk pola valjka, možemo uzeti pola ove duljine zamišljajući da od dviju polovina poklapanjem dobijemo cijev.
+Ta cijev ima duljinu 8+10=18 m i promjer 0.15 m.
+Njezina vanjska površina je P=2⋅rπv=0.15⋅π⋅18≈8.48 m2.
+Dodajmo sada još odbačene dijelove. Zamislimo da od njih složimo dvije cijevi, svaka duljine 0.15 m i promjera 0.15 m. Površina plašta tih dviju cijevi je 2⋅0.15⋅π⋅0.15≈0.14 m2.
+Zbrojimo sada dvije površine: 8.48+0.14=8.62.
+Za izradu oluka potrebno je nabaviti 8.62 m2 lima.
+
+Primejr 12
+Osni presjek uspravnog valjka je kvadrat površine 400 cm2. Koliki su oplošje i obujam ovog valjka?
+Rješenje:
+Ako je osni presjek valjka kvadrat, onda je visina jednaka promjeru osnovke, v=2r=20 cm.
+Izračunajmo oplošje valjka:O=2rπ(r+v)=20⋅π⋅30=600π≈1885 cm2.
+Obujam ovog valjka jeV=r2πv=100⋅π⋅20=2000π≈6283 cm3.
+
+primejr 13
+Uspravnu čašu u obliku valjka promjera 6 cm i visine 1.5 dm napunimo vodom. Zatim je nagnemo pod kutom od 45∘ prema osi. Koja se količina vode pritom izlije iz čaše?
+Rješenje:
+Zamislimo da smo čašu stavili na stol pa zatim stol nagnuli za 45∘. Na slici vidimo što se dogodilo. Kako izračunati koliko se vode izlilo iz čaše?
+Promotrimo dio čaše iz kojeg se izlila voda. Zamislimo da ga dopunimo još jednim takvim sukladnim dijelom tako da dobijemo valjak.
+Taj valjak ima visinu jednaku promjeru pa mu je obujam V=r2πv=9⋅π⋅6=54π cm3.
+Iz čaše se izlila polovina tog obujma, 27π≈85 cm3 vode.
+
+Primjer 14
+Iz drvenog trupca u obliku valjka duljine v metara i promjera r cm treba ispiliti drvenu gredu kojoj je presjek kvadrat. Koliki je postotak otpada?
+Rješenje:
+Oduzmemo li od obujma trupca Vt obujam grede Vg, dobit ćemo dio koji je otpao piljenjem. IzVt−Vg=r2πv−a2v=r2πv−2r2v=r2v(π−2)≈114.16r2v cm3.  Obujam trupca je Vt=r2πv≈314.16r2v cm3.
+I sada izračunamo omjer: Vt−VgVt≈0.3634. Nakon piljenja je od trupca otpalo oko 36 % drvne mase.
+Primijetimo da je ovaj rezultat neovisan o duljini trupca i o promjeru njegovog presjeka. Od svakog trupca koji ima oblik valjka, nakon što se od njega ispili greda kvadratnog presjeka, otpad izražen u postotcima uvijek će biti jednak.
+
+Primejr 15
+Kolika je duljina aluminijske žice promjera 2r=1 mm koja se može dobiti od aluminija mase 1\ kg? Gustoća aluminija je 2.7 gr/cm3.
+Rješenje:
+Najprije iz gustoće ρ=mV izračunajmo obujam aluminijske mase od 1 kg:
+V=mρ=10002.7≈370.4 cm3.
+I sada je 370.4=r2πv=0.52⋅10−2πv, odakle je v≈471.6 m.
+Zanimljivo: aluminij mase 1 kg ima obujam 370.4 cm2 (što je otprilike kocka s duljinom brida 7.2 cm), a od te se mase dobije žica promjera 1 mm duljine 471.6 metara.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 16
+Kolika je duljina aluminijske žice promjera 2r=1 mm koja se može dobiti od aluminija mase 1\ kg? Gustoća aluminija je 2.7 gr/cm3.
+Rješenje:
+Najprije iz gustoće ρ=mV izračunajmo obujam aluminijske mase od 1 kg:
+V=mρ=10002.7≈370.4 cm3.
+I sada je 370.4=r2πv=0.52⋅10−2πv, odakle je v≈471.6 m.
+Zanimljivo: aluminij mase 1 kg ima obujam 370.4 cm2 (što je otprilike kocka s duljinom brida 7.2 cm), a od te se mase dobije žica promjera 1 mm duljine 471.6 metara.
+
+Primejr 17
+Ako uzmemo polukrug polumjera 12 cm i spojimo ga u plašt stošca, kolika je visina tako dobivenog stošca?
+Rješenje:
+Polumjer polukruga jest izvodnica stošca, dakle s=12 cm. Polukružnica se savije u bazu stošca pa je njezina duljina 2r⋅π=12π. Tako je r=6 cm.
+Zaključujemo:
+Osni presjek stošca čiji plašt razvijen u ravninu čini polukrug jest jednakostraničan trokut. Takav se stožac zbog toga ponekad i zove jednakostraničan stožac.
+Visina tog trokuta v=6√3 cm ujedno je i visina stošca.
+
+Primjer 18
+U uspravan stožac polumjera baze R i visine v upisan je valjak kojem je visina jednaka promjeru baze. Koliki je omjer njihovih obujama?
+Rješenje:
+Neka je r polumjer baze valjka. Iz karakterističnog presjeka možemo postaviti omjerrR=v−2rv,odakle je: r=vR2R+v. Omjer je obujamaVvVs=r2π⋅2r13R2πv=6v2R(2R+v)3.
+
+primejr 19
+Osni presjek uspravnog stošca je pravokutni trokut površine 36 cm2. Koliki je obujam ovog stošca?
+Rješenje:
+Stožac je uspravan pa pravokutni trokut mora biti jednakokračan. Njegova je površina P=r2=36 cm2 odakle je onda r=v=6 cm. Obujam stošca je: V=13r2πv=13r3π=72π cm3.
+
+primjer 20
+Uspravnom stošcu čija je visina v=16 cm, a polumjer osnovke 12 cm upisana je sfera. Stožac je presječen ravninom koja prolazi paralelno osnovci stošca i dira upisanu sferu.
+1) Kolika je površina presjeka stošca tom ravninom?
+2) U kojem omjeru ta ravnina dijeli obujam stošca?
+3) Koliki je obujam krnjeg stošca koji je dobiven pri ovom presjeku?
+Rješenje:
+
+1) Uvedimo oznake kao na slici. Tada je R=12 cm, |VS|=16 cm, s=|AV|=|BV|=20 cm. Iz △VSB∼△VDS slijedi:R:ρ=s:(v−ρ),a odatle ρ=6 cm. Onda je  v1=|VS1|=v−2ρ=4 cm. Iz △VSB∼△VS1E imamo R:r=v:v1 te je r=3 cm. Presjek stošca ravninom je krug površine Pp=r2π=9π cm2.
+2) Označimo s V obujam stošca, a s V1 obujam dopunjka. Tada je V:V1=(R:r)3, a odatle V:V1=64. Ravnina dijeli stožac na dva dijela čiji su obujmi u omjeru 1:63.
+3) Sada je lako izračunati obujam krnjeg stošca jer imamo sve potrebne elemente. No primijeti kako možemo postupiti i nešto jednostavnije. Obujam dopunjka je V1=13r2πv1=12π cm3. A obujam krnjeg stošca je 63 puta veći (rezultat pod 2)), Vk=12⋅63π=756π cm3.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 6
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 21
+Kugla polumjera 26 cm presječena je dvjema paralelnim ravninama, a površine presjeka su 100π cm2 i 576π cm2. Kolika je međusobna udaljenost tih ravnina?
+Rješenje:
+Promotrimo presjek kugle ravninom koja prolazi središtem kugle okomito na dvije ravnine (slika desno). Polumjer većeg presjeka je 24\ cm, a manjeg 10\ cm. Iz istaknutih pravokutnih trokuta nalazimo udaljenosti dviju ravnina od središta kugle, one iznose 24\ cm, odnosno 10\ cm. Zaključujemo da su ravnine međusobno udaljene 24+10=34 cm.
+No oprez! Zadatak ima još jedno rješenje. Valja još razmotriti drugu mogućnost, kada su ravnine s iste strane središta kugle. Tada je udaljenost 24−10=14 cm.
+
+primejr 22
+Koliki je polumjer željezne kugle čija je masa 1\ kg ako je gustoća željeza 7.9 g/cm3?
+Rješenje:
+Gustoća homogenog tijela je omjer njegove mase i njegovog obujma. Tako ćemo iz jednakosti 7.9=1000V dobiti V=126.58 cm3.
+I sada iz 43R3π=126.58 izračunamo polumjer kugle, R=3.1 cm.
+
+Primejr 23
+Kuglu obujma 65.45 cm3 uronimo u vodu koja se nalazi u valjkastoj čaši i stoji na horizontalnoj ravnini. Promjer otvora čaše iznosi 6 cm, a njezina je visina 8 cm.
+1) Kolika se količina vode izlije iz čaše ako je prije uranjanja bila na visini 7 cm?
+2) Koliki bi trebao biti polumjer kugle ako bi se uz iste uvjete nakon uranjanja razina vode podigla točno do ruba čaše?
+Rješenje:
+1) "Pretvorimo" obujam kugle u obujam valjka. Stavimo li r=3 cm u jednakost 65.45=r2πv, dobit ćemo v=2.3 cm. Dakle, razina vode u čaši podigne se za 2.3 cm. Kako je visina čaše 8 cm, a razina vode u njoj 7 cm, to znači da će se izliti obujam vode koji stane u valjak visine 1.3 cm i polumjera 3 cm. Dakle, V=r2πv=9⋅π⋅1.3≈37 cm3.
+2) Obujam kugle jednak je obujmu sloja vode visine 1 cm, a on iznosi r2πv=9π. Zatim iz 43R3π=9π nalazimo R=1.89 cm.
+
+Primjer 24
+Odredimo obujam Vk kuglinog odsječka, tijela koje od kugle odsijeca ravnina.
+Rješenje:
+Neka je v njegova visina. (To znači da je udaljenost presječne ravnine od središta sfere jednaka R−v). Formulu ćemo odrediti na potpuno isti način kao i obujam polukugle. Usporedit ćemo obujam odsječka s odgovarajućim tijelom koje dobivamo ako iz valjka visine v izvadimo krnji stožac polumjera gornje baze R, a donje baze R−v.
+Po poznatim formulama za obujam valjka i krnjeg stošca, vrijedi:Vk=R2πv−πv3[R2+R(R−v)+(R−v)2]=(3R−v)v2π3.
+
+Primjer 25
+Dana je kocka s bridom duljine 10 cm. U središtu kocke je središte kugle koja dira sve bridove kocke. Izračunajmo obujam dijela kugle koji nije u kocki.
+Rješenje:
+Nad svakom stranom kocke kugla izbija iz nje. Svaka strana kocke odsijeca od kugle jednak odsječak. Promjer kugle jednak je duljini dijagonale strane kocke, 2R=10√2 cm. Visina kuglina odsječka iznosi 5√2−5≈2.07 cm.
+I sada možemo izračunati obujam odsječka:V=(3R−v)v2π3=(15√2−2.07)⋅2.072⋅π3≈27.34π cm3.
+No iz kugle "viri" šest takvih odsječaka, nad svakom stranom po jedan, pa je njihov ukupan obujam 6⋅27.34π=164.04π cm3.
+Kako je obujam kugle 43⋅(5√2)3π≈471.4π cm3, onda je izvan kocke oko 35 % njezinog obujma.
+
+Primejr 26
+Odredimo obujam kuglinog sloja, dijela kugle koji odsijecaju dvije paralelne ravnine.
+Rješenje:
+Njegov je obujam jednak razlici obujama dvaju kuglinih odsječaka; ali račun je složeniji krenemo li na taj način.
+Obujam ćemo odrediti s pomoću triju veličina: polumjera prvog presječnog kruga r1, drugog presječnog kruga r2 i visine kuglinog sloja v. Pretpostavit ćemo, radi jednostavnijeg zapisa, da je r1>r2 i da kuglin sloj leži u istoj polukugli. Te tri veličine nisu međusobno neovisne; znajući dvije uvijek možemo odrediti treću, po formuli:v=v1−v2=√R2−r21−√R2−r22.
+Značenje veličina vidimo na slici na kojoj je naznačen glavni presjek polukugle i pomoćnih tijela.
+	Izvedimo pomoćne relacije. Iz veze v=v1−v2 izračunat ćemo umnožak v1v2:v2=v21+v22−2v1v2⟹2v1v2=v21+v22−v2.(2)Također vrijedi:r21=R2−v21,r22=R2−v22.(3)Obujam kuglinog sloja jednak je obujmu pomoćnog tijela:V=R2vπ−πv3[v21+v1v2+v22]=πv6[6R2−2v21−2v22−2v1v2]= po (2)=πv6[6R2−3v21−3v22+v2]= po (3)=πv6(3r21+3r22+v2).Ako je r2=0, tada sloj prelazi u odsječak. Označimo li (jedini) polumjer presječnog kruga s r umjesto s r1, dobit ćemo formulu:V=πv6(3r2+v2),(4)što je drugi oblik za formulu obujma kuglinog odsječka.
+
+Primejr 27
+Odredimo formulu za obujam kuglinog isječka. To je tijelo koje od kugle odsijeca ploha stošca koja ima vrh u središtu kugle.
+Rješenje:
+Formula se može iskazati s pomoću polumjera kugle R i visine pripadnog odsječka v.
+Neka je r pomoćna veličina: polumjer baze stošca. Iz karakterističnog pravokutnog trokuta čitamo:R2=(R−v)2+r2⟹r2+v2=2Rv.
+Sada računamo obujam V kuglinog isječka zbrajajući obujam odsječka Vo=πv6(3r2+v2) (formula (4) iz prethodnog primjera) i obujam stošca Vs=r2π3(R−v):V=πv6(3r2+v2)+r2π3(R−v)=πv6(r2+v2)+πv6⋅2r2+r2π3(R−v)=πv6(r2+v2)+r2π3⋅R=πv6⋅2Rv+r2π3⋅R=13πR(v2+r2)=23R2πv.
+
+Primejr 28
+Duljina brida osnovke pravilne trostrane piramide je a, a njezina visina v. Koliki je polumjer kugle upisane u piramidu?
+Rješenje:
+Točka T u kojoj kugla dira osnovku središte je jednakostraničnog trokuta; zato je ¯¯¯¯¯¯¯¯¯¯MT trećina njegove visine, |MT|=a√36. Trokuti SNV i MTV su slični. Iz omjera odgovarajućih stranica dobivamo:rv−r=a√36h=a√36
+⎷v2+(a√36)2.Odavde slijedi (provjerite!):r=ava+√12v2+a2.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 7
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 29
+Pokažimo da se oko svakog stošca može opisati sfera. Izračunajmo njezin polumjer R ako je stožac uspravan.
+Rješenje:
+Neka su A, B, C po volji uzete točke s oboda baze stošca. Tim točkama i točkom V određena je sfera. Presjek sfere s ravninom baze stošca je kružnica. Kako točke A, B i C pripadaju sferi i toj ravnini, presječna je kružnica upravo obodna kružnica (određena točkama A, B i C). Zato je sfera opisana oko stošca. Odredimo joj polumjer.
+Vezu između zadanih i traženih veličina određujemo iz karakterističnog presjeka stošca. Kako karakteristični presjek prolazi središtem baze i vrhom V, on sadrži i središte opisane sfere. Zato je kružnica opisana karakterističnom trokutu presjek sfere ravninom koja prolazi njezinim središtem, pa je njezin polumjer R. Za uspravni stožac polumjer nalazimo iz karakterističnog trokuta na slici:R2=(v−R)2+r2⟹R=r2+v22v,pri čemu je s2=r2+v2, pa iz zadanog polumjera i jedne od tih veličina možemo lako odrediti drugu.
+
+primejr 30
+Odredimo površinu Pk kugline kapice. Kapica je dio sfere koji pripada kuglinu odsječku.
+Možemo ga odrediti na potpuno isti način kao i površinu čitave sfere ako krenemo od obujma Vi kuglinog isječka. Istom analizom kao i pri računanju površine sfere, obujam isječka dobivamo zbrajanjem obujama prizmi čije baze pokrivaju kapicu. Dobivamo jednakost:Vi=23R2πv=13R⋅Pk.Odavde je:Pk=2Rπv.
+
+Primjer 31
+Ako zamislimo da je Zemlja idealna kugla polumjera R=6400 km, kolika se površina vidi s visine od h=2000 m?
+Rješenje:
+Površina područja koje je vidljivo iz točke A je kuglina kapica. Nacrtajmo karakteristični presjek: presjek sfere ravninom koja prolazi točkom A i središtem S. Neka je B diralište tangente povučene iz A. Trokut ABS pravokutan je i sličan je trokutu BDS. Zato je:|DS|R=RR+h⟹|DS|=R2R+h.Zato je visina odsječka:v=R−|DS|=R−R2R+h=RhR+h,a njegova površina:P=2Rπv=2R2πhR+h.U konkretnom primjeru ona iznosi P=80 400 km2. S vrha Velebita, visokog 1758 m, vidjela bi se površina od preko 70 000 km2, što je više od površine Hrvatske.
+
+Primjer 32
+Na ravnini leže tri jednake kugle i međusobno se diraju. Četvrta, manja kugla dira sve tri i također leži u ravnini. Koliki je omjer obujama veće i manje kugle?
+Rješenje:
+Središta S1, S2 i S3 triju većih kugli i središte S četvrte, manje kugle vrhovi su pravilne trostrane piramide. Označimo s R duljinu polumjera veće, a s r manje kugle. Osnovni bridovi te piramide, ¯¯¯¯¯¯¯¯¯¯¯S1S2, ¯¯¯¯¯¯¯¯¯¯¯S2S3 i ¯¯¯¯¯¯¯¯¯¯¯S1S3, su onda duljina 2R, duljine bočnih bridova, ¯¯¯¯¯¯¯¯¯SS1, ¯¯¯¯¯¯¯¯¯SS2 i ¯¯¯¯¯¯¯¯¯SS3 jednake su R+r, a duljina visine piramide ¯¯¯¯¯¯¯¯¯SS′ iznosi R−r.
+Iz trokuta S1SS′, primjenom Pitagorina poučka, slijedi:(R+r)2=(R−r)2+(23⋅2R√32)2.Iz ove jednakosti slijediR=3r.Dakle, polumjer veće kugle je tri puta veći od polumjera male. Onda je obujam veće kugle 27 puta veći od obujma manje. Rješenje ovog zadatka pomoći će ti u rješavanju zadatka "Kamene kugle".
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 8
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 33
+Trokut sa stranicom a i visinom v na tu stranicu rotira oko stranice a. Koliki je obujam dobivenog tijela?
+Rješenje:
+Visina spuštena na stranicu a dijeli tu stranicu na dijelove a1 i a2. Vrijedi a=a1+a2. (Ako je kut β tup, onda je a=a2−a1. Nacrtaj sliku!). Rotacijsko tijelo je unija dvaju stožaca, kojima je v polumjer baze, a a1, odnosno a2 visine. Zato je obujam rotacijskog tijela jednakV=V1+V2=13πv2a1+13πv2a2=13πv2a.Primijetimo da stranicom i visinom trokut nije jednoznačno određen. Međutim, obujam rotacijskog tijela uvijek će biti isti. Uvjeri se da se isti izraz dobiva i ako je jedan od kutova uz stranicu a tup.
+
+primejr 34
+Jednakokračni trokut s osnovicom a=6 cm i visinom na osnovicu v=4 cm rotira oko kraka. Koliki su oplošje i obujam rotacijskog tijela?
+Rješenje:
+Označimo s b krak, a s h visinu na krak. Oplošje je jednako zbroju plašteva dvaju stožaca čiji su polumjeri osnovaka jednaki (h), a izvodnice su a, odnosno b:O=hπ(a+b).Obujam rotacijskog tijela (prema prethodnom primjeru) jednak jeV=13πh2b.Potrebno je izračunati h i b. Iz pravokutnog je trokuta b=√a24+v2=5 cm. Iz jednakosti površina (ili sličnosti) čitamo12av=12bh⟹h=avb=245 cm.
+Sada je O=264π5 cm2, V=192π5 cm3.

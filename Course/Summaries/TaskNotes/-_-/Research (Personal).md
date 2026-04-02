@@ -453,6 +453,42 @@ HABIT WELL-BEING
 * Oređivanje prioriteta (Eisenhover matrix)
 * Nađi zabavu u radu (zamišljanje kostimizacije)
 * održavaj odraz tematike (nakon logičkog predmeta, radi drugi logički predmet umjesto onoga unutar kreativnog djela)
+* ## 6 Key Scrolling Habits of High-Curiosity Minds
+
+These patterns signal a brain foraging for intellectual value, not just dopamine.
+
+- **Habit 1: Dissect comments for logic**  
+    Dive into comment sections to spot fallacies, weak arguments, evidence gaps, and sharp insights. It's like a critical thinking gym—treats social media as a debate arena.
+    
+- **Habit 2: Hunt for cognitive value**  
+    Skip shallow entertainment; seek explanations of complex ideas, behavior breakdowns, or perspective flips. Brain filters via headlines/thumbnails for "new info" potential (information foraging theory).
+    
+- **Habit 3: Rabbit holes**  
+    A small detail pulls you deep (e.g., 45 mins from a clip to Wikipedia). Knowledge gaps create motivational pull—feels rewarding to close them, even without practical payoff.
+    
+- **Habit 4: Save/screenshot/open tabs**  
+    Collect fragments (quotes, infographics) for future connections. Pattern thinkers hoard as "map sketches," not clutter.
+    
+- **Habit 5: Lightning-fast scan, deep dives**  
+    Swipe rapidly to scan for high-value signals (unusual headlines/quotes), then invest heavily (full reads, source checks). Strategic foraging minimizes wasted attention.
+    
+- **Habit 6: Drawn to novel/counterintuitive**  
+    Skip predictable content; pause on paradoxes or "brow-furrowers" that challenge your worldview. Novelty invites deeper thinking.
+    ## Self-Improvement Actions
+
+Turn these habits into tools for growth (e.g., integrate with your Anki/Obsidian setup):
+
+1. **Track your scrolls**: For a week, note what stops you—logic puzzles? Rabbit holes? Rate post-session: "More insights or drained?" Use Obsidian daily notes template.
+    
+2. **Curate feeds**: Follow accounts with counterintuitive takes (psychology, history, econ). Block low-value (repetitive memes).
+    
+3. **Process collections**: Weekly, review screenshots/tabs—link to Anki cards for spaced repetition of key ideas.
+    
+4. **Timebox rabbit holes**: Set 20-min timers; emerge with 1-2 questions to research later.
+    
+5. **Reflect & test**: After comments dive, jot: "Strongest argument? Weakest fallacy?" Builds critical thinking muscle.
+    
+6. **Channel into habits**: Pair with meditation—scroll mindfully, like foraging in an "information forest."
 
 ============================================================================================================================================================================================================================================
 ============================================================================================================================================================================================================================================

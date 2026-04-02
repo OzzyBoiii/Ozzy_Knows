@@ -1,0 +1,106 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Kutak Plus (ISPISANI PO LEKCIJI)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Broj π
+Da je omjer duljine kružnice i duljine njezinog promjera stalan broj, neovisan o veličini kružnice, činjenica je poznata nekoliko tisuća godina. No koliki je taj omjer? Odgovor na to pitanje uopće nije jednostavan, premda ćemo vrlo nehajno uzvratiti: Pa to je broj π. Razlog je taj što pri računanju uzimamo za π njegovu približnu vrijednost 3\tz14 pa se i ne zamaramo daljim pitanjima.
+Danas znamo da je π iracionalan broj, a poznato je više milijardi njegovih decimala.
+Kako se razvijala duga povijest ovog najpopularnijeg broja?
+Egipćani su gotovo 2000 godina prije Krista držali da je površina kruga jednaka površini kvadrata kojem je stranica 8/9 promjera kruga, odakle se dobije da je π≈25681=3.16049…
+Arhimed (287. -- 212. g. pr. Kr.) je do približne vrijednosti broja π došao promatrajući opsege pravilnih mnogokuta upisanih i opisanih danoj kružnici. Opseg O kruga veći je od opsega on krugu upisanog pravilnog n-terokuta, a manji od opsega On pravilnog n-terokuta opisanog istom krugu: on<O<On.
+Što je broj stranica mnogokuta veći, smanjuje se razlika u opsezima opisanog i upisanog mnogokuta i opsega kružnice. Arhimed je krenuo s jednakostraničnim trokutima pa je udvostručavajući broj stranica, provodio račun sve do 96-terokuta. Tako je došao do vrlo dobre procjene 31071<π<317. Aritmetička sredina dviju ograda daje π≈3.14185. Provjeri to džepnim računalom.
+Ako bismo Arhimedovim postupkom i sami pokušali odrediti približnu vrijednost broja π, danas bismo to uz pomoć džepnog kalkulatora učinili za nekoliko minuta. Za promjer kružnice uzeli bismo 2r=1 te redom računali opsege upisanog (on) i opisanog (On) pravilnog n-terokuta toj kružnici za n=3, 6, 12, 24, 48, 96.
+Evo kako bi izgledala tablica:
+n	 on	 On
+3	2.59807621	5.196152423
+6	3	3.464101615
+12	3.105828541	3.215390309
+24	3.132628613	3.159659942
+48	3.139350203	3.146086215
+96	3.141031951	3.1427146
+U priloženom GeoGebrinom programčiću prikazan je Arhimedov postupak za računanje broja π
+Na jednoj staroj babilonskoj glinenoj pločici nalazi se za π približna vrijednost π≈3+18=258=3.125. Babilonci su, čini se, također postupkom sličnim Arhimedovu odredili približnu vrijednost broja π.
+Apoloniju iz Perga pripisuje se procjena π≈3.1416…, dok je Ptolomej, koji je rabio brojevni sustav s bazom 60, za π uzimao 3∘8′30”, tj. π≈3+860+303600=3.14166…
+U Europi se u prvom tisućljechu računalo s vrijednošću pristiglom iz Indije π≈√10=3.1622…, premda je u Kini već nekoliko stoljeća ranije bila poznata izvrsna aproksimacija π=355113=3.1415929, najbolja koja se može dobiti kao količnik prirodnih brojeva manjih
+od 1000.
+Većeg napretka u točnijem određivanju ovog slavnog broja nije bilo sve do 16. stoljeća, kada počinje prava potjera i nadmetanje u nalaženju što većeg broja točnih znamenaka.
+Spomenimo neke istaknutije rezultate:
+François Viète (1540. -- 1603.) dao je procjenu 3.1415926535<π<3.1415926537. On je među prvima
+dao i formulu kojom se može računati broj π:π=2⋅2√2⋅2√2+√2⋅2√2+√2+√2⋅…
+Ova formula utemeljena je na promatranju površina niza 2n-terokuta upisanih krugu polumjera 1. S povećanjem faktora u ovom umnošku poboljšavat će se i aproksimacija broja π.
+„Noli turbare circulos meos” (lat. Ne diraj moje krugove) prema legendi uzviknuo je Arhimed rimskom vojniku odbijajući se pokoriti osvajaču. Ovaj ga je potom ubio. Mozaik za koji se smatra da je iz Herculaneuma jedini je poznati prikaz Arhimeda s abakom.
+Valja svakako spomenuti i Ludolfa van Ceulena (1539. -- 1610.), profesora matematike u Leidenu koji je Arhimedovim postupkom primijenjenim na mnogokut sa 60⋅233 stranica 1609. godine dobio 35 decimala broja π. No kasnije se pokazalo da je 35. decimala pogrešno određena. Broj π danas se često u slavu i čast ovog matematičara zove Ludolfov broj.
+Jurnjava za iznalaženjem što više decimala broja π danas je pretvorena u natjecanje programera i proizvođača računala. Senzacionalnu su vijest  1989. god. o braći C|hudnovsky, koji su odredili 480 milijuna decimala broja π (za što bi ispis u  ednom retku bio dug preko 1000 km), požurile objaviti sve novine u svijetu. Ali nije trebalo dugo čekati obaranje tog rekorda.  slijedio je novi rekord sa 6 milijardi decimala, pa opet novi s preko 8 milijardi, i novi od 51\tz5 milijardi, i novi s preko 206  ilijardi, da bi se u jesen 2011. rekord zaustavio na 10 000 000 000 050 decimala. No dok ovo čitate, možda je već i on oboren. I na kraju, navedimo prvih 1000 decimala broja π:
+3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245870066063155881748815209209628292540917153643678925903600113305305488204665213841469519415116094330572703657595919530921861173819326117931051185480744623799627495673518857527248912279381830119491298336733624406566430860213949463952247371907021798609437027705392171762931767523846748184676694051320005681271452635608277857713427577896091736371787214684409012249534301465495853710507922796892589235420199561121290219608640344181598136297747713099605187072113499999983729780499510597317328160963185950244594553469083026425223082533446850352619311881710100031378387528865875332083814206171776691473035982534904287554687311595628638823537875937519577818577805321712268066130019278766111959092164201989…
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Razni geometrijski oblici nalaze se posvuda u našoj okolini. Pokušajte i sami naći poneki primjer. Na trima slikama prvog reda vidite tri prozora snimljena na ulicama jednog grada. U drugom redu prikazani su isti ti prozori „čistim” geometrijskim crtežima. Uz te crteže naznačene su mjere stranica pravokutnika u centimetrima. Tvoj je zadatak izračunati površine plavo obojenih geometrijskih oblika..
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 6
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Popločavanje ravnine
+
+Jedan od zanimljivih zadataka (uz pravilne mnogokute) vezan je uz popločavanje ravnine. Što se misli pod popločavanjem? Popločiti ravninu znači potpuno je pokriti određenim ravninskim likovima. Zanima nas slučaj kada su ti likovi pravilni i sukladni mnogokuti pri čemu dva mnogokuta imaju ili zajedničku stranicu ili zajednički vrh ili nemaju niti jednu zajedničku točku.
+Koliko pravilnih i sukladnih mnogokuta može biti pri jednom vrhu ravninskog lika? Velikog izbora nemamo. Zašto? Pogledajmo!
+Unutarnji kut pravilnog n-terokuta jednak je
+α=(n−2)⋅180∘n.
+Razmotrimo sve moguće slučajeve.
+(1) Ako je n=3, tada je α=60∘ pa je (360∘60∘)=6. Dakle, ravninu možemo popločiti jednakostraničnim trokutima. Kako, vidimo na slici lijevo.
+(2) Za n=4 je α=90∘ te je (360∘90∘)=4. Ovo jednostavno popločavanje sukladnim kvadratima prikazano je na slici lijevo u sredini.
+(3) Ako je n=5, tada je α=108∘ i tada (360∘108∘) nije cijeli broj. Pravilnim peterokutima ne možemo popločiti ravninu.
+(4) Za n=6 je α=120∘ pa je (360∘120∘)=3 (slika lijevo dolje).
+ 
+I to su ujedno sva rješenja zadatka. Naime, ako uzmemo bilo koji n-terokut za n>6, njegovi su unutarnji kutovi veći od 120∘ pa dva takva  mnogokuta pokrivaju više od 240∘ i ostatak do 360∘ manji je od unutarnjeg kuta mnogokuta.
+Ako bismo zahtjev omekšali i promatrali popločavanja pri kojima bismo dopustili da pločice budu različiti pravilni mnogokuti, tada bismo dobili niz novih mogućnosti. Na donjoj slici prikazano je osam načina popločavanja pri kojima je ispunjen zahtjev da je raspored mnogokuta oko svakog vrha isti.
+
+O konstrukciji pravilnih n - terokuta
+Postavlja se pitanje: za koje je brojeve n moguće konstruirati pravilni n-terokut? Posebno je važno pitanje za koje je proste brojeve n to moguće učiniti? Odgovor na to pitanje dao je po mnogima najveći matematičar svih vremena K. F. Gauss.
+Neka je n prost broj. Pravilni n-terokut moguće je konstruirati ako i samo ako je n oblika n=22k+1, k≥0.}
+Za k=0 imamo n=3. Jednakostranični trokut znamo konstruirati.
+Za k=1 imamo n=5. Pravilni peterokut može se konstruirati.
+Za k=2 imamo n=17. Gauss je prvi izveo konstrukciju pravilnog 17-terokuta u dobi od 19 godina. Po nekima je baš taj rezultat opredijelio Gaussa prema matematici. U spomen toga na jednom je njegovom spomeniku postolje u obliku pravilnog 17-terokuta.
+Proste brojeve dobivamo još za k=3 (n=257) i k=4 (n=65537).
+Prosti brojevi oblika 22k+1 nazivaju se Fermatovi brojevi, prema francuskom matematičaru P. Fermatu. Fermat je držao da su svi brojevi tog oblika prosti i provjerio je tvrdnju za brojeve 17, 257, 65537. Međutim, već sljedeći broj za k=5, n=225+1=4294967297 nije prost, n=641⋅6700417. Taj je rezultat dokazao L. Euler 1732. god.
+Danas nije poznat nijedan novi Fermatov prost broj. Za mnoge eksponente k provjereno je da broj nije prost. Više o tome možete naći na internetu, na stranici www.element.hr/plus.
+Prosti brojevi n=7, n=11, n=13 itd. nisu Fermatovi. Zato se ne može konstruirati pravilni n-terokut s tim brojem stranica. Tako, primjerice, svaka konstrukcija pravilnog sedmerokuta može biti samo približna. To, dakako, nema važnosti u praksi, pri crtanju lika, jer su tu i približne konstrukcije dovoljno precizne. Međutim, važnost ovakvih razmatranja i dokaza ogromna je u razvoju matematike.

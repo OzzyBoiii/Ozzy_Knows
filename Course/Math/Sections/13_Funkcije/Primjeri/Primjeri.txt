@@ -1,0 +1,178 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 1
+Izmjerili smo najvišu temperaturu u Celzijevim stupnjevima za nekoliko prvih dana u mjesecu i rezultate zapisali u sljedećoj tablici.
+Dan	1	2	3	4	5	6	7	8	9	10
+Temperatura	15	13	12	12	11	10	12	11	10	8
+ Ako d označava dan u mjesecu, a t temperaturu zabilježenu u tom danu, onda je ovom tablicom definirana funkcija t=f(d).
+Što je domena te funkcije? Što je njezina kodomena? Kakav ćemo odgovor dati ako temperaturu želimo mjeriti čitav mjesec?
+Rješenje:
+Domena ovako zadane funkcije je skupD={1,2,3,4,5,6,7,8,9,10}.Područje vrijednosti svakako uključuje zabilježene vrijednosti{8,10,11,12,13,15}ali je po naravi ove veze ispravnije reći da je područje vrijednosti skup cijelih brojeva. Naime, rezultat mjerenja zaokružujemo na cijeli stupanj, a ta temperatura može biti i negativna.
+Mjerimo li temperaturu cijeli mjesec, domena će biti skup koji odgovara broju dana u mjesecu. Ovdje vidimo da za kodomenu moramo uzeti veći skup jer će već sutra mjerenje možda zabilježiti neku novu temperaturu.
+
+Primjer 2
+Neka je A=[1,2] i B=[3,6]. Preslikavanje koje elementu x∈A pridružuje element y=3x∈B funkcija je definirana zakonom pridruživanja:f(x)=3x,za koju je D=A, R=B.
+
+Primjer 3
+Koja od sljedećih jednadžbi definira y kao funkciju argumenta x?
+1) 2x+3y−6=0
+2) 3x2−2xy+y+1=0
+3) −x2+y2=5.
+Rješenje:
+1) Možemo napisati 3y=−2x+6 pa jey=−23x+2.Kažemo da smo početnu jednadžbu „riješili po varijabli y”. Vidimo da jednoj vrijednosti za x odgovara točno jedna vrijednost od y pa je ovom vezom opisana funkcija y=f(x). Vrijedi primjerice f(6)=−23⋅6+2=−2.
+2) Sad veza glasi (provjeri)y=3x2+12x−1pa jednadžba definira y kao funkciju od x.
+3) U ovom slučaju imamo y2=5+x2 pa jey=±√5+x2.Jednoj vrijednosti za x odgovara i pozitivna i negativna vrijednost od y. Primjerice, za x=2 dobivamo y=3 ili y=−3. Oba para (2,3) i (2,−3) zadovoljavaju početnu jednadžbu. Zato ta jednadžba ne definira funkciju jer nije ispunjen uvjet jednoznačnosti.
+
+pRIMJER 4
+Funkcija
+3t,
+0<t<3,
+s(t)= 9,
+3<t<4,
+2t+1, 4t≤6,
+opisuje prijeđeni put u kilometrima osobe koja je prva tri sata hodala brzinom od 3 km/h, zatim se sat vremena odmarala, a nakon toga dva sata hodala brzinom od 2 km/h.
+Rješenje: Graf ove funkcije dan je na slici dolje.
+13
+s-s(1)
+9
+1 2 3 4 5 6
+Na intervalu [0,3] jednadžba pravca je s(t) = 3t. U točki t = 3 vrijedi s(3) = 9 i funkcija je konstantna na intervalu { [3, 4]}. Na dijelu 4<t< 6 formula s(t) = 2t+1 definira pravac kojemu je koeficijent smjera 2, a vrijednost u točki 4 iznosi
+pa on prolazi točkom (4,9).
+s(4) 2.4+1=9
+
+Primjer 5
+Dohodak umanjen za osobni odbitak čini poreznu osnovicu (vidi Kutak plus) na koju se plaća porez. Visina poreza ovisi o mjestu stanovanja. U Hrvatskoj, najviša je za grad Zagreb. Neka je d porezna osnovica u eurima. Porez za grad Zagreb iznosi:
+1) osnovni porez je 23%
+2) ako je d>5000, plaća se dodatno 33% na razliku d−5000. Napiši formulu za porez P u ovisnosti o visini porezne osnovice d. Nacrtaj graf te funkcije.
+Rješenje: Funkcija je definirana za d>0. Ako je d≤5000P(d)=d⋅0.23.Vrijednost ove funkcije u graničnom dohotku u ovog je razredaP(5000)=1150.Na području 5000<d ovom se iznosu dodaje novi, po stopi od 33 %, na iznos preko početnog:P(d)=1150+(d−5000)⋅0.33=0.33d−500.DakleP(d)={0.23d,0<d≤5000,0.33d−500,5000<d.Na slici je nacrtan graf ove funkcije. Detaljniji opis poreza na plaće u Hrvatskoj možeš pronaći u Kutku plus.
+
+Primjer 6
+Odredi f(x) ako je f(xx+1)=x2.
+Rješenje:
+Stavimo li t=xx+1 zadani se izraz može napisati u obliku f(t)=x2. Da bismo odredili zakon pridruživanja funkcije f, potrebno je izraziti x kao funkciju varijable t.t=xx+1⟺tx+t=x⟺x=−tt−1.Sad dobivamof(t)=x2=(−tt−1)2=t2(t−1)2.Time je zakon pridruživanja određen, a ime varijable možemo označiti po volji:f(x)=x2(x−1)2.Ovim računom nije određena domena funkcije f. Taj ćemo problem rješavati kasnije.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 7
+Pravokutnik kojemu su stranice duljina x i y ima površinu jednaku 4. Nacrtajmo u pravokutnom koordinatnom sustavu skup svih točaka T(x,y) s tim svojstvom.
+Rješenje:
+Površina pravokutnika jednaka je xy, u našem primjeru je xy=4. Zapišimo ovu jednakost u obliku y=4x. Točke T(x,y) koje se iz nje dobiju leže, na luku krivulje koju nazivamo hiperbola. Zaključujemo: što je veći x, manji je pridruženi y i obrnuto. Te dvije veličine obrnuto su proporcionalne.
+
+Primjer 8
+Nacrtajmo graf funcije f(x)=1x−2.
+Rješenje:
+Graf ove funkcije podudarat će se s grafom funkcije f(x)=1x, ali pomaknutim za dvije jedinice udesno.
+
+Primjer 9
+Nacrtajmo graf funkcije f(x)=x−1x−2.
+Rješenje:
+Funkciju možemo napisati u oblikuf(x)=x−1x−2=x−2+1x−2=1+1x−2.Zato je njezin graf dobiven translacijom grafa funkcije y=1x−2 za jednu jedinicu prema gore.
+
+Primjer 10
+Nacrtajmo grafove funkcija
+1) f(x)=√x−2;
+2) g(x)=√1−x.
+Rješenje:
+1) Ova je funkcija definirana onda kad je vrijednost izraza pod korijenom nenegativna. Dakle, mora biti x−2≥0 odnosno x≥2. Graf te funkcije odgovara grafu funkcije √x pomaknutom za dvije jedinice udesno. Tjeme parabole je u točki (2,0).
+2) Područje definicije sada je određeno uvjetom 1−x≥0. Odavde dobivamo x≤1. Za x=1 vrijednost funkcije je 0, točka (1,0) je tjeme parabole. Za x=0 njezina vrijednost je 1, za x=−3 funkcija iznosi 2 i tako dolazimo do položaja parabole koja je postavljena u suprotnom položaju u odnosu na prethodnu.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 11
+Odredimo područje deficije funkcija:
+1) f(x)=√x2−1;
+2) g(x)=√1−|x−1|
+Rješenje:
+1) Funkcija je definirana ako izraz ispod korijena nije negativan. Dakle, mora biti x2−1≥0. Ta je nejednadžba ekvivalentna sa x2≥1 odnosno |x|≥1. Rješenje je dakleDf=<−∞,−1]∪[1,∞>.Na slici je nacrtan graf kvadratne funkcije x↦x2−1 i s njega vidimo za koje vrijednosti varijable x ta funkcija prima nenegativne vrijednosti.
+2) Područje definicije ove funkcije je skup svih realnih brojeva x za koje je 1−|x−1|≥0. Ekvivalentan je uvjet |x−1|≤1, odakle slijedi −1≤x−1≤1, odnosno 0≤x≤2. Dakle, Dg=[0,2]. Primijetimo kako smo se i u ovom primjeru mogli poslužiti grafičkim prikazom funkcije g(x)=1−|x−1|. S grafa iščitavamo kako funkcija g prima nenegativne vrijednosti za sve realne brojeve x,x∈[0,2].
+
+Primjer 12
+Na slikama su prikazani grafovi nekih realnih funkcija. Odredimo sliku svake od njih.
+Rješenje:
+Graf svake od funkcija projiciramo ortogonalno na kordinatnu os y. Očitamo zatim intervale realnih brojeva koji sadrže sve vrijednosti funkcije.
+1)
+
+Primjer 13
+Neka je
+1
+-2 < x < 0
+f(x) =
+x2-2x, 0 ≤ x ≤2.
+Odredi područje definicije i sliku ove funkcije.
+Rješenje:
+Područje definicije funkcije je interval [−2, 2]. Nacrtajmo njezin graf.
+(-2,1)
+- 1 x
+(1,-1)
+2
+r2-2r
++
+Slika funkcije ƒ je interval [m, M]. m je najmanja vrijednost funkcije i nju ćemo pročitati iz koordinata tjemena parabole. M je najveća vrijednost funkcije i ona se određuje s pomoću vrijednosti funkcije u argumentu -2. Jednadžbu parabole napišemo u obliku
+x2 - 2x = x2 -2x+1-1 = (x-1)2 - 1.
+Odavde čitamo koordinate tjemena T(1, −1) pa je m = −1. Budući da je ƒ(-2) = 1, slika funkcije je Iƒ = [−1,1].
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 14
+Neka je f(x)=1−x2, g(x)=√x. Sada vrijedi:(g∘f)(x)=g(f(x))=g(1−x2)=√1−x2.Domena funkcije f je Df=R. Domena funkcije g je Dg=[0,∞). Međutim, domena kompozicije g∘f je interval [−1,1] jer samo za brojeve x iz tog intervala vrijedi y=1−x2∈Dg.
+
+Primjer 15
+Neka je f(x)=2x−1, g(x)=x2. Kompozicija g∘f definirana je za svaki realni broj x i vrijedi(g∘f)(x)=g(f(x))=g(2x−1)=(2x−1)2.Kompoziciju prirodno računamo onim redom kojim djeluju funkcije, iako i drugi način vodi do istovjetne formule:g(f(x))=(f(x))2=(2x−1)2.Definirana je i kompozicija f∘g za koju je(f∘g)(x)=f(g(x))=f(x2)=2x2−1.Primjećujemo da je općenito g∘f≠f∘g.
+
+Primjer 16
+Provjerimo koje su od dolje navedenih funkcija injektivne.
+1) f(x)=3x−5. Ako je x1≠x2, onda je 3x1≠3x2, pa 3x1−5≠3x2−5. Dobili smo f(x1)≠f(x2) te je f injekcija.
+2) f(x)=x−1x+2, x≠−2. Sad je lakše koristiti drugi uvjet. Pretpostavimo da je f(x1)=f(x2):x1−1x1+2=x2−1x2+2,(x1−1)(x2+2)=(x1+2)(x2−1),x1x2−x2+2x1−2=x1x2+2x2−x1−2,3x1=3x2.Vidimo da mora biti x1=x2. Dakle, f je injektivna.
+3) f(x)=√16−x2. Sad je: Df={x∈R:16−x2≥0}=[−4,4]. Pretpostavimo da je f(x1)=f(x2):√16−x21=√16−x22⟹16−x21=16−x22⟹x21=x22.Međutim, odavde ne slijedi nužno da je x1=x2 jer može biti i x1=−x2. Zaista, za x1=−3 i x2=−3 vrijedi f(−3)=√16−(−3)2=√7 i f(3)=√16−32=√7. Prema tome, pronašli smo točke x1≠x2 za koje vrijedi f(x1)=f(x2) pa funkcija nije injektivna.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 17
+Neka je f(x)=x2 definirana na intervalu [0,∞) te g(x)=√x definirana na istom intervalu. One su jedna drugoj inverzne jer za svaki x≥0 vrijedi:f(g(x))=f(√x)=(√x)2=x,g(f(x))=g(x2)=√x2=x.
+
+Primjer 18
+Neka je f(x)=3x+1. Odredimo inverznu funkciju.
+Rješenje:
+Stavimo y=3x+1 i razriješimo ovu jednakost po nepoznanici x pa jex=y−13. Dobivamof−1(y)=y−13.Nakon što smo odredili zakon pridruživanja inverzne funkcije, njezin argument možemo označiti sa x, kako je uobičajeno:f−1(x)=x−13.Računanje možemo provoditi i po formulama (1) ili (2). U ovom bi primjeru račun glasio ovako: jednakost f(f−1(x))=x zapisujemo kao:3(f−1(x))+1=x,odakle slijedi:f−1(x)=x−13.Ovaj je način brži; međutim, nespretnije je pisati izraz f−1(x) u usporedbi sa zapisom koji koristi varijablu y. Također, treba paziti da se u računu oznaka za inverz f−1 ne pobrka s negativnom potencijom: ako je f(x)=3x+1, onda vrijedif−1(x)=x−13, ali f(x)−1=13x+1.
+
+Primjer 19
+Linearna funkcija g(x)=1ax−ba inverzna je funkcija linearne funkcije f(x)=ax+b. Za svaki realni broj x vrijedi:(g∘f)(x)=g(f(x))=g(ax+b)=1a(ax+b)−ba=x+ba−ba=x.Time je provjera provedena. Možemo se također uvjeriti kako je (f∘g)(x)=x, odnosno da su f i g jedna drugoj inverzne. Ovime je ujedno dokazano da je inverzna funkcija bilo koje linearne funkcije linearna funkcija.
+
+Primjer 20
+Neka je f(x)=x−1x+2. Odredimo inverznu funkciju. Stavimoy=x−1x+2.Inverzna će funkcija imati oblik x=f−1(y). To znači da ovu jednadžbu moramo razriješiti po x:(x+2)y=x−1⟺x(y−1)=−2y−1⟺x=−2y−1y−1,ako je y≠1. Ovim posljednjim uvjetom određena je domena inverzne funkcije. Primjećujemo da je ta domena jednaka slici funkcije f jer se za svaki y≠1 jednadžba f(x)=y može riješiti po nepoznanici x. (Postupak rješavanja ove jednadžbe upravo smo načinili.)
+Također, provjerom postupka računanja uočavamo da varijabli y odgovara samo jedna vrijednost x. Stoga uistinu postoji inverzna funkcija. Dobili smo:f−1(y)=−2y−1y−1,y≠1.Po želji možemo argument funkcije označiti sa x, kako je uobičajeno:f−1(x)=−2x−1x−1,x≠1.
+
+Primjer 21
+Neka je f:R→R, f(x)=x2+1. Odredimo inverznu funkciju te funkcije. Iz jednadžbe y=x2+1 dobivamo x2=y−1 i za jednu vrijednost varijable y≥1 imamo dvije moguće vrijednosti za varijablu xx=±√y−1.Naslućujemo da inverzna funkcija ne postoji jer funkcija nije injekcija. Da to provjerimo, uzmimo primjerice y=5 i dvije  različite vrijednosti za x po ovoj formuli:
+x1=√5−1=2,x2=−√5−1=−2.
+Tada je
+f(x1)=22+1=5if(x2)=(−2)2+1=5
+te f zaista nije injekcija.

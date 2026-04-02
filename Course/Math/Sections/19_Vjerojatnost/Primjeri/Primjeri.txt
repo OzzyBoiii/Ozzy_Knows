@@ -1,0 +1,222 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Bacamo kocku čije su strane označene brojevima od 1 do 6. Odredimo elementarne događaje, skup Ω i opišimo neke događaje vezane uz ovaj pokus.
+Rješenje:
+Elementarni događaji su brojevi na koje kocka može pasti:ω1=1,ω2=2, …,ω6=6.Skup svih elementarnih događaja jeΩ={ω1,ω2,…,ω6}={1,2,3,4,5,6}.Evo još nekoliko događaja vezanih uz ovaj pokus:A={pao je parni broj}={2,4,6},B={pao je broj veći od 2}={3,4,5,6},C={pao je parni broj manji od 5}={2,4}i slično. Pokušajte nabrojiti što više događaja vezanih uz ovaj pokus i opisati ih riječima
+
+Primjer 2
+Novčić je bačen tri puta. U svakom bacanju bilježimo je li se pojavilo pismo (P) ili glava (G). Odredimo Ω, elementarne događaje te nekoliko događaja vezanih uz ovaj pokus.	Rješenje:
+Elementarnih događaja ima osam. To suω1=GGG,ω2=GGP,ω3=GPG,ω4=PGG,ω5=GPP,ω6=PGP,ω7=PPG,ω8=PPP,(poredak nabrajanja nije važan).
+Evo nekoliko događaja vezanih uz ovaj pokus.A={pismo se pojavilo jednom}={ω2,ω3,ω4},B={pismo se pojavilo u drugom bacanju}={ω3,ω5,ω7,ω8},C={pojavila su se barem dva pisma}={ω5,ω6,ω7,ω8},D={pismo se pojavilo dvaput za redom}={ω5,ω7,ω8}.
+Ispišite elementarne događaje od kojih se sastoje sljedeći događaji:E={pojavila se jedna glava},F={pismo se pojavilo barem jednom},G={glava se pojavila prije pisma}.
+
+Primjer 3
+Bacamo tri novčića. Odredimo elementarne događaje.
+Rješenje:
+Ovdje se elementarni ishodi, a s time i skup Ω, mogu definirati na različite načine.
+1) Ako novčiće možemo razlikovati, recimo stoga što su različitih apoena, onda se elementarni događaji mogu opisati na isti način kao u prethodnom primjeru. Novčiće poredamo tako da znamo prepoznati koji je od njih prvi, koji drugi, a koji treći. Onda je elementarni događaj niz od tri znaka, od kojih svaki može biti P ili G.
+Dakle, pokus bacanja triju različitih novčića ekvivalentan je pokusu u kojem se isti novčić baca tri puta za redom pa su elementarni događajiω1=GGG,ω2=GGP,ω3=GPG,ω4=PGG,ω5=GPP,ω6=PGP,ω7=PPG,ω8=PPP,
+2) Ako bacamo istovremeno tri jednaka novčića, tada ne možemo razlikovati ishode poput pismo-pismo-glava od pismo-glava-pismo. U tom je slučaju moguće odabrati elementarne događaje tako da ih možemo razlikovati:ω1={tri pisma},ω2={dva pisma i jedna glava},ω3={pismo i dvije glave},ω4={tri glave}.Skup Ω sastoji se od ovih četiriju elementarnih događaja.
+
+Primjer 4
+Bacamo dvije kocke. Što je skup Ω? Istaknimo sljedeće događaje.
+A={oba su broja veća od 4},B={zbroj brojeva veći je od 8},C={oba su broja veća od 2}.
+Uvjeri se da vrijedi A⟹B i B⟹C.
+Rješenje:
+Zamislimo da su kocke obojene različitim bojama, ili da ih bacamo jednu po jednu tako da možemo razlikovati rezultat na prvoj kocki od onog na drugoj. Onda je elementarni događaj uređeni par (2,4) čime se označava da je prva kocka pokazala broj 2, a druga 4. Taj je elementarni događaj različit od (4,2), iako se u oba slučaja pojavila jedna dvojka i jedna četvorka.
+Uz ovaj dogovor, skup Ω sastoji se od 36 različitih elementarnih događaja, jer je toliko uređenih parova. Ispišimo ih:
+Ω={(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),(2,3),(2,4),(2,5),(2,6),(3,1),(3,2),(3,3),(3,4),(3,5),(3,6),(4,1),(4,2),(4,3),(4,4),(4,5),(4,6),(5,1),(5,2),(5,3),(5,4),(5,5),(5,6),(6,1),(6,2),(6,3),(6,4),(6,5),(6,6)}
+Događaj A sastoji se od sljedećih elementarnih događaja:A={(5,5),(5,6),(6,5),(6,6)},a događaj B je
+B={(3,6),(4,5),(4,6),(5,4),(5,5),(5,6),(6,3),(6,4),(6,5),(6,6)}.
+Vidimo da je A⊂B, dakle A⟹B.
+Ispiši elementarne događaje sadržane u C i uvjeri se da je B⊂C.
+No, za ove zaključke nije nam bilo potrebno toliko pisanja. Uz malo razmišljanja shvatit ćemo da A⟹B, jer je zbroj brojeva koji su veći od 4 sigurno veći od 8.
+Usporedimo sad događaje B i C. Zbroj brojeva ne može biti veći od 8 ako oba broja nisu veća od 2 (jer inače najveći zbroj iznosi 2+6=8). To znači: da bi se ostvario C, mora se ostvariti i B. Ova izreka upravo znači da B povlači C.
+
+Primjer 5
+Bacamo jednu kocku. Koji su od sljedećih događaja međusobno disjunktni:
+A={pao je paran broj},B={pao je broj 3},C={pao je broj veći od 4},D={pao je neparan broj}.
+Disjunktni su: A i B, A i D te B i C.
+
+Primjer 6
+Novčić bacamo četiri puta. Istaknimo sljedeće događaje:
+A={pojavila su se točno tri pisma},B={pojavile su se najviše dvije glave},C={pojavila se točno jedna glava},D={ostvario se niz PGGP}.
+Kakav je međusobni odnos ovih događaja?
+Rješenje:
+Tu je A⊂B, C⊂B, D⊂B. Nadalje, događaji A i C su ekvivalentni, a događaji A i D su disjunktni.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 7
+Ljudi mogu imati jednu od četiri krvne grupe: O, A, B, AB s rhezus-faktorom + odnosno −. Postotak stanovništva u Hrvatskoj koji ima određenu krvnu grupu je sljedeći:
+	Rh+	Rh-
+O	29	5
+A	36	6
+B	14	3
+AB	6	1
+1) Kolika je vjerojatnost da neki pojedinac ima negativan rhezus-faktor?
+2) Kirurški odjel bolnice u danom trenutku raspolaže rezervom krvi krvne grupe A+. Kolika je vjerojatnost da će moći operirati pacijenta koji je nakon nesreće stigao na hitni odjel ako operacija zahtijeva transfuziju?
+Rješenje:
+1) Vjerojatnosti se računaju iz zadanih postotaka. Vjerojatnost da rhezus-faktor bude negativan, iznosi 0.15, odnosno 15 %.
+2) Operacija će se smjeti načiniti ako primatelj ima krvnu grupu A+ ili AB+. Vjerojatnost toga je 42 %.
+
+Primjer 8
+U dugoročnoj prognozi vremena rabe se vjerojatnosne metode. Agencija Dobar glas u travnju započinje pripreme za veliki koncert na otvorenom koji se treba održati 1. rujna. U kalkulaciji troškova bitnu stavku čini dodatna zaštita od moguće kiše.
+Vjerojatnost da će 1. rujna biti sunčan može se procijeniti na temelju statističkih podataka o vremenu na taj datum. Recimo da ti podatci za posljednjih 100 godina govore sljedeće: broj sunčanih dana 62, broj dana s oblačnim vremenom 28, broj kišnih dana 10. Koje je brojeve prikladno odabrati za vjerojatnost tih događaja u tekućoj godini? Kolika je vjerojatnost da na taj dan neće kišiti
+Rješenje:
+Vjerojatnosti procjenjujemo preko relativnih frekvencija. Označimo i promatrane događaje sa S (sunčano), O (oblačno) i K (kišovito). Prikladno je uzetiP(S)=62100=0.62,P(O)=28100=0.28,P(K)=10100=0.10.Događaj „neće kišiti” uključuje elementarne događaje S i O, pa je njegova vjerojatnost 0.62+0.28=0.9.
+
+Primjer 9
+Bacimo jednu kocku trideset puta. Bilježimo pojavljivanje sljedećih događaja:A={kocka je pokazala broj 1},B={kocka je pokazala broj 6},C={kocka je pokazala paran broj}, Na temelju rezultata pokusa i njegove analize odgovorimo na pitanje: kolike su vjerojatnosti ovih događaja? Rješenje:
+Ako se bacanje nastavi i računaju relativne frekvencije, primijetit ćemo da su one za događaj A i događaj B približno jednake, dok je relativna frekvencija za događaj C otprilike tri puta veća.
+Zato bi vjerojatnosti događaja A i B trebale biti jednake, a vjerojatnost događaja C trebala bi biti tri puta veća.
+Iako je ovaj eksperiment potpuno slučajan, i moguće je da kocka u svih 30 bacanja padne na isti broj, to se u praksi neće dogoditi. Umjesto kaotičnog ponašanja, primijetit ćemo da se pojavljivanje ovih događaja podvrgava čvrstim zakonitostima. One su povezane s vjerojatnostima za pojavljivanje ovih događaja.
+Kocka može ravnopravno pasti na bilo koji broj, pa je logično da su vjerojatnosti pojavljivanja rezultata 1 i rezultata 6 jednake. Isto naravno vrijedi i za svaki drugi elementarni ishod. Dakle, jedinica će se pojavljivati u prosjeku svaki šesti put. Stoga ćemo za vjerojatnost ovog događaja uzetiP(A)=16.
+Na isti način, možemo napisati P(B)=16,P(C)=12.
+Komentar autora GeoGebrina programčića možeš pogledati u priloženom videu.
+ 
+Primjer 10
+Tri kuglice označene brojevima od 1 do 3 stavljene su u kutiju. Na sreću izvlačimo jednu po jednu kuglicu (bez vraćanja u kutiju), dok ne izvučemo onu s brojem 1.
+Što su elementarni događaji ovog pokusa? Kolike su im vjerojatnosti?
+Odredi vjerojatnost sljedećih događaja:
+A={Pokus je završio u drugom izvlačenju}B={U drugom izvlačenju izvučen je broj 3}C={Broj 1 izvučen je posljednji}D={Izvučen je broj 2}.
+Rješenje:
+Elementaran događaj predstavlja niz brojeva iz skupa {1,2,3} takav da se 1 nalazi na posljednjem mjestu (jer se pokus prekida kad se izvuče taj broj). Ispišimo sve moguće nizove:
+ω1=1ω2=2,1ω3=3,1ω4=2,3,1ω5=3,2,1
+Postoji ukupno 5 mogućih ishoda. Svi ishodi u svakom retku su jednako vjerojatni. Zbroj svih vjerojatnosti iznosi 1. Vjerojatnost ishoda ω1 je 13 jer u prvom izvlačenju svi brojevi imaju jednaku šansu pojavljivanja.
+Ishod ω2 jednako je vjerojatan kao i ω4, jer je jednaka vjerojatnost da se pojavi u prva dva izvlačenja niz 2,1 kao i niz 2,3, a onda je treći broj jednoznačno određen. Zato svi preostali elementarni događaji imaju jednaku vjerojatnost. Zbroj tih vjerojatnosti je 23 pa je svaka od njih jednaka 23⋅14=16.
+Dakle, vjerojatnost je definirana ovako:
+P({ω1})=13, P({ω2})=P({ω3})=P({ω4})=P({ω5})=16
+Zbroj ovih vjerojatnosti jednak je 1. Sad imamo
+P(A)=P({ω2,ω3})=2⋅16=13,P(B)=Pr({ω4})=16,P(C)=P({ω4,ω5})=2⋅16=13,P(A)=P({ω2,ω4,ω5})=3⋅16=12.
+
+Primjer 11
+Želeći se našaliti s prijateljima u igri Monopola, Jure je izbrisao jednu točku sa strane kocke koja označava broj 5, a ucrtao dvije na stranu na kojoj je broj 1, tako da njegova kocka ima sljedeće brojeve na svojim stranama: 2,3,3,4,4,6. Kolika je vjerojatnost sljedećih događaja ako bacamo ovakvu kocku:
+A={pojavio se paran broj};B={pojavio se broj veći od 2};C={pojavio se broj 5}.
+Rješenje:
+Pokus bacanja kocke ima četiri moguća ishoda: ω1=2, ω2=3, ω3=4 i ω4=6. Ako pretpostavimo da je kocka bila ispravna, tad je razumno pridijeliti ovim elementarnim događajima vjerojatnosti
+p1=P({ω1})=16,p2=P({ω2})=13,p3=P({ω3})=13,p4=P({ω4})=16.
+Događaju A odgovaraju sljedeći elementarni događaji:A={ω1,ω3,ω4},te jeP(A)=p1+p3+p4=16+13+16=23.
+Događaju B odgovaraju elementarni događaji B={ω2,ω3,ω4}, te jeP(B)=p2+p3+p4=13+13+16=56.
+Događaj C je za ovu kocku nemoguć, P(C)=0.
+
+Primjer 12
+U vrećici se nalaze 4 plave, 3 crvene i 2 bijele kuglice. Izvlačimo na sreću jednu među njima. Kolika je vjerojatnost da je ona crvene boje? Kolika je vjerojatnost da ona nije bijela?
+Rješenje:
+Ukupno je 9 kuglica i vjerojatnost izvlačenja svake od njih je jednaka.P(izvučena je crvena)=39=13.P(nije izvučena bijela)=4+39=79jer postoji 7 kuglica koje nisu bijele boje.
+
+Pfimjer 13
+Bacamo dvije ispravne kocke. Kolike su vjerojatnosti sljedećih događaja:
+A={pojavile su se dvije šestice},B={pojavila se jedna jedinica i jedna dvojka},C={pojavila su se dva jednaka broja},D={zbroj brojeva jednak je 5},E={pojavio se broj veći od 2}?
+Rješenje:
+Samo je jedan ishod povoljan za A: elementarni događaj (6,6). Zato je P(A)=136. Dva su ishoda povoljna za događaj B: to su elementarni događaji (1,2) i (2,1). Ovo su različiti ishodi bacanja dviju kocaka! P(B)=236. Šest je povoljnih ishoda. P(C)=636. Događaj D ima četiri povoljna ishoda: (1,4), (2,3), (3,2), (4,1). Zato je P(D)=436. Događaj E ima 32 povoljna ishoda, jer je svaki ishod povoljan osim ishoda (1,1), (1,2), (2,1), (2,2). Zato je P(E)=3236=89
+
+Primjer 14
+U kutiji se nalazi pet kuglica, tri bijele i dvije crvene. Biramo na sreću dvije kuglice. Odredimo vjerojatnosti sljedećih događaja:
+A={obje su kuglice bijele};B={obje su kuglice iste boje};C={jedna je kuglica bijela, a druga crvena}.
+Rješenje:
+Zamislit ćemo da sve kuglice možemo razlikovati. Možemo zamisliti da su kuglice iste boje označene brojevima, pa su imena kuglica: b1, b2, b3, c1, c2. Dvije kuglice iz skupa od pet kuglica možemo odabrati na N=10 načina:b1b2b1b3b1c1b1c2b2b3b2c1b2c2b3c1b3c2c1c2.
+Postoji MA=3 povoljna ishoda za događaj A:b1b2,b1b3,b2b3.
+Zato jeP(A)=MAN=310.
+Broj povoljnih ishoda za događaj B je MB=4 jer se na tri ishoda za događaj A treba dodati još ishod c1c2. Zato jeP(B)=MBN=410.
+Odredimo broj povoljnih ishoda za događaj C. Povoljni su ishodib1c1b1c2b2c1b2c2b3c1b3c2pa je MC=6.P(C)=610=1.
+Primjeti da vrijedi B∪C=Ω, jer su B i C disjunktni, a neki od ta dva događaja se mora dogoditi. Zato je P(B)+P(C)=1.
+
+Primjer 15
+U vrećici se nalaze dvije plave, crvena i tri bijele kuglice. Izvlačimo na sreću dvije među njima. Kolika je vjerojatnost da su različitih boja?
+Rješenje:
+Rezultat pokusa je jedan par kuglica. Prvu kuglicu u tom paru možemo odabrati na šest načina. Nakon toga, drugu kuglicu možemo odabrati na pet načina. To nam daje 30 kombinacija, Međutim, poredak biranja nije važan, pa postoji ukupno 15 parova. Ispišimo ih da se uvjerimo u ispravnost zaključivanja.p1p2p1cp1b1p1b2p1b3p2cp2b1p2b2p2b3cb1cb2cb3b1b2b1b3b2b3Među ovim parovima postoji 11 različito obojenih. Zato je vjerojatnostp=1115.
+.
+Primjer 16
+U razredu je 14 učenika i 11 učenica. Ako dvoje odaberemo na sreću, kolika je vjerojatnost da su različitog spola?Rješenje:
+Razmišljamo na identičan način kao u prethodnom primjeru. Broj svih ishoda je broj parova koje možemo načiniti. Prvog učenika/cu u paru možemo odabrati na 25 načina. Nakon toga, drugog možemo odabrati na 24 načina. Broj svih parova je onda 25⋅242=300. Među njima postoji 14⋅11 parova različitog spola. Zato je tražena vjerojatnostp=154300=0.51.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 17
+Bacamo jednu kocku. Istaknimo događaje
+A={pao je parni broj},B={pao je broj veći od 2}.
+Odredimo uniju i presjek ovih događaja.
+Rješenje:
+A∪B={pao je parni broj ili broj veći od 2}={pao je broj veći od 1}={2,3,4,5,6},A∩B={pao je parni broj veći od 2}={4,6}.
+
+Primjer 18
+Pokus se sastoji od bacanja dvaju novčića. Uočimo sljedeće događaje:A={glava na prvom novčiću},F={barem jedna glava},B={pismo na prvom novčiću},G={barem jedno pismo},C={glava na drugom novčiću},H={dva pisma},D={pismo na drugom novčiću},I={dvije glave}.E={jedna glava i jedno pismo},Odredi kojem su događaju ekvivalentni sljedeći događaji: B∪D, B∩D, E∪I, B∪G, B∩G, A∪B, A∩B. Rješenje:
+Postoje četiri elementarna događaja. To su uređeni parovi (P,P), (P,G), (G,P), (G,G) koji određuju mogući rezultat na oba novčića. Te ćemo događaje označavati jednostavnije sa PP, PG, GP, GG. Različitih događaja ima 24=16. Devet među njima zapisani su gore (Pronađite preostalih sedam.). Da bismo odgovorili na pitanja, najjednostavnije je odrediti elementarne događaje od kojih se sastoje gore navedeni. Tako imamo
+A={GG,GP},B={PG,PP},C={GG,PG},D={GP,PP},E={GP,PG},F={GP,PG,GG},G={GP,PG,PP},H={PP},I={GG}.
+Sada računamo ovako:
+B∪D={PG,PP,GP}=G,B∩D={PP}=H,E∪I={GP,PG,GG}=F
+i slično u drugim slučajevima. Dobivamo: B∪G=G, B∩G=B, A∪B=Ω, A∩B=∅. Ovakav je način pronalaženja veze između događaja pouzdan, ali nije poučan. Svakako je korisnije pokušati na gornja pitanja odgovoriti direktno, koristeći veznike kao oznaku operacije:B∪D={pismo na prvom novčiću} ili {pismo na drugom novčiću}={barem jedno pismo}=G,F∩G={barem jedna glava} i {barem jedno pismo}={jedna glava i jedno pismo}=E,E∪I={jedna glava i jedno pismo} ili {dvije glave}={barem jedna glava}=F.Pokušajte na sličan način riješiti i ostale primjere.
+
+Primjer 19
+Zadane su sljedeće vjerojatnosti:
+P(¯¯¯¯A)=0.31,P(A∖B)=0.18,P(B∖A)=0.23.
+Odredi P(A), P(B) i P(A∩B), P(A∪B).
+Rješenje:
+NajprijeP(A)=1−P(¯¯¯¯A)=1−0.31=0.69.
+Sad jeP(A∩B)=P(A)−P(A∖B)=0.69−0.18=0.51,P(B)=P(B∖A)+P(A∩B)=0.23+0.51=0.74,P(A∪B)=P(A)+P(B∖A)=0.69+0.23=0.92.
+
+Primjer 20
+Izvlačimo na sreću jednu kartu iz snopa od 52 karte. Kolika je vjerojatnost da je ta karta Q (dama). Kolika je vjerojatnost da je njezina boja ♠ (pik). Kolika je vjerojatnost da je ta karta dama ili pik boje?
+Rješenje:
+Označimo s A i B događaje:
+A={izabrana karta je dama},B={izabrana karta je pik boje}.
+Četiri su dame, vjerojatnost događaja A je P(A)=452=113. 13 je karata pik boje pa je P(B)=1352=14. Događaj C unija je prvih dvaju. Broj povoljnih ishoda nije jednak 17=4+13, jer događaji A i B nisu disjunktni. Njihov je presjek AB pikova dama! Zato je P(C)=1652=413. Primijetimo da je ovdje P(AB)=152 i da vrijedi:
+P(A∪B)=P(C)=413=113+14−152=P(A)+P(B)−P(AB).
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 21
+Biramo na sreću točku unutar kvadrata Ω sa stranicom duljine a. Kolika je vjerojatnost da ona padne unutar kruga upisanog u taj kvadrat?
+Rješenje:
+Neka je A traženi događaj. 
+Pokreni Geogebru i promotri relativne frekvencije pojavljivanja događaja A u velikom broju ponavljanja ovog pokusa.
+
+Primjer 22
+Alka je sačinjena od dvaju obruča promjera 35.1 mm i 131.7 mm koji su spojeni trima krakovima kao na slici. Debljina obruča i krakova je 6.6 mm, ali su oni s prednje strane alke zašiljeni pa ćemo računati s trećinom tog iznosa. Ako alkarovo koplje pogodi na sreću odabranu točku alke, kolika je vjerojatnost pogodaka „u jedan”, „u dva”, „u sridu” te „u ništa” (kad je alka pogođena u okvir)?
+Rješenje:
+Neka su R=6.585 cm i r=1.755 cm polumjeri velikog i malog obruča, d=0.22 cm debljina obruča te h=R−r−d=4.61 cm duljina kraka. Onda su tražene površinePΩ=(R+d/2)2π=140.82  cm2,P3=(r−d/2)2π=8.50  cm2,P0=(2Rπ+2rπ+3h)d=14.57  cm2,P2=(Ω−P3−P0)/3=39.25  cm2,P1=2P2=78.50  cm2.Prema ovim podatcima, ako je alka pogođena, onda su vjerojatnosti pogodakaP(„u ništa”)=P0PΩ=10.3 %,P(„u jedan”)=P1PΩ=55.7 %,P(„u dva”)=P2PΩ=27.9 %,P(„u sridu”)=P3PΩ=6.0 %.Pogodci „u sridu” nešto su češći nego što ovaj postotak sugerira jer model geometrijske vjerojatnosti ne odgovara u potpunosti. Alkari pogađaju na temelju sposobnosti i vježbe, a ne na temelju sreće. Međutim, omjer pogodaka „u jedan” i „u dva” je približno 2:1.
+
+Primjer 23
+Unutar intervala [0,1] biraju se na sreću dva broja x i y. Odredi vjerojatnost događaja:
+1) A={x>y}; 2) B={x+y<32}.
+Rješenje:
+Izbor dvaju brojeva x i y unutar intervala [0,1] odgovara izboru jedne točke (x,y) unutar jediničnog kvadrata [0,1]×[0,1]. Označimo taj kvadrat s Ω (slika). On predstavlja skup elementarnih događaja. Da bismo odredili tražene vjerojatnosti, moramo izračunati površinu podskupova od Ω koji odgovaraju tim događajima.
+1) Događaju A odgovara istoimeni podskup: skup svih točaka jediničnog kvadrata za koje je x>y. Tad vrijedi:P(A)=m(A)m(Ω)=12.
+2) Sad je B={(x,y):x+y<32}, te imamo:P(B)=m(B)m(Ω)=1−12⋅12⋅121=78.
+
+Primjer 24
+Na dužini ¯¯¯¯¯¯¯¯PQ duljine 1 na sreću se biraju dvije točke L i M. Odredi vjerojatnost da je točka L bliža točki M nego točki P.
+Rješenje:
+Označimo x=d(P,L), y=d(P,M). Tad vrijedi: d(L,M)=|y−x|. Traženom događaju odgovara skup svih točaka (x,y) za koje je |y−x|<x, odnosno: −x<y−x<x⟺0<y<2x. Taj je skup naznačen na slici.
+P{d(L,M)<d(P,L)}=P{|y−x|<x}=P{0<y<2x}=m(A)m(Ω)=34.
+
+primjer 25
+Dvije prijateljice izlaze uvečer jedna neovisno o drugoj u na sreću odabranom trenutku između 19 i 20 sati. Po dolasku na gradski trg zadržavaju se na tom mjestu 20 minuta, ali najkasnije do 20 sati, kad odlaze u kino. Kolika je vjerojatnost da će se one sresti na trgu?
+Rješenje:
+Ako je x trenutak dolaska prve, a y trenutak dolaska druge prijateljica na trg, one će se sresti ako je |y−x|<20 (vrijeme mjerimo u minutama). Brojevi x i y su na sreću odabrani unutar intervala [0,60]. Zato je
+P{|x−y|<20}==P{−20<y−x<20}=P{x−20<y<x+20}=m(A)m(Ω)=602−402602=0.56 .

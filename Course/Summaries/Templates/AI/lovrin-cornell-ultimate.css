@@ -1,0 +1,599 @@
+/* ========================================
+   LOVRIN CORNELL NOTE-TAKING SYSTEM
+   Ultimate Edition - Complete Overhaul
+   ======================================== */
+
+/* =====================================
+   ROOT VARIABLES - Easy Customization
+   ===================================== */
+:root {
+  /* Cornell Layout */
+  --cornell-cue-width: 280px;
+  --cornell-visual-width: 45%;
+  --cornell-gap: 20px;
+  --cornell-border-color: rgba(80, 80, 80, 0.5);
+  --cornell-visual-border: rgba(100, 100, 100, 0.65);
+  
+  /* Colors */
+  --lovrin-bg-text: transparent;
+  --lovrin-bg-visual: rgba(245, 245, 250, 0.4);
+  --lovrin-accent: #4a90e2;
+  --lovrin-heading: #2c3e50;
+  
+  /* Typography */
+  --lovrin-font-size: 15px;
+  --lovrin-line-height: 1.6;
+  
+  /* Spacing */
+  --lovrin-padding: 15px;
+  --lovrin-margin: 20px;
+  
+  /* Mobile breakpoint */
+  --mobile-breakpoint: 700px;
+}
+
+/* Dark theme adjustments */
+.theme-dark {
+  --lovrin-bg-visual: rgba(40, 40, 50, 0.4);
+  --cornell-border-color: rgba(200, 200, 200, 0.2);
+  --cornell-visual-border: rgba(180, 180, 180, 0.3);
+  --lovrin-heading: #e0e0e0;
+}
+
+/* =====================================
+   CORNELL BASE LAYOUT
+   ===================================== */
+.lovrin-cornell .markdown-preview-view,
+.lovrin-cornell .markdown-source-view.mod-cm6 .cm-scroller {
+  font-size: var(--lovrin-font-size);
+  line-height: var(--lovrin-line-height);
+}
+
+/* Main Content Container */
+.lovrin-cornell .markdown-preview-section {
+  max-width: 100%;
+  padding: 0 10px;
+}
+
+/* =====================================
+   CUE CALLOUTS (Left Margin Column)
+   ===================================== */
+.lovrin-cornell .callout[data-callout="cue"] {
+  float: left;
+  clear: left;
+  width: var(--cornell-cue-width);
+  margin-right: var(--cornell-gap);
+  margin-left: calc(var(--cornell-cue-width) * -1 - var(--cornell-gap));
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  padding: 12px;
+  border-left: 3px solid var(--lovrin-accent);
+  background: var(--lovrin-bg-visual);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.lovrin-cornell .callout[data-callout="cue"] .callout-title {
+  font-weight: 600;
+  color: var(--lovrin-accent);
+  margin-bottom: 6px;
+  font-size: 0.95em;
+}
+
+.lovrin-cornell .callout[data-callout="cue"] .callout-content {
+  font-size: 0.9em;
+  padding: 0;
+}
+
+/* =====================================
+   TWO-COLUMN LAYOUT: TEXT vs VISUALS
+   ===================================== */
+
+/* Main Grid Container */
+.lovrin-cornell .lovrin-content-grid {
+  display: grid;
+  grid-template-columns: 1fr var(--cornell-visual-width);
+  gap: var(--cornell-gap);
+  margin: var(--lovrin-margin) 0;
+  position: relative;
+}
+
+/* Divider Line Between Columns */
+.lovrin-cornell .lovrin-content-grid::after {
+  content: '';
+  position: absolute;
+  left: calc(55% - 1.5px);
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--cornell-visual-border);
+  z-index: 0;
+}
+
+/* Left Column - Text Content */
+.lovrin-cornell .lovrin-text-column {
+  padding: var(--lovrin-padding);
+  background: var(--lovrin-bg-text);
+  position: relative;
+  z-index: 1;
+}
+
+/* Right Column - Visual Content */
+.lovrin-cornell .lovrin-visual-column {
+  padding: var(--lovrin-padding);
+  background: var(--lovrin-bg-visual);
+  border-left: 2px solid var(--cornell-visual-border);
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+/* =====================================
+   LOVRIN VISUAL BLOCKS (New System)
+   ===================================== */
+
+/* Main visual container */
+.lovrin-cornell .lovrin-visual-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: var(--lovrin-padding);
+  background: var(--lovrin-bg-visual);
+  border-left: 3px solid var(--cornell-visual-border);
+  border-radius: 6px;
+  margin: 20px 0;
+}
+
+/* Sub-columns within visual block */
+.lovrin-cornell .lovrin-visual-block > div {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.theme-dark .lovrin-cornell .lovrin-visual-block > div {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* =====================================
+   LOVRIN-VISUALS CALLOUT
+   ===================================== */
+.lovrin-cornell .callout[data-callout="lovrin-visuals"] {
+  background: var(--lovrin-bg-visual);
+  border-left: 4px solid var(--lovrin-accent);
+  border-radius: 8px;
+  padding: var(--lovrin-padding);
+  margin: var(--lovrin-margin) 0;
+}
+
+.lovrin-cornell .callout[data-callout="lovrin-visuals"] .callout-title {
+  font-weight: 700;
+  color: var(--lovrin-accent);
+  font-size: 1.1em;
+  margin-bottom: 12px;
+}
+
+/* Content within lovrin-visuals callout */
+.lovrin-cornell .callout[data-callout="lovrin-visuals"] .callout-content {
+  padding: 0;
+}
+
+/* =====================================
+   IMAGE HANDLING
+   ===================================== */
+
+/* Images in visual blocks */
+.lovrin-cornell .lovrin-visual-block img,
+.lovrin-cornell .callout[data-callout="lovrin-visuals"] img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin: 8px 0;
+}
+
+/* Image captions */
+.lovrin-cornell .lovrin-visual-block em,
+.lovrin-cornell .callout[data-callout="lovrin-visuals"] em {
+  display: block;
+  font-size: 0.85em;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Hover popup for images - NEW FEATURE */
+.lovrin-cornell .image-popup-trigger {
+  color: var(--lovrin-accent);
+  text-decoration: underline;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.lovrin-cornell .image-popup-trigger:hover::after {
+  content: attr(data-image-title);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 1000;
+  padding: 8px;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  font-size: 0.9em;
+}
+
+/* =====================================
+   TABLES
+   ===================================== */
+.lovrin-cornell table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 0.9em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.lovrin-cornell table thead {
+  background: var(--lovrin-accent);
+  color: white;
+}
+
+.lovrin-cornell table th,
+.lovrin-cornell table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.lovrin-cornell table tbody tr:hover {
+  background: var(--lovrin-bg-visual);
+}
+
+.lovrin-cornell table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* =====================================
+   LATEX AND CODE BLOCKS
+   ===================================== */
+
+/* LaTeX equations */
+.lovrin-cornell .math {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding: 8px 0;
+}
+
+.lovrin-cornell .math-block {
+  padding: 15px;
+  background: var(--code-background);
+  border-radius: 4px;
+  margin: 12px 0;
+  overflow-x: auto;
+}
+
+/* Code blocks */
+.lovrin-cornell pre {
+  padding: 15px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 12px 0;
+  background: var(--code-background);
+  border-left: 3px solid var(--lovrin-accent);
+}
+
+.lovrin-cornell code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.9em;
+}
+
+/* =====================================
+   CHARTS AND DIAGRAMS
+   ===================================== */
+
+/* Chart.js containers */
+.lovrin-cornell .chart-container,
+.lovrin-cornell .obsidian-chart {
+  max-width: 100%;
+  margin: 15px 0;
+  padding: 10px;
+  background: var(--background-primary);
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* PlantUML diagrams */
+.lovrin-cornell .plantuml-diagram {
+  max-width: 100%;
+  margin: 15px auto;
+  text-align: center;
+}
+
+/* Excalidraw embeds */
+.lovrin-cornell .excalidraw-embed {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  padding: 10px;
+  margin: 15px 0;
+}
+
+/* Chemistry structures */
+.lovrin-cornell .chem-structure {
+  text-align: center;
+  margin: 15px 0;
+  padding: 10px;
+  background: white;
+  border-radius: 4px;
+}
+
+.theme-dark .lovrin-cornell .chem-structure {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* =====================================
+   SUMMARY CALLOUT (Sticky Bottom)
+   ===================================== */
+.lovrin-cornell .callout[data-callout="summary"] {
+  position: sticky;
+  bottom: 0;
+  background: var(--background-secondary);
+  border-top: 3px solid var(--lovrin-accent);
+  padding: var(--lovrin-padding);
+  margin-top: 40px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 0 0;
+  z-index: 10;
+}
+
+.lovrin-cornell .callout[data-callout="summary"] .callout-title {
+  font-weight: 700;
+  color: var(--lovrin-accent);
+  font-size: 1.15em;
+  margin-bottom: 10px;
+}
+
+/* =====================================
+   BANNER IMAGE
+   ===================================== */
+.banner-image .callout[data-callout="banner-image"] {
+  margin: -30px -30px 30px -30px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.banner-image .callout[data-callout="banner-image"] .callout-content {
+  padding: 0;
+}
+
+.banner-image .callout[data-callout="banner-image"] img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 0;
+  margin: 0;
+}
+
+.banner-image .callout[data-callout="banner-image"] .callout-title {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  color: white;
+  font-size: 2.5em;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+/* =====================================
+   HEADINGS
+   ===================================== */
+.lovrin-cornell h1 {
+  color: var(--lovrin-heading);
+  font-size: 2em;
+  font-weight: 700;
+  margin: 30px 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--lovrin-accent);
+}
+
+.lovrin-cornell h2 {
+  color: var(--lovrin-heading);
+  font-size: 1.6em;
+  font-weight: 600;
+  margin: 25px 0 15px 0;
+}
+
+.lovrin-cornell h3 {
+  color: var(--lovrin-heading);
+  font-size: 1.3em;
+  font-weight: 600;
+  margin: 20px 0 12px 0;
+}
+
+.lovrin-cornell h4 {
+  color: var(--lovrin-accent);
+  font-size: 1.1em;
+  font-weight: 600;
+  margin: 15px 0 10px 0;
+}
+
+/* =====================================
+   LISTS
+   ===================================== */
+.lovrin-cornell ul,
+.lovrin-cornell ol {
+  margin: 10px 0;
+  padding-left: 25px;
+}
+
+.lovrin-cornell li {
+  margin: 6px 0;
+  line-height: 1.6;
+}
+
+/* Task lists */
+.lovrin-cornell .task-list-item {
+  list-style: none;
+  margin-left: -20px;
+}
+
+.lovrin-cornell .task-list-item-checkbox {
+  margin-right: 8px;
+}
+
+/* =====================================
+   LINKS
+   ===================================== */
+.lovrin-cornell a {
+  color: var(--lovrin-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.2s;
+}
+
+.lovrin-cornell a:hover {
+  border-bottom: 1px solid var(--lovrin-accent);
+}
+
+/* Internal links */
+.lovrin-cornell .internal-link {
+  color: var(--lovrin-accent);
+  font-weight: 500;
+}
+
+/* External links */
+.lovrin-cornell .external-link {
+  color: var(--lovrin-accent);
+}
+
+.lovrin-cornell .external-link::after {
+  content: ' ↗';
+  font-size: 0.8em;
+  opacity: 0.6;
+}
+
+/* =====================================
+   DATAVIEW INTEGRATION
+   ===================================== */
+.lovrin-cornell .dataview {
+  margin: 20px 0;
+  font-size: 0.95em;
+}
+
+.lovrin-cornell .dataview table {
+  width: 100%;
+}
+
+.lovrin-cornell .dataview th {
+  background: var(--lovrin-accent);
+  color: white;
+  font-weight: 600;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+   ===================================== */
+@media (max-width: 900px) {
+  .lovrin-cornell .callout[data-callout="cue"] {
+    float: none;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .lovrin-cornell .lovrin-content-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .lovrin-cornell .lovrin-content-grid::after {
+    display: none;
+  }
+  
+  .lovrin-cornell .lovrin-visual-column {
+    border-left: none;
+    border-top: 2px solid var(--cornell-visual-border);
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --lovrin-font-size: 14px;
+    --lovrin-padding: 10px;
+    --lovrin-margin: 15px;
+  }
+  
+  .lovrin-cornell .lovrin-visual-block {
+    grid-template-columns: 1fr;
+  }
+  
+  .banner-image .callout[data-callout="banner-image"] img {
+    height: 150px;
+  }
+  
+  .banner-image .callout[data-callout="banner-image"] .callout-title {
+    font-size: 1.8em;
+  }
+}
+
+/* =====================================
+   PRINT STYLES
+   ===================================== */
+@media print {
+  .lovrin-cornell .callout[data-callout="summary"] {
+    position: static;
+  }
+  
+  .lovrin-cornell .callout[data-callout="cue"] {
+    break-inside: avoid;
+  }
+  
+  .lovrin-cornell .lovrin-visual-block {
+    break-inside: avoid;
+  }
+}
+
+/* =====================================
+   ACCESSIBILITY
+   ===================================== */
+.lovrin-cornell *:focus {
+  outline: 2px solid var(--lovrin-accent);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .lovrin-cornell {
+    --cornell-border-color: rgba(0, 0, 0, 0.6);
+    --cornell-visual-border: rgba(0, 0, 0, 0.7);
+  }
+  
+  .theme-dark.lovrin-cornell {
+    --cornell-border-color: rgba(255, 255, 255, 0.6);
+    --cornell-visual-border: rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* =====================================
+   PERFORMANCE OPTIMIZATIONS
+   ===================================== */
+.lovrin-cornell {
+  contain: layout style;
+  will-change: auto;
+}
+
+.lovrin-cornell img {
+  content-visibility: auto;
+}
+
+/* =====================================
+   END OF LOVRIN CORNELL CSS
+   ===================================== */

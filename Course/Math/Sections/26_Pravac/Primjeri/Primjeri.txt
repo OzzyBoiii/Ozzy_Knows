@@ -1,0 +1,169 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 1
+Nacrtajmo u istom koordinatnom sustavu pravce određene jednadžbama 1) 2x+y−3=0; 2) x−3y+6=0.
+Rješenje:
+1) x=0, dobivamo y=3. Za x=1 dobivamo y=1. Točke (0,3) i (1,1) leže na pravcu.
+2) Stavimo li  y=2, dobivamo x=0. Za y=3 dobivamo x=3. Pravac prolazi točkama (0,2) i (3,3).
+
+Primejr 2
+Nacrtajmo u istom koordinatnom sustavu pravce određene jednadžbama 1) 2x−3=0; 2) y−3=0.
+
+Primjer 3
+Dan je pravac 2x−3y+6=0. Odredi nagib tog pravca i njegov odsječak na osi y.
+Rješenje:
+Jednadžba danog pravca u eksplicitnom obliku glasiy=23x+2.Odatle odmah čitamo nagib k=23, a odsječak pravca na osi y je l=2.
+
+Primjer 4
+Odredimo nagib pravca koji prolazi točkama A i B, ako je
+1) A(−1,2), B(3,4)
+2) A(−2,3), B(2,−1).
+Rješenje:
+1) Uvrštavanjem koordinata točaka A i B u k=yB−yAxB−xA imamok=4−23−(−1)=24=12.
+2) Analogno je i u ovom primjeru:k=yB−yAxB−xA=−1−32−(−2)=−44=−1.Uočimo da je pravac u prvom primjeru rastući, njegov je nagib pozitivan broj. Drugi je pravac padajući, nagib mu je negativan broj.
+U prvom je primjeru k=12=tg φ. Pravac je prema pozitivnom smjeru osi x priklonjen pod kutom od 26∘34′.
+U drugom primjeru je k=−1=tg φ. Pravac s pozitivnim smjerom osi x zatvara kut od 135∘.
+
+Primjer 5
+Odredimo jednadžbu pravca koji os ordinata siječe u točki B(0,−1), a s osi x zatvara dvostruko veći kut nego pravac 2x−3y+11=0.
+Rješenje:
+Pravac siječe os y u točki B. To znači da je l=−1.
+Kako je nagib pravca jednak tangensu kuta što ga pravac zatvara s (pozitivnim smjerom) osi x, onda iz tg 2φ=2tg φ1−tg 2φ uvrštavajući tg φ=23 dobijemo tg 2φ=125.
+Jednadžba traženog pravca glasi: y=125x−1.
+
+Primejr 6
+Koji od nacrtanih pravaca ispunjava sljedeće uvjete: pravac p ima pozitivan nagib, a os y siječe u točki s negativnom ordinatom? Rješenje:
+Nagib prvog pravca je negativan. Drugi pravac siječe os y u točki s pozitivnom ordinatom. Treći pravac zadovoljava oba postavljena uvjeta te je rješenje zadatka.
+
+Primejr 7
+Proizvođač stolnih svjetiljki traži od kooperanata ponudu za izradu malih transformatora na temelju narudžbe `od 2 do 4 tisuće komada'. Stigle su ponude:
+1. od tvrtke "Elektrooprema": 9 €/kom za 2000 primjeraka i 8 €/kom za svaki daljnji primjerak;
+2. od tvrtke "Sve za struju": 19000 € na bazi 2000 primjeraka, 32000 € za 4000 primjeraka.
+Koja je ponuda povoljnija ako je proizvođač ovaj tren spreman u nabavu uložiti 24000 €?
+Rješenje:
+Ovisnost cijene y o broju isporučenih primjeraka x je linearna. Ponuda tvrtke "Elektrooprema" može se opisati jednadžbom:y−18000=8(x−2000),y=8x+2000,(zadana je točka i koeficijent smjera pravca). Ponuda tvrtke "Sve za struju" opisana je jednadžbom:y−19000=32000−190004000−2000(x−2000),y=6.5x+6000(zadane su dvije točke koje leže na pravcu). Za cijenu od y=24000 eura prema prvoj se ponudi može dobiti24000=8x+2000⟹x=2750primjeraka, a po drugoj24000=6.5x+6000⟹x=2770primjeraka. Ponuda tvrtke "Sve za struju" je neznatno povoljnija.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 8
+Odredimo koordinate točaka u kojima pravac 2x−y+4=0 siječe koordinatne osi.
+Rješenje: Eksplicitna jednadžba zadanog pravca je y=2x+4. On siječe os Oy u točki s koordinatama (0,4). Naime, za sve točke osi ordinata vrijedi x=0, pa stavljajući x=0 u jednadžbu pravca dobivamo y=4. Slično tome, za sve točke s osi apscisa vrijedi y=0, pa ćemo apscisu presječne točke pravca s tom osi dobiti iz 0=2x+4, odakle je x=−2. Koordinate presječne točke su (−2,0). Nacrtajmo pravac. Označimo s m=−2, n=4 apscisu prve, odnosno ordinatu druge presječne točke. Ti se brojevi nazivaju segmenti ili odsječci koje pravac odsijeca na koordinatnim osima.
+
+Primjer 9
+Kolika je duljina odsječka čije su krajnje točke sjecišta pravca 4x+3y−12=0 s koordinatnim osima. Kolika je površina trokuta čiji su vrhovi ta dva sjecišta i ishodište koordinatnog sustava?
+Rješenje:
+Najprije ćemo jednadžbu pravca prevesti iz danog, implicitnog, u segmentni oblik. Zapišimo 4x+3y=12 i nakon dijeljenja jednadžbe s 12 imamo: x3+y4=1.
+Duljina odsječka pravca na osi x iznosi 3, a duljina odsječka na osi y je 4. Odnosno, pravac siječe os x u točki M(3,0), a os y u točki N(0,4).
+Duljinu dužine ¯¯¯¯¯¯¯¯¯¯¯MN možemo izračunati s pomoću Pitagorina poučka:|MN|2=|OM|2+|ON|2=9+16=25.Duljina dužine ¯¯¯¯¯¯¯¯¯¯¯MN iznosi 5 jedinica. Trokut MNO je pravokutan. Njegova je površina jednakaP=12⋅|mn|=6  kv. jed. Primijetimo kako brojevi m i n mogu biti i negativni, pa zato u računu njihov umnožak stavljamo pod oznaku apsolutne vrijednosti.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 10
+Odredimo kut između pravacap...3x−y+3=0iq...2x+3y−2=0.
+Rješenje:
+Koeficijenti smjera pravaca p i q su k1=3, k2=−23. Izračunajmo:k2−k11+k1k2=−23−31+3⋅(−23)=−113−1=113pa je tg φ=113 i odavde φ=74∘45′.
+
+primejr 11
+Vrhovi trokuta ABC su točke A(−4,0), B(0,2) i C(−5,7). Taj je trokut jednakokračan. Provjerimo to.
+Rješenje:
+Nagib pravca AB je k1=12, nagib pravca AC je k2=−7, a pravca BC k3=−1. Kut α računamo iz tg α=∣∣∣k2−k11+k1k2∣∣∣, a kut β iz tg β=∣∣∣k3−k11+k1k3∣∣∣. Dobijemo tg α=3, tg β=|−3|=3, što znači da je α=β i da je trokut ABC jednakokračan.
+
+Primejr 12
+Točkom T(−2,1) položimo pravac p koji je paralelan i pravac q koji je okomit na pravac x−3y+11=0.
+Rješenje:
+Nagib zadanog pravca je 13.
+Pravac koji mu je paralelan ima jednak nagib, njegova je jednadžba oblika y=13x+l. No taj pravac prolazi točkom T(−2,1) pa je zbog toga 1=13(−2)+l. Slijedi l=53 i jednadžba traženog pravca glasi y=13x+53.
+Koeficijent k′ okomice na zadani pravac izračunat ćemo iz uvjeta okomitosti k⋅k′=−1. Dobijemo k′=−3. Jednadžba pravca q je y=−3x−5.
+
+primejr 13
+Odredimo točku simetričnu točki A(1,6) s obzirom na pravac p...2x−3y+6=0. Rješenje:
+Najprije ćemo odrediti nožište okomice spuštene iz točke A na pravac p. To je nožište polovište dužine ¯¯¯¯¯¯¯¯¯AA′, pa će se preko njegovih koordinata odrediti koordinate točke A′.
+Eksplicitna jednadžba pravca p jep...y=23x+2.Neka je q pravac kroz A okomit na p. Njegov je koeficijent smjera k=−32, a jednadžbaq...y−6=−32(x−1),q...y=−32x+152.Točka N presjek je pravaca p i q:23x+2=−32x+152⟹xN=3313,yN=4813.Sad određujemo kordinate točke A′(xA′,yA′):xN=xA+xA′2⟹xA′=2xN−xA=2⋅3313−1=5313,yN=yA+yA′2⟹yA′=2yN−yA=2⋅4813−6=1813.Time smo dobili rješenje, točku A′(5313,1813)
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 14
+Dvije stranice pravokutnika leže na pravcima x+3y−3=0 i 3x−y+1=0. Jedan je vrh pravokutnika u točki C(7,2). Kolika je površina pravokutnika?
+Rješenje: Pravci su okomiti pa su na njima susjedne stranice pravokutnika. Točka C ne leži ni na jednom od dvaju danih pravaca. Zbog toga je duljina jedne stranice pravokutnika jednaka udaljenosti točke C do jednog, a duljina druge je jednaka udaljenosti do drugog, od ovih dvaju pravaca.
+Imamo redom:a=|7+3⋅2−3|√12+32=10√10=√10;b=|3⋅7−2+1|√12+32=20√10=2√10.Dakle je P=ab=20 kv. jed.
+
+Primejr 15
+Odredimo simetrale kutova koje određuju pravci p1…7x−y−11=0 i p2…x+y−5=0.
+Rješenje:
+Mora biti|7x−y−11|√50=|x+y−5|√2tj.|7x−y−11|=5|x+y−5|.Odavde je7x−y−11=5(x+y−5).ili7x−y−11=−5(x+y−5).U prvom slučaju dobijemo jednadžbu simetrale s1…x−3y+7=0, a u drugom simetrale s2…3x+y−9=0. Primijetimo da su koeficijenti smjera dviju simetrala k1=13 i k2=−3 te da je k1⋅k2=−1 što znači da su simetrale okomite.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 16
+Marko će na tržnici kupiti tri kilograma badema. Za kupovinu je dobio 50 eura. Obišao je nekoliko štandova i zapamtio cijenu po kilogramu badema: 8 eura, 6 eura, 7.50 eura, 6.50 eura. Koliko će mu novaca ostati nakon kupovine?
+Označimo s y ostatak novaca, a s x cijenu kilograma badema. Tada je veza među ovim veličinama dana formulom y=50−3x. Za gore navedene cijene badema možemo napraviti sljedeću tablicu.
+x	6	6.5	75	8
+y	32	30.5	27.5	26
+
+Ucrtamo li ove podatke u koordinatni sustav, pripadne će točke, naravno, ležati na pravcuy=50−3x.Za veličine x i y kažemo da su potpuno korelirane.
+
+Primejr 17
+U nekom godišnjaku navedena je ukupna proizvodnja jabuka u Hrvatskoj tijekom prethodnih šest godina, u tisućama tona
+godine	1	2	3	4	5	6
+proizvodnja	48	54	36	50	52	65
+Može li se na temelju ovih podataka predvidjeti proizvodnja u sljedećoj godini?
+Ucrtajmo podatke u koordinatni sustav.
+Na prvi je pogled očito da veza među podatcima nije linearna. Pokušamo li naznačiti pravac koji bi opisivao proizvodnju tijekom godina, točke se neće nalaziti na njemu. Kažemo da podatci odstupaju od pravca. Ipak, ovakav pokušaj nije besmislen i često je jedini moguć u kakvom-takvom predviđanju budućih događanja.
+Račun koji ćemo uskoro naučiti pokazat će da pravac koji najbolje prati ove podatke ima formulu
+y=41.53+2.66x.
+Ovaj se pravac naziva pravac regresije. Vrijednost varijable y za x=7 iznosi 60.15 pa je odgovor y=60 razuman u ovoj situaciji. Na slici desno ucrtan je dobiveni pravac i istaknuta procjena za x=7.
+
+Primejr 18
+Plin u zatvorenom cilindru podvrgnut je različitim pritiscima i zabilježen je odgovarajući volumen plina pri konstantnoj temperaturi: Odredi koeficijent korelacije volumena u odnosu na pritisak.
+Pritisak (kPa)	120	140	160	180
+Volumen (m3)	0.072	0.062	0.052	0.047
+Pritisak (kPa)	200	220	240	260
+Volumen (m3)	0.044	0.040	0.038	0.036
+Rješenje:
+Unesimo podatke u džepno računalo. Nakon unosa pročitamo statističke podatke:¯¯¯x=190,σx=45.83,¯¯¯y=0.04888σy=0.0118,∑xy=70.18.Sad računamo koeficijent:r=70.188−190⋅0.0488845.83⋅0.0118=−0.952.Na mnogim računalima ovo se ne računa jer se i koeficijent korelacije nalazi na listi rezultata.
+Potvrđuje li ovaj podatak da su pritisak i volumen povezani linearnom relacijom? Koja je ovisnost volumena o pritisku? S pomoću GeoGebre, ucrtaj dane podatke u koordinatni sustav i izvedi zaključak.
+
+Primejr 19
+Težina knjige korelirana je s brojem stranica. Međutim, veza nije egzaktna jer ovisi o formatu knjige, gramaturi papira, vrsti korica pa čak i o prikupljenoj vlazi. U sljedećoj tablici dani su podatci za nasumce odabrane (matematičke) knjige sa slike.
+Odredi pravac regresije za ove podatke. Na temelju toga procijeni težinu knjige koja ima 700 stranica.
+stranice	težina	stranice	težina
+154	280	442	749
+190	401	446	762
+218	452	544	827
+224	465	866	1254
+224	469	1024	1611
+264	482	1184	2108
+282	600		
+Rješenje:
+Podatke unesemo u džepno računalo. Postupak je ilustriran sličicama ispod.        
+Čitamo rezultat. Pravac regresije jey=82.63+1.55xKoeficijent korelacije je 0.99 što pokazuje čvrstu linearnu vezu ovih dviju veličina. Evo i odgovarajuće slike.
+I na koncu, odgovor na postavljeno pitanje dobivamo iz jednadžbe pravca. Ako je x=700, onda je y≈1166. Odgovarajuća točka naznačena je na slici crvenom bojom.

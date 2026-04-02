@@ -1,0 +1,330 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 1.
+Riješimo jednadžbu1+x−12=2x−13−56.
+Rješenje:
+Prebacimo sve članove jednadžbe koji sadrže nepoznanicu na lijevu stranu jednadžbe, a ostale na desnu:x−12−2x−13=−1−56.Zbrojimo izraze na lijevoj i na desnoj strani:3x−3−2(2x−1)6=−116.Tako se dobije −x−16=−116, odnosno −x−1=−11, te je x=10 rješenje dane jednadžbe.
+No kod ovakvih jednadžbi gdje su neki članovi razlomci, češće se postupa na sljedeći način: odredi se najmanji zajednički višekratnik nazivnika svih razlomaka u jednadžbi, te se obje strane množe tim brojem. Tako se riješimo razlomaka. U našem bi primjeru to izgledalo ovako:6(1+x−12)=6(2x−13−56).Odmah se dobije 6+3x−3=4x−2−5, te se dalje nastavlja s rješavanjem na poznati način: 3x−4x=−7−3, −x=−10, x=10.
+
+primejr 2
+Riješimo jednadžbu:x+12x2+x−14x2−1=x−12x2−x.
+Rješenje:
+Najprije rastavimo na faktore nazivnike triju razlomaka:x+1x(2x+1)−1(2x−1)(2x+1)=x−1x(2x−1).Zatim odredimo najmanji zajednički višekratnik triju nazivnika. To je broj x(2x−1)(2x+1). Njime pomnožimo jednadžbu (svaki njezin član). Tako dobijemo:(x+1)(2x−1)−x=(x−1)(2x+1).No ova jednadžba nije ekvivalentna zadanoj. Zašto? Zato što bi brojevi 0, 12 i −12 mogli biti njezina rješenja, ali nijedan od njih ne može biti rješenje zadane jednadžbe.
+Nastavimo s rješavanjem i dobijemo x=0.
+Za x=0 u dva od triju razlomaka dane jednadžbe imamo nulu u nazivniku. Stoga jednadžba nema rješenja.
+
+Primejr 3
+Formulom P=a+c2⋅v izračunavamo površinu trapeza. Pritom su a i c duljine osnovica trapeza, a v duljina njegove visine.
+Iz ove formule izrazimo duljinu stranice c trapeza.
+Rješenje:
+Najprije jednadžbu P=a+c2⋅v pomnožimo s 2v. Tako dobijemo 2⋅Pv=a+c.
+Zatim nalazimo c=2⋅Pv−a.
+Time je zadatak riješen.
+
+Primjer 4
+Riješimo jednadžbu a2(x+1)=x+a. Pritom je broj a realni parametar.
+Rješenje:
+Zadana je jednadžba ekvivalentna jednadžbia2x+a2=x+a,odnosnoa2x−x=a−a2.Dalje je(a2−1)x=a(1−a),i konačno(a−1)(a+1)x=a(1−a).
+1.	 Za a=1 jednadžba prima oblik 0⋅2⋅x=1⋅0. Ova je jednakost ispunjena za svaki realni broj x. Kažemo da jednadžba ima beskonačno mnogo rješenja, ona je stoga neodređena.
+2.	 Za a=−1 jednadžba prima oblik −2⋅0⋅x=−1⋅2. Ova jednakost nije ispunjena niti za koji realni broj x. Naime, s njezine je lijeve strane nula, a s desne −2. Zato za a=−1 jednadžba nema rješenja.
+3.	 Za a≠1 i a≠−1 rješenje jednadžbe je x=−aa+1.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 5
+Na nekoj je farmi 470 kokica i zečića. Ukupno imaju 1240 nogu. Koliko je zečića na toj farmi?
+
+Rješenje:
+Svaki zečić ima četiri, a svaka kokica dvije noge. Označimo li sa z broj zečića na farmi, tada je broj kokica jednak 470−z. Broj nogu zečića je z⋅4, a broj nogu kokica 2⋅(470−z). Vrijedi jednakost:2(470−z)+4z=1240.Iz ove jednostavne linearne jednadžbe nalazimo z=150. Na farmi je 150 zečića.
+
+Primejr 6
+Kada je otac imao 33, sinu su bile 3 godine. No sada je otac tri puta stariji od sina. Koliko je godina ocu, koliko sinu?
+Rješenje:
+Neka je od vremena kada je ocu bilo 33, a sinu 3 godine prošlo x godina. Sada otac ima 33+x, a sin 3+x godina. No otac je tri puta stariji od sina. Zapišimo tu činjenicu jednadžbom:33+x=3(3+x).Iz te jednadžbe slijedi x=12. Dakle, otac sada ima 45 godina, a sin 15.
+
+Primejr 7
+Ploveći niz rijeku, put između dvaju pristaništa A i B brod prevali za 6 sati. U povratku, ploveći uzvodno, brodu za isti put treba 9 sati. Ako je brzina broda na mirnoj vodi 18 km/h, kolika je brzina riječnog toka?
+Rješenje:
+Označimo s v brzinu riječnog toka (nepoznanicu), s d udaljenost dvaju pristaništa A i B.
+
+Kad brod plovi nizvodno, njegova se brzina uvećava za brzinu riječnog toka i iznosi 18+v. A kad plovi uzvodno, ona se za tu brzinu umanjuje i jednaka je 18−v.
+No u oba je slučaja prijeđeni put d jednak. Zbog toga možemo zapisati jednadžbu(18+v)⋅6=(18−v)⋅9.Iz nje se lako dobije v=3.6 km/h.
+
+Primejr 8
+Iz dvaju gradova međusobno udaljenih 132 km, krenu istovremeno i istom cestom jedan drugom ususret dva automobila krećući se jednolikim brzinama od 75 km/h, odnosno 90 km/h. Nakon koliko će se vremena automobili susresti?
+Rješenje:
+Automobili se susretnu t sati nakon polaska. Pritom jedan prijeđe put s, a drugi put 132−s. Pri jednolikom gibanju je t=sv pa možemo zapisati jednadžbu:s75=132−s90.Rješenje ove jednadžbe je s=60 km.
+Zaključujemo: prvi je automobil do trenutka susreta prešao 60 km, a drugi 72 km. Za to im je trebalo t=sv=6075=7290=0.8 sati ili 48 minuta.
+
+Primejr 9
+Ako bi se bazen punio vodom kroz jednu slavinu, punjenje bi trajalo a sati. Ako bi se punio drugom, napunio bi se nakon b sati. Koliko bi trajalo punjenje bazena objema odvrnutim slavinama?
+Rješenje:
+Nakon sat vremena prvom bi se slavinom napunilo 1a obujma bazena. A nakon što bismo sat vremena bazen punili samo drugom slavinom, napunilo bi se 1b obujma.
+Nakon sat vremena punjenja bazena objema slavinama popunjenost bazena je 1a+1b njegova obujma, što možemo zapisati kao 1x.
+Primjerice, ako bi bilo a=4 sata, b=6 sati, tada bismo imali:14+16=512=1xte je x=125=2.4 sata, odnosno 2 sata i 15 minuta.
+Općenito je 1a+1b=1x te je a+bab=1x i konačnox=aba+b.
+
+Primejr 10
+Radeći dnevno po 8 sati, 6 radnika završi neki posao za 15 dana. Koliko sati dnevno bi trebalo raditi 8 radnika kako bi isti posao dovršili za 10 dana?
+Rješenje:
+Za 15 dana, radeći dnevno 8 sati, 6 radnika potroši 15⋅6⋅8=720 sati. Osmorici radnika za isti posao treba isto toliko sati pa je 10⋅8⋅x, gdje je x broj sati dnevnog rada svakog od osmorice radnika. Dakle,720=80x,te je x=9 sati.
+
+Primejr 11
+U svježim je smokvama 80 % vode, a u suhim 20 %. Koliko će se suhih smokava dobiti sušenjem 120 kg svježih?
+
+Rješenje:
+U 120 kg svježih smokava nalazi se 0.8⋅120 = 96 kg vode.
+Ostatak, 24 kg, suha je tvar. No tih 24 kg suhe tvari čini 80 % u masi suhih smokava.
+Dakle, 24=0.8⋅x, odakle se dobije x=30 kg.
+
+Primejr 12
+Prva slitina sadrži 40 % bakra, druga 32 %. S kolikom masom prve slitine treba miješati 5 kg druge kako bi se dobila slitina s 35% bakra?
+Rješenje:
+Označimo s x masu prve slitine. U toj je masi x⋅0.4 kg bakra.
+U 5 kg druge slitine masa bakra jednaka je 5⋅0.32.
+Pomiješamo li ove dvije slitine dobit ćemo smjesu čija je masa jednaka x+5, a količina bakra bit će (x+5)⋅0.35.
+Postavimo jednadžbu:x⋅0.4+5⋅0.32=(x+5)⋅0.35.Njezino je rješenje x=3.
+Dakle, želimo li da smjesa dviju slitina ima 35 % bakra, onda s 5 kg druge valja pomiješati 3 kg prve slitine.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 13
+Odredimo skup svih točaka T(x,y) ravnine za čije koordinate vrijedi xy<0.
+ 
+Rješenje: 
+Ako je umnožak koordinata neke točke negativan broj, koordinate te točke su brojevi suprotnih predznaka. Uvjet zadovoljavaju sve točke II. i IV. kvadranta, ali bez točaka na koordinatnim osima. Kada bi uvjet glasio x⋅y≤0, skupu bi pripadale i točke na koordinatnim osima.
+
+Primejr 14
+Odredimo skup svih točaka ravnine čije su koordinate vezane uvjetom x2−y2=0.
+Rješenje: 
+Uvjet x2−y2=0 ekvivalentan je uvjetu (x−y)(x+y)=0. Slijedi x−y=0 ili x+y=0, odnosno x=y ili x=−y. Jednadžbom x2−y2=0 izdvojene su točke ravnine tipa (x,x) ili (x,−x).
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 15
+Nacrtajmo graf jednadžbe 2x−3y=6.
+Rješenje:
+
+Pravac je određen dvjema točkama, pa je dovoljno odrediti samo dva rješenja ove jednadžbe. Ipak, radi kontrole, obično određujemo i treće rješenje.
+Kad već možemo birati, korisno je potražiti ona rješenja za koja je jedna nepoznanica jednaka nuli. Time ćemo dobiti točke na koordinatnim osima koje leže na traženom pravcu.
+Za y=0 dobivamo x=3. Prvo rješenje je (3,0). Ova točka leži na osi apscisa.
+Za x=0 dobivamo y=−2. Drugo rješenje je (0,−2). Ova točka leži na osi ordinata.
+Za y=2 dobivamo x=6. Treće (kontrolno) rješenje je (6,2).
+Spojimo dobivene točke pravcem. Dobili smo grafički prikaz skupa svih rješenja jednadžbe 2x−3y=6.
+
+Primejr 16
+Graf jednadžbe x=0 je pravac koji prolazi ishodištem okomito na os x, to je os ordinata.
+Graf jednadžbe y=0 je os apscisa.
+
+Primejr 17
+Jednadžbu pravca danu u implicitnom obliku x+2y−4=0 prevedimo u eksplicitni oblik. Nacrtajmo potom pravac u koordinatnom sustavu.
+Rješenje:
+Najprije zapišimo: 2y=−x+4, a zatim pomnožimo ovu jednadžbu s 12. Tako dobijemo
+y=−12x+2.
+Odaberimo sada za x neke dvije vrijednosti te iz ove jednadžbe izračunajmo pripadne vrijednosti za y.
+Jedan od odabranih brojeva neka bude nula, tada je y=2. Tako imamo jednu točku pravca, točku T1(0,2). Drugi odabrani broj neka bude paran, jer će tada obje koordinate točke biti cijeli brojevi. Za x=−4, dobijemo y=4 pa je T2(−4,4) druga točka.
+Pravac koji povezuje točke T1 i T2 je pravac s jednadžbom x+2y−4=0.
+
+Primejr 18
+Kako glasi jednadžba pravca kojemu pripadaju točke A(−2,3) i B(4,−3)?
+Rješenje:
+Odrediti jednadžbu pravca znači odrediti koeficijente a i b u jednadžbi y=ax+b.
+Budući da točke A i B pripadaju pravcu, znači da njihove koordinate zadovoljavaju tu jednadžbu.
+Za x=−2, y=3 dobivamo 3=−2a+b.
+Za x=4, y=−3 dobivamo −3=4a+b.
+Iz ovog sustava dviju jednadžbi s dvjema nepoznanicama izračunat ćemo a i b. Ako iz prve jednadžbe izrazimo b=2a+3 i to uvrstimo u drugu jednadžbu, dobit ćemo −3=4a+2a+3. Odatle je a=−1. Zatim nalazimo b=1.
+Jednadžba y=−x+1 je jednadžba pravca koji je određen točkama A(−2,3) i B(4,−3). Provjeru možemo provesti uvrštavanjem koordinate točaka A i B u tu jednadžbu.
+
+Primjer 19
+Odredimo jednadžbu pravca koji prolazi točkama:
+1)  A(3,−2), B(1,2);
+2)  A(3,−2), C(3,2);
+3)  A(3,−2), D(−1,−2).
+Rješenje:
+1)  Apscise točaka A i B su različite pa možemo iskoristiti formulu: y−y1=y2−y1x2−x1(x−x1).
+Dobivamoy−(−2)=2−(−2)1−3(x−3),y+2=4−2(x−3),y+2=−2(x−3),y=−2x+4.Svejedno je koju ćemo točku odabrati za prvu, a koju za drugu. Provjeri!
+2)  Apscise točaka A i C su jednake. Zato je pravac paralelan s osi ordinata i ima jednadžbu x=3. Što bi se dobilo uvrštavanjem u formulu?
+3)  Ordinate točaka A i D se podudaraju, pa je pravac paralelan s osi apscisa. Njegova je jednadžba y=−2. Računajući s pomoću izvedene formule imamoy−(−2)=−2−(−2)−1−3(x−3), tj. y+2=0.Dakle, y=−2, i to je jednadžba pravca. Formula je i u ovom slučaju primjenjiva (ali je nepotrebna).
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 20
+Odredimo nul-točku linearne funkcije f(x)=−12x−1.
+Rješenje:
+Prikažimo grafički ovu funkciju.Pravac y=−12x−1 presijeca os y u točki (0,−1). Nagib pravca je −12. Pri prirastu varijable x za 1 vrijednost funkcije padne za 12.
+Iz f(x)=0 slijedi −12x−1=0 te je nul-točka funkcije x=−2. Za brojeve x<−2 funkcija f prima pozitivne, a za x>−2 negativne vrijednosti.
+
+Primejr 21
+Koji je od četiriju grafova graf linearne funkcije f(x)=−12x+2?
+
+Rješenje:
+Najprije uočimo da je f(0)=2, što znači da je odsječak pravca, koji je graf te linearne funkcije, na osi ordinata jednak 2. Dakle, graf na posljednjoj slici otpada.
+Nagib zadane funkcije iznosi a=−12 pa zaključujemo da je funkcija padajuća. Stoga otpada i graf na prvoj slici jer je njime predočena rastuća funkcija. Preostaju još slike 2) i 3). No nul-točka naše funkcije jednaka je 4, jer je f(x)=0 za x=4.
+Stoga je rješenje graf na trećoj slici. No to smo mogli zaključiti i promatrajući nagibe: za pravac na slici 2) nagib je −2, a za pravac na slici 3) nagib je −12.
+Primijetimo još da su pravci na slikama 1), 2) i 4) redom grafovi funkcija f(x)=12x+2, f(x)=−2x+2, f(x)=−12x+1.
+
+Primejr 22
+Promotrimo dobro sljedeću sliku.
+Na njoj je prikazan graf jednolikog gibanja nekog automobila tijekom 3 sata i 45 minuta vožnje. Vrijeme (t) na osi apscisa iskazano je u satima, a prijeđeni put (s) na osi ordinata u kilometrima.
+Opišimo ovo gibanje.
+Rješenje:
+Pokušajmo smisliti neku priču uz ovaj graf.
+Obitelj Burić uputila se na more. Prvih 25 km, do priključenja na autocestu, prešli su za pola sata. Na autocesti brzina je bila veća pa su 150 km prevalili za sat i četvrt. Nakon toga svratili su u restoran uz autocestu i tu se zadržali 30 minuta. Za ostalih 120 km do odredišta bilo im je potrebno 90 minuta.
+Primijetimo da s grafa možemo očitati i brzinu na dijelovima puta, kao nagib (prosječnu promjenu) pravca nad pojedinim vremenskim intervalima.
+Evo kako bi izgledao zapis funkcije s(t) za ovo gibanje:
+s(t) =
+=
+50t, 0 < t < 0.5
+120t35, 0.5 <t< 1.75
+175, 1.75 <t< 2.25
+80t-5, 2.25<t<3.75
+
+Primjer 23
+Pušenje je jedna od navika koja prema nedvojbenim dokazima potiče razvoj mnogih bolesti opasnih po život.U Hrvatskoj puši oko 1.2 milijuna ljudi, što znači da je svaki četvrti građanin Hrvatske pušač. Prema nekim istraživanjima u Hrvatskoj puši svaki treći 15-godišnjak. Godišnje se u Hrvatskoj prodaje 2 500 cigareta po glavi stanovnika.
+Broj pušača u nerazvijenim zemljama neprekidno raste, a u razvijenim opada. Tako se primjerice u Sjedinjenim Američkim Državama postotak mladih pušača (18 – 25 godina) smanjivao od 1974. i taj pad, izražen u postotcima, u ukupnoj populaciji, opisuje linearna funkcijaP(n)=−0.94n+47.9.Pritom je n broj proteklih godina računajući od 1974.
+1) Koliki je postotak pušača u populaciji 18-25 godina u SAD-u bio 1974. godine?
+2) Koliki je tamo postotak pušača bio 2013. godine?
+3) Za koliko će godina nestati pušača u toj populaciji u SAD-u?
+Rješenje:
+Prikažimo grafički funkciju P(n). Na grafu možemo zorno pratiti kako se u SAD-u mijenja postotak mladih pušača.
+1) Godine 1974. postotak pušača bio je jednak P(0)=47.9, što znači da je gotovo svaki drugi Amerikanac u dobi 18 – 25 godina bio pušač.
+2) Godine 2013. postotak pušača je bio jednak P(39)=−0.94⋅39+47.9=11.24.
+3) Iz jednadžbe P(n)=0, odnosno −0.94n+47.9=0, izračunamo n=50.957, što znači da među Amerikancima u dobi 18 – 25 godina godine 2025. više neće biti pušača.
+
+Primejr 24
+Graf prikazuje potrošnju goriva automobila tijekom vožnje jednolikom brzinom. Na os apscisa nanosi se prijeđeni put s (u km), a na os ordinata količina goriva g (u litrama) u spremniku automobila. Promatraj graf i odgovori na sljedeća pitanja:
+1) Kolika je količina goriva bila u spremniku na početku puta?
+2) Kolika je prosječna potrošnja goriva (u litrama na 1 km) tijekom puta?
+3) Zapiši jednadžbom funkciju koja opisuje smanjivanje količine goriva u spremniku automobila u ovisnosti o prijeđenom putu.
+4) Koliku udaljenost prijeđe automobil prije nego mu ponestane goriva?
+Rješenje:
+1) Na početku puta (s=0) u spremniku je bilo 45 litara goriva.
+2) Do prijeđenih 300 km utrošene su 45−21=24 litre goriva. U prosjeku je to 24300=8100=0.08 litara po kilometru.
+3) Funkcija je linearna, njezin je nagib −0.08 i ona glasi: g(s)=−0.08s+45.
+4) Iz g(s)=−0.08s+45=0 slijedi s=562.5 km.
+
+Primjer 25
+Maja je na godinu dana oročila 1000€, dio uz kamatnu stopu 2 %, dio uz 3 %.
+1) Prikaži iznos kamata k(x) kao funkciju količine novca koji je Maja oročila uz kamatnu stopu od 2 %.
+2) Prikaži grafički funkciju k(x).
+3) Koja je najveća, a koja najmanja vrijednost funkcije k(x)?
+Rješenje:
+1) Ako je Maja oročila svotu iznosa x uz 2 %, onda je uz 3 % oročila 1000−x. Kamata na kraju godine iznosik(x)=0.02x+0.03(1000−x).Tako smo dobili linearnu funkciju od x koja glasi k(x)=30−0.01x.
+2)
+3) Najveća vrijednost funkcije k iznosi 30€ kada je svih 1000€ oročeno uz 3 %. Najmanja je vrijednost 20€, kad je cijela svota oročena uz 2 %.
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 6
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 26
+Odredimo sjecište pravaca x−2y=4 i 3x+y=5.
+
+Rješenje:
+Nacrtajmo pravce u koordinatnoj ravnini. Vidimo da se oni sijeku u jednoj točki, točki S. Ponekad možemo ``očitati'' koordinate sjecišta. U ovom bi primjeru sjecište mogla biti točka S(2,−1). Provjerimo to!
+Sjecište dvaju pravaca ima koordinate koje zadovoljavaju jednadžbe obaju pravaca. Provjerimo: kako je 2−2⋅(−1)=4, točka S pripada prvom pravcu. Nadalje, 3⋅2+(−1)=5 što znači da S pripada i drugom pravcu.
+Dakle, točka S(2,−1) je sjecište pravaca x−2y=4 i 3x+y=5.
+
+Primejr 27
+Veljko i Darko utrkivali su se biciklima. Veljko je mlađi pa mu je Darko dao 1 km prednosti i tada je krenuo u potjeru. Ako Veljko vozi bicikl prosječnom brzinom 12 km/h, a Darko 15 km/h, nakon koliko kilometara će Darko sustići Veljka?
+Rješenje:
+Put što ga prijeđe Veljko jednak je s=12t+1. Darkov je put jednak s=15t. Iz 12t+1=15t slijedi t=13sata=20 min.
+Darko je sustigao Veljka 20 minuta nakon što je krenuo u „potjeru”. To je bilo na 5. kilometru puta.
+Promotri sliku. Na njoj je grafički prikazana utrka dvaju dječaka.
+
+Primejr 28
+Odredimo sjecište pravaca:
+1) x+3y=7, 2x−y=5;
+2) 2x+y=3, 4x+2y=2;
+3) −2x+y=1, 4x−2y=−2.
+Rješenje:
+1) Sjecište dvaju pravaca je točka koja zadovoljava jednadžbe obaju pravaca. Zato tu točku možemo pronaći rješavanjem sustava linearnih jednadžbi. Trebamo riješiti sustav:{x+3y=7,2x−y=5.Nepoznanicu x izrazit ćemo iz prve jednadžbe i uvrstiti u drugu: x=7−3y⟹2(7−3y)−y=5. Sada je 14−7y=5, i konačno, y=97. Za x dobivamo x=7−3⋅97=227. Dakle, pravci x+3y=7 i 2x−y=5 sijeku se u točki S(227,97). Provjerite uvrštavanjem u početni sustav da je rješenje točno.
+2) Trebamo riješiti sustav{2x+y=3,4x+2y=2.Iz prve je jednadžbe y=3−2x, pa uvrštavanjem te vrijednosti u drugu imamo4x+2(3−2x)=2,4x+6−4x=2,6=2.Dobili smo nemoguću jednakost. To znači da početni sustav nema rješenja, odnosno da se pravci ne sijeku. Uistinu, pravci su paralelni! Pogledaj sliku! Za ovakav sustav kažemo da je nesuglasan (proturječan, nemoguć).
+3) Riješimo sustav:{−2x+y=14x−2y=−2Iz prve je jednadžbe y=2x+1 pa u drugoj dobivamo4x−2(2x+1)=−2,4x−4x−2=−2,−2=−2.Što znači ova istinita jednakost? U njoj nema nikakvog uvjeta na nepoznanicu x što znači da je jednadžba zadovoljena za bilo koju vrijednost x. Ako nju uzmemo po volji, za y mora vrijediti y=2x+1. To znači da je par (x,2x+1) rješenje sustava za svaki x∈R.
+Nacrtamo li sliku, vidjet ćemo da je objema jednadžbama zadan isti pravac. Zato je svaka njegova točka rješenje sustava.
+Za ovakav sustav kažemo da je neodređen.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 7
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 29
+Riješimo sustav{2x+3y=7,3x−5y=12.
+Rješenje:
+Uočimo koeficijente uz nepoznanicu y. U prvoj jednadžbi to je broj 3, a u drugoj −5. Da bismo dobili suprotne koeficijente, prvu jednadžbu moramo pomnožiti s 5, a drugu s 3. Dobiveni sustav bit će ekvivalentan početnom{2x+3y=7,/⋅53x−5y=12,/⋅3pa je{10x+15y=35,9x−15y=36.Zbrajanjem jednadžbi dobivamo19x=71⟹x=7119.Nepoznanicu y sad računamo bilo iz prve, bilo iz druge jednadžbe:3y=7−2x=7−2⋅7119=−919.Rješenje sustava je (7119,−319).
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 8
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 30
+Otac i sin
+Prije 10 godina otac je bio stariji od sina 10 puta, a za 22 godine bit će stariji samo dva puta. Koliko je godina sinu, a koliko ocu?
+Rješenje
+Ako je ocu x, a sinu y godina, onda je prije deset godina bilox−10=10(y−10),a za 22 godine će bitix+22=2(y+22).Sređivanjem jednadžbi dobivamo sustav{x−10y=−90,x−2y=22.
+Oduzimanjem ovih jednadžbi dobivamo 8y=12 pa je y=14. Iz druge jednadžbe sad slijedi x=50.
+Otac ima 50 godina, a sin 14.
+
+Primejr 31
+Smjesa
+Miješanjem dviju otopina, jedne 30%-tne i druge 50%-tne želimo dobiti 10 litara 45%-tne otopine. Koliko litara koje otopine moramo pomiješati?
+Rješenje:
+Količinu prve otopine označimo s x, a druge s y. Tada vrijedi: 0.3x+0.5y=10⋅0.45, odatle 3x+5y=450. Zatim imamo x+y=10. Rješenje ovog sustava je x=7.5, y=2.5 litara.
+
+Primejr 32
+Poljudski stadion
+Nogometno igralište je travnati pravokutnik duljine između 100 i 110 metara i širine između 65 i 75 metara. Gradski stadion na splitskom Poljudu ima igralište čiji je opseg 346 m, a dulje je nego šire za 37 m. Kolika je površina toga igrališta?
+Rješenje:
+
+Označimo s a duljinu, s b širinu igrališta. Tada možemo zapisati 2a+2b=346, odnosno a+b=173. Pridodajmo toj jednadžbi još i jednadžbu a−b=37. Tako smo dobili sustav dviju jednadžbi s dvjema nepoznanicama:a+b=173a−b=37.Njegovo je rješenje a=105, b=68. Površina terena je jednaka 105⋅68=7140 m2.
+
+primjer 33
+Antikvarijat
+Vlasnica antikvarijata kupila je dvije knjige za 20 eura. Prodala ih je s dobiti od 20 %. Za koliko je prodala pojedinu knjigu ako je na jednoj zaradila 25 %, a na drugoj 12.5 % njezine kupovne cijene?
+Rješenje:
+Neka je x cijena koju je platila za prvu, a y cijena koju je platila za drugu knjigu. Tada je x+y=20. Njezina je dobit nakon prodaje 20 % od 20 eura, što iznosi 4€. Dobit na prvoj knjizi je 25 % njezine cijene, dakle x4. Dobit na drugoj knjizi je 12.5 % njezine cijene, dakle y8.
+Tako dobivamo sustav{x+y=20,x4+y8=4.Njegovo je rješenje (provjeri!) x=12, y=8.
+Prvu je knjigu vlasnica prodala za 54x=15 eura, a drugu za 98y=9 eura.
+
+primejr 34
+Rijeka – Zagreb
+Iz Rijeke u Zagreb krene automobil vozeći jednolikom brzinom v1, a u istom trenutku iz Zagreba prema Rijeci krene drugi automobil vozeći jednolikom brzinom koja je za 10 km/h veća. Udaljenost Rijeke i Zagreba je 165 km. Automobili su se mimoišli nakon 45 minuta vožnje. Kojom su se brzinom kretali automobili?
+Rješenje
+Postavimo sustav jednadžbi 34v1+34v2=165 i v2=v1+10. Iz sustava dobijemo v1=105  km/h, v2=115 km/h.

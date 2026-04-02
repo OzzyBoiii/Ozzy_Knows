@@ -1,0 +1,245 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Realne funkcije
+============================================================================================================================================================================================================================================
+Uvod
+U dosadašnjem smo školovanju usvojili pojam funkcije (preslikavanja, pridruživanja) i upoznali mnoge primjere funkcija poput linearnih, kvadratnih, polinoma, racionalnih, trigonometrijskih, eksponencijalnih, logaritamskih i dr. Funkcije, uz brojeve, predstavljaju temeljne matematičke pojmove. U nastavku ćemo se baviti isključivo proučavanjem raznih svojstava funkcija i njihovim primjenama.
+Ponovit ćemo ukratko neke činjenice koje smo o funkcijama naučili. Ograničit ćemo se na raspravu o realnim funkcijama, kojima je domena i kodomena podskup realnih brojeva.
+ 
+Analitičko zadavanje funkcije. Područje definicije
+Zadavanje funkcije
+Realna funkcija f:D→R zadana je:
+
+1. svojom domenom (područjem definicije) D
+2. svojom kodomenom (područjem vrijednosti) R
+3. zakono pridruživanja x↦f(x).
+Ova tri podatka određuju funkciju, zato je funkcija f jednaka funkciji g ako one imaju jednake domene, kodomene i zakone pridruživanja.
+Za funkciju zadanu zakonom pridruživanja (koji
+popularno nazivamo formulom) kažemo da je zadana analitički. Primjerice:
+f(x)=−x2+x+1g(x)=ln(x−1)h(x)=√2−sinx.
+Što je domena ovih funkcija?
+============================================================================================================================================================================================================================================
+Pordučje funkcije
+Prirodna domena funkcije
+Domena realne funkcije zadane zakonom pridruživanja po dogovoru je skup svih realnih brojeva x za koje taj zakon pridruživanja ima smisla. Takvu domenu nazivamo prirodnom domenom.
+Tako, primjerice, funkcija f ima za domenu Df=R. Funkcija g definirana je za one x za koje je x−1>0, dakle, Dg=⟨1,∞⟩. Funkcija h definirana je za svaki realni broj x jer je izraz pod korijenom uvijek pozitivan. Stoga je Dh=R.
+(PRIMJER 1)
+============================================================================================================================================================================================================================================
+Kodomena funkcije
+Kako se određuje kodomena R analitički zadane funkcije f? Pri određivanju kodomene ne moramo biti toliko precizni kao kad određujemo domenu funkcije. U većini slučajeva točno poznavanje kodomene nije nam niti potrebno. Zato najčešće uzimamo R=R i pišemo f:D→R.
+S pojmom kodomene povezan je još jedan skup: slika funkcije. Njega možemo shvatiti kao najmanju od svih mogućih kodomena funkcije f. Slika funkcije sastoji se od svih y∈R za koje postoji x∈D takav da je f(x)=y. To je, dakle, skup na koji funkcija f preslikava svoju domenu. Označavamo ga s I ili preciznije, s If. Određivanje slike funkcije nije uvijek jednostavno. To je jedan od zadataka diferencijalnog računa koji ćemo u nastavku izučavati.
+============================================================================================================================================================================================================================================
+Slaganje (kompozicija) funkcija
+Funkcionalnu vezu varijabli x i y često dobivamo uzastopnim djelovanjem nekoliko elementarnih funkcija. Primjerice, funkcija
+h(x)=√x2+1
+dobivena je uzastopnim djelovanjem dviju elementarnih funkcija, kvadratne funkcije i funkcije drugi korijen.
+Neka je f(x)=x2+1 i g(x)=√x. Onda je
+g(f(x))=g(x2+1)=√x2+1=h(x).
+Kažemo da je h kompozicija funkcija g i f i pišemo h=g∘f.
+Neka su f:Df→R, g:Dg→R bilo koje funkcije. Da bi bila definirana kompozicija g∘f u točki x, mora biti y=f(x)∈Dg. Taj uvjet ne moraju zadovoljavati svi brojevi x iz domene funkcije f. To znači da je domena kompozicije podskup domene funkcije f.
+(PRIMJER 2)
+Svojstva kompozicije
+1) Slaganje funkcija nije komutativno; općenito vrijedi f∘g≠g∘f.
+2) Za slaganje funkcija vrijedi zakon asocijativnosti:h∘(g∘f)=(h∘g)∘f.
+============================================================================================================================================================================================================================================
+Injektivnost i surjektivnost
+Pri rješavanju jednadžbi, često iz jednakosti funkcija zaključujemo da i argumenti moraju biti jednaki. Primjerice, ako vrijedi
+log(2x+3)=log5,
+tad zaključujemo da mora biti 2x+3=5.
+Na isti način postupamo pri rješavanju eksponencijalnih jednadžbi. Tako primjerice, jednadžbu 2x+3=32 rješavamo ovako:
+2x+3=25⟹x+3=5
+pa je odatle x=2.
+Oba ova postupka možemo objasniti svojstvom injektivnosti (čita se in-jektivnost, in-jekcija, s odvojenim glasovima n i j) logaritamske, odnosno eksponencijalne funkcije:
+loga(x1)=loga(x2)⟹x1=x2ax1=ax2⟹x1=x2.
+Ovo važno svojstvo može se definirati i općenitije, za bilo koju funkciju f:
+Injektivnost funkcije
+Kažemo da funkcija f ima svojstvo injektivnosti ili da je ona injekcija ako vrijedi:f(x1)=f(x2)⟹x1=x2.Dakle, funkcija je injekcija ako iz jednakosti funkcijskih vrijednosti slijedi i jednakost argumenata. Svojstvo ekvivalentno ovome je:x1≠x2⟹f(x1)≠f(x2).Dakle, funkcija je injekcija ako različitim brojevima pridružuje različite vrijednosti funkcije.
+Injektivnost funkcije možemo ustanoviti promatrajući njezin graf. Na sljedećoj slici vidimo graf dviju funkcija, prva je injektivna, a druga nije.
+Horizontalni test - kriterij injektivnosti
+Funkcija f je injektivna ako svaki pravac paralelan s osi x siječe njezin graf najviše u jednoj točki.
+Svojstvo injektivnosti nam govori kad će rješenje neke jednadžbe biti jednoznačno određeno. Primjerice, funkcija f(x)=x2 nije injektivna, pa zato jednadžba f(x)=5 ima dva rješenja:
+x2=5⟺x=√5 ili x=−√5.
+Slično ovom, svojstvo surjektivnosti nam govori kad će rješenje neke jednadžbe postojati. Primjerice, jednadžba
+x2=−5
+nema realnih rješenja, ne postoji takav x∈R za koji bi vrijedilo f(x)=−5. Kažemo da f:R→R nije surjektivna.
+Surjekcija
+Funkcija f:D→R je surjekcija ako za svaki y∈R postoji x∈D takav da vrijedi f(x)=y.
+Drugim riječima, funkcija je surjekcija ako se njezina kodomena R podudara s njezinom slikom I.
+Bijekcija
+Za funkciju f:D→R kažemo da je bijekcija ako je ona injekcija i surjekcija.
+============================================================================================================================================================================================================================================
+Inverzna funkcija
+Jednadžba 2x=y ima rješenje za svaki pozitivni y. To je rješenje broj x,
+x=log2y.
+Ovdje su u igri dvije funkcije:
+f:R→R+,f(x)=2x,
+te
+g:R+→R,g(x)=log2x.
+Primijetimo da za njih vrijedi Df=R=Rg, Rf=R+=Dg. Također vrijedi
+g(f(x))=log2(2x)=x,x∈R,f(g(x))=2log2x=x,x∈R+.
+Dakle, g poništava djelovanje funkcije f, a također f poništava djelovanje funkcije g. Za te dvije funkcije kažemo da su inverzne jedna drugoj.
+Inverzna funkcija
+Funkcija g inverzna je funkciji f, ako vrijedi:g(f(x))=x,za svaki x∈Df,(1)f(g(x))=x,za svaki x∈Dg.(2)Pišemo g=f−1. U isto je vrijeme funkcija f inverzna funkciji g te je isto tako f=g−1. Zato kažemo da su funkcije f i g međusobno inverzne.
+
+Relacije (1) i (2) možemo zapisati na jednostavniji način ovako: funkcije f i g međusobno su inverzne ako vrijedi:y=f(x)⟺x=g(y),∀x∈Df,∀y∈Dg.(3)Nužan i dovoljan uvjet za postojanje inverzne funkcije od f jest da funkcija f:D→R bude bijekcija.
+(PRIMJER 3)
+Što možemo naučiti iz ovog primjera? Pri računanju inverzne funkcije koristili smo samo zakon pridruživanja. Prirodno područje definicije funkcije f je lako odrediti: Df=[0,∞). Međutim, područje vrijednosti se ni na koji način ne vidi iz zadane formule. Zato, pri računanju inverzne funkcije ne provjeravamo surjektivnost. Ne bude li taj uvjet ispunjen, to ćemo otkriti u postupku rješavanja jednadžbi. Nadalje, područje vrijednosti funkcije f mora biti jednako domeni inverzne funkcije. Zato iz dobivene formule za inverznu funkciju vidimo da je
+Rf=Df−1=R∖{1}.
+Računanje inverzne funkcije
+Inverznu funkciju nalazimo sljedećim postupkom:
+
+1. Napišemo y=f(x).
+2. Jednadžbu y=f(x) riješimo po nepoznanici x.
+3. Ako postoji jedinstveno rješenje te jednadžbe, tad funkcija ima inverznu funkciju, x=f−1(y).
+4. Zamijenimo imena nepoznanicama x i y da bismo dobili zapis y=f−1(x).
+(PRIMJER 4)
+Graf inverzne funkcije
+Znajući graf funkcije f, kako možemo odrediti graf njoj inverzne funkcije g? Iz osnovne veze
+y=f(x)⟺x=g(y)
+čitamo sljedeće: točka (x,y) leži na grafu funkcije f ako i samo ako točka (y,x) leži na grafu funkcije g. Međutim, točke (x,y) i (y,x) simetrične su s obzirom na pravac y=x, simetralu prvoga kvadranta. Zato vrijedi:
+Graf inverzne funkcije
+Grafovi funkcije f i njoj inverzne funkcije g simetrični su s obzirom na pravac y=x.
+============================================================================================================================================================================================================================================
+Restrikcija funkcije
+Funkcija f(x)=x2 definirana na svojoj prirodnoj domeni R nije injekcija, pa zato nema inverznu funkciju. Međutim, ako joj je područje definicije skup nenegativnih brojeva R+0=[0,∞⟩, onda je f:R+0→R+0 bijekcija. Ovako definirana funkcija, koja ima isti zakon pridruživanja ali smanjenu domenu, naziva se restrikcija funkcije.
+Njezina inverzna funkcija je g(x)=√x, definirana na istom skupu R+0.
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Svojstva funkcija
+============================================================================================================================================================================================================================================
+Mnoga svojstva funkcija možemo lakše uočiti promatrajući njihove grafove.
+Monotonost i omeđenost funkcije
+Pretpostavimo da interval I leži u području definicije D funkcije f.
+Prema ovoj definiciji, ako kažemo da je funkcija rastuća, time nismo isključili mogućnost da je ona strogo rastuća. Isto vrijedi i za padajuću funkciju. Padajuće ili rastuće funkcije zovemo jednim imenom monotonim funkcijama.
+Ako je f strogo rastuća ili strogo padajuća funkcija na čitavom području definicije, onda je ona injekcija: Relacija f(x1)=f(x2) kod tih funkcija vrijedi samo kad je x1=x2. Zato strogo monotone funkcije imaju inverz.
+(PRIMJER 1)
+(PRIMJER 2)
+============================================================================================================================================================================================================================================
+Omeđenost funkcije
+Pojam omeđenosti i neomeđenosti možemo definirati općenito, za bilo koju funkciju.
+Omeđenost funkcije
+Funkcija f je omeđena ako postoje brojevi m i M za koje vrijedim≤f(x)≤M,∀x∈D.(5)Ako u (5) vrijedi samo jedna od nejednakosti, onda kažemo da je funkcija omeđena odozdo ili da je omeđena odozgo.
+(PRIMJER 3)
+Područje definicije neke elementarne funkcije f možemo razbiti na intervale na kojima je funkcija bilo rastuća, bilo padajuća, bilo konstantna. Ti se intervali nazivaju intervali monotonosti. Proučavanje intervala monotonosti od velike je važnosti u primjenama. O njima ćemo više govoriti u sljedećem poglavlju kad naučimo pojam derivacija.
+(PRIMJER 4)
+============================================================================================================================================================================================================================================
+Parne i neparne funkcije
+Proučavanje funkcije i njezinog grafa pojednostavnjuje se ako on ima svojstvo simetrije.
+Kažemo da je funkcija parna ako je njezin graf simetričan s obzirom na y-os. Neka je x bilo koji element domene. Tada grafu pripadaju točke (x,y) i (−x,y) (vidi sliku), gdje je y=f(x). No, to znači da vrijedi f(−x)=f(x).
+Vrijedi i obrat: ako grafu pripadaju točke (x,f(x)) i (−x,f(x)) za svaki x iz domene funkcije, on je simetričan s obzirom na y-os.
+Parne funkcije
+Funkcija f je parna ako je njezino područje definicije simetrično s obzirom na ishodište i ako vrijedif(−x)=f(x),∀x∈Df.Graf parne funkcije simetričan je s obzirom na y-os.
+(PRIMJER 5)
+Na sličan se način definiraju i neparne funkcije.
+Graf neparne funkcije simetričan je s obzirom na ishodište. Ako je funkcija definirana u nuli, mora vrijediti f(0)=0. 
+Neparne funkcije
+Funkcija f je neparna ako je njezino područje definicije simetrično s obzirom na ishodište i ako vrijedif(−x)=−f(x),∀x∈Df.Graf neparne funkcije simetričan je s obzirom na ishodište.
+(PRIMJER 6)
+
+============================================================================================================================================================================================================================================
+(PRIMJER 7) - Razlomljena funkcija
+(PRIMJER 8) - Funkcija apsolutne vrijednosti
+(PRIMEJR 9) - Funkcija signum
+(PRIMJER 10)
+============================================================================================================================================================================================================================================
+Periodičnost
+Prisjetimo se još jednog važnog svojstva koje posjeduju neke funkcije.
+Periodične funkcije
+Za funkciju f kažemo da je periodična ako postoji broj T>0 takav da za sve x∈Df vrijedif(x)=f(x+T).(6)Broj T naziva se period funkcije f. Najmanji pozitivni broj T za koji vrijedi (6) naziva se temeljni period.
+graf periodične funkcije
+Znamo da su trigonometrijske funkcije periodične, i to sinus i kosinus s temeljnim periodom 2π, a tangens i kotangens s temeljnim periodom π; te za svaki x iz područja definicije vrijedi
+sin(x+2π)=sinx,cos(x+2π)=cosx,tg (x+π)=tg x,ctg (x+π)=ctg x.
+grafovi funkcija sinus i kosinusgrafovi funkcija tangens i kotangens
+ 
+Ako je T period funkcije f, onda je i nT također period te funkcije za svaki prirodni broj n. Slika objašnjava zbog čega se to
+događa. Strogi dokaz indukcijom teče ovako: za n=1 tvrdnja vrijedi zbog periodičnosti funkcije f. Pretpostavimo da tvrdnja vrijedi za broj n. Dokažimo da je onda i (n+1)T period funkcije f.
+f(x+(n+1)T)=f(x+nT+T)= (zbog  periodičnosti funkcije f)=f(x+nT)= (zbog pretpostavke indukcije) =f(x),
+============================================================================================================================================================================================================================================
+Implicitno zadavanje funkcije
+Skup svih točaka (x,y) koje zadovoljavaju jednadžbu
+x2+y2−1=0(7)
+predstavlja kružnicu u ravnini, sa središtem u ishodištu. Budući da ova krivulja ne zadovoljava
+vertikalni test, ona ne određuje funkcijsku vezu između varijabla x i y.
+načini određivanja funkcijske veze iz relacijske zavisnosti
+Računajući y iz (1) dobit ćemo te vrijednosti, dane izrazomy1,2=±√1−x2.Odaberemo li za svaki x pozitivan predznak u ovom izrazu, time je definirana funkcija kojoj je graf gornja polukružnica. Ta polukružnica zadovoljava vertikalni test, jednoj vrijednosti varijable x odgovara točno jedna vrijednost za y. Ona je određena formulom
+y=f1(x)=√1−x2,−1≤x≤1.
+Donja polukružnica određuje funkcijsku zavisnost
+y=f2(x)=−√1−x2,−1≤x≤1.
+Kažemo da je formulom x2+y2−1=0 dana implicitna veza varijabla x i y ili da je y zadana implicitnom formulom.
+Općenito se jednadžba implicitno zadane funkcije piše u obliku:
+F(x,y)=0.
+Rješavanjem ove jednadžbe po varijabli y određujemo eksplicitnu jednadžbu funkcije. Pritom možemo dobiti više, pa čak i beskonačno mnogo rješenja.
+(PRIMJER 11)
+(PRIMJER 12)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Transformacije grafa funkcije
+============================================================================================================================================================================================================================================
+VERTIKALNI I HORIZONTALNI HITAC
+U ovom ćemo potpoglavlju opisati kako se male promjene u jednadžbi funkcije reflektiraju na njezin graf. Znajući nacrtati graf neke funkcije, moći ćemo jednostavno nacrtati i graf neznatno promijenjene funkcije.
+Vertikalni i horizontalni pomak
+Graf parabole y=x2 ima tjeme u ishodištu. No, onda možemo nacrtati grafove funkcija y=x2+1 ili pak y=x2−3, oni su dobiveni pomakom početnog grafa za jednu jedinicu prema gore, odnosno za tri jedinice prema dolje.
+Naravno da to svojstvo ima graf bilo koje druge funkcije.
+Vertikalni pomak
+Neka je c>0.
+
+Graf funkcije y=f(x)+c dobiva se iz grafa funkcije y=f(x) pomakom za c jedinica prema gore.
+
+Graf funkcije y=f(x)−c dobiva se iz grafa funkcije y=f(x) pomakom za c jedinica prema dolje.
+(PRIMJER 1)
+(PRIMJER 2)
+(PRIMJER 3)
+============================================================================================================================================================================================================================================
+Rastezanje i stezanje duž y-osi 
+Kako izgleda graf funkcije g(x)=cf(x)? Ovdje je c>0 fiksni broj. Ako točka (a,b) leži na grafu funkcije f, onda točka (a,cb) pripada grafu od g. Ta točka ima istu apscisu, a položaj ordinate ovisi o tome koliki je c.
+Ako je c>1, onda je točka udaljenija od osi x za faktor c. Kažemo da smo graf funkcije rastegli duž y-osi, za faktor rastezanja c.
+Ako je c<1, onda se radi o stezanju jer je ova točka bliža x-osi nego početna. Primjerice, za c=1/2, ona je dvostruko bliža osi x. Zato kažemo da se graf funkcije stegne za faktor 2. Općenito, govorit ćemo o stezanju za faktor 1/c.
+Rastezanje i stezanje duž y-osi
+Ako je c>1, graf funkcije y=cf(x) dobiva se iz grafa funkcije f rastezanjem za faktor c duž y-osi.
+
+Ako je 0<c<1, onda se graf dobiva stezanjem za faktor 1/c duž y-osi.
+
+Jednadžba funkcije može se interpretirati na različite načine kad su ove elementarne transformacije u pitanju.
+(PRIMJER 4)
+============================================================================================================================================================================================================================================
+Rastezanje i stezanje duž x-osi
+Množenje argumenta funkcije uzrokuje rastezanje, odnosno stezanje duž x-osi. Razmišljanje je analogno prethodnom.
+Uspoređujemo graf funkcije f(x) i graf funkcije g(x)=f(cx), c je pozitivan broj. Ako (a,b) pripada grafu funkcije f, tada će grafu funkcije g pripadati točka (ac,b) jer vrijedi
+g(ac)=f(cac)=f(a)=b.
+Zato, ako je primjerice c=2, ista se vrijednost funkcije, vrijednost b, postiže u argumentu a2. Graf funkcije stegnuo se duž osi x za faktor 2. Ako je pak c<1, onda će doći do rastezanja.
+Rastezanje i stezanje duž x-osi
+Ako je c>1, graf funkcije y=f(cx) dobiva se iz grafa funkcije f stezanjem za faktor c duž x-osi.
+
+Ako je 0<c<1, onda se graf dobiva rastezanjem za faktor 1/c duž x-osi.
+============================================================================================================================================================================================================================================
+Zrcaljenje s obzirom na koordinatne osi i ishodište
+Ako točka (a,b) pripada grafu funkcije f, onda točka (−a,b) pripada zrcalnom grafu funkcije g. Zato vrijedi
+f(a)=b⟺g(−a)=b,
+za sve a∈Df.
+Mora stoga za svaki a biti g(−a)=f(a) pa zaključujemo da zrcalni graf predstavlja graf funkcije y=g(x)=f(−x).
+(PRIMJER 5)
+(PRIMJER 6)
+Promotrimo sad transformaciju zrcaljenja s obzirom na x-os. Tu je veza očigledna, zrcalni graf pripada funkciji
+y=g(x)=−f(x).
+Točka (a,b) s grafa funkcije f preslikava se u točku (a,−b) s grafa funkcije g.
+zrcaljnje s obzirom na ishodište
+Zrcaljenje s obzirom na ishodište dobiva se uzastopnom primjenom zrcaljenja s obzirom na obje koordinatne osi. Točka (a,b) pripada grafu funkcije F onda i samo onda ako točka (−a,−b) pripada zrcalnom grafu. Zato je jednadžba odgovarajuće funkcije
+y=g(x)=−f(−x).
+Zrcaljenje s obzirom na koordinatne osi i ishodište
+Poznat nam je graf funkcije u=f(x).
+
+Zrcaljenjem tog grafa s obzirom na y-os dobivamo graf funkcijey=f(−x).Zrcaljenjem tog grafa s obzirom na x-os dobivamo graf funkcijey=−f(x).Zrcaljenjem tog grafa s obzirom na ishodište dobivamo graf funkcijey=−f(−x).
+Simetrija s obzirom na pravac y = x
+Simetrijom s obzirom na pravac y=x (simetralu prvog i trećeg kvadranta) točka (a,b) prelazi u točku (b,a). Zato točka (a,b) s grafa funkcije f prelazi u točku (b,a) s grafa funkcije g. Zato vrijedi
+b=f(a)⟺a=g(b),
+za sve a∈Df.
+Ovaj uvjet pokazuje da je g inverzna funkcija funkcije f. Sad vrijedi
+y=g(x)=f−1(x)⟺x=f(y).
+Zato jednadžbu inverzne funkcije dobivamo tako da u početnoj jednadžbi zamijenimo mjesta varijablama x i y i dobivenu jednakost riješimo po varijabli y.
+(PRIMJER 7)
+(PRIMJER 8)
+(PRIMJER 9)
+============================================================================================================================================================================================================================================

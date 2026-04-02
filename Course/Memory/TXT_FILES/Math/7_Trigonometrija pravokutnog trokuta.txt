@@ -1,0 +1,132 @@
+Definicije trigonometrijskih funkcija šiljastog kuta (U RADU)
+Sličnost trokuta
+Nacrtajmo pravokutni trokut ABC s pravim kutom pri vrhu C i kutom α uz vrh A. Označimo s a, b i c duljine stranica trokuta koje su nasuprot vrhova A, B i C.
+Povucimo pravac B^' C^' paralelan pravcu BC. Trokut AB^' C^' sličan je trokutu ABC – sva tri kuta su im jednaka. Neka su a^', b^' i c^' duljine stranica trokuta AB^' C^'.
+U sličnim su trokutima omjeri duljina odgovarajućih stranica jednaki. Zato za sve pravokutne trokute čiji je jedan kut α vrijedi:
+a/b=a^'/b^' ,a/c=a^'/c^' ,b/c=b^'/c^' .
+
+Ovi omjeri stranica ne ovise, dakle, o veličini pravokutnog trokuta, već samo o veličini njegova kuta α. Zato kažemo da su funkcije kuta α. Prema njihovom položaju prema kutu α katetu a zovemo nasuprotna kateta, a katetu b priležeća kateta ili kateta uz kut α.
+________________________________________
+Definicije trigonometrijskih funkcija
+I sada izričemo sljedeće definicije (u pravokutnom trokutu s kutom α):
+	omjer a/c, nasuprotne katete kutu α i hipotenuze, je sinus kuta α:
+sin⁡α=a/c;
+
+	omjer b/c, priležeće katete kutu α i hipotenuze, je kosinus kuta α:
+cos⁡α=b/c;
+
+	omjer a/b, nasuprotne i priležeće katete kutu α, je tangens kuta α:
+tan⁡α=a/b;
+
+	omjer b/a, priležeće i nasuprotne katete kutu α, je kotangens kuta α:
+cot⁡α=b/a.
+
+Sinus, kosinus, tangens i kotangens nazivamo trigonometrijskim funkcijama. Definicije trigonometrijskih funkcija ne treba pamtiti po oznakama, već po njihovom položaju prema kutu koji promatramo. Stranice i kutovi trokuta mogu nositi razne oznake, a mogu se promatrati i dijelovi trokuta koji čine i neki drugi elementi.
+Trigonometrijske funkcije šiljastog kuta
+PRIMJER 1
+PRIMJER 2
+PRIMJER 3
+________________________________________
+Omeđenost trigonometrijskih funkcija
+U pravokutnom je trokutu hipotenuza najdulja stranica, pa zbog toga za svaki šiljasti kut α uvijek vrijedi:
+0<sin⁡α<1,0<cos⁡α<1.
+
+Kažemo da su funkcije sinus i kosinus omeđene.
+No tangens i kotangens nisu omeđene funkcije. Naime, one su omjeri dviju kateta, a ti omjeri mogu primiti svaku pozitivnu vrijednost.
+Primijenimo li definicije trigonometrijskih funkcija na kut β pravokutnog trokuta, dobit ćemo:
+sin⁡β=b/c,cos⁡β=a/c,tan⁡β=b/a,cot⁡β=a/b.
+
+Odmah uočavamo:
+sin⁡β=cos⁡α,cos⁡β=sin⁡α,tan⁡β=cot⁡α,cot⁡β=tan⁡α.
+
+U pravokutnom su trokutu šiljasti kutovi α i β komplementarni, tj. vrijedi α+β=90^∘. Zbog toga možemo zaključiti: sinus kuta jednak je kosinusu kuta koji mu je komplementaran, i obrnuto: kosinus kuta jednak je sinusu kuta koji mu je komplementaran.
+Iz ovog međusobnog odnosa sinusa i kosinusa proistječe naziv funkcije kosinus. Analogno vrijedi za funkcije tangens i kotangens.
+Sažeto:
+	kad kut raste, rastu vrijednosti funkcija sinus i tangens, a vrijednosti funkcija kosinus i kotangens padaju
+	vrijednosti funkcija sinus i kosinus su između 0 i 1, dok vrijednosti funkcija tangens i kotangens nisu omeđene
+	sinus kuta jednak je kosinusu njegova komplementa:
+sin⁡α=cos⁡(90^∘-α),
+
+i obrnuto; isto svojstvo imaju funkcije tangens i kotangens.
+________________________________________
+________________________________________
+________________________________________
+Računanje vrijednosti trigonometrijskih funkcija (U RADU)
+Računanje vrijednosti trigonometrijskih funkcija
+Vrijednosti trigonometrijskih funkcija po volji uzetih kutova ne možemo odrediti računom sličnim onom koji smo koristili za kutove od 30^∘, 45^∘, 60^∘, jer ne znamo odnose stranica u pravokutnom trokutu koji ima po volji odabran šiljasti kut.
+Tako, primjerice, ne znamo s pomoću stranica trokuta odrediti sin⁡〖70^∘ 〗. Da bismo odredili veličine nepoznatih stranica u trokutu kojem znamo kutove, moramo znati vrijednosti trigonometrijskih funkcija tih kutova.
+PRIMJER 1
+PRIMJER 2
+________________________________________
+Računanje s minutama i sekundama
+U preciznom računu kutovi su uz stupnjeve zadavani i u manjim jedinicama: minutama (oznaka 〖^'〗) i sekundama (oznaka 〖^''〗). Minuta je 60 ti dio stupnja, a sekunda 60 ti dio minute.
+Džepno računalo računa vrijednosti trigonometrijskih funkcija koje su unesene u stupnjevima. Zato prije samog računa treba pretvoriti minute i sekunde u odgovarajući iznos u stupnjevima. To se radi tako da se broj minuta podijeli sa 60, a broj sekundi podijeli s 3600 i doda broju stupnjeva.
+PRIMJER 3
+________________________________________
+________________________________________
+________________________________________
+Primjene na pravokutni trokut (U RADU)
+Primjene na pravokutni trokut
+Pravokutni se trokut može zadati osnovnim elementima na jedan od četiriju načina:
+	hipotenuzom i jednim šiljastim kutom
+	katetom i jednim šiljastim kutom
+	hipotenuzom i jednom katetom
+	dvjema katetama.
+Pokažimo kako se u svakom od tih slučajeva mogu izračunati preostali elementi trokuta: stranice, kutovi i njegova površina.
+PRIMJER 1
+PRIMJER 2
+PRIMJER 3
+PRIMJER 4
+PRIMJER 5
+PRIMJER 6
+________________________________________
+________________________________________
+________________________________________
+Primjene u planimetriji (U RADU)
+Jednakokračni trokut
+Jednakokračni trokut određen je dvama svojim elementima (od kojih je najviše jedan kut). Razlikujemo tri osnovne situacije: zadani su osnovica i krak, osnovica i kut te krak i kut. Odredit ćemo duljine preostalih stranica, kutove i površinu trokuta.
+Pritom nije važno koji je kut zadan jer se znajući jedan lako može odrediti i drugi. U trokutu nasuprot jednakim stranicama leže jednaki kutovi, zato su kutovi uz osnovicu jednaki. Označimo ih s β. Neka je α kut nasuprot osnovice. Onda vrijedi
+α+2β=180^∘.
+
+PRIMJER 1
+PRIMJER 2
+PRIMJER 3
+________________________________________
+Paralelogram
+PRIMJER 4
+PRIMJER 5
+PRIMJER 6
+PRIMJER 7
+________________________________________
+Kružnica i krug
+PRIMJER 8
+PRIMJER 9
+Kružnica opisana trokutu
+Neka je dan trokut ABC i neka je S središte tom trokutu opisane kružnice. Povucimo promjer kružnice s jednim krajem u točki C i neka je njegov drugi kraj točka D. Trokut CDB je pravokutan (jer kut nad promjerom ima 90^∘) te je ∠CDB=α.
+Vrijedi
+∣BC∣=∣CD∣⋅sin⁡α,
+
+odnosno
+a=2r⋅sin⁡α.
+
+Analogno je
+b=2r⋅sin⁡β,c=2r⋅sin⁡γ.
+
+Dobivene jednakosti povezuju duljinu stranice trokuta, kut nasuprot te stranice i polumjer trokutu opisane kružnice.
+PRIMJER 10
+________________________________________
+Pravilni mnogokut
+Rješavanje raznih zadataka uz pravilni mnogokut najčešće je vezano uz promatranje njegovog karakterističnog trokuta. Naime, spajanjem središta pravilnog mnogokuta s njegovim vrhovima mnogokut dijelimo na n sukladnih trokuta. Svaki je od njih karakterističan trokut mnogokuta.
+Neka je ABS karakteristični trokut pravilnog n-terokuta. U njemu je
+∣AB∣=a duljina stranice mnogokuta,
+∣AS∣=∣BS∣=r polumjer opisane, a
+∣SN∣=ρ polumjer upisane kružnice.
+Nadalje je
+∠ASB=360^∘/n.
+
+Visinom iz vrha S karakteristični je trokut podijeljen na dva sukladna pravokutna trokuta. Pritom je
+∠ASN=180^∘/n.
+
+PRIMJER 11
+PRIMJER 12
+PRIMJER 13

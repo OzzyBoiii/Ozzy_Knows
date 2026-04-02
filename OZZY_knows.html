@@ -428,9 +428,28 @@
 
     .grid-container1 { background-color: rgba(255,255,255,0.9); padding: 25px; border-radius: 15px; margin: 30px auto; max-width: 1200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
     .grid-container1 h1 { background-color: transparent; }
-    .grid-container1 h5 { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 15px; margin-top: 20px; }
-    .grid-container1 a { background-color: #5c6bc0; color: white; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; min-height: 60px; font-size: 1rem; position: relative; }
+    /* NEW: other subjects grid with 4 items per row */
+    .grid-container1 h5 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .grid-container1 a {
+      background-color: #5c6bc0; color: white; padding: 12px; border-radius: 8px;
+      text-decoration: none; font-weight: 600; transition: all 0.3s ease;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 60px; font-size: 1rem; position: relative;
+    }
     .grid-container1 a:hover { background-color: #3949ab; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+    /* Responsive: on smaller screens, reduce to 2 or 1 */
+    @media (max-width: 768px) {
+      .grid-container1 h5 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .grid-container1 h5 { grid-template-columns: 1fr; }
+    }
 
     /* School Portal */
     .portal-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 15px; margin: 20px 0; }
@@ -533,9 +552,65 @@
     .context-menu-item { padding: 8px 12px; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; gap: 6px; }
     .context-menu-item:hover { background: #f0f0f0; }
 
-    /* ── GRAPH WINDOW ── */
-    #graph-window { max-width: 900px; }
-    #graph-window .window-content { padding: 0; background: #0d0d17; }
+    /* ── GRAPH WINDOW (enhanced) ── */
+    #graph-window { max-width: 1000px; }
+    #graph-window .window-content { padding: 0; background: #0d0d17; display: flex; flex-direction: column; }
+    .graph-controls {
+      background: #1e293b;
+      padding: 12px 20px;
+      border-bottom: 1px solid #334155;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .graph-controls-left {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .graph-controls-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .graph-search {
+      background: #0f172a;
+      border: 1px solid #475569;
+      color: #e2e8f0;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      width: 200px;
+    }
+    .graph-search:focus {
+      outline: none;
+      border-color: #60a5fa;
+    }
+    .graph-legend {
+      display: flex;
+      gap: 16px;
+      font-size: 0.8rem;
+      color: #cbd5e1;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .legend-color.folder { background: #f39c12; }
+    .legend-color.html   { background: #3498db; }
+    .legend-color.text   { background: #2ecc71; }
+    .graph-status {
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
     #d3-container {
       width: 100%;
       height: 500px;
@@ -560,10 +635,11 @@
 
     /* graph SVG classes */
     .g-links line { stroke: #565f89; stroke-width: 1.5; stroke-opacity: 0.4; transition: stroke-opacity 0.15s, stroke 0.15s; }
-    .g-nodes circle { fill: #7aa2f7; stroke: #0d0d17; stroke-width: 2; cursor: pointer; transition: filter 0.2s; filter: drop-shadow(0 0 6px rgba(90,140,255,0.5)); }
-    .g-labels text { font-size: 11px; fill: #bcbcda; paint-order: stroke; stroke: #1a1a2a; stroke-width: 2px; pointer-events: none; user-select: none; transition: opacity 0.2s, fill 0.2s; }
+    .g-nodes circle { stroke: #0d0d17; stroke-width: 2; cursor: pointer; transition: filter 0.2s; filter: drop-shadow(0 0 4px rgba(255,255,255,0.2)); }
+    .g-labels text { font-size: 10px; fill: #bcbcda; paint-order: stroke; stroke: #1a1a2a; stroke-width: 2px; pointer-events: none; user-select: none; transition: opacity 0.2s, fill 0.2s; }
     .g-links line.hl   { stroke: #bb9af7 !important; stroke-opacity: 0.9 !important; stroke-width: 2.5 !important; }
     .g-labels text.hl  { fill: white !important; font-weight: 500; }
+    .node-highlight circle { filter: drop-shadow(0 0 8px #ffaa00); }
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -575,6 +651,8 @@
       #demo { font-size: 1.5rem; padding: 10px; }
       .new-window { width: 95%; }
       .settings-grid { grid-template-columns: repeat(2,1fr); }
+      .graph-controls { flex-direction: column; align-items: stretch; }
+      .graph-controls-left, .graph-controls-right { justify-content: center; }
     }
     @media (max-width: 480px) {
       .photo-grid-container { grid-template-columns: 1fr; }
@@ -683,7 +761,7 @@
   </div>
   <div class="photo-item">
     <a href="http://127.0.0.1:5500/Course/Fizika/Fizika.html" target="_blank" title="Fizika">
-      <img src="Course/Fizika/Background_image.png" alt="Physics" loading="lazy">
+      <img src="Course/Fizika/Background_Image.png" alt="Physics" loading="lazy">
       <span>Fizika</span>
     </a>
   </div>
@@ -707,9 +785,9 @@
   </div>
 </div>
 
-<!-- Other Subjects -->
+<!-- Other Subjects - modified grid to 4 items per row -->
 <div class="grid-container1" id="otherSubjects">
-  <h1 id="Link_2">OSTALI PREDMETI (&#8595;)</h1>
+  <h1 id="Link_2">OSTALI PREDMETI (↓)</h1>
   <h5>
     <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Logika/Logika.html" data-tooltip="Logika"><i class="fas fa-brain"></i> Logika</a>
     <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Povijest/Povijest.html" data-tooltip="Povijest"><i class="fas fa-landmark"></i> Povijest</a>
@@ -756,19 +834,31 @@
   </div>
 </div>
 
-<!-- Graph Window (Button 3) -->
-<div id="graph-window" class="new-window" style="max-width:900px">
+<!-- Graph Window (Button 3) - Enhanced with dynamic folder loader -->
+<div id="graph-window" class="new-window" style="max-width:1000px">
   <div class="window-drag-handle" id="drag-graph">
     <h2><i class="fas fa-project-diagram"></i> Ozzy_Knows · Graph View</h2>
     <button class="window-close-btn" onclick="toggleNewWindow('graph-window')"><i class="fas fa-times"></i></button>
   </div>
   <div class="window-content" style="padding:0;background:#0d0d17">
+    <div class="graph-controls">
+      <div class="graph-controls-left">
+        <button id="loadOzzyFolderBtn" class="button-33" style="margin:0; background: #5c6bc0; color:white;"><i class="fas fa-folder-open"></i> Load Ozzy_Knows Folder</button>
+        <div class="graph-legend">
+          <div class="legend-item"><div class="legend-color folder"></div><span>Folders</span></div>
+          <div class="legend-item"><div class="legend-color html"></div><span>HTML</span></div>
+          <div class="legend-item"><div class="legend-color text"></div><span>MD/TXT</span></div>
+        </div>
+      </div>
+      <div class="graph-controls-right">
+        <input type="text" id="graphSearch" class="graph-search" placeholder="Search nodes...">
+        <span id="graphStatus" class="graph-status">Ready</span>
+      </div>
+    </div>
     <div id="d3-container"></div>
     <div class="graph-info-bar">
       <span class="graph-badge">📁 Ozzy_Knows</span>
-      <span>HTML file (node)</span>
-      <span style="display:inline-block;width:24px;height:2px;background:#565f89;vertical-align:middle;border-radius:2px"></span>
-      <span>hyperlink / relation</span>
+      <span>Folders (orange) · HTML (blue) · MD/TXT (green)</span>
       <span class="graph-note">✨ drag • hover to highlight connections</span>
     </div>
   </div>
@@ -974,7 +1064,7 @@
 
 <script>
 /* ============================================================
-   SECURITY CONFIG & STATE
+   SECURITY CONFIG & STATE (unchanged)
 ============================================================ */
 const SECURITY_CONFIG = { MASTER_PASSWORD: "cross123!", MAX_ATTEMPTS: 5, LOCKOUT_MINUTES: 1 };
 let securityState = {
@@ -985,7 +1075,6 @@ let securityState = {
 
 function handleProtectedButton(windowId) {
   securityState.pendingWindow = windowId;
-  // Already locked out?
   if (Date.now() < securityState.lockoutUntil) {
     openPwModal();
     showLockoutScreen();
@@ -1140,6 +1229,18 @@ const toggleNewWindow = (windowId) => {
     }
     if (windowId === 'testing-prototypes-window') setTimeout(() => fileManagerSystem.init(), 100);
     if (windowId === 'secure-schedule-window')    setTimeout(() => updateSecureScheduleButtons(), 100);
+    if (windowId === 'graph-window') {
+      setTimeout(() => {
+        const storedPath = localStorage.getItem('ozzy_folder_path');
+        if (storedPath) {
+          // We can't automatically load the folder because we don't have the files.
+          // Instead, we show a message prompting to reload.
+          document.getElementById('graphStatus').textContent = 'Saved folder path found. Click "Load Ozzy_Knows Folder" to reload.';
+        } else {
+          document.getElementById('graphStatus').textContent = 'Click the button to select your Ozzy_Knows folder.';
+        }
+      }, 100);
+    }
   }
 };
 
@@ -1176,63 +1277,208 @@ const closeAllWindows = () => {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAllWindows(); });
 
 /* ============================================================
-   D3 GRAPH WINDOW
+   DYNAMIC D3 GRAPH (Folder Scanner & Builder) - HIERARCHICAL VERSION
 ============================================================ */
-let graphInitialized = false;
+let graphSimulation = null;
+let graphSvg = null;
+let graphGroup = null;
+let graphNodes = [];
+let graphLinks = [];
+let graphNodeMap = new Map();
 
 function openGraphWindow() {
   toggleNewWindow('graph-window');
-  if (!graphInitialized) {
-    setTimeout(initD3Graph, 80);
-    graphInitialized = true;
-  }
 }
 
-function initD3Graph() {
-  if (typeof d3 === 'undefined') { console.warn('D3 not loaded'); return; }
+// Load folder via directory picker
+document.addEventListener('DOMContentLoaded', () => {
+  const loadBtn = document.getElementById('loadOzzyFolderBtn');
+  if (loadBtn) {
+    loadBtn.addEventListener('click', () => {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.webkitdirectory = true;
+      input.directory = true;
+      input.multiple = true;
+      input.onchange = async (e) => {
+        const files = Array.from(e.target.files);
+        if (files.length === 0) return;
+        const statusSpan = document.getElementById('graphStatus');
+        if (statusSpan) statusSpan.textContent = 'Processing files...';
+        const graphData = await buildGraphFromFiles(files);
+        if (statusSpan) statusSpan.textContent = `Loaded ${graphData.nodes.length} nodes, ${graphData.links.length} links`;
+        renderGraph(graphData);
+        // Save folder info? Not possible to save files, but we can save a flag.
+        localStorage.setItem('ozzy_folder_path', 'loaded');
+      };
+      input.click();
+    });
+  }
+
+  const searchInput = document.getElementById('graphSearch');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      if (!graphNodes || graphNodes.length === 0) return;
+      graphNodes.forEach(node => {
+        const text = document.querySelector(`.g-labels text[data-id="${node.id}"]`);
+        if (text) {
+          const matches = node.name.toLowerCase().includes(query);
+          text.style.opacity = matches ? 1 : 0.2;
+          const circle = document.querySelector(`.g-nodes circle[data-id="${node.id}"]`);
+          if (circle) circle.style.opacity = matches ? 1 : 0.2;
+        }
+      });
+    });
+  }
+});
+
+async function buildGraphFromFiles(files) {
+  const nodesMap = new Map(); // id -> { id, name, type, path, parentId? }
+  const linksSet = new Set(); // store "src->tgt" strings
+  const fileContents = new Map(); // for HTML parsing
+  const rootName = "Ozzy_Knows";
+
+  // Helper to add node
+  function addNode(id, name, type, parentId = null) {
+    if (!nodesMap.has(id)) {
+      nodesMap.set(id, { id, name, type, parentId });
+    } else {
+      // Ensure parent is set if not already
+      const existing = nodesMap.get(id);
+      if (!existing.parentId && parentId) existing.parentId = parentId;
+    }
+    return nodesMap.get(id);
+  }
+
+  // Helper to add link
+  function addLink(src, tgt) {
+    const key = `${src}->${tgt}`;
+    if (!linksSet.has(key)) {
+      linksSet.add(key);
+    }
+  }
+
+  // First pass: create nodes for folders and files
+  for (const file of files) {
+    const relPath = file.webkitRelativePath;
+    const parts = relPath.split('/');
+    // Add folder nodes for each segment, linking parent-child
+    let currentPath = '';
+    let lastParent = null;
+    for (let i = 0; i < parts.length - 1; i++) {
+      const part = parts[i];
+      if (i === 0) currentPath = part;
+      else currentPath = currentPath + '/' + part;
+      const folderId = currentPath;
+      const folderNode = addNode(folderId, part, 'folder', lastParent);
+      if (lastParent) addLink(lastParent, folderId);
+      lastParent = folderId;
+    }
+    // Add file node
+    const fileName = parts[parts.length-1];
+    const fileId = relPath;
+    let fileType = 'file';
+    if (fileName.endsWith('.html') || fileName.endsWith('.htm')) fileType = 'html';
+    else if (fileName.endsWith('.md') || fileName.endsWith('.txt')) fileType = 'text';
+    else continue; // ignore other files
+    const fileNode = addNode(fileId, fileName, fileType, lastParent);
+    if (lastParent) addLink(lastParent, fileId);
+    // Store file content for later link extraction
+    if (fileType === 'html') {
+      const content = await readFileContent(file);
+      fileContents.set(fileId, content);
+    }
+  }
+
+  // Second pass: for HTML files, parse links to other files (within the same root)
+  for (const [fileId, content] of fileContents.entries()) {
+    const linkRegex = /href=["']([^"']+)["']/g;
+    let match;
+    while ((match = linkRegex.exec(content)) !== null) {
+      let href = match[1];
+      // Resolve relative path to absolute within the root
+      const fileDir = fileId.substring(0, fileId.lastIndexOf('/'));
+      let targetId;
+      if (href.startsWith('/')) {
+        // absolute from root (assuming root is first part of path)
+        targetId = rootName + href;
+      } else if (href.startsWith('./')) {
+        href = href.substring(2);
+        targetId = fileDir ? fileDir + '/' + href : href;
+      } else if (href.startsWith('../')) {
+        let up = 0;
+        while (href.startsWith('../')) {
+          up++;
+          href = href.substring(3);
+        }
+        let dirParts = fileDir.split('/');
+        dirParts = dirParts.slice(0, dirParts.length - up);
+        targetId = (dirParts.length ? dirParts.join('/') + '/' : '') + href;
+      } else {
+        targetId = fileDir ? fileDir + '/' + href : href;
+      }
+      // Ensure targetId does not start with rootPath duplicate
+      if (!targetId.startsWith(rootName)) targetId = rootName + '/' + targetId;
+      // Normalize: remove redundant slashes
+      targetId = targetId.replace(/\/+/g, '/');
+      // Check if target exists in nodesMap
+      if (nodesMap.has(targetId)) {
+        addLink(fileId, targetId);
+      }
+    }
+  }
+
+  // Prepare nodes and links arrays
+  const nodes = Array.from(nodesMap.values());
+  const links = Array.from(linksSet).map(key => {
+    const [src, tgt] = key.split('->');
+    return { source: src, target: tgt };
+  });
+
+  // Find Ozzy_knows.html node (case-insensitive)
+  const ozzyNode = nodes.find(n => n.name.toLowerCase() === 'ozzy_knows.html');
+  return { nodes, links, centerNodeId: ozzyNode ? ozzyNode.id : null };
+}
+
+function readFileContent(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = e => resolve(e.target.result);
+    reader.onerror = reject;
+    reader.readAsText(file);
+  });
+}
+
+function renderGraph(data) {
   const container = document.getElementById('d3-container');
   if (!container) return;
-  const W = container.offsetWidth || 860, H = 500;
+  container.innerHTML = ''; // clear previous
+  const { nodes, links, centerNodeId } = data;
+  if (nodes.length === 0) {
+    container.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100%;color:#94a3b8;">No valid files found in selected folder.</div>';
+    return;
+  }
 
-  const files = [
-    { id:"index",   name:"index.html",                group:1 },
-    { id:"about",   name:"about.html",                group:1 },
-    { id:"blog",    name:"blog.html",                 group:1 },
-    { id:"projects",name:"projects.html",             group:1 },
-    { id:"contact", name:"contact.html",              group:1 },
-    { id:"post1",   name:"2025/ozzy-discography.html",group:2 },
-    { id:"post2",   name:"2025/blizzard-of-ozz.html", group:2 },
-    { id:"post3",   name:"2025/diary-madman.html",    group:2 },
-    { id:"proj1",   name:"projects/ozzybot.html",     group:3 },
-    { id:"proj2",   name:"projects/sabbath-timeline.html",group:3 },
-    { id:"note1",   name:"notes/lyrics-analysis.html",group:4 },
-    { id:"note2",   name:"notes/ozzy-interviews.html",group:4 }
-  ];
-  const linksData = [
-    ["index","about"],["index","blog"],["index","projects"],["index","contact"],
-    ["blog","post1"],["blog","post2"],["blog","post3"],
-    ["projects","proj1"],["projects","proj2"],
-    ["post1","note1"],["post2","note1"],["post3","note2"],
-    ["proj1","note2"],["about","note2"],
-    ["post1","post2"],["proj1","proj2"],["note1","note2"]
-  ];
-
-  const nodeMap = new Map(files.map(f => [f.id, {...f}]));
-  const nodes = Array.from(nodeMap.values());
-  const links = linksData.map(([s,t]) => {
-    const src = nodeMap.get(s), tgt = nodeMap.get(t);
-    if (!src || !tgt) return null;
-    return { source: src, target: tgt };
-  }).filter(Boolean);
-
-  const colors = { 1:"#7aa2f7", 2:"#bb9af7", 3:"#f7768e", 4:"#e0af68" };
+  const W = container.clientWidth || 860, H = 500;
 
   const svg = d3.select(container).append('svg')
     .attr('width', W).attr('height', H)
     .style('display','block').style('background','#0d0d17')
-    .call(d3.zoom().scaleExtent([0.1,8]).on('zoom', e => g.attr('transform', e.transform)));
+    .call(d3.zoom().scaleExtent([0.1,8]).on('zoom', e => {
+      if (graphGroup) graphGroup.attr('transform', e.transform);
+    }));
 
   const g = svg.append('g');
+  graphGroup = g;
+
+  // Define colors based on type
+  const color = d => {
+    if (d.type === 'folder') return '#f39c12';
+    if (d.type === 'html') return '#3498db';
+    if (d.type === 'text') return '#2ecc71';
+    return '#95a5a6';
+  };
 
   const linkGroup = g.append('g').attr('class','g-links')
     .selectAll('line').data(links).enter().append('line')
@@ -1240,46 +1486,67 @@ function initD3Graph() {
 
   const nodeGroup = g.append('g').attr('class','g-nodes')
     .selectAll('circle').data(nodes).enter().append('circle')
-    .attr('r', d => d.group===1 ? 12 : d.group===2 ? 9 : 7)
-    .attr('fill', d => colors[d.group] || '#7dcfff')
+    .attr('r', d => d.type === 'folder' ? 10 : (d.type === 'html' ? 8 : 6))
+    .attr('fill', d => color(d))
     .attr('stroke','#0d0d17').attr('stroke-width',2)
     .style('cursor','grab')
-    .style('filter', d => `drop-shadow(0 0 6px ${colors[d.group]}88)`)
+    .style('filter', d => `drop-shadow(0 0 4px ${color(d)}88)`)
+    .attr('data-id', d => d.id)
     .call(d3.drag()
-      .on('start', (ev,d) => { if(!ev.active) sim.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
+      .on('start', (ev,d) => { if(!graphSimulation) return; if(!ev.active) graphSimulation.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
       .on('drag',  (ev,d) => { d.fx=ev.x; d.fy=ev.y; })
-      .on('end',   (ev,d) => { if(!ev.active) sim.alphaTarget(0); d.fx=null; d.fy=null; }));
+      .on('end',   (ev,d) => { if(!graphSimulation) return; if(!ev.active) graphSimulation.alphaTarget(0); d.fx=null; d.fy=null; }));
 
   const labelGroup = g.append('g').attr('class','g-labels')
     .selectAll('text').data(nodes).enter().append('text')
-    .attr('font-size','11px').attr('fill','#bcbcda')
+    .attr('font-size','10px').attr('fill','#bcbcda')
     .attr('paint-order','stroke').attr('stroke','#1a1a2a').attr('stroke-width','2px')
     .attr('dx',14).attr('dy',4).style('pointer-events','none').style('user-select','none')
-    .text(d => d.name.split('/').pop());
+    .attr('data-id', d => d.id)
+    .text(d => d.name);
 
+  // Define forces: hierarchical attraction to parent nodes, and radial from center for root
   const sim = d3.forceSimulation(nodes)
-    .force('link',    d3.forceLink(links).id(d=>d.id).distance(130).strength(0.7))
-    .force('charge',  d3.forceManyBody().strength(-300))
-    .force('center',  d3.forceCenter(W/2, H/2))
-    .force('collide', d3.forceCollide().radius(30).strength(0.5))
-    .on('tick', () => {
-      linkGroup.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y)
-               .attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
-      nodeGroup.attr('cx',d=>d.x).attr('cy',d=>d.y);
-      labelGroup.attr('x',d=>d.x).attr('y',d=>d.y);
-    });
+    .force('link', d3.forceLink(links).id(d => d.id).distance(d => {
+      // If link is folder->file, shorter distance; if file->file, longer
+      const source = nodes.find(n => n.id === d.source.id);
+      const target = nodes.find(n => n.id === d.target.id);
+      if (source.type === 'folder' && target.type !== 'folder') return 80;
+      if (source.type !== 'folder' && target.type === 'folder') return 80;
+      return 120;
+    }).strength(0.5))
+    .force('charge', d3.forceManyBody().strength(d => d.type === 'folder' ? -200 : -100))
+    .force('center', d3.forceCenter(W/2, H/2))
+    .force('collide', d3.forceCollide().radius(d => (d.type === 'folder' ? 25 : 15)).strength(0.5))
+    .force('radial', d3.forceRadial(200, W/2, H/2).strength(d => d.id === centerNodeId ? 1 : 0.2)); // pull root to center
 
-  // Hover highlight (like Obsidian)
+  // If we have a central node, give it a slight initial position to center
+  if (centerNodeId) {
+    const centerNode = nodes.find(n => n.id === centerNodeId);
+    if (centerNode) {
+      centerNode.fx = W/2;
+      centerNode.fy = H/2;
+    }
+  }
+
+  sim.on('tick', () => {
+    linkGroup.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y)
+             .attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+    nodeGroup.attr('cx',d=>d.x).attr('cy',d=>d.y);
+    labelGroup.attr('x',d=>d.x).attr('y',d=>d.y);
+  });
+
+  // Highlight on hover
   nodeGroup
     .on('mouseenter', function(event, d) {
       linkGroup.classed('hl', l => l.source.id===d.id || l.target.id===d.id);
-      labelGroup.classed('hl', n => n.id===d.id || links.some(l => (l.source.id===d.id&&l.target.id===n.id)||(l.target.id===d.id&&l.source.id===n.id)));
-      d3.select(this).attr('r', d.group===1 ? 16 : d.group===2 ? 12 : 10);
+      labelGroup.classed('hl', n => n.id===d.id);
+      d3.select(this).attr('r', d.type === 'folder' ? 13 : (d.type === 'html' ? 11 : 9));
     })
     .on('mouseleave', function(event, d) {
       linkGroup.classed('hl', false);
       labelGroup.classed('hl', false);
-      d3.select(this).attr('r', d.group===1 ? 12 : d.group===2 ? 9 : 7);
+      d3.select(this).attr('r', d.type === 'folder' ? 10 : (d.type === 'html' ? 8 : 6));
     });
 
   linkGroup
@@ -1290,11 +1557,18 @@ function initD3Graph() {
     })
     .on('mouseleave', () => { linkGroup.classed('hl',false); nodeGroup.classed('hl',false); labelGroup.classed('hl',false); });
 
+  // Store simulation and nodes for later updates
+  graphSimulation = sim;
+  graphNodes = nodes;
+  graphLinks = links;
+  graphNodeMap.clear();
+  nodes.forEach(n => graphNodeMap.set(n.id, n));
+
   sim.alpha(1).restart();
 }
 
 /* ============================================================
-   SCHEDULE SYSTEM
+   SCHEDULE SYSTEM (unchanged)
 ============================================================ */
 const SECURE_SCHEDULES = {
   workday: {
@@ -1442,7 +1716,7 @@ setInterval(checkSecureCurrentStage, 1000);
 checkSecureCurrentStage();
 
 /* ============================================================
-   QUOTES
+   QUOTES (expanded list)
 ============================================================ */
 const textItems = [
   "Everybody lies",
@@ -1450,7 +1724,21 @@ const textItems = [
   "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
   "Either you run the day or the day runs you.",
   "Education is the most powerful weapon which you can use to change the world.",
-  "The only way to do great work is to love what you do."
+  "The only way to do great work is to love what you do.",
+  "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+  "The future belongs to those who believe in the beauty of their dreams.",
+  "Strive not to be a success, but rather to be of value.",
+  "The only limit to our realization of tomorrow is our doubts of today.",
+  "Life is what happens when you're busy making other plans.",
+  "The journey of a thousand miles begins with one step.",
+  "What you get by achieving your goals is not as important as what you become by achieving your goals.",
+  "Believe you can and you're halfway there.",
+  "It does not matter how slowly you go as long as you do not stop.",
+  "You are never too old to set another goal or to dream a new dream.",
+  "The secret of getting ahead is getting started.",
+  "Your time is limited, don't waste it living someone else's life.",
+  "If you can dream it, you can do it.",
+  "The only way to achieve the impossible is to believe it is possible."
 ];
 let currentIndex = 0;
 const rotateQuotes = () => {
@@ -1464,7 +1752,7 @@ setInterval(rotateQuotes, 5000);
 rotateQuotes();
 
 /* ============================================================
-   COUNTDOWN TIMER
+   COUNTDOWN TIMER (unchanged)
 ============================================================ */
 const countDownDate = new Date("Jun 13, 2026 00:00:00").getTime();
 setInterval(() => {
@@ -1478,7 +1766,7 @@ setInterval(() => {
 }, 1000);
 
 /* ============================================================
-   STOPWATCH
+   STOPWATCH (unchanged)
 ============================================================ */
 let [swSec, swMin, swHrs] = [0,0,0], swTimer = null, laps = [], lapCount = 0;
 const updateTimerDisplay = () => {
@@ -1516,7 +1804,7 @@ const updateLapDisplay = () => {
 };
 
 /* ============================================================
-   SCHOOL PORTAL
+   SCHOOL PORTAL (unchanged)
 ============================================================ */
 const localApps = [
   { name:"Python",                protocol:"python://open",   icon:"fab fa-python",      description:"Python programming environment",        badge:"Local App" },
@@ -1662,7 +1950,7 @@ window.addEventListener('scroll', () => {
 });
 
 /* ============================================================
-   FILE MANAGER SYSTEM
+   FILE MANAGER SYSTEM (unchanged)
 ============================================================ */
 const fileManagerSystem = {
   state: { loadedFiles:[], selectedFile:null, currentMode:'file', currentSearch:'', selectedFileIds: new Set() },

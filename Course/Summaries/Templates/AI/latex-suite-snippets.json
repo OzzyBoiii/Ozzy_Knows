@@ -1,0 +1,1189 @@
+[
+  {
+    "trigger": "mk",
+    "replacement": "$$0$",
+    "options": "tA",
+    "description": "Inline math",
+    "priority": 1
+  },
+  {
+    "trigger": "dm",
+    "replacement": "$$\n$0\n$$",
+    "options": "tAw",
+    "description": "Display math",
+    "priority": 1
+  },
+  {
+    "trigger": "beg",
+    "replacement": "\\begin{$0}\n$1\n\\end{$0}",
+    "options": "mA",
+    "description": "Begin environment",
+    "priority": 1
+  },
+  
+  // GREEK LETTERS - Lowercase
+  {
+    "trigger": "alpha",
+    "replacement": "\\alpha",
+    "options": "mA",
+    "description": "Greek alpha"
+  },
+  {
+    "trigger": "beta",
+    "replacement": "\\beta",
+    "options": "mA",
+    "description": "Greek beta"
+  },
+  {
+    "trigger": "gamma",
+    "replacement": "\\gamma",
+    "options": "mA",
+    "description": "Greek gamma"
+  },
+  {
+    "trigger": "Gamma",
+    "replacement": "\\Gamma",
+    "options": "mA",
+    "description": "Greek Gamma (capital)"
+  },
+  {
+    "trigger": "delta",
+    "replacement": "\\delta",
+    "options": "mA",
+    "description": "Greek delta"
+  },
+  {
+    "trigger": "Delta",
+    "replacement": "\\Delta",
+    "options": "mA",
+    "description": "Greek Delta (capital)"
+  },
+  {
+    "trigger": "eps",
+    "replacement": "\\epsilon",
+    "options": "mA",
+    "description": "Greek epsilon"
+  },
+  {
+    "trigger": "veps",
+    "replacement": "\\varepsilon",
+    "options": "mA",
+    "description": "Greek varepsilon"
+  },
+  {
+    "trigger": "zeta",
+    "replacement": "\\zeta",
+    "options": "mA",
+    "description": "Greek zeta"
+  },
+  {
+    "trigger": "eta",
+    "replacement": "\\eta",
+    "options": "mA",
+    "description": "Greek eta"
+  },
+  {
+    "trigger": "theta",
+    "replacement": "\\theta",
+    "options": "mA",
+    "description": "Greek theta"
+  },
+  {
+    "trigger": "Theta",
+    "replacement": "\\Theta",
+    "options": "mA",
+    "description": "Greek Theta (capital)"
+  },
+  {
+    "trigger": "vtheta",
+    "replacement": "\\vartheta",
+    "options": "mA",
+    "description": "Greek vartheta"
+  },
+  {
+    "trigger": "iota",
+    "replacement": "\\iota",
+    "options": "mA",
+    "description": "Greek iota"
+  },
+  {
+    "trigger": "kappa",
+    "replacement": "\\kappa",
+    "options": "mA",
+    "description": "Greek kappa"
+  },
+  {
+    "trigger": "lambda",
+    "replacement": "\\lambda",
+    "options": "mA",
+    "description": "Greek lambda"
+  },
+  {
+    "trigger": "Lambda",
+    "replacement": "\\Lambda",
+    "options": "mA",
+    "description": "Greek Lambda (capital)"
+  },
+  {
+    "trigger": "mu",
+    "replacement": "\\mu",
+    "options": "mA",
+    "description": "Greek mu"
+  },
+  {
+    "trigger": "nu",
+    "replacement": "\\nu",
+    "options": "mA",
+    "description": "Greek nu"
+  },
+  {
+    "trigger": "xi",
+    "replacement": "\\xi",
+    "options": "mA",
+    "description": "Greek xi"
+  },
+  {
+    "trigger": "Xi",
+    "replacement": "\\Xi",
+    "options": "mA",
+    "description": "Greek Xi (capital)"
+  },
+  {
+    "trigger": "pi",
+    "replacement": "\\pi",
+    "options": "mA",
+    "description": "Greek pi"
+  },
+  {
+    "trigger": "Pi",
+    "replacement": "\\Pi",
+    "options": "mA",
+    "description": "Greek Pi (capital)"
+  },
+  {
+    "trigger": "vpi",
+    "replacement": "\\varpi",
+    "options": "mA",
+    "description": "Greek varpi"
+  },
+  {
+    "trigger": "rho",
+    "replacement": "\\rho",
+    "options": "mA",
+    "description": "Greek rho"
+  },
+  {
+    "trigger": "vrho",
+    "replacement": "\\varrho",
+    "options": "mA",
+    "description": "Greek varrho"
+  },
+  {
+    "trigger": "sigma",
+    "replacement": "\\sigma",
+    "options": "mA",
+    "description": "Greek sigma"
+  },
+  {
+    "trigger": "Sigma",
+    "replacement": "\\Sigma",
+    "options": "mA",
+    "description": "Greek Sigma (capital)"
+  },
+  {
+    "trigger": "vsigma",
+    "replacement": "\\varsigma",
+    "options": "mA",
+    "description": "Greek varsigma"
+  },
+  {
+    "trigger": "tau",
+    "replacement": "\\tau",
+    "options": "mA",
+    "description": "Greek tau"
+  },
+  {
+    "trigger": "upsilon",
+    "replacement": "\\upsilon",
+    "options": "mA",
+    "description": "Greek upsilon"
+  },
+  {
+    "trigger": "Upsilon",
+    "replacement": "\\Upsilon",
+    "options": "mA",
+    "description": "Greek Upsilon (capital)"
+  },
+  {
+    "trigger": "phi",
+    "replacement": "\\phi",
+    "options": "mA",
+    "description": "Greek phi"
+  },
+  {
+    "trigger": "Phi",
+    "replacement": "\\Phi",
+    "options": "mA",
+    "description": "Greek Phi (capital)"
+  },
+  {
+    "trigger": "vphi",
+    "replacement": "\\varphi",
+    "options": "mA",
+    "description": "Greek varphi"
+  },
+  {
+    "trigger": "chi",
+    "replacement": "\\chi",
+    "options": "mA",
+    "description": "Greek chi"
+  },
+  {
+    "trigger": "psi",
+    "replacement": "\\psi",
+    "options": "mA",
+    "description": "Greek psi"
+  },
+  {
+    "trigger": "Psi",
+    "replacement": "\\Psi",
+    "options": "mA",
+    "description": "Greek Psi (capital)"
+  },
+  {
+    "trigger": "omega",
+    "replacement": "\\omega",
+    "options": "mA",
+    "description": "Greek omega"
+  },
+  {
+    "trigger": "Omega",
+    "replacement": "\\Omega",
+    "options": "mA",
+    "description": "Greek Omega (capital)"
+  },
+
+  // SUPERSCRIPTS & SUBSCRIPTS
+  {
+    "trigger": "sr",
+    "replacement": "^{2}",
+    "options": "mA",
+    "description": "Superscript 2 (squared)"
+  },
+  {
+    "trigger": "cb",
+    "replacement": "^{3}",
+    "options": "mA",
+    "description": "Superscript 3 (cubed)"
+  },
+  {
+    "trigger": "rd",
+    "replacement": "^{$0}$1",
+    "options": "mA",
+    "description": "Superscript (general)"
+  },
+  {
+    "trigger": "_",
+    "replacement": "_{$0}$1",
+    "options": "mA",
+    "description": "Subscript"
+  },
+  {
+    "trigger": "sts",
+    "replacement": "_\\text{$0}",
+    "options": "mA",
+    "description": "Subscript text"
+  },
+  {
+    "trigger": "invs",
+    "replacement": "^{-1}",
+    "options": "mA",
+    "description": "Inverse (superscript -1)"
+  },
+  {
+    "trigger": "conj",
+    "replacement": "^{*}",
+    "options": "mA",
+    "description": "Complex conjugate"
+  },
+  {
+    "trigger": "dag",
+    "replacement": "^{\\dagger}",
+    "options": "mA",
+    "description": "Dagger (Hermitian conjugate)"
+  },
+
+  // FRACTIONS & ROOTS
+  {
+    "trigger": "//",
+    "replacement": "\\frac{$0}{$1}$2",
+    "options": "mA",
+    "description": "Fraction"
+  },
+  {
+    "trigger": "sq",
+    "replacement": "\\sqrt{$0}$1",
+    "options": "mA",
+    "description": "Square root"
+  },
+  {
+    "trigger": "nrt",
+    "replacement": "\\sqrt[$0]{$1}$2",
+    "options": "mA",
+    "description": "nth root"
+  },
+
+  // OPERATIONS & SYMBOLS
+  {
+    "trigger": "sum",
+    "replacement": "\\sum",
+    "options": "mA",
+    "description": "Summation"
+  },
+  {
+    "trigger": "prod",
+    "replacement": "\\prod",
+    "options": "mA",
+    "description": "Product"
+  },
+  {
+    "trigger": "lim",
+    "replacement": "\\lim_{${0:n} \\to ${1:\\infty}} $2",
+    "options": "mA",
+    "description": "Limit"
+  },
+  {
+    "trigger": "+-",
+    "replacement": "\\pm",
+    "options": "mA",
+    "description": "Plus-minus"
+  },
+  {
+    "trigger": "-+",
+    "replacement": "\\mp",
+    "options": "mA",
+    "description": "Minus-plus"
+  },
+  {
+    "trigger": "ooo",
+    "replacement": "\\infty",
+    "options": "mA",
+    "description": "Infinity"
+  },
+  {
+    "trigger": "...",
+    "replacement": "\\dots",
+    "options": "mA",
+    "description": "Ellipsis (dots)"
+  },
+  {
+    "trigger": "nabl",
+    "replacement": "\\nabla",
+    "options": "mA",
+    "description": "Nabla (del operator)"
+  },
+  {
+    "trigger": "xx",
+    "replacement": "\\times",
+    "options": "mA",
+    "description": "Times (cross product)"
+  },
+  {
+    "trigger": "**",
+    "replacement": "\\cdot",
+    "options": "mA",
+    "description": "Dot product"
+  },
+  {
+    "trigger": "para",
+    "replacement": "\\parallel",
+    "options": "mA",
+    "description": "Parallel"
+  },
+
+  // RELATIONS
+  {
+    "trigger": "===",
+    "replacement": "\\equiv",
+    "options": "mA",
+    "description": "Equivalent"
+  },
+  {
+    "trigger": "!=",
+    "replacement": "\\neq",
+    "options": "mA",
+    "description": "Not equal"
+  },
+  {
+    "trigger": ">=",
+    "replacement": "\\geq",
+    "options": "mA",
+    "description": "Greater than or equal"
+  },
+  {
+    "trigger": "<=",
+    "replacement": "\\leq",
+    "options": "mA",
+    "description": "Less than or equal"
+  },
+  {
+    "trigger": ">>",
+    "replacement": "\\gg",
+    "options": "mA",
+    "description": "Much greater than"
+  },
+  {
+    "trigger": "<<",
+    "replacement": "\\ll",
+    "options": "mA",
+    "description": "Much less than"
+  },
+  {
+    "trigger": "simm",
+    "replacement": "\\sim",
+    "options": "mA",
+    "description": "Similar to"
+  },
+  {
+    "trigger": "sim=",
+    "replacement": "\\simeq",
+    "options": "mA",
+    "description": "Similar or equal"
+  },
+  {
+    "trigger": "prop",
+    "replacement": "\\propto",
+    "options": "mA",
+    "description": "Proportional to"
+  },
+  {
+    "trigger": "approx",
+    "replacement": "\\approx",
+    "options": "mA",
+    "description": "Approximately equal"
+  },
+
+  // ARROWS
+  {
+    "trigger": "->",
+    "replacement": "\\to",
+    "options": "mA",
+    "description": "Right arrow"
+  },
+  {
+    "trigger": "<->",
+    "replacement": "\\leftrightarrow",
+    "options": "mA",
+    "description": "Left-right arrow"
+  },
+  {
+    "trigger": "!>",
+    "replacement": "\\mapsto",
+    "options": "mA",
+    "description": "Maps to"
+  },
+  {
+    "trigger": "=>",
+    "replacement": "\\implies",
+    "options": "mA",
+    "description": "Implies"
+  },
+  {
+    "trigger": "=<",
+    "replacement": "\\impliedby",
+    "options": "mA",
+    "description": "Implied by"
+  },
+  {
+    "trigger": "<=>",
+    "replacement": "\\iff",
+    "options": "mA",
+    "description": "If and only if"
+  },
+
+  // SET THEORY
+  {
+    "trigger": "and",
+    "replacement": "\\cap",
+    "options": "mA",
+    "description": "Intersection (and)"
+  },
+  {
+    "trigger": "orr",
+    "replacement": "\\cup",
+    "options": "mA",
+    "description": "Union (or)"
+  },
+  {
+    "trigger": "inn",
+    "replacement": "\\in",
+    "options": "mA",
+    "description": "Element of"
+  },
+  {
+    "trigger": "notin",
+    "replacement": "\\not\\in",
+    "options": "mA",
+    "description": "Not an element of"
+  },
+  {
+    "trigger": "\\\\\\",
+    "replacement": "\\setminus",
+    "options": "mA",
+    "description": "Set difference"
+  },
+  {
+    "trigger": "sub=",
+    "replacement": "\\subseteq",
+    "options": "mA",
+    "description": "Subset or equal"
+  },
+  {
+    "trigger": "sup=",
+    "replacement": "\\supseteq",
+    "options": "mA",
+    "description": "Superset or equal"
+  },
+  {
+    "trigger": "eset",
+    "replacement": "\\emptyset",
+    "options": "mA",
+    "description": "Empty set"
+  },
+  {
+    "trigger": "set",
+    "replacement": "\\{$0\\}$1",
+    "options": "mA",
+    "description": "Set notation"
+  },
+  {
+    "trigger": "exists",
+    "replacement": "\\exists",
+    "options": "mA",
+    "description": "There exists"
+  },
+  {
+    "trigger": "forall",
+    "replacement": "\\forall",
+    "options": "mA",
+    "description": "For all"
+  },
+
+  // BLACKBOARD BOLD (Number sets)
+  {
+    "trigger": "NN",
+    "replacement": "\\mathbb{N}",
+    "options": "mA",
+    "description": "Natural numbers"
+  },
+  {
+    "trigger": "ZZ",
+    "replacement": "\\mathbb{Z}",
+    "options": "mA",
+    "description": "Integers"
+  },
+  {
+    "trigger": "QQ",
+    "replacement": "\\mathbb{Q}",
+    "options": "mA",
+    "description": "Rational numbers"
+  },
+  {
+    "trigger": "RR",
+    "replacement": "\\mathbb{R}",
+    "options": "mA",
+    "description": "Real numbers"
+  },
+  {
+    "trigger": "CC",
+    "replacement": "\\mathbb{C}",
+    "options": "mA",
+    "description": "Complex numbers"
+  },
+  {
+    "trigger": "HH",
+    "replacement": "\\mathcal{H}",
+    "options": "mA",
+    "description": "Hilbert space"
+  },
+  {
+    "trigger": "LL",
+    "replacement": "\\mathcal{L}",
+    "options": "mA",
+    "description": "Lagrangian / Laplace transform"
+  },
+  {
+    "trigger": "PP",
+    "replacement": "\\mathbb{P}",
+    "options": "mA",
+    "description": "Probability"
+  },
+  {
+    "trigger": "EE",
+    "replacement": "\\mathbb{E}",
+    "options": "mA",
+    "description": "Expected value"
+  },
+
+  // FONT STYLES
+  {
+    "trigger": "bf",
+    "replacement": "\\mathbf{$0}$1",
+    "options": "mA",
+    "description": "Bold font"
+  },
+  {
+    "trigger": "rm",
+    "replacement": "\\mathrm{$0}$1",
+    "options": "mA",
+    "description": "Roman font"
+  },
+  {
+    "trigger": "cal",
+    "replacement": "\\mathcal{$0}$1",
+    "options": "mA",
+    "description": "Calligraphic font"
+  },
+  {
+    "trigger": "bb",
+    "replacement": "\\mathbb{$0}$1",
+    "options": "mA",
+    "description": "Blackboard bold"
+  },
+  {
+    "trigger": "frak",
+    "replacement": "\\mathfrak{$0}$1",
+    "options": "mA",
+    "description": "Fraktur font"
+  },
+  {
+    "trigger": "tt",
+    "replacement": "\\mathtt{$0}$1",
+    "options": "mA",
+    "description": "Typewriter font"
+  },
+  {
+    "trigger": "text",
+    "replacement": "\\text{$0}$1",
+    "options": "mA",
+    "description": "Text mode"
+  },
+
+  // CALCULUS
+  {
+    "trigger": "par",
+    "replacement": "\\frac{\\partial ${0:y}}{\\partial ${1:x}}$2",
+    "options": "m",
+    "description": "Partial derivative"
+  },
+  {
+    "trigger": "ddt",
+    "replacement": "\\frac{d}{dt}",
+    "options": "mA",
+    "description": "Time derivative"
+  },
+  {
+    "trigger": "ddx",
+    "replacement": "\\frac{d}{dx}",
+    "options": "mA",
+    "description": "Derivative with respect to x"
+  },
+  {
+    "trigger": "int",
+    "replacement": "\\int $0 \\, d${1:x} $2",
+    "options": "mA",
+    "description": "Integral"
+  },
+  {
+    "trigger": "dint",
+    "replacement": "\\int_{${0:0}}^{${1:1}} $2 \\, d${3:x} $4",
+    "options": "mA",
+    "description": "Definite integral"
+  },
+  {
+    "trigger": "oint",
+    "replacement": "\\oint",
+    "options": "mA",
+    "description": "Contour integral"
+  },
+  {
+    "trigger": "iint",
+    "replacement": "\\iint",
+    "options": "mA",
+    "description": "Double integral"
+  },
+  {
+    "trigger": "iiint",
+    "replacement": "\\iiint",
+    "options": "mA",
+    "description": "Triple integral"
+  },
+  {
+    "trigger": "oinf",
+    "replacement": "\\int_{0}^{\\infty} $0 \\, d${1:x} $2",
+    "options": "mA",
+    "description": "Integral from 0 to infinity"
+  },
+  {
+    "trigger": "infi",
+    "replacement": "\\int_{-\\infty}^{\\infty} $0 \\, d${1:x} $2",
+    "options": "mA",
+    "description": "Integral from -infinity to infinity"
+  },
+
+  // TRIGONOMETRY
+  {
+    "trigger": "sin",
+    "replacement": "\\sin",
+    "options": "mA",
+    "description": "Sine"
+  },
+  {
+    "trigger": "cos",
+    "replacement": "\\cos",
+    "options": "mA",
+    "description": "Cosine"
+  },
+  {
+    "trigger": "tan",
+    "replacement": "\\tan",
+    "options": "mA",
+    "description": "Tangent"
+  },
+  {
+    "trigger": "cot",
+    "replacement": "\\cot",
+    "options": "mA",
+    "description": "Cotangent"
+  },
+  {
+    "trigger": "sec",
+    "replacement": "\\sec",
+    "options": "mA",
+    "description": "Secant"
+  },
+  {
+    "trigger": "csc",
+    "replacement": "\\csc",
+    "options": "mA",
+    "description": "Cosecant"
+  },
+  {
+    "trigger": "arcsin",
+    "replacement": "\\arcsin",
+    "options": "mA",
+    "description": "Arcsine"
+  },
+  {
+    "trigger": "arccos",
+    "replacement": "\\arccos",
+    "options": "mA",
+    "description": "Arccosine"
+  },
+  {
+    "trigger": "arctan",
+    "replacement": "\\arctan",
+    "options": "mA",
+    "description": "Arctangent"
+  },
+  {
+    "trigger": "sinh",
+    "replacement": "\\sinh",
+    "options": "mA",
+    "description": "Hyperbolic sine"
+  },
+  {
+    "trigger": "cosh",
+    "replacement": "\\cosh",
+    "options": "mA",
+    "description": "Hyperbolic cosine"
+  },
+  {
+    "trigger": "tanh",
+    "replacement": "\\tanh",
+    "options": "mA",
+    "description": "Hyperbolic tangent"
+  },
+  {
+    "trigger": "coth",
+    "replacement": "\\coth",
+    "options": "mA",
+    "description": "Hyperbolic cotangent"
+  },
+
+  // LOGARITHMS & EXPONENTIALS
+  {
+    "trigger": "ee",
+    "replacement": "e^{$0}$1",
+    "options": "mA",
+    "description": "Exponential e^x"
+  },
+  {
+    "trigger": "exp",
+    "replacement": "\\exp\\left($0\\right)$1",
+    "options": "mA",
+    "description": "Exponential function"
+  },
+  {
+    "trigger": "ln",
+    "replacement": "\\ln",
+    "options": "mA",
+    "description": "Natural logarithm"
+  },
+  {
+    "trigger": "log",
+    "replacement": "\\log",
+    "options": "mA",
+    "description": "Logarithm"
+  },
+  {
+    "trigger": "lg",
+    "replacement": "\\lg",
+    "options": "mA",
+    "description": "Base-2 logarithm"
+  },
+
+  // COMPLEX NUMBERS
+  {
+    "trigger": "Re",
+    "replacement": "\\mathrm{Re}",
+    "options": "mA",
+    "description": "Real part"
+  },
+  {
+    "trigger": "Im",
+    "replacement": "\\mathrm{Im}",
+    "options": "mA",
+    "description": "Imaginary part"
+  },
+
+  // MATRICES & VECTORS
+  {
+    "trigger": "pmat",
+    "replacement": "\\begin{pmatrix}\n$0\n\\end{pmatrix}",
+    "options": "mA",
+    "description": "Matrix (parentheses)"
+  },
+  {
+    "trigger": "bmat",
+    "replacement": "\\begin{bmatrix}\n$0\n\\end{bmatrix}",
+    "options": "mA",
+    "description": "Matrix (square brackets)"
+  },
+  {
+    "trigger": "Bmat",
+    "replacement": "\\begin{Bmatrix}\n$0\n\\end{Bmatrix}",
+    "options": "mA",
+    "description": "Matrix (curly braces)"
+  },
+  {
+    "trigger": "vmat",
+    "replacement": "\\begin{vmatrix}\n$0\n\\end{vmatrix}",
+    "options": "mA",
+    "description": "Determinant (single bars)"
+  },
+  {
+    "trigger": "Vmat",
+    "replacement": "\\begin{Vmatrix}\n$0\n\\end{Vmatrix}",
+    "options": "mA",
+    "description": "Matrix norm (double bars)"
+  },
+  {
+    "trigger": "matrix",
+    "replacement": "\\begin{matrix}\n$0\n\\end{matrix}",
+    "options": "mA",
+    "description": "Matrix (no delimiters)"
+  },
+  {
+    "trigger": "vec",
+    "replacement": "\\vec{$0}$1",
+    "options": "mA",
+    "description": "Vector arrow"
+  },
+  {
+    "trigger": "bar",
+    "replacement": "\\bar{$0}$1",
+    "options": "mA",
+    "description": "Bar accent"
+  },
+  {
+    "trigger": "hat",
+    "replacement": "\\hat{$0}$1",
+    "options": "mA",
+    "description": "Hat accent"
+  },
+  {
+    "trigger": "tilde",
+    "replacement": "\\tilde{$0}$1",
+    "options": "mA",
+    "description": "Tilde accent"
+  },
+  {
+    "trigger": "dot",
+    "replacement": "\\dot{$0}$1",
+    "options": "mA",
+    "description": "Dot accent (time derivative)"
+  },
+  {
+    "trigger": "ddot",
+    "replacement": "\\ddot{$0}$1",
+    "options": "mA",
+    "description": "Double dot accent"
+  },
+
+  // ENVIRONMENTS
+  {
+    "trigger": "cases",
+    "replacement": "\\begin{cases}\n$0\n\\end{cases}",
+    "options": "mA",
+    "description": "Cases environment"
+  },
+  {
+    "trigger": "align",
+    "replacement": "\\begin{align}\n$0\n\\end{align}",
+    "options": "mA",
+    "description": "Align environment"
+  },
+  {
+    "trigger": "array",
+    "replacement": "\\begin{array}\n$0\n\\end{array}",
+    "options": "mA",
+    "description": "Array environment"
+  },
+  {
+    "trigger": "split",
+    "replacement": "\\begin{split}\n$0\n\\end{split}",
+    "options": "mA",
+    "description": "Split environment"
+  },
+
+  // BRACKETS & DELIMITERS
+  {
+    "trigger": "lr(",
+    "replacement": "\\left( $0 \\right) $1",
+    "options": "mA",
+    "description": "Auto-sized parentheses"
+  },
+  {
+    "trigger": "lr[",
+    "replacement": "\\left[ $0 \\right] $1",
+    "options": "mA",
+    "description": "Auto-sized square brackets"
+  },
+  {
+    "trigger": "lr{",
+    "replacement": "\\left\\{ $0 \\right\\} $1",
+    "options": "mA",
+    "description": "Auto-sized curly braces"
+  },
+  {
+    "trigger": "lr|",
+    "replacement": "\\left| $0 \\right| $1",
+    "options": "mA",
+    "description": "Auto-sized absolute value"
+  },
+  {
+    "trigger": "lra",
+    "replacement": "\\left< $0 \\right> $1",
+    "options": "mA",
+    "description": "Auto-sized angle brackets"
+  },
+  {
+    "trigger": "avg",
+    "replacement": "\\langle $0 \\rangle $1",
+    "options": "mA",
+    "description": "Average / expectation"
+  },
+  {
+    "trigger": "norm",
+    "replacement": "\\lvert $0 \\rvert $1",
+    "options": "mA",
+    "description": "Norm (single bars)"
+  },
+  {
+    "trigger": "Norm",
+    "replacement": "\\lVert $0 \\rVert $1",
+    "options": "mA",
+    "description": "Norm (double bars)"
+  },
+  {
+    "trigger": "ceil",
+    "replacement": "\\lceil $0 \\rceil $1",
+    "options": "mA",
+    "description": "Ceiling function"
+  },
+  {
+    "trigger": "floor",
+    "replacement": "\\lfloor $0 \\rfloor $1",
+    "options": "mA",
+    "description": "Floor function"
+  },
+  {
+    "trigger": "mod",
+    "replacement": "|$0|$1",
+    "options": "mA",
+    "description": "Modulus"
+  },
+
+  // PHYSICS & CHEMISTRY
+  {
+    "trigger": "kbt",
+    "replacement": "k_{B}T",
+    "options": "mA",
+    "description": "Boltzmann constant times temperature"
+  },
+  {
+    "trigger": "hbar",
+    "replacement": "\\hbar",
+    "options": "mA",
+    "description": "Reduced Planck constant"
+  },
+  {
+    "trigger": "bra",
+    "replacement": "\\bra{$0} $1",
+    "options": "mA",
+    "description": "Bra (quantum mechanics)"
+  },
+  {
+    "trigger": "ket",
+    "replacement": "\\ket{$0} $1",
+    "options": "mA",
+    "description": "Ket (quantum mechanics)"
+  },
+  {
+    "trigger": "brk",
+    "replacement": "\\braket{$0 | $1} $2",
+    "options": "mA",
+    "description": "Braket (quantum mechanics)"
+  },
+  {
+    "trigger": "outer",
+    "replacement": "\\ket{${0:\\psi}} \\bra{${0:\\psi}} $1",
+    "options": "mA",
+    "description": "Outer product"
+  },
+  {
+    "trigger": "pu",
+    "replacement": "\\pu{$0}",
+    "options": "mA",
+    "description": "Physical units (chemistry)"
+  },
+  {
+    "trigger": "cee",
+    "replacement": "\\ce{$0}",
+    "options": "mA",
+    "description": "Chemical equation"
+  },
+  {
+    "trigger": "isotope",
+    "replacement": "{}^{${0:A}}_{${1:Z}}${2:X}",
+    "options": "mA",
+    "description": "Isotope notation"
+  },
+
+  // VISUAL HELPERS (with selection)
+  {
+    "trigger": "U",
+    "replacement": "\\underbrace{$VISUAL}_{ $0 }",
+    "options": "mA",
+    "description": "Underbrace"
+  },
+  {
+    "trigger": "O",
+    "replacement": "\\overbrace{$VISUAL}^{ $0 }",
+    "options": "mA",
+    "description": "Overbrace"
+  },
+  {
+    "trigger": "B",
+    "replacement": "\\underset{$0}{$VISUAL}",
+    "options": "mA",
+    "description": "Underset"
+  },
+  {
+    "trigger": "C",
+    "replacement": "\\cancel{$VISUAL}",
+    "options": "mA",
+    "description": "Cancel (strikethrough)"
+  },
+  {
+    "trigger": "K",
+    "replacement": "\\cancelto{$0}{$VISUAL}",
+    "options": "mA",
+    "description": "Cancel to (with arrow)"
+  },
+  {
+    "trigger": "S",
+    "replacement": "\\sqrt{$VISUAL}",
+    "options": "mA",
+    "description": "Square root (on selection)"
+  },
+
+  // SPECIAL SYMBOLS
+  {
+    "trigger": "deg",
+    "replacement": "^{\\circ}",
+    "options": "mA",
+    "description": "Degree symbol"
+  },
+  {
+    "trigger": "angle",
+    "replacement": "\\angle",
+    "options": "mA",
+    "description": "Angle symbol"
+  },
+  {
+    "trigger": "triangle",
+    "replacement": "\\triangle",
+    "options": "mA",
+    "description": "Triangle symbol"
+  },
+  {
+    "trigger": "square",
+    "replacement": "\\square",
+    "options": "mA",
+    "description": "Square (end of proof)"
+  },
+  {
+    "trigger": "qed",
+    "replacement": "\\qed",
+    "options": "mA",
+    "description": "QED (end of proof)"
+  },
+  {
+    "trigger": "checkmark",
+    "replacement": "\\checkmark",
+    "options": "mA",
+    "description": "Checkmark"
+  },
+  {
+    "trigger": "xmark",
+    "replacement": "\\times",
+    "options": "mA",
+    "description": "X mark"
+  },
+  {
+    "trigger": "star",
+    "replacement": "\\star",
+    "options": "mA",
+    "description": "Star symbol"
+  },
+  {
+    "trigger": "o+",
+    "replacement": "\\oplus",
+    "options": "mA",
+    "description": "Direct sum"
+  },
+  {
+    "trigger": "ox",
+    "replacement": "\\otimes",
+    "options": "mA",
+    "description": "Tensor product"
+  },
+  {
+    "trigger": "odot",
+    "replacement": "\\odot",
+    "options": "mA",
+    "description": "Dot in circle"
+  }
+]

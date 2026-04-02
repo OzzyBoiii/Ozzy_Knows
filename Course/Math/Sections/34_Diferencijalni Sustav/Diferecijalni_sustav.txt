@@ -1,0 +1,616 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Diferencijalni račun
+============================================================================================================================================================================================================================================
+Limes funkcije
+Definicija limesa
+Neka je (xn) niz brojeva koji se nalazi u području definicije funkcije f. S tim nizom prirodno je povezan i niz brojeva (yn) gdje je yn=f(xn).
+Pretpostavimo da niz brojeva (xn) teži k broju a. Što se događa s nizom (f(xn))? Teži li i on k nekom broju?
+Ovaj rezultat ne ovisi o nizu koji odaberemo jer za bilo koji niz (xn) koji teži prema 2 možemo pisati
+yn=f(xn)=x2n,
+a kako je limn→∞x2n=limn→∞xn⋅limn→∞xn, dobivamo
+xn→2⟹x2n→4.(1)
+Dakle, postoji limes niza (yn) i on iznosi 4.
+Budući da u ovom računu nije bilo važno koji smo niz (xn) odabrali, relaciju (1) zapisujemo na jednostavniji način:
+x→2⟹x2→4.
+Limes funkcije
+Kažemo da funkcija f ima limes L u točki a ako za svaki niz (xn) koji teži k a niz funkcijskih vrijednosti (f(xn)) teži k L. Pišemo:L=limx→af(x).
+Dakle, u prvom bismo primjeru rezultat zapisali ovako
+limx→2f(x)=4.
+U ovom smo primjeru rezultat mogli naslutiti od samog početka jer vrijedi f(2)=4. Ali, tehnika koju smo opisali funkcionira i u složenijim situacijama.
+(PRIMJER 1)
+(PRIMJER 2)
+(PRIMJER 3)
+(PRIMJER 4)
+============================================================================================================================================================================================================================================
+Pravilo direktne zamjene
+U Primjeru 1 vidjeli smo da se vrijednost funkcije f(x)=x2 za argument x=2 podudara s funkcijskom vrijednosti f(2)=4.
+U Primjeru 3 rečeno je da vrijednost funkcije f(1) ne utječe na računanje limesa pa onda niti na vrijednost limesa za x=1.
+Ove dvije činjenice nisu u suprotnosti. Vrijednost funkcije u nekom argumentu ne utječe na računanje limesa u toj točki. Međutim, ako ta vrijednost postoji, korisno je znati kad će se ona podudarati s limesom. S tim u vezi je sljedeće pravilo.
+Pravilo direktne zamjene
+Za sve elementarne funkcije u svakoj točki a u kojoj su one definirane, vrijedilimx→af(x)=f(a).
+Ovdje pod elementarnim funkcijama podrazumijevamo potencije s bilo kojim eksponentom, polinome, racionalne funkcije, korijene, opću potenciju, logaritamsku funkciju, trigonometrijske funkcije i njima inverzne funkcije. Zasad ne možemo dokazati istinitost ovog pravila. Ovdje ćemo se zadovoljiti time da ga ilustriramo na nekim primjerima funkcija.
+ 
+limes konstantne funkcije:	limx→ac=c
+limes identične funkcije:	limx→ax=a
+limes potencije:	limx→axn=an
+limes n-tog korijena:	limx→an√x=n√a
+limes eksponencijalne funkcije:	limx→acx=ca
+limes logaritamske funkcije:	limx→alogcx=logca
+limes trigonometrijske funkcije:	limx→asinx=sina
+limx→acosx=cosa
+============================================================================================================================================================================================================================================
+Operacije s limesima
+Navest ćemo kako se ponašaju limesi u odnosu na četiri osnovne algebarske operacije.
+Neka su f i g bilo koje dvije funkcije koje imaju limes u točki a:
+limx→af(x)=L,limx→ag(x)=M.
+Tada vrijede svojstva:
+1. Limes zbroja i razlike
+limx→a[f(x)±g(x)]=L±M=limx→aaf(x)±limx→ag(x)
+Dakle, limes zbroja (razlike) jednak je zbroju (razlici) limesa. Primjerice:
+limx→3(x+2)=limx→3x+limx→32=3+2=5limx→−1[x2−x+3]=limx→−1(x2)−limx→−1x+limx→−13=(−1)2−(−1)+3=5.
+2. Limes umnoška
+limx→a[f(x)g(x)]=L⋅M=(limx→af(x))⋅(limx→ag(x))
+Dakle, limes umnoška jednak je umnošku limesa. Primjerice:
+limx→acf(x)=(limx→ac)⋅(limx→af(x))=c⋅limx→af(x),∀c∈R,limx→4(x√x)=limx→44x⋅limx→4√x=4⋅2=8,limx→3(2x3−5x)=2limx→3(x3)−5limx→3(x)=39.
+3. Limes kvocijenta
+Ako je M=limx→ag(x)≠0, onda vrijedi
+limx→af(x)g(x)=LM=limx→af(x)limx→ag(x).
+Dakle, limes kvocijenta jednak je kvocijentu limesa (ako je limes u nazivniku različit od nule). Primjerice:
+limx→2x2−2x+1=limx→2(x2−2)limx→2(x+1)=23.
+============================================================================================================================================================================================================================================
+Jednostrani limesi
+U postupku računanja limesa funkcije u točki a promatramo kao bilo koji niz (xn) koji teži k a.
+Ako pritom uzimamo samo one nizove za koje je xn<a za svaki n, onda kažemo da varijabla x teži k a slijeva i pišemo x→a−. (Minus označava da je x u svakom trenutku manji od a i razlika x−a je negativna.)
+Ako uzimamo samo one nizove za koje je xn>a za svaki n, onda kažemo da varijabla x teži k a zdesna i pišemo x→a+ (jer je x−a>0).
+približavanje broju a s lijeve i s desnestrane
+Za neke funkcije limes u točki ne mora postojati, no funkcijske vrijednosti teže određenom broju ako se prema a približavamo slijeva ili zdesna.
+(PRIMJER 5)
+Postojanje limesa
+Limes limx→af(x) funkcije f u točki a postoji ako su ispunjeni sljedeći uvjeti:
+
+1) postoji limes slijeva: limx→a−f(x)
+2) postoji limes zdesna: limx→a+f(x)
+3) ti se limesi podudaraju.
+Za računanje limesa nije važno koju vrijednost funkcija ima u točki a. Zapravo, najčešće računamo limes baš tamo gdje funkcija nije ni definirana. Sljedeća slika opisuje različite situacije.
+Limes funkcije ne ovisi o vrijednostima tefunkcije u točki a.
+U svim trima slučajevima limes funkcije, kad x teži k a, iznosi L. U prvom slučaju funkcija u točki a nije definirana, u drugom vrijedi f(a)=L=limx→af(x), a u trećem f(a)≠limx→af(x).
+(PRIMJER 6)
+============================================================================================================================================================================================================================================
+Beskonačni limesi
+Funkcija f(x)=1x definirana je za svaki realni broj različit od nule. Kako se ponaša ta funkcija kad x teži k nuli?
+Pomoći će nam graf funkcije i tablica njezinih vrijednosti.
+xn	f(xn)		xn	f(xn)
+−1.0	−1		1.0	1
+−0.1	−10		0.1	10
+−0.01	−100		0.01	100
+−0.001	−1000		0.001	1000
+−0.0001	−10000		0.0001	10000
+
+
+Kad se x približava nuli zdesna, funkcijske vrijednosti neograničeno rastu. Kažemo da je limes funkcije +∞ i pišemo
+limx→0+1x=+∞.Kad se x približava nuli slijeva, predznaci od x i 1x su negativni pa kažemo da funkcijske vrijednosti neograničeno padaju. Limes funkcije je −∞, pišemo
+limx→0−1x=−∞.
+(PRIMJER 7)
+Beskonačni limesi
+Ako funkcija neograničeno raste kad x teži k a slijeva, odnosno zdesna, pišemolimx→a−f(x)=+∞,limx→a+f(x)=+∞.Ako su oba ova limesa jednaka, onda pišemolimx→af(x)=+∞.Ako funkcija neograničeno pada kad x teži k a slijeva, odnosno zdesna, pišemolimx→a−f(x)=−∞,limx→a+f(x)=−∞.Ako su oba ova limesa jednaka, onda pišemolimx→af(x)=−∞.U svim ovim slučajevima kažemo da je pravac x=a vertikalna asimptota funkcije f.
+
+Ova funkcija nema limes u x=a u smislu definicije limesa. Limes mora biti konačan broj.
+Slika opisuje ove situacije. Utvrdite vrstu jednostranih limesa za svaku od njih.
+============================================================================================================================================================================================================================================
+Računanje limesa racionalnih funkcija
+Računajući vrijednost funkcija doći ćemo do situacija u kojima dobiveni izrazi neće imati smisla. Tako primjerice, funkcija
+f(x)=x3−4x2+x+6x−3
+nije definirana za x=3 jer su brojnik i nazivnik u toj točki jednaki nuli. Što se događa s funkcijskim vrijednostima kad se x približava točki 3?
+Provjerimo (na primjeru). Izaberimo brojeve bliske broju 3, s lijeve i s desne strane.
+x	f(x)		x	f(x)
+2	0		4	$$
+2.5	1.75		3.5	6.75
+2.9	3.51		3.1	4.51
+2.99	3.95		3.01	4.05
+2.999	3.995		3.001	4.005
+2.9999	3.9995		3.0001	4.0005
+Zaključujemo da vrijedi
+limx→3f(x)=4.
+Objasnimo što se zbivalo u ovom primjeru. Brojnik se poništava u točki x=3, pa je djeljiv s x−3. Rezultat dijeljenja je
+f(x)=(x−3)(x2−x−2)x−3=x2−x−2za x≠3.
+Sada je vidljivo zašto je limes funkcije jednak 4 kad x teži k 3.
+Limes racionalnih funkcija
+Ako se brojnik i nazivnik racionalne funkcije poništavaju u točki a, tada prije računanja limesa u toj točki, brojnik i nazivnik funkcije treba podijeliti s x−a.
+(PRIMJER 8)
+Ponekad je praktičnije prije faktorizacije (odnosno dijeljenja) koristiti zamjenu  x=u+a:
+(PRIMJER 9)
+Uvođenje ove zamjene korisno je u slučajevima kad ne vidimo jasnu faktorizaciju brojnika ili nazivnika te kao postupak alternativan dijeljenja brojnika i nazivnika faktorom x−a.
+Računanje limesa iracionalnih funkcija
+U računanju limesa, kad su brojnik i nazivnik u kritičnoj točki jednaki nuli, često pomaže postupak nalik na racionalizaciju nazivnika.
+(PRIMJER 10)
+Ponekad se limes lakše računa uporabom pogodne zamjene:
+(PRIMJER 11)
+============================================================================================================================================================================================================================================
+Limes limx→0sinxx
+Promotrimo funkciju f(x)=sinxx. Ona nije definirana za x=0. Zanima nas što se događa s njezinim vrijednostima kad x teži k nuli. Tad i brojnik i nazivnik teže k nuli i nije jasno što će se događati s njihovim količnikom. Primijetimo da je funkcija f(x)=sinxx parna funkcija:
+f(−x)=sin(−x)−x=−sinx−x=sinxx=f(x).
+Zato je dovoljno promatrati ponašanje funkcije za pozitivne vrijednosti varijable x.
+Ispitajmo vrijednost ovog limesa s pomoću grafa i tablice numeričkih vrijednosti, kao što smo činili na početku poglavlja.
+x	f(x)
+1	0.89147
+0.1	0.99833
+0.01	0.99998
+0.001	0.9999998
+Očekujemo da će vrijeditilimx→0sinxx=1.(2)
+Dokaz.
+Nacrtajmo jediničnu kružnicu. Neka je x realan broj, 0<x<π/2. Nacrtajmo kut od x radijana. 
+Površina kružnog isječka Pi veća je od površine trokuta OAB, a manja od površine trokuta OAC:
+POAB<Pi<POAC.
+Trokut OAB jednakokračan je s krakovima duljine 1 i kutom x među njima. Duljina luka ⌢AB jednaka je x. Trokut OAC pravokutan je s katetama duljina 1 i tg x. Zato je
+12sinx<12x<12tg x.Prva nejednakost daje:
+sinx<x⟹sinxx<1.
+Iz druge nejednakosti dobivamo:
+x<sinxcosx⟹cosx<sinxx.
+Vrijedi, dakle:
+cosx<sinxx<1.
+Kad x teži nuli, lijeva strana cosx teži k 1. Zato i sinxx teži k 1:
+limx→0sinxx=1.
+(PRIMJER 12)
+============================================================================================================================================================================================================================================
+Limes kompozicije funkcija
+Ako imamo složenu funkciju oblika h(x)=f(g(x)), njezin limes u nekoj točki možemo odrediti znajući limese funkcija f i g. Naime, vrijedi
+Teorem 1: Limes složene funkcije
+Ako postoje limesi a=limx→cg(x) i L=f(a)=limx→af(x), onda vrijedilimx→cf(g(x))=f(limx→cg(x))=f(a)=L.Kažemo da limesom možemo ući u argument funkcije.
+Primijetimo kako ovdje zahtijevamo da funkcija f bude definirana u x=a i da je njena vrijednost u toj točki jednaka limesu.
+(PRIMJER 13)
+(PRIMJER 14)
+(PRIMJER 15)
+============================================================================================================================================================================================================================================
+Limes u beskonačnosti
+Pri promatranju funkcija potrebno je promatrati i limese kad varijabla teži u beskonačnost, bilo s pomoću pozitivnih, bilo s pomoću negativnih brojeva.
+Limes u beskonačnosti. Asimptote
+Kažemo da funkcija f ima limes L u +∞ ako funkcijske vrijednosti f(x) teže broju L kad x teži k +∞. PišemoL=limx→+∞f(x).Pravac y=L naziva se desna horizontalna asimptota funkcije f.
+
+Po analogiji pisat ćemoL=limx→−∞f(x)ako funkcijske vrijednosti f(x) teže broju L kad x teži k −∞. Pravac y=L naziva se tad lijeva horizontalna asimptota funkcije f.
+
+Pravac koji je i lijeva i desna horizontalna asimptota nazivamo kratko horizontalnom asimptotom funkcije f.
+(PRIMJER 16)
+Ako uvedemo zamjenu x=1u, onda će biti
+limx→+∞1x=limu→0+u=0,limx→−∞1x=limu→0−u=0,
+pa stoga postoji limes kad u teži k nuli. To pišemo na način
+limx→±∞1x=limu→0u=0.
+Slično, za svaki prirodni n je
+limx→±∞1xn=limu→0un=0.
+(PRIMJER 17)
+Limesi racionalnih funkcija mogu se računati i bez uvođenja zamjene, imajući u vidu da vrijedi limx→±∞1xn=0. Brojnik i nazivnik racionalne funkcije podijelimo najvećom potencijom varijable x:
+limx→±∞2x3−3x+1x3+x2−2=limx→±∞2−3x2+1x31+1x−2x3=limx→±∞(2−3x2+1x3)limx→±∞(1+1x−2x3)=21=2.
+(PRIMJER 18)
+============================================================================================================================================================================================================================================
+Limes limx→0(1+x)1x
+U poglavlju s nizovima (poglavlje 3.5.) dokazali smo sljedeći važan limes:
+limn→∞(1+1n)n=e.
+Za svaki realni pozitivni broj x postoji cijeli broj n takav da je n≤x<n+1. Zato možemo prihvatiti da vrijedi i
+limx→+∞(1+1x)x=e.(3)
+Ovdje x može poprimiti bilo koje realne vrijednosti, a ne samo cjelobrojne kao u prethodnom nizu.
+Dokažimo sad da vrijedi također
+limx→−∞(1+1x)x=e.
+Računamo uz pomoć zamjene varijabli. Stavimo x=−u−1. Sad je x→−∞ ekvivalentno s u→∞ pa imamo:
+limx→−∞(1+1x)x=[x=−u−1]=limu→∞(1−1u+1)−u−1=limu→∞(uu+1)−u−1=limu→∞(u+1u)u+1=limu→∞(1+1u)(1+1u)u=1⋅e1=e.
+Na temelju ovog računa dobivamo sljedeći važan limes.
+limx→0(1+x)1x=e.
+
+Uzmimo da x teži k nuli zdesna i napravimo zamjenu x=1u. Budući da je x>0, vrijedit će u→∞:
+limx→0+(1+x)1x=[x=1u]=limu→∞(1+1u)u=e.
+Ako x teži k nuli slijeva, dobit ćemo isti rezultat:
+limx→0−(1+x)1x=[x=1u]=limu→−∞(1+1u)u=e.
+(PRIMJER 19)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Neprekinutost funkcije
+============================================================================================================================================================================================================================================
+Graf neprekinute i prekinute funkcije
+Pojam neprekinutosti funkcije, iako intuitivno jasan, pojmovno je vrlo dubok i složen. Ograničit ćemo se samo na iznošenje osnovnih ideja. Detaljnije se neprekinutost proučava u visokoškolskoj matematici.
+
+Ako je područje definicije neprekinute funkcije interval, njezin graf možemo nacrtati ne podižući olovku s papira.
+============================================================================================================================================================================================================================================
+Promjena varijable i funkcije
+Mijenjanjem varijable x mijenja se i funkcijska vrijednost y=f(x). Prirodno se može očekivati da će `malena' promjena varijable x imati za posljedicu `malenu' promjenu varijable y. Taj zahtjev upravo predstavlja svojstvo neprekinutosti funkcije f.
+Neka je x0∈Df. Označimo s Δx prirast (promjenu) varijable x. To je po volji odabran broj (može biti i negativan), s jedinim zahtjevom da interval [x0,x0+Δx] leži u području definicije Df. Ipak, u mislima Δx zamišljamo kao po volji malen prirast.
+Prirast varijable Δx određuje prirast funkcijskih vrijednosti Δy.
+Kada se varijabla x promijeni od x0 na x1=x0+Δx, vrijednost funkcije f promijeni se od y0=f(x0) na y1=f(x1)=f(x0+Δx). Ovu promjenu označavamo s Δf(x0), no češće rabimo jednostavniji zapis Δy:
+Δy=Δf(x0):=y1−y0=f(x0+Δx)−f(x0).(1)
+Kažemo da je Δy prirast (promjena) funkcije f u točki x0.
+(PRIMJER 1)
+============================================================================================================================================================================================================================================
+Neprekinutost funkcije
+Funkcija f neprekinuta je u točki x0∈Df ako vrijedif(x0)=limΔx→0f(x0+Δx).Ako je x0 rubna točka domene, onda se promatra jednostrani limes u toj točki.
+
+Kažemo da je f neprekinuta funkcija ako je neprekinuta u svakoj točki iz područja definicije.
+ 
+Vidimo da postoji čvrsta veza između pojma neprekinutosti funkcije i limesa funkcije. Opišimo detaljnije koja je veza neprekinutosti i limesa.
+Kriterij neprekinutosti
+Funkcija f neprekinuta je u točki a ako vrijede sljedeći uvjeti:
+
+1∘ funkcija f je definirana u a, tj. a∈Df
+2∘ postoji limx→af(x)
+3∘ vrijedi f(a)=limx→af(x).
+
+Ako barem jedan od ovih uvjeta nije ispunjen, za funkciju kažemo da je prekinuta u točki a.
+Postoji nekoliko vrsta prekida funkcije. Opišimo ih na primjerima funkcija koje smo već upoznali.
+1. Uklonjivi prekid. Neka je f(x)=sinxx. Točka x=0 je točka prekida zato što za x=0 funkcija nije definirana. Međutim, znamo da vrijedi
+limx→0sinxx=1
+i limes postoji u toj točki. Zato ovaj prekid možemo ukloniti. Dovoljno je staviti
+f(0):=1
+pa ćemo dobiti neprekinutu funkciju na čitavom R.
+2. Skok. Funkcija signum definirana je ovako:
+f(x)=sgnx=⎧⎨⎩−1,x<00,x=01,x>0.
+U točki x=0 postoje jednostrani limesi
+limx→0−f(x)=−1,limx→0+f(x)=1,
+ali se oni razlikuju. Zato ne postoji limes funkcije u toj točki i ona je prekinuta u nuli. 3. Vertikalne asimptote. Funkcija f(x)=1x nije definirana za x=0. Ona je neprekinuta funkcija u svakoj točki svoje domene. Ali, ne možemo je definirati u x=0 tako da ostane neprekinuta. Njezini jednostrani limesi su beskonačni:
+limx→0−f(x)=−∞,limx→0+f(x)=∞.
+Kažemo da f ima vertikalnu asimptotu u točki x=0.
+4. Oscilacije. Funkcija y=sin1x nema limes u x=0 jer u blizini te točke oscilira, poprima sve vrijednosti od −1 do 1. Zato je ona prekinuta u x=0. Primijetimo da je funkcija neprekinuta svuda, osim za x=0.
+============================================================================================================================================================================================================================================
+Limes neprekinute funkcije
+Svojstvo neprekinutosti u točki x=a možemo zapisati na ponešto drukčiji način.
+Teorem 1: Limes neprekinute funkcije
+Za neprekinute funkcije u svakoj točki područja definicije vrijedilimx→af(x)=f(a)=f(limx→ax).Kažemo da se funkcija i limes mogu zamijeniti ili da s limesom možemo ući pod funkciju. Sve elementarne funkcije neprekinute su u svakoj točki u kojoj su definirane.
+ 
+Teorem 2: Kompozicija neprekinutih funkcija
+Ako su f i g neprekinute, onda je neprekinuta i njihova kompozicija f∘g u svakoj točki u kojoj je definirana.
+Zaista, primjenjujemo teorem 1 o limesu. Neka je kompozicija f∘g definirana u točki a. Onda imamo
+limx→af(g(x))=f(limx→ag(x))=f(g(a))
+i vidimo da je kompozicija neprekinuta u a.
+(PRIMJER 2)
+============================================================================================================================================================================================================================================
+Limes neprekinute funkcije
+Svojstva neprekinute funkcije na segmentu
+Neka je f neprekinuta funkcija i I=[c,d] podskup njezine domene.
+Sljedeća svojstva neprekinutih funkcija očigledna su iz njezina grafa. Međutim, strogi matematički dokaz nije jednostavan. Temelji se na uporabi aksioma skupa realnih brojeva i detaljno se izučava samo na studiju matematike.
+Svojstva ćemo napisati u nizu razumljivih tvrdnji i ilustrirati ih s pomoću grafa funkcije.
+Teorem 1: Maksimum i minimum funkcije
+Neprekinuta funkcija f:[c,d]→R poprima svoj minimum m i maksimum M. To znači da postoje točke a,b∈[c,d] takve da vrijedim=f(a)≤f(x)≤f(b)=M,∀x∈[c,d].
+ 
+Ako je f rastuća, onda se minimum i maksimum poprimaju u rubovima intervala: m=f(c), M=f(d). Slično, za padajuću funkciju vrijedi M=f(c), m=f(d). Nacrtaj slike!
+Za funkciju koja nije monotona, nalaženje ekstrema složena je zadaća čije ćemo rješavanje naučiti u poglavlju o derivacijama.
+Teorem 2: Slika segmenta
+Neprekinuta funkcija preslikava segment [c,d] u segment [m,M].
+Teorem slijedi neposredno iz prethodnog teorema 1. Slika je dovoljna za razumijevanje.
+Teorem 3: Teorem srednje vrijednosti
+Neka je f neprekinuta na segmentu [c,d]. Za svaku vrijednost A između f(c) i f(d) postoji p unutar intervala [c,d] za koji je f(p)=A.
+Primijetimo da vrijedi i jača tvrdnja, broj A može biti bilo koji iz intervala [m,M]. Ova je varijanta jednostavnija i dovoljna u primjenama.
+(PRIMJER 3)
+Teorem 4: Postojanje nul-točke
+Neka je f neprekinuta na segmentu [c,d] i neka su f(c), f(d) različitih predznaka. Onda postoji p∈[c,d] za koju je f(p)=0.
+Ovaj teorem je posljedica prethodnog. Radi lakšeg zapisa, pretpostavimo da je f(c)<0<f(d) (suprotno od situacije na slici!). Ova relacija govori da se broj 0 nalazi između vrijednosti f(c) i f(d) pa po teoremu 3 postoji p∈[c,d] za koji je f(p)=0.
+Postojanje nultočke
+Na temelju prethodnog teorema možemo dati jednostavni algoritam za nalaženje nul-točke neprekinute funkcije.
+(PRIMEJR 4)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+ Problem tangente i brzine
+============================================================================================================================================================================================================================================
+Tangenta na graf funkcije
+Krivulje drugog reda zajednički je naziv za elipsu, parabolu i hiperbolu. Taj je naziv nastao stoga što neki pravac svaku od ovih krivulja siječe u najviše dvije točke.
+
+Svakako najjednostavnija krivulja drugog reda jest kružnica, posebni slučaj elipse.
+Ako pravac siječe kružnicu u dvjema točkama, zovemo ga sekanta. Ako pravac i kružnica imaju samo jednu zajedničku točku, kažemo da je on tangenta kružnice.
+Tangentu kružnice možemo opisati na bilo koji od sljedećih načina:
+1) Tangenta je pravac koji siječe kružnicu u samo jednoj točki.
+2) Tangenta je pravac koji siječe kružnicu u točki T i koji je okomit na spojnicu dirališta i središta kružnice ¯¯¯¯¯¯¯ST.
+3) Tangenta je pravac koji siječe kružnicu, a ona se nalazi s jedne njegove strane.
+Neka je sada f bilo koja funkcija i Γ njezin graf. Definicija sekante je nepromijenjena: to je pravac koji prolazi kroz dvije (različite) točke na grafu funkcije. Kako možemo definirati tangentu u nekoj točki na grafu?
+
+Pokušamo li uz pomoć bilo kojeg od triju svojstava koja su vrijedila za kružnicu, nećemo uspjeti. To se zorno vidi na gornjoj slici.
+Pravac povučen u točki A na grafu jest njegova tangenta, a on siječe graf u još jednoj točki E.
+Pravac povučen u točki B na grafu jest njegova tangenta, a dijelovi grafa nalaze se s obje njegove strane.
+Pravac povučen u točki C siječe krivulju samo u jednoj točki, ali on naravno nije tangenta.
+Središte krivulje, u smislu točke za koju vrijedi svojstvo 3) postoji samo za kružnicu i ovdje gubi smisao.
+Rješenje ovog problema definicije tangente i način njezina određivanja pronašao je Leibniz.
+Prvo pravilo glasi: kad promatramo tangentu u nekoj točki T na grafu funkcije, onda nas zanima samo ponašanje funkcije u neposrednoj okolini točke T. Time rješavamo anomaliju tangente u točki A na prethodnoj slici. Nije važno ako ta tangenta siječe graf u nekoj udaljenoj točki.
+Pravac je određen dvama podatcima: dvjema točkama koje mu pripadaju, ili jednom točkom i koeficijentom smjera.
+Želimo odrediti jednadžbu tangente na graf funkcije. Zadana nam je jedna točka s te tangente. Drugu točku ne možemo odrediti iz podataka s grafa funkcije jer tangenta dira funkciju samo u jednoj točki. Dakle, trebamo odrediti koeficijent smjera tangente. Do koeficijenta smjera ćemo doći promatrajući sekante na grafu funkcije. Sekanta siječe graf u dvije (bliske) točke A i B, pa ćemo znati napisati njezinu jednadžbu.
+
+Sad promatramo što se događa sa sekantom kad se točka B približava točki A. Sekanta se približava tangenti. Na gornjoj slici sekante su označene zelenom, a tangenta crvenom bojom.
+Tangenta na graf funkcije
+Tangenta na graf funkcije je pravac koji prolazi njezinom točkom, a koeficijent smjera jednak je limesu koeficijenta smjerova sekanti koje se približavaju toj tangenti.
+Iz ove definicije jasno je da će tangenta postojati samo kad taj limes postoji. Općenito, tangenta u nekoj točki na grafu ne mora postojati.
+Sad ćemo naučiti kako se određuje koeficijent smjera tangente. S tim ciljem, moramo se pobliže upoznati s pojmovima prirast varijable i prirast funkcije.
+============================================================================================================================================================================================================================================
+Prirast funkcije
+Prirast varijable i prirast funkcije
+Koordinate dviju bliskih točaka A i B na grafu funkcije označavamo s A(x0,y0) i B(x0+Δx,y0+Δy).
+
+Razlika apscisa ovih točaka Δx naziva se prirast varijable u x=x0.
+
+Prirast funkcije je razlika ordinata tih dviju točaka. Označavamo je s Δy. Pritom vrijediΔy=f(x0+Δx)−f(x0).
+Vidimo da prirast funkcije ovisi o prirastu argumenta i o točki u kojoj se taj prirast promatra.
+(PRIMEJR 1)
+============================================================================================================================================================================================================================================
+Prirast i nagib linearne funkcije
+Promotrimo sad linearnu funkciju
+f(x)=kx+l
+Njezin je graf pravac y=kx+l.
+Prirasti Δx i Δy za linearnu funkciju su proporcionalni. To znači da za jednak prirast argumenta Δx dobivamo jednak prirast funkcije Δy, u svakom x0.
+U priloženom GeoGebrinom programčiću možeš pomicati točku x0 i mijenjati vrijednost varijable Δx. Pomoću klizača k i l možeš mijenjati linearnu funkciju. Iskoristi programčić te promotri što se događa s omjerom ΔxΔy pri tim promjenama.
+Omjer prirasta linearne funkcije i prirasta argumenta je stalan i jednak koeficijentu smjera k:
+ΔyΔx=k.
+Koeficijent smjera određuje nagib pravca. Dakle, graf linearne funkcije ima u svakoj točki jednak nagib. Nadalje,k=tg α
+pri čemu je α kut što ga pravac zatvara s pozitivnim dijelom x-osi.
+Nagib govori o brzini rasta funkcije. Za pravac nam je poznata ovisnost rasta (pada) o predznaku koeficijenta k:
+za k<0 funkcija padaza k=0 funkcija je konstantaza k>0 funkcija raste.
+Pad i rast su to brži što je veća apsolutna vrijednost koeficijenta k.
+Na gornjoj slici istaknuti su nagibi nekih pravaca.
+S pomoću nagiba pravca definirat ćemo nagib po volji odabrane funkcije f.
+(PRIMJER 2)
+============================================================================================================================================================================================================================================
+Nagib grafa funkcije. Tangenta na graf funkcije
+Nagib grafa funkcije
+Neka se na graf funkcije f može povući tangenta u točki (x0,y0). Nagib grafa funkcije f u točki (x0,y0) definiramo kao nagib tangente položene na graf u toj točki.
+
+On je jednak koeficijentu smjera k tangente, a može se izraziti kaok=tg α,pri čemu je α kut što ga pravac zatvara s pozitivnim dijelom x-osi.
+Funkcije različite od linearne nemaju jednak nagib u svakoj točki. To znači da njihov rast (pad) nije u svakoj točki jednak. Ilustrirajmo to sljedećom slikom.
+Sad možemo povezati računanje koeficijenta smjera tangente s prirastima funkcije.
+Promatramo jednadžbu sekante koja siječe graf funkcije u dvjema točkama (x,y) i (x+Δx,y+Δy) na grafu funkcije.
+
+Što je vrijednost prirasta Δx manja, to će sekanta biti bolja aproksimacija za tangentu u točki (x,y). Puštajući da Δx teži k nuli, iz jednadžbe sekante dobivamo jednadžbu tangente.
+Neka je T(x0,y0) točka na grafu u kojoj želimo izračunati nagib, a S(x0+Δx,y0+Δy) točka na grafu kroz koju vučemo sekantu TS. Nagib sekante je ΔyΔx. Kada se S približava točki T po grafu funkcije f, onda sekanta prelazi u tangentu u točki T.
+ 
+U priloženom GeoGebrinom programčiću istaknuta je sekanta koja prolazi točkama (x0,y0) i (x0+Δx,y0+Δy). Pomoću klizača Δx možeš istaknute točke na osi x približiti jednu drugoj. Promatraj što se događa sa sekantom kad se te dvije točke približavaju. U programčić možeš upisati i neku drugu funkciju.
+Odaberimo neku funkciju i pokažimo kako određujemo nagib tangente u nekoj točki grafa te funkcije.
+(PRIMEJR 3)
+Izračunajmo nagib tangente u po volji uzetoj točki (x0,y0) na grafu funkcije f(x)=x2. Koeficijent smjera sekante dobivamo računajući kvocijent ΔyΔx prirasta funkcije i prirasta argumenta:
+f(x0+Δx)=(x0+Δx)2=x20+2x0Δx+(Δx)2,Δy=f(x0+Δx)−f(x0)=2x0Δx+(Δx)2,ΔyΔx=2x0+Δx.
+Pustivši da Δx teži k nuli, dobivamo nagib 2x0.
+Tako, primjerice, nagib u točki grafa s apscisom −1 iznosi −2, nagib u točki grafa s apscisom 3 je 6 itd. Izračunavši nagib, možemo napisati jednadžbu tangente koristeći formulu za jednadžbu pravca koji prolazi zadanom točkom i ima poznati koeficijent smjera
+y−y0=k(x−x0)=2x0(x−x0).
+Tako imamo, primjerice:
+apscisa	ordinata	nagib	tangenta
+x=−1	y=1	k=−2	y−1=−2(x+1)
+x=1	y=1	k=2	y−1=2(x−1)
+x=3	y=9	k=6	y−9=6(x−3)
+(PRIMJER 4)
+============================================================================================================================================================================================================================================
+Problem brzine
+Problem brzine
+U vremenskom intervalu [t0,t0+Δt] automobil je prevalio put od s0=s(t0) do s0+Δs=s(t0+Δt). Prosječna brzina u tom vremenskom intervalu je
+¯v=ΔsΔt=s(t0+Δt)−s(t0)Δt.
+Smanjivanjem duljine Δt vremenskog intervala, ova prosječna brzina postaje sve bliža trenutačnoj brzini u trenutku t0.
+Ilustrirajmo taj prijelaz na poznatim formulama koje opisuju slobodni pad tijela. Ovisnost prijeđenog puta o vremenu možemo mjeriti: dovoljno je tijelo puštati da pada s različitih visina i mjeriti ukupno vrijeme pada. Teže je odgovoriti na pitanje: kolika je brzina tijela pri padu?
+ 
+Odgovor na pitanje „Što je brzina?”, nije jednostavan. O tome izvrsno govori prepirka između policajca i vozačice koja se može pročitati u znamenitim The Feynman Lectures in Physics američkog nobelovca R. P. Feynmana:
+− Gospođo, vi ste prekršili pravila gradske vožnje. Vozili ste brzinom od 90 km/h.
+− Oprostite, to nije moguće. Kako sam mogla voziti 90 kilometara na sat kad vozim tek sedam minuta?
+− Radi se o tome, gospođo, da biste za jedan sat prešli 90 km kad biste nastavili voziti na isti način.
+− Kad bih ja nastavila voziti kako sam vozila još cijeli sat, naletjela bih na zid na kraju ulice!
+− Ali, pa... i vaš brzinomjer pokazivao vam je 90 km/h!
+− Moj je brzinomjer pokvaren i odavno ne radi.
+Ako automobil prijeđe put od 120 km za 2 sata, njegova je prosječna brzina 60 km/h. To dakako ne znači da je ta brzina bila konstantna duž cijelog puta. Ona se tijekom putovanja mijenjala (brzina je funkcija vremena!), a prosječnu vrijednost
+dobili smo dijeljenjem prijeđenog puta s vremenom provedenim na putu. Promatrajući sve kraće vremenske intervale i odgovarajuće sve kraće dijelove puta, očekujemo da će prosječna brzina biti sve bliža trenutačnoj brzini.
+Nacrtajmo s-t dijagram prijeđenog puta koji opisuje ovisnost prijeđenog puta s o vremenu t. Graf funkcije t↦s(t) izgledat će ovako:
+(PRIMJER 5)
+============================================================================================================================================================================================================================================
+Derivacija funkcije
+Primjeri s tangentom i brzinom vode nas do istih izraza, promatranja limesa kvocijenta ΔyΔx kad Δx teži k nuli.
+Derivacija funkcije
+Derivacija funkcije f u točki x0 je broj:f′(x0)=limΔx→0ΔyΔx=limΔx→0f(x0+Δx)−f(x0)Δx,ako ovaj limes postoji. Taj je broj jednak nagibu k tangente na graf y=f(x) u točki (x0,y0):f′(x0)=k=tg α,α je kut što ga tangenta zatvara s pozitivnim dijelom x-osi.
+
+Za funkciju f kažemo da je derivabilna u točki x0 ako postoji f′(x0). Funkcija je derivabilna na intervalu ⟨a,b⟩ ako u svakoj točki tog intervala postoji derivacija f′(x0). Tada je na intervalu ⟨a,b⟩ definirana funkcija f′ koju nazivamo derivacijom funkcije f.
+
+Derivaciju još označavamo simbolimaf′(x)=df(x)dx=dydx.
+Pokazat ćemo u nastavku da su sve elementarne funkcije (poput polinoma, eksponencijalne i logaritamske funkcije, trigonometrijskih funkcija i sl.) derivabilne u svim točkama u kojima su definirane. Međutim, derivacija po volji odabrane funkcije u bilo kojoj njezinoj točki ne mora postojati.
+Nužan uvjet za postojanje derivacije
+Ako je funkcija derivabilna u nekoj točki, onda je i neprekinuta u toj točki.
+Dokaz. Ako funkcija f ima derivaciju u točki x, onda postoji limes:
+limΔx→0f(x+Δx)−f(x)Δx.
+Nazivnik ovog izraza teži k nuli. Da bi limes postojao, i brojnik mora težiti k nuli. Zato je
+limΔx→0f(x+Δx)=f(x),
+što znači da je f neprekinuta u točki x.
+Ovaj je uvjet nužan, ali ne i dovoljan. To znači da obratna tvrdnja nije istinita; funkcija koja je neprekinuta ne mora imati derivaciju u toj točki.
+(PRIMJER 6)
+Izdvojimo sljedeće tri situacije u kojima funkcija nema derivaciju u točki x0:
+1.	 Funkcija je prekinuta u x0.
+2.	 Funkcija ima šiljak u x0.
+3.	 Funkcija ima vertikalnu tangentu u točki x0.
+Sljedeća slika ilustrira te situacije:
+Funkcija nema derivaciju u točki x0.
+Bitno se razlikuje ponašanje funkcije u točki u kojoj ona ima derivaciju i u šiljku. Ako je funkcija diferencijabilna, onda se zornijim promatranjem njezinog grafa u okolini te točke uočava da graf funkcije sve više nalikuje na pravac (tangentu u toj točki). Ako se radi o šiljku, on će se jasno vidjeti pri svakom povećanju.
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Derivacija funkcije, pravila deriviranja
+============================================================================================================================================================================================================================================
+Uvod
+Postupak određivanja derivacije neke funkcije nazivamo deriviranjem. Izračunat ćemo derivacije elementarnih funkcija i naučiti neka osnovna pravila deriviranja.
+Postupak računanja derivacije
+Računanje derivacije funkcije odvija se u trima bitnim koracima.
+Računanje derivacije
+1. Izračuna se vrijednost f(x+Δx).
+2. Izračuna se kvocijent ΔyΔx=f(x+Δx)−f(x)Δx.
+3. Izračuna se limes f′(x)=limΔx→0ΔyΔx.
+Odredimo derivacije nekih funkcija. Za početak izvedimo pravila za deriviranje konstante i deriviranje umnoška konstante i funkcije.
+Derivacija konstante
+Ako je c konstanta, a f derivabilna funkcija, onda vrijedi(c)′=0(cf)′=c⋅f′.
+Dokaz. Izračunajmo limese kvocijenta ΔyΔx.
+Za konstantnu funkciju f(x)=c vrijedi f(x+Δx)=c, te je
+Δy=f(x+Δx)−f(x)Δx=c−cΔx=0
+i zato je f′(x)=0 u svakoj točki x.
+Za funkciju x↦cf(x) imamo
+limΔx→0ΔyΔx=limΔx→0cf(x+Δx)−cf(x)Δx=climΔx→0f(x+Δx)−f(x)Δx=c⋅f′(x).
+(PRIMEJR 1)
+(PRIMEJR 2)
+(PRIMJER 3)
+============================================================================================================================================================================================================================================
+Derivacija potencije
+Pokazat ćemo kasnije da za svaki realni broj n vrijedi:
+Derivacija potencije
+Funkcija f(x)=xn, n∈R, n≠0 ima derivaciju(xn)′=nxn−1.(1)
+Derivacija funkcije f(x)=1/x
+(1x)′=−1x2.(2)
+Primjenjujući formulu (1) za derivaciju potencije, računali bismo ovako:
+(1x)′=(x−1)′=(−1)x−1−1=−x−2=−1x2.
+Uvjerimo se u to računajući derivaciju ove funkcije po definiciji. Za x≠0 vrijedi:
+ΔyΔx=1x+Δx−1xΔx=x−(x+Δx)(x+Δx)⋅x⋅Δx=−1(x+Δx)x→−1x2kad Δx→0.
+Derivacija funkcije f(x)=√x
+(√x)′=12√x.(3)
+Primjenjujući formulu (1) za derivaciju potencije, računali bismo ovako:
+(√x)′=(x12)′=12x12−1=12x−12=12√x,x>0.
+Opravdajmo tu formulu računajući po definiciji. Vrijedi
+ΔyΔx=√x+Δx−√xΔx=√x+Δx−√xΔx⋅√x+Δx+√x√x+Δx+√x=(x+Δx)−xΔx(√x+Δx+√x)=1√x+Δx+√x→12√xkad Δx→0.
+Derivacija f′ definirana je na intervalu ⟨0,∞⟩, a funkcija f na intervalu [0,∞⟩. Nacrtajte sliku funkcije f(x)=√x i uočite zbog čega ne postoji derivacija u nuli.
+Izraze za derivacije funkcija x↦1x i x↦√x treba zapamtiti zbog njihovih važnosti bez izvođenja iz općenite formule (1)
+============================================================================================================================================================================================================================================
+Pravila deriviranja
+Pravila deriviranja
+Da bismo pojednostavnili računanje derivacija, služit ćemo se sljedećim poučcima, koje popularno nazivamo `pravilima deriviranja'.
+Pravila deriviranja
+Neka su f i g derivabilne funkcije na istom intervalu I. Tada vrijede sljedeća pravila.
+
+1. Derivacija zbroja. Funkcija f+g je derivabilna i vrijedi(f+g)′=f′+g′.(4)2. Derivacija umnoška. Funkcija f⋅g je derivabilna i vrijedi(f⋅g)′=f′⋅g+f⋅g′.(5)3. Derivacija kvocijenta. Funkcija 1/g je derivabilna u svakoj točki u kojoj je definirana i vrijedi(1g)′=−g′g2,(6)Za kvocijent dviju funkcija vrijedi:(fg)′=f′⋅g−f⋅g′g2.(7)
+Dokaz. 1. Označimo zbroj funkcija s h(x)=f(x)+g(x).
+h′(x)=limΔx→0h(x+Δx)−h(x)Δx=limΔx→0[f(x+Δx)+g(x+Δx)]−[f(x)+g(x)]Δx=limΔx→0f(x+Δx)−f(x)Δx+limΔx→0g(x+Δx)−g(x)Δx=f′(x)+g′(x).
+2. Dokažimo (5). Stavimo y=h(x)=f(x)g(x). Vrijedi
+ΔyΔx=h(x+Δx)−h(x)Δx=f(x+Δx)g(x+Δx)−f(x)g(x)Δx=f(x+Δx)g(x+Δx)−f(x)g(x+Δx)+f(x)g(x+Δx)−f(x)g(x)Δx=f(x+Δx)−f(x)Δxg(x+Δx)+f(x)g(x+Δx)−g(x)Δx→f′(x)g(x)+f(x)g′(x)
+kada Δx→0.
+3. Pokažimo sad (6). (Ova je formula posebni slučaj (7), ali ju je zbog njezine važnosti korisno upamtiti.)
+ΔyΔx=1g(x+Δx)−1g(x)Δx=g(x)−g(x+Δx)Δxg(x)g(x+Δx)=−g(x+Δx)−g(x)Δx⋅1g(x)g(x+Δx)→−g′(x)g(x)2.
+Koristeći ovu formulu i formulu za derivaciju umnoška, derivaciju kvocijenta računamo ovako:
+(f(x)g(x))′=(f(x)⋅1g(x))′=f′(x)⋅1g(x)+f(x)⋅(1g(x))′=f′(x)⋅1g(x)+f(x)⋅−g′(x)g(x)2=f′(x)g(x)−f(x)g′(x)g(x)2
+(PRIMJER 4)
+Derivaciju polinoma treba dobro izvježbati. U praktičnom računu pišu se samo sljedeći koraci:
+(x5−23x3+2x2−3)′=5x4−23⋅3x2+2⋅2x,
+a s malo vježbe moguće je i koeficijente pomnožiti prije ispisivanja.
+(PRIMEJR 5)
+Ove formule treba naučiti koristiti tako da se pojedini dijelovi odmah deriviraju.
+(PRIMJER 6)
+============================================================================================================================================================================================================================================
+Derivacija potencije s negativnim eksponentom
+Derivaciju funkcije f(x)=1x3 možemo dobiti iz pravila za derivaciju kvocijenta:
+(1x3)′=(1)′⋅x3−1⋅(x3)′(x3)2=−3x2x6=−3x4
+ali se to tako ne radi. Ovu funkciju deriviramo s pomoću pravila za derivaciju potencije
+(xn)=nxn−1.
+Dakle
+(1x3)′=(x−3)′=(−3)x−4=−3x4.
+Tako, primjerice, računamo:
+(x−4)′=−4⋅x−4−1=−4x−5.
+Isto tako vrijedi:
+(1x5)′=(x−5)′=−5⋅x−5−1=−5x−6=−5x6.
+S obzirom na učestalost ovih derivacija, bolje je zapamtiti sljedeću formulu:
+Derivacija potencije s negativnim eksponentom
+Ako je n prirodan broj, onda vrijedi(1xn)′=−nxn+1.(8)
+(PRIMEJR 7)
+(PRIMJER 8)
+============================================================================================================================================================================================================================================
+Derivacije trigonometrijskih funkcija
+Odredimo derivacije trigonometrijskih funkcija.
+Derivacija funkcije sinus. Neka je y=sinx. Izraz Δy transformiramo koristeći trigonometrijski identitet razlike sinusa:
+sinα−sinβ=2cosα+β2sinα−β2,limu→0sinuu=1
+Δy=sin(x+Δx)−sinx=2cosx+Δx+x2sinx+Δx−x2=2cos(x+Δx2)sinΔx2.
+Sad imamo
+ΔyΔx=2cos(x+Δx2)sinΔx2Δx=cos(x+Δx2)sinΔx2Δx2→cosx⋅1=cosx,
+kada Δx→0.
+Derivacija funkcije kosinus. Izvest ćemo izraz za ovu derivaciju na sličan način:
+Δy=cos(x+Δx)−cosx=−2sin(x+Δx2)sinΔx2.
+Sad imamo:
+ΔyΔx=−2sin(x+Δx2)sinΔx2Δx=−sin(x+Δx2)sinΔx2Δx2→−sinx,
+kada Δx→0.
+Derivacija funkcije tangens i kotangens. Funkciju tangens deriviramo kao kvocijent funkcija:
+(tg x)′=(sinxcosx)′=(sinx)′cosx−sinx(cosx)′cos2x=cosxcosx−sinx(−sinx)cos2x=cos2x+sin2xcos2x=1cos2x.
+Slično dobivamo derivaciju kotangensa:
+(ctg x)′=(cosxsinx)′=(cosx)′sinx−cosx(sinx)′sin2x=−sinxsinx−cosxcosxsin2x=−sin2x−cos2xsin2x=−1sin2x.
+Derivacije trigonometrijskih funkcija
+(sinx)′=cosx,(cosx)′=−sinx(tg x)′=1cos2x,(ctg x)′=−1sin2x.
+============================================================================================================================================================================================================================================
+Derivacije višeg reda
+Ako funkcija f ima derivaciju u svakoj točki intervala ⟨a,b⟩, onda je i f′ funkcija definirana na tom intervalu. Njezinu derivaciju označavamo s f′′ i nazivamo je drugom derivacijom funkcije f ili derivacijom drugog reda funkcije f.
+Po istoj analogiji definiraju se derivacije višeg reda.
+Derivacije višeg reda
+Druga derivacija funkcije f derivacija je prve derivacije f′. Označavamo je s f′′. Derivaciju trećeg reda označavamo s f′′′. Za veće brojeve n derivaciju n-tog reda označavamo s f(n).f(n)(x)=(f(n−1)(x))′
+Primjerice, ako je f(x)=1x+x2, onda je f′(x)=−1x2+2x, f′′(x)=2x3+2 za x≠0. Za f(x)=sinx vrijedi f′(x)=cosx, f′′(x)=−sinx, za svaki x∈R.
+(PRIMEJR 9)
+(PRIMJER 10)
+(PRIMEJR 11)
+============================================================================================================================================================================================================================================
+Derivacija složene funkcije
+============================================================================================================================================================================================================================================
+Derivacija složene funkcije
+Pokazali smo kako se računaju derivacija funkcija poput f(x)=√x i g(x)=x2+x−2. Možemo li s pomoću njih odrediti derivaciju složene funkcije
+h(x)=f(g(x))=√x2+x−2 ?
+Pokazat ćemo kako se derivira kompozicija ako znamo derivacije pojedinačnih funkcija. Račun se osniva na ideji da se uvede zamjena u=g(x). Onda je
+Δu=g(x+Δx)−g(x)
+i zbog neprekinutosti od g vrijedi Δu→0 kad Δx→0. Složenu funkciju y=h(x)=f(g(x)) možemo napisati ovako:
+y=f(u),u=g(x)
+pa vrijedi
+h′(x)=limΔx→0ΔyΔx=limΔx→0f(u+Δu)−f(u)Δx=limΔx→0[f(u+Δu)−f(u)Δu⋅ΔuΔx]=limΔu→0f(u+Δu)−f(u)Δu⋅limΔx→0g(x+Δx)−g(x)Δx=f′(u)⋅g′(x).
+Time smo dobili formulu za računanje derivacije složene funkcije.
+Derivacija složene funkcije
+Derivaciju složene funkcije računamo formulomf(g(x))′=f′(g(x))⋅g′(x),(1)što zapisujemo još i na ovaj način:f(g(x))′=f′(u)⋅u′(x),u=g(x).(2)Ova se formula naziva i pravilo o ulančanom deriviranju.
+Pravilo možemo iskazati riječima: složena se funkcija derivira tako da se derivacija `vanjske' funkcije pomnoži s derivacijom `unutarnje'. Pritom se mora paziti na argument vanjske funkcije.
+(PRIMEJR 1)
+Pravilo deriviranja složene funkcije treba temeljito izvježbati. Pritom valja izbjegavati pisanje zamjenske varijable u, kao u prethodnom primjeru. Umjesto toga treba u argument derivirane funkcije f uvrstiti cjelokupnu vrijednost g(x) i zatim nastaviti derivirati funkciju g. To je tim važnije jer se na isti način deriviraju i kompozicije sastavljene od triju i više funkcija:
+f(g(h(x)))=f′(g(h(x)))⋅g′(h(x))⋅h′(x).
+Izračunajmo derivacije sljedećih kompozicija. U zapamćenu derivaciju vanjske funkcije uvrstimo njezin argument.
+(PRIMJER 2)
+(PRIMJER 3)
+Nakon vježbe naučit ćemo ulančano derivirati ne ispisujući funkcije koje treba derivirati.
+(PRIMJER 4)
+Tablica deriviranja složenih funkcija
+Za derivacije složenih funkcija vrijedi:(fn)′=nfn−1⋅f′,(sinf)′=cosf⋅f′,(√f)′=12√f⋅f′,(cosf)′=−sinf⋅f′,(1f)′=−1f2⋅f′,(tg f)′=1cos2f⋅f′(1fn)′=−nfn+1⋅f′,(ctg f)′=−1sin2f⋅f′.
+Primjena ulančanog deriviranja
+(PRIMEJR 5)
+(PRIMJER 6)
+(PRIMJER 7)
+(PRIMJER 8)
+(PRIMJER 9)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Derivacija inverzne funkcije
+============================================================================================================================================================================================================================================
+Pravilo za deriviranje inverzne funkcije
+Derivacija funkcije f i derivacija njoj inverzne funkcije vezane su jednostavnim pravilom. Veza funkcije f i njoj inverzne g dana je s
+y=f(x)⟺x=g(y)
+Za svaki x∈Df vrijedi
+g(f(x))=x.
+Derivacija složene funkcije daje
+g′(f(x))⋅f′(x)=1⟹f′(x)=1g′(f(x)),
+ili, stavljajući y=f(x):
+f′(x)=1g′(y),g′(y)=1f′(x).
+Pravilo za derivaciju inverzne funkcije
+Ako su y=f(x) i x=g(y) međusobno inverzne funkcije, onda vrijedi:f′(x)=1g′(y),y=f(x).(1)
+(PRIMJER 1)
+(PRIMJER 2)
+============================================================================================================================================================================================================================================
+Derivacija logaritamskih funkcija
+Sve logaritamske funkcije mogu se prikazati s pomoću logaritamske funkcije jedne baze. Zato za temeljnu logaritamsku funkciju biramo funkciju f(x)=lnx, čija je baza broj e. Broj e definiran je kao limes niza:
+e=limn→∞(1+1n)n.
+Stavljajući un=1n, vidimo da un teži k nuli kad n teži u beskonačnost. Znamo da općenito vrijedi:
+e=limu→0(1+u)1u.
+Neka je y=f(x)=lnx. Računamo kvocijent diferencija
+ΔyΔx=ln(x+Δx)−lnxΔx=1x⋅xΔx⋅ln(x+Δxx)=1xln(1+Δxx)xΔx=1xln(1+u)1u.
+Kad Δx teži k nuli, onda u teži k nuli, pa odavde slijedi:
+(lnx)′=limdx→0ΔyΔx=1x⋅lne=1x.
+Derivaciju logaritma po bilo kojoj drugoj bazi računamo iz veze logaritamskih funkcija:
+logax=1lna⋅lnx.
+Zato je:
+(logax)′=1lna.1x=1xlna.
+============================================================================================================================================================================================================================================
+Derivacija eksponencijalnih funkcija
+Eksponencijalna funkcija inverzna je logaritamskoj:
+y=ex⟺x=lny.
+Po pravilu za derivaciju inverzne funkcije imamo:
+(ex)′=1(lny)′=11y=y=ex.
+Derivacija eksponencijalne funkcije ax računa se iz poznate veze:
+ax=exlna⟹(ax)′=exlna⋅(xlna)′=ax⋅lna.
+Time smo dokazali sljedeću tablicu derivacija.
+Derivacija eksponencijalnih i logaritamskih funkcija
+(logax)′=1xlna,(ax)′=ax⋅lna,(lnx)′=1x,(ex)′=ex,(lnf)′=1f⋅f′,(ef)′=ef⋅f′.
+============================================================================================================================================================================================================================================
+Derivacija opće potencije
+Sad možemo provjeriti da formula
+(xr)′=rxr−1
+vrijedi za svaki realni r različit od nule. Iz jednakosti
+xr=erlnx
+po pravilu za derivaciju eksponencijalne funkcije i složene funkcije imamo
+(xr)′=erlnx⋅(rlnx)′=xr⋅r⋅1x=rxr−1.
+
+============================================================================================================================================================================================================================================

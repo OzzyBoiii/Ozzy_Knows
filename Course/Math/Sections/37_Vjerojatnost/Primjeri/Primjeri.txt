@@ -1,0 +1,243 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Pprimjer 1
+Novčić bacamo pet puta. Istaknimo sljedeće događaje:A={pojavila su se točno tri pisma}B={pojavile su se najviše dvije glave}C={pojavile su se više od dvije glave}D={pojavile su se točno dvije glave}E={ostvario se niz PGPGP}.Kakav je međusobni odnos ovih događaja?
+Rješenje: Tu je E⊂A⊂B. A i D su ekvivalentni, A=D. Disjunktni su C i B, pa onda pogotovo Ci A te Ci E.
+
+Primejr 2
+Biramo jednu od deset kuglica označenih brojevima od 1 do 10. Istaknimo događajeA={pojavio se neparan broj}B={pojavio se broj manji od 5}C={pojavio se broj djeljiv s 3}.Odredimo uniju i presjek ovih događaja.
+Rješenje: Svaki od zadanih događaja sastoji se od sljedećih elementarnih:A={1,3,5,7,9},B={1,2,3,4},C={3,6,9}.Zato jeA∪B∪C={1,2,3,4,5,6,7,9},ABC={3}.
+
+Primjer 3
+U kutiji se nalazi deset kuglica, šest plavih i četiri crvene. Biramo na sreću dvije kuglice. Odredimo vjerojatnosti sljedećih događaja:A={obje su kuglice plave}B={obje su kuglice iste boje}C={jedna je kuglica plava, a druga crvena}.
+Rješenje: Da bismo postavili jednostavniji model, zamislit ćemo da sve kuglice možemo razlikovati. (Možemo zamisliti da su sve one označene različitim brojevima, od 1 do 10.) Dvije kuglice iz skupa od 10 kuglica možemo odabrati na N=(102)=45 načina. Povoljnih za događaj A je MA=(62)=15 jer se na toliko načina mogu izabrati dvije kuglice iz skupa od šest plavih kuglica. Zato jeP(A)=MAN=1545=13.Broj povoljnih ishoda za događaj B jeMB=(62)+(42)=15+6=21jer kuglice mogu biti ili plave ili crvene. Zato jeP(B)=MBN=2145=715.Odredimo broj povoljnih ishoda za događaj C. Plavu kuglicu možemo odabrati na šest, a crvenu na četiri načina, pa je MC=6⋅4=24. ZatoP(C)=MCN=2445=815.
+
+Primejr 4
+Kolika je vjerojatnost da će igrač koji je zaokružio jednu kombinaciju u igri LOTO 7 od 35 pogoditi svih sedam brojeva? Kolike su vjerojatnosti za preostale važnije dobitke (za točno pogođenih 6+1, 6 ili 5 brojeva)?
+Rješenje:
+Dobitak 7. Različitih kombinacija ima N=(357). Povoljnih za glavni dobitak je M7=1. Vjerojatnost dobitka iznosid7=M7N=1(357)=16724520=1.487⋅10−7.Događaje i s puno većom vjerojatnošću tretiramo kao praktično nemoguće. Ipak, zbog velikog broja ukupno ispunjenih kombinacija, ovaj se događaj s vremena na vrijeme ostvaruje.
+Dobitak 6+1. Šest brojeva između sedam izvučenih možemo odabrati na (76) načina. Sedmi broj mora biti dopunski, tu nemamo izbora. Zato je:d6+1=M6+1N=(76)(357)=76724520=1.041⋅10−6.
+Dobitak 6. Šest brojeva između sedam izvučenih možemo odabrati na (76) načina. Sedmi broj ne smije biti dopunski, pa za njega imamo 27 mogućnosti. Zato je:d6=M6N=(76)⋅27(357)=1896724520=2.811⋅10−5.Ovaj je događaj 189 puta vjerojatniji od glavnog zgoditka.
+Dobitak 5+1. Pet brojeva između sedam možemo odabrati na (75) načina. Za dopunski imamo samo jedan izbor, posljednji biramo iz skupa od 27 gubitničkih brojeva. Zato jed5+1=(75)⋅1⋅27(357)=5676724520=8.432⋅10−5.Dobitak 5. Pet brojeva između sedam možemo odabrati na (75) načina, a dva broja iz skupa od 27 brojeva koji nisu izvučeni na (272) načina. Zato jed5=(75)(272)(357)=73716724520=1.096⋅10−3.
+
+Primjer 5
+U razredu se nalazi 30 učenika. Za vrijeme usmene provjere znanja nastavnica je prozvala pet nasumično odabranih učenika. Kolika je vjerojatnost da će ispitati učenika NN? Kolika je vjerojatnost da će ispitati dva učenika, NN i MM?
+Rješenje: Broj svih mogućih ishoda u oba je slučaja N=(305). Koliko je slučajeva povoljnih za prvi događaj? Onoliko koliko postoji različitih petorki učenika među kojima se nalazi NN. To znači da četiri preostala učenika možemo odabrati po volji između 29 preostalih: M=(294). Zato je:P(A)=(294)(305)=29⋅28⋅27⋅261⋅2⋅3⋅430⋅29⋅28⋅27⋅261⋅2⋅3⋅4⋅5=530=16.Za događaj B vrijedi:P(B)=(283)(305)=28⋅27⋅261⋅2⋅330⋅29⋅28⋅27⋅261⋅2⋅3⋅4⋅5=287.
+
+primjer 6
+Bačeno je 12 kocaka. Kolika je vjerojatnost da će se svaki od brojeva 1,2,…,6 pojaviti dvaput?
+Rješenje: Da bismo postavili dobar model, zamislimo da smo bacali jednu kocku dvanaest puta ili da na bilo koji drugi način možemo razlikovati kocke. Onda je rezultat pokusa niz od 12 brojeva uzetih iz skupa S={1,2,3,4,5,6}, pa je broj svih mogućih ishoda N=612.
+Znamo da se u povoljnoj kombinaciji moraju pojaviti točno dvije jedinice, dvije dvojke itd. Pitanje je: na kojim kockama? Dvije se jedinice mogu pojaviti na bilo kojim kockama, dakle na (122) različitih načina. Nakon toga, za dvije dvojke imamo na raspolaganju deset kocaka, što daje (102) načina itd. Ukupan broj načina za pojavljivanje povoljnog događaja jeM=(122)(102)(82)(62)(42)(22)=12!(2!)6.Zato je tražena vjerojatnostp=MN=12!(2!)6⋅612=0.00344.
+
+Primejr 7
+Neka su A i B događaji, P(A)=0.4, P(B)=0.5, P(AB)=0.2. Odredimo P(A∪B), P(¯¯¯¯A), P(¯¯¯¯B), P(¯¯¯¯A¯¯¯¯B), P(¯¯¯¯A∪¯¯¯¯B), P(A¯¯¯¯B), P(¯¯¯¯AB).
+Rješenje:P(A∪B)=P(A)+P(B)−P(AB)=0.7P(¯¯¯¯A)=1−P(A)=0.6P(¯¯¯¯B)=1−P(B)=0.5P(¯¯¯¯A¯¯¯¯B)=P(¯¯¯¯¯¯¯¯¯¯¯¯¯¯A∪B)=1−P(A∪B)=0.3P(¯¯¯¯A∪¯¯¯¯B)=P(¯¯¯¯¯¯¯¯AB)=1−P(AB)=0.8P(A¯¯¯¯B)=P(A)−P(AB)=0.2P(¯¯¯¯AB)=P(B)−P(AB)=0.3.
+
+Primejr 8
+Algebra prekidača. De Morganove zakone možemo ilustrirati koristeći se jednostavnim modelima serijskog i paralelnog spoja.
+Rješenje:
+1. Serijski spoj. Neka u serijskom spoju dviju sklopki događaj A označava da je prva sklopka isključena, a događaj B da je isključena druga sklopka.
+Veza između točaka 1 i 2 neće postojati ako se ostvari barem jedan od događaja A ili B:{ne postoji veza}=A∪B.Veza između tih točaka postojat će ako se nije ostvario niti događaj A, niti događaj B (nema prekida niti na jednoj sklopki):{postoji veza}=¯¯¯¯A∩¯¯¯¯B.Ova su dva događaja komplementarna. Zato vrijedi¯¯¯¯¯¯¯¯¯¯¯¯¯¯A∪B=¯¯¯¯A∩¯¯¯¯B.Dobili smo prvu De Morganovu formulu.
+2. Paralelni spoj. Neka su dvije sklopke spojene u paralelnom spoju:
+Onda vrijedi:{ne postoji veza}=A∩B{postoji veza}=¯¯¯¯A∪¯¯¯¯B=¯¯¯¯¯¯¯¯¯¯¯¯¯¯A∩B.
+
+Primjer 9
+Uređaj je prikazan shemom na slici. Neka događaj Ai označava prekid na dijelu i, i=1,2,3. Odredi izraz za događajA={uređaj je prestao s radom},kao i za događaj ¯¯¯¯A. Rješenje: Uređaj prestaje s radom ako se ostvari događaj A1 i barem jedan od događaja A2, A3. Dakle,A=A1∩(A2∪A3)i po De Morganovim formulama¯¯¯¯A=¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯A1∩(A2∪A3)=¯¯¯¯A1∪¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯A2∪A3=¯¯¯¯A1∪(¯¯¯¯A2∩¯¯¯¯A3).
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 10
+Bacamo kocku dva puta, neka je a rezultat prvog, a b rezultat drugog bacanja.
+Intuitivno poimanje ovog pokusa sugerira da rezultat u drugom bacanju ne ovisi o tome koliki je bio rezultat prvog bacanja.
+Promatramo li neke događaje vezane za ovaj pokus, onda bismo trebali zaključiti da su, primjerice, događajiA={u prvom bacanju je pao paran broj}B={u drugom bacanju pao je broj veći od 4}nezavisni.
+Jesu li nezavisni događajiA={u prvom bacanju je pao paran broj}C={zbroj brojeva u oba bacanja iznosi 7}?
+
+Primjer 11
+Biramo na sreću broj a iz skupa X={1,2,3,4}, a zatim biramo na sreću broj b iz skupa Y={1,2,3}. Kolika je vjerojatnost događajaC={umnožak ab je neparan}?
+Rješenje: Umnožak će biti neparan ako su oba izabrana broja neparna.
+U ovom pokusu elementaran događaj je par izabranih brojeva, primjerice (4,2), (2,1) ili (3,1). Skup svih parova čini Kartezijev umnožak skupova X i Y:X×Y={(a,b):a∈X, b∈Y}.Broj elemenata u Kartezijevu umnošku jednak je umnošku broja elemenata u pojedinim skupovima. Ovdje je taj broj jednak 12.
+Tih 12 elementarnih događaja grafički možemo prikazati na sljedeći način (slika lijevo).
+Na slici desno označeni su ishodi povoljni za događaj A. Vidimo da postoje ukupno 4 povoljna ishoda, pa je vjerojatnost jednakap=412=13.Sad ćemo ovaj događaj opisati na drukčiji način. Umnožak dvaju brojeva bit će neparan ako su i jedan i drugi broj neparni. OznačimoA={prvi broj je neparan}B={drugi broj je neparan}.Onda vrijedi C=AB. Vjerojatnosti događaja A i B lako je izračunati jer se te vjerojatnosti računaju samo s pomoću skupa X, odnosno skupa Y:P(A)=24=12,P(B)=23.Primijetimo da jeP(C)=13=P(A)P(B).
+
+primejr 12
+Uz iste oznake i skupove kao u prethodnom primjeru, jesu li događajiC={a+b=4}D={a≤2}nezavisni?
+Rješenje: Trebamo odrediti elementarne događaje sljedećih događaja:C={(1,3),(2,2),(3,1)}D={(1,1),(1,2),(1,3),(2,1),(2,2),(2,3)}CD={(1,3),(2,2)}.Zato jeP(C)=312=14,P(D)=612=12,P(CD)=212=16.Vidimo da je P(CD)≠P(A)P(B) pa događaji C i D nisu nezavisni.
+
+primejr 13
+Bacamo dvije kocke. Promotrimo događaje:A={broj na prvoj kocki je paran}B={broj na drugoj kocki veći je od 4}.Jesu li ovi događaji nezavisni?
+Rješenje: Vjerojatnosni prostor čitavog pokusa ima 36 elementarnih događaja jer je toliko mogućih rezultata bacanja dviju kocaka. Međutim, taj prostor nije prikladan za računanje događaja A jer taj događaj ovisi samo o rezultatima na prvoj kocki. Zato je dovoljno promatrati samo šest ishoda, od kojih je tri povoljno za događaj A pa jeP(A)=36=12.Naravno, isti bismo rezultat dobili da smo računali s pomoću „velikog” vjerojatnosnog prostora, ali bi zapisivanje bilo znatno kompliciranije:A={(2,1),(2,2),…,(2,6)(4,1),(4,2),…,(4,6)(6,1),(6,2),…,(6,6)}.Sad dobivamoP(A)=1836=12.Za događaj B možemo napisatiP(B)=26=13jer ako gledamo samo drugu kocku, onda su dva ishoda povoljna za B. Gledamo li svih 36 ishoda na obje kocke, onda vidimo da je 12 povoljnih za B, što naravno daje isti rezultat.
+I na koncu, umnožak AB moramo ispisivati koristeći se elementima Kartezijeva umnoška jer se on tiče i prve i druge kocke. Prvi broj mora biti paran, a drugi veći od 4, pa imamoAB={(2,5),(2,6),(4,5),(4,6),(6,5),(6,6)}.DakleP(AB)=636=16i vidimo da vrijedi P(AB)=P(A)P(B). Događaji A i B su nezavisni.
+
+Primejr 14
+Pri bacanju dviju kocaka, kolika je vjerojatnost događajaC={broj na prvoj kocki manji je od 3, a broj na drugoj veći od 3}?
+Rješenje: Označimo:A={broj na prvoj kocki manji je od 3}B={broj na drugoj kocki veći je od 3}.Tada su A i B nezavisni događaji zbog naravi ovog pokusa. Vrijedi P(A)=26=13, P(B)=36=12, a budući da je C=AB, dobivamoP(C)=P(A)P(B)=13⋅12=16.
+
+Primejr 15
+Pri bacanju dviju kocaka, označimo događajeA={broj na prvoj kocki veći je od 3}B={broj na drugoj kocki veći je od broja na prvoj}.Jesu li događaji A i B nezavisni?
+Rješenje: Događaj A ovisi o rezultatu samo na prvoj kocki, ali događaj B ovisi o tome što se događa i na prvoj i na drugoj kocki. Zato ne možemo tvrditi da su događaji nezavisni. Najvjerojatnije i nisu nezavisni, ali to moramo provjeriti računom.
+Vjerojatnost događaja A je P(A)=12, bez obzira računali to samo jednom ili dvjema kockama.
+Događaj B možemo zapisati samo parovima rezultata.B={(1,2),(1,3),(1,3),(1,5),(1,6),(2,3),(2,4),(2,5),(2,6),(3,4),(3,5),(3,6),(4,5),(4,6),(5,6)}pa je P(B)=1536=512. Za umnožak AB imamoAB={(4,5),(4,6),(5,6)}pa je P(AB)=336=112.
+Vidimo da je P(AB)≠P(A)P(B), događaji A i B nisu nezavisni.
+
+primejr 16
+Jesu li nezavisni događajiA={u prvom bacanju pao je paran broj}B={zbroj brojeva u oba bacanja iznosi 7}?
+Rješenje: Događaj B ovisi o rezultatima bacanja u oba pokusa, pa je logičan zaključak da A i B nisu nezavisni. Provjerimo to računom. Vrijedi P(A)=12. Za događaj B gledamo povoljne parove iz Kartezijeva umnoška:B={(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)}pa je stogaP(B)=636=16.Elementarni događaj za AB su:AB={(2,5),(4,3),(6,1)}pa jeP(AB)=336=112.Sad vidimo da vrijediP(AB)=112=12⋅16=P(A)P(B)pa su, suprotno „logičnom zaključku”, ovi događaji nezavisni.
+
+Primejr 17
+Biramo na sreću broj iz skupa {1,2,…,10}. Kolika je vjerojatnost događajaA={izabran je broj djeljiv s 3}B={izabran je broj djeljiv s 5}?Jesu li A i B nezavisni?
+Rješenje: Povoljni elementarni događaji su, za događaj A={3,6,9}, a za događaj B={5,10}. Njihove su vjerojatnosti P(A)=310, P(B)=210.
+Presjek ovih događaja je prazan. Zato je P(AB)=0 te A i B nisu nezavisni događaji.
+
+Primejr 18
+Serijski spoj. Proizvodnja nekog proizvoda organizirana je na traci koja se sastoji od triju procesa A, B i C, od kojih svaki radi neovisno o ostalima. Ako barem jedan od procesa prestane s radom, prestaje i cjelina: Vjerojatnosti da pojedini dio neće otkazati tijekom dana jednake su pA=0.95, pB=0.9, pC=0.9. Kolika je vjerojatnost da će čitava traka raditi ispravno u tom danu?
+Rješenje: Neka je RA događajRA={dio A bit će ispravan}i slično za RB, RC. Neka jeR={čitav proces je ispravan}.Događaj R ostvarit će se ako se ostvare svi događaji RA, RB i RC. Dakle,R=RARBRC.Zbog pretpostavljene nezavisnosti vrijediP(R)=P(RA)P(RB)P(RC)=0.95⋅0.9⋅0.9=0.77.Vidimo da je u serijskom spoju pouzdanost čitavog sustava manja od pouzdanosti pojedinih elemenata (i opada s povećanjem njihovog broja).
+
+primejr 19
+Paralelni spoj. Proizvodnja nekog proizvoda organizirana je na tri paralelne linije A, B i C. Svaka od njih radi isti posao sa strojevima možda različite kvalitete. Vjerojatnosti da pojedini dio neće otkazati tijekom dana jednake su pA=0.95, pB=0.9, pC=0.9. Kolika je vjerojatnost da će barem jedna linija raditi ispravno u tom danu?
+Rješenje: Proces će se odvijati ako je ispravna barem jedna linija. Zato jeR=RA∪RB∪RC.Vjerojatnost ove unije nije lako direktno izračunati.
+Promotrimo suprotan događaj ¯¯¯¯R: proizvodnja je prestala. Očigledno, on će se ostvariti ako su u kvaru svi elementi, tj. ako se ostvare svi događaji ¯¯¯¯RA, ¯¯¯¯RB, ¯¯¯¯RC. Po De Morganovim zakonima vrijedi¯¯¯¯R=¯¯¯¯RA¯¯¯¯RB¯¯¯¯RC.Događaji ¯¯¯¯RA, ¯¯¯¯RB i ¯¯¯¯RC također su nezavisni. Zato jeP(¯¯¯¯R)=P(¯¯¯¯RA)P(¯¯¯¯RB)P(¯¯¯¯RC),tj.1−P(R)=(1−P(R))(1−P(RB))(1−P(RC)),P(R)=1−(1−pA)(1−pB)(1−pC).U konkretnom slučaju, ta je vjerojatnostP(R)=1−(1−0.95)(1−0.9)(1−0.9)=0.9995.Paralelnim organiziranjem procesa postiže se velika pouzdanost ispravnog rada.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 20
+U žari imamo 3 plave i 5 crvenih kuglica. Biramo jednu kuglicu, zabilježimo joj boju i vratimo je u žaru. Nakon toga biramo drugu kuglicu.
+Ovaj način biranja naziva se odabir u modelu s vraćanjem.
+Napiši sve moguće ishode ovog pokusa i izračunaj im vjerojatnost.
+Rješenje: Kako je opisano, pokus izvlačenja kuglica odvija se dva puta u nepromijenjenim uvjetima. Zato su ishodi svakog izvlačenja nezavisni događaji.
+Vjerojatnosti da bude izvučena plava odnosno crvena kuglica u jednom izvlačenju suP(P)=38,P( C)=58.Te iste vjerojatnosti ponavljaju se u drugom izvlačenju.
+Pokus ima četiri moguća ishoda: PP, PC, CP, CC. Vjerojatnosti tih ishoda i način računanja možemo pratiti na dijagramu koji se naziva vjerojatnosno stablo.
+Vjerojatnosti uzastopnih događaja se množe jer su ti događaji nezavisni. Zato je, primjericeP(PC)=P(P)⋅P(C)=38⋅58.Uočite sljedeće:
+1) Vjerojatnosti događaja PC i CP su jednake.
+2) Zbroj vjerojatnosti svih četiriju događaja mora biti 1. 
+
+Primejr 21
+Bacamo dvije kocke. Kolika je vjerojatnost da se na jednoj pojavio paran broj, a na drugoj broj manji od 3?
+Rješenje: Pretpostavimo da znamo razlikovati kocke jer su obojene različitim bojama. Onda ishod ovog pokusa možemo promatrati kao ponavljanje bacanja jedne kocke dvaput.
+Označimo s A događaj: pojavio se paran broj. Neka je B događaj: pojavio se broj manji od 3. Vjerojatnosti ovih događaja suP(A)=36=12,P(B)=26=13.Događaj čiju vjerojatnost tražimo možemo zapisati kaoC=AB∪BA.To znači da nam odgovara pojavljivanje događaja A na prvoj kocki i događaja B na drugoj, ili obratno. Dovoljno je nacrtati dio vjerojatnosnog stabla koji vodi do ovog ishoda. Zaključujemo:P(C)=P(AB)+P(BA)=P(A)P(B)+P(B)P(A)=12⋅13+13⋅12=13.
+
+Primejr 22
+Bacamo tri novčića. Kolika je vjerojatnost da se pojave barem dva pisma?
+Rješenje: Pojava pisma pri bacanju jednog novčića ima vjerojatnost P(P)=12.
+Više nećemo niti naglašavati da događaj promatramo tako da promatramo zamišljajući da jedan novčić bacamo tri puta.
+Nacrtat ćemo kompletno vjerojatnosno stablo i računati vjerojatnosti za ishode koji su povoljni za promatrani događaj.
+Ovaj pokus ima osam ishoda i svi su jednako vjerojatni. Bilo kojim putem po vjerojatnosnom stablu dolazimo do umnoška 12⋅12⋅12=18. Zato te vjerojatnosti nećemo pisati unutar stabla. Da bismo dobili rezultat, dovoljno je pobrojiti koliko ishoda tvori promatrani događaj. To su ishodi PPP, PPG, PGP i GPP. Zato je vjerojatnost traženog događaja jednaka 4⋅18=12.
+
+Primejr 23
+Bacamo dvije kocke. Kolika je vjerojatnost da će se pojaviti točno jedna šestica ili barem jedna jedinica?
+Rješenje: I ovaj zadatak možemo riješiti crtajući vjerojatnosno stablo. U jednom pokusu postoji šest ishoda, ali samo tri nas zanimaju:
+
+∙ {pojavila se šestica}, P(Š)=16
+∙ {pojavila se jedinica}, P(J)=16
+∙ {pojavio se bilo koji drugi broj}, P(D)=46.
+Zato u vjerojatnosnom stablu crtamo samo tri grane. vjerojatnosti su izračunate za one ishode koji pripadaju traženom događaju. To su ishodi (čitano odozgo prema dolje) ŠJ, ŠD, JŠ, JJ, JD, DŠ, DJ. Sa stabla vidimo da čitava srednja grana pripada traženom događaju, pa umjesto računanja vjerojatnosti triju ishoda uzimamo 16 što je vjerojatnost za tu granu. Vjerojatnost događaja jestp=136+3⋅436+16=1936.
+
+Primejr 24
+Korištenje vjerojatnosnog stabla nije uvijek najjednostavniji način zapisivanja. Zapravo, ovakav je način zapisivanja koristan dok ne budemo sigurni u način računanja vjerojatnosti. Nakon toga, bolje je koristiti druge metode.
+U ovom primjeru umjesto vjerojatnosnog stabla možemo napisati tablicu vjerojatnosti. Na rubovima tablice su vjerojatnosti pojavljivanja za pojedinu kocku, a unutar tablice su umnošci brojeva na rubovima. To su vjerojatnosti odgovarajućih ishoda, budući su događaji na jednom rubu nezavisni od onih na drugom rubu. Usporedite tablicu s vjerojatnosnim stablom.
+Zbroj istaknutih vjerojatnosti je 1936.
+I na koncu, možda je najjednostavnije napisati tablicu svih elementarnih ishoda dviju kocaka. Rezultati na pojedinoj kocki napisani su sa strane. Točke označavaju povoljan ishod:
+U tablici je označeno 19 elementarnih događaja.
+
+Primejr 25
+Bacamo novčić dok se ne pojavi pismo. Odredi vjerojatnost sljedećih događaja:
+
+1) D1={pismo se pojavilo u četvrtom bacanju}
+2) D2={pismo se pojavilo u prva četiri bacanja}
+3) D3={pismo se pojavilo nakon četvrtog bacanja}
+4) D4={pismo se nije pojavilo nikad}.
+Rješenje:
+1) Traženi događaj je ω4=GGGP. Njegova vjerojatnost je 116.
+2) Traženi događaj jeD2={ω1,ω2,ω3,ω4}={P,GP,GGP,GGGP}.Njegova je vjerojatnost12+14+18+116=1516.3) Događaj je ekvivalentan s: pismo se nije pojavilo u prva četiri bacanja. To je upravo komplement događaja iz 2) pa imamoP(D3)=1−P(D2)=116.4) Ovaj događaj nema u sebi niti jedan elementarni ishod. To je nemogući događaj, pa mu je vjerojatnost nula.
+
+Primejr 26
+U žari se nalaze dvije plave, dvije crvene i jedna bijela kuglica. Izvlačimo jednu po jednu kuglicu u modelu s vraćanjem. Kolika je vjerojatnost događaja
+
+1) A={plava kuglica pojavila se prije četvrtog izvlačenja}
+2) B={plava kuglica pojavila se prije bijele}.
+Rješenje:
+1) Ovdje se radi o geometrijskoj shemi s vjerojatnosti p=25 pa je vjerojatnost događaja jednakaP(A)=p1+p2+p3=25+35⋅25+35⋅35⋅25=98125.2) Povoljni ishodi za ovaj događaj su nizoviP,CP,CCP,CCCP,…Zato je tražena vjerojatnost25+25⋅25+(25)225+⋯=25⋅11−25=23.Korisno je vidjeti i drugu mogućnost u kojoj se bijela kuglica pojavi prije plave. Povoljni ishodi za ovaj slučaj su nizoviB,CB,CCB,CCCB,…pa je ova vjerojatnost15+25⋅15+(25)215+⋯=15⋅11−25=13.Zbroj ovih dviju vjerojatnosti je 23+13=1, što ukazuje da se neki od tih dvaju događaja mora ostvariti. Nadalje, omjer vjerojatnosti je 23:13=2:1, a to je upravo omjer broja plavih i bijelih kuglica u žari. Ta podudarnost nije slučajna.
+
+Primejr 27
+Kocku bacamo osam puta. Kolika je vjerojatnost da se šestica pojavi tri puta?
+Rješenje: Ovaj će se događaj ostvariti ako se ostvari niz poput sljedećeg:+,−,−,−,+,+,−,−kad se šestica pojavila u prvom, petom i šestom pokusu.
+Rezultati u svakom bacanju kocke nezavisni su događaji. Zato je vjerojatnost da se točno ovaj niz ostvari jednaka16⋅56⋅56⋅56⋅16⋅16⋅56⋅56=(16)3⋅(56)5.No, ovo će biti vjerojatnost pojavljivanja i za bilo koji drugi niz u kojem se šestica pojavljuje točno tri puta. Svi su ti nizovi povoljni za promatrani događaj.
+Koliko ih ima? Onoliko na koliko načina možemo izabrati tri znaka + od osam mogućih mjesta, dakleC38=(83)=8!3!⋅5!.Zato je vjerojatnost da će se šestica pojaviti tri puta jednaka(83)(16)3(56)5=0.104.
+
+primejr 28
+Bacamo četiri kocke. Kolika je vjerojatnost sljedećih događaja:A={šestica se pojavila točno tri puta}B={broj veći od četiri pojavio se točno dva puta}C={parni broj pojavio se barem tri puta}?
+Rješenje: Ovdje se radi o ponavljanju pokusa (bacanje jedne kocke), pod istim uvjetima. Naime, pokus bacanja četiriju kocaka ekvivalentan je pokusu u kojem se jedna kocka baca četiri puta.
+Vjerojatnost realizacije događaja A u jednom bacanju je p=16. Prema (1), vjerojatnost da će se on u četiri pokusa ostvariti tri puta iznosiP(A)=p3=(43)(16)356=0.015 .Vjerojatnost da se u jednom bacanju pojavi broj veći od 4 je p=26=13. Zato je vjerojatnost događaja B jednakaP(B)=p2=(42)(13)2(23)2=0.296 .Vjerojatnost da se u jednom bacanju pojavi parni broj je p=36=12. Vjerojatnost da se u četirima bacanjima taj događaj ostvari tri ili četiri puta iznosiP(C)=p3+p4=(43)(12)3⋅12+(44)(12)4=516=0.313 .
+
+Primejr 29
+Što je vjerojatnije u igri s ravnopravnim protivnikom: dobiti dvije igre od tri ili tri igre od šest? (Igra nema neriješenog ishoda.)
+Rješenje: Vjerojatnost dobitka jedne igre je 12. Vjerojatnost da se dobiju dvije igre od tri iznosi:(32)(12)212=38.Vjerojatnost dobitka triju igara od ukupno šest je:(63)(12)3(12)3=2026=516.Vjerojatniji je prvi ishod.
+
+Primejr 30
+Novčić bacamo osam puta. Izračunaj vjerojatnosti za broj mogućih pojavljivanja pisma. Kolika je vjerojatnost da će se pismo pojaviti barem pet puta?
+Rješenje: U svakom bacanju ta je vjerojatnost 12. Vjerojatnost da se pismo pojavi k puta u osam bacanja iznosipk=(8k)(12)k(12)8−k=128(8k).Uvrštavajući k=0,1,…,8, dobit ćemo sljedeće vjerojatnosti
+k	0	1	2	3	4	5	6	7	8
+pk	1256	8256	28256	56256	70256	56256	28256	8256	1256
+Odgovor na posljednje pitanje je:56216+28216+8216+1256=93256.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 31
+Bacamo dvije kocke. Neka je:A={na prvoj kocki pao je broj 2}B={zbroj brojeva na objema kockama je 6}.Kolika je vjerojatnost događaja A ako je poznato da se realizirao događaj B?
+Rješenje: Od 36 elementarnih događaja, događajima A i B pripadaju sljedećiA={(2,1),(2,2),(2,3),(2,4),(2,5),(2,6)}B={(1,5),(2,4),(3,3),(4,2),(5,1)}.Zato je:P(A)=636,P(B)=536.Ako je poznato da se ostvario događaj B, onda je dovoljno promotriti elementarne događaje koji čine B (jer samo neki od njih dolazi u obzir) i među njima tražiti one povoljne za događaj A. Time tražimo elementarne događaje za umnožak AB tih događaja.
+Ovakvu vjerojatnost nazivamo uvjetna vjerojatnost, bilježimo je simbolom P(A|B) (i čitamo: vjerojatnost od A uz uvjet B). Imamo:P(A|B)=15jer je samo događaj (2,4) povoljan za A.
+Na isti način, P(B|A)=16 svim elementarnim događajima koji čine A samo (2,4) povoljan za $B.
+
+Primejr 32
+Od 120 učenika četvrtih razreda 40 pohađa dodatne pripreme za državnu maturu iz matematike, 30 iz engleskog jezika, a 20 iz oba predmeta. Izračunajmo vjerojatnosti sljedećih događaja:
+1) Na sreću odabrani učenik pohađa pripreme iz matematike.
+2) Na sreću odabrani učenik pohađa pripreme iz engleskog jezika.
+3) Na sreću odabrani učenik među onima koji pohađaju matematiku, pohađa i engleski jezik.
+4) Na sreću odabrani učenik među onima koji pohađaju engleski jezik, pohađa i matematiku.
+5) Na sreću odabrani učenik među onima koji pohađaju engleski jezik, ne pohađa matematiku.
+Rješenje: Slika ispod ilustrira ovu situaciju.
+Neka M označava da učenik pohađa pripreme iz matematike, a E pripreme iz engleskog jezika.
+1) i 2) Ovdje je riječ o "običnim" vjerojatnostima,P(M)=40120=13,P(E)=30120=14.3) i 4) Ovdje je riječ o uvjetnim vjerojatnostima. Računajući prema definiciji, imamoP(E|M)=P(E∩M)PM=2012040120=1613=12.No jednostavnije je računati ovako. Promatramo samo one učenike koji pohađaju matematiku i među njima izdvojimo one koji pohađaju i engleski jezik:P(E|M)=2040=12.Na isti način,P(M|E)=2030=23.Vidimo da uvjetne vjerojatnosti P(E|M) i P(M|E) općenito nisu jednake.
+5) Sada jeP(¯¯¯¯¯¯M|E)=1030=13.Vidimo da je P(¯¯¯¯¯¯M|E)=1−P(M|E).
+
+Primejr 33
+U žari se nalazi šest bijelih i četiri crne kuglice. Kolika je vjerojatnost da će prve dvije kuglice koje izvučemo biti bijele?
+Rješenje: Možemo zamisliti da kuglice izvlačimo jednu po jednu. Neka su A i B događajiA={prva kuglica je bijela}B={druga kuglica je bijela}.Tad je AB događaj čiju vjerojatnost tražimo. Očito je:P(A)=610.Nakon što izvučemo prvu kuglicu, u žari je preostalo devet kuglica, od kojih je pet bijelih. Stoga je:P(B|A)=59i po formuli (3) slijedi:P(AB)=P(A)P(B|A)=610⋅59=13.
+
+primejr 34
+U žari se nalazi šest bijelih i četiri crne kuglice. Izvlačimo dvije kuglice, jednu po jednu. Kolika je vjerojatnost da će druga kuglica biti bijela ako je prva kuglica bila bijela? Kolika je ta vjerojatnost ako je prva kuglica bila crna? Izračunajmo ove vjerojatnosti u sljedeće dvije situacije:
+1) prva se kuglica nakon izvlačenja ne vraća u žaru
+2) prva se kuglica nakon izvlačenja vraća u žaru. tječe na vjerojatnost realizacije događaja B.
+Rješenje: Označimo s A i B događajeA={prva kuglica je bijela}B={druga kuglica je bijela}.Tražimo uvjetne vjerojatnosti P(B|A) i P(B|¯¯¯¯A). Očito jeP(A)=610,P(¯¯¯¯A)=410.1) Nakon izvlačenja prve kuglice, u žari imamo jednu kuglicu manje. Zato jeP(B|A)=59,P(B|¯¯¯¯A)=69.2) Ako kuglicu nakon izvlačenja vratimo u žaru, prije izvlačenja druge kuglice, imat ćemo identičnu situaciju: šest bijelih i četiri crne kuglice, bez obzira je li se ostvario događaj A ili nije:P(B|A)=610,P(B|¯¯¯¯A)=610Vidimo da realizacija događaja A ne u utječe na realizacije događaja B.
+
+primejr 35
+U žari se nalaze dvije plave, tri crvene i jedna zelena kuglica. Biramo prvu, a zatim i drugu kuglicu (bez vraćanja). Nacrtaj vjerojatnosno stablo i izračunaj vjerojatnosti svih mogućih ishoda.
+Rješenje: U prvom biranju vjerojatnosti suP(P)=26,P(C)=36,P(Z)=16.Vjerojatnosti u drugom izvlačenju su uvjetne vjerojatnosti jer ovise o rezultatima prvog izvlačenja. Navest ćemo ih na grafu vjerojatnosnog stabla.
+Primjerice, u računanju ishoda PC vjerojatnosti računamo ovako:P(PC)=P(P)⋅P(P|C)=26⋅35.Uvjeri se da je u (potpunom) vjerojatnosnom stablu zbroj svih vjerojatnosti u jednoj grani jednak vjerojatnosti te grane, a zbroj vjerojatnosti svih ishoda jednak je jedinici.
+
+Primejr 36
+Kolika je vjerojatnost da tri na sreću odabrane karte iz snopa od 52 karte budu tref boje?
+Rješenje: Označimo s A traženi događaj i neka je Ai={i-ta karta je tref boje}, i=1,2,3. Tad je A=A1A2A3 i računamo vjerojatnost po formuli:P(A)=P(A1)P(A2|A1)P(A3|A1A2).Pojedine vjerojatnosti su P(A1)=1352, u snopu ima 13 karata tref boje, P(A2|A1)=1251, nakon što je prva izvučena, preostalo ih je 51 od kojih je 12 tref boje, P(A3|A1A2)=1150. Dakle,P(A)=1352⋅1251⋅1150=0.013.

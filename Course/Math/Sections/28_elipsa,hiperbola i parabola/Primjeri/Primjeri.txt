@@ -1,0 +1,119 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 1
+Zbroj udaljenosti svake točke krivulje K od točaka M(−4,0) i N(4,0) je 10. Koja je to krivulja? Kako glasi njezina jednadžba?
+Rješenje: Opisani skup točaka je elipsa. Točke M i N njezina su žarišta te je linearni ekscentricitet elipse e=4. Zbroj udaljenosti svake točke elipse od točaka M i N je 10, što znači da je duljina velike osi elipse jednaka 10, odnosno a=5. Izračunajmo duljinu male osi:b2=a2−e2=25−16=9.Jednadžba elipse glasi: 9x2+25y2=225.
+
+primejr 2
+Odredimo jednadžbu elipse koja prolazi točkama T1(4,−2) i T2(√6,3).
+Rješenje: Trebamo odrediti duljine poluosi a i b. Točke T1 i T2 leže na elipsi pa njihove koordinate zadovoljavaju jednadžbu elipse. Dakle, vrijedi:42a2+(−2)2b2=1,(√6)2a2+32b2=1,tj.16a2+4b2=1,6a2+9b2=1.Ovo je sustav linearnih jednadžbi s nepoznanicama 1a2 i 1b2. Pomnožimo prvu jednadžbu s 9, a drugu s −4 i zbrojimo ih:9⋅16a2−4⋅6a2=9−4.Odavde je 120a2=5, pa slijedi a2=24. Sad dobivamo b2=12. Jednadžba elipse glasix224+y212=1.
+
+Primejr 3
+Zemlja se giba oko Sunca po elipsi kojoj je Sunce u jednom žarištu, tako da je njihova međusobna najveća udaljenost 152.1 milijuna km, a najmanja 147.1 milijuna km. Koliki je numerički ekscentricitet te elipse?
+Rješenje: Najveća i najmanja udaljenost jednake su duljinama radijus-vektora tjemena B elipse. Naime, ako je r1 udaljenost tog tjemena do žarišta F1 (u kojem se nalazi Sunce), onda je udaljenost r2 tjemena B do drugog žarišta F2 jednaka udaljenosti tjemena A do žarista F1. Apscisa tjemena B je a. Zato vrijedir1=a+εa=a(1+ε)=152.1,r2=a−εa=a(1−ε)=147.1.Odavde je (zbrajanjem jednadžbi) 2a=299.2 pa je a=149.6 mil. km, a za numerički ekscentricitet je1+ε=r1a⟹ε=r1−aa=2.5149.6=0.0167.Staza Zemlje neznatno je deformirana kružnica. Njezin linearni ekscentricitet je e=εa=2.5 mil. km, pa je mala poluos b=√a2−e2=149.58 mil. km. Vidimo da je ona kraća od velike poluosi za (samo) 20 000 km − dakle, za otprilike tri Zemljina polumjera.
+
+Primejr 4
+Halleyjev komet. Godine 1986. Halleyjev komet približio se Suncu na udaljenost 0.587 AU4. Putanja kometa je eliptična, s numeričkim ekscentricitetom 0.967. Kolika je njegova najveća udaljenost od Sunca? Godine 1705. Edmond Halley (1652. − 1742.) odredio je orbitu ovog kometa i koristeći se Newtonovom teorijom predvidio da će se on vratiti u blizinu Sunca 76 godina nakon svog posljednjeg posjeta, godine 1682. Taj povratak, oko Božića 1758. god., Halley nije doživio. Njemu u čast, komet je dobio ime koje i danas nosi. Prvi zabilježeni trag o Halleyjevu kometu seže u Kinu, 240 godina prije Krista. Njegovi posjeti godina 684., 837., 1066. i 1301. ostali su zabilježeni na mnogim crtežima. Za povijesnog doba Zemlji se najviše približio daleke 837. godine, na udaljenost od samo 0.034 AU.  Godine 1986. Halleyjev komet ponovno je došao u blizinu Sunca. Ta velika prašnjava gromada ima dimenziju mathsurround=0pt 16×8×8 kilometara, i gustoću od samo 0.1 g/cm3. Dočekalo ga je spremno nekoliko letjelica i tisuće teleskopa, a s jednog od njih načinjena je i ova fotografija.
+Rješenje: Najbliža udaljenost kometa do Sunca (u perihelu) jednaka je razlici velike poluosi i linearnog ekscentriciteta (udaljenost središta do žarišta elipse). Prema astronomskim podacima možemo zapisati:a−e=0.587,ε=ea=0.967.Odavde je a=17.79 AU. Najveća udaljenost od Sunca iznosi2a−e=34.99 AU,tako da je komet u afelu skoro 60 puta udaljeniji od Sunca nego u perihelu. Mala poluos ove elipse iznosib=√a2−e2=√a2−ε2a2=a√1−ε2=4.53 AU,pa je putanja kometa poprilično spljoštena. Prema drugom Keplerovu zakonu radijus-vektor točke u jednakim vremenskim intervalima prebriše jednaku površinu. To znači da je brzina kometa u blizini Sunca oko 3600 puta veća od brzine u afelu.
+
+Primjer 5
+Nacrtajmo u istom koordinatnom sustavu elipsex216+y24=1,x24+y216=1.Dvije elipse su sukladne. Jednoj su žarišta na osi x, drugoj na osi y.
+
+Primejr 6
+Mehanička konstrukcija elipse. Zadana je dužina ¯¯¯¯¯¯¯¯¯¯¯MN duljine a+b i na njoj točka T koja dijeli tu dužinu u omjeru a:b. Prislonimo dužinu uz osi koordinatnog sustava tako da točka M klizi duž osi ordinata, a točka N duž osi apscisa. Dokažimo da će tada točka T opisati elipsu5 s poluosima a i b. Uvjerimo se u to.	Rješenje: Odredimo jednadžbu krivulje koju opisuje točka T. Označimo s (x,y) njezine koordinate, te s c duljinu dužine ¯¯¯¯¯¯¯¯SN. Onda jec:b=(x+c):(a+b),tj.c(a+b)=b(x+c),odakle slijedi ac=bx, daklea√b2−y2=bx,a2(b2−y2)=b2x2,b2x2+a2y2=a2b2.
+
+Primjer 7
+Odredimo skup točaka ravnine koji je zadan jednadžbom2x2+y2+4x−4y+2=0.
+Rješenje:
+Iz oblika u kojem je jednadžba zapisana ne možemo odmah razaznati o kojem se skupu točaka radi. Možemo, doduše, uz pomoć računala vidjeti kako je riječ o elipsi sa središtem u točki (−1,2), s velikom osi duljine 4 i malom duljine √2.Preuredimo danu jednadžbu na sljedeći način:2(x2+2x+1)−2+(y2−4y+4)−4+2=0,odnosno2(x+1)2+(y−2)2=4.Prepoznajete li sada u ovoj jednadžbi nacrtanu elipsu? Obrazložite!
+
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 8
+Nacrtajmo hiperbolu x29−y24=1.
+ 
+Rješenje:
+Realna poluos je a=3, imaginarna b=2 pa su asimptote y=23x i y=−23x. Linearni ekscentricitet je e=√a2+b2=√13.
+To je upravo duljina polovine dijagonale pravokutnika koji prolazi tjemenima hiperbole. Zato žarišta konstruiramo tako da iz središta hiperbole šestarom kojem je polumjer e zasiječemo pravac s realnom osi.
+
+Primejr 9
+Izračunajmo udaljenost točaka hiperbole x2−y24=1 do asimptote y=2x. Računat ćemo za točke s apscisama x1=10, x2=100, x3=1000.Rješenje:Udaljenost točke T(x,y) do pravca p\ld2x−y=0 jed=|2x−y|√22+1=|2x−y|√5.
+Koordinate točaka (uzimamotočke s pozitivnom ordinatom, jer su one bliskeasimptoti) kojima tražimo udaljenost su:T1(10,2√99)⟹d1=|20−2√99|√5=0.0447,T2(100,2√9999)⟹d2=|200−2√9999|√5=0.00447,T3(1000,2√999999)⟹d3=|2000−2√999999|√5=0.000447.
+Vidimo da se te udaljenosti smanjuju i teže k nuli kad se točka Tudaljava po grani hiperbole.
+
+Primejr 10
+Nacrtajmo hiperbole x24−y29=1 i −x29+y24=1. Drugu hiperbolu dobijemo iz prve zrcaljenjem prema pravcu y=x.
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 11
+Nacrtajmo parabolu za koju je udaljenost žarišta do ravnalice jednaka 2 cm.
+Rješenje:
+Upotrijebit ćemo opisani postupak i odrediti dovoljan broj točaka na paraboli.
+Povucimo pravce usporedne ravnalici na udaljenostima od 1.5 cm, 2 cm, 2.5 cm... od nje. S malo iskustva vidjet ćemo da je dovoljno iscrtati samo manji dio pravca, tamo gdje očekujemo da će se nalaziti točke parabole.
+Zatim s istim iznosima povucimo kružne lukove iz žarišta parabole, i to onaj njihov dio koji zasijeca odgovarajuće pravce (lukom polumjera 2.5 cm zasjeći ćemo pravac 2.5 cm udaljen od ravnalice).
+Posebno istaknimo položaj tjemena V i na temelju nekoliko dobivenih točaka skicirajmo parabolu.
+
+Primjer 12
+Odredimo jednadžbu parabole kojoj je tjeme u točki V(−1,2), prolazi točkom A(1,4), a os joj je paralelna s osi apscisa.
+Rješenje:
+Tjeme je translatirano u točku (−1,2), pa je u jednadžbi parabole x0=−1, y0=2. Poluparametar p odredit ćemo iz uvjeta da A leži na paraboli:(y−y0)2=2p(x−x0),(4−2)2=2p(1−(−1)).Dobivamo: 4=4p pa jednadžba glasi(y−2)2=2(x+1).
+
+Primejr 13
+Tanjuri za antene satelitskih prijamnika proizvode se u tvornici Veliki tanjur. Njih kupuje tvornica Extra satelit i ugrađuje elektroničke dijelove antene. Ako je promjer tanjura a, a dubina b (vidi sliku), koliko daleko od tjemena tanjura treba ugraditi prijamnik signala?
+Rješenje:
+Postavimo tanjur u koordinatni sustav tako da mu tjeme bude u ishodištu. Jednadžba parabole (presjeka tanjura s okomitom ravninom) neka je y2=2px. Točka s koordinatama (b,a2) leži na paraboli, pa jea24=2pb.Odavde je p=a28b, pa je tražena duljina polovica ovog iznosa: d=a24b.
+
+Primejr 14
+Odredi skup točaka ravnine zadan jednadžbom y=12x2.
+Rješenje:
+Ako u jednadžbi parabole y2=2px zamijenimo x sa y, dobit ćemo jednadžbu x2=2py. Tu jednadžbu možemo zapisati u obliku y=12px2. Zamjenom koordinata x i y zapravo smo zrcalili svaku točku parabole y2=2px prema pravcu y=x, pa je dobivena krivulja sukladna parabola kojoj je tjeme u ishodištu koordinatnog sustava, a os simetrije je os ordinata.
+Sada smo tek dokazali činjenicu da je graf kvadratne funkcije f(x)=ax2 (koju smo obrađivali u II. razredu) parabola.
+Usporedbom koeficijenata u jednadžbama y=ax2 i y=12px2 dobijemo a=12p.
+Žarište parabole y=12x2 je točka F(0,12), njezina je ravnalica pravac 2y+1=0.
+
+Usporedbom koeficijenata u jednadžbama y=ax2 i y=12px2 dobijemo a=12p.
+Žarište parabole y=12x2 je točka F(0,12), njezina je ravnalica pravac 2y+1=0.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 15
+U kojim točkama pravac x−5y−7=0 siječe elipsu x24+y225=1?
+Rješenje:
+Ponovit ćemo prije navedeni postupak. Rješavamo sustav{x−5y−7=0,25x2+4y2=100Vidimo da je jednostavnije eliminirati nepoznanicu x. Iz prve jednadžbe je x=5y+7, pa druga onda postaje25(5y+7)2+4y2=100,629y2+1750y+1125=0.Rješenja su y1=−1.008, y2=−1.774. Sada je x1=1.959, x2=−1.870. Dakle, pravac siječe elipsu u dvjema točkama s koordinatama T1(1.959,−1.008), T2(−1.870,−1.774).
+
+primjer 16
+Koji je iz skupa pravaca y=kx+1 tangenta parabole y2=8x? Kako glasi jednadžba te tangente? U kojoj točki tangenta dira parabolu?
+Rješenje:
+Jednadžbom y=kx+1 zadan je skup pravaca koji prolaze točkom (0,1) na osi ordinata. Neki od tih pravaca sijeku parabolu u dvjema točkama, neki s parabolom nemaju zajedničkih točaka, a očekujemo da će dva pravca iz tog skupa biti tangente parabole. Riješimo sustav jednadžbiy=kx+1,y2=8x.Nakon uvrštavanja nepoznanice y iz prve u drugu jednadžbu te sređivanja dobijemo kvadratnu jednadžbuk2x2+2(k−4)x+1=0.Njezina diskriminanta je: D=32(−k+2). Što zaključujemo?
+Ako je k<2, diskriminanta je pozitivan broj, što znači da svi pravci s tim koeficijentima smjera sijeku parabolu u dvjema točkama.
+Pravci za koje je k>2 s parabolom nemaju zajedničkih točaka.
+A za k=2 pravac ima točno jednu zajedničku točku s parabolom. To znači da je pravac y=2x+1 tangenta parabole y2=8x.
+Za k=2 kvadratna jednadžba prima oblik 4x2−4x+1=0, odnosno (2x−1)2=0 pa je x=12 apscisa dirališta. Iz jednadžbe tangente onda odredimo još i ordinatu y=2. Diralište je, dakle, točka (12,2).
+No valja biti oprezan. Ako je dana točka izvan neke od krivulja drugog reda, tada postoje dva pravca koji s krivuljom imaju točno jednu zajedničku točku, postoje dvije tangente. Pa gdje je onda nestala druga tangenta u našem primjeru? Malo pozornijim promatranjem slike uočit ćemo da je druga tangenta os y.
+Već ranije smo naglasili da su jednadžbom pravca u eksplicitnom obliku određeni svi pravci ravnine s iznimkom okomica na os x. To je razlog zbog kojeg u našem računanju nismo dobili drugo rješenje.
+Dakle, druga je tangenta pravac x=0 i on parabolu dira u ishodištu koordinatnog sustava, točki (0,0).

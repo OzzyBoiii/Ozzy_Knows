@@ -1,0 +1,217 @@
+Događaji
+________________________________________
+Elementarni događaj
+Pokus čiji je ishod neizvjestan jer ovisi o nekim nepredvidivim okolnostima nazivamo stohastičkim pokusom. Mogući rezultati tog pokusa nazivaju se ishodi ili elementarni događaji.
+Primjerice:
+	Bacanje novčića kao ishod može imati glavu (G) ili pismo (P).
+	Bacanje kocke dat će rezultat 1, 2, 3, 4, 5 ili 6.
+	Izvlačenje karte iz snopa ima 52 različita ishoda.
+	Za broj izvučen na lotu 7/39 u prvom je izvlačenju 39 mogućih ishoda. (Koliko ishoda postoji u drugom izvlačenju?)
+	Ishod provjere kvalitete nekog proizvoda može biti: ispravan ili neispravan.
+Promatrat ćemo u početku pokuse koji mogu rezultirati s konačno mnogo ishoda, poput ovih nabrojenih. Ako ih može biti N, onda ih označavamo sa ω_1,ω_2,…,ω_N.
+Skup svih elementarnih događaja označavamo slovom Ω (čitaj: omega),
+Ω={ω_1,ω_2,…,ω_N}.
+
+Događaj je bilo koji podskup od Ω. Sastoji se od jednog ili više elementarnih događaja. Događaje ćemo označavati velikim slovima latinične abecede: A,B,C.
+<!--PRIMJER 1--> <!--PRIMJER 2--> <!--PRIMJER 3-->
+________________________________________
+Uspoređivanje događaja
+Događaje prikazujemo Euler–Vennovim dijagramima. Skup Ω nazivamo još siguran događaj. On se ostvaruje pri svakom ishodu pokusa. Skiciramo ga obično u obliku nekog pravokutnika. Po volji odabrani događaji A,B⊂Ω skiciramo kao na slici.
+(Događaji_1.png)
+Suprotnost od sigurnog događaja je nemoguć događaj koji se pri realizaciji pokusa nikad ne može ostvariti. Označavamo ga simbolom ∅ i zamišljamo kao prazni skup.
+________________________________________
+Dva istaknuta događaja
+Događaji mogu biti u različitom međusobnom odnosu. Na slici su skicirana dva događaja, tako da je A sadržan u B, što zapisujemo kao A⊂B. To znači da B sadrži sve elementarne događaje koji ulaze u događaj A.
+(Događaji_2.png)
+Ako se ostvario događaj A, to znači da se ostvario neki njegov elementarni događaj. No tada se ostvario i događaj B, jer on sadrži sve elementarne događaje iz A. Kažemo da tada događaj A povlači događaj B i pišemo još A⇒B.
+Događaji A i B su ekvivalentni ili jednaki ako se sastoje od istih elementarnih događaja. Pišemo A=B. Tada vrijedi istovremeno A⇒B i B⇒A.
+<!--PRIMJER 4-->
+________________________________________
+Nužan i dovoljan uvjet
+Ovaj je odnos dvaju događaja vrlo važan i često se koristi i u svakodnevnom govoru. Zato postoje mnogi sinonimi za ovu vezu.
+Ako vrijedi A⊂B, odnosno A⇒B, onda govorimo još:
+A je dovoljan uvjet za B,
+B je nužan uvjet za A.
+Pojmovi dovoljan i nužan uvjet moraju biti savršeno jasni, jer su temelj logičkog razmišljanja. Ilustrirajmo ove pojmove s pomoću događaja u prethodnom primjeru. Imali smo A⇒B, pa je A dovoljan uvjet za B. Kažemo: da bi zbroj brojeva bio veći od 8, dovoljno je da svaki od njih bude veći od 4. Taj je uvjet dovoljan, ali nije nužan.
+Zbroj brojeva može biti veći od 8 i kad jedna kocka padne na, recimo, 3, a druga na 6. Tad se ostvario B, ali se nije ostvario A. Zato je B nužan uvjet za A. Kažemo: da bi oba broja bila veća od 4, njihov zbroj nužno mora biti veći od 8.
+Na isti se način mogu usporediti događaji B i C:
+Da bi zbroj brojeva bio veći od 8, oba broja nužno moraju biti veća od 2 (C je nužan uvjet za B).
+Želimo li da oba broja na kocki budu veća od 2, dovoljno je da njihov zbroj bude veći od 8 (B je dovoljan uvjet za C).
+________________________________________
+Disjunktni događaji
+Događaji A i B su disjunktni ako se istovremeno ne mogu ostvariti i jedan i drugi. Kažemo još da se A i B međusobno isključuju. Pritom nije nužno da se ostvari neki od ova dva događaja, moguće je dakle da se ne ostvari niti jedan od njih.
+(Događaji_3.png)
+<!--PRIMJER 5--> <!--PRIMJER 6-->
+________________________________________
+________________________________________
+________________________________________
+Vjerojatnost
+________________________________________
+Relativna frekvencija i vjerojatnost
+Uzmite novčić i bacite ga na ispravan način. Bacanje ponovite dvadeset puta. Brojite koliko će se puta pojaviti pismo. Zapišite rezultat. Svaki broj, od 0 do 20, možete dobiti kao rezultat ovog pokusa. Međutim, naše iskustvo kaže da će taj rezultat biti blizak broju 10.
+Iako je pojavljivanje pisma u jednom bacanju potpuno neizvjestan događaj, relativna frekvencija pojavljivanja pisma (omjer broja pojavljivanja prema broju bacanja) u velikom broju bacanja bit će uvijek broj blizak 1/2.
+Ovu činjenicu ljudi iskustveno znaju od davnina, a zapravo se radi o rezultatu matematičkog teorema koji nazivamo zakonom velikih brojeva. Jednostavnim jezikom kazano, taj zakon tvrdi da se pri ponavljanju pokusa relativna frekvencija pojavljivanja događaja približava njegovoj vjerojatnosti.
+Vjerojatnost nekog događaja A označavat ćemo s P(A).
+Vjerojatnost kao relativna frekvencija
+Za podatke dobivene statističkim praćenjem nekog događaja vjerojatnost računamo formulom
+P(A)=M/N.
+
+Ovdje je N broj svih podataka, a M broj onih koji ulaze u događaj A.
+<!--PRIMJER 1--> <!--PRIMJER 2--> <!--PRIMJER 3-->
+________________________________________
+Vjerojatnost
+Pri definiranju vjerojatnosti ključno je shvatiti pojam modela. Primjerice, model ispravnog novčića pretpostavlja da je novčić valjan (ima dvije različite strane koje označavamo sa P i G) i da je način bacanja ispravan. U ovom je modelu prirodno definirati jednake vjerojatnosti pojavljivanja pisma i glave:
+P({P})=P({G})=1/2.
+
+Kažemo da novčić s jednakom vjerojatnošću pada na bilo koju svoju stranu.
+Ako novčić ili način bacanja nije ispravan, onda ovaj model nije prikladan. Događaji P i G imat će neke druge vjerojatnosti.
+Vjerojatnost
+Neka je Ω={ω_1,ω_2,…,ω_N} skup svih elementarnih događaja. Vjerojatnost P definirana je ako su zadani brojevi
+P(ω_1)=p_1,"  " P(ω_2)=p_2,…,P(ω_N)=p_N.
+
+To su pozitivni brojevi i mora vrijediti
+p_1+p_2+⋯+p_N=1.
+
+Ako je A bilo koji događaj, onda se njegova vjerojatnost dobiva kao zbroj vjerojatnosti elementarnih događaja od kojih se A sastoji. Skup Ω i na njemu definiranu vjerojatnost P nazivat ćemo vjerojatnosni prostor.
+Dakle, ako je, primjerice, A={ω_2,ω_5,ω_8}, onda je
+P(A)=p_2+p_5+p_8.
+
+Paran je broj na kocki događaj C={2,4,6} pa je njegova vjerojatnost prema tome
+P(C)=P({2})+P({4})+P({6})=1/6+1/6+1/6=1/2.
+
+Primjeri vjerojatnosnih prostora
+	Novčić. Dva su elementarna događaja: ω_1=P, ω_2=G. Ako je novčić ispravan i način njegova bacanja uobičajen, onda je prirodno pretpostaviti da su vjerojatnosti pojavljivanja obaju ovih događaja jednake: p_1=P({ω_1})=1/2, p_2=P({ω_2})=1/2. Ako novčić nije ispravan, jedna njegova strana, recimo P, pojavljivat će se češće nego druga. Sada je p_1>p_2.
+	Bacanje dvaju različitih novčića. Četiri su elementarna događaja, jer razlikujemo jedan novčić od drugog:
+ω_1 — palo je (P,P)
+ω_2 — palo je (P,G)
+ω_3 — palo je (G,P)
+ω_4 — palo je (G,G).
+U modelu ispravnog novčića uzimamo da su svi ovi ishodi jednako vjerojatni pa je vjerojatnost svakog od njih jednaka 1/4.
+	Bacanje dvaju identičnih novčića. Sad ishode (P,G) i (G,P) ne možemo razlikovati pa postoje samo tri elementarna događaja:
+ω_1= {pala su dva pisma},
+ω_2= {palo je jedno pismo i jedna glava},
+ω_3= {pale su dvije glave}.
+Međutim, vjerojatnosti ovih elementarnih događaja nisu jednake, već mora biti (za ispravne novčiće i bacanje)
+P(ω_1)=1/4,P(ω_2)=1/2,P(ω_3)=1/4.
+
+	Kocka. Za ispravnu kocku prirodno je uzeti p_i=P({ω_i})=1/6 za svaku od šest mogućnosti na koje kocka može pasti. Za događaje vezane uz pokus bacanja kocke imamo, primjerice:
+P({"pao je paran broj"})=P({2,4,6})=3/6,P({"pao je broj ve" "c"  ˊ"i od 2"})=P({3,4,5,6})=4/6.
+
+	Bacanje dviju kocki. Postoji 36 elementarnih događaja. Da bismo razlikovali događaje poput (2,5) i (5,2), možemo zamisliti da su kocke obojene različitim bojama ili pak da umjesto dviju kocaka istovremeno bacamo jednu kocku dva puta tako da znamo koji je rezultat na prvoj, a koji rezultat na drugoj kocki. Ako su kocke i način bacanja ispravni, prirodno je pretpostaviti da su svi elementarni događaji jednako vjerojatni.
+<!--primjer 4--> <!--primjer 5-->
+________________________________________
+Klasični vjerojatnosni prostor
+Ako pokus ima konačno mnogo ishoda i ako su svi elementarni događaji jednako vjerojatni (poput bacanja ispravnog novčića, kocke, izvlačenja broja u lotu, lutriji ili ruletu, izbora karte iz špila i sl.), onda govorimo da se radi o klasičnom vjerojatnosnom prostoru. Riječ „klasični” ovdje se rabi jer se problemi iz kojih je iznikla teorija vjerojatnosti mogu opisati ovim modelom.
+Neka je Ω={ω_1,…,ω_N} skup svih elementarnih događaja i p_1,…,p_N pripadne vjerojatnosti. Sve su te vjerojatnosti jednake, a njihov je zbroj 1. Zato vrijedi
+p_i=P({ω_i})=1/N,i=1,…,N.
+
+Da bismo izračunali vjerojatnost nekog događaja A, nije nam više potrebno znati koje elementarne događaje A sadrži, već samo koliko ih ima. Naime, ako A sadrži M elementarnih događaja, A={ω_(i_1 ),…,ω_(i_M )}, tada je
+P(A)=p_(i_1 )+⋯+p_(i_M )=M⋅1/N=M/N.
+
+Klasična vjerojatnost
+U klasičnom vjerojatnosnom prostoru vjerojatnost događaja računa se formulom:
+P(A)=M/N="broj povoljnih ishoda" /("broj mogu" "c"  ˊ"ih ishoda" ).
+<!--PRIMEJR 6--> <!--PRIMJER 7--> <!--PRIMJER 8--> <!--PRIMEJR 9--> <!--PRIMJER 10-->
+________________________________________
+________________________________________
+________________________________________
+Računanje vjerojatnosti
+________________________________________
+Operacije s događajima
+Događaji su podskupovi skupa Ω. Korištenjem skupovnih operacija možemo iz njih dobivati nove događaje. Posebno su nam zanimljive operacije komplementiranja događaja te unije i presjeka dvaju događaja.
+Komplement događaja
+Događaj koji se ostvaruje onda i samo onda ako se A nije ostvario naziva se komplementom ili suprotnim događajem događaja A. Označavamo ga s A ‾ ili s A^c.
+(Računanje vjerojatnosti_1.png)
+Unija događaja
+Događaj koji se ostvaruje ako se ostvario barem jedan od događaja A,B nazivamo unija događaja i označavamo s A∪B.
+(Računanje vjerojatnosti_2.png)
+Presjek događaja
+Događaj koji se ostvaruje ako su se ostvarila oba događaja A i B zovemo presjek ili umnožak dvaju događaja i označavamo ga s A∩B ili s AB.
+(Računanje vjerojatnosti_3.png)
+<!--PRIMJERI 1--> <!--PRIMJERI 2-->
+________________________________________
+Svojstva vjerojatnosti
+Vjerojatnost sigurnog i nemogućeg događaja:
+Skup Ω sadrži sve elementarne događaje pa je
+P(Ω)=p_1+p_2+⋯+p_N=1.
+
+S druge strane nemoguć događaj ∅ ne sadrži nijedan elementaran događaj, pa je
+P(∅)=0.
+
+Monotonost vjerojatnosti:
+Ako je A⊆B, onda je ili A=B, ili B sadrži elementarne događaje koji se ne nalaze u A. U prvom je slučaju P(A)=P(B), a u drugom P(A)<P(B). To znači da općenito vrijedi
+A⊆B⇒P(A)≤P(B).
+
+Vjerojatnost unije dvaju disjunktnih događaja:
+Ako su A i B disjunktni događaji, onda A∪B sadrži sve elementarne događaje obaju skupova pa je
+P(A∪B)=P(A)+P(B).
+
+Vjerojatnost unije dvaju događaja:
+Neka su sada A i B dva po volji odabrana događaja. Pokažimo da vrijedi
+P(A∪B)=P(A)+P(B)-P(AB).
+
+Radi jednostavnijeg zapisivanja, odabrat ćemo neki konkretni primjer. Neka je
+A={ω_1,ω_2,ω_4},B={ω_2,ω_4,ω_5,ω_7}.
+
+Onda vrijedi
+A∪B={ω_1,ω_2,ω_4,ω_5,ω_7},AB=A∩B={ω_2,ω_4}.
+
+pa je
+P(A∪B)=p_1+p_2+p_4+p_5+p_7=(p_1+p_2+p_4)+(p_2+p_4+p_5+p_7)-(p_2+p_4)=P(A)+P(B)-P(AB).
+
+Sljedeća slika opisuje ovu situaciju:
+(Računanje vjerojatnosti_4.png)
+Na slici lijevo označeni su događaji A i B∖A. Ovaj drugi sastoji se od onih elementarnih koji pripadaju događaju B, ali ne pripadaju događaju A. Zato možemo taj događaj označiti i ovako
+BA ‾=B∖A
+
+i nazivamo ga razlika događaja B i A.
+Događaji A i BA ‾ su disjunktni, a njihova unija je A∪B. Zato vrijedi
+P(A∪B)=P(A)+P(BA ‾).
+
+S druge strane, AB i BA ‾ su također disjunktni i njihova je unija događaj B (slika desno). Zato je
+P(B)=P(AB)+P(BA ‾).
+
+Oduzimanjem ovih dviju jednakosti dobivamo traženu formulu.
+Vjerojatnost suprotnog događaja:
+Neka je A po volji odabran događaj, a A ‾ njegov komplement. Onda vrijedi A∪A ‾=Ω i pritom su A i A ‾ disjunktni. Zato, po svojstvima vjerojatnosti vrijedi
+1=P(Ω)=P(A∪A ‾)=P(A)+P(A ‾),
+
+te je
+P(A ‾)=1-P(A).
+
+Time smo pokazali svojstva vjerojatnosti.
+Svojstva vjerojatnosti
+Vjerojatnost ima svojstva
+P(Ω)=1,P(∅)=0.
+
+Ako je A⊆B, onda je P(A)≤P(B).
+Za bilo koje događaje A i B vrijedi
+P(A∪B)=P(A)+P(B)-P(AB).
+
+Ako su A i B disjunktni događaji, onda je
+P(A∪B)=P(A)+P(B).
+
+Vjerojatnost komplementa računa se na način
+P(A ‾)=1-P(A).
+<!--PRIMJER 3--> <!--PRIMJER 4-->
+________________________________________
+________________________________________
+________________________________________
+Geometrijska vjerojatnost
+________________________________________
+Definicija geometrijske vjerojatnosti
+Zamislimo pokus u kojem biramo na slučajan način točku unutar kvadrata Ω sa stranicom duljine a. Istaknimo neke podskupove tog kvadrata. Neka je A polovina kvadrata ispod dijagonale. Neka je B trokut dobiven spajanjem polovišta susjednih stranica.
+(Geometrijska vjerojatnost_1.png)
+Geometrijska vjerojatnost: mjera podskupa određuje njegovu vjerojatnost.
+Biramo li točku unutar kvadrata, možemo se upitati kolika je vjerojatnost da će ta točka biti izabrana unutar nekih od ovih podskupova. U ovdje opisanom pokusu prirodno je sljedećim događajima pridružiti vjerojatnosti:
+P(A)=P{"to" "c"  ̌"ka je pala u skup " A}=(1/2 a^2)/a^2 =1/2,
+P(B)=P{"to" "c"  ̌"ka je pala u skup " B}=(1/8 a^2)/a^2 =1/8.
+
+Te smo vjerojatnosti dobili promatrajući omjer površina podskupova i čitava kvadrata.
+Geometrijska vjerojatnost
+Neka je Ω ograničeni podskup ravnine i m(Ω) njegova površina, a A podskup od Ω. Kažemo da biramo točku na sreću unutar skupa Ω, ako je vjerojatnost da ona bude izabrana unutar podskupa A jednaka
+P(A)=(m(A))/(m(Ω)).
+
+Ovako definiranu vjerojatnost nazivamo geometrijska vjerojatnost.
+<!--PRIMJER 1--> <!--PRIMJER 2--> <!--PRIMJER 3--> <!--PRIMEJR 4--> <!--PRIMJER 5-->
+

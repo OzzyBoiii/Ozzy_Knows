@@ -5,13 +5,20 @@
   "defaultViewMode": "preview",
   "readableLineLength": true,
   "pdfExportSettings": {
-    "pageSize": "Letter",
+    "pageSize": "A4",
     "landscape": false,
     "margin": "0",
-    "downscalePercent": 100
+    "downscalePercent": 100,
+    "includeName": true
   },
   "showLineNumber": true,
   "showProperties": false,
   "strictLineBreaks": false,
-  "promptDelete": false
+  "promptDelete": true,
+  "vimMode": true,
+  "uriCallbacks": true,
+  "attachmentFolderPath": "./Allegati",
+  "spellcheck": true,
+  "newFileLocation": "current",
+  "autoPairBrackets": false
 }

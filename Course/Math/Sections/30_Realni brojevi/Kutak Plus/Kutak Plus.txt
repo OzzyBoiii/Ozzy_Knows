@@ -1,0 +1,178 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Kutak Plus (ISPISANI PO LEKCIJI)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+DEDUKTIVNO I INDUKTIVNO ZAKLJUČIVANJE
+Dva su osnovna načina logičkog zaključivanja: deduktivni i induktivni.
+U deduktivnom se pristupu krenuvši od općih spoznaja izvode istinite činjenice u nekom konkretnom slučaju. Primjerice, zaključivanje tipa − svi su ljudi smrtni; Petar je čovjek, dakle, Petar je smrtan − primjer je deduktivnog zaključivanja.
+Ovakav je način zaključivanja korektan: krenuvši od istinitih pretpostavki (premisa), uvijek dolazimo do istinitog zaključka (konkluzije). Njegov je nedostatak što zaključujući ovako ne možemo doći do novih, dotad nepoznatih općenitih spoznaja.
+U induktivnom pristupu polazimo od činjenica koje vrijede u nekom konkretnom primjeru i na temelju toga želimo zaključiti o istinama koje vrijede u općenitijoj situaciji. Primjerice: Ivan, Petar i svi ostali učenici u razredu niži su od 2 metra. Dakle, svi muškarci niži su od 2 metra.
+Ovaj je zaključak očito neistinit. Pritom nije važno što je dobivena konkluzija neistinita, nepravilan je način razmišljanja. Sljedeće je razmišljanje jednako tako logički nepravilno, bez obzira na to što upućuje na istinitu konkluziju: Ivan, Petar i svi ostali učenici u razredu niži su od 20 metara. Znači, svi muškarci niži su od 20 metara.
+Iako može dovesti do pogrešnih rezultata, metoda induktivnog zaključivanja moćno je i ponekad jedino sredstvo u otkrivanju istinitih činjenica.
+Princip matematičke indukcije zahtijeva pretpostavke koje omogućavaju da konkluzija uvijek bude istinita. Iako se temelji na induktivnom načinu razmišljanja, sam princip spada u deduktivne metode.
+
+333 333 331
+Broj 31 je prost.Broj 333 331 je prost.Broj 331 je prost.Broj 3 333 331 je prost.Broj 3 331 je prost.Broj 33 333 331 je prost.Broj 33 331 je prost.Što možemo zaključiti? Svi brojevi kojima je posljednja znamenka jednaka 1, a sve ostale su jednake 3, prosti su brojevi. No je li to uistinu tako? Je li 333 333 331 prost?
+
+OPASNE RIJEČI: UVIJEK, NIKAD
+Istinitost neke tvrdnje T(n) za početne vrijednosti prirodnog broja n ne daju nikakvu garanciju o tome što će se događati ubuduće.
+Polinom čije su vrijednosti prosti brojevi. Promotrimo vrijednost izraza P(n)=n2+n+41 za nekoliko prvih vrijednosti prirodnog broja n. Dobivamo brojeve 43, 47, 53, 61, 71, 83, 97... − svi su oni prosti brojevi. Može li se zaključiti da će P(n) biti prost za svaki prirodni broj n?
+Odgovor je: ne! Za n=41 broj očito nije prost jer je svaki pribrojnik djeljiv s 41. Nije niti za n=40 jer je P(40)=412. Ali jest za sve prirodne brojeve manje od 40.
+Ovaj primjer neispravnog induktivnog zaključivanja dao je Euler.
+Kvadrat prirodnog broja. Promotrimo sljedeću tvrdnju: broj 991n2+1 nije potpun kvadrat niti za jedan prirodni broj n. Uvrštavanjem broja n u ovaj izraz uvjerit ćemo se da je tvrdnja istinita za n=1,2,3,4,5,...,100,...,1000,…. Mogli bismo neoprezno zaključiti da je ona istinita za svaki n. Zapravo, ova će tvrdnja biti istinita za sve brojeve n manje od 12055735790331359447442538767. Međutim, za taj n izraz 991n2+1 je kvadrat broja 379516400906811930638014896080.
+Zanimljivo je da se može dokazati do postoji beskonačno mnogo prirodnih brojeva n takvih da je 991n2+1 potpun kvadrat.
+Kojih je prostih brojeva više? Prost broj veći od 3 ne može biti oblika 3k, pa je oblika 3k+1 (nazovimo ih „plus prosti”) ili 3k−1 (nazovimo ih „minus prosti”). Kojih prostih brojeva ime više? Brojimo li redom među prvih stotinu, uvijek ima više (ili jednako) minus prostih. Isto vrijedi za sve sljedeće proste brojeve, koliko god nam računalo dopušta tražiti. Mogli bismo zaključiti da minus prostih uvijek ima više. Međutim, za prosti broj 608 981 813 029 situacija se mijenja i plus prosti preuzimaju vodstvo na neko vrijeme. To će se vodstvo ubuduće izmjenjivati. Mogli bismo reći da minus prostih ima prosječno jednako mnogo kao i plus prostih brojeva.
+
+PARADOKSI VEZANI UZ MATEMATIČKU INDUKCIJU
+Paradoks nenajavljenog ispita. Učenici 4. A razreda imaju sat matematike u svakom danu u tjednu, Profesor Matkić je u petak najavio: sljedeći tjedan pišemo kontrolni ispit. Neću vam reći koji će dan to biti, ispit će biti nenajavljen i nećete znati u koji će se dan održati. Zato se spremite čim prije!
+
+Nakon kratke panike, za vrijeme odmora, Stipe, najbolji matematičar u razredu, objavio je sljedeće: Nemojte paničariti, ispit se neće održati sljedeći tjedan. Reći ću vam zašto. On ne može biti održan u petak jer bismo u četvrtak navečer svi znali da mora biti sutradan, dakle ispit ne bi bio nenajavljen. Dakle, petak prekrižite! Ispit ne može biti niti u četvrtak jer bismo u srijedu navečer svi to znali budući da je petak isključen. E, sad sami zaključite da ne može biti niti u srijedu, niti u utorak, niti u ponedjeljak!
+
+Razred je bio umiren. Sljedeći tjedan, u srijedu, profesor Matkić pri ulasku u razred vikne: danas pišemo ispit! Potpuno nenajavljeno i iznenada.
+Sljedeća dva tjedna nitko nije htio razgovarati sa Stipom.
+
+Objasnite, je li on pogriješio u svom razmišljanju?
+
+Odgovor nije nipošto jednostavan. Potražite komentar ovog paradoksa na internetu, ključne riječi paradox, unexpected exam, hanging paradox ili pitajte vašeg Stipu za objašnjenje.
+Nitko ne može postati bogat!Kad siromah pronađe na cesti kovanicu od jednog centa, to ga neće obogatiti. Ako netko nije bogat, onda ga zarada od 1 centa neće učiniti bogatim. Svaka svota novca može se dobiti s pomoću kovanica od jednog centa. Prema principu matematičke indukcije, nitko se ne može obogatiti.
+Ne postoji hrpa pijeska! Formulirajte analogno zaključivanje koje dokazuje da zrna pijeska nikad ne mogu napraviti hrpu.
+Sve su ovce iste boje! Dokažimo da su sve ovce iste boje indukcijom po broju n ovaca u stadu. Tvrdnja očito vrijedi za n=1 jer je jedna ovca očito iste boje. Pretpostavimo da tvrdnja vrijedi za broj n i dodajmo još jednu ovcu u stado. Sad možemo izabrati dvije skupine s po n ovaca: {o1,o2,…,on} i {o2,…,on,on+1}. Po pretpostavci indukcije, sve ovce u svakoj od ovih skupina iste su boje. Budući da se neke nalaze u obje skupine, onda su sve ovce iste boje.
+Pronađite pogrešku u ovom „dokazu”! Znali odgovor ili ne, ne dajte da vas priključe ovom stadu!
+Svi prirodni brojevi jednaki su nuli! Iako je tvrdnja pomalo neobična, dokazu s pomoću indukcije moramo vjerovati. A on ide ovako. Za nenegativni broj n neka je T(n) tvrdnja „n=0”. Tad je baza indukcije T(0) očito istinita. Pretpostavimo sada da su T(0),…, T(n) istinite tvrdnje i dokažimo istinitost od T(n+1). No, tvrdnja T(n) kaže da je n=0, a tvrdnja T(1) kaže da je 1=0. Zato je n+1=0+0=0, pa je i T(n+1) istinita. Time je dokaz završen!
+
+Kutak plus
+Operacije unije, presjeka i uzimanje komplementa skupova prikazujemo Vennovim dijagramima. Osim u teoriji skupova taj se prikaz rabi i za predočavanje događaja u vjerojatnosnom prostoru jer su to dva identična modela.
+Kad imamo dva događaja A i B (ili dva skupa, svejedno), onda ih predočavamo s pomoću krugova ili likova nalik na krugove. Naime, dva kruga određuju ukupno četiri disjunktna područja koja trebamo prikazati. To su događaji (skupovi): 1) A∩B, 2) A∩¯¯¯¯B, 3) ¯¯¯¯A∩B i 4) ¯¯¯¯A∩¯¯¯¯B.
+Slično, kad su tri skupa u pitanju, oni određuju 23=8 područja, a upravo je toliki broj područja na koja tri kruga dijele ravninu. Zato situaciju s tri skupa također predočavamo Venovim dijagramom.
+Tih osam dijelova možemo dobiti rabeći operacije komplementiranja i presjeka skupova: 1) A∩B∩C, 2) A∩B∩¯¯¯¯C, 3) A∩¯¯¯¯B∩C, 4) ¯¯¯¯A∩B∩C, 5) A∩¯¯¯¯B∩¯¯¯¯C, 6) ¯¯¯¯A∩B∩¯¯¯¯C, 7) ¯¯¯¯A∩¯¯¯¯B∩C, 8) ¯¯¯¯A∩¯¯¯¯B∩¯¯¯¯C.
+Identificiraj svaki od ovih 8 skupova na Vennovu dijagramu.
+Četiri skupa određuju 24=16 područja. Tu situaciju više ne možemo prikazati rabeći krugove jer četiri kruga dijele ravninu na maksimalno 14 dijelova.
+Koja dva skupa nisu prikazana na ovoj slici? Identificiraj svih 14 skupova koji jesu prikazani na slici. (Oni su oblika A∩B∩¯¯¯¯C∩D i slično, uvijek imamo presjek četiriju skupova, sa ili bez operacije komplementiranja.)
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+O PROSTIM BROJEVIMA
+Otkrivanje sve većih prostih brojeva oduvijek je bilo veliki izazov matematičarima. Utrka za otkrivanjem sve većih brojeva započela je 1588. godine, kad je Pietro Cataldi provjerio da su 217−1 i 219−1 prosti brojevi. Ako je broj n složen, tad je djeljiv s prostim brojem koji ne premašuje √n. Cataldi je svoj račun temeljio na tablici prostih brojeva manjih od 750, što je bilo korektno jer je korijen broja 219−1 približno broj 724. Takva je provjera mukotrpna jer zahtijeva djeljenje sa svim prostim brojevima manjim od 724.
+Brojevi oblika Mp=2p−1 nazivaju se Mersenneovi brojevi. Da bi taj broj bio prost, nužno je da p bude prost (Dokaži tu tvrdnju!). Cataldi je tvrdio da su i brojevi 2p−1 prosti za p=23, 29, 31, 37, ali to s pomoću svoje tablice nije mogao provjeriti. Godine 1640. Pierre Fermat je pokazao da prosti djelitelji broja 2p−1 moraju biti oblika 2kp+1 za neki prirodni broj k. Sad je bilo vrlo jednostavno vidjeti da M23 nije prost jer je djeljiv s 47 (k=1), M37 je djeljiv s 223 (k=3), a M29 s 233 (k=4). Da je 231−1 uistinu prost, dokazao je L. Euler 1738. godine. Međutim, zanimljivo je da je on tvrdio da su 241−1 i 247−1 prosti, što nije istina.
+Godine 1876. Lucas je otkrio da je 2127−1 prost broj. Taj broj ima 39 znamenaka: 170 141 183 460 469 231 731 687 303 715 884 105 727. Taj je broj ostao rekorder za narednih 75 godina, i ujedno je najveći prosti broj koji nije otkriven s pomoću računala.
+Mersenneovi brojevi. Svi do danas poznati prosti brojevi oblika 2p−1 dobivaju se za p=2, 3, 5, 7, 13, 17, 19, 31, 61, 89, 107, 127, 521, 607, 1279, 2203, 2281, 3217, 4253, 4423, 9689, 9941, 11213, 19937, 21701, 23209, 44497, 86243, 110503,132049, 216091, 756839, 859433, 1 257 787 (378 632 znamenke), 1 398 269 (420 921 znamenka), 2 976 221 (895 932 znamenke), 3 021 377 (909 526 znamenaka), 6 972 593 (2 098 960 znamenaka), 13 466 917 (4 053 946 znamenaka), 20 996 011 (6 320 430 znamenaka), 24 036 583 (7 235 733 znamenaka), 25 964 951 (7 816 230 znamenaka), 30 402 457 (9 152 052 znamenaka), 32 582 657 (9 808 358 znamenaka), 37 156 667 (11 185 272 znamenaka), 42 643 801 (12 837 064 znamenaka), 43 112 609 (12 978 189 znamenaka), 57 885 161 (17 425 170 znamenaka), 74 207 281 (22 338 618 znamenaka), 77 232 917 (23 249 425 znamenaka), 82 589 933 (24 862 048 znamenaka), otkriven 7. prosinca 2018.
+U potragu za novim rekordima danas su uključeni milijuni povezanih računala u pametno smišljenom projektu GIMPS (Great Internet Mersenne Prime Search). Taj je projekt zaslužan što je ova lista nadopunjena trima novim članovima u posljednih 5 godina.
+Broj prostih brojeva. Ako je π(n) broj prostih brojeva koji nisu veći od n, onda je π(1000)=168, π(10000)=1229, π(105)=9592, π(106)=78498, π(107)=664579, π(108)=5761455, π(109)=50847534, π(1010)= 455052512. Za jako velike brojeve n vrijedi približna formula π(n)≈nlnn.
+Na mrežnim stranicama primes.utm.edu možete pronaći tablicu prvih 50 000 000 prostih brojeva (od 2 do 982 451 653) te poveznice do stranica s najnovijim otkrićima u vezi s prostim brojevima.
+Zanimljivi dijagram na toj stranici pokazuje korelaciju između broja znamenaka najvećeg prostog broja i godine otkrića.
+ 
+ SAVRŠENI BROJEVI
+Sa σ(n) označavamo zbroj svih pozitivnih djelitelja broja n. Primjerice σ(10)=1+2+5+10=18, σ(11)=1+11=12, σ(12)=1+2+3+4+6+12=28. Ako je n=prqs⋯ prikaz rastava broja na proste faktore, onda se lako dokaže da jeσ(n)=pr+1−1p−1⋅qs+1−1q−1⋯.
+Postoji beskonačno mnogo brojeva n za koje je σ(n)<2n. Primjerice, za svaki prosti broj p je σ(p)=1+p<2p. Postoji beskonačno mnogo brojeva n za koje je σ(n)>2n, primjerice, za brojeve oblika 3⋅2k jer jeσ(3⋅2k)=32−13−1⋅2k+1−12−1=4(2k+1−1)>3⋅2k+1=2n.
+Međutim, ne znamo postoji li beskonačno mnogo brojeva za koje je σ(n)=2n. Takvi se brojevi nazivaju savršenim jer su jednaki zbroju svih svojih pravih djelitelja.
+Algoritam za nalaženje parnih savršenih brojeva dao je Euklid: „Računamo uzastopne sume reda 1+2+4+8+…. Ako je zbroj prost, pomnožimo ga s posljednjim pribrojnikom i dobivamo savršeni broj. Primjerice1+2=3,3⋅2=61+2+4=7,7⋅4=281+2+4+8+16=31,31⋅16=4961+2+4+8+16+32+64=127,127⋅64=8128Ovi su savršeni brojevi bili poznati u Euklidovo doba.
+Do današnjeg dana poznata su 52 savršena broja jer je toliko dosad poznatih Mersenneovih prostih brojeva. Svi savršeni parni brojevi imaju zapis n=2p−1(2p−1) pri čemu je 2p−1 prost broj. Zaistaσ(n)=2p−12−1⋅2p=2npa je n savršen. Vrijedi i obrat ove tvrdnje, parni savršeni broj mora imati baš taj oblik.
+Postoji li neparan savršeni broj? Na to pitanje još uvijek ne znamo odgovor, iako bi otkrivanje takvog broja bila poprilična senzacija. Naime, dokazano je da takav broj, ako postoji, mora imati sljedeća svojstva:
+•mora imati barem 1500 znamenaka
+•nije djeljiv sa 105
+•mora imati više od 101 prostog faktora, a barem 10 ih je različito•najveći prosti faktor mora biti veći od 108
+•drugi po veličini prosti faktor mora biti veći od 104
+•treći po veličini prosti faktor mora biti veći od 100
+•mora biti oblika n=1(mod12), n=117(mod468) ili n=81(mod324).
+Ovo je samo dio njegovih svojstava. Za cjelokupan popis potražite na Wikipediji natuknicu perfect number.
+
+=======Sa σ(n) označavamo zbroj svih pozitivnih djelitelja broja n. Primjerice σ(10)=1+2+5+10=18, σ(11)=1+11=12, σ(12)=1+2+3+4+6+12=28. Ako je n=prqs⋯ prikaz rastava broja na proste faktore, onda se lako dokaže da jeσ(n)=pr+1−1p−1⋅qs+1−1q−1⋯.
+Postoji beskonačno mnogo brojeva n za koje je σ(n)<2n. Primjerice, za svaki prosti broj p je σ(p)=1+p<2p. Postoji beskonačno mnogo brojeva n za koje je σ(n)>2n, primjerice, za brojeve oblika 3⋅2k jer jeσ(3⋅2k)=32−13−1⋅2k+1−12−1=4(2k+1−1)>3⋅2k+1=2n.
+Međutim, ne znamo postoji li beskonačno mnogo brojeva za koje je σ(n)=2n. Takvi se brojevi nazivaju savršenim jer su jednaki zbroju svih svojih pravih djelitelja.
+Algoritam za nalaženje parnih savršenih brojeva dao je Euklid: „Računamo uzastopne sume reda 1+2+4+8+…. Ako je zbroj prost, pomnožimo ga s posljednjim pribrojnikom i dobivamo savršeni broj. Primjerice1+2=3,3⋅2=61+2+4=7,7⋅4=281+2+4+8+16=31,31⋅16=4961+2+4+8+16+32+64=127,127⋅64=8128Ovi su savršeni brojevi bili poznati u Euklidovo doba.
+Do današnjeg dana poznata su 52 savršena broja jer je toliko dosad poznatih Mersenneovih prostih brojeva. Svi savršeni parni brojevi imaju zapis n=2p−1(2p−1) pri čemu je 2p−1 prost broj. Zaistaσ(n)=2p−12−1⋅2p=2npa je n savršen. Vrijedi i obrat ove tvrdnje, parni savršeni broj mora imati baš taj oblik.
+Postoji li neparan savršeni broj? Na to pitanje još uvijek ne znamo odgovor, iako bi otkrivanje takvog broja bila poprilična senzacija. Naime, dokazano je da takav broj, ako postoji, mora imati sljedeća svojstva:
+•mora imati barem 1500 znamenaka
+•nije djeljiv sa 105
+•mora imati više od 101 prostog faktora, a barem 10 ih je različito•najveći prosti faktor mora biti veći od 108
+•drugi po veličini prosti faktor mora biti veći od 104
+•treći po veličini prosti faktor mora biti veći od 100
+•mora biti oblika n=1(mod12), n=117(mod468) ili n=81(mod324).
+Ovo je samo dio njegovih svojstava. Za cjelokupan popis potražite na Wikipediji natuknicu perfect number.
+
+DAN U GODINI
+Najveća pomorska operacija u povijesti dogodila se 6. lipnja 1944. Saveznici su iskrcali oko 156,000 vojnika u Normandiji, u operaciji Dan D koja je bila ključna za završetak II. svjetskog rata.
+Koji je to dan u tjednu bio?
+Dana 24. veljače 1582. godine papa Grgur XIII. je papinskom bulom promijenio julijanski kalendar tako da bude usklađen s položajem Zemlje u odnosu na Sunce, a s ciljem da datum Uskrsa odgovara povijesnim činjenicama. Iza četvrtka 4. listopada 1582. slijedio je petak 15. listopada 1582. što u gregorijanskom kalendaru stvara 11 dana razlike prema julijanskom.
+
+Za sve nadnevke d.m.g. (d=redni broj dana u mjesecu, m=redni broj mjeseca, g=redni broj godine) nakon tog trenutka možemo odrediti dan u tjednu po sljedećoj formulid=r+[2.6m−0.2]−2a+b+[a/4]+[b/4](mod7).
+Ovdje je a=[g/100], b=g(mod100). Također, mjeseci se broje s početkom u ožujku pa m=1 označava ožujak, a m=12 veljaču. U dobivenom rezultatu dani se broje od nedjelje za koju je d=0.
+Ova se formula naziva Zelleova formula, po njemačkom matematičaru Christianu J. J. Zelleru (1849. −
+
+RSA algoritam za šifriranje podataka
+Praktički svaka poruka koju danas šaljemo računalom kroz mrežu jest šifrirana. Onaj koji putem preuzme tu poruku, ne zna pročitati njezin sadržaj.
+Način šifriranja temelji se na nemogućnosti faktorizacije složenog broja. Opisat ćemo osnove postupka danas najvažnijeg algoritma za šifriranje, a zainteresirane upućujemo da detalje potraže na mnogobrojnim izvorima na internetu. Naziv RSA algoritam potječe od inicijala prezimena njegovih izumitelja, a to su Ron Rivest, Adi Shamir i Leonard Adleman 1977. god.
+Nama je važno uočiti da se cijeli proces šifriranja temelji na pojmovima koje proučavamo u ovom poglavlju.
+Komunikacija se odvija između dva subjekta, A i B. B je primatelj, a A pošiljatelj poruke. Protokol se sastoji od sljedećih koraka.
+1) B generira dva prosta broja p i q, otprilike jednake veličine, svaki ima po 100 -- 300 znamenaka.
+2) B računa njihov umnožak n=pq, funkciju φ(n)=(p−1)(q−1) i izabire broj e, 1<e<φ(n), relativno prost sa φ(n). Broj n naziva se RSA modul, a broj e eksponent šifriranja.
+3) B određuje jednoznačno definirani broj d, 1<d<φ(n) rješavajući kongruencijsku jednadžbu:ed=1(modφ(n)).Postupak rješavanja ove linearne diofantske jednadžbe upoznali smo još u prvom razredu. Broj d naziva se eksponent dešifriranja.
+4) B javno priopćava svima koji žele komunicirati s njim svoj javni ključ, par (n,e). Podatke d, p, q i φ(n) drži tajnima.
+5) A želi komunicirati s B i preuzima javni ključ (n,e). Svoju poruku m (predstavljenu velikim brojem) šifrira u poruku c koristeći formuluc=me(modn).
+6) A šalje šifriranu poruku c javnim kanalom. Nju ne zna dešifrirati nitko tko je putem presretne.
+7) Po primitku poruke c B je deširira rabeći istinitu formulum=cd(modn).
+Kroz povijest se efikasnost šifriranja temeljila na tajnosti algoritma. Taj su algoritam poznavali samo pošiljatelj i primatelj poruke. Postupak dešifriranja svodio se na otkrivanje tog tajnog algoritma. Potražite podatke o načinima šifriranja, još od antičkog doba pa do sofisticiranih mehaničkih uređaja korištenih u II. svjetskom ratu.
+
+Amerikanci su pri komunikaciji u I. svjetskom ratu uspješno koristili Indijance plemena Choctaw koji su poruke prenosili na materinjem jeziku. Pred drugi svjetski rat, japanci i nijemci su poslali u SAD studente i antropologe da proučavaju jezike indijanskih plemena Cherokee, Choctaw i Comanche. Međutim, jezik plemena Navajo nemoguće je savladati u kratkom vremenu. Amerikanci su u II. svjetskom ratu obučili oko 400 Navajo Indijanaca koji su služili kao pošiljatelji i primatelji poruka koristeći se nekim oblikom svojeg materinjeg jezika čime su znatno pridonijeli pobjedi Saveznika.
+U RSA algoritmu postupak šifriranja je svima poznat. Jedino što je nepoznato su prosti brojevi p i q koji u umnošku daju poznati broj n. Dakle, algoritam je zaštićen činjenicom da je nemoguće u realnom vremenu faktorizirati veliki složeni broj u proste faktore.
+
+=====================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+USPOREDBA RACIONALNIH BROJEVA
+Poredajmo po veličini brojeve:x=13462692178309,y=58242809423883,z=1081652017501497.Točan odgovor je: za ove brojeve vrijedi y=z<x. Na koji smo način to provjerili? Brojevi su preveliki da bi se umnožak u 2). mogao izračunati s dovoljnom preciznošću na džepnom računalu. Izračunajmo umjesto toga (računalom) decimalni prikaz ovih brojeva. Dobivamo:x=0.61803398875…y=0.61803398875…z=0.61803398875….Vidimo da odgovor na vrlo jednostavno pitanje može biti poprilično složen.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+DECIMALNI PRIKAZ IRACIONALNIH BROJEVA
+Brojevi √2 i π su iracionalni, pa je njihov decimalni prikaz neperiodičan. Zakon nizanja njihovih znamenaka nam je nepoznat:√2=1.4142135623730950488016887242096980785696…π=3.1415926535897932384626433832795028841971…Na temelju ovih znamenaka ne znamo odrediti sljedeću znamenku njihovog prikaza.
+
+S druge strane, nije teško opisati decimalni prikaz mnogih iracionalnih brojeva. Takvi su, primjerice:0.1234567891011121314151617181920212223242526…0.1010010001000010000010000001000000010000000…U prvom su slučaju napisani redom svi prirodni brojevi, u drugom potencije 10n za n≥1. Oba su ova prikaza neperiodična jer se u jednom i u drugom može pronaći niz istovjetnih znamenaka po volji odabrane duljine, dakle dulji od bilo kojeg unaprijed zadanog perioda.
+
+NESUMJERLJIVI BROJEVI I VERIŽNI RAZLOMCI
+Pojam racionalnog broja povijesno je prethodio pojmu negativnog cijelog broja. Razlog za to jest u tome što racionalni brojevi mjere dijelove prirodnog broja i imaju svoje jasno geometrijsko značenje, za razliku od negativnog broja.
+
+To je naročito dolazilo do izražaja u starogrčkoj matematici gdje se broj poistovjećivao s duljinom dužine. Riječ mjera za djelitelj broja vuče svoje podrijetlo još iz tih vremena. Dužinom duljine 2 m možete izmjeriti stazu od 60 metara jer je 2 mjera od 60.
+
+Dva su broja a i b sumjerljiva ako postoji dužina duljine c kojom možemo izmjeriti oba ta broja. To znači da postoje prirodni m i n takvi da je a=m⋅c, b=n⋅c. No tada je omjer a:b=m:n racionalan broj.
+
+Postupak određivanja mjere c dan je Euklidovim algoritmom koji i danas daje najbolji algoritam za nalaženje najveće zajedničke mjere. Lijevo vidite Euklidov algoritam nalaženja najveće zajedničke mjere brojeva 57 i 21, a desno njegovu posljedicu: prikaz broja 5721 u obliku verižnog razlomka.57=2⋅21+1521=1⋅15+615=2⋅6+36=2⋅35421=2+11+12+12
+Broj 3 najveća je zajednička mjera od 54 i 21. Za brojeve 111 i 40 koji su relativno prosti, račun bi izgledao ovako:111=2⋅40+3140=1⋅31+931=3⋅9+49=2⋅4+14=4⋅111140=2+11+13+12+14.
+Euklidov algoritam dijeljenja cijelih brojeva uvijek završava u konačno mnogo koraka. Zato, svaki racionalni broj ima konačan prikaz u obliku verižnog razlomka.
+
+Spoznaja da dijagonala kvadrata nije sumjerljiva s njegovom stranicom uzdrmala je starogrčku matematiku.
+
+U dokazu da √2 nije racionalan koristili smo djeljivost s dva i svođenje na kontradikciju. Sad ćemo vidjeti dokaz iracionalnosti tog broja koji proizlazi iz nezavršenosti Euklidova algoritma dijeljenja.
+
+Promotrimo broj √2+1. Ako je √2 racionalan, onda je i √2+1 racionalan. Prikažimo ga u obliku verižnog razlomka. Imamo√2+1=2+(√2−1)=2+1√2+1.
+Nazivnik ovog razlomka je broj od kojeg smo krenuli, što odmah ukazuje da postupak neće nikad završiti. On se nastavlja uvijek na isti način:√2+1=2+1√2+1=2+12+1√2+1=2+12+12+1√2+1=…
+Zato √2+1 nije racionalan.

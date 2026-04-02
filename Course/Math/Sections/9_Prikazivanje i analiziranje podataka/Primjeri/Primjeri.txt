@@ -1,0 +1,361 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 1
+Poduzeće Dobra riba treba procijeniti broj šarana u svom ribnjaku. U tu svrhu, uhvatili su 200 šarana, označili ih i vratili u ribnjak. Nakon par dana uhvatili su 240 šarana i među njima pronašli 15 označenih.
+Što je populacija? Što je uzorak?
+Kolika je procjena broja šarana u ribnjaku realna?
+Rješenje:
+Populacija su svi šarani u ribnjaku. Njezina veličina je nepoznata, nju želimo procijeniti.
+Uzorak je 240 šarana ulovljenih u drugom navratu. Među njima se nalazi 15 koji su ponovno ulovljeni. Obilježje koje promatramo u ovom uzorku: je li taj šaran već bio uhvaćen ili nije.
+Kako procijeniti veličinu populacije N? U trenutku drugog ulova u ribnjaku se nalazilo N šarana, među kojima je bilo 200 obilježenih. Među ulovljenih 240, 15 je bilo obilježeno. Zato je prirodno postaviti proporciju
+N:200=240:15
+odakle dobivamo N=3200.
+Naravno, odgovor ne smije glasiti: u ribnjaku ima 3200 šarana. Statističke procjene uvijek daju približne rezultate, odnosno rezultate s određenom dozom sigurnosti, pa tako treba formulirati i odgovor: u ribnjaku ima otprilike 3200 šarana.
+
+Primjer 2
+Prosjek ocjena!
+Bliži se kraj školske godine i završne ocjene se već naziru. U razredu, u kojem su 24 učenika, stanje je ovakvo, prema abecednom poretku učenika:
+4, 4, 5, 3, 2, 5, 3, 1, 4, 5, 2, 3, 4, 5, 1, 2, 4, 4, 3, 5, 5, 3, 4, 4.
+(Ovi podatci zasigurno ne odgovaraju situaciji u vašem razredu, slobodno ih zamijenite svojim podatcima.)
+Na koji način možemo srediti i prikazati ove podatke?
+Obilježje koje promatramo jest ocjena iz matematike. Zanima nas koliki broj ili koliki postotak učenika ima određenu ocjenu.
+Uzorak je ujedno čitava populacija. To će i u nastavku često biti slučaj, jer opisujemo samo metode deskriptivne statistike.
+Laganim prebrojavanjem dolazimo do sljedećih podataka.
+
+ocjena	broj učenika
+1	2
+2	3
+3	5
+4	8
+5	6
+
+Primjer 3
+Specijalist pedijatrije prikupio je podatke o dobi dvadesetero djece prilikom izbijanja prvih mliječnih zuba (dob – u mjesecima života):
+6, 7, 5, 6, 4, 5, 8, 4, 7, 7, 6, 8, 6, 9, 5, 6, 6, 7, 4, 8.
+Odredimo tablicu frekvencija i prikažimo grafički ove podatke.
+Rješenje:
+Postupak možemo pratiti u priloženom GeoGebrinom programčiću na samom kraju ove lekcije. Volumen uzorka je n=20. Nakon unosa brojeva u tablični kalkulator, dobivamo sljedeće podatke o frekvencijama, na temelju kojih možemo nacrtati stupčasti dijagram.
+xk	fk
+ 4	3
+5	3
+6	6
+7	4
+8	3
+9	1
+Iste podatke ponekad prikazujemo tablicom relativnih frekvencija i odgovarajućim stupčastim dijagramom:
+ 
+xk	fk	pk
+ 4	3	320
+5	3	320
+6	6	620
+7	4	420
+8	3	320
+9	1	120
+Ako želimo podatke prikazati kružnim dijagramom, onda jednom podatku odgovara
+kut od 360∘/20=18∘. Popunimo tablicu odgovarajućim kutovima:
+xk	fk	pk	αk
+ 4	3	320	54∘
+5	3	320	54∘
+6	6	310	108∘
+7	4	15	72∘
+8	3	320	54∘
+9	1	120	18∘
+
+primjer 4
+Elementi u Zemljinoj kori
+Najzastupljeniji elementi u Zemljinoj kori su: kisik 46.7 %, silicij 27.7 %, aluminij 8.1 %, željezo 5.0 %,
+kalcij 3.6 % i natrij 2.8 %. Ucrtaj ove podatke u kružni dijagram. Koliki postotak otpada na udjel ostalih elemenata?
+Rješenje:
+Unijet ćemo podatke u tablični kalkulator. Posljednji redak nam daje zbroj postotaka (slika dolje lijevo)
+Vidimo da on iznosi 93.9 %. To znači da na preostale elemente otpada 6.1 %. Unesimo taj podatak. Time je tablica popunjena (slika desno).
+Sad u tabličnom kalkulatoru zatražimo sliku kružnog dijagrama u nekom od ponuđenih oblika:
+
+Primjer 5
+Mjerenje visine.
+Hrvati i Hrvatice spadaju među prvih deset nacija u svijetu kad se gleda visina pojedinaca. (Stanovništvo na području Dinarida smatra se najvišim u svijetu, s prosječnom visinom muškaraca od 185.6 cm te prosječnom visinom žena od 171.8 cm.) U našem 1. a razredu izmjereni su sljedeći podatci (visina u centimetrima):
+171,169,176,180,184,162,172,
+175,181,168,163,157,164,177,170,
+167,163,172,171,171,166,168,179,173.
+Sredimo ih i prikažmo s pomoću stablo-list dijagrama.
+Rješenje:
+Brzim pregledom uočavamo da je najmanji element u uzorku 157, a najveći 184. To znači da ćemo na stablu napisati brojeve od 15 do 18. Zatim prolazimo redom kroz sve podatke i u odgovarajućem retku upisujemo posljednju znamenku:
+
+U drugom ćemo koraku podatke sortirati po veličini, jer je to lakše raditi iz stablo-list dijagrama — trebamo sortirati manji broj jednostavnijih podataka, jer smo razdiobu po razredima već učinili.
+ 
+Naravno, ako je broj podataka manji, možemo zapisivanje i sortiranje učiniti u istom koraku.
+
+primjer 6
+Prikaži podatke
+0.22, 0.46, 0.42, 0.37, 0.36, 0.47, 0.26, 0.28, 0.33, 0.40.
+dijagramom stablo-list.
+Rješenje:
+Sortirani SL dijagram možemo napisati odmah, pazeći na veličinu podataka. Vodeće su znamenke 2, 3 i 4:
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+primjer 7
+Temperatura zraka na Plitvičkim jezerima u 13 sati, u nizu od 11 uzastopnih dana bila je (u ∘C):
+25,24,23,26,28,24,25,21,23,23,27.
+
+Kad bismo htjeli te podatke predstaviti samo jednim brojem, koji bismo izabrali?
+Poredajmo podatke u rastućem poretku:
+21,23,23,23,24,24,25,25,26,27,28.
+Ovdje se radi o odabiru neke tipične vrijednosti u ovom uzorku. Tu ne postoji jednoznačan odgovor koji bi bio prikladan za sve moguće situacije. Uglavnom odabiremo ili onu vrijednost koja se najčešće javlja, ili neku vrijednost koja je najbliža svim podatcima iz uzorka. U tu se svrhu koristimo jednim od triju podataka: medijan, mod ili aritmetička sredina.
+Medijan je podatak u sredini poredanog uzorka. U ovom primjeru, to je šesti član poredanog uzorka:
+medijan=24.
+Medijan ima svojstvo da je u nizu dana jednak broj onih kad je temperatura bila viša od medijana, kao i onih kad je temperatura bila niža. On je najčešće dobra mjera sredine.
+Mod je vrijednost koja se u uzorku najčešće javlja. To je u ovom slučaju
+mod=23.
+Namjernik koji je proveo jedan dan na Plitvičkim jezerima, imao je najveću šansu da provede taj dan na ugodnih 23 ∘C.
+Aritmetička sredina jednaka je zbroju podataka podijeljenih njihovim brojem. Zbroj temperatura je 269, pa je
+aritmetička sredina=26911=24.45.
+U najvećem broju slučajeva, pogotovo ako se radi o neprekinutim podatcima (što je u ovom primjeru slučaj!) aritmetička sredina je najbolja mjera srednje vrijednosti. Njezina prava važnost i uloga može se razumjeti tek poznavanjem teorije vjerojatnosti.
+U nastavku ćemo detaljnije opisati svaku od ovih mjera.
+
+Primjer 8
+U Donjim Srednjacima okuplja se pučanstvo jednom mjesečno na partiji tombole. Svaki igrač plaća 1 euro za listić s petnaest brojeva, tri retka s po pet brojeva. Prodaje se ukupno 50 listića. Izvlači se na sreću po jedan od brojeva 1 do 90. Onaj tko prvi osvoji cinkvinu (pokrivenih 5 brojeva u jednom retku), dobiva 5 eura. Pobjednik tombole, prvi ima pokriveno svih 15 brojeva, dobiva 45 eura.
+Naš uzorak predstavljaju dobitci po listićima obiju tombola. Koji podatak dobro opisuje srednju vrijednost dobitka?
+Rješenje:
+Uzorak se sastoji od 48 nula, broja 5 i broja 45, ili možda čak od 49 nula i broja 50 ― to su mogući dobitci po svakom listiću. Gotovo sve vrijednosti ovog uzorka su nule, mod je jednak nuli i nula dobro opisuje dobitak na ovoj tomboli.
+
+Isto se može kazati za sve masovne igre na sreću.
+Naravno, i medijan ovog uzorka je nula.
+S druge strane aritmetička sredina nije jednaka nuli. Zbroj svih 50 brojeva u uzorku je 50, pa je aritmetička sredina jednaka 1. Taj broj ovdje ne prikazuje dobro karakteristične vrijednosti uzorka, ali ima svoju drugu važnu interpretaciju. Kad je aritmetička sredina svih dobitaka jednaka ulogu to znači da je ta igra fer, poštena igra. Tombola u Donjim Srednjacima je fer igra ― sve što se zaradi prodajom, podijeli se nazad u nagrade.
+To nije slučaj ni kod koje državno organizirane lutrije, a pogotovo kod klađenja u kladionicama. Tamo je aritmetička sredina svih dobitaka bitno manja od uloga i igra nije poštena, na štetu onih koji u tome sudjeluju. Kladionice koriste zakone teorije vjerojatnosti na način da one nikako ne mogu biti u gubitku.
+
+Primjer 9
+Prema podatcima iz Primjera 3 u prethodnoj lekciji, dob djeteta pri izbijanju mliječnih zuba je
+Koji broj najbolje opisuje ove podatke?
+Rješenje:
+Mod, 6. To je ujedno i medijan ovih podataka, međutim, važnije nam je da se to obilježje javlja u najvećem postotku, nego da se ono nalazi u sredini niza podataka.
+
+Primjer 10
+U svim izbornim sustavima koji se temelje na demokratskom odlučivanju većinom, mod je važan podatak. On opisuje pobjednika izbora.
+Ako se bira jedna osoba, onda se u slučaju bimodalnog uzorka izbori ponavljaju.
+U našem izbornom sustavu, pri izboru osobe (općinskog načelnika, gradonačelnika, župana ili predsjednika Republike Hrvatske) izbori se ponavljaju (ali samo između dva najuspješnija kandidata) ako je iznos moda manji od 50 % broja svih birača koji su glasovali.
+Na predsjedničkim izborima 2014. sudjelovala su četiri kandidata: Kolinda Grabar Kitarović, Ivo Josipović, Milan Kujundžić i Ivan Sinčić.
+U prvom krugu mod podataka daje pobjednika: Ivo Josipović je prikupio 38.46 % glasova.
+Budući je postotak manji od 50 %, izbori se ponavljaju između prva dva kandidata. U drugom krugu pobijedila je trenutačna predsjednica Kolinda Grabar Kitarović.
+Detalje možete pročitati na hrvatskoj stranici Wikipedije, odakle su preuzeti ovi dijagrami.
+
+Primjer 11
+Odredi medijan niza podataka
+1) 9, 6, 1, 5, 8, 3, 12.
+2) 34, 42, 37, 36, 44, 52, 38, 40.
+Rješenje:
+1) Poredana lista glasi:
+1, 3, 5, 6, 8, 9, 12.
+Volumen je n=7, neparan. Srednji član ove liste je četvrti po redu, dakle ~x=6.
+2)
+Poredajmo listu:
+34, 36, 37, 38, 40, 42, 44, 52.
+Volumen je n=8, paran. Zato postoje dva srednja člana, to su četvrti 38 i peti 40 na ovoj listi. Medijan je ~x=(38+40)/2=39.
+
+Primjer 12
+Odredi mod, medijan i sredinu u uzorku
+3,3,4,4,5,6,8,9,60.
+Rješenje:
+U ovom nizu podatak 60 je očito izdvojenica. Medijan uzorka je 5 i on se neće promijeniti ma kako izdvojenica bila velika, može iznositi i 600 što se medijana tiče.
+Podatci su bimodalni, modovi su 3 i 4. Izdvojenice su usamljenici, ne dolaze u skupinama pa ne utječu na mod.
+Sredina ovog uzorka je ¯¯¯x=1029=11.33. Ta je sredina veća od svih drugih članova (osim izdvojenice), a razlog za to je baš posljednji član. Kad bi on bio 600, sredina bi se popela na 71.33.
+
+PRIMJER 13
+Prema podatcima iz 2017. g. Hrvatska spada u srednje bogate zemlje: našla se na 33. mjestu među 50 najbogatijih zemalja. Njezina prosječna financijska imovina bila je po procjeni 10 158 eura po stanovniku.
+Izračunajte za koliko bi se ta financijska imovina povećala kad bi se u Hrvatsku doselio Jeff Bezos, sam ili s obitelji.
+Rješenje:
+Da bismo odgovorili na pitanje, potrebna su nam dva podatka: broj stanovnika u Hrvatskoj i financijska imovina Jeffa Bezosa. Oba su podatka lako dostupna. Na upit „broj stanovnika u Hrvatskoj” Google daje podatak 4.171 milijun za 2016. g. a kako se nažalost taj broj stalno smanjuje, ostavimo ga tolikim da račun ne bude i gori. Na upit „Jeff Bezos” lako nalazimo podatak o (u trenutku pisanja teksta) 130.8 milijardi dolara vrijednoj imovini.
+Treba nam dakle i tečaj dolara prema euru: 1 $=0.81 euro.
+Sad treba pridodati imovinu Jeffa Bezosa imovini svih građana Hrvatske da dobijemo buduću ukupnu sumu:
+10158⋅4.171⋅106+130.8⋅109⋅0.81=148.317⋅109.
+Taj iznos trebamo podijeliti s 4171000 da se vratimo na prosjek po glavi, pa dobivamo novi: 35559 eura.
+Dakle, prosjek cijele zemlje bi se više nego utrostručio. Pritom bi medijan ostao gdje je bio, pa bi svakom od nas bilo svejedno.
+Jeff Bezos je pravi primjer izdvojenice.
+U ovaj račun nisu uračunati stanovi, kuće ni vikendice, pa bismo računajući i njih prošli kao zemlja puno bolje.
+Nisu uračunate ni hrvatske ljepote jer su one neprocjenjive. Tu Jeff Bezos ne bi podigao prosjek ni za dlaku.
+
+Primjer 14
+Rezultati mjerenja kontrole kvalitete nekog proizvoda dani su u tablici:
+x1=25.2,x2=25.1,x3=25.6,x4=25.4,x5=25.6x6=25.4,x7=25.5,x8=25.3,x9=25.7,x10=25.6
+Kolika je sredina ovog uzorka? Koji se proizvod analizirao? Zadovoljava li on specifikacije?
+Rješenje:
+Zbroj vrijednosti svih elemenata u uzorku je 254.4. Volumen uzorka je 10, pa je njegova sredina ¯¯¯x=25.44.
+O odgovorima na druga pitanja možemo samo spekulirati. Numeričke vrijednosti ukazuju da je možda riječ o mjerenju dimenzije (u milimetrima) proizvoda, možda plastične cijevi, koja treba biti promjera 1 inča (cola). Cijevi se još uvijek rade u tim normativima, a jedan inč iznosi 25.4 milimetra. Sredina uzorka bliska je toj vrijednosti, a dimenzije pojedinih proizvoda uvijek osciliraju (poprimaju veće i manje vrijednosti od zadane) zbog slučajnih pogrešaka. Ako je ova interpretacija točna, onda ovdje nema razloga za zabrinutost.
+
+Primjer 15
+Neka je a broj sa svojstvom: zbroj odstupanja od a do elemenata uzorka jednak je nuli. Dokažimo da je onda a=¯¯¯x.
+Rješenje:
+Zaista, ako vrijedi
+(x1−a)+(x2−a)+…+(xn−a)=0
+onda odavde slijedi
+x1+x2+…xn−na=0
+pa je
+a=x1+x2+⋯+xnn=¯¯¯x.
+
+Primjer 16
+Rezultati nekog mjerenja dali su vrijednosti
+5, 6, 2, 5, 2, 3, 4, 2, 6, 5, 3, 4.
+Aritmetička sredina je
+¯¯¯x=5+6+2+5+2+3+4+2+6+5+3+412=3.92.
+Ako je pak uzorak sređen po frekvencijskim razredima
+xj	2	3	4	5	6
+fj	3	2	2	3	2
+tada je zbroj frekvencija naravno 12, a sredinu računamo po formuli
+¯¯¯x=3⋅2+2⋅3+2⋅4+3⋅5+2⋅612=3.92
+
+Primjer 17
+Prema popisu iz 2011. postotak domaćinstava Republike Hrvatske prema broju je članova iznosio
+broj
+članova	postotak
+domaćinstava
+1	24.6
+2	25.6
+3	18.8
+4	17.3
+5	8.0
+6	3.5
+≥7	2.2
+Koliki je bio prosječni broj članova u domaćinstvima Hrvatske?
+Rješenje:
+Ovdje se traži aritmetička sredina, a frekvencije su dane u obliku postotaka.
+¯¯¯x=1⋅24.6+2⋅25.6+3⋅18.8+4⋅17.3+5⋅8.0+6⋅3.5+7⋅2.2100=2.778.
+Točan je iznos neznatno veći zbog toga što se u posljednjem razredu nalaze i obitelji s brojem članova većim od 7. Zaokružujemo podatak na ¯¯¯x=2.8.
+
+Primjer 18
+Bacit ćemo igraću kocku 30 puta i zapisati rezultat.
+Koliko puta očekuješ da se u tim bacanjima pojavi broj 1? Koliko bi se puta trebala pojaviti šestica?
+Sljedeći niz bacanja je računalno generiran.
+4,5,4,1,3,6,1,3,1,5,5,4,3,5,3,1,4,1,5,4,2,2,2,6,5,6,3,6,5,1
+Virtualni smo pokus ponovili još jednom:
+5,2,2,5,2,2,1,5,6,4,6,4,3,1,3,1,5,2,2,5,1,2,4,6,1,5,5,2,1,6
+Odredi mod, medijan i aritmetičku sredinu u oba pokusa. Koje zakonitosti uočavaš?
+Rješenje:
+Prikažimo rezultate s pomoću tablica frekvencija i izračunajmo tražene mjere.
+Možemo kazati da mod ne daje nikakvu informaciju o podatcima, jer može biti bilo gdje, pa i višestruk. On će se mijenjati iz pokusa u pokus.
+Medijan će najčešće biti 3 ili 4, jer su to dva srednja rezultata, ili, ponekad, sredina 3.5 ovih dvaju brojeva. Međutim, iznimno može biti manji ili veći od ovih vrijednosti.
+Sredina će biti najpostojanija i na dugu ruku će oscilirati oko broja 3.5.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 19
+Odredimo kvartile za niz podataka
+8,9,10,12,12,14,15,16,16,17,18,18,19.
+Rješenje:
+Podatci su poredani po veličini. Volumen uzorka je 13. Zato je medijan njegov sedmi element, ~x=15.
+U daljnjem postupku diobe medijan više ne promatramo. Preostala su dva niza, prvi dio s manjim elementima
+8,9,10,12,12,14.
+Njegov medijan je (10+12)/2=11.
+Drugi dio početnog niza:
+16,16,17,18,18,19
+ima medijan (17+18)/2=17.5.
+
+Time smo odredili sva tri kvartila:
+Prvi kvartil Q1 je medijan donjeg dijela niza, Q1=11.
+Drugi kvartil Q2 je medijan cijeloga niza, Q2=15.
+Treći kvartil Q3 je medijan gornjeg dijela niza, Q3=17.5.
+
+Primjer 20
+Odredimo kvartile za niz
+5,5,8,9,10,12,14,15,17,20.
+Rješenje:
+Niz je poredan u rastućem poretku. Ima deset elemenata pa je drugi kvartil
+Q2 jednak medijanu i iznosi (10+12)/2=11.
+S obzirom na to da se medijan nalazi između dvaju elemenata uzorka, u nastavku promatramo i sve njegove elemente podijeljene u donju i gornju polovicu.
+
+Prvi kvartil niza je medijan donje polovice: 5, 5, 8, 9, 10 i iznosi Q1=8.
+Treći kvartil je medijan gornje polovice: 12, 14, 15, 17, 20 i iznosi Q3=15.
+
+Primjer 21
+U sljedećoj listi dani su podatci o težinama učenika 1. c razreda:
+62,56,61,74,72,56,64,59,
+77,53,53,49,56,63,65,64,
+48,66,67,63,54,55,74,67.
+Odredimo kvartile i nacrtajmo brkatu kutiju za ove podatke.
+Rješenje:
+Započet ćemo ponovno sa stablo-list dijagramom da dobijemo sortiranu listu:
+Stablo	List
+4	9	8								
+5	6	6	9	3	3	6	4	5		
+6	2	1	4	3	5	4	6	7	3	7
+7	4	2	7	4						
+Stablo	List									
+4	8	9								
+5	3	3	4	5	6	6	6	9		
+6	1	2	3	3	4	4	5	6	7	7
+7	2	4	4	7						
+Broj elemenata u nizu je 24, zato je medijan između 12. i 13. člana. Lako ih pronađemo u ovoj listi, to su elementi 62 i 63 pa je Q1=62.5.
+Prvih dvanaest elemenata čine donji dio niza. Medijan tog dijela je Q1=55.5, između elemenata 55 i 56.
+Medijan gornjeg dijela niza je Q3=66.5.
+
+Primjer 22
+U sljedećoj tablici dana je kalorijska vrijednost različitog voća. Podatci su u kilokalorijama za 100 g namirnice.
+ananas	56		kivi	55
+banana	99		kruška	55
+breskva	46		lubenica	24
+grožđe	70		mandarina	48
+grejp	42		naranča	54
+jabuka	52		šljiva	58
+jagode	36		trešnje	57
+kikiriki	603			
+Odredimo brkatu kutiju za ovaj niz podataka.
+Rješenje:
+Prvo moramo riješiti problem izdvojenice: podatak 603 strši u ovoj tablici. Je li kikiriki voće? O tome nema jasnog dogovora. Utvrdite to na satu biologije, a do tada ćemo kikiriki izdvojiti iz ove liste.
+Preostale podatke ćemo poredati u rastućem poretku i odrediti položaj kvartila:
+
+Primjer 23
+Izračunajmo standardnu devijaciju populacije
+15, 16, 16, 18, 20, 22, 22, 23.
+Rješenje:
+Računamo najprije sredinu:
+μ=15+16+16+18+20+22+22+238=1528=19,
+a onda disperziju
+σ2=(−4)2+(−3)2+(−3)2+(−1)2+12+32+32+428=708.
+Sad je devijacija
+σ=√708=2.96.
+
+Primjer 24
+Izračunaj standardnu devijaciju podataka
+16, 16, 18, 20, 22, 22, 23, 25.
+Rješenje:
+Podatke ćemo tretirati kao populaciju. Onda je N=8. Džepni kalkulator daje
+¯¯¯x=20.25,σ=3.11.
+
+Primjer 25
+Odredi devijaciju uzorka
+xj	162	164	166	168	170	172	174
+fj	2	4	5	6	3	3	1
+Rješenje:
+Dobivamo
+¯¯¯x=167.4,s=3.26.
+
+Primjer 26
+Lijevi i desni graf prikazuju iste podatke. Razlikuju se samo u odabiru skale na y-osi
+
+Primjer 27
+Lijevi i desni dijagram prikazuju isti niz podataka: prihode prodaje velikog trgovačkog centra. Nadzornom odboru je pokazan desni dijagram, a ne lijevi. Zašto?.
+
+Primjer 28
+Uprava društva Bolja budućnost ima neugodnu zadaću, opravdati skupštini dioničara dobit društva koja pada već petu godinu zaredom (slika lijevo). U tome će im pomoći odabir koordinatnih osi, pa će te podatke prikazati dijagramom na slici desno.
+
+Primjer 29
+Web – portal Movie Star objavio je rezultate svog istraživanja o vrsti filmova koje njegovi posjetitelji preferiraju. Svaki je posjetitelj mogao odabrati jednu ili više od ponuđenih kategorija. Rezultati su predočeni u obliku kružnog dijagrama.
+Web – portal Movie Star objavio je rezultate svog istraživanja o vrsti filmova koje njegovi posjetitelji preferiraju. Svaki je posjetitelj mogao odabrati jednu ili više od ponuđenih kategorija. Rezultati su predočeni u obliku kružnog dijagrama.
+Što ne valja u ovom prikazu? Koji je dijagram (umjesto kružnog) u ovom slučaju prikladije rabiti?

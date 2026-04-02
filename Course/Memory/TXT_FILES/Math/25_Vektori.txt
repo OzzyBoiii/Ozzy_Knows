@@ -1,0 +1,430 @@
+Zbrajanje vektora
+________________________________________
+Pravilo paralelograma
+Ako čamac plovi preko rijeke brzinom 3 m/s okomito na njezin tok, a brzina vode je 1 m/s, kakva će biti njegova putanja? Na ovo su pitanje znali odgovoriti još stari Grci: čamac će se gibati po pravcu koji je dijagonala pravokutnika koji čine pojedina gibanja. Krene li čamac iz točke A prema točki B i ako cijelo vrijeme vozi okomito na tok vode, stići će na drugu obalu u točki C.
+(Zbrajanje_vektora_1.png)
+Prije oko 400 godina nizozemski znanstvenik Simon Stevin rješavao je općenitiji problem gibanja tijela na koje djeluju različite sile. Mnogo prije nego što je pojam vektora ušao u matematiku, on je ispravno odgovorio na pitanje: može li se djelovanje dviju sila zamijeniti djelovanjem samo jedne sile koja će imati isti učinak? Djelovanje dviju sila predstavljenih vektorima F ⃗_1 i F ⃗_2 može se zamijeniti djelovanjem samo jedne sile predstavljene vektorom F ⃗. Pritom je F ⃗ dijagonala paralelograma kojemu su F ⃗_1 i F ⃗_2 susjedne stranice.
+(Zbrajanje_vektora_2.png)
+Time je opravdana sljedeća definicija zbrajanja vektora.
+Zbroj dvaju vektora (OA) ⃗ i (OB) ⃗ s istim početkom O je vektor (OC) ⃗ takav da je (OC) ‾ dijagonala paralelograma OACB.
+Pišemo
+(OC) ⃗=(OA) ⃗+(OB) ⃗.
+
+(Zbrajanje_vektora_3.png)
+PRIMJER 1
+________________________________________
+Pravilo trokuta
+Kako ćemo zbrajati vektore a ⃗ i b ⃗ koji imaju početke u različitim točkama?
+Označimo početnu točku vektora a ⃗ s O. Neka je A njegova završna točka. Izaberimo vektor (OB) ⃗ jednak vektoru b ⃗.
+(Zbrajanje_vektora_4.png)
+Zbrojimo vektore (OA) ⃗ i (OB) ⃗. Njihov je zbroj vektor c ⃗=(OC) ⃗. Kako se vektori (OB) ⃗ i b ⃗ podudaraju, vrijedi
+c ⃗=(OC) ⃗=(OA) ⃗+(OB) ⃗=a ⃗+b ⃗.
+
+Zbrajanje vektora možemo opisati na još jedan način. Pogledajmo sliku.
+(Zbrajanje_vektora_5.png)
+Neka su a ⃗ i b ⃗ bilo koja dva vektora. Označimo početnu točku vektora a ⃗ s A, a završnu s B. Dakle, a ⃗=(AB) ⃗. Izaberimo vektor (AD) ⃗ jednak vektoru b ⃗. Nacrtajmo paralelogram ABCD. Po pravilu paralelograma za zbrajanje dvaju vektora je
+a ⃗+b ⃗=(AB) ⃗+(AD) ⃗=(AC) ⃗.
+
+Međutim, vektori (AD) ⃗ i (BC) ⃗ su jednaki, pa je b ⃗=(AD) ⃗=(BC) ⃗. To znači da se zbroj dvaju vektora može dobiti i na ovaj način:
+a ⃗+b ⃗=(AC) ⃗=(AB) ⃗+(BC) ⃗.
+
+Primijetimo da smo tu izabrali dva vektora, (AB) ⃗ i (BC) ⃗, tako da se završetak jednog podudara s početkom drugog vektora. Za takve vektore kažemo da su ulančani ili da se nadovezuju.
+Zbrajanje vektora – pravilo trokuta
+Vektori a ⃗ i b ⃗ su ulančani ako se završetak prvog podudara s početkom drugog. Zbroj dvaju ulančanih vektora (AB) ⃗ i (BC) ⃗ je vektor (AC) ⃗ koji spaja početnu točku prvog vektora sa završnom točkom drugog vektora.
+(Zbrajanje_vektora_6.png)
+PRIMJER 2
+________________________________________
+Svojstva operacije zbrajanja vektora
+Realne brojeve a i b možemo zbrajati u bilo kojem poretku, jer vrijedi a+b=b+a. Isto svojstvo ima i operacija zbrajanja vektora, jer se po pravilu paralelograma zbrojevi a ⃗+b ⃗ i b ⃗+a ⃗ računaju na isti način.
+PRIMJER 3
+Komutativnost zbrajanja vektora
+Zbrajanje vektora je komutativno, tj. za bilo koja dva vektora a ⃗ i b ⃗ vrijedi
+a ⃗+b ⃗=b ⃗+a ⃗.
+
+Da bismo zbrojili više od dva broja, moramo odabrati poredak zbrajanja. Tako, primjerice, tri broja a, b i c možemo zbrojiti na način (a+b)+c, u kojem se zbroju prvih dvaju brojeva dodaje treći, ali i na način a+(b+c), u kojem smo najprije zbrojili posljednja dva broja i taj zbroj dodali prvom broju. Kako je zbrajanje realnih brojeva asocijativno, u oba ćemo postupka dobiti isti rezultat. Pokažimo da isto svojstvo ima i zbrajanje vektora.
+(Zbrajanje_vektora_7.png)
+Uvjerimo se u istinitost ovog svojstva koristeći pravilo trokuta za zbrajanje vektora. Izaberimo vektore a ⃗, b ⃗ i c ⃗ tako da budu ulančani. Neka je a ⃗=(AB) ⃗, b ⃗=(BC) ⃗ i c ⃗=(CD) ⃗. Onda vrijedi:
+(a ⃗+b ⃗)+c ⃗=((AB) ⃗+(BC) ⃗)+(CD) ⃗=(AC) ⃗+(CD) ⃗=(AD) ⃗.
+
+Zbrajajući u drugom poretku dobit ćemo
+a ⃗+(b ⃗+c ⃗)=(AB) ⃗+((BC) ⃗+(CD) ⃗)=(AB) ⃗+(BD) ⃗=(AD) ⃗.
+
+Dakle, vrijedi (a ⃗+b ⃗)+c ⃗=a ⃗+(b ⃗+c ⃗ ).
+Asocijativnost zbrajanja vektora
+Zbrajanje vektora je asocijativno, tj. za bilo koja tri vektora a ⃗, b ⃗ i c ⃗ vrijedi
+(a ⃗+b ⃗)+c ⃗=a ⃗+(b ⃗+c ⃗).
+
+PRIMJER 4
+________________________________________
+Zbroj suprotnih vektora
+Vektori (AB) ⃗ i (BA) ⃗ suprotni su jer imaju isti nositelj i suprotnu orijentaciju. Za zbroj ovih dvaju vektora vrijedi:
+(AB) ⃗+(BA) ⃗=(AA) ⃗=0 ⃗.
+
+Dakle, zbroj suprotnih vektora jednak je nul vektoru. Ta činjenica opravdava oznaku
+(BA) ⃗=-(AB) ⃗.
+
+Suprotan vektor bilo kojeg vektora a ⃗ označavali smo s -a ⃗. Dakle, vrijedi
+a ⃗+(-a ⃗)=(-a ⃗)+a ⃗=0 ⃗.
+
+Nul vektor možemo napisati na način 0 ⃗=(AA) ⃗, gdje je A bilo koja točka. Ako je a ⃗=(AB) ⃗ neki vektor, onda je
+0 ⃗+a ⃗=(AA) ⃗+(AB) ⃗=(AB) ⃗=a ⃗.
+
+Isto tako je a ⃗+0 ⃗=a ⃗. To pokazuje da nul vektor ima slična svojstva koja ima i broj nula za operaciju zbrajanja brojeva.
+PRIMJER 5
+________________________________________
+Oduzimanje vektora
+Oduzimanje je operacija izvedena iz zbrajanja. Prisjetimo se operacije oduzimanja realnih brojeva. Razliku a-b brojeva a i b možemo izračunati tako da broju a pribrojimo broj -b suprotan broju b:
+a-b=a+(-b).
+
+Na isti se način definira i oduzimanje vektora.
+Oduzimanje vektora
+Razlika vektora definira se kao zbroj sa suprotnim vektorom:
+a ⃗-b ⃗=a ⃗+(-b ⃗).
+
+Opišimo kako se geometrijski određuje razlika a ⃗-b ⃗ dvaju vektora. Izaberimo vektore jednake početnima tako da imaju zajednički početak. Neka je a ⃗=(AB) ⃗, b ⃗=(AC) ⃗. Onda je (CA) ⃗=-b ⃗, pa je
+a ⃗+(-b ⃗)=(-b ⃗)+a ⃗=(CA) ⃗+(AB) ⃗=(CB) ⃗.
+
+(Zbrajanje_vektora_8.png)
+Razlika vektora
+Razlika a ⃗-b ⃗ vektora a ⃗ i b ⃗ određuje se tako da se izaberu vektori jednaki početnima, a da imaju zajednički početak. Tada je razlika vektor koji spaja završetak drugog sa završetkom prvog vektora.
+PRIMJER 6
+________________________________________
+________________________________________
+________________________________________
+Množenje vektora skalarom
+________________________________________
+Množenje skalarom
+Sada ćemo definirati novu operaciju: množenje vektora realnim brojem. Realni broj kratko ćemo zvati skalarom.
+U skupu realnih brojeva množenje je operacija izvedena iz zbrajanja. Tako je, primjerice, zbroj a+a jednak broju 2a, te a+a+a=3a itd. Prirodno je zahtijevati da isto svojstvo vrijedi i za vektore.
+Vektor 2a ⃗ definiramo kao zbroj a ⃗+a ⃗. Odredimo taj vektor. Neka je a ⃗=(AB) ⃗. Nacrtajmo još jednom vektor a ⃗, ali tako da mu početak bude u točki B. Dakle, a ⃗=(BC) ⃗. Pritom su točke A, B i C kolinearne i vrijedi ∣a ⃗∣=∣AB∣=∣BC∣. Onda je
+2a ⃗=(AC) ⃗.
+
+(Množenje_vektora_skalarom_1.png)
+Dakle, za vektor 2a ⃗ vrijedi:
+– njegov je smjer isti kao i za vektor a ⃗
+– vektori a ⃗ i 2a ⃗ imaju istu orijentaciju
+– za njegovu duljinu vrijedi ∣2a ⃗∣=2∣a ⃗∣.
+Kako ćemo množiti vektor negativnim brojem? Prisjetimo se ponovno svojstava množenja realnih brojeva. Umnožak realnog broja a i negativnog broja -2 je broj suprotan broju 2a. To ćemo svojstvo zahtijevati i za množenje vektora negativnim skalarom: umnožak (-2)a ⃗ bit će vektor suprotan vektoru 2a ⃗.
+Ovim smo pokazali koji se vektor dobiva množenjem vektora cijelim brojem. Pokažimo sada kako se definira operacija množenja vektora bilo kojim skalarom. Rezultat te operacije bit će vektor. Moramo mu odrediti duljinu, smjer i orijentaciju.
+Množenje vektora skalarom
+Vektor a ⃗ množi se skalarom α tako da se dobije vektor αa ⃗ sa svojstvima:
+	duljina mu je jednaka umnošku apsolutne vrijednosti skalara i duljine vektora:
+∣αa ⃗∣=∣α∣⋅∣a ⃗∣
+
+	smjer mu je jednak smjeru vektora a ⃗
+	orijentacija mu je jednaka orijentaciji vektora a ⃗ ako je α>0, a suprotna orijentaciji vektora a ⃗ ako je α<0.
+(Množenje_vektora_skalarom_3.png)
+S vektorima ćemo računati koristeći slična pravila koja vrijede za realne brojeve. Tako, primjerice, vrijedi
+6(a ⃗+2b ⃗)-2(4a ⃗-2b ⃗)=6a ⃗+12b ⃗-8a ⃗+4b ⃗=-2a ⃗+16b ⃗.
+
+Koristeći se vektorima vrlo zorno možemo dokazati neke važne geometrijske činjenice. Navedimo primjere:
+PRIMJER 1
+PRIMJER 2
+Jedinični vektor
+Za vektor a ⃗_0 kažemo da je jedinični vektor (ili ort) ako je njegova duljina ∣a ⃗_0∣=1. 
+(Množenje_vektora_skalarom_4.png)
+Podijelimo li bilo koji vektor a ⃗ (različit od nul vektora) njegovom duljinom, dobit ćemo jedinični vektor a ⃗_0:
+a ⃗_0=a ⃗/(∣a ⃗∣).
+
+(Zapravo, radi se o množenju vektora skalarom jednakim recipročnoj vrijednosti duljine vektora.)
+________________________________________
+Vektor kolinearnosti
+Izvedimo važan kriterij za kolinearnost vektora. Neka su a ⃗_1 i a ⃗_2 kolinearni vektori (vektori istog smjera), različiti od nul vektora. Tad se oni mogu razlikovati po duljini i po orijentaciji.
+Ako su iste orijentacije, stavimo
+k=(∣a ⃗_1∣)/(∣a ⃗_2∣),
+
+a ako su suprotne orijentacije, neka je
+k=-(∣a ⃗_1∣)/(∣a ⃗_2∣).
+
+Sad ćemo provjeriti da vrijedi
+a ⃗_1=ka ⃗_2.
+
+Naime, vektori a ⃗_1 i ka ⃗_2 imaju isti smjer, istu orijentaciju (zbog izbora predznaka broja k) i istu duljinu:
+∣ka ⃗_2∣=∣k∣⋅∣a ⃗_2∣=(∣a ⃗_1∣)/(∣a ⃗_2∣)⋅∣a ⃗_2∣=∣a ⃗_1∣,
+
+pa je tvrdnja dokazana.
+Vrijedi i obrat ove tvrdnje: vektori a ⃗_2 i a ⃗_1=ka ⃗_2 su kolinearni, prema definiciji množenja vektora skalarom.
+Kriterij kolinearnosti
+Vektori a ⃗_1 i a ⃗_2 (a ⃗_2≠0 ⃗) kolinearni su ako i samo ako postoji skalar k takav da vrijedi
+a ⃗_1=ka ⃗_2.
+
+________________________________________
+________________________________________
+________________________________________
+Linearna nezavisnost vektora
+________________________________________
+Linearna kombinacija, zavisnost i nezavisnost
+Dva vektora a ⃗_1,a ⃗_2≠0 ⃗ su kolinearna ako i samo ako postoji skalar k takav da je a ⃗_1=ka ⃗_2. Tu jednakost možemo napisati u obliku
+■(&1⋅a ⃗_1-k⋅a ⃗_2=0 ⃗.&&"(1)" )
+
+Izraz s lijeve strane jedna je linearna kombinacija vektora a ⃗_1 i a ⃗_2. Općenito je linearna kombinacija dvaju vektora a ⃗_1 i a ⃗_2 svaki izraz oblika
+α_1 a ⃗_1+α_2 a ⃗_2.
+
+Skalare α_1 i α_2 nazivamo koeficijentima linearne kombinacije. Ako su oba skalara, α_1 i α_2, jednaka nuli, onda je linearna kombinacija jednaka nul vektoru.
+Linearna nezavisnost
+Dva su vektora a ⃗_1 i a ⃗_2 linearno nezavisna ako iz jednakosti
+α_1 a ⃗_1+α_2 a ⃗_2=0 ⃗
+
+nužno slijedi da je α_1=α_2=0.
+U suprotnom slučaju su a ⃗_1 i a ⃗_2 linearno zavisni. Tada postoji linearna kombinacija jednaka nul vektoru u kojoj je barem jedan koeficijent različit od nule.
+Za svaka dva linearno nezavisna vektora a ⃗_1 i a ⃗_2 kažemo da čine bazu skupa vektora u ravnini V_2.
+Vidimo da su kolinearni vektori linearno zavisni. Vrijedi i obrat: ako su dva vektora linearno zavisna, oni su kolinearni. Naime, ako je α_1 a ⃗_1+α_2 a ⃗_2=0 ⃗ i (primjerice) α_1≠0, onda slijedi
+a ⃗_1=-α_2/α_1  a ⃗_2=ka ⃗_2,
+
+pa su a ⃗_1 i a ⃗_2 kolinearni.
+Kolinearnost i linearna nezavisnost
+Dva su vektora kolinearna ako i samo ako su linearno zavisna.
+Dakle, a ⃗_1 i a ⃗_2 su nekolinearni vektori ako i samo ako su linearno nezavisni.
+________________________________________
+Rastav vektora
+Neka a ⃗_1,a ⃗_2 čine bazu u V_2 (tj. a ⃗_1,a ⃗_2 su nekolinearni). Uzmimo bilo koji vektor b ⃗∈V_2. Vektor b ⃗ može se prikazati u obliku linearne kombinacije vektora a ⃗_1 i a ⃗_2.
+Opišimo taj postupak.
+Translatirajmo vektore a ⃗_1 i a ⃗_2 tako da imaju zajednički početak O. Nacrtajmo pravce p_1 i p_2 određene tim vektorima. Izaberimo i vektor b ⃗ s početkom u O. Neka je b ⃗=(OB) ⃗. Povucimo kroz točku B pravce usporedne s p_2 i p_1. Označimo redom s C_1 i C_2 presječne točke s pravcima p_1 i p_2. Onda vrijedi
+b ⃗=(OB) ⃗=(OC_1 ) ⃗+(OC_2 ) ⃗.
+
+Međutim, vektori (OC_1 ) ⃗ i a ⃗_1 su kolinearni. Zato postoji skalar α_1 takav da je (OC_1 ) ⃗=α_1 a ⃗_1. Slično tome, vrijedi (OC_2 ) ⃗=α_2 a ⃗_2. Dakle,
+b ⃗=α_1 a ⃗_1+α_2 a ⃗_2,
+
+što smo htjeli pokazati.
+(Linearna_nezavisnost_vektora_1.png)
+Neka su a ⃗_1 i a ⃗_2 linearno nezavisni vektori: baza u V_2. Svaki se vektor b ⃗∈V_2 može prikazati kao linearna kombinacija vektora baze:
+■(&b ⃗=α_1 a ⃗_1+α_2 a ⃗_2.&&"(2)" )
+
+Kažemo da smo vektor b ⃗ rastavili na komponente po vektorima a ⃗_1 i a ⃗_2. Koeficijenti α_1 i α_2 linearne kombinacije nazivaju se koordinate vektora b ⃗ u prikazu s pomoću vektora a ⃗_1 i a ⃗_2. Prikaz vektora u obliku (2) je jedinstven. To znači da postoji samo jedan izbor koordinata α_1 i α_2 za koji vrijedi (2).
+Prvu smo tvrdnju dokazali. Dokažimo još tvrdnju o jedinstvenosti prikaza. Pretpostavimo suprotno: vektor b ⃗ može se prikazati na dva različita načina:
+b ⃗=α_1 a ⃗_1+α_2 a ⃗_2=β_1 a ⃗_1+β_2 a ⃗_2.
+
+U tom je slučaju
+(α_1-β_1)a ⃗_1+(α_2-β_2)a ⃗_2=0 ⃗.
+
+S lijeve je strane linearna kombinacija vektora a ⃗_1 i a ⃗_2 jednaka nul vektoru. Međutim, kako su vektori a ⃗_1 i a ⃗_2 linearno nezavisni, to se može dogoditi samo onda kad su oba koeficijenta linearne kombinacije jednaka nuli. Dakle, mora biti α_1-β_1=0, α_2-β_2=0, odakle slijedi β_1=α_1, β_2=α_2 i jedinstvenost je dokazana.
+PRIMJER 1
+PRIMJER 2
+PRIMJER 3
+PRIMJER 4
+PRIMJER 5
+________________________________________
+________________________________________
+________________________________________
+Vektori u Kartezijevu koordinatnom sustavu
+________________________________________
+Kartezijev koordinatni sustav
+Dva su istaknuta vektora u Kartezijevu koordinatnom sustavu:
+i ⃗: jedinični vektor na osi apscisa
+j ⃗: jedinični vektor na osi ordinata.
+Par vektora (i ⃗ⓜ,j ⃗ ) čini bazu Kartezijeva pravokutnog sustava.
+(Vektori_u_Karzijevu_koordinatnom_sustavu_1.png)
+Svaki se vektor u ravnini može rastaviti na komponente u smjeru vektora baze.
+Kako se određuju koordinate vektora u tom prikazu ako bazu čine vektori i ⃗,j ⃗?
+Uzmimo najprije bilo koju točku A(x,y) ravnine. Neka je A_1 ortogonalna projekcija točke A na os apscisa, a A_2 ortogonalna projekcija na os ordinata. Vektori (OA_1 ) ⃗ i i ⃗ su kolinearni. Kako je duljina vektora (OA_1 ) ⃗ jednaka ∣(OA_1 ) ⃗∣=∣x∣, vrijedi
+(OA_1 ) ⃗=xi ⃗.
+
+Slično je (OA_2 ) ⃗=yj ⃗. Zato je
+a ⃗=(OA) ⃗=(OA_1 ) ⃗+(OA_2 ) ⃗=xi ⃗+yj ⃗.
+
+Koordinate vektora
+Radijus vektor a ⃗=(OA) ⃗ točke A(x,y) možemo prikazati kao linearnu kombinaciju vektora i ⃗,j ⃗ ovako:
+■(&(OA) ⃗=xi ⃗+yj ⃗.&&"(1)" )
+
+Realne brojeve x i y nazivamo koordinate vektora (OA) ⃗.
+________________________________________
+Prikaz vektora
+Dokažimo sad općenitiju formulu.
+Prikaz vektora
+Vektor (AB) ⃗ s početkom u točki A(x_1,y_1) i završetkom u točki B(x_2,y_2) ima prikaz
+■(&(AB) ⃗=(x_2-x_1)i ⃗+(y_2-y_1)j ⃗.&&"(2)" )
+
+Vektor (AB) ⃗ možemo napisati kao razliku dvaju radijus vektora:
+(AB) ⃗=(OB) ⃗-(OA) ⃗.
+
+Primjenom prikaza (1) možemo pisati (OA) ⃗=x_1 i ⃗+y_1 j ⃗, (OB) ⃗=x_2 i ⃗+y_2 j ⃗, pa je
+(AB) ⃗=(x_2 i ⃗+y_2 j ⃗)-(x_1 i ⃗+y_1 j ⃗)=(x_2-x_1)i ⃗+(y_2-y_1)j ⃗.
+
+(Vektori_u_Karzijevu_koordinatnom_sustavu_2.png)
+Uobičajeno je koordinate vektora a ⃗ označavati s a_x,a_y, vektora b ⃗ s b_x,b_y itd. Neka su a ⃗=a_x i ⃗+a_y j ⃗, b ⃗=b_x i ⃗+b_y j ⃗ zadani vektori. Pitamo se: kad će biti a ⃗=b ⃗? Zbog jednoznačnosti prikaza tada mora biti a_x=b_x i a_y=b_y. Obrnuto: ako se koordinate vektora podudaraju, podudaraju se i vektori.
+Kriterij za jednakost vektora
+Dva su vektora a ⃗=a_x i ⃗+a_y j ⃗ i b ⃗=b_x i ⃗+b_y j ⃗ jednaka ako i samo ako im se podudaraju njihove pravokutne koordinate:
+a ⃗=b ⃗⟺a_x=b_x," 						" a_y=b_y.
+
+________________________________________
+Udaljenost dviju točaka i duljina vektora
+Udaljenost dviju točaka A(x_1,y_1), B(x_2,y_2) računa se formulom:
+∣AB∣=√((x_2-x_1 )^2+(y_2-y_1 )^2 ┤ ),
+
+jer je ta udaljenost duljina hipotenuze pravokutnog trokuta kojemu katete imaju duljine ∣x_2-x_1∣ i ∣y_2-y_1∣. Ta je udaljenost jednaka duljini vektora (AB) ⃗:
+∣(AB) ⃗∣=√((x_2-x_1 )^2+(y_2-y_1 )^2 ┤ ).
+
+Općenitije, duljina vektora a ⃗=a_x i ⃗+a_y j ⃗ je
+∣a ⃗∣=√(a_x^2+a_y^2 ).
+
+(Vektori_u_Karzijevu_koordinatnom_sustavu_3.png)
+PRIMJER 1
+PRIMJER 2
+________________________________________
+________________________________________
+________________________________________
+Skalarni umnožak
+________________________________________
+Skalarni umnožak
+Sada ćemo upoznati još jednu operaciju: množenje vektora. Rezultat tog množenja bit će skalar. Zato se ta operacija naziva skalarno množenje vektora.
+Neka su a ⃗≠0 ⃗ i b ⃗≠0 ⃗ bilo koja dva vektora. Translatirajmo ih tako da imaju zajednički početak O, pa imamo a ⃗=(OA) ⃗, b ⃗=(OB) ⃗. Neka je φ=∠(a ⃗,b ⃗) neorijentirani kut što ga određuju vektori a ⃗ i b ⃗. Mjera tog kuta je u intervalu [0^∘ⓜ,180^∘ ].
+(Skalarni_umnožak_1.png)
+Skalarni umnožak vektora a ⃗ i b ⃗ je realni broj a ⃗⋅b ⃗ definiran s
+a ⃗⋅b ⃗=∣a ⃗∣⋅∣b ⃗∣cos⁡φ,
+
+gdje je φ kut između vektora a ⃗ i b ⃗.
+Ako je neki (ili oba) od vektora a ⃗,b ⃗ nul vektor, onda se pojam kuta između vektora ne definira. Tada je skalarni umnožak po definiciji jednak nuli.
+(Skalarni_umnožak_2.png)
+Ako je skalarni umnožak jednak nuli, onda je ili jedan od vektora nul vektor, ili je kut između njih pravi pa su vektori okomiti. Tada pišemo a ⃗⊥b ⃗.
+Skalarni produkt vektora sa samim sobom jednak je kvadratu duljine vektora:
+a ⃗⋅a ⃗=∣a ⃗∣^2,
+
+jer je tada kut φ jednak nuli.
+________________________________________
+Svojstva skalarnog umnoška
+Svojstva skalarnog umnoška
+Za sve vektore a ⃗,b ⃗,c ⃗ i svaki skalar g∈R vrijedi:
+	pozitivnost:
+a ⃗⋅a ⃗≥0,a ⃗⋅a ⃗=0⟺a ⃗=0 ⃗
+
+	komutativnost:
+a ⃗⋅b ⃗=b ⃗⋅a ⃗
+
+	homogenost:
+(ga ⃗)⋅b ⃗=g(a ⃗⋅b ⃗ )
+
+	distributivnost:
+(a ⃗+b ⃗)⋅c ⃗=a ⃗⋅c ⃗+b ⃗⋅c ⃗.
+
+Prva tri svojstva slijede direktno iz same definicije. Dokažimo svojstvo distributivnosti. U tu svrhu promotrimo sljedeću sliku.
+(Skalarni_umnožak_3.png)
+Sa slike lijevo vidimo: ako se jedan vektor projicira ortogonalno na pravac određen drugim vektorom, onda imamo:
+a ⃗⋅c ⃗=∣OA∣⋅∣BC∣cos⁡φ=∣OA∣⋅∣PQ∣.
+
+Sa slike desno sada slijedi
+a ⃗⋅(b ⃗+c ⃗)=∣OA∣⋅∣OQ∣=∣OA∣(∣OP∣+∣PQ∣)=∣OA∣⋅∣OP∣+∣OA∣⋅∣PQ∣=a ⃗⋅b ⃗+a ⃗⋅c ⃗.
+
+PRIMJER 1
+________________________________________
+Skalarni umnožak u koordinatnom sustavu
+Skalarni umnožak u Kartezijevu sustavu
+Skalarni umnožak vektora a ⃗=a_x i ⃗+a_y j ⃗ i b ⃗=b_x i ⃗+b_y j ⃗ računa se formulom
+a ⃗⋅b ⃗=a_x b_x+a_y b_y.
+
+Posebice,
+∥a ⃗∥=√(a_x^2+a_y^2 ).
+
+Dokažimo formulu za skalarni umnožak. Formula za duljinu vektora dobiva se iz umnoška a ⃗⋅a ⃗.
+Najprije primijetimo:
+i ⃗⋅i ⃗=∣i ⃗∣⋅∣i ⃗∣cos⁡0^∘=1,j ⃗⋅j ⃗=∣j ⃗∣⋅∣j ⃗∣cos⁡0^∘=1.
+
+Također, vrijedi
+i ⃗⋅j ⃗=∣i ⃗∣⋅∣j ⃗∣cos⁡90^∘=0,
+
+jednako tako j ⃗⋅i ⃗=0.
+I sada imamo
+a ⃗⋅b ⃗=(a_x i ⃗+a_y j ⃗)⋅(b_x i ⃗+b_y j ⃗)=a_x b_x (i ⃗⋅i ⃗)+a_x b_y (i ⃗⋅j ⃗)+a_y b_x (j ⃗⋅i ⃗)+a_y b_y (j ⃗⋅j ⃗)=a_x b_x+a_y b_y.
+
+PRIMJER 2
+________________________________________
+Kut između vektora
+Ako su zadani vektori a ⃗=a_x i ⃗+a_y j ⃗ i b ⃗=b_x i ⃗+b_y j ⃗, onda se primjenom skalarnog umnoška može odrediti kut φ između tih dvaju vektora.
+(Skalarni_umnožak_4.png)
+Najprije zapišimo
+a ⃗⋅b ⃗=∣a ⃗∣⋅∣b ⃗∣cos⁡φ=√(a_x^2+a_y^2 )⋅√(b_x^2+b_y^2 ) cos⁡φ.
+
+No također je
+a ⃗⋅b ⃗=a_x b_x+a_y b_y.
+
+Izjednačimo te dvije jednakosti i dobijemo
+cos⁡φ=(a_x b_x+a_y b_y)/(√(a_x^2+a_y^2 )⋅√(b_x^2+b_y^2 )).
+
+Posebno, vektori a ⃗ i b ⃗ su okomiti onda i samo onda ako vrijedi
+a ⃗⋅b ⃗=a_x b_x+a_y b_y=0.
+
+PRIMJER 3
+PRIMJER 4
+________________________________________
+________________________________________
+________________________________________
+Dijeljenje dužine u zadanom omjeru
+________________________________________
+Dijeljenje dužine u omjeru
+Polovište dužine dijeli tu dužinu u omjeru 1 : 1. Težište trokuta dijeli težišnicu u omjeru 2 : 1.
+(Dijeljenje_dužine_u_zadanom_omjeru_1.png)
+Neka je (AB) ‾ zadana dužina i C neka njezina točka. Kažemo da C dijeli dužinu (AB) ‾ u omjeru λ ako vrijedi ∣AC∣:∣CB∣=λ.
+Dijeljenje dužine u zadanom omjeru možemo opisati korištenjem vektora. Naime, vektori (AC) ⃗ i (CB) ⃗ su kolinearni, a za njihove duljine vrijedi ∣(AC) ⃗∣:∣(CB) ⃗∣=λ, pa je zato (AC) ⃗=λ(CB) ⃗. Vektori (AC) ⃗ i (CB) ⃗ iste su orijentacije pa je λ pozitivan realni broj. 
+(Dijeljenje_dužine_u_zadanom_omjeru_2.png)
+Dijeljenje dužine u zadanom omjeru
+Neka je λ pozitivan realni broj. Točka C dijeli dužinu (AB) ‾ u omjeru λ ako vrijedi
+■(&(AC) ⃗=λ(CB) ⃗.&&"(1)" )
+
+(Dijeljenje_dužine_u_zadanom_omjeru_3.png)
+Neka je O ishodište koordinatnog sustava. Prikažimo vektor (OC) ⃗ kao linearnu kombinaciju vektora (OA) ⃗ i (OB) ⃗. U jednakost (AC) ⃗=λ(CB) ⃗ uvrstimo (AC) ⃗=(OC) ⃗-(OA) ⃗, (CB) ⃗=(OB) ⃗-(OC) ⃗:
+(OC) ⃗-(OA) ⃗=λ((OB) ⃗-(OC) ⃗).
+
+Odavde izračunajmo (OC) ⃗:
+(OC) ⃗+λ(OC) ⃗=(OA) ⃗+λ(OB) ⃗.
+
+Konačno je:
+(OC) ⃗=1/(1+λ) (OA) ⃗+λ/(1+λ) (OB) ⃗.
+
+________________________________________
+Koordinate djelišne točke
+Ako znamo koordinate točaka A i B u Kartezijevu sustavu, onda iz posljednje jednadžbe možemo odrediti koordinate točke C koja dužinu (AB) ‾ dijeli u omjeru λ. Neka je, dakle, A(x_A,y_A), B(x_B,y_B), C(x_C,y_C). Onda je:
+x_C i ⃗+y_C j ⃗=1/(1+λ)(x_A i ⃗+y_A j ⃗)+λ/(1+λ)(x_B i ⃗+y_B j ⃗).
+
+Izjednačimo li koordinate vektora s lijeve i s desne strane jednakosti, dobit ćemo:
+Koordinate djelišne točke
+Točka C koja dijeli dužinu (AB) ‾ u omjeru λ ima koordinate
+x_C=(x_A+λx_B)/(1+λ),y_C=(y_A+λy_B)/(1+λ).
+
+PRIMJER 1
+________________________________________
+Polovište dužine i težište trokuta
+Polovište P dužine (AB) ‾ je točka koja dužinu dijeli na dva jednaka dijela. Kako je, dakle, ∣(AP) ⃗∣=∣(PB) ⃗∣, onda je λ=1. Stavljajući λ=1 u formule za određivanje koordinata djelišne točke dužine izravno dobijemo:
+x_P=(x_A+x_B)/2,y_P=(y_A+y_B)/2.
+
+Polovište dužine
+Neka su A(x_A,y_A), B(x_B,y_B) zadane točke. Polovište P dužine (AB) ‾ ima koordinate
+x_P=(x_A+x_B)/2,y_P=(y_A+y_B)/2.
+
+PRIMJER 2
+Da bismo odredili koordinate težišta T trokuta s poznatim vrhovima A,B i C, primijenit ćemo dva puta formule za koordinate djelišne točke. Neka je D polovište dužine (BC) ‾. Njezine su koordinate
+x_D=(x_B+x_C)/2,y_D=(y_B+y_C)/2.
+
+(Dijeljenje_dužine_u_zadanom_omjeru_4.png)
+Težište T dijeli težišnicu (AD) ‾ u omjeru 2 : 1. Dakle, λ=2. Zato ćemo koordinate točke T odrediti s pomoću koordinata točaka A i D:
+x_T=(x_A+2x_D)/(1+2)=(x_A+x_B+x_C)/3.
+
+Slično bismo dobili i y_T.
+Koordinate težišta trokuta
+Težište T trokuta ABC s vrhovima A(x_A,y_A), B(x_B,y_B), C(x_C,y_C) ima koordinate
+x_T=(x_A+x_B+x_C)/3,y_T=(y_A+y_B+y_C)/3.
+
+PRIMJER 3
+________________________________________
+Površina trokuta
+Trokut je u koordinatnoj ravnini određen koordinatama svojih vrhova. Uzmimo da su točke T_1 (x_1,y_1), T_2 (x_2,y_2) i T_3 (x_3,y_3) vrhovi trokuta. Kako mu izračunati površinu?
+(Dijeljenje_dužine_u_zadanom_omjeru_5.png)
+Spustimo iz točaka T_1,T_2 i T_3 okomice na os x, sjecišta tih okomica s osi x označimo s T_1^',T_2^' i T_3^'. Da bismo izračunali površinu P trokuta T_1 T_2 T_3, zbrojit ćemo površinu P_1 trapeza T_1 T_1^' T_3^' T_3 i površinu P_2 trapeza T_3 T_3^' T_2^' T_2 te od tog zbroja oduzeti površinu P_3 trapeza T_1 T_1^' T_2^' T_2.
+(Dijeljenje_dužine_u_zadanom_omjeru_6.png)
+Prisjetimo se: ako su a i c duljine osnovica trapeza, a v duljina njegove visine, površina mu je jednaka
+P=(a+c)/2⋅v.
+
+Računamo redom:
+P_1=1/2(y_1+y_3)(x_3-x_1),
+P_2=1/2(y_2+y_3)(x_2-x_3),
+P_3=1/2(y_1+y_2)(x_2-x_1).
+
+Sada je
+P=P_1+P_2-P_3=1/2(x_1 y_2-x_1 y_3+x_2 y_3-x_2 y_1+x_3 y_1-x_3 y_2).
+
+Time je zadatak riješen. Ovu ćemo formulu zapisati u obliku koji je pogodniji i za računanje i za pamćenje:
+Površina trokuta
+Površina trokuta kojemu su vrhovi točke T_1 (x_1,y_1), T_2 (x_2,y_2) i T_3 (x_3,y_3) jednaka je
+P=1/2∣x_1 (y_2-y_3)+x_2 (y_3-y_1)+x_3 (y_1-y_2)∣.
+
+Stavljanjem oznake za apsolutnu vrijednost osiguravamo da površina trokuta bude pozitivan broj.
+PRIMJER 4
+PRIMJER 5

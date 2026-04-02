@@ -1,0 +1,202 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 1
+Funkcija f(x)=3x primjer je eksponencijalne funkcije. Za realni broj x vrijednost funkcije je 3x.
+Tako jef(3)=33=27,f(−2)=3−2=19,f(12)=312=√3.U svakom od triju primjera umjesto x uvrštavali smo samo probrane brojeve. Jer općenito, bez pomoći džepnog računala ili tablica nije moguće izračunavati vrijednosti potencije 3x.
+Koliko je, primjerice, f(35)? Odnosno, koliko je 335?335=5√33=5√27.Vrijednosti funkcije f(x)=3x (i ne samo nje) u pravilu se određuju džepnim računalom. Kako, o tome će još biti riječi. No primijetite kako je na slici džepnim računalom dobiveno 335≈1.933182045.
+
+Primejr 2
+U skupu šest danih realnih funkcija izdvoji eksponencijalne: f(x)=x4, f(x)=12−x, f(x)=x, f(x)=0.01x, f(x)=1−x, f(x)=x−3.
+Rješenje: Eksponencijalna funkcija je realna funkcija oblika f(x)=ax gdje je a>0 i a≠1. Kod te funkcije varijabilan je eksponent dok je baza realan broj. U danom skupu funkcija takve su funkcije f(x)=12−x i f(x)=0.01x.
+Funkcija f(x)=x je linearna funkcija, funkcije f(x)=x4 i f(x)=x−3 su potencije s varijabilnom osnovicom. Funkcija f(x)=1−x je konstanta.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 3
+Ilustrirajmo na nekoliko jednostavnih primjera pojam logaritma:
+23=8⟺3=log28;
+32=9⟺2=log39;
+103=1000⟺3=log101000;
+5−1=0.2⟺−1=log50.2.
+
+Primejr 4
+Izračunajmo: 1) log28; 2) log525; 3) log319; 4) log42.
+Rješenje:
+1) Koliko je log28? To pitanje jednako je pitanju: kojim brojem trebamo potencirati broj 2 da bismo dobili 8? Ili, za koji x je 2x=8? Rješenje je x=3, odnosno log28=3.
+2) Kojim brojem trebamo potencirati broj 5 da bismo dobili 25? Ili, za koji x je 5x=25? Rješenje je x=2, odnosno log525=2.
+3) Kojim brojem trebamo potencirati broj 3 da bismo dobili 19? Ili, za koji x je 3x=19? Rješenje je x=−2, odnosno log319=−2, jer je 3−2=19.
+4) Kojim brojem trebamo potencirati broj 4 da bismo dobili 2? Ili, za koji x je 4x=2? Rješenje je x=12. Odnosno, log42=12, jer je 412=2.
+
+Primejr 5
+Odredimo nepoznati broj x u svakom od sljedećih zadataka:
+1) log319=x;
+2) logx94=2;
+3) log8x=53.
+Rješenje:
+1) Prema definiciji logaritma jednakost je ekvivalentna jednakosti 3x=19. Odatle je 3x=3−2 te je x=−2.
+2) Iz logx94=2 slijedi x2=94, a kako je baza logaritma pozitivan broj, onda je x=32.
+3) Ako je log8x=53, onda je 853=x, odnosno x=(23)53=25=32.
+
+primjer 6
+Koliko je: 1) 2log23; 2) 32+log37; 3) 25log511?
+Rješenje: U ovim zadatcima primjenjuju se svojstva potencija i definicija logaritma pozitivnog realnog broja alogay=y.
+1) Izravno iz definicije logaritma slijedi: 2log23=3. Naime, logaritam broja 3 po bazi 2 je eksponent kojim trebamo potencirati bazu 2 da bismo dobili broj 3.
+2) U eksponentu potencije imamo zbroj pa je onda:32+log37=32⋅3log37=9⋅3log37=9⋅7=63.
+3) Baza potencije i baza logaritma prema definiciji moraju biti jednake:25log511=52log511=(5log511)2=112=121.
+
+Primejr 7
+U prethodnim je primjerima eksponent (logaritam) uvijek bio cijeli broj. To međutim nije uvijek tako, logaritam nije uvijek cijeli broj. Naprotiv. Evo nekoliko primjera s bazom a=10:101.4=25.119⟺1.4=log1025.119;100.1=1.2589⟺0.1=log101.2589;10−2.31=0.04898⟺−2.31=log100.004898.
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 8
+Izračunajmo bez uporabe džepnog računala vrijednost brojevnog izraza:
+1) log2361+log23;
+2) log33√16log32−log38.
+Rješenje:
+U rješavanju zadataka primijenit ćemo svojstva (L1)--(L3) logaritamske funkcije:
+1) log2361+log23=log262log22+log23=2⋅log26log2(2⋅3)=2⋅log26log26=2;
+2) log33√16log32−log38=log3243log328=43⋅log32log32−2=43⋅log32−2⋅log32=−23.
+
+Primejr 9
+Kad smo u prvom razredu navodili primjere za potencije, spomenuli smo i Legendu o šahu. Tada smo rekli da je ukupan broj zrnaca koji je trebalo isplatiti izumitelju jednak 264−1. Koliki je taj broj?
+Za taj se odgovor moramo pomučiti, ili rabiti računala jača od džepnih. Koristeći se logaritmima možemo ga barem dobro procijeniti.
+Neka je n=264. Tada jelogn=64⋅log2≈64⋅0.30103=19.26592.No to onda znači da je1019<n<1020,pa broj n ima 20 znamenki. Možemo pisatin=1019.26592=100.26592⋅1019.Sad s pomoću džepnog računala možemo otkriti vodeće znamenke ovog broja:n=1.844675⋅1019.Točna vrijednost ovog broja glasi18446744073709551615.
+
+Primejr 10
+Broj 12100 je prevelik da bismo ga bez dodatne pripreme izračunali na većini džepnih računala. Znajući da je log2≈0.301 i log3≈0.477, koliko znamenaka ima taj broj?
+Rješenje: Neka je n=12100. Tada jelogn=100⋅log12=100⋅log(3⋅22)=100⋅(log3+2⋅log2)≈107.9.Zaključujemo da je10107<n<10108,a to znači da broj 12100 ima 108 znamenaka.
+
+Primejr 11
+Izračunajmo približno broj 12100.
+Rješenje:
+Neka je n=12100. Dovoljno je napisatin=12100=(1.2⋅10)100=1.2100⋅10100.Sad računamo s pomoću računala1.2100=8.281797452⋅107.Zaključujemo da je  n=8.281797452⋅10107.
+
+Primejr 12
+
+Primjer 13
+Prost broj n je prirodni broj koji osim broja 1 i samoga n nema drugih djelitelja.
+Prosti su brojevi redom: 2,3,5,7,11,13,17,19,23…
+Da je ovaj niz beskonačan, odnosno da je skup prostih brojeva beskonačan, dokazao je još Euklid.
+Na pitanje koliko prostih brojeva ima u nekom intervalu prirodnih brojeva, nema potpunog odgovora. Od prvih deset prirodnih brojeva 4 su prosta. Među prvih 100 prostih je 25, među prvih 1000 prostih je 168, među prvih 10 000 ih je 1229 itd.
+No, što uzimamo veće intervale, sve je teže odgovoriti na pitanje. FormulaNp≈nlnndaje približan broj prostih brojeva među prvih n prirodnih brojeva.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 14
+Riješimo jednadžbu 9x−2⋅22x−1=8.
+Rješenje: S lijeve strane jednadžbe umnožak je dviju potencija različitih baza. Takve se potencije mogu pomnožiti jedino ako imaju jednake eksponente. Stoga ćemo se usredotočiti na pravilo an⋅bn=(a⋅b)n pa lijevu stranu transformirati na sljedeći način: 9x−2⋅22x−1=9x⋅9−2⋅4x⋅2−1=(9⋅4)x⋅9−2⋅2−1.
+Tako jednadžba prima oblik (9⋅4)x⋅9−2⋅2−1=8. Dalje slijedi (9⋅4)x=8⋅92⋅2=1296 i konačno 36x=362. Rješenje jednadžbe je x=2.
+
+primejr 15
+Riješimo jednadžbe: 1) 16x=132, 2) (12)−3x=6.
+Rješenje:
+1) Obje strane jednadžbe prikazat ćemo u obliku potencije s istom bazom:(24)x=12524x=2−5pa je 4x=−5, odnosno x=−54.
+2) Lijeva strana ima jednostavniji oblik 23x. Međutim desna se strana može napisati kao potencija baze 2 samo korištenjem logaritama: 6=2log26. Odavde slijedi 3x=log26. Jednostavnije je do rješenja doći postupkom logaritmiranja po bazi 10, na ovaj način:23x=6,3xlog2=log6,x=log63log2.Približna vrijednost ovog rješenja je x=0.8617.
+
+Primejr 16
+Riješimo jednadžbu: 3x−1+5x−1=5x−3x+1.
+Rješenje: Najprije razvrstajmo članove jednadžbe tako da se s njezine iste strane nađu potencije iste baze: 3x−1+3x+1=5x−5x−1. Primjenom svojstava potencija jednadžbu zapišimo u obliku:3x−1+9⋅3x−1=5⋅5x−1−5x−1.Ove potencije sada imaju jednake eksponente pa one s jednakim bazama možemo zbrojiti. Tako dobijemo 10⋅3x−1=4⋅5x−1. Iz ove jednadžbe slijedi (35)x−1=25. Primjenom logaritama jednadžba prima oblik (x−1)⋅log35=log25, odakle izračunamo x=1+log0.4log0.6≈2.79.
+
+Primejr 17
+Riješimo jednadžbu: (13)1−x⋅3−4x=9.
+Rješenje: I u ovoj su jednadžbi članovi potencije iste baze, baze 3. Zato je zapišemo u obliku 3x−1⋅3−4x=32.
+Izjednačivanjem eksponenata dobijemo jednadžbu x−1−4x=2, odnosno ekvivalentnu jednadžbu x2−3x−4=0, x≠0.
+Rješenja su x1=−1 i x2=4.
+
+Primejr 18
+Riješimo jednadžbu: 0.4x−2.5x+1=1.5.
+Rješenje: Jednadžbu možemo zapisati u obliku (25)x−52⋅(52)x=32. Zamjenom (25)x=u jednadžbu svodimo na kvadratnu 2u2−3u−5=0.
+Imamo rješenja: u=−1 (prvo) i u=52 (drugo).
+Vratimo se sada na izvornu nepoznanicu. Najprije, (25)x=−1 nije ispunjeno niti za koji realan broj x, jer su vrijednosti eksponencijalne funkcije pozitivni brojevi. Iz (25)x=52 slijedi x=−1 i to je jedino rješenje zadane jednadžbe.
+
+primejr 19
+Riješimo jednadžbu logx+log(x−3)=1.
+Rješenje: Primjenom svojstava logaritamske funkcije možemo napisatilogx+log(x−3)=1,log[x(x−3)]=log10,x(x−3)=10.Dobili smo kvadratnu jednadžbu x2−3x−10 kojoj su rješenja x1=5, x2=−2. Međutim, samo prvo zadovoljava početnu jednadžbu, jer za x=−2 logaritamska funkcija nije definirana. Zato je x=5 jedino rješenje ove jednadžbe.
+
+primjer 20
+Riješimo jednadžbu: log(0.1x2)⋅log(10x)=2.
+Rješenje: Primjenom svojstava logaritama jednadžbu možemo zapisati u obliku(log0.1+logx2)(log10+logx)=2.Zatim imamo(−1+2logx)(1+logx)=2.Nakon sređivanja dobijemo kvadratnu jednadžbu2(logx)2+logx−3=0.Njezina su rješenja logx=1 ililogx=−32.
+Rješenja zadane jednadžbe su x1=10 i x2=√10100.
+
+Primejr 21
+Riješimo jednadžbu: log2{4log5[2+log2(4+log3x)]}=2.
+Rješenje: Jednadžbu „čitamo” kao jednadžbu oblika log2t=2, gdje jet=4log5[2+log2(4+log3x)].Dakle, t=4 pa je log5[2+log2(4+log3x)]=1.
+Označimo li sada u=2+log2(4+log3x), onda iz log5u=1 slijedi u=2+log2(4+log3x)=5, odnosno log2(4+log3x)=3.
+Nastavljamo na jednak način i dolazimo do rješenja x=81.
+
+Primejr 22
+Riješimo jednadžbu: log3x⋅log9x⋅log27x=36.
+Rješenje: U jednadžbi su logaritmi po različitim bazama. No oni se primjenom identiteta logax=logbxlogba (prema str. 33) mogu svesti na jednu, istu bazu. Tako dobivamo ekvivalentnu jednadžbulog3x⋅log3xlog39⋅log3xlog327=36,odnosnolog3x⋅log3x2⋅log3x3=36.Sada imamo (log3x)3=36⋅6=63. Dakle, log3x=6 i konačno x=36=729.
+
+primejr 23
+Riješimo nejednadžbu:  0.25⋅(18)x−1<16.
+Rješenje: U nejednadžbi su potencije baze 12 pa je možemo zapisati u obliku(12)3x−1<(12)−4.Kako je riječ o eksponencijalnoj funkciji čija je baza manja od 1, ta je funkcija padajuća, pa je nejednadžba ekvivalentna s 3x−1>−4. Konačno je x>−1.
+Primijetimo kako smo nejednadžbu mogli zapisati i u obliku 2−2⋅2−3x+3<24, odakle slijedi −3x+1<4, zatim −3x<3 i konačno x>−1.
+
+Primejr 24
+Riješimo nejednadžbu 9x−1+3x<18.
+Rješenje: Valja prepoznati da je riječ o eksponencijalnoj nejednadžbi koja se zamjenom u=3x−1 svodi na kvadratnu. Najprije je zapišimo u obliku (3x−1)2+3⋅3x−1−18<0.
+Uz navedenu zamjenu ona prima oblik u2+3u−18<0. Rješenje ove posljednje nejednadžbe je −6<u<3 pa je −6<3x−1<3.
+Eksponencijalna funkcija prima samo pozitivne vrijednosti pa je rješenje svaki realni broj x za koji je 3x−1<3, odnosno svaki x<2.
+
+Primejr 25
+Riješimo nejednadžbu:  log13(x−1)>1.
+Rješenje: Baza logaritamske funkcije je broj manji od 1, zato je funkcija monotono padajuća pa slijedi x−1<13, odnosno x<43.
+No, oprez! Logaritamska funkcija je definirana samo za pozitivne brojeve, pa mora vrijediti x−1>0. Tako je konačno rješenje ove nejednadžbe 1<x<43.
+Pogledajmo i grafičko rješenje zadatka. Nacrtajmo graf funkcije f(x)=log13(x−1). Radi se o grafu funkcije log13x koji je translatiran u smjeru osi x udesno za 1.
+Nacrtajmo zatim i pravac y=1 te istaknimo dio grafa koji je iznad tog pravca. Projicirajmo ga na os x i dobit ćemo rješenje zadatka, interval ⟨1,43⟩.
+
+Primejr 26
+Riješimo nejednadžbu: log22x−3log2x+11−log2x>1.
+Rješenje: Uvedimo zamjenu u=log2x te imamo nejednadžbu u2−2u1−u>0.
+Nacrtajmo apscisnu os i skicirajmo grafove dviju funkcija, kvadratne f(u)=u2−2u i linearne g(u)=1−u. Omjer f(x)g(x) vrijednosti ovih dviju funkcija bit će pozitivan nad intervalima unutar kojih ove funkcije imaju isti predznak.
+Sa slike očitamo: u<0 ili 1<u<2. Dakle, log2x<0 ili 1<log2x<2, odnosno x<1 ili 2<x<4.
+No, opet moramo imati na umu da je logaritamska funkcija definirana samo za pozitivne brojeve, pa je konačno rješenje x∈⟨0,1⟩∪⟨2,4⟩.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 6
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 7
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================

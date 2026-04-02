@@ -1,0 +1,285 @@
+<h3>Determinante i linearni sustavi drugog reda</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Sustav dviju jednadžbi s dvije nepoznanice
+ <p>
+                <!--PRIMJER 1-->
+                1 Karat je mjera finoće plemenitih kovina, ali i mase dragog kamena. Zato karat ima dvostruko značenje. Ovdje se rabi kao mjera za finoću i označava masu čistog zlata u dijlovima od  124 ukupne mase. Kao mjera za masu, on označava masu od točno 200 mg.
+                Poznajemo različite načine na koje možemo riješiti sustav dviju jednadžbi s dvjema nepoznanicama.
+                o	Metoda supstitucije. Iz prve (jednostavnije) jednadžbe možemo izračunati jednu od nepoznanica i dobivenu vrijednost uvrstiti u drugu:
+                y=48−x7x+10(48−x)=432.
+                Sređivanjem druge jednadžbe sada lako dobivamo 3x=48 pa je x=16, a onda i y=32o	.
+                o	Metoda suprotnih koeficijenata. Prvu jednadžbu pomnožimo s (−7)
+                i dobivene jednadžbe zbrojimo:
+                {−7x−7y=−3367x+10y=432.
+                  Nakon zbrajanja dobivamo 3y=96 pa je y=32, a onda x=16.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Determinanta matrice drugog reda
+<p>U nastavku ćemo upoznati nove načine za rješavanje linearnih sustava koje ćemo moći koristiti i u rješavanju složenijih sustava s većim brojem jednadžbi i nepoznanica.
+                Napišimo sustav linearnih jednadžbi s po volji odabranim koeficijentima: {ax+by=e,cx+dy=f.
+                
+                Pomnožimo prvu jednadžbu brojem d, drugu brojem −b. Dobit ćemo ekvivalentni sustav
+                {dax+dby=de,−bcx−bdy=−bf.
+                Zbrojimo dobivene jednadžbe: (ad−bc)x=de−bf
+                .
+                Ako je ad−bc≠0
+                , odavde slijedi x=de−bfad−bc
+                .
+                Slično bismo uz isti uvjet za drugu nepoznanicu dobili
+                (ad−bc)y=af−ce⟹y=af−cead−bc.
+                
+                Primjećujemo da su i brojnik i nazivnik u ovim rješenjima izrazi sličnog tipa koji ovise o koeficijentima sustava.
+                Napišimo koeficijente sustava u obliku tablice koju nazivamo matrica sustava:
+                A=[abcd].
+                
+                Ona ima dva retka i dva stupca pa ju zovemo matrica drugog reda. Svakoj takvoj matrici pridružujemo broj koji nazivamo determinanta matrice.
+                Determinanta matrice drugog reda
+                Determinanta matrice drugog reda je realni broj definiran formulom: det(A):=ad−bc.
+                U postupku računanja determinantu označavamo sa ∣∣∣abcd∣∣∣.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Rješenje sustava dviju jednadžbi s dvjema nepoznanicama
+<p>Rješenje sustava dviju linearnih jednadžbi s dvjema nepoznanicama
+                Rješavamo sustav {ax+by=e,cx+dy=f.
+                Ako je determinanta matrice sustava različita od nule, onda rješenje sustava možemo napisati u obliku x=∣∣∣ebfd∣∣∣∣∣∣abcd∣∣∣,y=∣∣∣aecf∣∣∣∣∣∣abcd∣∣∣. Nazivnik je jednak determinanti matrice sustava. Determinanta u brojniku dobiva se tako da se koeficijenti uz nepoznanicu u početnom sustavu zamijene s koeficijentima desne strane sustava.
+                <!--PRIMJER 2-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Rješivost linearnog sustava
+<p>Znamo da linearni sustav može imati jedinstveno rješenje, može biti bez ijednog rješenja, ali može imati i beskonačno mnogo rješenja.
+                <!--PRIMJER 3-->
+                Determinanta sustava 1) iznosi∣∣∣23−11∣∣∣=2⋅1−3⋅(−1)=5≠0.Determinanta je različita od nule, a to je nužan i dovoljan uvjet da bi sustav imao jednoznačno rješenje.U druga dva slučaja determinanta sustava jednaka je nuli:∣∣∣2346∣∣∣=2⋅6−4⋅3=0.Rješivost linearnog sustavaLinearni sustav {ax+by=e,cx+dy=f.ima jednoznačno rješenje onda i samo onda ako je njegova determinanta ∣∣∣abcd∣∣∣=ad−bc≠0.Dokažimo ovu tvrdnju. Sustav dviju jednadžbi ima jednoznačno rješenje onda i samo onda ako se pravci koji opisuju njegove jednadžbe sijeku. Oni će se sjeći ako im se koeficijenti smjera razlikuju.Jednadžbe pravaca suy=−abx+eb,y=−cdx+fdpa su koeficijenti smjera pravaca k1=−ab, k2=−cd. Sad imamok1≠k2⟺−ab≠−cd⟺ad−bc≠0.Time je tvrdnja dokazana. Ovaj je račun izveden uz pretpostavku b≠0 i d≠0. Ako je jedan od ovih koeficijenata jednak nuli, uvjerite se da i tada tvrdnja ostaje na snazi.
+                <!--PRIMJER 4-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Determinante trećeg reda. Cramerovo pravilo</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Laplaceov razvoj determinante
+<p>Matrica trećeg reda jest kvadratna tablica A dimenzija 3×3. Označimo njezine elemente ovako:
+                A=⎡⎢⎣a1a2a3b1b2b3c1c2c3⎤⎥⎦.
+                Determinanta matrice trećeg reda
+                Determinanta matrice trećeg reda je realni broj definiran formulom: det(A)=∣∣ ∣∣a1a2a3b1b2b3c1c2c3∣∣ ∣∣:=a1∣∣∣b2b3c2c3∣∣∣−a2∣∣∣b1b3c1c3∣∣∣+a3∣∣∣b1b2c1c2∣∣∣.
+                Ovu formulu nazivamo Laplaceov razvoj determinante (po elementima prvog retka).
+                 
+                Sad računamo determinante reda 2:
+                det(A)=a1(b2c3−b3c2)−a2(b1c3−b3c1)+a3(b1c2−b2c1)=a1b2c3−a1b3c2−a2b1c3+a2b3c1+a3b1c2−a3b2c1=a1b2c3+a2b3c1+a3b1c2−a1b3c2−a2b1c3−a3b2c1.
+                Dobiveni izraz nećemo pamtiti, nego ćemo pri računanju determinanti ponavljati čitav postupak.
+                <!--PRIMJER 1-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Računanje determinante
+<p>Determinantu trećeg reda definirali smo razvojem po elementima prvog retka. Lako se možemo uvjeriti da se identična vrijednost dobiva i razvojem determinante po bilo kojem retku ili stupcu. Tako, na primjer, ako determinantu razvijemo po elementima prvog stupca, vrijedit će
+                det(A)=∣∣ ∣∣a1a2a3b1b2b3c1c2c3∣∣ ∣∣=a1∣∣∣b2b3c2c3∣∣∣−b1∣∣∣a2a3c2c3∣∣∣+c1∣∣∣a2a3b2b3∣∣∣.
+                
+                Daljnjim računanjem determinanti drugog reda dobit ćemo identičan izraz kao i kod razvoja determinante po elementima prvog retka. Determinante drugog reda koje ulaze u ovakav rastav nazivamo minore. Minora se dobiva tako da se u početnoj determinanti prekriže svi elementi jednog retka i jednog stupca.
+                Ako determinantu razvijamo po elementima drugog retka, onda vrijedi
+                det(A)=∣∣ ∣∣a1a2a3b1b2b3c1c2c3∣∣ ∣∣:=−b1∣∣∣a2a3c2c3∣∣∣+b2∣∣∣a1a3c1c3∣∣∣−b3∣∣∣a1a2c1c2∣∣∣.
+                
+                Pazite na drukčiji raspored predznaka ispred elemenata retka po kojem rastavljamo determinantu! Svakom elementu determinante pripada predznak kojim on sudjeluje u rastavu determinante po nekom retku ili stupcu. Ti se predznaci pravilno izmjenjuju:
+                ⎡⎢⎣+−+−+−+−+⎤⎥⎦.
+                Tako rastavom po elementima drugog retka ili drugog stupca prvi i treći pribrojnik dolaze s predznakom minus.
+                <!--primjer 2-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Sarrusovo pravilo i Cramerovo pravilo
+ <p>Determinante trećeg reda možemo računati na još jedan način, uporabljujući sljedeće jednostavno pravilo: prva dva stupca determinante nadopišu se iza trećeg i zatim se računaju umnošci po triju elemenata postavljenih dijagonalno jedan do drugog. Umnošci silaznih dijagonala uzimaju se s predznakom +, a uzlaznih s predznakom −
+                :
+                +++∣∣ ∣∣a1a2a3b1b2b3c1c2c3∣∣ ∣∣−−−a1a2b1b2c1c2=a1b2c3+a2b3c1+a3b1c2−(c1b2a3+c2b3a1+c3b1a2).
+                <!--PRIMJER 3-->
+                Važnost determinanti trećeg reda jest u tome što za njih vrijedi formula potpuno analogna formuli za rješenje sustava dviju linearnih jednadžbi s dvjema nepoznanicama.
+                Objasnimo postupak rješavanja na općem sustavu triju jednadžbi s trima nepoznanicama:
+                ⎧⎪⎨⎪⎩a1x+b1y+c1z=d1,a2x+b2y+c2z=d2,a3x+b3y+c3z=d3.
+                Označimo sa D determinantu matrice ovog sustava:
+                D=∣∣ ∣∣a1b1c1a2b2c2a3b3c3,∣∣ ∣∣
+                a sa Dx, Dy, Dz determinantu matrice koja se dobije tako da se koeficijenti uz nepoznanicu zamijene koeficijentima desne strane sustava (tzv. stupcem slobodnih članova):
+                Dx=∣∣ ∣∣d1b1c1d2b2c2d3b3c3∣∣ ∣∣,Dy=∣∣ ∣∣a1d1c1a2d2c2a3d3c3∣∣ ∣∣,Dz=∣∣ ∣∣a1b1d1a2b2d2a3b3d3∣∣ ∣∣.
+                Uz pretpostavku da je determinanta sustava D različita od nule, postoji samo jedno rješenje sustava:
+                x=DxD,y=DyD,z=DzD.
+                Opravdanje ove formule može se dobiti bilo dubljim ulaženjem u svojstva determinanti, što se uči na studiju, bilo mukotrpnim rješavanjem početnog sustava i usporedbom s gotovom formulom (srećom, taj postupak treba napraviti samo jednom). Kad rješavamo sustave na ovaj način, kažemo da primjenjujemo Cramerovo pravilo.
+                <!--PRIMJER 4-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Sustavi linearnih jednadžbi</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Gauss-Jordanova metoda
+<p>Naučili smo kako se sustavi linearnih jednadžbi mogu rješavati primjenom determinanti. Sad ćemo upoznati još jedan način primjenjiv i u slučajevima koji se ne mogu riješiti determinantama ili je takav postupak nepraktičan. To se odnosi, primjerice, na situaciju kad broj jednadžbi i broj nepoznanica nisu identični ili kad je njihov broj prevelik za računanje s pomoću determinanti.
+                Naučit ćemo rješavati sustave s pomoću Gauss-Jordanove1
+                metode.
+                Gauss-Jordanova metoda se sastoji u tome da se sustav linearnih jednadžbi elementarnim transformacijama svede na njemu ekvivalentan sustav iz kojeg ćemo moći odrediti njegova rješenja.
+                Pri svođenju sustava na ekvivalentan dozvoljeno je koristiti sljedeće elementarne transformacije:
+                    zamjena poretka dviju jednadžbi u sustavu,
+                    množenje jedne jednadžbe brojem različitim od nule,
+                    dodavanje nekoj jednadžbi neke druge jednadžbe pomnožene brojem različitim od nule.
+                1 Wilhelm Jordan (1842. -- 1899.), njemački profesor geodezije. U trećem izdanju svoje knjige priručnik iz geodezije 1888. g. opisao je metodu rješavanja linearnih sustava koja sadrži sistematsku eliminaciju nepoznanica.
+                Pratimo Gauss-Jordanovu metodu na jednom primjeru i istovremeno promotrimo kako se rješavanje sustava zapisuje u matričnom obliku.
+                <!--primjer 1-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Elementarne transformacije na retcima matrice
+<p>Opisanim transformacijama s jednadžbama sustava odgovaraju sljedeće dozvoljene elementarne transformacije na redcima matrice:
+
+                zamjena dvaju redaka matrice,
+                množenje retka brojem različitim od nule,
+                dodavanje nekom retku nekog drugog retka pomnoženog brojem različitim od nule.
+                <!--PRIMJER 2-->
+                <!--PRIMJER 3-->
+                <!--PRIMJER 4-->
+              </p>
+            </div>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Homogeni sustavi
+ <p>Sustav linearnih jednadžbi nazivamo homogenim ako su svi slobodni članovi jednaki nuli. Takav sustav uvijek ima rješenje, jer su sve jednadžbe zadovoljene ako je vrijednost svih nepoznanica jednaka nuli. No, to ne mora biti njegovo jedino rješenje.
+                <!--PRIMJER 5-->
+                <!--PRIMEJR 6-->
+                <!--PRIMEJR 7-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Nehomogeni sustavi
+ <p>Linearni sustav koji nije homogen nazivamo nehomogeni sustav. Kao što smo već vidjeli, on može imati jedinstveno rješenje, beskonačno mnogo rješenja, ali može i ne imati niti jedno rješenje.
+                <!--PRIMJER 8-->
+                <!--PRIMJER 9-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Definicija i primjeri matrica</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Elementi matrice
+ <p>Matrice smo upoznali pri rješavanju linearnih sustava. One se javljaju i u mnogim drugim situacijama. Matrica je svaka pravokutna tablica realnih brojeva.  Njih nazivamo elementima matrice. Evo primjera nekih matrica:
+                A=[1−20112];B=[2−131];O=⎡⎢⎣000000⎤⎥⎦;D=⎡⎢⎣300000002⎤⎥⎦;I=⎡⎢⎣100010001⎤⎥⎦.
+                Matrica A ima dva retka i tri stupca. Za nju kažemo da je tipa 2×3. Matrica B ima dva retka i dva stupca. To je kvadratna matrica. Kažemo da je ona reda 2, što je isto kao i reći tipa 2×2. Matrica O popunjena je nulama. Svaku takvu matricu, bez obzira na njezin tip, nazivamo nul-matrica i označavamo često s 0. Matrica D je dijagonalna matrica jer su elementi van njezine dijagonale jednaki nuli. Matrica I
+                poseban je slučaj dijagonalne matrice s jedinicama na dijagonali. Nju nazivamo jedinična matrica.
+                Matricu tipa m×n
+                zapisujemo na ovaj način:
+                A=⎡⎢ ⎢ ⎢ ⎢⎣a11a12…a1na21a22…a2n⋮am1am2…amn⎤⎥ ⎥ ⎥ ⎥⎦.
+                Element matrice A koji se nalazi u i-tom retku i j-tom stupcu označavamo sa aij i nazivamo opći element matrice, a matricu A kraće zapisujemo A=(aij)
+                .
+                Vidimo da se u zapisu pojavljuju dva indeksa. Prvi označava redak, a drugi stupac u kojem se taj element nalazi.
+              </p>
+              <img src="Definicja i primjeri matrica_1.png">
+              <p>Jednakost matrica
+                Dvije matrice A
+                i B
+                jednake su ako:
+                o	su istog tipa (imaju jednak broj redaka i jednak broj stupaca)
+                o	imaju jednake odgovarajuće elemente, tj. vrijedi aij=bij
+                za sve i,j.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Primjeri matrica
+<p>Vektor kao matrica
+                Matrice koje imaju samo jedan redak ili samo jedan stupac nazivamo vektorima. Tako govorimo o vektor-retku ili pak o vektor-stupcu. Evo primjera nekoliko vektor-stupaca i vektor-redaka:
+                [12],⎡⎢⎣001⎤⎥⎦,…,⎡⎢ ⎢ ⎢ ⎢⎣b1b2⋮bn⎤⎥ ⎥ ⎥ ⎥⎦;[−1 2],[0 0 1],…,[c1 c2 … cn].
+                
+                Prvi vektori su duljine (ili dimenzije) 2, drugi duljine 3, a posljednji duljine n
+                .
+                 
+                Transponirana matrica
+                Transponirana matrica matrice A
+                jest matrica A⊤ koju dobijemo tako da retke matrice A zapišemo u stupce matrice A=[2−131],B=⎡⎢⎣3−10214⎤⎥⎦,C=⎡⎢⎣13−2⎤⎥⎦,A⊤=[23−11],B⊤=[301−124],C⊤=[13−2].
+                Dakle, za elemente transponirane matrice vrijedi
+                a⊤ij=aji,∀i,j.
+                Ako je matrica A tipa m×n, onda je transponirana matrica A⊤ tipa n×m
+                .
+                 
+                Simetrične matrice
+                Kvadratna matrica A
+                je simetrična ako je A⊤=A, tj. aij=aji za sve i,j. Zrcaljenjem s obzirom na dijagonalu matrica se ne mijenja:
+                [1224],⎡⎢⎣13−1310−102⎤⎥⎦itd.
+                 
+                Gornja trokutasta matrica
+                Kvadratna matrica A
+                je gornja trokutasta ako su svi njezini elementi ispod dijagonale jednaki nuli:
+                [1201],⎡⎢⎣20001−1003⎤⎥⎦,⎡⎢ ⎢ ⎢ ⎢⎣a11a12…a1n0a22…a2n⋮00…ann⎤⎥ ⎥ ⎥ ⎥⎦.
+                 
+                Donja trokutasta matrica
+                Kvadratna matrica A
+                je donja trokutasta ako su svi njezini elementi iznad dijagonale jednaki nuli:
+                [3021],⎡⎢⎣200010003⎤⎥⎦,⎡⎢ ⎢ ⎢ ⎢⎣a110…0a21a22…0⋮an1an2…ann⎤⎥ ⎥ ⎥ ⎥⎦.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Operacije s matricama
+ <p>Zbrajanje matrica
+                Ako su matrice A
+                i B istog tipa, onda je definiran njihov zbroj. Rezultat zbrajanja je matrica A+B istog tipa kao i A i B. Njezin element na mjestu (i,j) jednak je zbroju elemenata matrica A i B na tom istom mjestu:
+                A+B=(aij+bij)
+                Tako vrijedi, na primjer,
+                [2−132]+[−1032]=[1−164],⎡⎢ ⎢⎣a11…a1n⋮⋱⋮am1…amn⎤⎥ ⎥⎦+⎡⎢ ⎢⎣b11…b1n⋮⋱⋮bm1…bmn⎤⎥ ⎥⎦=⎡⎢ ⎢⎣a11+b11…a1n+b1n⋮⋱⋮am1+bm1…amn+bmn⎤⎥ ⎥⎦.
+                 
+                Množenje matrice skalarom
+                Umnožak matrice A=(aij)
+                brojem λ je matrica
+                λA=(λaij).
+                Dakle, matrica se množi brojem tako da se svaki njezin element množi tim brojem:
+                2[120−3]=[240−6],λ⎡⎢ ⎢⎣a11…a1n⋮⋱⋮am1…amn⎤⎥ ⎥⎦=⎡⎢ ⎢⎣λa11…λa1n⋮⋱⋮λam1…λamn⎤⎥ ⎥⎦.
+                Matricu (−1)A
+                označavamo sa −A. Razlika dviju matrica svodi se na poznate operacije množenja skalarom i zbrajanja matrica: A−B:=A+(−1)B.
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+<h3>Množenje matrica</h3>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Umnožak vektor-retka i vektor-stupca
+<p>Množenje matrica složenija je operacija od njihovog zbrajanja. Redci i stupci matrice su vektori. Da bismo razumjeli množenje matrica, korisno je prije toga upoznati se s množenjem vektora.
+                Umnožak vektor-retka i vektor-stupca
+                Umnožak vektor-retka i vektor-stupca iste duljine definira se na način:
+                [a1a2…an]⎡⎢ ⎢ ⎢ ⎢⎣b1b2⋮bn⎤⎥ ⎥ ⎥ ⎥⎦:=a1b1+a2b2+⋯+anbn.
+                
+                Rezultat je ovog množenja broj. Evo primjera:
+                [2−13]⎡⎢⎣3−25⎤⎥⎦=2⋅3+(−1)⋅(−2)+3⋅5=23
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Množenje matrica
+<p>Da bi umnožak dviju matrica postojao, one moraju biti ulančane: broj stupaca prve mora biti jednak broju redaka druge matrice. (Odnosno, 'duljina' retka prve mora biti jednaka 'duljini' stupca druge matrice.) Tako, ako je A tipa m×n, matrica B mora biti tipa n×p da bi umnožak AB postojao. Pritom m i p mogu biti bilo koji prirodni brojevi. Rezultat množenja bit će matrica tipa m×p
+                .
+                Kako množimo matrice? Neka je A=(aij)
+                matrica tipa m×n, B=(bij) matrica tipa n×p. Te su matrice ulančane.
+                Opći element umnoška C=AB dobije se kao umnožak i-tog retka matrice A s j-tim stupcem matrice B:
+                cij:=[ai1ai2…ain]⎡⎢ ⎢ ⎢ ⎢ ⎢⎣b1jb2j⋮bnj⎤⎥ ⎥ ⎥ ⎥ ⎥⎦=ai1b1j+ai2b2j+⋯+ainbnj.
+              </p>
+              <img src="Množenje matrica_1.png">
+              <p>
+                <!--PRIMJER 1-->
+                <!--PRIMJER 2-->
+                <!--PRIMJER 3-->
+                <!--PRIMJER 4-->
+                <!--PRIMJER 5-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Matrice koje komutiraju
+<p>Ako su A i B kvadratne matrice istog reda, tada su oba umnoška AB i BA definirana i istog su reda kao i matrice A i B. Ti umnošci ne moraju uvijek biti različiti. Ako za matrice A i B vrijedi AB=BA, tada kažemo da one komutiraju.
+                <!--PRIMJER 6-->
+                <!--PRIMJER 7-->
+                <!--PRIMJER 8-->
+              </p>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Umnožak s jediničnom matricom i potencije matrice
+ <p>Umnožak s jediničnom matricom
+
+                Ako je I
+                jedinična matrica reda n, tada za svaku kvadratnu matricu A istog reda vrijedi
+                A⋅I=I⋅A=A.
+                
+                
+                Uvjeri se u to na primjerima matrica reda 2 i reda 3.
+                Potencije matrice
+                
+                Ako je A
+                kvadratna matrica, definiran je umnožak AA koji označavamo sa A2. Za prirodni broj p definiramo potenciju:
+                Ap:=AA⋯Ap faktora.
+                Zbog asocijativnosti množenja matrica za ove potencije vrijede jednakosti ApAq=AqAp=Ap+q.
+                Primjerice,
+                A2⋅A3=(AA)(AAA)=AAAAA=A5.
+                Također, za kvadratne matrice vrijedi
+                (Ap)q=Apq
+                za sve prirodne brojeve p i q
+                
+                .
+                
+                Po definiciji stavljamo A0=I
+              </p>

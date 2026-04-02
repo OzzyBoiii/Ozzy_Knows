@@ -1,0 +1,151 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 1
+Odredimo područje definicije funkcija:
+1) f(x)=logx−1x+1;
+2) g(x)=√1−2sinx.
+Rješenje:
+1) Argument logaritamske funkcije mora biti pozitivan. Zato mora vrijediti x−1x+1>0, a ova nejednadžba ekvivalentna je s (x−1)(x+1)>0.
+Skiciramo polinom i sa skice očitamo:Df=⟨−∞,−1⟩∪⟨1,+∞⟩.
+2)  Područje definicije ove funkcije jest skup svih realnih brojeva x za koje je sinx≤12. Rješenja ove trigonometrijske nejednadžbe određuju prirodnu domenu funkcije g:Dg={[−7π6+2kπ,π6+2kπ], k∈Z}. 
+
+Primjer 2
+Neka je f(x)=1−x2, g(x)=lnx. Sada vrijedi:(g∘f)(x)=g(f(x))=g(1−x2)=ln(1−x2).Domena funkcije f je Df=R. Domena funkcije g je Dg=(0,∞). Međutim, domena kompozicije g∘f je interval ⟨−1,1⟩ jer samo za brojeve x iz tog intervala vrijedi y=1−x2∈Dg.
+
+Primejr 3
+Neka je f(x)=√x−2√x+1. Odredimo funkciju inverznu funkciji f.
+Rješenje: Stavimo y=√x−2√x+1 i razriješimo ovu jednakost po nepoznanici x:y√x+y=√x−2,√x(y−1)=−y−2,√x=−y+2y−1,x=(y+2y−1)2.Dobivamox=f−1(y)=(y+2y−1)2.Nakon što smo odredili zakon pridruživanja inverzne funkcije, njezin argument možemo označiti s x, kako je uobičajeno:f−1(x)=(x+2x−1)2.
+
+Primejr 4
+Odredimo funkciju inverznu funkciji f(x)=x2−2x+5.
+Rješenje: Iz jednadžbe y=x2−2x+5 moramo odrediti x:x2−2x+5−y=0,x1,2=1±√y−4.Vidimo da ova jednadžba nema jednoznačno rješenje. Za jedan y dobivamo dvije moguće vrijednosti za x. Narušen je uvjet injektivnosti, pa stoga ne postoji inverzna funkcija.Uvjeri se da vrijedi primjerice f(0)=f(2)=5. Nacrtaj graf funkcije f iz kojeg je vidljivo da ona nije injektivna.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 5
+Funkcija y=x+2x je strogo rastuća:x1<x2⟹x1+2x1<x2+2x2pa stoga ima inverz. Eksplicitnu formulu za inverznu funkciju ne možemo napisati, jer nepoznanicu x iz jednadžbe y=x+2x ne možemo prikazati kao funkciju od y rabeći elementarne funkcije.
+
+Primejr 6
+Linearna funkcija. Jednadžba linearne funkcije jef(x)=kx+l,k,l∈R,k≠0.Njezin je graf pravac.
+
+Vrijedi i obrat: svaki pravac graf je neke linearne funkcije. Tu treba izuzeti horizontalni pravac za koji je pripadna funkcija konstanta. (Formalno, može se dobiti iz formule linearne funkcije za k=0.) Treba izuzeti i vertikalni pravac koji nije graf nijedne funkcije y=f(x) jer ne zadovoljava definiciju funkcije.
+
+Za k>0 linearna funkcija strogo raste na čitavom R. Za k<0 ona strogo pada, također na čitavom R.
+
+Apsolutna vrijednost koeficijenta k određuje brzinu rasta ili pada; što je ona veća − brži je rast, odnosno pad.
+
+Slika linearne funkcije je čitav R. Kažemo da je linearna funkcija neomeđena.
+
+Primejr 7
+Eksponencijalne i logaritamske funkcije. Eksponencijalna funkcijaf(x)=ax,a>0,a≠1definirana je na čitavom skupu R.
+
+Ona je strogo rastuća za a>1, a strogo padajuća za 0<a<1 na čitavom R. Zato postoji njezin inverz.
+
+Slika funkcije je skup ⟨0,∞⟩. Dakle, funkcija je omeđena odozdo, ali nije omeđena odozgo. Osnovno svojstvo funkcije je identitetax1+x2=ax1⋅ax2koji vrijedi za sve x1,x2∈R. Logaritamska funkcijaf(x)=logax,a>0,a≠1definirana je na intervalu ⟨0,∞⟩.
+
+Ona je rastuća za a>1, a padajuća za 0<a<1. Nul-točka je x=1.
+
+Logaritamska funkcija nije omeđena, njezina slika je R.
+
+Osnovno svojstvo funkcije je identitetloga(x1x2)=logax1+logax2koji vrijedi za sve x1,x2>0.
+
+Eksponencijalna i logaritamska funkcija inverzne su jedna drugoj:y=ax⟺x=logay,x∈R,y∈R+.
+
+Primjer 8
+Kvadratna funkcija. Njezina je jednadžbaf(x)=ax2+bx+c,a,b,c∈R,a≠0.Graf kvadratne funkcije je parabola y=ax2+bx+c. Vodeći koeficijent a određuje oblik parabole: za a>0 okrenuta je prema gore, za a<0 okrenuta je prema dolje. Apsolutna vrijednost ovog koeficijenta određuje širinu parabole; što je ona veća, to je parabola uža. O nul-točkama kvadratne funkcije odlučuje diskriminanta D=b2−4ac. Ako je D≥0, funkcija ima nul-točkex1,2=−b±√D2a.i parabola siječe x-os u točkama s tim apscisama. Za D>0 nul-točke su različite, za D=0 kvadratna funkcija ima dvostruku nul-točku i parabola dira apscisu.
+
+Označimo x0=−b2a. Os simetrije parabole je pravac x=x0, usporedan s ordinatom. Tjeme parabole ima koordinate T(−b2a,−D4a). Promotrimo sljedeće dvije mogućnosti.
+
+1∘ Ako je a>0, onda je f strogo padajuća na intervalu ⟨−∞,x0⟩, a strogo rastuća na intervalu ⟨x0,+∞⟩. Funkcija je omeđena odozdo. f(x0) je minimum funkcije, a x0 je točka minimuma.
+
+2∘ Ako je a<0, onda je f strogo rastuća na intervalu ⟨−∞,x0⟩, a strogo padajuća na intervalu ⟨x0,+∞⟩. Funkcija je omeđena odozgo. f(x0) je maksimum funkcije, a x0 je točka maksimuma.
+
+Maksimum ili minimum jednim se imenom naziva ekstrem funkcije.
+
+Primejr 9
+Sljedeće su funkcije parne:f(x)=x2,jer je f(−x)=(−x)2=x2=f(x),f(x)=|x|,jer je f(−x)=|−x|=|x|=f(x),f(x)=cosx,jer je f(−x)=cos(−x)=cosx=f(x),f(x)=xsinx,jer je f(−x)=(−x)sin(−x)=xsinx=f(x).
+
+Primejr 10
+Potencija f(x)=xn.
+
+Za parni n to je parna funkcija s tjemenom u ishodištu, strogo padajuća na intervalu ⟨−∞,0⟩, a strogo rastuća na intervalu ⟨0,∞⟩.
+
+Za neparni n funkcija je neparna s nul-točkom u ishodištu, a strogo rastuća na čitavom R.
+
+Primejr 11
+Razlomljena funkcija f(x)=1xn. Područje definicije ovih funkcija je R∖{0}. Graf funkcije f(x)=1x je hiperbola y=1x, čije su asimptote koordinatne osi. To je neparna funkcija, strogo padajuća na intervalu ⟨−∞,0⟩ i na intervalu ⟨0,∞⟩. Isto vrijedi i za funkcije f(x)=1xn za neparni broj n (samo što graf više nije hiperbola). Funkcija f(x)=1x2 je parna. Po analogiji s prethodnom funkcijom za os ordinata kažemo da je njezina vertikalna asimptota. Os apscisa njezina je horizontalna asimptota. Funkcija je strogo rastuća na intervalu ⟨−∞,0⟩, a strogo padajuća na intervalu ⟨0,+∞⟩. Isto vrijedi i za funkcije f(x)=1xn za parni n>2
+
+Primejr 12
+Funkcija apsolutne vrijednostif(x)=|x|definirana je formulom:|x|={−x,x<0,x,x≥0.Graf ove funkcije nacrtan je na slici ispod. Ako je g po volji odabrana funkcija, onda se graf funkcije x↦|g(x)| određuje zrcaljenjem onih dijelova grafa funkcije g koji leže ispod x-osi, s obzirom na x-os (slika ispod).
+
+Primejr 13
+Funkcija signum (predznak) ima oznaku sgn, a definira se ovako:sgn(x)=⎧⎨⎩−1,x<0,0,x=0,1,x>0.Graf funkcije signum nacrtan je na slici ispod.  Ponekad funkciju signum zapisujemo u oblikusgn(x)=|x|x,s tim da je vrijednost u x=0 po dogovoru jednaka nuli.
+
+Primejr 14
+Neka je f bilo koja funkcija kojoj je domena simetrična s obzirom na ishodište. Ona se može napisati u obliku zbroja parne i neparne funkcije:f(x)=fp(x)+fn(x).Njezin parni dio i neparni dio definirani su ovakofp(x)=f(x)+f(−x)2,fn(x)=f(x)−f(−x)2.
+
+Primjer 15
+JednadžbomAx+By+C=0zadana je implicitna jednadžba pravca.
+
+Čim je B≠0, ovaj pravac nije paralelan s y-osi pa zadovoljava vertikalni test. To znači da je ovom implicitnom formulom definirana funkcijska veza koju nalazimo iz jednadžbe pravca:y=−ABx−CB.Time smo dobili eksplicitnu jednadžbu pravca.
+
+Primejr 16
+Je li formulom ey−e−yey+e−y=x definirana varijabla y kao funkcija od x?
+Rješenje: Da bismo ustanovili postoji li funkcijska veza, dovoljno je riješiti jednadžbu po nepoznanici y.ey−e−y=x(ey+e−y),e2y−1=e2yx+x,e2y(1−x)=1+x,e2y=1+x1−x,y=12ln(1+x1−x).Dakle, y je funkcija varijable x. Što je područje definicije ove funkcije?
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 17
+Graf funkcije y=sin(x+π2) je graf sinus funkcije pomaknut π2 jedinica ulijevo. Stoga ne čudi da jesin(x+π2)=cosx.	Naravno da vrijedi i obratna veza. Interpretirajte značenje ovog identiteta:cos(x−π2)=sinx.
+
+Primejr 18
+Ako je funkcija periodična s periodom T, ona ima svojstvof(x)=f(x+T),∀x.No, ova jednakost govori da se pomakom ulijevo za T jedinica njezin graf ne mijenja, a to je upravo svojstvo periodičnosti.
+
+Primjer 19
+Graf parabole y=a(x−x0)2+y0 dobivamo translacijom grafa parabole y=ax2 horizontalno za x0 i zatim vertikalno za y0. (Poredak pomaka nije važan.)
+
+To znači da će njezino tjeme iz ishodišta prijeći u točku (x0,y0).
+
+Primejr 20
+Nacrtajmo graf funkcije g(x)=2x+1.
+Rješenje: Ovu jednadžbu možemo interpretirati na dva načina:
+
+1) Pomak grafa funkcije f(x)=2x za jednu jedinicu ulijevo.
+
+2) Napišemo li jednadžbu u obliku g(x)=2⋅2x, onda se radi o rastezanju duž y-osi za faktor 2.
+
+Naravno, što god da odaberemo, rezultat će biti isti. Pomak se lakše realizira, pa njega treba preferirati.
+
+Primejr 21
+Zrcaljenjem s obzirom na y-os grafa eksponencijalne funkcije y=ax dobivamo graf funkcije y=a−x.
+
+Primejr 22
+Parna funkcija. Funkcija je parna ako se pri zrcaljenju njezina grafa prema osi y graf ne mijenja. Zato mora biti za svaki x iz Dff(x)=f(−x),a to je poznata karakterizacija parne funkcije.
+
+Primejr 23
+Neparne funkcije. Ako je funkcija neparna, onda se zrcaljenjem prema ishodištu njezin graf ne mijenja: Zato mora biti za svaki x∈Df.f(x)=−f(−x),odnosno f(−x)=−f(x), što je poznata karakterizacija neparne funkcije.
+
+Primjer 24
+Neka je y=ax. Jednadžba funkcije čiji je graf simetričan grafu ove eksponencijalne funkcije s obzirom na pravac y=x glasi x=ay. Odavde slijedi y=logax.
+
+Primjer 25
+Jednadžbom 2x+y−3=0 definiran je pravac. Jednadžba njemu simetričnog pravca s obzirom na pravac y=x glasi 2y+x−3=0. Na slici su nacrtana oba pravca.

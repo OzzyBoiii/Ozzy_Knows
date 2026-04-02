@@ -1,0 +1,247 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Tangenta i normala na graf funkcije
+============================================================================================================================================================================================================================================
+Uvod
+U ovom ćemo poglavlju proviriti kroz odškrinuta vrata primjena diferencijalnog računa. Ta će se vrata širom otvoriti svima koji odaberu neko od STEM područja za svoju životnu profesiju. Naime, dobar dio izučavanja matematike na različitim fakultetima otpada na daljnje proučavanje primjena diferencijalnog računa. Mi ćemo se ograničiti uglavnom na ispitivanje ponašanja funkcija te određivanje njihovih ekstrema.
+Jednadžba pravca koji prolazi točkom (x0,y0) jest:
+y−y0=k(x−x0).
+Ovdje je k koeficijent smjera pravca. Ako je pravac tangenta na graf funkcije f, onda je njegov koeficijent smjera jednak derivaciji funkcije u točki x0:
+k=tg α=f′(x0).
+Normala na graf funkcije f u točki (x0,y0) jest pravac okomit na tangentu. Iz veze za koeficijente smjera okomitih pravaca znamo da koeficijent smjera normale glasi −1f′(x0) uz uvjet da je f′(x0)≠0.
+Jednadžba tangente i normale
+Tangenta na graf funkcije f u točki (x0,y0) ima jednadžbu:t…y−y0=f′(x0)(x−x0).Normala na graf funkcije f u istoj točki (x0,y0) ima jednadžbu:n…y−y0=−1f′(x0)(x−x0).Ako je f′(x0)=0, onda je jednadžba tangente y−y0=0, a normale x−x0=0.
+(PRIMJER 1)
+(PRIMEJR 2)
+(PRIMJER 3)
+============================================================================================================================================================================================================================================
+Kut između krivulja
+Kut pod kojim se sijeku dvije krivulje definira se kao kut između njihovih tangenata u sjecištu.
+kut pod kojim se sijeku dvije krivulje
+Neka je α1 kut koji prva tangenta zatvara s pozitivnim dijelom x-osi, k1 njezin koeficijent smjera, a α2 i k2 kut koji zatvara druga tangenta i njezin koeficijent smjera.
+Kut pod kojim se sijeku krivulje je φ=α2−α1. Koristimo formulu za kut između dvaju pravaca:
+tg φ=tg (α2−α1)=tg α2−tg α11+tg α1tg α2=k2−k11+k1k2.(1)
+Koeficijente smjera računamo s pomoću derivacija:
+k1=f′1(x0),k2=f′2(x0).
+(PRIMEJR 4)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Pad i rast funkcije. Ekstremi
+============================================================================================================================================================================================================================================
+Pad i rast funkcije
+Interval ⟨a,b⟩ na kojem je funkcija bilo rastuća bilo padajuća nazivamo intervalom monotonosti funkcije f.
+Rast i pad funkcije
+Ako za svaki x iz intervala ⟨a,b⟩ vrijedi f′(x)>0, onda funkcija f raste na intervalu ⟨a,b⟩.
+
+Ako za svaki x iz intervala ⟨a,b⟩ vrijedi f′(x)<0, onda funkcija f pada na intervalu ⟨a,b⟩.
+Prema tome, intervale pada i rasta funkcije određivat ćemo s pomoću prve derivacije te funkcije. Pritom je potrebno odrediti točke u kojima je derivacija jednaka nuli. Te točke nazivamo stacionarnim točkama.
+Nalaženje stacionarnih točaka i intervala monotonosti
+Stacionarne točke i intervale monotonosti funkcije f nalazimo ovim postupkom:
+
+1) Izračunamo derivaciju f′.
+2) Riješimo jednadžbu f′(x)=0. Njezina su rješenja stacionarne točke.
+3) Stacionarnim točkama područje definicije podijeljeno je na intervale monotonosti. Provjerom predznaka derivacije određujemo jesu li oni intervali rasta ili intervali pada funkcije.
+(PRIMJER 1)
+(PRIMJER 2)
+Definirajmo ovaj pojam za po volji odabranu funkciju f.
+============================================================================================================================================================================================================================================
+Ekstremi funkcije
+Minimum i maksimum funkcije
+Funkcija f ima u x0 lokalni minimum ako postoji interval ⟨a,b⟩ koji sadrži x0 tako da vrijedif(x0)≤f(x),za svaki x∈⟨a,b⟩.Funkcija f ima u x0 lokalni maksimum ako postoji interval ⟨a,b⟩ koji sadrži x0 tako da vrijedif(x0)≥f(x),za svaki x∈⟨a,b⟩.Minimum i maksimum jednom riječju zovemo ekstremima funkcije f.
+Fermatov teorem - nužan uvjet za lokalni ekstrem
+Ako funkcija f poprima u x0 lokalni ekstrem i ako f ima derivaciju u toj točki, tada vrijedif′(x0)=0.
+Dokaz. Prema pretpostavci, funkcija f ima derivaciju u točki x0, pa postoji
+limΔx→0f(x0+Δx)−f(x0)Δx.
+Za x≠x0 označimo Δx=x−x0.
+Pretpostavimo da funkcija ima maksimum u x0. Onda lijevo od točke x0 vrijedi f(x)<f(x0), x<x0.
+f(x0+Δx)−f(x0)Δx=f(x)−f(x0)x−x0>0.
+Kad x→x0 slijeva, ovaj kvocijent teži k derivaciji u točki x0 pa je f′(x0)≥0.
+Desno od točke x0 vrijedi f(x)<f(x0), x>x0 pa je
+f(x0+Δx)−f(x0)Δx=f(x)−f(x0)x−x0<0.
+Kad x→x0 zdesna, dobivamo f′(x0)≤0. Zato mora biti f′(x0)=0.
+Nalaženje ekstrema važan je zadatak diferencijalnog računa. Napravimo nekoliko primjera.
+(PRIMJER 3)
+(PRIMEJR 4)
+(PRIMJER 5)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Nalaženje lokalnih ekstrema
+============================================================================================================================================================================================================================================
+Pretpostavimo da funkcija f ima derivaciju u svakoj točki područja definicije. Lokalne ekstreme funkcije f nalazimo ovim postupkom:
+
+1. Odredimo stacionarne točke funkcije f.
+2. Odredimo intervale monotonosti.
+3. Ako je x0 stacionarna točka, tada se njezin karakter utvrđuje na temelju rasta ili pada funkcije lijevo i desno od te točke, a oni su dani predznacima derivacije.
+	lijevo od x0	desno od x0	karakter točke
+derivacija	f′(x)>0	f′(x)<0	maksimum
+derivacija	f′(x)<0	f′(x)>0	minimum
+derivacija	f′(x)>0	f′(x)>0	nije ekstrem
+derivacija	f′(x)<0	f′(x)<0	nije ekstrem
+Sljedeća slika opisuje ove četiri situacije.
+(PRIMJER 6)
+(PRIMJER 7)
+============================================================================================================================================================================================================================================
+Globalni ekstrem. Ekstrem funkcije na zatvorenom intervalu
+Ako tražimo maksimum ili minimum funkcije na čitavom području definicije, onda govorimo o globalnim ekstremima. Takav se ekstrem ne mora postizati u stacionarnoj točki unutar područja već možda i na njegovom rubu, ili u točki u kojoj derivacija ne postoji.
+(PRIMJER 8)
+============================================================================================================================================================================================================================================
+Nužan uvjet za globalni ekstrem
+Nužan uvjet za globalni ekstrem
+Na intervalu [a,b] funkcija može poprimiti ekstrem samo u točkama u kojima je:
+
+∙ derivacija jednaka nuli ili
+∙ derivacija ne postoji (točke prekida i loma) ili
+∙ u krajevima intervala.
+ 
+ 
+Sljedeća slika opisuje ove situacije:
+============================================================================================================================================================================================================================================
+Druga derivacija i ekstremi
+Predznak prve derivacije u okolini stacionarne točke nije uvijek jednostavno odrediti. Stoga je korisno utvrditi još jedan kriterij za određivanje karaktera stacionarne točke, s pomoću druge derivacije.
+Promotrimo situaciju kad f ima maksimum u točki x0. Lijevo od x0 vrijednost derivacije je pozitivna, desno od x0 negativna. Pogledom na sliku vidimo da nagib tangente opada od pozitivnih vrijednosti prema negativnima. Zato je vrijednost druge derivacije u okolini točke x0 negativna.
+Ako f ima minimum u točki x0, onda se nagibi tangenata pri prolazu kroz točku x0 povećavaju. Dakle, prva derivacija u okolini točke x0 raste, pa je druga derivacija pozitivna.
+Ispitivanje karaktera ekstrema s pomoću druge derivacije
+1. Izračunamo derivacije f′ i f′′.
+2. Riješimo jednadžbu f′(x)=0. Njezina su rješenja stacionarne točke.
+3a. Ako je f′′(x0)>0, onda je x0 minimum.
+3b. Ako je f′′(x0)<0, onda je x0 maksimum.
+3c. Ako je f′′(x0)=0, onda karakter točke x0 istražujemo s pomoću predznaka prve derivacije.
+(PRIMJER 9)
+(PRIMJER 10)
+============================================================================================================================================================================================================================================
+Konveksnost i konkavnost funkcije
+Predznak prve derivacije određuje pad, odnosno rast funkcije. Kakvu nam informaciju o funkciji daje predznak druge derivacije?
+Neka na nekom intervalu ⟨a,b⟩ vrijedi f′′(x)>0. To znači da na tom intervalu prva derivacija raste, tj. raste nagib tangente, odnosno raste kut što ga ona zatvara s pozitivnim dijelom x-osi.
+Na slici lijevo i na slici desno raste nagib tangente. Na tim je intervalima druga derivacija pozitivna. Primijetimo da se graf funkcije nalazi iznad tangenata.
+ 
+Za funkciju f kažemo da je konveksna na intervalu ⟨a,b⟩.
+Konveksnost funkcije može se opisati jednostavnim geometrijskim svojstvom: f je konveksna na intervalu ⟨a,b⟩ ako se njezin graf nalazi iznad tangente u po volji odabranoj točki tog intervala.
+Ako je f′′(x)<0, tad prva derivacija opada. Dakle, opada nagib tangente i kut što ga ona zatvara s pozitivnim dijelom x-osi.
+Na slici lijevo i na slici desno opada nagib tangente. Na tim je intervalima druga derivacija negativna. Graf funkcije leži ispod tangenti.
+ 
+Za ovakvu funkciju kažemo da je konkavna na intervalu ⟨a,b⟩. Graf konkavne funkcije leži ispod tangente povučene u po volji odabranoj točki intervala
+Vezu konveksnosti i konkavnosti s predznakom druge derivacije možemo zapamtiti na primjeru funkcije f(x)=x2. Njezina je druga derivacija f′′(x)=2 pozitivna svuda, a ona je konveksna na R.
+Funkcija f(x)=−x2 ima drugu derivaciju f′′(x)=−2 koja je negativna svuda. Ona je konkavna na R.
+============================================================================================================================================================================================================================================
+Točke pregiba
+Ako je na intervalima (a,b), (b,c) druga derivacija različitih predznaka, onda u točki b ona prelazi iz konveksne u konkavnu granu ili obratno. Točku b nazivamo točkom pregiba (infleksije) funkcije f.
+Konveksnost, konkavnost i točke pregiba
+Intervale konveksnosti, konkavnosti i točke pregiba nalazimo na sljedeći način:
+
+1. Izračunamo f′′.
+2. Riješimo jednadžbu f′′(x)=0. Njezina su rješenja moguće pregibne točke.
+3. Na onim intervalima na kojima je f′′(x)>0 funkcija je konveksna, a na ostalima je konkavna. Na granici između intervala konveksnosti i konkavnosti nalazi se pregibna točka.
+(PRIMEJR 11)
+(PRIMEJR 12)
+(PRIMEJR 13)
+S jedne strane točke pregiba graf funkcije leži ispod tangente, a s druge strane iznad nje jer se mijenja svojstvo konkavnosti u konveksnost. Ipak, za takvu tangentu ne smijemo reći da siječe graf funkcije.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Tijek funkcije
+============================================================================================================================================================================================================================================
+Postupak crtanja grafa funkcije
+U ovoj ćemo točki primijeniti poznavanje prve i druge derivacije u problemu crtanja grafa funkcije.
+Iz jednadžbe funkcije određujemo područje definicije, njezine nul-točke, asimptote, parnost/neparnost, periodičnost i sl.
+Prva derivacija nam daje informacije o padu i rastu funkcije te njezinim ekstremima. Druga derivacija daje nam informacije o konveksnosti/konkavnosti i mogućim točkama pregiba.
+Ponovimo na što treba obratiti pozornost pri crtanju grafa.
+Postupak crtanja grafa funkcije
+1. Istraživanje funkcije f:
+
+∙ odredi se područje definicije
+∙ odredi se limes funkcije u rubnim točkama područja definicije
+∙odrede se asimptote ako postoje
+∙ispitaju se svojstva parnosti, neparnosti, periodičnosti
+∙odrede se nul-točke
+∙po potrebi se izračuna vrijednost funkcije u nekoliko po volji odabranih točaka.
+
+2. Istraživanje funkcije f′:
+
+∙ izračuna se f′
+∙ riješi se jednadžba f′(x)=0 i odrede stacionarne točke
+∙ odrede se intervali pada, odnosno rasta na kojima je f′ istog znaka
+∙ odredi se karakter ekstrema i vrijednost funkcije u tim točkama.
+
+3. Istraživanje funkcije f′′:
+
+∙ izračuna se f′′ i riješi jednadžba f′′(x)=0
+∙ odrede se intervali konveksnosti i konkavnosti na kojima je f′′ istog znaka
+∙ odrede se točke pregiba i vrijednost funkcije u tim točkama.
+Pri crtanju grafa pojedinih funkcija neće uvijek biti potrebno načiniti sve opisane korake, pogotovo one koji se tiču ispitivanja druge derivacije.
+Započnimo s primjerima funkcija koje nemaju asimptota.
+(PRIMJER 1)
+(PRIMEJR 2)
+(PRIMJER 3)
+============================================================================================================================================================================================================================================
+Asimptote
+Crtajući grafove elementarnih funkcija i istražujući limes funkcija upoznali smo se s pojmom vertikalne i horizontalne asimptote.
+Sad ćemo na nizu primjera detaljnije opisati ponašanje funkcije u blizini asimptote. Također, razmotrit ćemo i treći tip asimptota. Čine ih asimptote u općenitom položaju u odnosu na koordinatne osi.
+Prisjetimo se u kojim smo se situacijama sretali s asimptotama.
+(PRIMJER 4)
+Sad ćemo promatrati općenitije asimptote koje nisu nužno horizontalne niti vertikalne.
+Asimptote
+Asimptota funkcije f je pravac p koji ima svojstvo da udaljenost točke T na grafu funkcije f od pravca p teži prema nuli kada barem jedna od njezinih koordinata teži u +∞ ili −∞.
+Dva su osnovna načina na koje se može ostvariti ovakva situacija:
+(a) Varijabla x teži prema konačnom broju c (s lijeve ili s desne strane), a funkcijska vrijednost teži u +∞ ili −∞. U tom je slučaju asimptota vertikalna.
+(b) Varijabla x teži u −∞ ili +∞. U tom je slučaju asimptota kosa. (Ovdje su uključene i horizontalne asimptote.)
+Kose asimptote
+Desna kosa asimptota je pravac y=kx+l za koji vrijedi
+limx→∞[f(x)−kx−l]=0.(1)
+Ako ovakav limes postoji kad x→−∞, onda je pravac lijeva kosa asimptota.
+Ako kosa asimptota postoji, kako se računaju njezini koeficijenti k i l? Postoji li limes (1),
+onda pogotovo mora biti
+limx→∞f(x)−kx−lx=limx→∞f(x)x−k−limx→∞lx=0
+pa se dobiva izraz za koeficijent k:
+k=limx→∞f(x)x.
+Sad, kad je k određen, koeficijent l računamo iz (1). Ponovimo:
+Određivanje kosih asimptota
+Koeficijente pravca koji je kosa asimptota funkcije f određujemo formulama:k=limx→±∞f(x)x,l=limx→±∞[f(x)−kx].(2)
+Horizontalne su asimptote poseban slučaj kosih, s koeficijentom smjera k=0. Zato, ako nije odmah vidljivo ponašanje funkcije, pri traženju asimptota najprije ispitujemo postoje li kose asimptote.
+(PRIMEJR 5)
+(PRIMJER 6)
+============================================================================================================================================================================================================================================
+Graf racionalnih funkcija
+Opišimo kako se crta graf racionalne funkcije
+f(x)=Pn(x)Qm(x).
+Ovdje su Pn polinom stupnja n i Qm polinom stupnja m. Pretpostavit ćemo da je racionalna funkcija skraćena tako da Pn i Qm nemaju zajedničkih nul-točaka.
+Umjesto ispitivanja druge derivacije, koja je za racionalne funkcije često složenog oblika, određujemo asimptote racionalne funkcije. Tri su tipa asimptota:
+∙ Vertikalne asimptote. Racionalna funkcija ima vertikalne asimptote u nul-točkama nazivnika (koje zbog naše pretpostavke nisu nul-točke brojnika). Graf funkcije može imati dvojako ponašanje u blizini vertikalne asimptote, ovisno o tome mijenja li funkcija predznak lijevo i desno od asimptote.
+Ako ona mijenja predznak, onda kažemo da graf funkcije `dolazi sa suprotnih strana asimptote'. Ako funkcija ne mijenja predznak, onda njezin graf `dolazi s iste strane asimptote'.
+∙ Horizontalne asimptote. Racionalna funkcija ima horizontalnu asimptotu (istovremeno i lijevu i desnu) onda i samo onda ako je stupanj brojnika manji ili jednak stupnju nazivnika.
+Ako je stupanj brojnika manji od stupnja nazivnika, onda vrijedi limx→±∞f(x)=0. Primjerice:
+limx→±∞x2+1x3+2x−1=limx→±∞1x+1x31+21x2−1x3=0.
+Pravac y=0 jest horizontalna asimptota.
+Ako je stupanj brojnika jednak stupnju nazivnika, racionalna funkcija imat će horizontalnu asimptotu y=anbn, gdje su an i bn vodeći koeficijenti polinoma u brojniku i nazivniku:
+limx→±∞x2−2x2x2−3=12,limx→±∞2x3−1−3x3+x2+2=−23.
+∙ Kose asimptote. Ako je stupanj brojnika za jedan veći od stupnja nazivnika, racionalna funkcija imat će kosu asimptotu (istovremeno lijevu i desnu).
+∙ Ako je stupanj brojnika barem za dva veći od stupnja nazivnika, tada funkcija nema horizontalnih i kosih asimptota.
+(PRIMJER 7)
+(PRIMJER 8)
+(PRIMEJR 9)
+============================================================================================================================================================================================================================================
+Kose asimptote racionalne funkcije možemo potražiti i na drugi način. Riječ je o tome da se dijeljenjem brojnika nazivnikom racionalne funkcije za količnik dobiva polinom prvog stupnja koji je upravo asimptota te funkcije. Pogledajmo na primjeru prethodne, podijelimo brojnik −x2+3x s nazivnikom x−4: 
+Rezultat dijeljenja možemo zapisati u obliku:
+3x−x2x−4=−x−1+−4x−4.
+Količnik −x−1 predstavlja kosu asimptotu jer je
+limx→±∞[3x−x2x−4−(−x−1)]=limx→±∞−4x−4=0.
+(PRIMEJR 10)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjene diferencijalnog računa
+============================================================================================================================================================================================================================================
+Primjer 1. (Fermatov zadatak)
+(PRIMEJR 2)
+(PRIMJER 3)
+(PRIMJER 4)
+(PRIMJER 5)
+(PRIMJER 6)
+(PRIMJER 7)
+(PRIMJER 8)
+(PRIMJER 9)
+(PRIMJER 10)
+============================================================================================================================================================================================================================================

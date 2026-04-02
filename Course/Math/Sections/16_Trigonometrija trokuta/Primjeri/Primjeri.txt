@@ -1,0 +1,296 @@
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjeri (ići će od 1- n (gdje je n sveukupan broj za svaku cjelinu)
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 1
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 1
+Zadane su točke P(2,3) i T(−2,1). Odredi sinus i kosinus kutova α i β prema slici:
+Rješenje: Za kut α=<)AOP imamo r=√22+32=√13 pa jesinα=3√13,cosα=2√13.Za kut β=<)AOT imamo r=√(−2)2+12=√5 pa vrijedisinβ=1√5,cosβ=−2√5.Kut β je tupi. Apscisa točke T je negativna pa je i kosinus ovog kuta također negativan.
+
+Primjer 2
+Odredimo sinus i kosinus sljedećih kutova: α=45∘, β=80∘, γ=160∘.
+Rješenje: Računanje sinusa i kosinusa s pomoću definicije nije uvijek moguće učiniti. Razlog tome je što ne znamo izračunati koordinate točke P koja određuje zadani kut. U ovom primjeru to možemo učiniti za kut α. Krak ovog kuta je simetrala prvog kvadranta pa mu je jednadžba y=x. To znači da će svaka točka s jednakim koordinatama ležati na tom pravcu. Uzmemo li na primjer točku P(1,1), onda je
+sinα=1√2=√22,cosα=1√2=√22.
+Koordinate točke koja određuje kut β nije moguće odrediti na ovakav način. Sinus kuta možemo odrediti isključivo uporabom računala. Postupak smo naučili u prvom razredu.
+Računamo sinus kuta 80∘.
+1.	Provjerimo je li računalo u modu za računanje sa stupnjevima. Ako nije, pritisnemo tipku DEG ili njezin ekvivalent.
+2.	Unesemo podatak 80: 8 0.
+3.	Pritisnemo tipku SIN. Na zaslonu džepnog računala pojavit će se broj 0.984807753 koji uobičajeno zaokružujemo na četiri značajne znamenke: sin80∘=0.9848.
+Na novijim računalima sa simboličkim zapisom poredak računanja može biti obrnut: najprije se odabere tipka za funkciju, a onda unese podatak o kutu. Provjerite na svom računalu i izračunajte sljedeće dvije vrijednosti:sin45∘=0.7071,sin160∘=0.3420.Na isti način određujemo vrijednosti kosinusa:cos45∘=0.7071,cos80∘=0.1736,cos160∘=−0.9397.Kosinus tupog kuta je, naravno, negativan.
+
+Primjer 3
+Odredimo sinus i kosinus sljedećih kutova: 15∘23′31′′, 72∘1′50′′, 130∘12′5′′.
+Podatke trebamo unijeti na ovaj način:
+  stupnjevi . minute sekunde.
+Minute i sekunde uvijek se unose s dvjema decimalama. U ovom ćemo primjeru napisati:
+1 5 . 2 3 3 1
+
+7 2 . 0 1 5 0
+
+1 3 0 . 1 2 0 5
+Tipka za pretvaranje ovih vrijednosti u stupnjeve na različitim je računalima označena na različite načine. Obično je to → HR ili ∘′′′→ ili →DEG. Provjerite usporedbom s ovim vrijednostima:15∘23′31′′=15.39194444∘72∘1′50′′=72.03055556∘130∘12′5′′=130.20138889∘.Dobivene rezultate ne zapisujemo, već odmah nastavljamo s računanjem vrijednosti trigonometrijskih funkcija (zapamtivši rezultat u spremnik računala):sin(15∘23′31′′)=0.265421cos(15∘23′31′′)=0.964133sin(72∘1′50′′)=0.951221cos(72∘1′50′′)=0.308510sin(130∘12′5′′)=0.763780cos(130∘12′5′′)=−0.645476.Rezultat moramo zapisivati s šest znamenaka, jer se primjerice vrijednost sinusa kuta 15∘23′32′′ razlikuje od ovog u šestoj decimali.
+
+PRIMJER 4
+Odredimo kutove α i β ako vrijedi cosα=0.2, cosβ=−0.4323.
+Rješenje: Broj 0.2 uzimamo kao točnu vrijednost kosinusa pa ćemo rezultat potražiti do na sekunde kuta. Unesemo vrijednost u računalo i pritisnemo tipku označenu sa COS−1 ili ACOS ili pak kombinaciju INVCOS, ovisno o vrsti računala:
+0.2 COS−1 =78.463041.
+Dobivena je vrijednost kuta u stupnjevima. Uobičajeno je pretvoriti taj broj u seksagezimalni sustav s pomoću tipke označene sa \ttext{→DMS}, \t{\to\deg ' ”} ili sličnom oznakom:
+→DMS =78∘27′47”.
+Dakle, α=78∘27′47”. Provjeri ovaj račun na svom računalu. U drugom slučaju dobivamo
+−0.4323 COS−1 =115.613613  →DMS =115∘37′.
+Vrijednost −0.4323 nalikuje na približnu vrijednost kosinusa (danu s tima četirima decimalama) pa u rezultatu ne zapisujemo sekunde. Za određivanje sekunda vrijednost funkcije mora biti ili točna ili dana s točnošću od barem šest decimala. Dakle, β=115∘37′.
+
+Primejr 5
+Odredimo kut α ako je poznato sinα=0.323412.
+Rješenje: Račun izgleda ovako:
+0.323412 SIN−1 =18.869394 →DMS =18∘52′10”.
+Dobiveni je kut oštar. Ako rješenje koje tražimo odgovara tupom kutu, onda trebamo računati suplement:180∘−18∘52′10”=161∘7′50”.Rješenje je jedan od sljedećih dvaju kutova, α1=18∘52′10”, α2=161∘7′50”. Suplement se treba računati prije pretvorbe u segzadecimalni sustav. U ovom bi primjeru završetak računa bio:
+18.869394 +/-  + 180 = →DMS =161∘7′50”.
+Ovdje je +/- tipka za promjenu predznaka.
+
+Primjer 6
+Odredi kut α ako je poznato tg α=−2.13425.
+Rješenje: Kut α je tup jer je tangens negativan. Neka je β=180∘−α njegov suplement. Onda je tg β=−tg α=2.13425. Sad možemo odrediti kut β pa onda i njegov suplement α:
+2.13425 TG−1 =64.89462 +/- + 180 = →DMS =115∘6′19′′=α.
+Možemo postupati i ovako. Upišemo li početnu negativnu vrijednost u računalo i pritisnemo TG−1, dobit ćemo rezultat −β pa ne moramo koristiti tipku za promjenu predznaka. Toj vrijednosti treba dodati 180∘:
+−2.13425 TG−1 =−64.89462 + 180 = →DMS =115∘6′19′′=α.
+
+Primejr 7
+Odredimo kut α ako je zadano ctg α=−0.1.
+Rješenje: Traženi kut je tup. Vrijednost tangensa je tg α=1ctg α pa račun izgleda ovako:
+−0.1 1/x TG−1 =−84.289407 +180 = →DMS =95∘42′38′′=α.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 2
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 8
+U trokutu su zadani kutovi α=50∘, β=72∘ i stranica a=4.6 cm. Odredimo preostale dvije stranice.
+Rješenje:
+Odredimo najprije treći kut:
+γ=180∘−α−β=58∘.
+Preostale dvije stranice računamo iz poučka o sinusima.
+Iz
+a:b=sinα:sinβ
+slijedi
+b=sinβsinαa=sin72∘sin50∘⋅4.6 cm=5.7 cm.
+Slično, iz drugog omjera
+a:c=sinα:sinγ
+dobivamo
+c=sinγsinαa=sin58∘sin50∘⋅4.6 cm=5.1 cm.
+
+Primjer 9
+U trokutu ABC poznat je opseg 2s=22 cm i kutovi α=67∘ i β=52∘. Kolike su njegove stranice?
+Rješenje:
+Riješimo najprije ne uvrštavajući konkretne vrijednosti. (Takav je postupak često jednostavniji i pregledniji.)
+Iz dvaju poznatih kutova možemo odrediti treći: γ=180∘−α−β. Iz poučka o sinusima je b=sinβsinαa i c=sinγsinαa. Uvrstimo te vrijednosti u a+b+c=2s. Dobivamo
+a+sinβsinαa+sinγsinαa=2s⟹a=2ssinαsinα+sinβ+sinγ.
+Identična formula vrijedi i za druge stranice trokuta:
+b=2ssinβsinα+sinβ+sinγ,c=2ssinγsinα+sinβ+sinγ.
+Sad uvrštavamo konkretne vrijednosti. Za kut γ imamo: γ=180∘−67∘−52∘=61∘. Odavde prema izvedenim formulama slijedi a=7.84 cm, b=6.71 cm, c=7.45 cm.
+
+Primejr 10
+Odredimo nepoznate elemente u trokutu kojem je poznato
+a=3 cm, b=5 cm i β=30∘.
+Rješenje:
+Određujemo najprije kut α:
+sinα=absinβ=35sin30∘=0.3
+pa je α=17∘28′. Sada je γ=132∘32′ i konačno
+c=sinγsinβ⋅b=sin132∘32′sin30∘⋅5=7.37 cm.
+
+primejr 11
+Odredimi duljinu stranice c te kutove α i γ trokuta u kojem je poznato a=5 cm, b=3 cm i β=30∘.
+Rješenje:
+Najprije ćemo nacrtati skicu. Povucimo dužinu ¯¯¯¯¯¯¯¯BC dugačku 5 cm i uz vrh B nacrtajmo kut <)CBD od 30∘. Opišimo zatim luk kružnice sa središtem u C i polumjerom 3 cm koji siječe drugi krak BD u dvjema točkama, A1 i A2. Oba trokuta A1BC i A2BC zadovoljavaju uvjete zadatka. Odredit ćemo njihove elemente.
+Rabimo poučak o sinusima da bismo odredili kut α. Vrijedi
+sinα=absinβ=53sin30∘=0.83333.
+Odavde je α=56∘27′ ili α=123∘33′, jer ova dva kuta imaju isti sinus. Odgovarajuće vrijednosti za treći kut γ dobivamo iz γ=180∘−α−β pa je γ=93∘33′ ili γ=26∘27′.
+Preostaje odrediti stranicu c. Ponovno rabimo poučak o sinusima:
+c=sinγsinβb, pa je
+c=sin93∘33′sin30∘⋅3=5.99 cm ilic=sin26∘27′sin30∘⋅3=2.67 cm.
+Prema tome, dva rješenja glase:
+α=56∘27′,γ=93∘33′,c=5.99 cm,α=123∘33′,γ=26∘27′,c=2.67 cm.
+
+Primejr 12
+Pri mjerenju visine objekta kojem je podnožje nedostupno, možemo postupiti na sljedeći način. Odaberu se dvije točke, A i B takve da pravac AB prolazi nožištem objekta. Izmjere se kutovi α i β te udaljenost d odabranih točaka.
+Kut pri vrhu T u trokutu ABT je β−α. Naime, prema poučku o vanjskom kutu trokuta - vanjski kut jednak je zbroju dvaju nesusjednih unutarnjih kutova. Prema poučku o sinusima je
+|AT|:d=sin(π−β):sin(β−α)|AT|=dsinβsin(β−α).
+Neka je h visina instrumenta, a x tražena visina objekta. Iz pravokutnog trokuta ADT je x−h=|AT|sinα pa je konačno
+x=dsinαsinβsin(β−α)+h.
+
+Primjer 13
+Vrh C brda vidi se iz mjesta A pod kutom 15∘, a iz podnožja B brda, 300 metara udaljenog od A, pod kutom od 38∘. Ako nagib od A do B iznosi 20∘, kolika je visina h brda?
+Rješenje:
+Izračunajmo kutove trokuta iz zadanih podataka:
+α=<)CAB=15∘+20∘=35∘,β=<)ABC=180∘−(20∘+38∘)=122∘,γ=180∘−(α+β)=23∘.
+Poznata je i stranica c=|AB| trokuta. Po poučku o sinusima je
+a=sinαsinγc=sin35∘sin23∘⋅300=440.4 m.
+Zato je
+h=asin38∘=271 m.
+
+primejr 14
+Želimo izračunati udaljenost točke A do nepristupačne točke T. Na pristupačnom dijelu terena odaberemo točku B i izmjerimo udaljenost |AB| te veličine kutova α i β. Tada je
+|AT|=dsinβsin(180∘−α−β)=dsinβsin(α+β).
+
+Primejr 15
+Kada je brod u položaju A, tada se 3 km udaljen svjetionik S vidi pod kutom 32∘ istočno. Deset minuta kasnije on se iz položaja B vidi pod kutom 40∘ zapadno. Ako brod ima smjer kretanja 15∘ prema jugu, kolika je njegova brzina?
+Rješenje:
+Odredimo kutove trokuta:
+α=90∘−32∘+15∘=73∘,β=90∘−15∘−40∘=35∘,γ=180∘−(α+β)=72∘.
+Zadana je udaljenost d=|AS|=3 km. Po poučku o sinusima je
+s=|AB|=sinγsinβd=sin72∘sin35∘⋅3 km=4.97 km.
+Odavde računamo brzinu
+v=st=4.97 km16 h=29.84 km/h.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 3
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primjer 16
+Odredimo nepoznate elemente u trokutu ako je zadano a=4.3 cm, b=5.6 cm i γ=52∘.
+Rješenje:
+Skicirajmo trokut. On je ovim podatcima jednoznačno određen.
+Treću stranicu, c, određujemo poučkom o kosinusu:
+c2=a2+b2−2abcosγ=4.32+5.62−2⋅4.3⋅5.6⋅cos52∘=20.2
+pa je c=4.4944 cm.
+U ovom su nam trenutku poznate sve tri stranice trokuta i jedan kut. Da bismo odredili bilo koji od preostalih dvaju kutova, možemo upotrijebiti bilo poučak o sinusima, bilo poučak o kosinusu. Pokazat ćemo primjerom da ipak nije svejedno koji kut i s pomoću kojeg poučka tražimo.
+Potražimo, primjerice, kut β poučkom o sinusima:
+sinβ=bcsinγ=5.64.4944sin52∘=0.98186.
+Kut β jednoznačno je određen jer postoji samo jedan trokut sa zadanim elementima, međutim, mi u ovom trenutku ne znamo je li vrijednost tog kuta veća ili manja od 90∘. Izračunajmo obje moguće vrijednosti: β1=79∘4′ ili β2=100∘56′.
+U prvom bi slučaju bilo
+α1=180∘−β1−γ=48∘56′,
+a u drugom
+α2=180∘−β2−γ=27∘4′.
+Koja je vrijednost prava, još uvijek ne možemo odrediti. Problem je nastao zato što tražimo kut β nasuprot većoj stranici jer je b>c. Umjesto toga, trebali smo potražiti kut α nasuprot manjoj stranici:
+sinα=acsinγ=4.34.4944sin52∘=0.753926.
+Kako je kut α manji od kuta γ jer nasuprot manjoj stranici leži manji kut, sad smo sigurni da vrijedi α=48∘56′ pa je treći kut β=79∘4′.
+Druga (i jednostavnija) mogućnost jest da kut određujemo poučkom o kosinusu. Tad smijemo potražiti bilo koji od preostalih dvaju kutova bez straha da će možda doći do pogrešnog odabira. Vrijedi, primjerice,
+cosβ=a2+c2−b22ac=4.32+4.49442−5.622⋅4.3⋅4.4944=0.18963.
+Sad je kut β jednoznačno određen. On se nalazi u prvom kvadrantu i iznosi β=79∘4′ pa je α=48∘56′.
+
+Primejr 17
+Odredi kutove u trokutu ako su mu zadane stranice a=5 cm, b=6 cm i c=8 cm.
+Rješenje:
+Odredimo najprije kut γ:
+cosγ=a2+b2−c22ab=52+62−822⋅5⋅6=−360=−0.05.
+Kako je kosinus negativan, kut γ je tup: γ=92∘52′.
+Drugi kut, recimo β, računamo poučkom o sinusima (taj je kut sigurno šiljast):
+sinβ=bcsinγ=68⋅sin92∘52′=0.74906,
+pa je β=48∘31′. Treći kut iznosi α=38∘37′.
+
+Primjer 18
+Duljine stranica trokuta u omjeru su 3:4:6. Koliki je najveći kut ovog trokuta?
+Omjerom duljina stranica trokut nije jednoznačno određen. No, svi trokuti koji imaju navedeno svojstvo međusobno su slični.
+Kako su odgovarajući kutovi sličnih trokuta sukladni, u rješavanju zadatka možemo uzeti da su duljine stranica jednake 3 cm, 4 cm i 6 cm. Najveći kut je nasuprot najdulje stranice pa primjenom poučka o kosinusu zapisujemo:cosα=32+42−622⋅3⋅4=−1124.Očito, kut α je tup te nalazimo α=117∘17′.
+
+Primejr 19
+Koliki su kutovi trokuta ako su duljine njegovih visina u omjeru 4:5:6?
+Rješenje:
+Duljine visina u trokutu obrnuto su proporcionalne duljinama odgovarajućih stranica. Tu jednostavnu činjenicu možemo lako dokazati. Ta jednakost, primjerice, slijedi izravno iz P=12ava=12bvb=12cvc.
+Stavimo li, dakle, va:vb:vc=4:5:6, imat ćemo a:b=5:4 i b:c=6:5, što možemo napisati u obliku produženog razmjera a:b:c=15:12:10. Sada stavimo a=15k, b=12k i c=10k pa računamo kutove trokuta:
+cosα=b2+c2−a22bc=19240,α=85∘27′34′′.
+Analogno dobijemo β=52∘53′28′′, γ=41∘38′58′′.
+
+Primejr 20
+Na tijelo djeluju dvije sile iznosa F1=5 N i F2=10 N. Kut između njih je 45∘. Koliki je iznos rezultantne sile?
+Rješenje:
+Iznos rezultantne sile nalazimo iz trokuta ABD poučkom o kosinusu:
+F2r=F21+F22−2F1F2cos135∘=195.71 N2
+pa je Fr=14 N.
+
+Primejr 21
+Udaljenost dviju točaka A i B ne možemo izmjeriti neposredno.
+Ako je moguće na terenu odrediti točku C takvu da možemo izmjeriti udaljenosti |AC|, |BC| i kut γ, onda traženu duljinu |AB| računamo po poučku o kosinusu.
+
+Primejr 22
+Želimo izračunati udaljenost dviju nepristupačnih točaka S i T.
+Rješenje:
+Na pristupačnom dijelu terena izmjerimo udaljenost d dviju točaka A i B. Odredimo zatim kutove α i β1 u trokutu ABS te kutove α1 i β u trokutu ABT. Onda je, po poučku o sinusima
+|AS|=dsinβ1sin(180∘−α−β1)=dsinβ1sin(α+β1)
+|AT|=dsinβsin(180∘−α1−β)=dsinβsin(α1+β).
+Sad u trokutu AST znamo dvije stranice. Kako bismo izračunali traženu treću stranicu |ST|, trebamo još poznavati kut α2. Ako sve četiri točke A, B, S i T leže u jednoj ravnini, onda je α2=α−α1. Inače α2 moramo izmjeriti. Zatim se duljina stranice ¯¯¯¯¯¯¯ST računa poučkom o kosinusu iz trokuta AST.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 4
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Primejr 23
+Štef i Joža ispravljaju među između svojih imanja: granicu ACB zamjenjuju granicom AD, ali tako da se površine P1 i P2 njihovih imanja ne izmijene. Na terenu su izmjerene duljine stranica a i b te kutovi γ i δ. Kolika mora biti udaljenost x točaka B i D? Rješenje:
+Trokut ACP mora biti iste površine kao i trokut BDP. No to znači da su trokuti ABC i ABD iste površine. Zato je
+12absinγ=12cxsin(β+δ),
+pa odavde slijedi
+x=absinγcsin(β+δ).
+Stranica c izračuna se poučkom o kosinusu iz zadanih podataka a, b i γ.
+
+primejr 24
+Anka želi ograditi svoje zemljište oblika trokuta koje ima površinu 2400 čhv . Da ne bi mjerila opseg, lakše joj je
+odrediti kutove pri jednoj stranici; oni iznose 45∘ i 50∘. Koliko će dugačka biti ograda?
+Rješenje:
+Treći kut trokuta, označimo ga sa α, iznosi 85∘. Odredimo duljinu stranice a nasuprot tom kutu. Iz P=a2sinβ⋅sinγ2sinα slijedi a=√2Psinαsinβsinγ. Površina je zemljišta u četvornim metrima P=8633 m2. Odavde je a=178 m. Opseg dobivamo iz:
+o=a+b+c=a+asinβsinα+asinγsinα=a(1+sinβsinα+sinγsinα)=441 m.
+
+Primejr 25
+Ako su va i vb visine trokuta te ako je va:vb=3:4 i β=42∘15′, odredimo kut γ trokuta.
+Rješenje:
+Iz va:vb=3:4 slijedi a:b=4:3. Prema poučku o sinusima je a:b=sinα:sinβ
+i odatle dobijemo sinα=0.89649. Dvije su mogućnosti za kut α (zašto?):
+α1=63∘42′iliα2=116∘18′.
+Zbog toga zadatak ima dva rješenja:
+γ1=74∘3′iliγ2=21∘27′.
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+Lekcija 5
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+primejr 26
+Duljine stranica paralelograma su 15.2 cm i 8.5 cm. Ako je jedan kut paralelograma 66∘12′, koliki kut zatvaraju dijagonale?
+
+Rješenje:
+Najprije poučkom o kosinusu primijenjenom na trokute ABD i ABC izračunamo duljine dijagonala paralelograma:
+e2=a2+b2−2abcosα,f2=a2+b2+2abcosα.
+Primijeti da je α+β=180∘ te je β=180∘−α i zbog toga je cosβ=cos(180∘−α)=−cosα.
+Nakon uvrštavanja danih podataka dobijemo e=14.1 cm i f=20.19 cm.
+Ponovno primijenimo poučak o kosinusu, ali sada na trokut ABS:
+a2=(e2)2+(f2)2−2⋅e2⋅f2⋅cosφ
+i dobijemo φ=123∘55′. No kut dvaju pravaca manji je od dvaju kutova što ga ti pravci tvore, pa bi rješenje zadatka u skladu s tim bio kut od 56∘5′.
+
+Primejr 27
+Osnovice trapeza su a=6 cm i c=4 cm, a krakovi b=3 cm i d=4 cm. Odredimo duljine dijagonala i veličine kutova uz dulju osnovicu.
+Rješenje:
+Kroz vrh D povucimo paralelu s krakom b. Dobili smo trokut AED kojem znamo sve tri stranice, a−c=2 cm, b=3 cm i d=4 cm. Kut α računamo iz poučka o kosinusu:
+cosα=42+22−322⋅4⋅2=0.6875
+pa je α=46∘34′.
+Kut pri vrhu E jednak je kutu β:
+cosβ=32+22−422⋅3⋅2=−0.25
+i odavde β=104∘29′. Dijagonale računamo također poučkom o kosinusu:
+e2=a2+d2−2adcosα=19⟹e=√19 cmf2=a2+b2−2abcosβ=54⟹f=√54 cm.
+
+primejr 28
+Odredimo kutove tetivnog četverokuta ako su zadane duljine njegovih stranica a=12 cm, b=15 cm, c=9 cm i d=11 cm.
+Rješenje:
+Primijenimo poučak o kosinusu na trokute ABD i BCD:
+|BD|2=a2+d2−2adcosα=b2+c2−2bccosγ.
+No, četverokut ABCD je tetivni te je α+γ=180∘ i zbog toga cosγ=−cosα.
+Kad to uvažimo u gornjoj jednakosti, ona prima oblik:
+a2+d2−2adcosα=b2+c2+2bccosα.
+Očito, odavde možemo odrediti kut α. Bit će α=94∘24′.
+Zatim imamo: γ=180∘−α=85∘36′.
+Na jednak način nastavljamo s određivanjem ostalih dvaju kutova četverokuta.
