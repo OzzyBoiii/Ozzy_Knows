@@ -1,0 +1,19 @@
+.dual-mode-editor_root__OgOAt math-field::part(menu-toggle),
+.dual-mode-editor_root__OgOAt math-field::part(popover),
+.dual-mode-editor_root__OgOAt math-field::part(virtual-keyboard-toggle) {
+    display: none
+}
+
+.dual-mode-editor_root__OgOAt math-field {
+    overflow: visible;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+    font-kerning: normal;
+    font-variant-ligatures: none
+}
+
+.dual-mode-editor_root__OgOAt math-field::part(content) {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    overflow: visible
+}

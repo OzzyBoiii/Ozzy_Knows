@@ -18,6 +18,30 @@
                   "eState": "{}"
                 },
                 {
+                  "title": "Course_REVAMPS",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"mk-space\",\"state\":{\"path\":\"-_-Predmeti-_-/Course_REVAMPS\"},\"icon\":\"lucide-file\",\"title\":\"Course_REVAMPS\"}",
+                  "eState": "{}"
+                },
+                {
+                  "title": "-_-",
+                  "icon": "lucide-file",
+                  "state": "{\"type\":\"mk-space\",\"state\":{\"path\":\"TaskNotes/-_-\"},\"icon\":\"lucide-file\",\"title\":\"-_-\"}",
+                  "eState": "{}"
+                },
+                {
+                  "title": "Examination",
+                  "icon": "lucide-trello",
+                  "state": "{\"type\":\"kanban\",\"state\":{\"file\":\"TaskNotes/-_-/Examination.md\",\"kanbanViewState\":{\"kanban-plugin\":\"board\",\"list-collapse\":[false,false,false,false,false,false]}},\"icon\":\"lucide-trello\",\"title\":\"Examination\"}",
+                  "eState": "{}"
+                },
+                {
+                  "title": "Ozzy_Knows-Brainstorm",
+                  "icon": "lucide-trello",
+                  "state": "{\"type\":\"kanban\",\"state\":{\"file\":\"TaskNotes/-_-/Ozzy_Knows-Brainstorm.md\",\"kanbanViewState\":{\"kanban-plugin\":\"board\",\"list-collapse\":[false,false,false,false,false]}},\"icon\":\"lucide-trello\",\"title\":\"Ozzy_Knows-Brainstorm\"}",
+                  "eState": "{}"
+                },
+                {
                   "title": "New tab",
                   "icon": "lucide-file",
                   "state": "{\"type\":\"beautitab-react-view\",\"state\":{},\"title\":\"New tab\"}",
@@ -128,22 +152,14 @@
               ]
             },
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "TaskNotes/-_-/Ozzy_Knows-Brainstorm.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false,
-                    false,
-                    false
-                  ]
-                }
+                "file": "-_-Predmeti-_-/Course_REVAMPS/Građa atoma.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-trello",
-              "title": "Ozzy_Knows-Brainstorm"
+              "icon": "lucide-file",
+              "title": "Građa atoma"
             }
           }
         ]
@@ -246,8 +262,17 @@
             }
           },
           {
-            "id": "d02da831ec8e3d96",
+            "id": "08692edcd2437256",
             "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
             "state": {
               "type": "mk-path-view",
               "state": {},
@@ -256,7 +281,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -450,18 +475,38 @@
               "icon": "calendar-with-checkmark",
               "title": "Calendar"
             }
+          },
+          {
+            "id": "b567907b5d2669e6",
+            "type": "leaf",
+            "pane-relief:history-v1": {
+              "pos": 0,
+              "stack": [
+                {
+                  "state": "{}",
+                  "eState": "{}"
+                }
+              ]
+            },
+            "state": {
+              "type": "smart-connections-view",
+              "state": {},
+              "icon": "smart-connections",
+              "title": "Connections"
+            }
           }
         ],
-        "currentTab": 7
+        "currentTab": 8
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 200,
     "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
-      "quickadd:QuickAdd": false,
+      "copilot:Open Copilot Chat": false,
+      "quickadd:QuickAdd": true,
       "obsidian-kanban:Create new board": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
@@ -471,7 +516,7 @@
       "command-palette:Open command palette": true,
       "bases:Create new base": true,
       "audio-recorder:Start/stop recording": false,
-      "markdown-importer:Open format converter": false,
+      "markdown-importer:Open format converter": true,
       "publish:Publish changes...": true,
       "zk-prefixer:Create new unique note": true,
       "workspaces:Manage workspace layouts": true,
@@ -479,7 +524,12 @@
       "obsidian-excalidraw-plugin:New drawing": true,
       "sync-google-calendar:Sync Google Calendar": false,
       "markdown-table-editor:Open Markdown Table Editor": false,
-      "omnisearch:Omnisearch": false
+      "omnisearch:Omnisearch": true,
+      "obsidian-textgenerator-plugin:Generate Text!": false,
+      "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false,
+      "smart-connections:Smart Connections: Open connections view": false,
+      "smart-connections:Smart Connections: Open random connection": false,
+      "smart-connections:Smart Lookup: Open lookup view": false
     }
   },
   "active": "fb59bf9631f459a0",
@@ -487,6 +537,11 @@
     "pane-relief:focus-lock": false
   },
   "lastOpenFiles": [
+    "-_-Predmeti-_-/Course_REVAMPS/Građa atoma.md",
+    "TaskNotes/-_-/Examination.md",
+    "TaskNotes/-_-/Ozzy_Knows-Brainstorm.md",
+    "-_-Predmeti-_-/Course_REVAMPS",
+    "-_-Predmeti-_-/New folder",
     "Templates/AI/WORKFLOW_INTEGRATION.md",
     "Templates/AI/VISUAL_STYLING_GUIDE.md",
     "Templates/AI/ULTIMATE_FEATURE_TEST.md",
@@ -512,11 +567,8 @@
     "Templates/AI/EXAMPLE_COMPLETE_NOTE.md",
     "Templates/AI/COMPLETE_TEST_NOTE.md",
     "Templates/AI/BEFORE_AFTER.md",
-    "Templates/AI/AUTOMATION_SCRIPTS.md",
     "Templates/AI",
     "Templates/New folder",
-    "Templates/EXTENDED_PLUGINS.md",
-    "Templates/EXAMPLE_COMPLETE_NOTE.md",
     "Università/Calcolo Numerico",
     "Università",
     "preamble.sty",
@@ -531,8 +583,6 @@
     "Templates/Examples/Calcolo Numerico/Allegati/diagram-20230912 (1).svg",
     "Templates/Examples/Calcolo Numerico/Allegati/diagram-20230909 (2).svg",
     "Templates/Examples/Calcolo Numerico/Allegati",
-    "Templates/Examples/Calcolo Numerico/Formulario Scritto.tex",
-    "Templates/Examples/Calcolo Numerico/Dimostrazione convergenza (raggio spettrale).tex",
     "Templates/Examples/Calcolo Numerico/Calcolo Numerico.canvas",
     "Untitled 3.canvas",
     "Untitled 2.canvas",

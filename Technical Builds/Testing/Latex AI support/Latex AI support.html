@@ -1,0 +1,2536 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Text to LaTeX — AI math notation</title>
+  <meta name="description" content="Describe math in plain language, get LaTeX. MathLive editor, KaTeX or MathJax preview, optional OpenAI-compatible API.">
+  <!-- CSP: set at the server if you host this file; avoid strict default-src without listing your API origin and cdn.jsdelivr.net. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" referrerpolicy="no-referrer">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --bg-hero: linear-gradient(180deg, #eff6ff 0%, #f8fafc 45%);
+      --surface: #ffffff;
+      --surface-muted: #f1f5f9;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-fg: #ffffff;
+      --ring: #93c5fd;
+      --danger: #dc2626;
+      --ok: #15803d;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 10px 40px rgba(15, 23, 42, 0.08);
+      --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+    }
+    [data-theme="dark"] {
+      --bg: #0f172a;
+      --bg-hero: linear-gradient(180deg, #1e3a5f 0%, #0f172a 50%);
+      --surface: #1e293b;
+      --surface-muted: #334155;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --border: #334155;
+      --primary: #3b82f6;
+      --primary-hover: #60a5fa;
+      --ring: #1d4ed8;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.35);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+    a { color: var(--primary); }
+    a:hover { color: var(--primary-hover); }
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip:focus {
+      position: fixed;
+      left: 1rem;
+      top: 1rem;
+      z-index: 10001;
+      width: auto;
+      height: auto;
+      padding: 0.5rem 1rem;
+      background: var(--surface);
+      border: 2px solid var(--primary);
+      border-radius: var(--radius-sm);
+    }
+    .top-bar {
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .top-bar .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .brand svg { flex-shrink: 0; }
+    .wrap {
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 0.85rem 1.25rem;
+    }
+    .hero {
+      background: var(--bg-hero);
+      padding: 2.5rem 1.25rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.75rem;
+      line-height: 1.15;
+      text-wrap: balance;
+    }
+    .hero p {
+      margin: 0 auto;
+      max-width: 40rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    main.wrap {
+      padding-top: 1.5rem;
+      padding-bottom: 3rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      padding: 0.35rem;
+      margin-bottom: 1.25rem;
+    }
+    .card-inner { padding: 0.65rem 0.85rem 1rem; }
+    .panel-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0 0 0.5rem;
+    }
+    label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+    input[type="text"], input[type="password"], input[type="url"], input[type="number"], select, textarea {
+      width: 100%;
+      font: inherit;
+      padding: 0.55rem 0.7rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      color: var(--text);
+    }
+    textarea { min-height: 6.5rem; resize: vertical; }
+    input:focus, select:focus, textarea:focus, button:focus-visible {
+      outline: 2px solid var(--ring);
+      outline-offset: 2px;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .row.spread { justify-content: space-between; }
+    .grow { flex: 1; min-width: 6rem; }
+    button, .btn {
+      font: inherit;
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      padding: 0.45rem 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: var(--shadow);
+    }
+    button.primary, .btn.primary {
+      background: var(--primary);
+      color: var(--primary-fg);
+      border-color: var(--primary);
+    }
+    button.primary:hover, .btn.primary:hover { background: var(--primary-hover); border-color: var(--primary-hover); }
+    button.ghost {
+      background: transparent;
+      box-shadow: none;
+      border-color: transparent;
+    }
+    button.ghost:hover { background: var(--surface-muted); }
+    button:disabled { opacity: 0.45; cursor: not-allowed; }
+    .layout-wide {
+      display: grid;
+      gap: 1.25rem;
+    }
+    @media (min-width: 1080px) {
+      .layout-wide { grid-template-columns: 1fr 300px; align-items: start; }
+    }
+    .tools-card h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin: 0 0 0.5rem;
+    }
+    .tools-card { margin-bottom: 1rem; }
+    .tools-card:last-child { margin-bottom: 0; }
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.35rem;
+    }
+    @media (min-width: 400px) { .template-grid { grid-template-columns: repeat(3, 1fr); } }
+    .template-btn {
+      font-size: 0.72rem;
+      padding: 0.4rem 0.35rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--bg);
+      cursor: pointer;
+      color: var(--text);
+      text-align: center;
+      line-height: 1.2;
+    }
+    .template-btn:hover { border-color: var(--primary); }
+    .history-list {
+      max-height: 140px;
+      overflow-y: auto;
+      font-size: 0.78rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.35rem;
+    }
+    .history-item {
+      padding: 0.35rem 0.45rem;
+      cursor: pointer;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--mono);
+      word-break: break-word;
+    }
+    .history-item:last-child { border-bottom: none; }
+    .history-item:hover { background: var(--surface-muted); }
+    .eq-number { float: right; color: var(--muted); font-family: var(--mono); font-size: 0.85em; margin-left: 0.75rem; }
+    .piecewise {
+      display: inline-block;
+      border-left: 3px solid var(--primary);
+      padding: 0.25rem 0.5rem;
+      margin: 0.25rem 0;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      background: var(--surface-muted);
+    }
+    .state-sub { color: var(--primary); font-size: 0.8em; vertical-align: sub; }
+    .vec-arrow { display: inline-block; position: relative; padding-top: 0.35em; }
+    .vec-arrow::after { content: "→"; position: absolute; top: 0; left: 0; font-size: 0.65em; }
+    .hat-symbol { display: inline-block; position: relative; padding-top: 0.35em; }
+    .hat-symbol::after { content: "^"; position: absolute; top: 0; left: 0; font-size: 0.65em; }
+    .equation-highlight {
+      background: var(--surface-muted);
+      border-left: 3px solid var(--primary);
+      padding: 0.15rem 0.45rem;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+    }
+    .balanced-hint { font-size: 0.82rem; color: var(--ok); margin-top: 0.5rem; }
+    .periodic-hover { border-bottom: 1px dashed var(--primary); cursor: help; }
+    .tooltip-live {
+      position: fixed;
+      z-index: 10050;
+      background: var(--text);
+      color: var(--surface);
+      padding: 0.35rem 0.65rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      max-width: 16rem;
+      pointer-events: none;
+      box-shadow: var(--shadow-lg);
+    }
+    .mixed-block-math {
+      margin: 0.85rem 0;
+      padding: 0.65rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--surface) 0%, var(--surface-muted) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    [data-theme="light"] .mixed-block-math {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      box-shadow: inset 0 1px 2px rgba(15,23,42,0.04);
+    }
+    .mixed-plain-line { margin: 0.35rem 0; line-height: 1.65; }
+    .preview-host.preview-ink {
+      font-size: 1.05rem;
+    }
+    .preview-host.preview-ink .katex { font-size: 1.22em !important; }
+    .preview-host.preview-ink .katex-display { margin: 1rem 0 !important; }
+    .preview-zoom-ink .katex { font-size: 1.45em !important; }
+    #preview-zoom.preview-host { font-size: 1.15rem; }
+    .newWindow {
+      position: fixed;
+      inset: 4% 3%;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      display: none;
+      flex-direction: column;
+      z-index: 10040;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      max-width: min(56rem, 94vw);
+      max-height: 92vh;
+      margin: auto;
+    }
+    .newWindow.active { display: flex; }
+    dialog.newWindow {
+      padding: 0;
+      border: 2px solid var(--border);
+      width: min(94vw, 56rem);
+    }
+    dialog.newWindow::backdrop {
+      background: rgba(15, 23, 42, 0.45);
+    }
+    .window-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      font-weight: 700;
+    }
+    .window-content { flex: 1; overflow-y: auto; padding: 1rem; }
+    .sym-scroll { max-height: 42vh; overflow-y: auto; padding-right: 0.25rem; }
+    .tablist-sub {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.25rem;
+    }
+    .tablist-sub button {
+      border: none;
+      box-shadow: none;
+      background: transparent;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      margin-bottom: -1px;
+      border-bottom: 2px solid transparent;
+      font-size: 0.88rem;
+    }
+    .tablist-sub button[aria-selected="true"] {
+      border-bottom-color: var(--primary);
+      font-weight: 600;
+    }
+    [role="tabpanel"][hidden] { display: none !important; }
+    .toolbar {
+      margin: 0.5rem 0 0.75rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .editor-wrap {
+      position: relative;
+    }
+    .editor-fab {
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.5rem;
+      z-index: 5;
+    }
+    .editor-fab button { font-size: 0.75rem; padding: 0.3rem 0.5rem; }
+    #mathlive-host {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.25rem;
+      min-height: 148px;
+      background: var(--bg);
+    }
+    #mathlive-host math-field {
+      width: 100%;
+      min-height: 128px;
+      font-size: 1.2rem;
+      --keyboard-zindex: 200;
+    }
+    #latex-code {
+      font-family: var(--mono);
+      font-size: 0.88rem;
+      min-height: 128px;
+    }
+    .preview-host {
+      min-height: 5rem;
+      padding: 1rem 1.25rem;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-sm);
+      overflow-x: auto;
+      background: var(--bg);
+    }
+    .preview-host .katex-display { margin: 0.75rem 0; }
+    .preview-host mjx-container { margin: 0.75rem auto !important; }
+    .code-block {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin: 0;
+      padding: 0.75rem;
+      background: var(--surface-muted);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      max-height: 280px;
+      overflow: auto;
+    }
+    .export-grid {
+      display: grid;
+      gap: 0.5rem;
+    }
+    @media (min-width: 480px) {
+      .export-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .export-grid button { justify-content: center; font-size: 0.82rem; }
+    .snippets { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .snippets button { font-size: 0.78rem; }
+    .sym-cat {
+      margin-bottom: 1rem;
+    }
+    .sym-cat h3 {
+      font-size: 0.85rem;
+      margin: 0 0 0.4rem;
+      color: var(--muted);
+    }
+    .status {
+      font-size: 0.85rem;
+      color: var(--muted);
+      min-height: 1.2rem;
+    }
+    .status.err { color: var(--danger); }
+    .status.ok { color: var(--ok); }
+    details.ai-settings { margin-bottom: 1rem; }
+    details.ai-settings > summary {
+      cursor: pointer;
+      font-weight: 600;
+      padding: 0.5rem 0;
+      list-style-position: outside;
+    }
+    .grid-2 {
+      display: grid;
+      gap: 0.75rem;
+    }
+    @media (min-width: 560px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+    }
+    dialog {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0;
+      max-width: min(32rem, 94vw);
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: var(--shadow-lg);
+    }
+    dialog::backdrop { background: rgba(15, 23, 42, 0.45); }
+    .dlg-head {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+    }
+    .dlg-body { padding: 0.75rem 1.25rem 1.25rem; max-height: 60vh; overflow-y: auto; }
+    .example-item {
+      display: block;
+      width: 100%;
+      text-align: left;
+      margin-bottom: 0.35rem;
+      padding: 0.55rem 0.65rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      cursor: pointer;
+      font: inherit;
+      color: var(--text);
+    }
+    .example-item:hover { border-color: var(--primary); }
+    footer {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+      padding: 1.5rem 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .hint { font-size: 0.8rem; color: var(--muted); margin: 0.35rem 0 0; }
+    @media (prefers-reduced-motion: reduce) {
+      .tooltip-live, .newWindow, dialog { transition: none !important; animation: none !important; }
+    }
+    #cdn-error-banner {
+      display: none;
+      margin: 0;
+      padding: 0.65rem 1rem;
+      background: var(--danger);
+      color: #fff;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    #cdn-error-banner.active { display: block; }
+    .cross-tab-banner {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      margin: 0;
+      padding: 0.55rem 1rem;
+      background: var(--surface-muted);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+    .cross-tab-banner.active { display: flex; }
+    .kbd { font-family: var(--mono); font-size: 0.85em; padding: 0.1em 0.35em; border: 1px solid var(--border); border-radius: 4px; background: var(--surface-muted); }
+    .candidate-diff-pre {
+      margin: 0.5rem 0 0;
+      padding: 0.5rem;
+      font-size: 0.72rem;
+      max-height: 12rem;
+      overflow: auto;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .diff-del { background: rgba(220, 38, 38, 0.15); }
+    .diff-add { background: rgba(21, 128, 61, 0.18); }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <p id="cdn-error-banner" role="alert">KaTeX failed to load from the CDN. Check your network or try again later.</p>
+  <div id="cross-tab-banner" class="cross-tab-banner" role="status" aria-live="polite" hidden>
+    <span>Autosave was updated in another tab or window.</span>
+    <button type="button" id="cross-tab-reload" class="primary">Load saved copy</button>
+    <button type="button" id="cross-tab-dismiss" class="ghost">Dismiss</button>
+  </div>
+  <div class="top-bar">
+    <div class="wrap">
+      <a class="brand" href="#main" aria-label="Text to LaTeX home">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" aria-hidden="true">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+        Text to LaTeX
+      </a>
+      <div class="row">
+        <label class="row" style="margin:0;font-size:0.8rem;font-weight:500;gap:0.35rem">
+          <span class="visually-hidden">Preview engine</span>
+          <select id="preview-engine" aria-label="Math preview engine" title="Preview rendering">
+            <option value="katex">KaTeX preview</option>
+            <option value="mathjax">MathJax preview</option>
+          </select>
+        </label>
+        <button type="button" id="btn-theme" class="ghost" title="Toggle light/dark theme" aria-pressed="false">Theme</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <h1>LaTeX, notation &amp; equation preview</h1>
+    <p>Visual math (MathLive + KaTeX/MathJax), plain‑notation fallback, and optional AI. Wrap LaTeX in rare <strong>⟦ ⟧</strong> brackets for TXT→HTML‑style blocks (customisable below).</p>
+  </header>
+
+  <main id="main" class="wrap" tabindex="-1">
+    <details class="ai-settings card card-inner">
+      <summary>AI settings (optional)</summary>
+      <p class="hint">Only your chosen API receives requests. No sign-in or analytics in this file.</p>
+      <div class="grid-2" style="margin-top:0.75rem">
+        <div>
+          <label for="api-key">API key</label>
+          <input id="api-key" type="password" autocomplete="off" placeholder="sk-…" aria-describedby="api-key-hint">
+          <span id="api-key-hint" class="hint">Saved in <code>localStorage</code> on this device.</span>
+        </div>
+        <div>
+          <label for="api-base">API base URL</label>
+          <input id="api-base" type="url" value="https://api.openai.com/v1">
+        </div>
+        <div>
+          <label for="api-model">Model</label>
+          <input id="api-model" type="text" value="gpt-4o-mini">
+        </div>
+        <div>
+          <label for="candidate-count">AI candidates (1–5)</label>
+          <input id="candidate-count" type="number" min="1" max="5" value="3" aria-describedby="cand-hint">
+          <span id="cand-hint" class="hint">Multiple completions when the API supports <code>n</code>; otherwise one reply split into variants.</span>
+        </div>
+      </div>
+      <div class="row" style="margin-top:0.75rem">
+        <button type="button" id="save-settings" class="primary">Save settings</button>
+        <button type="button" id="clear-key">Clear API key</button>
+      </div>
+    </details>
+
+    <details class="card card-inner" style="margin-bottom:1.25rem">
+      <summary>AI assistant (natural language → LaTeX)</summary>
+      <p class="hint" style="margin-top:0.5rem">Requires API key in settings above.</p>
+      <div class="row spread" style="margin-bottom:0.35rem;margin-top:0.75rem">
+        <span class="panel-title" style="margin:0">Prompt</span>
+        <div class="row">
+          <button type="button" id="btn-new-prompt" class="ghost" title="Clear prompt and candidates">New</button>
+          <button type="button" id="btn-examples-open" class="ghost">Examples</button>
+        </div>
+      </div>
+      <label for="nl-prompt" class="visually-hidden">Natural language prompt</label>
+      <textarea id="nl-prompt" rows="4" placeholder="e.g. integral of x squared from 0 to 5"></textarea>
+      <div class="row" style="margin-top:0.5rem">
+        <label for="candidates-select" class="visually-hidden">Generated candidates</label>
+        <select id="candidates-select" aria-label="Pick a generated LaTeX candidate" disabled title="Choose a candidate">
+          <option value="">Candidates</option>
+        </select>
+        <span class="grow"></span>
+        <button type="button" id="btn-generate" class="primary">Generate</button>
+      </div>
+      <p id="ai-status" class="status" role="status" aria-live="polite"></p>
+      <details id="candidate-compare-wrap" class="card-inner" style="margin-top:0.75rem;display:none;border:1px solid var(--border);border-radius:var(--radius-sm);padding:0.5rem 0.75rem">
+        <summary>Compare candidates (diff)</summary>
+        <p class="hint">Lines differ between the first two AI variants (when both exist).</p>
+        <pre id="candidate-diff" class="candidate-diff-pre" aria-live="polite"></pre>
+      </details>
+    </details>
+
+    <div class="layout-wide">
+    <section class="card" aria-labelledby="workspace-label">
+      <div class="card-inner">
+        <p id="workspace-label" class="visually-hidden">Equation workspace</p>
+        <p class="panel-title">Symbols &amp; templates</p>
+        <p class="hint" style="margin-top:0">Insert into MathLive or LaTeX source. Use <strong>LaTeX source</strong> for multi‑line text + <code>⟦…⟧</code> blocks.</p>
+        <div class="row" style="margin:0.5rem 0">
+          <button type="button" id="btn-insert-delims" title="Insert ⟦ ⟧ around cursor">Insert ⟦ … ⟧</button>
+          <label class="row" style="margin:0;gap:0.35rem;font-size:0.8rem;font-weight:500">
+            <span>Open</span>
+            <input type="text" id="delim-open" value="⟦" maxlength="4" style="width:3.5rem;font-family:var(--mono)" aria-label="Equation block open delimiter" title="Unicode recommended">
+          </label>
+          <label class="row" style="margin:0;gap:0.35rem;font-size:0.8rem;font-weight:500">
+            <span>Close</span>
+            <input type="text" id="delim-close" value="⟧" maxlength="4" style="width:3.5rem;font-family:var(--mono)" aria-label="Equation block close delimiter">
+          </label>
+          <button type="button" id="btn-save-delims" class="ghost">Save delimiters</button>
+        </div>
+        <div id="symbol-palette" class="sym-scroll"></div>
+
+        <div class="row" style="flex-wrap:wrap;gap:0.35rem;margin:0.5rem 0">
+          <button type="button" id="btn-export-doc" class="ghost" title="Download JSON backup">Export JSON</button>
+          <button type="button" id="btn-import-doc" class="ghost" title="Restore from JSON file">Import JSON</button>
+          <button type="button" id="btn-copy-debug" class="ghost" title="Copy version, engine, delimiters, doc snippet (no API key)">Copy debug info</button>
+          <input type="file" id="import-file" accept="application/json,.json" class="visually-hidden" aria-hidden="true" tabindex="-1">
+        </div>
+        <div class="toolbar row">
+          <button type="button" id="btn-clear-all" title="Clear equation and prompt">Clear</button>
+          <button type="button" id="btn-undo" disabled>Undo</button>
+          <button type="button" id="btn-redo" disabled>Redo</button>
+          <button type="button" id="btn-toggle-numbering" class="ghost" title="Number plain lines with = in notation mode">Eq #</button>
+          <span class="grow"></span>
+          <button type="button" id="btn-keyboard" title="Toggle MathLive virtual keyboard">Keyboard</button>
+          <button type="button" id="toggle-code" aria-pressed="true">Hide LaTeX source</button>
+        </div>
+
+        <div class="editor-wrap">
+          <div id="mathlive-host" aria-label="MathLive visual editor"></div>
+          <div id="code-wrap" style="margin-top:0.5rem">
+            <label for="latex-code">LaTeX / mixed document</label>
+            <textarea id="latex-code" spellcheck="false" rows="8" placeholder="Plain: H2 + O2 -> H2O&#10;LaTeX block: ⟦\frac{1}{2}⟧&#10;Or single expression: \int_0^1 x^2\,dx"></textarea>
+          </div>
+          <div class="editor-fab"></div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="card" aria-label="Notation tools" style="padding:0.65rem 0.85rem">
+      <div class="tools-card">
+        <h3>Unit converter</h3>
+        <div class="row" style="margin-bottom:0.35rem">
+          <input type="number" id="unitValue" value="1" step="any" style="width:5rem" aria-label="Value">
+          <select id="unitFrom" aria-label="From unit">
+            <option value="km">km</option><option value="mi">mi</option><option value="m">m</option><option value="ft">ft</option>
+            <option value="C">°C</option><option value="F">°F</option><option value="K">K</option>
+          </select>
+          <span aria-hidden="true">→</span>
+          <select id="unitTo" aria-label="To unit">
+            <option value="mi">mi</option><option value="km">km</option><option value="ft">ft</option><option value="m">m</option>
+            <option value="F">°F</option><option value="C">°C</option><option value="K">K</option>
+          </select>
+        </div>
+        <button type="button" id="convertUnitBtn" class="primary" style="width:100%;justify-content:center">Convert</button>
+        <div id="unitResult" class="hint" style="margin-top:0.35rem;font-family:var(--mono)">Result: —</div>
+      </div>
+      <div class="tools-card">
+        <h3>Expression (safe numeric)</h3>
+        <div class="row">
+          <input type="text" id="exprInput" placeholder="e.g. (1+2)*3" style="flex:1" aria-label="Expression">
+          <button type="button" id="evalExprBtn">Eval</button>
+        </div>
+        <div id="exprResult" class="hint" style="margin-top:0.35rem;font-family:var(--mono)">Result: —</div>
+      </div>
+      <div class="tools-card">
+        <h3>Templates</h3>
+        <div class="template-grid" id="templateGrid"></div>
+      </div>
+      <div class="tools-card">
+        <h3>History</h3>
+        <div id="historyList" class="history-list">(empty)</div>
+      </div>
+      <div class="row" style="margin-top:0.5rem;flex-direction:column;align-items:stretch">
+        <button type="button" id="showTableWinBtn" class="ghost" style="justify-content:center">Table demo</button>
+        <button type="button" id="showExampleWinBtn" class="ghost" style="justify-content:center">Feature showcase</button>
+      </div>
+    </aside>
+    </div>
+
+    <section class="card" aria-labelledby="output-label">
+      <div class="card-inner">
+        <p id="output-label" class="panel-title" style="margin-bottom:0.5rem">Output</p>
+        <div class="tablist-sub" role="tablist" aria-label="Output view">
+          <button type="button" role="tab" id="tab-out-preview" aria-selected="true" aria-controls="panel-out-preview">Preview</button>
+          <button type="button" role="tab" id="tab-out-code" aria-selected="false" aria-controls="panel-out-code">Code</button>
+          <button type="button" role="tab" id="tab-out-image" aria-selected="false" aria-controls="panel-out-image">Image</button>
+          <button type="button" role="tab" id="tab-out-more" aria-selected="false" aria-controls="panel-out-more">More</button>
+        </div>
+
+        <div id="panel-out-preview" role="tabpanel" aria-labelledby="tab-out-preview">
+          <div id="preview" class="preview-host preview-ink" aria-live="polite"></div>
+          <p id="balanceHint" class="balanced-hint" role="status"></p>
+          <p id="preview-engine-note" class="hint"></p>
+        </div>
+        <div id="panel-out-code" role="tabpanel" aria-labelledby="tab-out-code" hidden>
+          <pre id="code-view" class="code-block" aria-label="LaTeX code"></pre>
+          <button type="button" id="btn-copy-code" class="primary" style="margin-top:0.5rem">Copy LaTeX</button>
+        </div>
+        <div id="panel-out-image" role="tabpanel" aria-labelledby="tab-out-image" hidden>
+          <p class="hint">Large render for screenshots or slides. Use your system screenshot tool, or copy HTML from <strong>More</strong>.</p>
+          <div id="preview-zoom" class="preview-host preview-zoom-ink" style="min-height:8rem"></div>
+        </div>
+        <div id="panel-out-more" role="tabpanel" aria-labelledby="tab-out-more" hidden>
+          <p class="hint">Copy wrapped LaTeX for documents or web.</p>
+          <div class="export-grid" id="export-buttons"></div>
+        </div>
+
+        <div class="row" style="margin-top:0.75rem">
+          <button type="button" id="btn-copy" class="primary">Copy LaTeX</button>
+          <p id="copy-feedback" class="status" role="status" style="margin:0"></p>
+        </div>
+      </div>
+    </section>
+
+    <details class="card card-inner" style="margin-top:1.25rem">
+      <summary>Privacy, keyboard, and hosting</summary>
+      <div style="margin-top:0.75rem;line-height:1.55;font-size:0.9rem">
+        <p><strong>What leaves this device:</strong> (1) HTTPS requests to your chosen AI API base URL when you click Generate — prompt, model, and API key header. (2) Browser requests to <code>cdn.jsdelivr.net</code> for KaTeX, MathLive, and MathJax (when used). Nothing is sent to the author of this file; there is no built‑in analytics.</p>
+        <p><strong>Secrets:</strong> API keys are stored in <code>localStorage</code> on this origin only. Any script on the same origin could read them — do not host untrusted pages alongside this tool.</p>
+        <p><strong>Keyboard:</strong> <span class="kbd">Ctrl</span>+<span class="kbd">Enter</span> in the AI prompt runs Generate. <span class="kbd">Alt</span>+<span class="kbd">L</span> toggles LaTeX source visibility (when focus is not in a text field). <span class="kbd">Esc</span> closes overlay windows.</p>
+        <p><strong>Opening the file:</strong> Use a local HTTP server (see <code>README.md</code> in this folder) for the most predictable behavior; <code>file://</code> may limit modules or fetch. Current Chromium, Firefox, and Safari generally work; use an up‑to‑date browser.</p>
+        <p class="hint" style="margin-top:0.75rem">Add <code>?debug=1</code> to the URL for extra console logs. Add <code>?test=1</code> to run built‑in self‑checks (see console).</p>
+        <p><strong>Extension hooks (advanced):</strong> assign <code>window.latexToolHooks = { beforeExport(bundle) { … }, afterRender(info) { … } }</code> before using Export or after load — useful for custom logging or transforms.</p>
+      </div>
+    </details>
+  </main>
+
+  <dialog id="dlg-examples" aria-labelledby="dlg-examples-title">
+    <div class="dlg-head">
+      <span id="dlg-examples-title">Example prompts</span>
+      <button type="button" class="ghost" id="dlg-examples-close" aria-label="Close">✕</button>
+    </div>
+    <div class="dlg-body" id="dlg-examples-list"></div>
+  </dialog>
+
+  <dialog id="tableWindow" class="newWindow" aria-labelledby="tableWinTitle">
+    <div class="window-header">
+      <span id="tableWinTitle">Notation table demo</span>
+      <button type="button" class="close-window-btn ghost">Close</button>
+    </div>
+    <div class="window-content" id="tableContent"></div>
+  </dialog>
+  <dialog id="exampleWindow" class="newWindow" aria-labelledby="exampleWinTitle">
+    <div class="window-header">
+      <span id="exampleWinTitle">Notation showcase</span>
+      <button type="button" class="close-window-btn ghost">Close</button>
+    </div>
+    <div class="window-content" id="exampleContent"></div>
+  </dialog>
+
+  <footer>
+    <span id="app-version-foot" class="hint"></span>
+    Inspired by <a href="https://ai-math.io/text-to-latex" rel="noopener noreferrer">AIMath Text to LaTeX</a>. Local tool — bring your own API for AI.
+  </footer>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" referrerpolicy="no-referrer" onerror="document.getElementById('cdn-error-banner')?.classList.add('active')"></script>
+  <script type="module">
+    import { MathfieldElement } from 'https://cdn.jsdelivr.net/npm/mathlive@0.101.0/+esm';
+
+    const APP_VERSION = '1.3.0';
+    const urlParams = new URLSearchParams(location.search);
+    const DEBUG = urlParams.has('debug');
+    const RUN_SELF_TEST = urlParams.has('test');
+
+    const CONFIG = {
+      bundleSchemaVersion: 2,
+      debouncePreviewMs: 140,
+      autosaveDelayMs: 650,
+      maxPasteChars: 500000,
+      workerParseThresholdChars: 80000,
+      expectedSri: {
+        katexJs: 'sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg',
+        katexCss: 'sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+',
+      },
+    };
+
+    const STORAGE = {
+      key: 'local-latex-api-key',
+      base: 'local-latex-api-base',
+      model: 'local-latex-api-model',
+      n: 'local-latex-candidate-n',
+      theme: 'local-latex-theme',
+      engine: 'local-latex-preview-engine',
+      delimOpen: 'local-latex-delim-open',
+      delimClose: 'local-latex-delim-close',
+      autosave: 'local-latex-autosave-bundle-v1',
+    };
+
+    const footVer = document.getElementById('app-version-foot');
+    if (footVer) footVer.textContent = `Build ${APP_VERSION} · `;
+
+    let previewGeneration = 0;
+    let lastVariants = [];
+    let lastAutosaveTokenWritten = '';
+    let parseWorker = null;
+
+    function logDebug(...args) {
+      if (DEBUG) console.log('[latex-tool]', ...args);
+    }
+
+    function runHook(name, payload) {
+      try {
+        const h = window.latexToolHooks && window.latexToolHooks[name];
+        if (typeof h === 'function') h(payload);
+      } catch (err) {
+        logDebug('hook error', name, err);
+      }
+    }
+
+    function migrateBundle(raw) {
+      if (!raw || typeof raw !== 'object') return null;
+      const v = raw.bundleVersion ?? raw.v ?? 1;
+      if (v === 1) {
+        return {
+          bundleVersion: 2,
+          v: 2,
+          document: typeof raw.document === 'string' ? raw.document : '',
+          delimOpen: raw.delimOpen ?? '\u27E6',
+          delimClose: raw.delimClose ?? '\u27E7',
+          engine: raw.engine === 'mathjax' ? 'mathjax' : 'katex',
+          theme: raw.theme === 'dark' ? 'dark' : 'light',
+          savedAt: raw.savedAt || raw.exportedAt || new Date().toISOString(),
+          appVersion: raw.appVersion,
+        };
+      }
+      if (v === 2) {
+        return {
+          bundleVersion: 2,
+          v: 2,
+          document: typeof raw.document === 'string' ? raw.document : '',
+          delimOpen: raw.delimOpen ?? '\u27E6',
+          delimClose: raw.delimClose ?? '\u27E7',
+          engine: raw.engine === 'mathjax' ? 'mathjax' : 'katex',
+          theme: raw.theme === 'dark' ? 'dark' : 'light',
+          savedAt: raw.savedAt || new Date().toISOString(),
+          appVersion: raw.appVersion,
+        };
+      }
+      return null;
+    }
+
+    function sanitizeApiError(e) {
+      const s = e && typeof e.message === 'string' ? e.message : String(e);
+      return s.replace(/[\u0000-\u001F<>]/g, ' ').slice(0, 280);
+    }
+
+    async function fetchWithTimeout(url, options, timeoutMs = 90000) {
+      const ctrl = new AbortController();
+      const tid = setTimeout(() => ctrl.abort(), timeoutMs);
+      try {
+        return await fetch(url, { ...options, signal: ctrl.signal });
+      } finally {
+        clearTimeout(tid);
+      }
+    }
+
+    async function fetchWithRetry(url, options, { attempts = 3, timeoutMs = 90000 } = {}) {
+      let lastErr;
+      for (let i = 0; i < attempts; i++) {
+        try {
+          const res = await fetchWithTimeout(url, options, timeoutMs);
+          if (res.status >= 500 && res.status < 600 && i < attempts - 1) {
+            await new Promise((r) => setTimeout(r, 450 * (i + 1)));
+            continue;
+          }
+          return res;
+        } catch (err) {
+          lastErr = err;
+          if (i < attempts - 1) await new Promise((r) => setTimeout(r, 450 * (i + 1)));
+        }
+      }
+      throw lastErr || new Error('Network request failed');
+    }
+
+    let autosaveTimer = null;
+    function scheduleAutosave() {
+      clearTimeout(autosaveTimer);
+      autosaveTimer = setTimeout(persistAutosave, CONFIG.autosaveDelayMs);
+    }
+
+    function persistAutosave() {
+      try {
+        const g = (id) => document.getElementById(id);
+        const savedAt = new Date().toISOString();
+        const bundle = {
+          v: CONFIG.bundleSchemaVersion,
+          bundleVersion: CONFIG.bundleSchemaVersion,
+          appVersion: APP_VERSION,
+          savedAt,
+          document: g('latex-code')?.value ?? '',
+          delimOpen: g('delim-open')?.value ?? '',
+          delimClose: g('delim-close')?.value ?? '',
+          engine: g('preview-engine')?.value ?? 'katex',
+          theme: document.documentElement.getAttribute('data-theme') || 'light',
+        };
+        lastAutosaveTokenWritten = savedAt;
+        localStorage.setItem(STORAGE.autosave, JSON.stringify(bundle));
+      } catch (_) {}
+    }
+
+    const el = (id) => document.getElementById(id);
+    const apiKey = el('api-key');
+    const apiBase = el('api-base');
+    const apiModel = el('api-model');
+    const candidateCount = el('candidate-count');
+    const nlPrompt = el('nl-prompt');
+    const aiStatus = el('ai-status');
+    const preview = el('preview');
+    const previewZoom = el('preview-zoom');
+    const codeView = el('code-view');
+    const latexCode = el('latex-code');
+    const codeWrap = el('code-wrap');
+    const mathHost = el('mathlive-host');
+    const copyFeedback = el('copy-feedback');
+    const candidatesSelect = el('candidates-select');
+    const previewEngineSel = el('preview-engine');
+    const previewEngineNote = el('preview-engine-note');
+
+    let mathJaxPromise = null;
+    let equationNumberingEnabled = false;
+    let inputHistory = [];
+
+    function loadMathJax() {
+      if (window.MathJax?.tex2svgPromise) return Promise.resolve();
+      if (mathJaxPromise) return mathJaxPromise;
+      const mjLoadT0 = performance.now();
+      mathJaxPromise = new Promise((resolve, reject) => {
+        window.MathJax = {
+          tex: {
+            packages: { '[+]': ['ams', 'boldsymbol'] },
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']],
+          },
+          svg: { fontCache: 'global' },
+        };
+        const s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js';
+        s.async = true;
+        s.onload = () => {
+          MathJax.startup.promise
+            .then(() => {
+              logDebug('MathJax load ms', (performance.now() - mjLoadT0).toFixed(1));
+              resolve();
+            })
+            .catch(reject);
+        };
+        s.onerror = () => {
+          const b = document.getElementById('cdn-error-banner');
+          if (b) {
+            b.textContent = 'MathJax failed to load from the CDN. Check your network or try KaTeX preview.';
+            b.classList.add('active');
+          }
+          reject(new Error('MathJax failed to load'));
+        };
+        document.head.appendChild(s);
+      });
+      return mathJaxPromise;
+    }
+
+    function getPreviewEngine() {
+      return previewEngineSel.value === 'mathjax' ? 'mathjax' : 'katex';
+    }
+
+    function getDelims() {
+      const o = el('delim-open').value || '\u27E6';
+      const c = el('delim-close').value || '\u27E7';
+      try {
+        return { open: o.normalize('NFC'), close: c.normalize('NFC') };
+      } catch {
+        return { open: o, close: c };
+      }
+    }
+
+    function getPreviewRaw() {
+      const c = latexCode.value;
+      if (c.trim()) return c;
+      return mf.getValue('latex');
+    }
+
+    function getExportLatex() {
+      return latexCode.value.trim() || mf.getValue('latex');
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    /* Notation HTML is built from controlled transforms only; do not pipe untrusted HTML into the editor. */
+    function parseDelimited(s, open, close) {
+      const parts = [];
+      if (!open || !close || open === close) return [{ type: 'text', content: s }];
+      let i = 0;
+      const ol = open.length;
+      const cl = close.length;
+      while (i < s.length) {
+        const start = s.indexOf(open, i);
+        if (start === -1) {
+          parts.push({ type: 'text', content: s.slice(i) });
+          break;
+        }
+        if (start > i) parts.push({ type: 'text', content: s.slice(i, start) });
+        const end = s.indexOf(close, start + ol);
+        if (end === -1) {
+          parts.push({ type: 'text', content: s.slice(start) });
+          break;
+        }
+        parts.push({ type: 'math', content: s.slice(start + ol, end).trim() });
+        i = end + cl;
+      }
+      return parts;
+    }
+
+    function buildParseWorkerSource() {
+      return `(function(){
+function parseDelimited(s,open,close){
+const parts=[];
+if(!open||!close||open===close)return[{type:'text',content:s}];
+let i=0;const ol=open.length,cl=close.length;
+while(i<s.length){
+const start=s.indexOf(open,i);
+if(start===-1){parts.push({type:'text',content:s.slice(i)});break;}
+if(start>i)parts.push({type:'text',content:s.slice(i,start)});
+const end=s.indexOf(close,start+ol);
+if(end===-1){parts.push({type:'text',content:s.slice(start)});break;}
+parts.push({type:'math',content:s.slice(start+ol,end).trim()});
+i=end+cl;
+}
+return parts;
+}
+self.onmessage=function(e){
+const d=e.data||{};
+try{
+const parts=parseDelimited(d.raw,d.open,d.close);
+self.postMessage({tid:d.tid,ok:true,parts});
+}catch(err){
+self.postMessage({tid:d.tid,ok:false,err:String(err)});
+}
+};
+})();`;
+    }
+
+    function getParseWorker() {
+      if (!parseWorker) {
+        parseWorker = new Worker(URL.createObjectURL(new Blob([buildParseWorkerSource()], { type: 'text/javascript' })));
+      }
+      return parseWorker;
+    }
+
+    async function parsePartsAsync(raw, open, close, gen) {
+      if (raw.length < CONFIG.workerParseThresholdChars) return parseDelimited(raw, open, close);
+      const w = getParseWorker();
+      return new Promise((resolve, reject) => {
+        function onMsg(e) {
+          if (e.data.tid !== gen) return;
+          w.removeEventListener('message', onMsg);
+          if (e.data.ok) resolve(e.data.parts);
+          else reject(new Error(e.data.err || 'worker parse'));
+        }
+        w.addEventListener('message', onMsg);
+        w.postMessage({ raw, open, close, tid: gen });
+      });
+    }
+
+    const greek = {
+      alpha: 'α', beta: 'β', gamma: 'γ', delta: 'δ', epsilon: 'ε', zeta: 'ζ', eta: 'η', theta: 'θ', iota: 'ι', kappa: 'κ', lambda: 'λ', mu: 'μ', nu: 'ν', xi: 'ξ', omicron: 'ο', pi: 'π', rho: 'ρ', sigma: 'σ', tau: 'τ', upsilon: 'υ', phi: 'φ', chi: 'χ', psi: 'ψ', omega: 'ω',
+      Gamma: 'Γ', Delta: 'Δ', Theta: 'Θ', Lambda: 'Λ', Xi: 'Ξ', Pi: 'Π', Sigma: 'Σ', Upsilon: 'Υ', Phi: 'Φ', Psi: 'Ψ', Omega: 'Ω',
+    };
+    function replaceGreek(s) {
+      for (const [w, sym] of Object.entries(greek)) {
+        s = s.replace(new RegExp(`\\\\${w}\\b`, 'g'), sym);
+        s = s.replace(new RegExp(`\\b${w}\\b`, 'g'), sym);
+      }
+      return s;
+    }
+    function arrows(s) {
+      return s.replace(/-->/g, '⟶').replace(/<->/g, '⟷').replace(/<=>/g, '⇌').replace(/->/g, '→');
+    }
+    function fractions(s) {
+      const u = { '1/2': '½', '1/3': '⅓', '2/3': '⅔', '1/4': '¼', '3/4': '¾' };
+      return s.replace(/(\d+)\/(\d+)/g, (m, a, b) => u[m] || `<sup>${a}</sup>⁄<sub>${b}</sub>`);
+    }
+    function chemSub(s) {
+      return s.replace(/([A-Z][a-z]?)(\d+)/g, '$1<sub>$2</sub>');
+    }
+    function oxidation(s) {
+      return s.replace(/([A-Z][a-z]?)(\d*)([+-])(\d*)/g, (m, e, n, sgn, c) =>
+        `${e}${n ? `<sub>${n}</sub>` : ''}<sup>${(c || '1') + (sgn === '+' ? '⁺' : '⁻')}</sup>`);
+    }
+    function vectorHat(s) {
+      s = s.replace(/vec\(([a-zA-Z])\)/g, '<span class="vec-arrow">$1</span>');
+      s = s.replace(/hat\(([a-zA-Z])\)/g, '<span class="hat-symbol">$1</span>');
+      return s;
+    }
+    function matrixVector(s) {
+      s = s.replace(/\{matrix\}([^\{]+?)\{\/matrix\}/g, (m, c) => {
+        const rows = c.trim().split('|');
+        let html = '<table style="display:inline-table;border:1px solid var(--border);border-radius:6px;margin:0 4px;border-collapse:collapse">';
+        for (const r of rows) {
+          html += '<tr>' + r.trim().split(/\s+/).map((cell) => `<td style="padding:2px 8px;border:1px solid var(--border)">${cell}</td>`).join('') + '</tr>';
+        }
+        return html + '</table>';
+      });
+      s = s.replace(/\{vector\}([^\{]+?)\{\/vector\}/g, (m, c) => `⟨${c.split(',').map((x) => x.trim()).join(', ')}⟩`);
+      return s;
+    }
+    function piecewise(s) {
+      return s.replace(/\{([^}]+?)\s+if\s+([^,}]+)(?:,\s*([^}]+))?\}/gi, (m, expr, cond, elsePart) => {
+        const elseClause = elsePart ? `, ${elsePart.trim()}` : '';
+        return `<span class="piecewise">⎧ ${expr} if ${cond}${elseClause} ⎫</span>`;
+      });
+    }
+    function states(s) {
+      return s.replace(/\(s\)/g, '<sub class="state-sub">(s)</sub>')
+        .replace(/\(l\)/g, '<sub class="state-sub">(l)</sub>')
+        .replace(/\(g\)/g, '<sub class="state-sub">(g)</sub>')
+        .replace(/\(aq\)/g, '<sub class="state-sub">(aq)</sub>');
+    }
+    function basicMath(s) {
+      return s.replace(/([a-zA-Z0-9])\^(\d+)/g, '$1<sup>$2</sup>').replace(/sqrt\(([^)]+)\)/g, '√($1)');
+    }
+    function constantsSubstitution(s) {
+      const consts = [
+        [/\bc\b(?=\s|$|[\s,.])/g, '2.998×10⁸ m/s'],
+        [/\bh\b(?=\s|$)/g, '6.626×10⁻³⁴ J·s'],
+        [/\bG\b(?=\s|$)/g, '6.674×10⁻¹¹'],
+        [/\bR\b(?=\s|$|,)/g, '8.314 J/(mol·K)'],
+        [/\bN_A\b/g, '6.022×10²³ mol⁻¹'],
+      ];
+      for (const [re, v] of consts) s = s.replace(re, `<span class="equation-highlight" title="constant">${v}</span>`);
+      return s;
+    }
+    const lenUnits = { km: 1000, m: 1, mi: 1609.344, ft: 0.3048 };
+    function convertUnitValue(val, from, to) {
+      if (lenUnits[from] && lenUnits[to]) return (val * lenUnits[from]) / lenUnits[to];
+      if (from === 'C' && to === 'F') return (val * 9) / 5 + 32;
+      if (from === 'F' && to === 'C') return ((val - 32) * 5) / 9;
+      if (from === 'C' && to === 'K') return val + 273.15;
+      if (from === 'K' && to === 'C') return val - 273.15;
+      if (from === 'K' && to === 'F') return ((val - 273.15) * 9) / 5 + 32;
+      if (from === 'F' && to === 'K') return ((val - 32) * 5) / 9 + 273.15;
+      return null;
+    }
+    function inlineUnitConversion(s) {
+      return s.replace(/(\d+(?:\.\d+)?)\s*(\w+)\s+to\s+(\w+)/gi, (m, val, from, to) => {
+        const r = convertUnitValue(parseFloat(val), from, to);
+        return r != null ? `${val} ${from} = ${r.toFixed(6)} ${to}` : m;
+      });
+    }
+    const periodicData = {
+      H: { name: 'Hydrogen', mass: 1.008 }, He: { name: 'Helium', mass: 4.0026 }, C: { name: 'Carbon', mass: 12.011 },
+      O: { name: 'Oxygen', mass: 15.999 }, Fe: { name: 'Iron', mass: 55.845, config: '[Ar] 3d⁶ 4s²' }, S: { name: 'Sulfur', mass: 32.06 },
+      N: { name: 'Nitrogen', mass: 14.007 }, Na: { name: 'Sodium', mass: 22.99 }, Cl: { name: 'Chlorine', mass: 35.45 },
+    };
+    function periodicHover(html) {
+      return html.replace(/([A-Z][a-z]?)(?=[\s,.;:!?<\)]|$)/g, (match, elem) =>
+        periodicData[elem] ? `<span class="periodic-hover" data-element="${elem}">${elem}</span>` : match);
+    }
+
+    function applyNotationFallback(text) {
+      let out = text;
+      out = replaceGreek(out);
+      out = arrows(out);
+      out = fractions(out);
+      out = chemSub(out);
+      out = oxidation(out);
+      out = vectorHat(out);
+      out = matrixVector(out);
+      out = piecewise(out);
+      out = states(out);
+      out = basicMath(out);
+      out = constantsSubstitution(out);
+      out = inlineUnitConversion(out);
+      out = periodicHover(out);
+      return out;
+    }
+
+    function looksLikeLaTeX(text) {
+      const t = text.trim();
+      if (/^\$\$[\s\S]*\$\$$/.test(t) || /^\\\([\s\S]*\\\)$/.test(t)) return true;
+      if (/\\[a-zA-Z]+/.test(t) && !/^[a-zA-Z0-9\s\-+*/=<>·⋅]+$/.test(t)) return true;
+      if (/\\(sum|int|frac|sqrt|lim|partial|mathbb|begin\{)/.test(t)) return true;
+      return false;
+    }
+
+    function renderLatexToString(tex, display) {
+      if (typeof katex === 'undefined') {
+        return `<span style="color:var(--danger)">${escapeHtml(tex)}</span>`;
+      }
+      try {
+        return katex.renderToString(tex, { displayMode: display, throwOnError: false, errorColor: '#dc2626' });
+      } catch {
+        return `<span style="color:var(--danger)">${escapeHtml(tex)}</span>`;
+      }
+    }
+
+    function processLine(line, eqNum) {
+      line = line.trim();
+      if (line === '') return '';
+      let rendered;
+      if (looksLikeLaTeX(line)) {
+        const disp = /\\sum|\\int|\\frac|\\lim|\\begin\{/.test(line);
+        rendered = renderLatexToString(line, disp);
+      } else {
+        rendered = applyNotationFallback(line);
+      }
+      if (equationNumberingEnabled && line && /[^=!<>]=[^=]/.test(line) && !/^\\/.test(line)) {
+        rendered += `<span class="eq-number">(${eqNum})</span>`;
+      }
+      return rendered;
+    }
+
+    async function renderMathToEl(tex, elOut, engine, display) {
+      elOut.innerHTML = '';
+      if (!tex.trim()) return;
+      try {
+        if (engine === 'katex' && typeof katex !== 'undefined') {
+          katex.render(tex, elOut, { displayMode: display, throwOnError: false, errorColor: '#dc2626' });
+        } else if (engine === 'katex') {
+          elOut.innerHTML = `<span style="color:var(--danger)">KaTeX unavailable (CDN).</span>`;
+        } else {
+          await loadMathJax();
+          const mj = MathJax;
+          const node = typeof mj.tex2svgPromise === 'function'
+            ? await mj.tex2svgPromise(tex, { display })
+            : mj.tex2svg(tex, { display });
+          elOut.appendChild(node);
+        }
+      } catch (e) {
+        elOut.textContent = tex + ' — ' + (e.message || e);
+      }
+    }
+
+    async function fillContainerFromParts(parts, container, engine, gen) {
+      container.innerHTML = '';
+      let eqCounter = 1;
+      for (const part of parts) {
+        if (gen !== previewGeneration) return;
+        if (part.type === 'math') {
+          const wrap = document.createElement('div');
+          wrap.className = 'mixed-block-math';
+          await renderMathToEl(part.content, wrap, engine, true);
+          if (gen !== previewGeneration) return;
+          container.appendChild(wrap);
+        } else {
+          const lines = part.content.split(/\r?\n/);
+          for (const line of lines) {
+            if (gen !== previewGeneration) return;
+            const div = document.createElement('div');
+            div.className = 'mixed-plain-line';
+            div.innerHTML = processLine(line, eqCounter) || '&nbsp;';
+            if (equationNumberingEnabled && line.trim() && /[^=!<>]=[^=]/.test(line) && !/^\\/.test(line)) eqCounter++;
+            container.appendChild(div);
+          }
+        }
+      }
+    }
+
+    function mirrorPreviewToZoom() {
+      previewZoom.innerHTML = preview.innerHTML;
+    }
+
+    async function renderPreviewSmart() {
+      const gen = ++previewGeneration;
+      logDebug('preview gen', gen);
+      const tRender0 = performance.now();
+      const raw = getPreviewRaw();
+      codeView.textContent = raw || '(empty)';
+      const bh = el('balanceHint');
+      if (!raw.trim()) {
+        preview.textContent = 'Nothing to preview yet.';
+        previewZoom.textContent = '';
+        previewZoom.innerHTML = '';
+        previewEngineNote.textContent = '';
+        if (bh) bh.innerHTML = '';
+        runHook('afterRender', { generation: gen, ms: performance.now() - tRender0, empty: true });
+        return;
+      }
+      const engine = getPreviewEngine();
+      const { open, close } = getDelims();
+      preview.innerHTML = '';
+      previewZoom.innerHTML = '';
+      const hasDelim = raw.includes(open);
+      const multiline = /\r?\n/.test(raw);
+
+      try {
+        if (hasDelim) {
+          const tParse0 = performance.now();
+          const parts = await parsePartsAsync(raw, open, close, gen);
+          logDebug(
+            'parseDelimited ms',
+            (performance.now() - tParse0).toFixed(1),
+            raw.length >= CONFIG.workerParseThresholdChars ? 'worker' : 'main',
+          );
+          if (gen !== previewGeneration) return;
+          await fillContainerFromParts(parts, preview, engine, gen);
+          if (gen !== previewGeneration) return;
+          mirrorPreviewToZoom();
+          previewEngineNote.textContent = `Delimited blocks (${open} … ${close}) + notation fallback outside blocks. ${engine === 'mathjax' ? 'MathJax' : 'KaTeX'} for math.`;
+        } else if (multiline) {
+          let eqCounter = 1;
+          const lines = raw.split(/\r?\n/);
+          for (const line of lines) {
+            if (gen !== previewGeneration) return;
+            const div = document.createElement('div');
+            div.className = 'mixed-plain-line';
+            div.innerHTML = processLine(line, eqCounter) || '&nbsp;';
+            if (equationNumberingEnabled && line.trim() && /[^=!<>]=[^=]/.test(line) && !/^\\/.test(line)) eqCounter++;
+            preview.appendChild(div);
+          }
+          if (gen !== previewGeneration) return;
+          mirrorPreviewToZoom();
+          previewEngineNote.textContent = 'Multi‑line notation / LaTeX per line (no delimiters).';
+        } else {
+          const t = raw.trim();
+          if (looksLikeLaTeX(t)) {
+            await renderMathToEl(t, preview, engine, true);
+            if (gen !== previewGeneration) return;
+            mirrorPreviewToZoom();
+          } else {
+            preview.innerHTML = `<div class="mixed-plain-line">${processLine(t, 1)}</div>`;
+            mirrorPreviewToZoom();
+          }
+          previewEngineNote.textContent = engine === 'mathjax' ? 'MathJax (SVG), ink-style sizing.' : 'KaTeX, ink-style sizing.';
+        }
+
+        if (gen !== previewGeneration) return;
+        let hint = '';
+        if (/H2\s*\+\s*O2\s*->\s*H2O/i.test(raw)) hint = 'Balanced: 2H₂ + O₂ → 2H₂O';
+        else if (/N2\s*\+\s*H2\s*->\s*NH3/i.test(raw)) hint = 'Balanced: N₂ + 3H₂ → 2NH₃';
+        if (bh) bh.innerHTML = hint ? `⚖ ${hint}` : '';
+        runHook('afterRender', { generation: gen, ms: performance.now() - tRender0, empty: false });
+      } catch (e) {
+        if (gen !== previewGeneration) return;
+        preview.textContent = 'Preview error: ' + sanitizeApiError(e);
+        previewZoom.textContent = '';
+        runHook('afterRender', { generation: gen, error: sanitizeApiError(e) });
+      }
+    }
+
+    function loadSettings() {
+      try {
+        apiKey.value = localStorage.getItem(STORAGE.key) || '';
+        apiBase.value = localStorage.getItem(STORAGE.base) || 'https://api.openai.com/v1';
+        apiModel.value = localStorage.getItem(STORAGE.model) || 'gpt-4o-mini';
+        candidateCount.value = localStorage.getItem(STORAGE.n) || '3';
+        const th = localStorage.getItem(STORAGE.theme);
+        if (th === 'dark' || th === 'light') {
+          document.documentElement.setAttribute('data-theme', th);
+          el('btn-theme').setAttribute('aria-pressed', th === 'dark' ? 'true' : 'false');
+        }
+        const eng = localStorage.getItem(STORAGE.engine);
+        if (eng === 'mathjax' || eng === 'katex') previewEngineSel.value = eng;
+        const dO = localStorage.getItem(STORAGE.delimOpen);
+        const dC = localStorage.getItem(STORAGE.delimClose);
+        if (dO) el('delim-open').value = dO;
+        if (dC) el('delim-close').value = dC;
+      } catch (_) {}
+    }
+    function saveSettings() {
+      try {
+        localStorage.setItem(STORAGE.key, apiKey.value.trim());
+        localStorage.setItem(STORAGE.base, apiBase.value.trim() || 'https://api.openai.com/v1');
+        localStorage.setItem(STORAGE.model, apiModel.value.trim() || 'gpt-4o-mini');
+        localStorage.setItem(STORAGE.n, String(Math.min(5, Math.max(1, parseInt(candidateCount.value, 10) || 3))));
+        setAiStatus('Settings saved.', false, true);
+      } catch (e) {
+        setAiStatus('Could not save: ' + sanitizeApiError(e), true);
+      }
+    }
+
+    el('save-settings').addEventListener('click', saveSettings);
+    el('clear-key').addEventListener('click', () => {
+      apiKey.value = '';
+      try {
+        localStorage.removeItem(STORAGE.key);
+        setAiStatus('API key cleared.', false, true);
+      } catch (_) {}
+    });
+
+    el('btn-theme').addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = cur === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      el('btn-theme').setAttribute('aria-pressed', next === 'dark' ? 'true' : 'false');
+      try { localStorage.setItem(STORAGE.theme, next); } catch (_) {}
+      scheduleAutosave();
+    });
+
+    previewEngineSel.addEventListener('change', () => {
+      try { localStorage.setItem(STORAGE.engine, previewEngineSel.value); } catch (_) {}
+      renderPreviewSmart();
+      scheduleAutosave();
+    });
+
+    el('btn-save-delims').addEventListener('click', () => {
+      const { open, close } = getDelims();
+      if (!open || !close || open === close) {
+        copyFeedback.textContent = 'Use two different non-empty delimiters.';
+        copyFeedback.className = 'status err';
+        setTimeout(() => { copyFeedback.textContent = ''; copyFeedback.className = 'status'; }, 2800);
+        return;
+      }
+      try {
+        localStorage.setItem(STORAGE.delimOpen, open);
+        localStorage.setItem(STORAGE.delimClose, close);
+        copyFeedback.textContent = 'Delimiters saved for this browser.';
+        copyFeedback.className = 'status ok';
+        setTimeout(() => { copyFeedback.textContent = ''; copyFeedback.className = 'status'; }, 2000);
+        renderPreviewSmart();
+        scheduleAutosave();
+      } catch (e) {
+        copyFeedback.textContent = 'Could not save delimiters.';
+        copyFeedback.className = 'status err';
+      }
+    });
+
+    el('btn-insert-delims').addEventListener('click', () => {
+      const { open, close } = getDelims();
+      const ta = latexCode;
+      const start = ta.selectionStart ?? ta.value.length;
+      const ins = open + close;
+      ta.value = ta.value.slice(0, start) + ins + ta.value.slice(start);
+      ta.selectionStart = ta.selectionEnd = start + open.length;
+      ta.focus();
+      ta.dispatchEvent(new Event('input'));
+    });
+
+    el('delim-open').addEventListener('input', scheduleAutosave);
+    el('delim-close').addEventListener('input', scheduleAutosave);
+
+    el('btn-toggle-numbering').addEventListener('click', () => {
+      equationNumberingEnabled = !equationNumberingEnabled;
+      el('btn-toggle-numbering').setAttribute('aria-pressed', equationNumberingEnabled ? 'true' : 'false');
+      renderPreviewSmart();
+    });
+
+    loadSettings();
+
+    /* Persisted document text: treat #latex-code as canonical; MathLive mirrors it when possible. */
+    function tryRestoreAutosave() {
+      try {
+        const raw = localStorage.getItem(STORAGE.autosave);
+        if (!raw) return;
+        const b = migrateBundle(JSON.parse(raw));
+        if (!b || typeof b.document !== 'string') return;
+        if (latexCode.value.trim() !== '') return;
+        latexCode.value = b.document;
+        if (b.delimOpen) el('delim-open').value = b.delimOpen;
+        if (b.delimClose) el('delim-close').value = b.delimClose;
+        if (b.engine === 'katex' || b.engine === 'mathjax') previewEngineSel.value = b.engine;
+        if (b.theme === 'dark' || b.theme === 'light') {
+          document.documentElement.setAttribute('data-theme', b.theme);
+          el('btn-theme').setAttribute('aria-pressed', b.theme === 'dark' ? 'true' : 'false');
+        }
+        lastAutosaveTokenWritten = b.savedAt || lastAutosaveTokenWritten;
+        copyFeedback.textContent = 'Restored last autosave.';
+        copyFeedback.className = 'status ok';
+        setTimeout(() => { copyFeedback.textContent = ''; copyFeedback.className = 'status'; }, 3200);
+      } catch (_) {}
+    }
+
+    function buildExportBundle() {
+      return {
+        v: CONFIG.bundleSchemaVersion,
+        bundleVersion: CONFIG.bundleSchemaVersion,
+        appVersion: APP_VERSION,
+        exportedAt: new Date().toISOString(),
+        document: latexCode.value,
+        delimOpen: el('delim-open').value,
+        delimClose: el('delim-close').value,
+        engine: previewEngineSel.value,
+        theme: document.documentElement.getAttribute('data-theme') || 'light',
+      };
+    }
+
+    const mf = new MathfieldElement();
+    mf.setOptions({
+      virtualKeyboardMode: 'manual',
+      smartFence: true,
+      smartSuperscript: true,
+    });
+    mathHost.appendChild(mf);
+
+    let history = [];
+    let histPos = -1;
+    let syncing = false;
+    let debounceTimer = null;
+
+    function pushHistory(latex) {
+      if (history[histPos] === latex) return;
+      history = history.slice(0, histPos + 1);
+      history.push(latex);
+      if (history.length > 100) { history.shift(); } else histPos++;
+      updateUndoRedo();
+    }
+
+    function updateUndoRedo() {
+      el('btn-undo').disabled = histPos <= 0;
+      el('btn-redo').disabled = histPos >= history.length - 1;
+    }
+
+    function applyBundleToUI(bundleLike) {
+      const m = migrateBundle(bundleLike);
+      if (!m) return false;
+      latexCode.value = m.document;
+      el('delim-open').value = m.delimOpen;
+      el('delim-close').value = m.delimClose;
+      previewEngineSel.value = m.engine;
+      document.documentElement.setAttribute('data-theme', m.theme);
+      el('btn-theme').setAttribute('aria-pressed', m.theme === 'dark' ? 'true' : 'false');
+      syncing = true;
+      try {
+        mf.setValue(m.document, { silenceNotifications: true });
+      } catch (_) {}
+      syncing = false;
+      history = history.slice(0, histPos + 1);
+      history.push(m.document);
+      histPos = history.length - 1;
+      updateUndoRedo();
+      renderPreviewSmart();
+      scheduleAutosave();
+      lastAutosaveTokenWritten = m.savedAt || lastAutosaveTokenWritten;
+      return true;
+    }
+
+    try {
+      const s = localStorage.getItem(STORAGE.autosave);
+      if (s) {
+        const j = JSON.parse(s);
+        lastAutosaveTokenWritten = j.savedAt || '';
+      }
+    } catch (_) {}
+
+    window.addEventListener('storage', (e) => {
+      if (e.key !== STORAGE.autosave || !e.newValue) return;
+      try {
+        const j = JSON.parse(e.newValue);
+        if (j.savedAt && j.savedAt !== lastAutosaveTokenWritten) {
+          const ban = el('cross-tab-banner');
+          if (ban) {
+            ban.hidden = false;
+            ban.classList.add('active');
+          }
+        }
+      } catch (_) {}
+    });
+
+    el('cross-tab-dismiss').addEventListener('click', () => {
+      const ban = el('cross-tab-banner');
+      if (ban) {
+        ban.classList.remove('active');
+        ban.hidden = true;
+      }
+    });
+
+    el('cross-tab-reload').addEventListener('click', () => {
+      try {
+        const raw = localStorage.getItem(STORAGE.autosave);
+        if (!raw) return;
+        applyBundleToUI(JSON.parse(raw));
+        copyFeedback.textContent = 'Loaded autosave from browser storage.';
+        copyFeedback.className = 'status ok';
+      } catch (_) {}
+      const ban = el('cross-tab-banner');
+      if (ban) {
+        ban.classList.remove('active');
+        ban.hidden = true;
+      }
+      setTimeout(() => { copyFeedback.textContent = ''; copyFeedback.className = 'status'; }, 3200);
+    });
+
+    function schedulePreview() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => renderPreviewSmart(), CONFIG.debouncePreviewMs);
+    }
+
+    function setLatex(latex, record) {
+      syncing = true;
+      latexCode.value = latex;
+      try {
+        mf.setValue(latex, { silenceNotifications: true });
+      } catch {
+        /* MathLive may reject plain multi-line text */
+      }
+      syncing = false;
+      if (record) pushHistory(latex);
+      renderPreviewSmart();
+    }
+
+    mf.addEventListener('input', () => {
+      if (syncing) return;
+      const v = mf.getValue('latex');
+      latexCode.value = v;
+      pushHistory(v);
+      addInputHistorySnippet(v);
+      schedulePreview();
+      scheduleAutosave();
+    });
+    latexCode.addEventListener('input', () => {
+      if (syncing) return;
+      const v = latexCode.value;
+      syncing = true;
+      try {
+        mf.setValue(v, { silenceNotifications: true });
+      } catch (_) {}
+      syncing = false;
+      pushHistory(v);
+      addInputHistorySnippet(v);
+      schedulePreview();
+      scheduleAutosave();
+    });
+
+    latexCode.addEventListener('paste', (e) => {
+      const t = e.clipboardData?.getData('text') || '';
+      if (t.length <= CONFIG.maxPasteChars) return;
+      e.preventDefault();
+      const ta = latexCode;
+      const start = ta.selectionStart ?? 0;
+      const end = ta.selectionEnd ?? 0;
+      const head = t.slice(0, CONFIG.maxPasteChars);
+      ta.value = ta.value.slice(0, start) + head + ta.value.slice(end);
+      ta.selectionStart = ta.selectionEnd = start + head.length;
+      ta.dispatchEvent(new Event('input'));
+      copyFeedback.textContent = `Pasted first ${CONFIG.maxPasteChars.toLocaleString()} characters (limit).`;
+      copyFeedback.className = 'status ok';
+      setTimeout(() => { copyFeedback.textContent = ''; copyFeedback.className = 'status'; }, 4000);
+    });
+
+    el('btn-undo').addEventListener('click', () => {
+      if (histPos <= 0) return;
+      histPos--;
+      setLatex(history[histPos], false);
+      updateUndoRedo();
+    });
+    el('btn-redo').addEventListener('click', () => {
+      if (histPos >= history.length - 1) return;
+      histPos++;
+      setLatex(history[histPos], false);
+      updateUndoRedo();
+    });
+
+    el('btn-keyboard').addEventListener('click', () => {
+      mf.focus();
+      try {
+        mf.executeCommand('toggleVirtualKeyboard');
+      } catch {
+        try {
+          mf.executeCommand(['toggleVirtualKeyboard']);
+        } catch (_) {}
+      }
+    });
+
+    const toggleCode = el('toggle-code');
+    toggleCode.addEventListener('click', () => {
+      const show = codeWrap.hidden;
+      codeWrap.hidden = !show;
+      toggleCode.setAttribute('aria-pressed', show ? 'true' : 'false');
+      toggleCode.textContent = show ? 'Hide LaTeX source' : 'LaTeX source';
+    });
+
+    nlPrompt.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        el('btn-generate').click();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!e.altKey || (e.key !== 'l' && e.key !== 'L')) return;
+      const tag = e.target?.tagName;
+      if (tag === 'TEXTAREA' || tag === 'INPUT' || tag === 'SELECT') return;
+      e.preventDefault();
+      toggleCode.click();
+    });
+
+    function addInputHistorySnippet(v) {
+      const line = v.trim().split(/\r?\n/)[0];
+      if (!line || line.length > 200) return;
+      inputHistory = inputHistory.filter((x) => x !== line);
+      inputHistory.unshift(line);
+      if (inputHistory.length > 12) inputHistory.pop();
+      renderInputHistory();
+    }
+    function renderInputHistory() {
+      const histDiv = el('historyList');
+      if (!histDiv) return;
+      histDiv.innerHTML = inputHistory.length
+        ? inputHistory.map((h) => `<div class="history-item" role="button" tabindex="0">${escapeHtml(h)}</div>`).join('')
+        : '<span class="hint">(empty)</span>';
+      histDiv.querySelectorAll('.history-item').forEach((item) => {
+        const apply = () => {
+          const t = item.textContent;
+          latexCode.value += (latexCode.value ? '\n' : '') + t;
+          latexCode.dispatchEvent(new Event('input'));
+        };
+        item.addEventListener('click', apply);
+        item.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); apply(); }
+        });
+      });
+    }
+
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    el('btn-copy').addEventListener('click', async () => {
+      const t = getExportLatex();
+      if (await copyText(t)) {
+        copyFeedback.textContent = 'LaTeX copied.';
+        copyFeedback.className = 'status ok';
+      } else {
+        copyFeedback.textContent = 'Copy failed.';
+        copyFeedback.className = 'status err';
+      }
+      setTimeout(() => { copyFeedback.textContent = ''; copyFeedback.className = 'status'; }, 2200);
+    });
+
+    el('btn-copy-code').addEventListener('click', () => el('btn-copy').click());
+
+    el('btn-export-doc').addEventListener('click', () => {
+      const bundle = buildExportBundle();
+      runHook('beforeExport', bundle);
+      const blob = new Blob([JSON.stringify(bundle, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      const u = URL.createObjectURL(blob);
+      a.href = u;
+      a.download = `latex-tool-export-${APP_VERSION}-${Date.now()}.json`;
+      a.click();
+      URL.revokeObjectURL(u);
+      copyFeedback.textContent = 'Exported JSON.';
+      copyFeedback.className = 'status ok';
+      setTimeout(() => { copyFeedback.textContent = ''; copyFeedback.className = 'status'; }, 2200);
+    });
+
+    el('btn-import-doc').addEventListener('click', () => el('import-file').click());
+
+    el('import-file').addEventListener('change', async (ev) => {
+      const f = ev.target.files?.[0];
+      if (!f) return;
+      try {
+        const text = await f.text();
+        const b = JSON.parse(text);
+        if (!applyBundleToUI(b)) throw new Error('Invalid or unsupported bundle (expected document and schema v1–2).');
+        copyFeedback.textContent = 'Imported JSON.';
+        copyFeedback.className = 'status ok';
+      } catch (err) {
+        copyFeedback.textContent = 'Import failed: ' + sanitizeApiError(err);
+        copyFeedback.className = 'status err';
+      }
+      ev.target.value = '';
+      setTimeout(() => { copyFeedback.textContent = ''; copyFeedback.className = 'status'; }, 3200);
+    });
+
+    el('btn-copy-debug').addEventListener('click', async () => {
+      const doc = getExportLatex();
+      const payload = {
+        appVersion: APP_VERSION,
+        userAgent: navigator.userAgent,
+        engine: previewEngineSel.value,
+        delimOpen: el('delim-open').value,
+        delimClose: el('delim-close').value,
+        documentSnippet: doc.slice(0, 500),
+        documentLength: doc.length,
+      };
+      const ok = await copyText(JSON.stringify(payload, null, 2));
+      copyFeedback.textContent = ok ? 'Debug info copied (no API key).' : 'Copy failed.';
+      copyFeedback.className = ok ? 'status ok' : 'status err';
+      setTimeout(() => { copyFeedback.textContent = ''; copyFeedback.className = 'status'; }, 2200);
+    });
+
+    el('btn-clear-all').addEventListener('click', () => {
+      nlPrompt.value = '';
+      resetCandidates();
+      setLatex('', true);
+      histPos = 0;
+      history = [''];
+      updateUndoRedo();
+    });
+
+    el('btn-new-prompt').addEventListener('click', () => {
+      nlPrompt.value = '';
+      resetCandidates();
+      nlPrompt.focus();
+    });
+
+    function lineDiffHtml(a, b) {
+      const la = (a || '').split('\n');
+      const lb = (b || '').split('\n');
+      const n = Math.max(la.length, lb.length);
+      const parts = [];
+      for (let i = 0; i < n; i++) {
+        const x = la[i] ?? '';
+        const y = lb[i] ?? '';
+        if (x === y) parts.push(escapeHtml(x));
+        else {
+          parts.push(`<span class="diff-del">-${escapeHtml(x)}</span>\n<span class="diff-add">+${escapeHtml(y)}</span>`);
+        }
+        if (i < n - 1) parts.push('\n');
+      }
+      return parts.join('');
+    }
+
+    function updateCandidateDiff() {
+      const wrap = el('candidate-compare-wrap');
+      const pre = el('candidate-diff');
+      if (!wrap || !pre) return;
+      if (lastVariants.length < 2) {
+        wrap.style.display = 'none';
+        pre.innerHTML = '';
+        return;
+      }
+      wrap.style.display = '';
+      pre.innerHTML = lineDiffHtml(lastVariants[0], lastVariants[1]);
+    }
+
+    function resetCandidates() {
+      lastVariants = [];
+      const wrap = el('candidate-compare-wrap');
+      if (wrap) wrap.style.display = 'none';
+      const pre = el('candidate-diff');
+      if (pre) pre.innerHTML = '';
+      candidatesSelect.innerHTML = '<option value="">Candidates</option>';
+      candidatesSelect.disabled = true;
+    }
+
+    function fillCandidates(list) {
+      const clean = list.filter(Boolean);
+      resetCandidates();
+      lastVariants = clean;
+      clean.forEach((tex, i) => {
+        const opt = document.createElement('option');
+        opt.value = String(i);
+        opt.textContent = `Candidate ${i + 1}: ${tex.replace(/\s+/g, ' ').slice(0, 48)}${tex.length > 48 ? '…' : ''}`;
+        opt.dataset.latex = tex;
+        candidatesSelect.appendChild(opt);
+      });
+      if (clean.length) {
+        candidatesSelect.disabled = false;
+        candidatesSelect.selectedIndex = 1;
+        applyCandidateFromSelect();
+      }
+      updateCandidateDiff();
+    }
+
+    function applyCandidateFromSelect() {
+      const opt = candidatesSelect.selectedOptions[0];
+      if (!opt || !opt.dataset.latex) return;
+      setLatex(opt.dataset.latex, true);
+    }
+    candidatesSelect.addEventListener('change', applyCandidateFromSelect);
+
+    const EXAMPLES = [
+      ['Definite integral of x squared from 0 to 5', '∫₀⁵ x² dx'],
+      ['Quadratic formula for ax^2+bx+c=0', 'Quadratic formula'],
+      ['Sum from n equals 1 to infinity of 1 over n squared', 'Σ 1/n²'],
+      ['Matrix 2 by 2 with entries a b c d', '2×2 matrix'],
+      ['Partial derivative of f with respect to x', '∂f/∂x'],
+      ['Gaussian normal distribution PDF with mean mu and variance sigma squared', 'Normal PDF'],
+      ['Schrodinger equation time dependent', 'Schrödinger (describe)'],
+      ['Fourier transform of f of x', 'Fourier transform'],
+      ['Nabla dot E equals rho over epsilon zero', 'Gauss law'],
+    ];
+    const dlg = el('dlg-examples');
+    const dlgList = el('dlg-examples-list');
+    EXAMPLES.forEach(([text, label]) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'example-item';
+      b.innerHTML = `<strong>${label}</strong><br><span style="font-size:0.85rem;color:var(--muted)">${text}</span>`;
+      b.addEventListener('click', () => {
+        nlPrompt.value = text;
+        dlg.close();
+        nlPrompt.focus();
+      });
+      dlgList.appendChild(b);
+    });
+    el('btn-examples-open').addEventListener('click', () => { dlg.showModal(); });
+    el('dlg-examples-close').addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+
+    const SYMBOL_GROUPS = [
+      ['Greek', [
+        ['\\alpha', 'α'], ['\\beta', 'β'], ['\\gamma', 'γ'], ['\\delta', 'δ'], ['\\epsilon', 'ε'],
+        ['\\varepsilon', 'ε′'], ['\\zeta', 'ζ'], ['\\eta', 'η'], ['\\theta', 'θ'], ['\\vartheta', 'ϑ'],
+        ['\\iota', 'ι'], ['\\kappa', 'κ'], ['\\lambda', 'λ'], ['\\mu', 'μ'], ['\\nu', 'ν'],
+        ['\\xi', 'ξ'], ['\\pi', 'π'], ['\\varpi', 'ϖ'], ['\\rho', 'ρ'], ['\\sigma', 'σ'], ['\\varsigma', 'ς'],
+        ['\\tau', 'τ'], ['\\upsilon', 'υ'], ['\\phi', 'φ'], ['\\varphi', 'φ′'], ['\\chi', 'χ'], ['\\psi', 'ψ'], ['\\omega', 'ω'],
+        ['\\Gamma', 'Γ'], ['\\Delta', 'Δ'], ['\\Theta', 'Θ'], ['\\Lambda', 'Λ'], ['\\Xi', 'Ξ'],
+        ['\\Pi', 'Π'], ['\\Sigma', 'Σ'], ['\\Upsilon', 'Υ'], ['\\Phi', 'Φ'], ['\\Psi', 'Ψ'], ['\\Omega', 'Ω'],
+      ]],
+      ['Operators', [
+        ['\\sum', 'Σ'], ['\\prod', 'Π'], ['\\coprod', '∐'], ['\\int', '∫'], ['\\iint', '∬'], ['\\iiint', '∭'],
+        ['\\oint', '∮'], ['\\partial', '∂'], ['\\nabla', '∇'], ['\\infty', '∞'], ['\\aleph', 'ℵ'],
+        ['\\cdot', '·'], ['\\times', '×'], ['\\div', '÷'], ['\\pm', '±'], ['\\mp', '∓'], ['\\ast', '∗'],
+        ['\\star', '⋆'], ['\\circ', '∘'], ['\\bullet', '•'], ['\\oplus', '⊕'], ['\\otimes', '⊗'],
+      ]],
+      ['Relations', [
+        ['\\leq', '≤'], ['\\geq', '≥'], ['\\neq', '≠'], ['\\approx', '≈'], ['\\equiv', '≡'],
+        ['\\sim', '∼'], ['\\simeq', '≃'], ['\\cong', '≅'], ['\\propto', '∝'], ['\\parallel', '∥'], ['\\perp', '⊥'],
+        ['\\in', '∈'], ['\\notin', '∉'], ['\\subset', '⊂'], ['\\supset', '⊃'], ['\\subseteq', '⊆'], ['\\supseteq', '⊇'],
+        ['\\cup', '∪'], ['\\cap', '∩'], ['\\emptyset', '∅'], ['\\rightarrow', '→'], ['\\leftarrow', '←'],
+        ['\\leftrightarrow', '↔'], ['\\Rightarrow', '⇒'], ['\\Leftarrow', '⇐'], ['\\Leftrightarrow', '⇔'],
+      ]],
+      ['Sets & logic', [
+        ['\\mathbb{R}', 'ℝ'], ['\\mathbb{N}', 'ℕ'], ['\\mathbb{Z}', 'ℤ'], ['\\mathbb{Q}', 'ℚ'],
+        ['\\mathbb{C}', 'ℂ'], ['\\mathbb{P}', 'ℙ'], ['\\forall', '∀'], ['\\exists', '∃'], ['\\nexists', '∄'],
+        ['\\land', '∧'], ['\\lor', '∨'], ['\\neg', '¬'], ['\\implies', '⇒'], ['\\iff', '⇔'],
+      ]],
+      ['Trig & hyp', [
+        ['\\sin', 'sin'], ['\\cos', 'cos'], ['\\tan', 'tan'], ['\\cot', 'cot'], ['\\sec', 'sec'], ['\\csc', 'csc'],
+        ['\\arcsin', 'arcsin'], ['\\arccos', 'arccos'], ['\\arctan', 'arctan'],
+        ['\\sinh', 'sinh'], ['\\cosh', 'cosh'], ['\\tanh', 'tanh'],
+      ]],
+      ['Calculus', [
+        ['\\frac{d}{dx}', 'd/dx'], ['\\frac{d^2}{dx^2}', 'd²/dx²'], ['\\int_0^1', '∫₀¹'],
+        ['\\int_{-\\infty}^{\\infty}', '∫−∞∞'], ['\\lim_{x \\to 0}', 'lim'], ['\\lim_{n \\to \\infty}', 'lim∞'],
+        ['\\sum_{k=1}^{n}', 'Σₖ'], ['\\prod_{k=1}^{n}', 'Πₖ'], ['\\sqrt{x}', '√x'], ['\\sqrt[n]{x}', 'ⁿ√'],
+      ]],
+      ['Matrices', [
+        ['\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}', 'pmatrix'],
+        ['\\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}', 'bmatrix'],
+        ['\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix}', 'det'],
+        ['\\begin{cases} x & x>0 \\\\ -x & x \\le 0 \\end{cases}', 'cases'],
+      ]],
+      ['Arrows & accents', [
+        ['\\vec{x}', 'vec'], ['\\hat{x}', 'hat'], ['\\bar{x}', 'bar'], ['\\tilde{x}', 'tilde'],
+        ['\\dot{x}', 'dot'], ['\\ddot{x}', 'ddot'], ['\\overline{AB}', 'overline'],
+        ['\\xrightarrow{f}', '→f'], ['\\xleftarrow{g}', '←g'], ['\\mapsto', '↦'], ['\\nearrow', '↗'],
+      ]],
+      ['Chemistry (text)', [
+        ['H2O', 'H₂O'], ['CO2', 'CO₂'], ['NH3', 'NH₃'], ['CH4', 'CH₄'], ['Fe3+', 'Fe³⁺'],
+        ['SO4^2-', 'SO₄²⁻'], ['(aq)', '(aq)'], ['->', '→'], ['<=>', '⇌'],
+      ]],
+      ['Templates', [
+        ['\\frac{a}{b}', 'a/b'],
+        ['a^{n}', 'aⁿ'],
+        ['a_{n}', 'aₙ'],
+        ['\\left( \\frac{a}{b} \\right)', 'paren frac'],
+        ['\\mathrm{d}x', 'dx'],
+        ['\\,', 'thin space'],
+      ]],
+    ];
+    const symHost = el('symbol-palette');
+    function renderSymCategory(catIdx) {
+      const sec = symHost.querySelector(`[data-sym-cat="${String(catIdx)}"]`);
+      if (!sec || sec.dataset.rendered === '1') return;
+      const items = SYMBOL_GROUPS[catIdx][1];
+      const row = sec.querySelector('.snippets');
+      row.innerHTML = '';
+      items.forEach(([tex, label]) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = label;
+        b.title = tex;
+        b.addEventListener('click', () => insertLatex(tex));
+        row.appendChild(b);
+      });
+      sec.dataset.rendered = '1';
+    }
+    SYMBOL_GROUPS.forEach(([title], catIdx) => {
+      const sec = document.createElement('div');
+      sec.className = 'sym-cat';
+      sec.dataset.symCat = String(catIdx);
+      const h = document.createElement('h3');
+      h.textContent = title;
+      sec.appendChild(h);
+      const row = document.createElement('div');
+      row.className = 'snippets sym-snippets-lazy';
+      row.innerHTML = '<span class="hint" style="margin:0">Scroll into view to load…</span>';
+      sec.appendChild(row);
+      symHost.appendChild(sec);
+    });
+    const symIo = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) renderSymCategory(en.target.dataset.symCat);
+        });
+      },
+      { root: symHost, rootMargin: '120px 0px', threshold: 0.01 },
+    );
+    symHost.querySelectorAll('[data-sym-cat]').forEach((sec) => symIo.observe(sec));
+    renderSymCategory(0);
+
+    function insertLatex(tex) {
+      if (!codeWrap.hidden) {
+        latexCode.value += (latexCode.value && !/\s$/.test(latexCode.value) ? ' ' : '') + tex;
+        latexCode.dispatchEvent(new Event('input'));
+        return;
+      }
+      mf.focus();
+      syncing = true;
+      try {
+        mf.insert(tex);
+      } catch {
+        const cur = mf.getValue('latex');
+        const next = cur + (cur && !/\s$/.test(cur) ? ' ' : '') + tex;
+        try {
+          mf.setValue(next, { silenceNotifications: true });
+        } catch {
+          latexCode.value += (latexCode.value && !/\s$/.test(latexCode.value) ? ' ' : '') + tex;
+          latexCode.dispatchEvent(new Event('input'));
+          syncing = false;
+          return;
+        }
+      }
+      const v = mf.getValue('latex');
+      latexCode.value = v;
+      syncing = false;
+      pushHistory(v);
+      schedulePreview();
+    }
+
+    const exportWrap = el('export-buttons');
+    const exportFormats = [
+      ['Plain LaTeX', () => getExportLatex()],
+      ['Inline \\( … \\)', () => '\\(' + getExportLatex() + '\\)'],
+      ['Display \\[ … \\]', () => '\\[' + getExportLatex() + '\\]'],
+      ['$ … $ (inline)', () => '$' + getExportLatex() + '$'],
+      ['$$ … $$ (display)', () => '$$\n' + getExportLatex() + '\n$$'],
+      ['\\begin{equation}…\\end{equation}', () => '\\begin{equation}\n' + getExportLatex() + '\n\\end{equation}'],
+    ];
+    exportFormats.forEach(([label, fn]) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = 'Copy: ' + label;
+      b.addEventListener('click', async () => {
+        const ok = await copyText(fn());
+        copyFeedback.textContent = ok ? 'Copied: ' + label : 'Copy failed.';
+        copyFeedback.className = ok ? 'status ok' : 'status err';
+        setTimeout(() => { copyFeedback.textContent = ''; copyFeedback.className = 'status'; }, 2200);
+      });
+      exportWrap.appendChild(b);
+    });
+
+    function setAiStatus(msg, isErr, isOk) {
+      aiStatus.textContent = msg || '';
+      aiStatus.className = 'status' + (isErr ? ' err' : isOk ? ' ok' : '');
+    }
+
+    function simpleOfflineConvert(text) {
+      if (!text.trim()) return null;
+      if (/integral.*x.*squar|integral of x\^2/i.test(text)) return '\\int x^2 \\, dx';
+      if (/from\s*0\s*to\s*5.*x.*squar|definite.*0.*5/i.test(text)) return '\\int_0^5 x^2 \\, dx';
+      if (/from\s*0\s*to\s*1.*x.*squar|definite.*0.*1/i.test(text)) return '\\int_0^1 x^2 \\, dx';
+      if (/quadratic|ax\^2/i.test(text)) return 'x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}';
+      if (/sum.*infinity.*n.*squar|1 over n.*squar/i.test(text)) return '\\sum_{n=1}^{\\infty} \\frac{1}{n^2}';
+      if (/matrix.*2.*2|two by two/i.test(text)) return '\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}';
+      if (/partial.*f.*respect.*x/i.test(text)) return '\\frac{\\partial f}{\\partial x}';
+      return null;
+    }
+
+    function parseVariantsFromContent(content, want) {
+      const raw = (content || '').trim().replace(/^```[\w]*\n?/i, '').replace(/\n?```$/i, '').trim();
+      let parts = raw.split(/\n-{3,}\n/).map((s) => s.trim()).filter(Boolean);
+      if (parts.length < 2) {
+        parts = raw.split(/\n(?=Variant\s*\d+:)/i).map((s) => s.replace(/^Variant\s*\d+:\s*/i, '').trim()).filter(Boolean);
+      }
+      if (parts.length < 2) parts = [raw];
+      return parts.slice(0, want).filter(Boolean);
+    }
+
+    el('btn-generate').addEventListener('click', async () => {
+      const prompt = nlPrompt.value.trim();
+      if (!prompt) {
+        setAiStatus('Enter a description first.', true);
+        return;
+      }
+      const key = apiKey.value.trim() || (localStorage.getItem(STORAGE.key) || '').trim();
+      const nWant = Math.min(5, Math.max(1, parseInt(candidateCount.value, 10) || 3));
+
+      if (!key) {
+        const off = simpleOfflineConvert(prompt);
+        if (off) {
+          fillCandidates([off]);
+          setLatex(off, true);
+          setAiStatus('Offline pattern only — add an API key for full AI.', false, true);
+          return;
+        }
+        setAiStatus('Add an API key in settings, or use Symbols / Editor.', true);
+        return;
+      }
+
+      const base = (apiBase.value || 'https://api.openai.com/v1').replace(/\/$/, '');
+      const model = apiModel.value.trim() || 'gpt-4o-mini';
+      setAiStatus('Generating…');
+      el('btn-generate').disabled = true;
+
+      const systemMulti =
+        'You convert mathematical descriptions to LaTeX compatible with KaTeX and amsmath. ' +
+        (nWant > 1
+          ? `Reply with exactly ${nWant} alternative LaTeX fragments, separated by a line containing only --- (three dashes). No markdown fences, no numbering labels, no explanation — only LaTeX.`
+          : 'Reply with ONLY the LaTeX fragment (no markdown fences, no explanation).');
+
+      try {
+        let variants = [];
+        const body = {
+          model,
+          temperature: 0.25,
+          messages: [
+            { role: 'system', content: systemMulti },
+            { role: 'user', content: prompt },
+          ],
+        };
+        if (nWant > 1) body.n = nWant;
+
+        const res = await fetchWithRetry(
+          base + '/chat/completions',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer ' + key,
+            },
+            body: JSON.stringify(body),
+          },
+          { attempts: 3, timeoutMs: 120000 },
+        );
+        let data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          const err = data.error?.message || res.statusText || 'Request failed';
+          throw new Error(err);
+        }
+
+        if (Array.isArray(data.choices) && data.choices.length > 1) {
+          variants = data.choices.map((c) => (c.message?.content || '').trim()).filter(Boolean);
+        } else {
+          const content = data.choices?.[0]?.message?.content?.trim() || '';
+          variants = parseVariantsFromContent(content, nWant);
+        }
+
+        if (!variants.length) throw new Error('Empty response');
+        fillCandidates(variants);
+        setLatex(variants[0], true);
+        setAiStatus(variants.length > 1 ? `Generated ${variants.length} candidates — pick from the list.` : 'LaTeX inserted.', false, true);
+      } catch (e) {
+        if (nWant > 1) {
+          try {
+            const res2 = await fetchWithRetry(
+              base + '/chat/completions',
+              {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: 'Bearer ' + key,
+                },
+                body: JSON.stringify({
+                  model,
+                  temperature: 0.25,
+                  messages: [
+                    { role: 'system', content: systemMulti },
+                    { role: 'user', content: prompt },
+                  ],
+                }),
+              },
+              { attempts: 2, timeoutMs: 120000 },
+            );
+            const data2 = await res2.json().catch(() => ({}));
+            if (!res2.ok) throw new Error(data2.error?.message || res2.statusText);
+            const content = data2.choices?.[0]?.message?.content?.trim() || '';
+            const variants = parseVariantsFromContent(content, nWant);
+            if (!variants.length) throw new Error('Empty response');
+            fillCandidates(variants);
+            setLatex(variants[0], true);
+            setAiStatus('Multiple choices from single completion.', false, true);
+          } catch (e2) {
+            setAiStatus(sanitizeApiError(e2), true);
+          }
+        } else {
+          setAiStatus(sanitizeApiError(e), true);
+        }
+      } finally {
+        el('btn-generate').disabled = false;
+      }
+    });
+
+    function selectOutTab(tabId) {
+      document.querySelectorAll('.tablist-sub [role="tab"]').forEach((t) => {
+        t.setAttribute('aria-selected', t.id === tabId ? 'true' : 'false');
+      });
+      const map = {
+        'tab-out-preview': 'panel-out-preview',
+        'tab-out-code': 'panel-out-code',
+        'tab-out-image': 'panel-out-image',
+        'tab-out-more': 'panel-out-more',
+      };
+      Object.entries(map).forEach(([tid, pid]) => {
+        el(pid).hidden = tid !== tabId;
+      });
+      if (tabId === 'tab-out-code') codeView.textContent = getPreviewRaw() || '(empty)';
+      if (tabId === 'tab-out-image') mirrorPreviewToZoom();
+    }
+
+    document.querySelectorAll('.tablist-sub [role="tab"]').forEach((tab) => {
+      tab.addEventListener('click', () => selectOutTab(tab.id));
+    });
+
+    /** Allowlist + Function(); never pass user text here without the character filter below. */
+    const MAX_EVAL_LEN = 256;
+    function safeNumericEval(expr) {
+      const t = expr.trim();
+      if (!t || t.length > MAX_EVAL_LEN) return null;
+      const safe = t.replace(/\s+/g, '');
+      if (!/^[\d+\-*/().]+$/.test(safe)) return null;
+      try {
+        return Function(`"use strict"; return (${t})`)();
+      } catch {
+        return null;
+      }
+    }
+
+    el('convertUnitBtn').addEventListener('click', () => {
+      const val = parseFloat(el('unitValue').value);
+      const from = el('unitFrom').value;
+      const to = el('unitTo').value;
+      const out = el('unitResult');
+      if (Number.isNaN(val)) {
+        out.textContent = 'Result: invalid value';
+        return;
+      }
+      const r = convertUnitValue(val, from, to);
+      out.textContent = r != null ? `Result: ${r}` : 'Result: unsupported pair';
+    });
+
+    el('evalExprBtn').addEventListener('click', () => {
+      const raw = el('exprInput').value;
+      const out = el('exprResult');
+      const r = safeNumericEval(raw);
+      out.textContent = r != null && Number.isFinite(r) ? `Result: ${r}` : 'Result: only digits, + - * / ( ) allowed';
+    });
+
+    const SIDEBAR_TEMPLATES = [
+      ['Quadratic', 'x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}'],
+      ['Integral', '\\int_a^b f(x)\\,dx'],
+      ['Sum', '\\sum_{n=1}^{\\infty} a_n'],
+      ['Limit sin/x', '\\lim_{x \\to 0} \\frac{\\sin x}{x}'],
+      ['2×2 matrix', '\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}'],
+      ['Delimited block', '⟦\\frac{a}{b}⟧'],
+      ['Cases', '\\begin{cases} x & x>0 \\\\ -x & x \\le 0 \\end{cases}'],
+      ['Norm', '\\lVert x \\rVert'],
+    ];
+    const tg = el('templateGrid');
+    SIDEBAR_TEMPLATES.forEach(([label, tex]) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'template-btn';
+      b.textContent = label;
+      b.title = tex;
+      b.addEventListener('click', () => insertLatex(tex));
+      tg.appendChild(b);
+    });
+
+    function fillTableDemo() {
+      const tc = el('tableContent');
+      tc.innerHTML = `
+        <p class="hint">Plain-line notation preview (type similar text in the editor).</p>
+        <table class="demo-table" style="width:100%;border-collapse:collapse;font-size:0.9rem">
+          <thead><tr><th style="text-align:left;border-bottom:1px solid var(--border);padding:0.35rem">Input style</th><th style="text-align:left;border-bottom:1px solid var(--border);padding:0.35rem">Meaning</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:0.35rem;border-bottom:1px solid var(--border)"><code>H2 + O2 -> H2O</code></td><td style="padding:0.35rem;border-bottom:1px solid var(--border)">Reaction arrow + subscripts</td></tr>
+            <tr><td style="padding:0.35rem;border-bottom:1px solid var(--border)"><code>1/2 + sqrt(2)</code></td><td style="padding:0.35rem;border-bottom:1px solid var(--border)">Fraction + root</td></tr>
+            <tr><td style="padding:0.35rem;border-bottom:1px solid var(--border)"><code>alpha + beta</code></td><td style="padding:0.35rem;border-bottom:1px solid var(--border)">Greek names → symbols</td></tr>
+            <tr><td style="padding:0.35rem;border-bottom:1px solid var(--border)"><code>5 km to mi</code></td><td style="padding:0.35rem;border-bottom:1px solid var(--border)">Inline unit phrase</td></tr>
+            <tr><td style="padding:0.35rem;border-bottom:1px solid var(--border)"><code>{matrix}1 2|3 4{/matrix}</code></td><td style="padding:0.35rem;border-bottom:1px solid var(--border)">Pseudo-matrix</td></tr>
+          </tbody>
+        </table>`;
+    }
+
+    function fillExampleShowcase() {
+      const ec = el('exampleContent');
+      ec.innerHTML = `
+        <ul style="margin:0;padding-left:1.1rem;line-height:1.55">
+          <li><strong>Delimiters</strong> — wrap true LaTeX in your open/close markers so mixed notes stay readable.</li>
+          <li><strong>Notation fallback</strong> — chemistry subscripts, arrows, Greek, and “5 km to mi” work on plain lines.</li>
+          <li><strong>Eq #</strong> — toggles numbers on lines that look like equations (contain <code>=</code>).</li>
+          <li><strong>Periodic hover</strong> — element symbols in preview can show a quick tooltip (H, C, O, Fe, …).</li>
+          <li><strong>Export</strong> — <strong>More</strong> tab copies wrapped LaTeX for documents.</li>
+        </ul>`;
+    }
+
+    const tableWin = el('tableWindow');
+    const exampleWin = el('exampleWindow');
+    let activeOverlay = null;
+    let overlayTabHandler = null;
+    let modalPrevFocus = null;
+
+    function getFocusables(root) {
+      return [...root.querySelectorAll('button, [href], input:not([type="hidden"]), select, textarea, [tabindex]:not([tabindex="-1"])')].filter(
+        (node) => !node.disabled && node.getAttribute('aria-hidden') !== 'true' && (node.offsetParent !== null || node === document.activeElement),
+      );
+    }
+
+    function openOverlay(win) {
+      if (activeOverlay && activeOverlay !== win) closeOverlay(activeOverlay);
+      activeOverlay = win;
+      modalPrevFocus = document.activeElement;
+      const isDlg = win.tagName === 'DIALOG';
+      if (isDlg) {
+        win.showModal();
+      } else {
+        win.classList.add('active');
+      }
+      requestAnimationFrame(() => {
+        const f = getFocusables(win);
+        const btn = win.querySelector('.close-window-btn');
+        (f[0] || btn || win).focus?.();
+      });
+      if (overlayTabHandler) document.removeEventListener('keydown', overlayTabHandler, true);
+      overlayTabHandler = (e) => {
+        if (!activeOverlay) return;
+        if (win.tagName === 'DIALOG') {
+          if (!win.open) return;
+        } else if (!win.classList.contains('active')) return;
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          closeOverlay(win);
+          return;
+        }
+        if (e.key !== 'Tab') return;
+        const list = getFocusables(win);
+        if (list.length === 0) return;
+        const first = list[0];
+        const last = list[list.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first || !list.includes(document.activeElement)) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      };
+      document.addEventListener('keydown', overlayTabHandler, true);
+    }
+
+    function closeOverlay(win) {
+      if (win) {
+        if (win.tagName === 'DIALOG') win.close();
+        else win.classList.remove('active');
+      }
+      if (overlayTabHandler) {
+        document.removeEventListener('keydown', overlayTabHandler, true);
+        overlayTabHandler = null;
+      }
+      activeOverlay = null;
+      if (modalPrevFocus && typeof modalPrevFocus.focus === 'function') {
+        try {
+          modalPrevFocus.focus();
+        } catch (_) {}
+      }
+      modalPrevFocus = null;
+    }
+
+    el('showTableWinBtn').addEventListener('click', () => {
+      fillTableDemo();
+      openOverlay(tableWin);
+    });
+    el('showExampleWinBtn').addEventListener('click', () => {
+      fillExampleShowcase();
+      openOverlay(exampleWin);
+    });
+    document.querySelectorAll('.close-window-btn').forEach((btn) => {
+      btn.addEventListener('click', () => closeOverlay(btn.closest('.newWindow')));
+    });
+    [tableWin, exampleWin].forEach((w) => {
+      w.addEventListener('click', (e) => {
+        if (e.target === w) closeOverlay(w);
+      });
+    });
+
+    let periodicTipEl = null;
+    function periodicTooltipEnsure() {
+      if (!periodicTipEl) {
+        periodicTipEl = document.createElement('div');
+        periodicTipEl.className = 'tooltip-live';
+        periodicTipEl.hidden = true;
+        document.body.appendChild(periodicTipEl);
+      }
+      return periodicTipEl;
+    }
+    function wirePeriodicHover(root) {
+      root.addEventListener('mouseover', (e) => {
+        const sp = e.target.closest('.periodic-hover');
+        if (!sp || !root.contains(sp)) return;
+        const sym = sp.dataset.element;
+        const d = periodicData[sym];
+        if (!d) return;
+        const tip = periodicTooltipEnsure();
+        tip.textContent = `${d.name} — atomic mass ≈ ${d.mass}${d.config ? ` — ${d.config}` : ''}`;
+        tip.hidden = false;
+        const r = sp.getBoundingClientRect();
+        tip.style.left = `${Math.min(window.innerWidth - 220, Math.max(8, r.left))}px`;
+        tip.style.top = `${r.bottom + 6}px`;
+      });
+      root.addEventListener('mouseout', (e) => {
+        const sp = e.target.closest('.periodic-hover');
+        if (!sp || !root.contains(sp)) return;
+        const rel = e.relatedTarget;
+        if (rel && sp.contains(rel)) return;
+        if (periodicTipEl) periodicTipEl.hidden = true;
+      });
+    }
+    wirePeriodicHover(preview);
+    wirePeriodicHover(previewZoom);
+
+    renderInputHistory();
+
+    async function registerOfflineCaches() {
+      if (!('serviceWorker' in navigator)) {
+        logDebug('SW: not supported');
+        return;
+      }
+      if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+        logDebug('SW: skipped (use https or localhost)');
+        return;
+      }
+      const swCode = [
+        "const CACHE='latex-tool-cdn-v1';",
+        'self.addEventListener("install",(e)=>self.skipWaiting());',
+        'self.addEventListener("activate",(e)=>e.waitUntil(self.clients.claim()));',
+        'self.addEventListener("fetch",(e)=>{',
+        'const u=e.request.url;',
+        'if(!u.includes("cdn.jsdelivr.net"))return;',
+        'e.respondWith(fetch(e.request).then((res)=>{const c=res.clone();caches.open(CACHE).then((x)=>x.put(e.request,c));return res;}).catch(()=>caches.match(e.request)));',
+        '});',
+      ].join('');
+      try {
+        const reg = await navigator.serviceWorker.register(URL.createObjectURL(new Blob([swCode], { type: 'application/javascript' })));
+        logDebug('SW registered', reg.scope);
+      } catch (err) {
+        logDebug('SW register failed (blob SW may be blocked)', err?.message || err);
+      }
+    }
+
+    requestAnimationFrame(() => {
+      if (typeof katex === 'undefined') {
+        document.getElementById('cdn-error-banner')?.classList.add('active');
+      }
+      if (DEBUG) {
+        document.querySelectorAll('link[integrity],script[integrity]').forEach((node) => {
+          const tag = node.tagName;
+          const integ = node.getAttribute('integrity');
+          const exp = tag === 'LINK' ? CONFIG.expectedSri.katexCss : CONFIG.expectedSri.katexJs;
+          logDebug('SRI', tag, integ === exp ? 'matches CONFIG' : 'differs from CONFIG (check after CDN bump)', integ?.slice(0, 24));
+        });
+      }
+    });
+
+    registerOfflineCaches();
+
+    tryRestoreAutosave();
+    setLatex(latexCode.value || '', false);
+    history = [latexCode.value || ''];
+    histPos = 0;
+    updateUndoRedo();
+    resetCandidates();
+
+    if (RUN_SELF_TEST) {
+      const assert = (ok, m) => {
+        if (ok) console.log('[selftest ok]', m);
+        else console.error('[selftest FAIL]', m);
+      };
+      const pd = parseDelimited('a⟦x⟧b', '⟦', '⟧');
+      assert(pd.length === 3 && pd[1].type === 'math' && pd[1].content === 'x', 'parseDelimited');
+      assert(convertUnitValue(1, 'km', 'm') === 1000, 'convertUnit km→m');
+      assert(Math.abs(convertUnitValue(0, 'C', 'F') - 32) < 0.001, 'convertUnit °C→°F');
+      assert(safeNumericEval('(1+2)*3') === 9, 'safeNumericEval');
+      assert(safeNumericEval('alert(1)') === null, 'safeNumericEval blocks letters');
+      assert(!sanitizeApiError(new Error('a<b>c')).includes('<'), 'sanitize strips angle brackets');
+      const m1 = migrateBundle({ v: 1, document: 'x', delimOpen: '⟦', delimClose: '⟧', engine: 'katex', theme: 'light' });
+      assert(m1 && m1.bundleVersion === 2 && m1.document === 'x', 'migrateBundle v1→2');
+      const m2 = migrateBundle({ bundleVersion: 2, document: 'y', delimOpen: '⟦', delimClose: '⟧', engine: 'mathjax', theme: 'dark', savedAt: 't' });
+      assert(m2 && m2.engine === 'mathjax', 'migrateBundle v2');
+      assert(CONFIG.debouncePreviewMs > 0 && CONFIG.workerParseThresholdChars > 0, 'CONFIG');
+    }
+  </script>
+</body>
+</html>

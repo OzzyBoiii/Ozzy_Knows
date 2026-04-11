@@ -655,6 +655,62 @@
             animation: flicker 0.6s ease-in-out;
         }
 
+        /* Enhanced orange flickering overlay animation */
+        @keyframes orangeFlicker {
+            0% { background-color: rgba(255, 152, 0, 0.5); }
+            25% { background-color: rgba(255, 152, 0, 0.2); }
+            50% { background-color: rgba(255, 152, 0, 0.5); }
+            75% { background-color: rgba(255, 152, 0, 0.2); }
+            100% { background-color: rgba(255, 152, 0, 0); }
+        }
+
+        .folder-item.selected-animation {
+            animation: orangeFlicker 0.8s ease-in-out forwards !important;
+        }
+
+        .file-item.selected-animation {
+            animation: orangeFlicker 0.8s ease-in-out forwards !important;
+        }
+
+        /* Feature window enhancements */
+        .feature-window-wrapper {
+            transition: all 0.3s ease;
+        }
+
+        .feature-window-wrapper.timer-frozen {
+            opacity: 0.95;
+            box-shadow: inset 0 0 20px rgba(255, 152, 0, 0.3);
+        }
+
+        .feature-timer {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff9800, #f09819);
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-left: 8px;
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        .feature-timer.frozen {
+            animation: none;
+            background: #ff6b6b;
+            color: white;
+        }
+
+        /* Section highlighting animation */
+        @keyframes highlightSection {
+            0% { background: rgba(255, 152, 0, 0.5); }
+            50% { background: rgba(255, 152, 0, 0.3); }
+            100% { background: transparent; }
+        }
+
+        section.section-highlight {
+            animation: highlightSection 1s ease-in-out forwards;
+        }
+
         /* Bracket letter coloring - Visible Blue for both O and C */
         .bracket-letter {
             font-weight: bold;
@@ -872,13 +928,21 @@
             width: 100%;
         }
         .newWindow.no-images .title-controls-wrapper {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.7);
-            padding: 8px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.2);
+            position: static;
+            top: auto;
+            right: auto;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+        .newWindow.no-images .title-controls-wrapper.no-images-injected {
+            position: static;
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+            display: flex;
         }
         .window-column {
             display: flex;
@@ -932,20 +996,32 @@
             max-height: none !important;
         }
         .newWindow.no-images .no-images-left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
             min-width: 0;
             overflow: hidden;
         }
         .newWindow.no-images .no-images-heading {
             margin: 0;
-            font-size: 1rem;
-            color: #f8fafc;
+            font-size: 1.3rem; /* match .title-grid-container h3 */
+            color: #ffeb3b; /* match headline color for consistency */
             font-weight: 700;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .newWindow.no-images .no-images-title-text {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .newWindow.no-images .title-controls-wrapper.no-images-injected {
+            display: flex;
+            gap: 8px;
         }
         .newWindow.no-images .no-images-right {
             display: flex;
@@ -1167,6 +1243,84 @@
             border-left: 4px solid #3b82f6;
         }
 
+        /* ========== FEATURE PLACEHOLDERS ========== */
+        .feature-placeholder {
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+        }
+        .feature-placeholder:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .feature-placeholder[data-feature="table"] {
+            background: linear-gradient(135deg, rgba(26,58,82,0.9), rgba(15,25,45,0.9));
+            border: 2px solid #ff9800;
+            color: #ffeb3b;
+        }
+        .feature-placeholder[data-feature="example"] {
+            background: linear-gradient(135deg, rgba(26,58,82,0.9), rgba(0,80,100,0.9));
+            border: 2px solid #00c2cb;
+            color: #00c2cb;
+        }
+
+        /* ========== SPECIAL SYMBOLS DISPLAY ========== */
+        .symbol-display {
+            background: rgba(15,25,45,0.95);
+            border: 1px solid #64e3ff;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Segoe UI Symbol', 'Apple Color Emoji', serif;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            gap: 15px;
+            line-height: 1.8;
+        }
+        .symbol-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background: rgba(30,41,59,0.8);
+            border-radius: 8px;
+            color: #fcd34d;
+            font-size: 1.3em;
+            border: 1px solid rgba(100,227,255,0.2);
+            transition: all 0.2s ease;
+        }
+        .symbol-item:hover {
+            background: rgba(60,71,89,0.95);
+            border-color: rgba(100,227,255,0.6);
+            transform: scale(1.1);
+        }
+
+        /* ========== DELIMITER MARKERS DISPLAY ========== */
+        .delimiter-info {
+            background: rgba(30,41,59,0.85);
+            border-left: 4px solid #64e3ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #e2e8f0;
+            font-family: 'Courier New', monospace;
+        }
+        .delimiter-marker {
+            display: inline-block;
+            background: #ff9800;
+            color: #000;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 0.9em;
+        }
+
         /* ========== LIGHTBOX ========== */
         .lightbox-overlay {
             position: fixed;
@@ -1379,6 +1533,37 @@
         }
         .folder-header:hover { background: rgba(255,152,0,0.3); }
         .folder-name { font-weight: bold; color: #ff9800; }
+        .folder-name .folder-name-num {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        .folder-name { position: relative; }
+        .status-list li .status-overview-timer {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.82rem;
+            color: #7dd3fc;
+            background: rgba(0,0,0,0.35);
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid rgba(100, 227, 255, 0.35);
+            min-width: 72px;
+            text-align: center;
+        }
+        .obsidian-gem {
+            display: inline-block;
+            margin-left: 4px;
+            font-size: 0.75em;
+            color: #a78bfa;
+            vertical-align: middle;
+            line-height: 1;
+        }
         .folder-count { color: #94a3b8; font-size: 0.9rem; }
         .folder-item .thumbnail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 6px; margin-top: 8px; }
         .folder-item .thumb { border-radius: 8px; border: 1px solid rgba(255,255,255,0.14); overflow: hidden; background:#0f172a; min-height:65px; display:flex; align-items:center; justify-content:center; color:#cbd5e1; font-size:0.7rem; }
@@ -1861,6 +2046,7 @@
 <div class="fixed-top-buttons" id="fixedTopButtons">
     <button class="button-87" onclick="toggleWindow('polyWindow')"><i class="fas fa-calendar-alt"></i> Schedule Monitor</button>
     <button class="button-87" onclick="toggleStatusOverview()"><i class="fas fa-clock"></i> View Status</button>
+    <button class="button-87" onclick="displaySymbolReference()"><i class="fas fa-book"></i> Symbol Guide</button>
     <button class="button-87" onclick="document.getElementById('featuresModal').classList.add('active'); document.body.style.overflow='hidden';"><i class="fas fa-cubes"></i> All Features</button>
 </div>
 
@@ -1902,7 +2088,7 @@
             <h1 id="sec-title"><i class="fas fa-shield-alt"></i> Secure Access</h1>
             <p>Enter master key to unlock protected features</p>
         </div>
-        <div class="security-body">
+        <form class="security-body" onsubmit="return false;">
             <div class="password-group">
                 <input type="password" id="sec-password-input" class="password-input"
                        placeholder="••••••••" autocomplete="off" maxlength="32"
@@ -1911,15 +2097,15 @@
                     <i class="fas fa-eye"></i>
                 </button>
             </div>
-            <button class="login-button-sec" id="sec-login-btn">
+            <button type="button" class="login-button-sec" id="sec-login-btn">
                 <i class="fas fa-unlock-alt"></i> Unlock
             </button>
             <div id="sec-error-msg" class="sec-error-msg"></div>
             <div id="sec-attempts-info" class="sec-attempts-info"></div>
             <div style="text-align:center; margin-top: 1rem;">
-                <button class="sec-cancel-btn" id="sec-cancel-btn">Cancel</button>
+                <button type="button" class="sec-cancel-btn" id="sec-cancel-btn">Cancel</button>
             </div>
-        </div>
+        </form>
     </div>
     <div id="sec-lockout-container" class="security-container hidden">
         <div class="lockout-screen">
@@ -1983,6 +2169,7 @@
 <div id="coreWindow" class="core-window" role="dialog" aria-modal="true" aria-label="Core Manager">
     <div class="core-header">
         <h3><i class="fas fa-database"></i> The Core – Folder Manager</h3>
+        <span class="feature-timer" id="coreTimer" style="display:none; font-size:0.85rem; color:#60a5fa; font-weight:bold; margin-right:10px;">10s</span>
         <button class="close-btn" id="coreCloseBtn">Close</button>
     </div>
     <div class="core-content">
@@ -2026,6 +2213,7 @@
 <div id="statusOverview" class="status-overview-window" role="dialog" aria-modal="true" aria-label="Status Overview">
     <div class="window-header">
         <h3>Status Overview</h3>
+        <span class="feature-timer" id="statusTimer" style="display:none; font-size:0.85rem; color:#60a5fa; font-weight:bold; margin-right:10px;">10s</span>
         <button class="close-btn" id="statusOverviewCloseBtn">Close</button>
     </div>
     <div class="status-categories">
@@ -2047,7 +2235,7 @@
 <!-- ========== POLYPHASIC WINDOW ========== -->
 <div id="polyWindow" class="poly-window" role="dialog" aria-modal="true" aria-label="Polyphasic Schedule">
     <div class="poly-header">
-        <h2><i class="fas fa-moon"></i> Schedule Monitor</h2>
+        <h2><i class="fas fa-moon"></i> Schedule Monitor <span class="feature-timer" id="polyTimer" style="display:none; font-size:0.85rem; color:#60a5fa; font-weight:bold; margin-left:10px;">10s</span></h2>
         <button class="button-87" data-toggle-window="polyWindow" style="margin:0;padding:8px 18px;">Close</button>
     </div>
     <div class="poly-body">
@@ -2116,7 +2304,7 @@
 
 <!-- ========== LIGHTBOX ========== -->
 <div id="lightboxOverlay" class="lightbox-overlay" onclick="closeLightbox()">
-    <img id="lightboxImage" class="lightbox-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBA==" alt="lightbox preview" draggable="false" onwheel="lightboxZoom(event)" onmousedown="startLightboxDrag(event)" onmousemove="lightboxDrag(event)" onmouseup="stopLightboxDrag()" onmouseleave="stopLightboxDrag()">
+    <img id="lightboxImage" class="lightbox-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBA==" alt="lightbox preview" draggable="false" onmousedown="startLightboxDrag(event)" onmousemove="lightboxDrag(event)" onmouseup="stopLightboxDrag()" onmouseleave="stopLightboxDrag()">
 </div>
 
 <!-- ========== ALL FEATURES MODAL ========== -->
@@ -2135,8 +2323,9 @@
             <h1 id="mainTitle">Osnovni izgled Stranice (SPOREDNI PREDMET)</h1>
             <div class="text-container">
                 <button class="button-87" onclick="openVSCode()" title="Open Visual Studio Code"><i class="fas fa-code"></i></button>
-                <button class="button-87" onclick="openLocalhost()" title="Open Localhost"><i class="fas fa-server"></i></button>
-                <button class="button-87" id="openCoreBtn" title="Open folder manager"><i class="fas fa-folder-open"></i></button>
+                <button class="button-87" onclick="openLocalhost()" title="Open Localhost (http://localhost:8080)"><i class="fas fa-server"></i></button>
+                <button class="button-87" id="openCoreBtn" type="button" title="Open subject summaries in Obsidian — Shift+click: folder manager"><i class="fas fa-book"></i><span class="obsidian-gem" aria-hidden="true">◆</span></button>
+                <button class="button-87" id="coreManagerBtn" type="button" title="Open Core Folder Manager — Requires Master Key"><i class="fas fa-folder-open"></i></button>
             </div>
         </div>
     </div>
@@ -2146,7 +2335,7 @@
 <section>
     <div class="container reveal fade-bottom">
         <div class="section-header">
-            <h1>Content summary</h1>
+            <h1 id="contentSummaryHeading">Content summary</h1>
         </div>
         <div class="text-container">
             <div class="text-box">
@@ -2181,13 +2370,13 @@
         <div class="image-container">
             <div class="image-square">
                 <div class="image-display" onclick="openLightbox(this)">
-                    <img src="https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Geometric+Representation" class="zoomable-image" alt="Geometric">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='%231a2a6c' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='%23ffffff'%3EGeometric Representation%3C/text%3E%3C/svg%3E" class="zoomable-image" alt="Geometric">
                 </div>
                 <div class="image-info"><h3>Geometric Representation</h3></div>
             </div>
             <div class="image-square">
                 <div class="image-display" onclick="openLightbox(this)">
-                    <img src="https://via.placeholder.com/600x400/2a5298/ffffff?text=Perpendicular+Construction" class="zoomable-image" alt="Perpendicular">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='%232a5298' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='%23ffffff'%3EPerpendicular Construction%3C/text%3E%3C/svg%3E" class="zoomable-image" alt="Perpendicular">
                 </div>
                 <div class="image-info"><h3>Perpendicular Construction</h3></div>
             </div>
@@ -2284,7 +2473,7 @@
         <div class="image-container">
             <div class="image-square">
                 <div class="image-display" onclick="openLightbox(this)">
-                    <img src="https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Wave+Graph" class="zoomable-image" alt="Wave">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='%231a2a6c' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='%23ffffff'%3EWave Graph%3C/text%3E%3C/svg%3E" class="zoomable-image" alt="Wave">
                 </div>
                 <div class="image-info"><h3>Wave Visualizer</h3></div>
             </div>
@@ -2330,7 +2519,7 @@
         <div class="image-container">
             <div class="image-square">
                 <div class="image-display" onclick="openLightbox(this)">
-                    <img src="https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Symbols" class="zoomable-image" alt="Symbols">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='%231a2a6c' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='%23ffffff'%3ESymbols%3C/text%3E%3C/svg%3E" class="zoomable-image" alt="Symbols">
                 </div>
                 <div class="image-info"><h3>Symbol Guide</h3></div>
             </div>
@@ -2498,6 +2687,57 @@
         return hasText || hasValidImage;
     }
 
+    function extractNumber(str) {
+        if (!str) return 0;
+        const match = str.match(/\d+/);
+        return match ? parseInt(match[0], 10) : 0;
+    }
+
+    /** Normalize folder path so Course/Biology/… and Biology/… dedupe as the same section tree */
+    function canonicalFolderPath(folderId) {
+        if (!folderId) return '';
+        return folderId.replace(/^Course\//i, '').replace(/\\/g, '/').toLowerCase();
+    }
+
+    /** First course subject (e.g. Kemija) or first path segment — for grouping lists */
+    function getFolderGroupKey(folderId) {
+        const parts = folderId.split('/').filter(Boolean);
+        if (parts[0] && parts[0].toLowerCase() === 'course' && parts[1]) return parts[1].toLowerCase();
+        return (parts[0] || 'zzz').toLowerCase();
+    }
+
+    function folderDisplayNameRaw(folder) {
+        return folder.name || friendlyFolderName(folder.id);
+    }
+
+    function folderDisplayNameVisible(folder) {
+        const n = folderDisplayNameRaw(folder);
+        const stripped = n.replace(/^\d+\s+/, '').trim();
+        return stripped || n;
+    }
+
+    function leadingNumFromFolderName(name) {
+        const m = (name || '').match(/^(\d+)/);
+        return m ? parseInt(m[1], 10) : Infinity;
+    }
+
+    function compareFoldersForDisplay(a, b) {
+        const g = getFolderGroupKey(a.id).localeCompare(getFolderGroupKey(b.id));
+        if (g !== 0) return g;
+        const an = leadingNumFromFolderName(folderDisplayNameRaw(a));
+        const bn = leadingNumFromFolderName(folderDisplayNameRaw(b));
+        if (an !== bn) return an - bn;
+        return folderDisplayNameRaw(a).localeCompare(folderDisplayNameRaw(b), undefined, { numeric: true, sensitivity: 'base' });
+    }
+
+    function flashSectionHighlight(sectionId) {
+        const targetSection = document.getElementById(sectionId);
+        if (!targetSection) return;
+        targetSection.style.transition = 'background 0.5s';
+        targetSection.style.background = 'rgba(255,152,0,0.28)';
+        setTimeout(() => { targetSection.style.background = ''; }, 1000);
+    }
+
     // === SPLASH ===
     function initSplash() {
         const names = [
@@ -2655,12 +2895,107 @@
                 state.secLockoutUntil = 0;
                 state.secFailedAttempts = 0;
                 store.del('secLockout');
-                store.set('secAttempts','0');I
+                store.set('secAttempts','0');
                 showLoginScreen();
             }
         };
         update();
         state.secLockoutTimer = setInterval(update, 200);
+    }
+
+    // === SYMBOL REFERENCE DISPLAY ===
+    function displaySymbolReference() {
+        const win = document.createElement('div');
+        win.id = 'symbol-ref-' + Date.now();
+        win.className = 'newWindow';
+        win.style.zIndex = '5000';
+
+        const symbolContent = `
+            <div style="padding:20px; color:#e2e8f0; line-height:1.8;">
+                <h2 style="color:#ffeb3b; border-bottom:2px solid #ff9800; margin-bottom:20px;">📖 TXT to HTML Converter Guide</h2>
+
+                <h3 style="color:#64e3ff; margin-top:25px; margin-bottom:10px;">🎯 Delimiters</h3>
+                <div class="delimiter-info">
+                    <div><span class="delimiter-marker">&amp;</span> — Main window display / Initialize main content</div>
+                    <div style="margin-top:8px;"><span class="delimiter-marker">§</span> — End text segment / Break content section</div>
+                    <div style="margin-top:8px;"><span class="delimiter-marker">ˇ</span> — New window display / Open in separate window</div>
+                    <div style="margin-top:8px;"><span class="delimiter-marker">..</span> — Replace with dot and line break</div>
+                    <div style="margin-top:8px;"><span class="delimiter-marker">@label@</span> — Set button name for segment</div>
+                </div>
+
+                <h3 style="color:#64e3ff; margin-top:25px; margin-bottom:10px;">📊 Special Features</h3>
+                <div class="delimiter-info">
+                    <div><strong>(TABLE 1)</strong> — Display formatted table placeholder</div>
+                    <div style="margin-top:8px;"><strong>(TABLICA N)</strong> — Croatian/formatted table header</div>
+                    <div style="margin-top:8px;"><strong>(SLIKA N)</strong> — Image/figure reference</div>
+                    <div style="margin-top:8px;"><strong>&#38;(2x3)</strong> — Generate 2×3 table grid</div>
+                    <div style="margin-top:8px;"><strong>\`code\`</strong> — Inline code formatting</div>
+                    <div style="margin-top:8px;"><strong>\$\$math\$\$</strong> — Block mathematical expression</div>
+                </div>
+
+                <h3 style="color:#64e3ff; margin-top:25px; margin-bottom:10px;">✨ Common Symbols</h3>
+                <div class="symbol-display">
+                    <div class="symbol-item" title="Alpha">α</div>
+                    <div class="symbol-item" title="Beta">β</div>
+                    <div class="symbol-item" title="Gamma">γ</div>
+                    <div class="symbol-item" title="Delta">δ</div>
+                    <div class="symbol-item" title="Epsilon">ε</div>
+                    <div class="symbol-item" title="Sigma">σ</div>
+                    <div class="symbol-item" title="Integral">∫</div>
+                    <div class="symbol-item" title="Sum">∑</div>
+                    <div class="symbol-item" title="Product">∏</div>
+                    <div class="symbol-item" title="Square root">√</div>
+                    <div class="symbol-item" title="Infinity">∞</div>
+                    <div class="symbol-item" title="Element of">∈</div>
+                    <div class="symbol-item" title="Not element of">∉</div>
+                    <div class="symbol-item" title="Approximately">≈</div>
+                    <div class="symbol-item" title="Less than or equal">≤</div>
+                    <div class="symbol-item" title="Greater than or equal">≥</div>
+                    <div class="symbol-item" title="Proportional">∝</div>
+                    <div class="symbol-item" title="Therefore">∴</div>
+                    <div class="symbol-item" title="Because">∵</div>
+                    <div class="symbol-item" title="Implies">⇒</div>
+                </div>
+
+                <h3 style="color:#64e3ff; margin-top:25px; margin-bottom:10px;">📚 Formatting Examples</h3>
+                <div style="background:rgba(30,41,59,0.8); padding:15px; border-radius:8px; font-family:monospace; font-size:0.9em;">
+                    <div><strong>**bold**</strong> → <strong style="color:#ffeb3b;">bold text</strong></div>
+                    <div>*italic* → <em style="color:#64e3ff;">italic text</em></div>
+                    <div>__underline__ → <u style="text-decoration:underline;">underlined text</u></div>
+                    <div># Heading # → Large formatted heading</div>
+                    <div>● Bullet → Colored bullet point</div>
+                    <div>1. Number → Numbered list item</div>
+                </div>
+
+                <div style="margin-top:25px; padding:15px; background:linear-gradient(135deg, rgba(255,152,0,0.2), rgba(0,194,203,0.2)); border-left:4px solid #ff9800; border-radius:8px;">
+                    <strong style="color:#ffeb3b;">💡 Pro Tip:</strong> Combine delimiters and special features for professional document formatting.
+                </div>
+            </div>
+        `;
+
+        win.innerHTML = `
+            <div class="content-container" style="width:100%; padding:0;">
+                <div class="text-controls-container">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h2 style="color:#ffeb3b; margin:0;">Symbol & Delimiter Reference</h2>
+                        <button class="title-control-btn" onclick="document.getElementById('${win.id}').remove(); document.body.style.overflow='';" style="cursor:pointer;">✕ Close</button>
+                    </div>
+                </div>
+                <div class="text-content" style="max-height:calc(100vh - 150px); overflow-y:auto;">
+                    ${symbolContent}
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(win);
+        win.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        state.openWindows.push(win.id);
+        if (state.openWindows.length > 8) {
+            const oldId = state.openWindows.shift();
+            const oldWin = document.getElementById(oldId);
+            if (oldWin) oldWin.remove();
+        }
     }
 
     // === DEBUG PANEL ===
@@ -2778,10 +3113,15 @@
     function toggleStatusOverview() {
         const win = $('statusOverview');
         if (win.classList.contains('active')) {
+            updateTimerDisplay('statusOverview', false);
             win.classList.remove('active');
             document.body.style.overflow = '';
+            if (state.featureWindowTimerFrozen && state.featureWindowOpenedFrom === 'statusOverview') {
+                restoreFeatureWindow();
+            }
         } else {
             closeAllWindows();
+            updateTimerDisplay('statusOverview', true);
             win.classList.add('active');
             document.body.style.overflow = 'hidden';
             populateStatusOverview();
@@ -2789,17 +3129,32 @@
     }
     function populateStatusOverview() {
         const gl = $('green-list'), yl = $('yellow-list'), rl = $('red-list');
+        if (!gl || !yl || !rl) return;
         gl.innerHTML = yl.innerHTML = rl.innerHTML = '';
+        const now = Date.now();
         Object.entries(state.sectionData).forEach(([id, data]) => {
             const li = document.createElement('li');
-            let cls, hours = 9999;
+            let cls;
             if (!data.lastOpened) { cls = 'status-red'; }
             else {
-                hours = (Date.now() - data.lastOpened) / 3600000;
+                const hours = (now - data.lastOpened) / 3600000;
                 cls = hours <= 36 ? 'status-green' : hours <= 96 ? 'status-yellow' : 'status-red';
             }
-            const diff = data.lastOpened ? formatTimeDiff(Date.now() - data.lastOpened) : 'Never';
-            li.innerHTML = `<span><div class="status-indicator ${cls}" style="width:12px;height:12px;margin-right:8px;border-radius:50%;"></div><a href="#${id}" onclick="closeStatusOverview()">${data.name}</a></span><span>${diff}</span>`;
+            const diff = data.lastOpened ? formatTimeDiff(now - data.lastOpened) : 'Never';
+            const label = escapeHtml(data.name || id);
+            li.innerHTML = `<span style="display:flex;align-items:center;gap:8px;min-width:0;"><div class="status-indicator ${cls}" style="width:12px;height:12px;flex-shrink:0;border-radius:50%;"></div><a href="#${id}" style="color:#e2e8f0;">${label}</a></span><span class="status-overview-timer" data-section-id="${id}">${diff}</span>`;
+            const link = li.querySelector('a');
+            if (link) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    closeStatusOverview();
+                    const sec = document.getElementById(id);
+                    if (sec) {
+                        sec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        flashSectionHighlight(id);
+                    }
+                });
+            }
             if (cls === 'status-green') gl.appendChild(li);
             else if (cls === 'status-yellow') yl.appendChild(li);
             else rl.appendChild(li);
@@ -2815,18 +3170,56 @@
     };
 
     // === WINDOW MANAGEMENT ===
+    function updateTimerDisplay(windowId, show = true) {
+        const timerMap = {
+            'polyWindow': 'polyTimer',
+            'statusOverview': 'statusTimer',
+            'coreWindow': 'coreTimer'
+        };
+        const timerId = timerMap[windowId];
+        if (timerId) {
+            const timerEl = $(timerId);
+            if (timerEl) {
+                timerEl.style.display = show ? 'inline' : 'none';
+                // Link to FEATURE_WINDOW_STATE for timer updates
+                if (show) {
+                    window.FEATURE_WINDOW_STATE = window.FEATURE_WINDOW_STATE || {};
+                    window.FEATURE_WINDOW_STATE.timerElement = timerEl;
+                    window.FEATURE_WINDOW_STATE.timerValue = 10;
+                }
+            }
+        }
+    }
+
     function toggleWindow(windowId) {
+        if (windowId === 'featuresModal') {
+            const modal = $('featuresModal');
+            if (!modal) return;
+            if (modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                if (state.featureWindowTimerFrozen && state.featureWindowOpenedFrom === 'featuresModal') {
+                    restoreFeatureWindow();
+                }
+            } else {
+                closeAllWindows();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            return;
+        }
         const win = $(windowId);
         if (!win) return;
         if (win.classList.contains('active')) {
+            updateTimerDisplay(windowId, false);
             win.classList.remove('active');
             document.body.style.overflow = '';
-            // If this window was opened from Feature-Window, restore it
             if (state.featureWindowTimerFrozen && state.featureWindowOpenedFrom === windowId) {
                 restoreFeatureWindow();
             }
         } else {
             closeAllWindows();
+            updateTimerDisplay(windowId, true);
             win.classList.add('active');
             document.body.style.overflow = 'hidden';
             if (windowId === 'newWindow_3') initExampleSlider();
@@ -2834,6 +3227,13 @@
     }
     function closeAllWindows() {
         document.querySelectorAll('.newWindow.active, .status-overview-window.active, .core-window.active, .poly-window.active').forEach(w => w.classList.remove('active'));
+        const fm = $('featuresModal');
+        if (fm && fm.classList.contains('active')) {
+            fm.classList.remove('active');
+            if (state.featureWindowTimerFrozen && state.featureWindowOpenedFrom === 'featuresModal') {
+                restoreFeatureWindow();
+            }
+        }
         document.body.style.overflow = '';
     }
 
@@ -2927,8 +3327,7 @@
                     const targetSection = document.getElementById(r.sectionId);
                     if (targetSection) {
                         targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        // Find the summary text within this section and add flicker
-                        const summaryLine = document.querySelector(`[data-section-id="${r.sectionId}"]`)?.closest('.summary-line');
+                        const summaryLine = document.querySelector(`a[href="#${r.sectionId}"]`)?.closest('.summary-line');
                         if (summaryLine) {
                             const summaryText = summaryLine.querySelector('.summary-text');
                             if (summaryText) {
@@ -2936,9 +3335,8 @@
                                 setTimeout(() => summaryText.classList.remove('flickering'), 600);
                             }
                         }
-                        targetSection.style.transition = 'background 0.5s';
-                        targetSection.style.background = 'rgba(255,152,0,0.3)';
-                        setTimeout(() => targetSection.style.background = '', 1000);
+                        flashSectionHighlight(r.sectionId);
+                        setActiveSection(r.sectionId);
                     }
                     input.value = '';
                     results.style.display = 'none';
@@ -3196,6 +3594,7 @@
     function initCoreManager() {
         const coreWindow = $('coreWindow');
         const openCoreBtn = $('openCoreBtn');
+        const coreManagerBtn = $('coreManagerBtn');
         const closeCoreBtn = $('coreCloseBtn');
         const addFoldersBtn = $('coreAddFoldersBtn');
         const deleteSelectedBtn = $('coreDeleteSelectedBtn');
@@ -3207,16 +3606,28 @@
             showToast('Your browser does not support folder upload. Try Chrome/Edge.', 5000);
         }
 
-        openCoreBtn.addEventListener('click', () => {
-            console.log('openCoreBtn clicked');
+        openCoreBtn.addEventListener('click', (e) => {
+            if (e.shiftKey) {
+                openSecurityOverlay(() => {
+                    updateTimerDisplay('coreWindow', true);
+                    coreWindow.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    renderFolderList();
+                });
+                return;
+            }
+            if (typeof window.openObsidianSummaries === 'function') window.openObsidianSummaries();
+        });
+
+        // Core Manager button requires authentication
+        coreManagerBtn.addEventListener('click', () => {
             openSecurityOverlay(() => {
-                coreWindow.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                renderFolderList();
+                toggleWindow('coreWindow');
             });
         });
 
         closeCoreBtn.addEventListener('click', () => {
+            updateTimerDisplay('coreWindow', false);
             coreWindow.classList.remove('active');
             document.body.style.overflow = '';
         });
@@ -3342,6 +3753,17 @@
             }
 
             for (const [path, newFolder] of finalFolderMap.entries()) {
+                const canon = canonicalFolderPath(path);
+                const dupIdx = state.folders.findIndex(f => canonicalFolderPath(f.id) === canon);
+                if (dupIdx >= 0) {
+                    const existing = state.folders[dupIdx];
+                    const textIds = new Set(existing.textFiles.map(f => f.id));
+                    newFolder.textFiles.forEach(tf => { if (!textIds.has(tf.id)) existing.textFiles.push(tf); });
+                    const imgIds = new Set(existing.imageFiles.map(f => f.id));
+                    newFolder.imageFiles.forEach(img => { if (!imgIds.has(img.id)) existing.imageFiles.push(img); });
+                    existing.name = existing.name || newFolder.name;
+                    continue;
+                }
                 const existingIdx = state.folders.findIndex(f => f.id === path);
                 if (existingIdx >= 0) {
                     const existing = state.folders[existingIdx];
@@ -3498,25 +3920,438 @@
     }
 
     function parseFileContent(text) {
-        let processed = text.replace(/\.\./g, '.<br>');
-        const parts = processed.split(/[§ˇ]/).map(p => p.trim()).filter(p => p.length > 0);
-        return parts.map(part => {
-            let label = null;
-            const m = part.match(/^@([^@]+)@/);
-            if (m) { label = m[1]; part = part.slice(m[0].length).trim(); }
-            const html = part.replace(/&(?:\((\d+)x(\d+)\))?/g, (match, r, c) => {
-                const rows = r ? parseInt(r) : 2, cols = c ? parseInt(c) : 2;
-                let table = '<table style="border:1px solid #ff9800; background:rgba(0,0,0,0.2); margin:10px 0; width:100%;">';
-                for (let i=0; i<rows; i++) {
-                    table += '<tr>';
-                    for (let j=0; j<cols; j++) table += `<td style="border:1px solid #ff9800; padding:8px;">Data ${i+1},${j+1}</td>`;
-                    table += '</tr>';
-                }
-                table += '</table>';
-                return table;
-            }).replace(/\n/g, '<br>');
-            return { label, html };
+        // ========== ADVANCED TXT TO HTML CONVERTER ==========
+        // Handles: &, §, ˇ, .., @label@, tables, and special features
+
+        // Step 1: Parse structure based on delimiters
+        // & = main window | § = end segment | ˇ = new window
+        const segments = [];
+        let currentSegment = { type: 'main', content: '', label: null };
+
+        const lines = text.split(/\r?\n/);
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i];
+            const trimmed = line.trim();
+
+            // Start new main segment with inline content
+            if (trimmed.startsWith('&')) {
+                if (currentSegment.content.trim()) segments.push(currentSegment);
+                const rest = trimmed.substring(1).trim();
+                currentSegment = { type: 'main', content: '', label: null };
+                if (rest) currentSegment.content += rest + '\n';
+                continue;
+            }
+
+            // End segment and continue as main
+            if (trimmed.startsWith('§')) {
+                if (currentSegment.content.trim()) segments.push(currentSegment);
+                const rest = trimmed.substring(1).trim();
+                currentSegment = { type: 'main', content: '', label: null };
+                if (rest) currentSegment.content += rest + '\n';
+                continue;
+            }
+
+            // Start new window segment
+            if (trimmed.startsWith('ˇ')) {
+                if (currentSegment.content.trim()) segments.push(currentSegment);
+                const rest = trimmed.substring(1).trim();
+                currentSegment = { type: 'window', content: '', label: null };
+                if (rest) currentSegment.content += rest + '\n';
+                continue;
+            }
+
+            // Label marker (button label for this segment)
+            const labelMatch = line.match(/^@([^@]+)@/);
+            if (labelMatch) {
+                currentSegment.label = labelMatch[1].trim();
+                const rest = line.slice(labelMatch[0].length).trim();
+                if (rest) currentSegment.content += rest + '\n';
+                continue;
+            }
+
+            // Replace .. with .<br>
+            const processedLine = line.replace(/\.\.$/, '.<br>');
+            currentSegment.content += processedLine + '\n';
+        }
+
+        if (currentSegment.content.trim()) segments.push(currentSegment);
+
+        // Step 2: Convert each segment to HTML with TABLE/EXAMPLE parsing
+        return segments.map((segment, idx) => {
+            // First process the content with TABLE and EXAMPLE parsers
+            let processedContent = processContentWithTableAndExample(segment.content);
+            // Then convert to HTML
+            let html = formatTextToHtml(processedContent);
+            return { label: segment.label, html, type: segment.type };
         });
+    }
+
+    // ========== GLOBAL STATE FOR COUNTERS ==========
+    const parserState = {
+        exampleCounter: 0,
+        tableCounter: 0,
+        allExamples: [],
+        allTables: []
+    };
+
+    function resetParserCounters() {
+        parserState.exampleCounter = 0;
+        parserState.tableCounter = 0;
+        parserState.allExamples = [];
+        parserState.allTables = [];
+    }
+
+    // ========== COMPREHENSIVE TEXT PARSER WITH ALL FEATURES ==========
+    function formatTextToHtml(text) {
+        // Create local protection markers for special content to prevent premature parsing
+        const protectionMap = new Map();
+        let protectionId = 0;
+
+        // ========== PHASE 0: PROTECT SPECIAL CONTENT ==========
+        // Protect code blocks from modification
+        text = text.replace(/```([\s\S]*?)```/g, (match) => {
+            const id = `__PROTECTED_${protectionId++}__`;
+            protectionMap.set(id, match);
+            return id;
+        });
+
+        // Protect math blocks from modification
+        text = text.replace(/\$\$([\s\S]*?)\$\$/g, (match) => {
+            const id = `__PROTECTED_${protectionId++}__`;
+            protectionMap.set(id, match);
+            return id;
+        });
+
+        // ========== PHASE 1: PARSE DYNAMIC (EXAMPLE n) & (TABLE n) ==========
+        text = text.replace(/\(EXAMPLE\s+(\d+)\s*HERE\)/gi, (match, num) => {
+            const exNum = parseInt(num);
+            parserState.exampleCounter = Math.max(parserState.exampleCounter, exNum);
+            const html = createExampleSlider(exNum);
+            parserState.allExamples.push({ num: exNum, html });
+            const protId = `__PROTECTED_${protectionId++}__`;
+            protectionMap.set(protId, html);
+            return protId;
+        });
+
+        text = text.replace(/\(TABLE\s+(\d+)\s*HERE\)/gi, (match, num) => {
+            const tNum = parseInt(num);
+            parserState.tableCounter = Math.max(parserState.tableCounter, tNum);
+            const html = createSampleTable(tNum);
+            parserState.allTables.push({ num: tNum, html });
+            const protId = `__PROTECTED_${protectionId++}__`;
+            protectionMap.set(protId, html);
+            return protId;
+        });
+
+        // Fallback for legacy (EXAMPLE HERE) and (TABLE HERE)
+        text = text.replace(/\(EXAMPLE\s+HERE\)/gi, () => {
+            parserState.exampleCounter++;
+            const html = createExampleSlider(parserState.exampleCounter);
+            parserState.allExamples.push({ num: parserState.exampleCounter, html });
+            const protId = `__PROTECTED_${protectionId++}__`;
+            protectionMap.set(protId, html);
+            return protId;
+        });
+
+        text = text.replace(/^\s*EXAMPLE\s+(\d+)\s+HERE\s*$/gim, (match, numStr) => {
+            const n = parseInt(numStr, 10);
+            if (!Number.isFinite(n) || n < 1) return match;
+            parserState.exampleCounter = Math.max(parserState.exampleCounter, n);
+            const html = createExampleSlider(n);
+            parserState.allExamples.push({ num: n, html });
+            const protId = `__PROTECTED_${protectionId++}__`;
+            protectionMap.set(protId, html);
+            return protId;
+        });
+
+        text = text.replace(/\(TABLE\s+HERE\)/gi, () => {
+            parserState.tableCounter++;
+            const html = createSampleTable(parserState.tableCounter);
+            parserState.allTables.push({ num: parserState.tableCounter, html });
+            const protId = `__PROTECTED_${protectionId++}__`;
+            protectionMap.set(protId, html);
+            return protId;
+        });
+
+        text = text.replace(/^\s*TABLE\s+(\d+)\s+HERE\s*$/gim, (match, numStr) => {
+            const n = parseInt(numStr, 10);
+            if (!Number.isFinite(n) || n < 1) return match;
+            parserState.tableCounter = Math.max(parserState.tableCounter, n);
+            const html = createSampleTable(n);
+            parserState.allTables.push({ num: n, html });
+            const protId = `__PROTECTED_${protectionId++}__`;
+            protectionMap.set(protId, html);
+            return protId;
+        });
+
+        // ========== PHASE 2: PARSE CHEMICAL EQUATIONS ==========
+        // Pattern: 2Na + Cl₂ → 2NaCl or similar
+        text = text.replace(/([A-Z][a-z]?\d*(?:\s*[+→\-]\s*)?)+/g, (match) => {
+            // Check if this looks like a chemical equation
+            if (/[+→]/.test(match) && /[A-Z][a-z]?/.test(match)) {
+                return formatChemicalEquation(match);
+            }
+            return match;
+        });
+
+        // ========== PHASE 3: PARSE TERM-DEFINITION LINKS ==========
+        // Syntax: ~term~ or ~term|display_text~
+        text = text.replace(/~([^~|]+)(?:\|([^~]+))?~/g, (match, term, displayText) => {
+            const target = encodeURIComponent(term.trim().replace(/\s+/g, '_').toLowerCase());
+            const display = displayText ? displayText.trim() : term.trim();
+            return `<a href="glossary.html#${target}" class="term-link" style="color:#ff6b9d; font-weight:600; text-decoration:underline; transition:color 0.2s;" title="Go to glossary">${escapeHtml(display)}</a>`;
+        });
+
+        // ========== PHASE 4: PARSE SPECIAL FORMATTING MARKERS ==========
+        // Bold: Ā...ā
+        text = text.replace(/Ā([^ā]+)ā/g, '<strong style="color:#ffeb3b; font-weight:700;">$1</strong>');
+        // Underline: Ă...ă
+        text = text.replace(/Ă([^ă]+)ă/g, '<u style="text-decoration:underline 2px #64e3ff; color:#64e3ff;">$1</u>');
+        // Italic: Ą...ą
+        text = text.replace(/Ą([^ą]+)ą/g, '<em style="color:#a5b4fc; font-style:italic;">$1</em>');
+        // Superscript: Ć...ć or Ĉ...ĉ
+        text = text.replace(/Ć([^ć]+)ć/g, '<sup style="font-size:0.8em; color:#ffeb3b;">$1</sup>');
+        text = text.replace(/Ĉ([^ĉ]+)ĉ/g, '<sup style="font-size:0.8em; color:#64e3ff;">$1</sup>');
+
+        // ========== PHASE 5: PARSE MATH EXPRESSIONS ==========
+        // Inline math: $...$
+        text = text.replace(/\$([^$\n]+)\$/g, (match, math) => {
+            return `<span style="color:#fcd34d; font-family:'Cambria Math', serif; font-weight:600; letter-spacing:0.5px;">${convertMathSymbols(math)}</span>`;
+        });
+
+        // Extended LaTeX superscript/subscript
+        text = text.replace(/([A-Za-z0-9π∑∫∇∞√])_\{([^}]+)\}/g, '$1<sub style="color:#64e3ff; font-size:0.8em;">$2</sub>');
+        text = text.replace(/([A-Za-z0-9π∑∫∇∞√])\^\{([^}]+)\}/g, '$1<sup style="color:#ffeb3b; font-size:0.8em;">$2</sup>');
+        text = text.replace(/([A-Za-z0-9π∑∫∇∞√])_([A-Za-z0-9])/g, '$1<sub style="color:#64e3ff; font-size:0.85em;">$2</sub>');
+        text = text.replace(/([A-Za-z0-9π∑∫∇∞√])\^([A-Za-z0-9])/g, '$1<sup style="color:#ffeb3b; font-size:0.85em;">$2</sup>');
+
+        // ========== PHASE 6: CONVERT SPECIAL SYMBOLS & GREEK LETTERS ==========
+        text = convertAllMathSymbols(text);
+
+        // ========== PHASE 7: PARSE STRUCTURAL ELEMENTS ==========
+        // Headings
+        text = text.replace(/^###(.+)###$/gm, '<h3 style="color:#ffeb3b; border-bottom:2px solid #ff9800; padding:12px 0; margin:25px 0 15px 0; font-size:1.3em;">$1</h3>');
+        text = text.replace(/^##(.+)##$/gm, '<h2 style="color:#ffeb3b; border-bottom:3px solid #ff9800; padding:15px 0; margin:30px 0 20px 0; font-size:1.5em;">$1</h2>');
+        text = text.replace(/^#(.+)#$/gm, '<h1 style="color:#ffeb3b; border-bottom:4px solid #ff9800; padding:20px 0; margin:35px 0 25px 0; text-align:center; font-size:2em; text-shadow:0 2px 8px rgba(255,152,0,0.4);">$1</h1>');
+
+        // Auto-detect ALL CAPS as headings
+        text = text.replace(/^([A-Z\s\-]{12,})$/gm, (match) => {
+            if (match.trim().length > 12 && match === match.toUpperCase()) {
+                return `<h2 style="color:#ffeb3b; border-bottom:2px solid #ff9800; padding:15px 0; margin:25px 0 15px 0;">${escapeHtml(match.trim())}</h2>`;
+            }
+            return match;
+        });
+
+        // Emphasis
+        text = text.replace(/\*\*(.+?)\*\*/g, '<strong style="color:#ffeb3b; font-weight:700;">$1</strong>');
+        text = text.replace(/\*(.+?)\*/g, '<em style="color:#64e3ff; font-style:italic;">$1</em>');
+        text = text.replace(/__(.+?)__/g, '<u style="color:#ffeb3b; text-decoration:underline 2px;">$1</u>');
+
+        // Horizontal separators
+        text = text.replace(/^={50,}$/gm, '<div style="margin:30px 0; height:3px; background:linear-gradient(90deg, transparent, #ff9800, transparent); border-radius:2px;"></div>');
+        text = text.replace(/^-{20,}$/gm, '<div style="margin:20px 0; height:2px; background:linear-gradient(90deg, transparent, #64e3ff, transparent); border-radius:2px;"></div>');
+
+        // URLs
+        text = text.replace(/(https?:\/\/[^\s<>&]+)/g, '<a href="$1" style="color:#64e3ff; text-decoration:underline;" target="_blank" rel="noopener">🔗 $1</a>');
+
+        // Lists
+        text = text.replace(/^●\s+(.+)$/gm, '<div style="margin:8px 0; padding:8px 0 8px 20px; border-left:3px solid #ffeb3b; color:#ffeb3b;">● $1</div>');
+        text = text.replace(/^○\s+(.+)$/gm, '<div style="margin:6px 0; padding:6px 0 6px 15px; border-left:2px solid #64e3ff; color:#64e3ff;">○ $1</div>');
+        text = text.replace(/^-\s+(.+)$/gm, '<div style="margin:6px 0; padding:6px 0 6px 30px; color:#e2e8f0;">• $1</div>');
+        text = text.replace(/^\d+\.\s+(.+)$/gm, '<div style="margin:8px 0; padding:8px 0 8px 30px; color:#e2e8f0;"><strong style="color:#ffeb3b;">$1</strong></div>');
+
+        // Paragraphs & Line breaks
+        text = text.replace(/\n\s*\n/g, '</p><p style="margin:20px 0; line-height:1.8; color:#e2e8f0;">');
+        text = text.replace(/\n/g, '<br>');
+
+        // ========== PHASE 8: RESTORE PROTECTED CONTENT ==========
+        protectionMap.forEach((original, id) => {
+            if (original.startsWith('```')) {
+                // Code block
+                const code = original.slice(3, -3).trim();
+                const formatted = `<pre style="background:#1e293b; color:#64e3ff; padding:15px; border-radius:8px; margin:15px 0; overflow-x:auto; font-family:'Courier New', monospace; border-left:4px solid #00c2cb; line-height:1.5;"><code>${escapeHtml(code)}</code></pre>`;
+                text = text.replace(id, formatted);
+            } else if (original.startsWith('$$')) {
+                // Math block
+                const math = original.slice(2, -2).trim();
+                const formatted = `<div style="background:#0f172a; color:#fcd34d; padding:20px; border-radius:10px; margin:20px 0; font-family:'Cambria Math', serif; text-align:center; border-left:4px solid #fcd34d; white-space:pre-wrap; font-weight:500;">${escapeHtml(math)}</div>`;
+                text = text.replace(id, formatted);
+            } else {
+                // Already processed (example/table)
+                text = text.replace(id, original);
+            }
+        });
+
+        // ========== FINAL WRAPPING ==========
+        if (!text.includes('<h1') && !text.includes('<h2') && !text.includes('<h3') && !text.includes('<h4') &&
+            !text.includes('<div') && !text.includes('<table') && !text.includes('<pre') && !text.includes('enhSliderWrap')) {
+            text = `<p style="margin:15px 0; line-height:1.8; color:#e2e8f0;">${text}</p>`;
+        }
+
+        return text;
+    }
+
+    // ========== HELPER: CREATE EXAMPLE SLIDER ==========
+    function createExampleSlider(num) {
+        const custom = (typeof window !== 'undefined' && window.TEXT_LOADER_EXAMPLE_DATA && window.TEXT_LOADER_EXAMPLE_DATA[num]) ? window.TEXT_LOADER_EXAMPLE_DATA[num] : null;
+        const slides = custom && Array.isArray(custom.slides) && custom.slides.length
+            ? custom.slides
+            : [
+                { title: 'Core Concepts', items: ['Fundamental definitions', 'Key principles', 'Essential knowledge', 'Building blocks'] },
+                { title: 'Theory & Application', items: ['Theoretical foundations', 'Real-world applications', 'Mathematical basis', 'Practical examples'] },
+                { title: 'Advanced Topics', items: ['Complex scenarios', 'Edge cases', 'Advanced techniques', 'Special considerations'] },
+                { title: 'Practice & Mastery', items: ['Worked examples', 'Problem solving', 'Skill development', 'Proficiency building'] }
+            ];
+
+        let slidesHtml = '';
+        slides.forEach((slide, idx) => {
+            const active = idx === 0 ? ' active' : '';
+            const items = Array.isArray(slide.items) ? slide.items : [];
+            slidesHtml += `<div class="enh-slide${active}" style="min-width:100%; padding:15px; display:flex; flex-direction:column; justify-content:center;">
+                <h3 style="color:#ffeb3b; margin-bottom:10px;">${escapeHtml(String(slide.title || 'Slide'))}</h3>
+                <ul style="color:#e2e8f0; list-style:none; padding:0;">
+                    ${items.map(item => `<li style="padding:5px 0; border-left:2px solid #64e3ff; padding-left:10px;">✓ ${escapeHtml(String(item))}</li>`).join('')}
+                </ul>
+            </div>`;
+        });
+
+        const nSlides = slides.length;
+        const dotsHtml = Array.from({ length: nSlides }, (_, i) =>
+            `<span class="enh-dot" style="width:10px; height:10px; background:${i === 0 ? '#ffeb3b' : '#94a3b8'}; border-radius:50%; cursor:pointer;" data-slide="${i}"></span>`
+        ).join('');
+
+        return `<div class="example-container-${num}" style="background:#0f172a; color:#e2e8f0; border-radius:12px; padding:15px; margin:20px 0; border:1px solid #2563eb;">
+            <div class="enh-slider-wrap" style="position:relative; overflow:hidden; border-radius:10px; border:1px solid #2563eb; background:#111827;">
+                <div class="enh-slider-track-${num}" style="display:flex; transition:transform 0.4s ease; transform: translateX(0%);">
+                    ${slidesHtml}
+                </div>
+            </div>
+            <div style="display:flex; justify-content:center; align-items:center; gap:10px; margin:15px 0; flex-wrap:wrap;">
+                <span class="enhExampleCounter-${num}" style="color:#f8fafc; font-weight:600; min-width:40px; text-align:center;">1/${nSlides}</span>
+                <button type="button" class="button-87 enhPrevBtn-${num}" style="cursor:pointer;">‹ Prev</button>
+                <div class="enh-dots-${num}" style="display:flex; gap:8px;">${dotsHtml}</div>
+                <button type="button" class="button-87 enhNextBtn-${num}" style="cursor:pointer;">Next ›</button>
+            </div>
+            <div class="enh-progress-${num}" style="height:6px; background:#334155; border-radius:3px; overflow:hidden;">
+                <div class="enh-progress-bar" style="width:${nSlides ? 100 / nSlides : 25}%; height:100%; background:#2563eb; border-radius:3px;"></div>
+            </div>
+        </div>`;
+    }
+
+    // ========== HELPER: CREATE SAMPLE TABLE ==========
+    function createSampleTable(num) {
+        const data = (typeof window !== 'undefined' && window.TEXT_LOADER_TABLE_DATA && window.TEXT_LOADER_TABLE_DATA[num]) ? window.TEXT_LOADER_TABLE_DATA[num] : null;
+        if (data && Array.isArray(data.headers) && data.headers.length && Array.isArray(data.rows)) {
+            const th = data.headers.map(h => `<th style="padding:12px; color:#ffeb3b; text-align:left;">${escapeHtml(String(h))}</th>`).join('');
+            const trs = data.rows.map(row => {
+                const cells = (Array.isArray(row) ? row : []).map(c => `<td style="padding:12px; color:#e2e8f0;">${escapeHtml(String(c))}</td>`).join('');
+                return `<tr style="border-bottom:1px solid #334155;">${cells}</tr>`;
+            }).join('');
+            return `<table class="enhanced-table table-${num}" style="margin:20px 0; width:100%; border-collapse:collapse; border:1px solid #2563eb; border-radius:8px;">
+                <thead style="background:#1e293b; border-bottom:2px solid #2563eb;"><tr>${th}</tr></thead>
+                <tbody>${trs}</tbody>
+            </table>`;
+        }
+        return `<table class="enhanced-table table-${num}" style="margin:20px 0; width:100%; border-collapse:collapse; border:1px solid #2563eb; border-radius:8px;">
+            <thead style="background:#1e293b; border-bottom:2px solid #2563eb;">
+                <tr><th style="padding:12px; color:#ffeb3b; text-align:left;">Type</th><th style="padding:12px; color:#ffeb3b; text-align:left;">Structure</th><th style="padding:12px; color:#ffeb3b; text-align:left;">Example</th></tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom:1px solid #334155;"><td class="highlight" style="padding:12px; color:#e2e8f0;">Yes/No</td><td style="padding:12px; color:#e2e8f0;">Am + I + verb-ing?</td><td style="padding:12px; color:#64e3ff;">Am I working?</td></tr>
+                <tr style="border-bottom:1px solid #334155;"><td style="padding:12px; color:#e2e8f0;"></td><td style="padding:12px; color:#e2e8f0;">Are + you/we/they + verb-ing?</td><td style="padding:12px; color:#64e3ff;">Are you working?</td></tr>
+                <tr><td class="highlight" style="padding:12px; color:#e2e8f0;">Wh-</td><td style="padding:12px; color:#e2e8f0;">Wh-word + do + I/you/we/they + verb?</td><td style="padding:12px; color:#64e3ff;">What languages do you speak?</td></tr>
+            </tbody>
+        </table>
+        <!-- Edit table ${num} in page script: TEXT_LOADER_TABLE_DATA[${num}] = { headers:['A','B'], rows:[['1','2']] }; -->`;
+    }
+
+    // ========== HELPER: FORMAT CHEMICAL EQUATIONS ==========
+    function formatChemicalEquation(eq) {
+        // Format: Na₂O + H₂O → 2NaOH
+        let result = eq.replace(/(\d+)([A-Z][a-z]?)(\d*)/g, (m, coeff, element, subscript) => {
+            const sub = subscript ? `<sub>${subscript}</sub>` : '';
+            return `<span style="color:#ffb84d; font-weight:600;">${coeff}${element}${sub}</span>`;
+        });
+        result = result.replace(/\s*\+\s*/g, ' <span style="color:#64e3ff; font-weight:600;">+</span> ');
+        result = result.replace(/\s*→\s*/g, ' <span style="color:#ff6b9d; font-weight:600;">→</span> ');
+        result = result.replace(/\s*->\s*/g, ' <span style="color:#ff6b9d; font-weight:600;">→</span> ');
+        return `<span style="font-family:'Cambria Math', serif;">${result}</span>`;
+    }
+
+    // ========== HELPER: CONVERT MATH SYMBOLS ==========
+    function convertMathSymbols(text) {
+        const conversions = {
+            '\\alpha': 'α', '\\beta': 'β', '\\gamma': 'γ', '\\delta': 'δ', '\\epsilon': 'ε',
+            '\\zeta': 'ζ', '\\eta': 'η', '\\theta': 'θ', '\\iota': 'ι', '\\kappa': 'κ',
+            '\\lambda': 'λ', '\\mu': 'μ', '\\nu': 'ν', '\\xi': 'ξ', '\\omicron': 'ο',
+            '\\pi': 'π', '\\rho': 'ρ', '\\sigma': 'σ', '\\tau': 'τ', '\\upsilon': 'υ',
+            '\\phi': 'φ', '\\chi': 'χ', '\\psi': 'ψ', '\\omega': 'ω',
+            '\\Gamma': 'Γ', '\\Delta': 'Δ', '\\Theta': 'Θ', '\\Lambda': 'Λ', '\\Xi': 'Ξ',
+            '\\Pi': 'Π', '\\Sigma': 'Σ', '\\Upsilon': 'Υ', '\\Phi': 'Φ', '\\Psi': 'Ψ', '\\Omega': 'Ω',
+            '\\infty': '∞', '\\sum': '∑', '\\prod': '∏', '\\int': '∫', '\\sqrt': '√',
+            '\\times': '×', '\\div': '÷', '\\pm': '±', '\\mp': '∓', '\\approx': '≈',
+            '\\neq': '≠', '\\leq': '≤', '\\geq': '≥', '\\equiv': '≡', '\\in': '∈',
+            '\\notin': '∉', '\\subset': '⊂', '\\supset': '⊃', '\\cap': '∩', '\\cup': '∪',
+            '\\forall': '∀', '\\exists': '∃', '\\nabla': '∇', '\\partial': '∂'
+        };
+        Object.entries(conversions).forEach(([latex, unicode]) => {
+            text = text.replace(new RegExp(latex.replace(/\\/g, '\\\\'), 'g'), unicode);
+        });
+        return text;
+    }
+
+    // ========== HELPER: CONVERT ALL MATH SYMBOLS IN TEXT ==========
+    function convertAllMathSymbols(text) {
+        // Greek lowercase
+        text = text.replace(/\\alpha/g, '<span style="color:#fcd34d;">α</span>');
+        text = text.replace(/\\beta/g, '<span style="color:#fcd34d;">β</span>');
+        text = text.replace(/\\gamma/g, '<span style="color:#fcd34d;">γ</span>');
+        text = text.replace(/\\delta/g, '<span style="color:#fcd34d;">δ</span>');
+        text = text.replace(/\\epsilon/g, '<span style="color:#fcd34d;">ε</span>');
+        text = text.replace(/\\zeta/g, '<span style="color:#fcd34d;">ζ</span>');
+        text = text.replace(/\\eta/g, '<span style="color:#fcd34d;">η</span>');
+        text = text.replace(/\\theta/g, '<span style="color:#fcd34d;">θ</span>');
+        text = text.replace(/\\iota/g, '<span style="color:#fcd34d;">ι</span>');
+        text = text.replace(/\\kappa/g, '<span style="color:#fcd34d;">κ</span>');
+        text = text.replace(/\\lambda/g, '<span style="color:#fcd34d;">λ</span>');
+        text = text.replace(/\\mu/g, '<span style="color:#fcd34d;">μ</span>');
+        text = text.replace(/\\nu/g, '<span style="color:#fcd34d;">ν</span>');
+        text = text.replace(/\\xi/g, '<span style="color:#fcd34d;">ξ</span>');
+        text = text.replace(/\\pi/g, '<span style="color:#fcd34d;">π</span>');
+        text = text.replace(/\\rho/g, '<span style="color:#fcd34d;">ρ</span>');
+        text = text.replace(/\\sigma/g, '<span style="color:#fcd34d;">σ</span>');
+        text = text.replace(/\\tau/g, '<span style="color:#fcd34d;">τ</span>');
+        text = text.replace(/\\phi/g, '<span style="color:#fcd34d;">φ</span>');
+        text = text.replace(/\\chi/g, '<span style="color:#fcd34d;">χ</span>');
+        text = text.replace(/\\psi/g, '<span style="color:#fcd34d;">ψ</span>');
+        text = text.replace(/\\omega/g, '<span style="color:#fcd34d;">ω</span>');
+
+        // Math operators
+        text = text.replace(/\\times/g, '<span style="color:#64e3ff;">×</span>');
+        text = text.replace(/\\div/g, '<span style="color:#64e3ff;">÷</span>');
+        text = text.replace(/\\pm/g, '<span style="color:#64e3ff;">±</span>');
+        text = text.replace(/\\approx/g, '<span style="color:#64e3ff;">≈</span>');
+        text = text.replace(/\\neq/g, '<span style="color:#64e3ff;">≠</span>');
+        text = text.replace(/\\leq/g, '<span style="color:#64e3ff;">≤</span>');
+        text = text.replace(/\\geq/g, '<span style="color:#64e3ff;">≥</span>');
+        text = text.replace(/\\infty/g, '<span style="color:#ff6b9d;">∞</span>');
+        text = text.replace(/\\sum/g, '<span style="color:#ffb84d;">∑</span>');
+        text = text.replace(/\\int/g, '<span style="color:#ffb84d;">∫</span>');
+        text = text.replace(/\\sqrt/g, '<span style="color:#ffb84d;">√</span>');
+        text = text.replace(/\\nabla/g, '<span style="color:#a5b4fc;">∇</span>');
+
+        return text;
+    }
+
+    function escapeHtml(text) {
+        const map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+        return text.replace(/[&<>"']/g, m => map[m]);
     }
 
     function saveSelectionState() {
@@ -3551,11 +4386,17 @@
             list.innerHTML = '<p style="color:#94a3b8;">No folders. Click "Add Folder(s)" to load some.</p>';
             return;
         }
-        state.folders.sort((a,b) => a.name.localeCompare(b.name));
-        state.folders.forEach(folder => {
+        const sortedList = [...state.folders].sort(compareFoldersForDisplay);
+        sortedList.forEach(folder => {
             const folderDiv = document.createElement('div');
             folderDiv.className = 'folder-item';
             folderDiv.dataset.folderId = folder.id;
+
+            const rawTitle = folderDisplayNameRaw(folder);
+            const numMatch = rawTitle.match(/^(\d+\s+)(.+)$/);
+            const titleHtml = numMatch
+                ? `<span class="folder-name-num" aria-hidden="true">${numMatch[1]}</span><span class="folder-name-visible">${numMatch[2]}</span>`
+                : `<span class="folder-name-visible">${rawTitle}</span>`;
 
             const header = document.createElement('div');
             header.className = 'folder-header';
@@ -3564,7 +4405,7 @@
                     <span style="display:flex; align-items:center; gap:8px;">
                         <input type="checkbox" data-type="folder" data-id="${folder.id}" title="Select folder" ${state.selectedFolderIds.has(folder.id) ? 'checked' : ''}>
                         <div>
-                            <div class="folder-name">${folder.name}</div>
+                            <div class="folder-name" title="${folder.id}">${titleHtml}</div>
                             <div style="font-size:0.75rem; color:#cbd5e1;">${folder.id}</div>
                         </div>
                     </span>
@@ -3650,11 +4491,7 @@
             const match = name.match(/(\d+)/);
             return match ? parseInt(match[1],10) : Infinity;
         };
-        const sortedFolders = [...state.folders].filter(isUsefulFolder).sort((a,b) => {
-            const aNum = extractNumber(a.name), bNum = extractNumber(b.name);
-            if (aNum !== bNum) return aNum - bNum;
-            return normalizeName(a.name).localeCompare(normalizeName(b.name), undefined, {numeric:true, sensitivity:'base'});
-        });
+        const sortedFolders = [...state.folders].filter(isUsefulFolder).sort(compareFoldersForDisplay);
         sortedFolders.forEach((folder) => {
             if (isHiddenFolder(folder.id) || folder.name.toLowerCase() === 'images') return;
             const sectionId = getSectionId(folder.id);
@@ -3729,30 +4566,25 @@
         if (!container) return;
         container.innerHTML = '';
         const fragment = document.createDocumentFragment();
-        const sortedFolders = [...state.folders].filter(isUsefulFolder).sort((a,b) => {
-            // Extract numbers from folder names for numerical sorting
-            const aMatch = a.name.match(/^(\d+)/);
-            const bMatch = b.name.match(/^(\d+)/);
-            const aNum = aMatch ? parseInt(aMatch[1], 10) : 999;
-            const bNum = bMatch ? parseInt(bMatch[1], 10) : 999;
-            return aNum - bNum;
-        });
+        const sortedFolders = [...state.folders].filter(isUsefulFolder).sort(compareFoldersForDisplay);
         const summaryRows = [];
         let letterIdx = 0;
+        let summaryDisplayIndex = 0;
 
-        sortedFolders.forEach((folder, folderIndex) => {
+        sortedFolders.forEach((folder) => {
             if (folder.name.toLowerCase() === 'images' || isHiddenFolder(folder.id)) return;
             if (summaryRows.length >= MAX_SUMMARY_ENTRIES) return;
 
+            summaryDisplayIndex++;
             const sectionId = getSectionId(folder.id);
-            const summaryNumber = folderIndex + 1;
+            const summaryNumber = summaryDisplayIndex;
 
             // O for Open (has items), C for Closed (empty)
             const hasItems = folder.textFiles && folder.textFiles.length > 0;
             const ocLetter = hasItems ? 'O' : 'C';
             const ocClass = hasItems ? 'bracket-O' : 'bracket-C';
 
-            let displayName = folder.name.replace(/^\d+\s+/, '').trim();
+            let displayName = folderDisplayNameVisible(folder);
 
             const line = document.createElement('div');
             line.className = 'summary-line';
@@ -3767,7 +4599,6 @@
                 </div>
             `;
 
-            // Add click handler for flicker animation
             const summaryLink = line.querySelector('.summary-text a');
             if (summaryLink) {
                 summaryLink.addEventListener('click', (e) => {
@@ -3777,6 +4608,8 @@
                         summaryTextSpan.classList.add('flickering');
                         setTimeout(() => summaryTextSpan.classList.remove('flickering'), 600);
                     }
+                    flashSectionHighlight(sectionId);
+                    setActiveSection(sectionId);
                     const targetSection = document.getElementById(sectionId);
                     if (targetSection) {
                         targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -3809,8 +4642,13 @@
                     return a.name.localeCompare(b.name, undefined, {numeric:true, sensitivity:'base'});
                 });
 
+                const sectionTitleNorm = displayName.replace(/\s+/g, ' ').trim().toLowerCase();
+
                 sortedFileItems.forEach((file, idx) => {
                     if (idx >= MAX_FOLDER_DISPLAY_FILES) return;
+                    const fileBase = file.name.replace(/\.txt$/i, '').trim();
+                    if (fileBase.replace(/\s+/g, ' ').trim().toLowerCase() === sectionTitleNorm) return;
+
                     const fileItem = document.createElement('div');
                     fileItem.style.padding = '6px 8px';
                     fileItem.style.borderRadius = '4px';
@@ -3827,7 +4665,7 @@
                     icon.style.flexShrink = '0';
 
                     const nameSpan = document.createElement('span');
-                    nameSpan.textContent = file.name.replace(/\.txt$/i, '');
+                    nameSpan.textContent = fileBase;
                     nameSpan.style.flex = '1';
 
                     fileItem.appendChild(icon);
@@ -3845,7 +4683,15 @@
                     fileItem.addEventListener('click', () => {
                         fileItem.classList.add('flickering');
                         setTimeout(() => fileItem.classList.remove('flickering'), 600);
-                        openFileWindow(file, folder);
+                        const summaryTextSpan = line.querySelector('.summary-text');
+                        if (summaryTextSpan) {
+                            summaryTextSpan.classList.add('flickering');
+                            setTimeout(() => summaryTextSpan.classList.remove('flickering'), 600);
+                        }
+                        flashSectionHighlight(sectionId);
+                        setActiveSection(sectionId);
+                        const targetSection = document.getElementById(sectionId);
+                        if (targetSection) targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     });
 
                     fileList.appendChild(fileItem);
@@ -4013,6 +4859,65 @@
         }
     }
 
+    // === INITIALIZE DYNAMIC EXAMPLE SLIDERS ===
+    function initDynamicExampleSliders(container) {
+        const sliders = container.querySelectorAll('.enh-slider-wrap');
+        sliders.forEach(sliderWrap => {
+            const root = sliderWrap.parentElement;
+            if (!root) return;
+            const prevBtn = root.querySelector('button[class*="enhPrevBtn"]');
+            const nextBtn = root.querySelector('button[class*="enhNextBtn"]');
+            const dots = root.querySelectorAll('[class*="enh-dots"] .enh-dot');
+            const track = sliderWrap.querySelector('[class*="enh-slider-track"]');
+            const counter = root.querySelector('[class*="enhExampleCounter"]');
+            const progressBar = root.querySelector('.enh-progress-bar');
+            const slides = sliderWrap.querySelectorAll('.enh-slide');
+
+            if (!prevBtn || !nextBtn || !track || slides.length === 0) return;
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            function updateSlider() {
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                dots.forEach((dot, idx) => {
+                    dot.style.background = idx === currentSlide ? '#ffeb3b' : '#94a3b8';
+                });
+                if (counter) counter.textContent = `${currentSlide + 1}/${totalSlides}`;
+                if (progressBar) progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+                slides.forEach((slide, idx) => {
+                    if (slide.classList) slide.classList.toggle('active', idx === currentSlide);
+                });
+            }
+
+            // Previous button
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentSlide = Math.max(0, currentSlide - 1);
+                updateSlider();
+            });
+
+            // Next button
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentSlide = Math.min(totalSlides - 1, currentSlide + 1);
+                updateSlider();
+            });
+
+            // Dot navigation
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    currentSlide = idx;
+                    updateSlider();
+                });
+            });
+
+            // Initialize first slide
+            updateSlider();
+        });
+    }
+
     // === OPEN FILE WINDOW (with image display) ===
     function openFileWindow(file, folder) {
         const winId = 'core-win-' + Date.now();
@@ -4032,30 +4937,61 @@
             displayNameForTitle = file.name.replace(/\.txt$/i, '');
         }
 
+        // Separate main window segments from new window segments
+        const mainSegments = (file.parts || []).filter(p => !p.type || p.type === 'main');
+        const windowSegments = (file.parts || []).filter(p => p.type === 'window');
+        const allDisplaySegments = mainSegments.length > 0 ? mainSegments : file.parts || [];
+
         // Generate image squares using stored data URLs
         const imageSquares = folder.imageFiles.map((img, idx) => {
-            // Use stored data URL if available, otherwise placeholder
-            let url = img.data || img.url;
-            if (!url && img.file) {
-                // This shouldn't happen after refresh, but just in case
-                try { url = URL.createObjectURL(img.file); } catch (e) { url = null; }
+            if (!img || !img.name) return '';
+            // Try multiple sources for image URL with fallback chain
+            let url = null;
+            let hasValidData = false;
+
+            // 1. Try data URL (should be complete - reduced threshold to 50 chars for smaller images)
+            if (typeof img.data === 'string' && img.data.length > 50 && img.data.startsWith('data:')) {
+                url = img.data;
+                hasValidData = true;
             }
-            const displayUrl = url || 'https://via.placeholder.com/600x400/000000/ffffff?text=No+Image';
+            // 2. Try url property
+            else if (typeof img.url === 'string' && img.url.length > 50 && img.url.startsWith('data:')) {
+                url = img.url;
+                hasValidData = true;
+            }
+            // 3. Try file object (shouldn't happen after refresh, but attempt)
+            else if (img.file && typeof img.file === 'object') {
+                try { url = URL.createObjectURL(img.file); hasValidData = true; } catch (e) { url = null; }
+            }
+            // 4. Fallback to placeholder
+            const placeholderSvg = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Crect fill=%22%23111111%22 width=%22600%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%23666666%22%3EImage Not Available%3C/text%3E%3C/svg%3E';
+            const displayUrl = url || placeholderSvg;
+            const failSvg = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Crect fill=%22%23333333%22 width=%22600%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%23888888%22%3ELoad Failed%3C/text%3E%3C/svg%3E';
             return `
-                <div class="image-square">
+                <div class="image-square" ${!hasValidData ? 'style="opacity:0.6;"' : ''} title="${(img.name || '').replace(/"/g, '&quot;')}">
                     <div class="image-display" onclick="openLightbox(this)">
-                        <img src="${displayUrl}" class="zoomable-image" alt="${img.name}">
+                        <img src="${displayUrl}" class="zoomable-image" alt="${(img.name || '').replace(/"/g, '&quot;')}" onerror="this.src='${failSvg}';">
                     </div>
-                    <div class="image-info"><h3>${img.name}</h3></div>
+                    <div class="image-info"><h3>${(img.name || 'Unnamed').substring(0, 30)}</h3></div>
                 </div>
             `;
         }).join('');
 
-        const partsHtml = file.parts.map((p, idx) => `<div class="window-part" id="${winId}-part-${idx}" style="${idx===0?'display:block;':'display:none;'}">${p.html}</div>`).join('');
-        const buttonsHtml = file.parts.length > 1 ? `
-            <div style="display:flex; gap:10px; justify-content:center; margin-bottom:15px; flex-wrap:wrap;">
-                ${file.parts.map((p, idx) => `<button class="button-87 part-switch-btn" data-part="${idx}" style="padding:5px 10px; margin:0;">${p.label || `Part ${idx+1}`}</button>`).join('')}
-            </div>` : '';
+        const partsHtml = allDisplaySegments.map((p, idx) => {
+            const partContent = p.html || '';
+            return `<div class="window-part" id="${winId}-part-${idx}" style="${idx===0?'display:block;':'display:none;'}">${partContent}</div>`;
+        }).join('');
+
+        // Enhanced button styling with better integration
+        let buttonsHtml = '';
+        if (allDisplaySegments.length > 1) {
+            const buttonElements = allDisplaySegments.map((p, idx) => {
+                const btnLabel = p.label ? p.label.substring(0, 20) : 'Section ' + (idx+1);
+                const btnColor = idx === 0 ? 'background:linear-gradient(135deg, #FF512F, #F09819);' : 'background:linear-gradient(135deg, #64e3ff, #00c2cb);';
+                return '<button class="button-87 part-switch-btn" data-part="' + idx + '" style="padding:8px 16px; margin:0; font-size:0.9em; ' + btnColor + ' transition:all 0.2s; border:none;">' + btnLabel + '</button>';
+            }).join('');
+            buttonsHtml = '<div style="display:flex; gap:8px; justify-content:center; margin-bottom:20px; flex-wrap:wrap; padding:10px; background:rgba(0,0,0,0.3); border-radius:10px;">' + buttonElements + '</div>';
+        }
 
         win.innerHTML = `
             <div class="window-column">
@@ -4074,11 +5010,13 @@
                 <div class="text-controls-container">
                     <div class="text-controls-grid">
                         <div class="no-images-left">
-                            <h3 class="no-images-heading">${displayNameForTitle}</h3>
-                            <div class="title-controls-wrapper no-images-injected">
-                                <button class="title-control-btn cycle-layout-btn" title="Toggle layout">🖼️</button>
-                                <button class="title-control-btn close-win-btn" title="Close window">✕</button>
-                            </div>
+                            <h3 class="no-images-heading">
+                                <span class="no-images-title-text">${displayNameForTitle}</span>
+                                <span class="title-controls-wrapper no-images-injected">
+                                    <button class="title-control-btn cycle-layout-btn" data-cycle-layout="${winId}" title="Toggle layout">🖼️</button>
+                                    <button class="title-control-btn close-win-btn" title="Close window">✕</button>
+                                </span>
+                            </h3>
                         </div>
                         <div class="no-images-right">
                             <div class="text-zoom-controls">
@@ -4100,6 +5038,13 @@
         document.body.appendChild(win);
         win.classList.add('active');
         document.body.style.overflow = 'hidden';
+        win.querySelectorAll('.image-display img.zoomable-image').forEach(im => {
+            if (im.decode) im.decode().catch(() => {});
+            im.addEventListener('load', function onImgLoad() {
+                im.removeEventListener('load', onImgLoad);
+                if (im.decode) im.decode().catch(() => {});
+            }, { once: true });
+        });
         state.openWindows.push(winId);
         if (state.openWindows.length > 8) {
             const oldId = state.openWindows.shift();
@@ -4167,12 +5112,9 @@
         reset.addEventListener('click', () => { scale=1; textEl.style.fontSize='1em'; });
 
         const cycle = win.querySelector('.cycle-layout-btn');
-        let layoutState = 0;
-        cycle.addEventListener('click', () => {
-            layoutState = (layoutState+1)%3;
-            win.classList.remove('swapped','no-images');
-            if (layoutState===1) win.classList.add('swapped');
-            else if (layoutState===2) win.classList.add('no-images');
+        cycle.addEventListener('click', event => {
+            event.stopPropagation();
+            cycleLayout(winId);
         });
 
         win.querySelectorAll('.part-switch-btn').forEach(btn => {
@@ -4183,6 +5125,9 @@
                 if (target) target.style.display = 'block';
             });
         });
+
+        // Initialize dynamically inserted sliders and interactive elements
+        initDynamicExampleSliders(win);
     }
 
     // === LIGHTBOX ===
@@ -4199,11 +5144,17 @@
         lbImg.style.transform = `scale(1) translate(0,0)`;
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
+
+        // Add passive wheel event listener for zooming
+        lightbox.addEventListener('wheel', lightboxZoom, { passive: true });
     }
 
     function closeLightbox() {
-        $('lightboxOverlay').classList.remove('active');
+        const lightbox = $('lightboxOverlay');
+        lightbox.classList.remove('active');
         document.body.style.overflow = '';
+        // Remove the wheel event listener
+        lightbox.removeEventListener('wheel', lightboxZoom);
     }
 
     function lightboxZoom(e) {
@@ -4284,6 +5235,9 @@
             if (e.target === modal) {
                 modal.classList.remove('active');
                 document.body.style.overflow = '';
+                if (state.featureWindowTimerFrozen && state.featureWindowOpenedFrom === 'featuresModal') {
+                    restoreFeatureWindow();
+                }
             }
         });
     }
@@ -4368,13 +5322,13 @@
 
     // === H1 HOVER (Content Summary) ===
     function initH1Hover() {
-        const h1 = document.querySelector('div.content-summary h1');
+        const h1 = $('contentSummaryHeading');
         if (!h1 || h1.dataset.hoverBound) return;
         h1.dataset.hoverBound = '1';
-        h1.style.cursor = 'pointer';
+        h1.style.cursor = 'default';
         h1.addEventListener('mouseenter', () => {
             clearTimeout(hoverPopupDelay);
-            hoverPopupDelay = setTimeout(showHoverPopup, 500);
+            hoverPopupDelay = setTimeout(showHoverPopup, 2000);
         });
         h1.addEventListener('mouseleave', () => {
             clearTimeout(hoverPopupDelay);
@@ -4382,63 +5336,55 @@
     }
 
     // === FEATURE-WINDOW BUTTONS ===
+    function freezeHoverPopupAndOpenChild(openFn, openedFromId) {
+        state.featureWindowTimerRemaining = hoverPopupCountdownSeconds;
+        state.featureWindowTimerFrozen = true;
+        state.featureWindowOpenedFrom = openedFromId;
+        clearInterval(hoverPopupInterval);
+        hoverPopupInterval = null;
+        state.featureWindowActive = false;
+        const popup = $('hoverPopup');
+        if (popup) popup.classList.remove('active');
+        openFn();
+    }
+
     function initFeatureWindowButtons() {
-        const buttons = {
-            'hoverPopupSchedule': 'scheduleMonitor',
-            'hoverPopupStatus': 'statusOverview',
-            'hoverPopupFeatures': 'featuresModal',
-            'hoverPopupExample': 'exampleWindow',
-            'hoverPopupApp': 'appOpening'
-        };
-
-        for (const [btnId, windowId] of Object.entries(buttons)) {
-            const btn = $(btnId);
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    // Save the remaining time
-                    state.featureWindowTimerRemaining = hoverPopupCountdownSeconds;
-                    state.featureWindowTimerFrozen = true;
-                    state.featureWindowOpenedFrom = windowId === 'featuresModal' ? 'featuresModal' : windowId;
-
-                    // Freeze the timer
-                    clearInterval(hoverPopupInterval);
-                    hoverPopupInterval = null;
-
-                    // Hide Feature-Window but keep track it was open
-                    state.featureWindowActive = false;
-                    const popup = $('hoverPopup');
-                    if (popup) popup.classList.remove('active');
-
-                    // Open the feature window
-                    toggleWindow(windowId);
-                });
-            }
+        const scheduleBtn = $('hoverPopupSchedule');
+        if (scheduleBtn) {
+            scheduleBtn.addEventListener('click', () => {
+                freezeHoverPopupAndOpenChild(() => toggleWindow('polyWindow'), 'polyWindow');
+            });
+        }
+        const statusBtn = $('hoverPopupStatus');
+        if (statusBtn) {
+            statusBtn.addEventListener('click', () => {
+                freezeHoverPopupAndOpenChild(() => toggleStatusOverview(), 'statusOverview');
+            });
+        }
+        const featuresBtn = $('hoverPopupFeatures');
+        if (featuresBtn) {
+            featuresBtn.addEventListener('click', () => {
+                freezeHoverPopupAndOpenChild(() => toggleWindow('featuresModal'), 'featuresModal');
+            });
+        }
+        const exampleBtn = $('hoverPopupExample');
+        if (exampleBtn) {
+            exampleBtn.addEventListener('click', () => {
+                freezeHoverPopupAndOpenChild(() => toggleWindow('newWindow_3'), 'newWindow_3');
+            });
+        }
+        const appBtn = $('hoverPopupApp');
+        if (appBtn) {
+            appBtn.addEventListener('click', () => {
+                freezeHoverPopupAndOpenChild(() => toggleWindow('newWindow_app'), 'newWindow_app');
+            });
         }
 
-        // Close button
         const closeBtn = $('hoverPopupClose');
         if (closeBtn) {
             closeBtn.addEventListener('click', () => {
                 hideHoverPopup();
             });
-        }
-
-        // Update the Features Modal button in buttons object to track it as a window
-        const featuresBtn = $('hoverPopupFeatures');
-        if (featuresBtn) {
-            const originalClick = featuresBtn.onclick;
-            featuresBtn.addEventListener('click', () => {
-                state.featureWindowTimerRemaining = hoverPopupCountdownSeconds;
-                state.featureWindowTimerFrozen = true;
-                state.featureWindowOpenedFrom = 'featuresModal';
-                clearInterval(hoverPopupInterval);
-                hoverPopupInterval = null;
-                state.featureWindowActive = false;
-                const popup = $('hoverPopup');
-                if (popup) popup.classList.remove('active');
-                document.getElementById('featuresModal').classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }, true);
         }
     }
 
@@ -4472,16 +5418,40 @@
             ]}
         };
         let cur = 'workday', isMuted = false, curIdx = -1;
+        let currentScheduleDayKey = null;
+        let lastStagePopupAt = 0;
+        let polyPopupCooldown = 30 * 1000; // 30 seconds
+        let polyHoverPopupNextAllowedAt = 0;
         let checkIval = null;
         const toMins = t => { let [h,m]=t.split(':').map(Number); return h*60+m; };
+
+        function getDateKey() {
+            const now = new Date();
+            const y = now.getFullYear();
+            const m = String(now.getMonth() + 1).padStart(2, '0');
+            const d = String(now.getDate()).padStart(2, '0');
+            return `${y}-${m}-${d}`;
+        }
+
+        function checkDateRollover() {
+            const today = getDateKey();
+            if (today !== currentScheduleDayKey) {
+                currentScheduleDayKey = today;
+                const nextSchedule = detectCurrentSchedule();
+                if (nextSchedule !== cur) {
+                    cur = nextSchedule;
+                    switchSched(cur); // updates UI and segments
+                }
+            }
+        }
 
         // Function to detect if today is a workday or restday
         function detectCurrentSchedule() {
             const now = new Date();
             const dayOfWeek = now.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
 
-            // Define Croatian holidays (simplified - you can expand this)
-            const croatianHolidays = [
+            // Define Croatian holidays (fixed-date) - can be extended from API if needed.
+            const croatianHolidays = new Set([
                 '1-1',   // New Year
                 '1-6',   // Epiphany
                 '5-1',   // Labor Day
@@ -4493,26 +5463,26 @@
                 '11-1',  // All Saints' Day
                 '12-25', // Christmas
                 '12-26'  // St. Stephen's Day
-            ];
+            ]);
 
             const month = now.getMonth() + 1; // getMonth() returns 0-11
             const day = now.getDate();
             const dateString = `${month}-${day}`;
 
-            // Check if it's a holiday
-            const isHoliday = croatianHolidays.includes(dateString);
+            const isHoliday = croatianHolidays.has(dateString);
 
             // Workdays: Monday (1) to Friday (5), excluding holidays
             // Restdays: Saturday (6), Sunday (0), and holidays
             if (dayOfWeek === 0 || dayOfWeek === 6 || isHoliday) {
                 return 'restday';
-            } else {
-                return 'workday';
             }
+
+            // Avoid odd values: guarantee fallback to workday
+            return 'workday';
         }
 
         function init() {
-            // Detect current schedule based on date
+            // Set schedule detected initially
             cur = detectCurrentSchedule();
 
             const p = store.get('polyPrefs');
@@ -4521,11 +5491,39 @@
             $('polyRestdayTab').addEventListener('click', () => switchSched('restday'));
             $('polyMuteBtn').addEventListener('click', toggleMute);
             $('stageAlertCloseBtn').addEventListener('click', closeAlert);
-            $('stageAlertOverlay').addEventListener('click', e => { if(e.target===$('stageAlertOverlay')) closeAlert(); });
+            $('stageAlertOverlay').addEventListener('click', e => { if (e.target === $('stageAlertOverlay')) closeAlert(); });
+
+            const polyCloseBtn = $('polyWindow')?.querySelector('[data-toggle-window="polyWindow"]');
+            if (polyCloseBtn) {
+                polyCloseBtn.addEventListener('mouseenter', event => {
+                    if (event.target !== polyCloseBtn) return;
+                    const now = Date.now();
+                    if (now < polyHoverPopupNextAllowedAt) return;
+                    polyHoverPopupNextAllowedAt = now + polyPopupCooldown;
+                    triggerStagePopupNow('hover');
+                });
+            }
+
             updateUI();
         }
-        function onWindowOpen() { renderSegs(); checkStage(); if(!checkIval) checkIval = setInterval(checkStage,500); }
-        function onWindowClose() { clearInterval(checkIval); checkIval=null; }
+        function onWindowOpen() {
+            currentScheduleDayKey = getDateKey();
+            cur = detectCurrentSchedule();
+            renderSegs();
+            checkStage();
+            polyHoverPopupNextAllowedAt = Date.now() + polyPopupCooldown;
+            lastStagePopupAt = Date.now();
+            curIdx = getCurrentSegmentIndex();
+            // Don't auto-trigger on open anymore; user-trigger is close-button hover.
+            // triggerStagePopupNow('open');
+            if (!checkIval) checkIval = setInterval(checkStage, 250);
+        }
+        function onWindowClose() {
+            clearInterval(checkIval);
+            checkIval = null;
+            polyHoverPopupNextAllowedAt = 0;
+            lastStagePopupAt = 0;
+        }
         function switchSched(type) { cur=type; curIdx=-1; updateUI(); renderSegs(); checkStage(); save(); }
         function updateUI() {
             $('polyWorkdayTab').classList.toggle('active',cur==='workday');
@@ -4546,18 +5544,46 @@
                     <div><div class="poly-segment-name" style="color:${s.color}">${s.activity}</div><div class="poly-segment-dur">${s.start}-${s.end}</div></div>
                 </div>`).join('');
         }
-        function checkStage() {
-            const now=new Date(), cm=now.getHours()*60+now.getMinutes();
-            const segs=SCHEDS[cur].segments;
-            for(let i=0;i<segs.length;i++) {
-                let s=toMins(segs[i].start), e=toMins(segs[i].end);
-                let is = e>s ? (cm>=s&&cm<e) : (cm>=s||cm<e);
-                if(is) {
-                    if(i!==curIdx) { curIdx=i; showAlert(segs[i]); showToastStage(segs[i]); }
-                    $('polyCurrentActivity').textContent = `${segs[i].activity} (${segs[i].start}-${segs[i].end})`;
-                    break;
-                }
+
+        function getCurrentSegmentIndex() {
+            const now = new Date();
+            const cm = now.getHours()*60 + now.getMinutes();
+            const segs = SCHEDS[cur].segments;
+            for (let i = 0; i < segs.length; i++) {
+                const s = toMins(segs[i].start);
+                const e = toMins(segs[i].end);
+                const is = e > s ? (cm >= s && cm < e) : (cm >= s || cm < e);
+                if (is) return i;
             }
+            return -1;
+        }
+
+        function checkStage() {
+            checkDateRollover();
+            const idx = getCurrentSegmentIndex();
+            if (idx === -1) return;
+            const currentSeg = SCHEDS[cur].segments[idx];
+            if (idx !== curIdx) {
+                curIdx = idx;
+                showAlert(currentSeg);
+                showToastStage(currentSeg);
+            }
+            $('polyCurrentActivity').textContent = `${currentSeg.activity} (${currentSeg.start}-${currentSeg.end})`;
+        }
+
+        function triggerStagePopupNow(source='open') {
+            const now = Date.now();
+            if (source === 'hover') {
+                if (now < polyHoverPopupNextAllowedAt) return;
+            }
+            // Open source is only initial entry condition; hover source obeys cooldown above.
+            lastStagePopupAt = now;
+            const idx = getCurrentSegmentIndex();
+            if (idx === -1) return;
+            const currentSeg = SCHEDS[cur].segments[idx];
+            curIdx = idx;
+            showAlert(currentSeg);
+            showToastStage(currentSeg);
         }
         function showAlert(seg) {
             $('stageAlertName').textContent = seg.activity.toUpperCase();
@@ -4650,12 +5676,294 @@
         return t;
     }
 
-    // === OPEN VSCode / LOCALHOST ===
+    // === FEATURE WINDOW TIMER SYSTEM ===
+    window.FEATURE_WINDOW_STATE = {
+        activeWindow: null,
+        timerActive: true,
+        openedFromFeatureWindow: false,
+        timerElement: null,
+        timerValue: 10
+    };
+
+    function updateFeatureWindowTimer() {
+        if (!window.FEATURE_WINDOW_STATE.timerActive || !window.FEATURE_WINDOW_STATE.timerElement) return;
+        window.FEATURE_WINDOW_STATE.timerValue--;
+        if (window.FEATURE_WINDOW_STATE.timerElement) {
+            window.FEATURE_WINDOW_STATE.timerElement.textContent = `${window.FEATURE_WINDOW_STATE.timerValue}s`;
+        }
+        if (window.FEATURE_WINDOW_STATE.timerValue <= 0) {
+            window.FEATURE_WINDOW_STATE.timerValue = 0;
+        }
+    }
+
+    function freezeFeatureWindowTimer() {
+        window.FEATURE_WINDOW_STATE.timerActive = false;
+    }
+
+    function resumeFeatureWindowTimer() {
+        window.FEATURE_WINDOW_STATE.timerActive = true;
+    }
+
+    function openFeatureWindow(featureName, fromFeatureWindow = false) {
+        window.FEATURE_WINDOW_STATE.activeWindow = featureName;
+        window.FEATURE_WINDOW_STATE.openedFromFeatureWindow = fromFeatureWindow;
+        freezeFeatureWindowTimer();
+    }
+
+    function closeFeatureWindow() {
+        const openedFrom = window.FEATURE_WINDOW_STATE.openedFromFeatureWindow;
+        window.FEATURE_WINDOW_STATE.activeWindow = null;
+        if (openedFrom) {
+            resumeFeatureWindowTimer();
+        }
+        return openedFrom;
+    }
+
+    // === ANIMATION HELPERS ===
+    function applyFlickeringAnimation(element) {
+        if (!element) return;
+        element.style.transition = 'background 0.5s ease';
+        element.style.background = 'rgba(255, 152, 0, 0.4)';
+        setTimeout(() => {
+            element.style.background = '';
+            element.style.transition = 'none';
+        }, 500);
+    }
+
+    function flashSectionToView(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (!section) return;
+
+        // Smooth scroll to section
+        section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Apply flickering animation
+        applyFlickeringAnimation(section);
+    }
+
+    // === ENHANCED FOLDER SELECTION ===
+    function selectFolderWithAnimation(folderId) {
+        const checkbox = document.querySelector(`#folderList input[data-type="folder"][data-id="${folderId}"]`);
+        const folderItem = document.querySelector(`#folderList [data-folder-id="${folderId}"]`);
+
+        if (checkbox) {
+            checkbox.checked = !checkbox.checked;
+            applyFlickeringAnimation(folderItem || checkbox.closest('.folder-item'));
+        }
+    }
+
+    function selectFileWithAnimation(fileId, folderId) {
+        const checkbox = document.querySelector(`#folderList input[data-type="file"][data-id="${fileId}"][data-folder-id="${folderId}"]`);
+        if (checkbox) {
+            checkbox.checked = !checkbox.checked;
+            applyFlickeringAnimation(checkbox.closest('.file-item'));
+        }
+    }
+
+    // === ENHANCED NESTED ITEM HANDLING ===
+    function handleNestedItemClick(sectionId, event) {
+        event.preventDefault();
+        event.stopPropagation();
+        flashSectionToView(sectionId);
+        return false;
+    }
+
+    // === OPEN VSCode / LOCALHOST / OBSIDIAN ===
     window.openVSCode = () => { window.open('vscode://file/'); };
     window.openLocalhost = () => { window.open('http://localhost:8080/'); };
+    window.openObsidianSummaries = function openObsidianSummaries() {
+        let subject = store.get('obsidianSubjectFolder') || '';
+        if (!subject && state.folders && state.folders.length) {
+            const parts = state.folders[0].id.split('/').filter(Boolean);
+            const ci = parts.findIndex(p => p.toLowerCase() === 'course');
+            if (ci >= 0 && parts[ci + 1]) subject = parts[ci + 1];
+            else if (parts.length) subject = parts[0];
+        }
+        subject = subject.replace(/[\\/]/g, '');
+        const base = store.get('obsidianSummaryPath') || 'Course/Summaries/-_-Predmeti-_-';
+        const rel = subject ? `${base.replace(/\/$/, '')}/${subject}` : base;
+        const url = `obsidian://open?path=${encodeURIComponent(rel)}`;
+        try {
+            window.location.href = url;
+        } catch (err) {
+            window.open('https://obsidian.md', '_blank', 'noopener');
+        }
+    };
+
+    // === ENHANCED TXT-TO-HTML CONVERTER: TABLE & EXAMPLE SUPPORT ===
+    class AdvancedTableParser {
+        static parse(text) {
+            if (!text || typeof text !== 'string') return {};
+            // Use non-greedy match to stop at next TABLE marker
+            const tableRegex = /TABLE\s+(\d+)\s+([\s\S]*?)(?=TABLE\s+\d+|$)/g;
+            const tables = {};
+            let match;
+            while ((match = tableRegex.exec(text)) !== null) {
+                const tableNum = match[1];
+                const content = match[2].trim();
+                if (content) tables[tableNum] = this.parseTableContent(content);
+            }
+            return tables;
+        }
+
+        static parseTableContent(content) {
+            const lines = content.split('\n').filter(l => l.trim());
+            const rows = [];
+            for (const line of lines) {
+                const cells = line.split('|').map(c => c.trim()).filter(c => c);
+                if (cells.length > 0) rows.push(cells);
+            }
+            return rows;
+        }
+
+        static renderTable(tableNum, rows) {
+            if (!rows || rows.length === 0) return '';
+            try {
+                const html = ['<table class="enhanced-table">', '<thead>'];
+                if (rows[0]) {
+                    html.push('<tr>');
+                    rows[0].forEach(cell => {
+                        html.push(`<th>${this.escapeHtml(cell)}</th>`);
+                    });
+                    html.push('</tr>');
+                }
+                html.push('</thead><tbody>');
+                for (let i = 1; i < rows.length; i++) {
+                    html.push('<tr>');
+                    rows[i].forEach(cell => {
+                        html.push(`<td>${this.escapeHtml(cell)}</td>`);
+                    });
+                    html.push('</tr>');
+                }
+                html.push('</tbody></table>');
+                return html.join('');
+            } catch (e) {
+                console.warn('[TableParser] Render error:', e);
+                return '';
+            }
+        }
+
+        static escapeHtml(text) {
+            if (!text || typeof text !== 'string') return '';
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+    }
+
+    class AdvancedExampleParser {
+        static parse(text) {
+            if (!text || typeof text !== 'string') return {};
+            // Use non-greedy match to stop at next EXAMPLE marker
+            const exampleRegex = /EXAMPLE\s+(\d+)\s+([\s\S]*?)(?=EXAMPLE\s+\d+|$)/g;
+            const examples = {};
+            let match;
+            while ((match = exampleRegex.exec(text)) !== null) {
+                const exNum = match[1];
+                const content = match[2].trim();
+                if (content) examples[exNum] = this.parseExampleContent(content);
+            }
+            return examples;
+        }
+
+        static parseExampleContent(content) {
+            const lines = content.split('\n');
+            const title = lines[0]?.trim() || 'Example';
+            const items = [];
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i]?.trim();
+                if (line && (line.startsWith('-') || line.startsWith('•'))) {
+                    items.push(line.replace(/^[-•]\s*/, ''));
+                }
+            }
+            return { title, items };
+        }
+
+        static renderExample(exNum, example) {
+            if (!example) return '';
+            try {
+                const html = [
+                    `<div class="enh-slide" data-example="${exNum}">`,
+                    `<h3>${this.escapeHtml(example.title)}</h3>`,
+                    '<ul>'
+                ];
+                (example.items || []).forEach(item => {
+                    html.push(`<li>${this.escapeHtml(item)}</li>`);
+                });
+                html.push('</ul></div>');
+                return html.join('');
+            } catch (e) {
+                console.warn('[ExampleParser] Render error:', e);
+                return '';
+            }
+        }
+
+        static escapeHtml(text) {
+            if (!text || typeof text !== 'string') return '';
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+    }
+
+    // === ENHANCED CONTENT PROCESSOR ===
+    function processContentWithTableAndExample(text) {
+        try {
+            if (!text || typeof text !== 'string') return text || '';
+
+            // Process tables
+            const tables = AdvancedTableParser.parse(text);
+            let processed = text;
+
+            for (const [tableNum, rows] of Object.entries(tables)) {
+                if (!rows || rows.length === 0) continue;
+                const tableHtml = AdvancedTableParser.renderTable(tableNum, rows);
+                if (tableHtml) {
+                    const tableMarker = new RegExp(`TABLE\\s+${tableNum}\\s[\\s\\S]*?(?=TABLE\\s+\\d+|$)`);
+                    processed = processed.replace(tableMarker, tableHtml);
+                }
+            }
+
+            // Process examples
+            const examples = AdvancedExampleParser.parse(processed);
+            for (const [exNum, example] of Object.entries(examples)) {
+                if (!example) continue;
+                const exampleHtml = AdvancedExampleParser.renderExample(exNum, example);
+                if (exampleHtml) {
+                    const exampleMarker = new RegExp(`EXAMPLE\\s+${exNum}\\s[\\s\\S]*?(?=EXAMPLE\\s+\\d+|$)`);
+                    processed = processed.replace(exampleMarker, exampleHtml);
+                }
+            }
+
+            return processed;
+        } catch (e) {
+            console.error('[ContentProcessor] Error processing content:', e);
+            return text || '';
+        }
+    }
+
+    // === IMPROVED DUPLICATE DETECTION ===
+    function checkFolderDuplicate(folderPath, folderName) {
+        if (!folderPath || !state.folders) return false;
+        return state.folders.some(existing => {
+            if (!existing || !existing.id) return false;
+            // Check exact path match
+            if (existing.id === folderPath) return true;
+            // Check canonical path match
+            const existingCanon = canonicalFolderPath(existing.id);
+            const newCanon = canonicalFolderPath(folderPath);
+            if (existingCanon === newCanon) return true;
+            // Check by name in same parent
+            const existingParent = existing.id.split('/').slice(0, -1).join('/');
+            const newParent = folderPath.split('/').slice(0, -1).join('/');
+            if (existingParent === newParent && existing.name === folderName) return true;
+            return false;
+        });
+    }
 
     // === MAIN INIT ===
     document.addEventListener('DOMContentLoaded', () => {
+        window.TEXT_LOADER_TABLE_DATA = window.TEXT_LOADER_TABLE_DATA || {};
+        window.TEXT_LOADER_EXAMPLE_DATA = window.TEXT_LOADER_EXAMPLE_DATA || {};
+
         state.debug.pageLoadTime = new Date();
 
         initSplash();
@@ -4758,7 +6066,8 @@
             const overlay = $('kbdOverlay');
             if (!overlay) return;
             overlay.classList.remove('active');
-            if (!document.querySelector('.newWindow.active') && !document.getElementById('statusOverview').classList.contains('active') && !document.getElementById('coreWindow').classList.contains('active') && !document.getElementById('polyWindow').classList.contains('active')) {
+            const fm = document.getElementById('featuresModal');
+            if (!document.querySelector('.newWindow.active') && !document.getElementById('statusOverview').classList.contains('active') && !document.getElementById('coreWindow').classList.contains('active') && !document.getElementById('polyWindow').classList.contains('active') && !(fm && fm.classList.contains('active'))) {
                 document.body.style.overflow = '';
             }
         }
@@ -4781,23 +6090,6 @@
         $('enhPrevBtn').addEventListener('click', () => slideExample(-1));
         $('enhNextBtn').addEventListener('click', () => slideExample(1));
 
-        const hoverButtons = [
-            { id:'hoverPopupSchedule', fn: () => { hideHoverPopup(); toggleWindow('polyWindow'); }},
-            { id:'hoverPopupStatus', fn: () => { hideHoverPopup(); toggleStatusOverview(); }},
-            { id:'hoverPopupFeatures', fn: () => { hideHoverPopup(); document.getElementById('featuresModal').classList.add('active'); document.body.style.overflow = 'hidden'; }},
-            { id:'hoverPopupExample', fn: () => { hideHoverPopup(); toggleWindow('newWindow_3'); }},
-            { id:'hoverPopupApp', fn: () => { hideHoverPopup(); toggleWindow('newWindow_app'); }},
-            { id:'hoverPopupClose', fn: hideHoverPopup }
-        ];
-        hoverButtons.forEach(btn => {
-            const el = $(btn.id);
-            if (el) {
-                el.addEventListener('click', () => { console.log(btn.id+' clicked'); btn.fn(); });
-            } else {
-                console.warn('Missing button', btn.id);
-            }
-        });
-
         setInterval(() => { if($('debugPanel')?.classList.contains('active')) updateDebugInfo(); }, 1000);
 
         addDebugActivity('App ready');
@@ -4806,7 +6098,7 @@
         // Safety check for required buttons
         const requiredButtons = ['openCoreBtn','coreAddFoldersBtn','hoverPopupSchedule','hoverPopupStatus','hoverPopupFeatures','hoverPopupExample','hoverPopupApp'];
         requiredButtons.forEach(id => {
-            if (!$(id)) console.warn(`Missing required button $i{id}`);
+            if (!$(id)) console.warn(`Missing required button ${id}`);
         });
     });
 
@@ -4819,9 +6111,10 @@
     window.closeLightbox = closeLightbox;
     window.lightboxZoom = lightboxZoom;
     window.startLightboxDrag = startLightboxDrag;
+    window.displaySymbolReference = displaySymbolReference;
     window.lightboxDrag = lightboxDrag;
     window.stopLightboxDrag = stopLightboxDrag;
 })();
 </script>
-</body>I
+</body>
 </html>
