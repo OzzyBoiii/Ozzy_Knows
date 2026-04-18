@@ -635,15 +635,39 @@
         }
 
         .summary-nested-container {
-            margin: 8px 0 8px 20px;
-            border-left: 2px solid rgba(59,130,246,0.35);
-            padding-left: 8px;
-            background: rgba(255,255,255,0.04);
-            border-radius: 6px;
+            margin: 12px 0 12px 30px;
+            border-left: 3px solid rgba(59,130,246,0.5);
+            padding: 12px;
+            padding-left: 16px;
+            background: rgba(59,130,246,0.08);
+            border-radius: 8px;
+            overflow: auto;
+            max-height: 300px;
+            animation: slideDown 0.3s ease-out;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .summary-nested-container > div {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
         .summary-nested-container .file-item {
-            background: transparent;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+            padding: 8px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .summary-nested-container .file-item:hover {
+            background: rgba(59,130,246,0.15);
+            transform: translateX(4px);
         }
 
         /* Flicker animation for active section */
@@ -1063,6 +1087,53 @@
             max-width: 800px;
             height: calc(100vh - 200px);
         }
+
+        .image-group-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 10px;
+            background: rgba(0, 194, 203, 0.15);
+            border-left: 4px solid #00c2cb;
+            border-radius: 6px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s ease;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #00c2cb;
+        }
+
+        .image-group-header:hover {
+            background: rgba(0, 194, 203, 0.25);
+            transform: translateX(2px);
+        }
+
+        .image-group-header.collapsed {
+            opacity: 0.7;
+        }
+
+        .image-group-header::before {
+            content: '▼';
+            display: inline-block;
+            transition: transform 0.2s ease;
+            font-size: 0.8em;
+        }
+
+        .image-group-header.collapsed::before {
+            transform: rotate(-90deg);
+        }
+
+        .image-group-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-left: 10px;
+        }
+
+        .image-group-container.collapsed {
+            display: none;
+        }
         .image-square {
             background: rgba(0,0,0,0.3);
             border-radius: 12px;
@@ -1071,6 +1142,9 @@
             flex-direction: column;
             gap: 15px;
             min-height: 400px;
+            max-width: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
         }
         .image-display {
             height: 300px;
@@ -1529,9 +1603,29 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.2s ease;
+            user-select: none;
+            -webkit-user-select: none;
         }
-        .folder-header:hover { background: rgba(255,152,0,0.3); }
+        .folder-header:hover {
+            background: rgba(255,152,0,0.3);
+            transform: translateX(2px);
+        }
+        .folder-header:focus-within {
+            outline: 2px solid rgba(59, 130, 246, 0.5);
+            outline-offset: -2px;
+        }
+        .folder-header input[type="checkbox"] {
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .folder-header input[type="checkbox"]:focus {
+            outline: 2px solid #60a5fa;
+            outline-offset: 2px;
+        }
+        .folder-header input[type="checkbox"]:checked {
+            accent-color: #60a5fa;
+        }
         .folder-name { font-weight: bold; color: #ff9800; }
         .folder-name .folder-name-num {
             position: absolute;
@@ -1563,7 +1657,10 @@
             color: #a78bfa;
             vertical-align: middle;
             line-height: 1;
+            transition: color 0.3s ease;
         }
+        .obsidian-gem.active { color: #64c3ff; text-shadow: 0 0 8px rgba(100, 195, 255, 0.6); }
+        .obsidian-gem.inactive { color: #ef4444; text-shadow: 0 0 8px rgba(239, 68, 68, 0.4); }
         .folder-count { color: #94a3b8; font-size: 0.9rem; }
         .folder-item .thumbnail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 6px; margin-top: 8px; }
         .folder-item .thumb { border-radius: 8px; border: 1px solid rgba(255,255,255,0.14); overflow: hidden; background:#0f172a; min-height:65px; display:flex; align-items:center; justify-content:center; color:#cbd5e1; font-size:0.7rem; }
@@ -1771,21 +1868,7 @@
         .poly-segment-name { font-weight: 700; font-size: 1.05rem; }
         .poly-segment-time { font-family: 'Courier New', monospace; color: #94a3b8; font-size: 0.9rem; }
         .poly-segment-dur { font-size: 0.85rem; color: #64748b; margin-top: 3px; }
-        .poly-controls { display: flex; align-items: center; gap: 18px; margin-top: 20px; padding: 16px 20px; background: rgba(0,0,0,0.3); border-radius: 40px; }
-        .poly-mute-btn {
-            width: 56px; height: 56px;
-            border-radius: 50%;
-            background: rgba(30,41,59,1);
-            border: 2px solid #475569;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer;
-            font-size: 1.8rem;
-            transition: all 0.2s;
-        }
-        .poly-mute-btn:hover { background: rgba(51,65,85,1); transform: scale(1.05); }
-        .poly-mute-btn.muted { background: #7f1d1d; border-color: #ef4444; }
-        .poly-countdown { color: #94a3b8; font-size: 1rem; }
-        .poly-countdown strong { color: #60a5fa; font-family: 'Courier New', monospace; font-size: 1.2rem; }
+        /* poly-controls and poly-mute-btn removed */
 
         /* ========== STAGE ALERT ========== */
         .stage-alert-overlay {
@@ -2169,19 +2252,20 @@
 <div id="coreWindow" class="core-window" role="dialog" aria-modal="true" aria-label="Core Manager">
     <div class="core-header">
         <h3><i class="fas fa-database"></i> The Core – Folder Manager</h3>
-        <span class="feature-timer" id="coreTimer" style="display:none; font-size:0.85rem; color:#60a5fa; font-weight:bold; margin-right:10px;">10s</span>
         <button class="close-btn" id="coreCloseBtn">Close</button>
     </div>
     <div class="core-content">
         <div class="core-buttons" style="align-items:center; gap:10px;">
             <button class="core-btn primary" id="coreAddFoldersBtn"><i class="fas fa-folder-open"></i> Add Folder(s)</button>
             <button class="core-btn danger" id="coreDeleteSelectedBtn"><i class="fas fa-trash"></i> Delete Selected</button>
+            <button class="core-btn primary" id="symbolLegendBtn" style="background:#564ef8; border-color:#7c3aed;" title="View TXT conversion symbols"><i class="fas fa-book-open"></i> Special TXT Symbols</button>
             <label style="color:#d1d5db; font-size:0.85rem; display:flex; align-items:center; gap:5px; background:#1e293b; border-radius:8px; padding:5px 8px; border:1px solid #334155;">
                 <input type="checkbox" id="coreSelectAll" style="accent-color:#38bdf8;" /> Select All
             </label>
         </div>
         <input type="file" id="folder-input" webkitdirectory directory multiple style="display: none;">
-        <!-- Symbol legend with 5 cards -->
+        <div style="display:none;">
+        <!-- Symbol legend - hidden, shown in modal -->
         <div class="symbol-legend">
             <div class="symbol-card amp">
                 <span class="symbol-char">&</span>
@@ -2204,7 +2288,68 @@
                 <div class="symbol-desc"><strong style="color:#9333ea">@label@</strong> — Set button name for next window</div>
             </div>
         </div>
-        <div class="folder-list" id="folderList"></div>
+        </div> <!-- End of hidden symbol legend -->
+
+        <!-- Symbol Legend Modal Window -->
+        <div id="symbolLegendModal" class="newWindow" role="dialog" aria-modal="true" aria-label="Symbol Legend">
+            <div class="window-column">
+                <div class="title-grid-container">
+                    <h3>Symbol Legend</h3>
+                    <button class="button-87" data-toggle-window="symbolLegendModal">Close</button>
+                </div>
+                <div class="image-container">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; padding: 20px; width: 100%;">
+                        <div class="symbol-card amp" style="border-left: 3px solid #ffb347; background: rgba(255, 179, 71, 0.1); padding: 15px; border-radius: 8px;">
+                            <span class="symbol-char" style="font-size: 2rem; color: #ff9800; display: block; margin-bottom: 10px;">&</span>
+                            <div class="symbol-desc" style="font-size: 0.9rem; color: #e2e8f0;"><strong style="color: #ff9800">&</strong> — Transfer text to HTML main display</div>
+                        </div>
+                        <div class="symbol-card sect" style="border-left: 3px solid #fb7185; background: rgba(251, 113, 133, 0.1); padding: 15px; border-radius: 8px;">
+                            <span class="symbol-char" style="font-size: 2rem; color: #e74c3c; display: block; margin-bottom: 10px;">§</span>
+                            <div class="symbol-desc" style="font-size: 0.9rem; color: #e2e8f0;"><strong style="color: #e74c3c">§</strong> — Stop writing / end text segment</div>
+                        </div>
+                        <div class="symbol-card caret" style="border-left: 3px solid #34d399; background: rgba(52, 211, 153, 0.1); padding: 15px; border-radius: 8px;">
+                            <span class="symbol-char" style="font-size: 2rem; color: #2ecc71; display: block; margin-bottom: 10px;">ˇ</span>
+                            <div class="symbol-desc" style="font-size: 0.9rem; color: #e2e8f0;"><strong style="color: #2ecc71">ˇ</strong> — Route text to new window display</div>
+                        </div>
+                        <div class="symbol-card dot" style="border-left: 3px solid #60a5fa; background: rgba(96, 165, 250, 0.1); padding: 15px; border-radius: 8px;">
+                            <span class="symbol-char" style="font-size: 2rem; color: #3b82f6; display: block; margin-bottom: 10px;">..</span>
+                            <div class="symbol-desc" style="font-size: 0.9rem; color: #e2e8f0;"><strong style="color: #3b82f6">..</strong> — Replace with a dot and line break</div>
+                        </div>
+                        <div class="symbol-card label" style="border-left: 3px solid #a78bfa; background: rgba(167, 139, 250, 0.1); padding: 15px; border-radius: 8px;">
+                            <span class="symbol-char" style="font-size: 2rem; color: #9333ea; display: block; margin-bottom: 10px;">@</span>
+                            <div class="symbol-desc" style="font-size: 0.9rem; color: #e2e8f0;"><strong style="color: #9333ea">@label@</strong> — Set button name for next window</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-container">
+                <div class="text-controls-container">
+                    <div class="text-controls-grid">
+                        <div class="no-images-right">
+                            <div class="text-zoom-controls">
+                                <button class="button-87" data-text-zoom-in="symbolLegendModal">🔍+</button>
+                                <button class="button-87" data-text-zoom-out="symbolLegendModal">🔍−</button>
+                                <button class="button-87" data-text-zoom-reset="symbolLegendModal">🔍=</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <div class="zoomable-text">
+                        <h3 style="color: #ffd700; margin-bottom: 15px;">Special Symbols Reference</h3>
+                        <p style="color: #cbd5e1; line-height: 1.8;">Use these symbols in your .txt files to format content:</p>
+                        <ul style="margin-top: 15px; padding-left: 20px;">
+                            <li style="color: #e2e8f0; margin-bottom: 10px;"><span style="color: #ff9800; font-weight: 700;">&</span> — Routes text to main HTML display area</li>
+                            <li style="color: #e2e8f0; margin-bottom: 10px;"><span style="color: #e74c3c; font-weight: 700;">§</span> — Stops writing and ends current text segment</li>
+                            <li style="color: #e2e8f0; margin-bottom: 10px;"><span style="color: #2ecc71; font-weight: 700;">ˇ</span> — Routes text to new window display instead of main</li>
+                            <li style="color: #e2e8f0; margin-bottom: 10px;"><span style="color: #3b82f6; font-weight: 700;">..</span> — Replaces with a dot and forces line break</li>
+                            <li style="color: #e2e8f0;"><span style="color: #9333ea; font-weight: 700;">@label@</span> — Sets the button name for the next window</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div id="uploadSpinner" class="spinner" style="display: none;"></div>
     </div>
 </div>
@@ -2213,7 +2358,6 @@
 <div id="statusOverview" class="status-overview-window" role="dialog" aria-modal="true" aria-label="Status Overview">
     <div class="window-header">
         <h3>Status Overview</h3>
-        <span class="feature-timer" id="statusTimer" style="display:none; font-size:0.85rem; color:#60a5fa; font-weight:bold; margin-right:10px;">10s</span>
         <button class="close-btn" id="statusOverviewCloseBtn">Close</button>
     </div>
     <div class="status-categories">
@@ -2235,7 +2379,7 @@
 <!-- ========== POLYPHASIC WINDOW ========== -->
 <div id="polyWindow" class="poly-window" role="dialog" aria-modal="true" aria-label="Polyphasic Schedule">
     <div class="poly-header">
-        <h2><i class="fas fa-moon"></i> Schedule Monitor <span class="feature-timer" id="polyTimer" style="display:none; font-size:0.85rem; color:#60a5fa; font-weight:bold; margin-left:10px;">10s</span></h2>
+        <h2><i class="fas fa-moon"></i> Schedule Monitor</h2>
         <button class="button-87" data-toggle-window="polyWindow" style="margin:0;padding:8px 18px;">Close</button>
     </div>
     <div class="poly-body">
@@ -2245,18 +2389,13 @@
         </div>
         <div class="poly-status-bar">
             <div>
-                <div class="poly-current-label" id="polyScheduleName">Workday Schedule Active</div>
+                <div class="poly-current-label" id="polyScheduleName">Workday Schedule Active <span id="polyAMPMIcon">🌙</span></div>
                 <div class="poly-current-val">Current: <span id="polyCurrentActivity">Monitoring…</span></div>
             </div>
             <div class="poly-next-badge">⏳ Next in <span id="polyNextTime">--:--</span></div>
         </div>
         <div class="poly-segments" id="polySegments"></div>
-        <div class="poly-controls">
-            <div class="poly-mute-btn" id="polyMuteBtn" role="button" tabindex="0" aria-label="Toggle sound">
-                <span id="polyMuteIcon">🔔</span>
-            </div>
-            <div class="poly-countdown">Next: <strong id="polyNextLabel">--</strong></div>
-        </div>
+
     </div>
 </div>
 
@@ -2586,6 +2725,7 @@
 
         sectionData: {}, // { sectionId: { name, lastOpened, pageNumber } }
         openWindows: [],
+        windowParts: {}, // For lazy-loading: stores parts for each window by winId
 
         currentActiveSection: null,
         activeSectionStartTime: null,
@@ -2646,6 +2786,86 @@
         return `${s}s`;
     }
 
+    // DUAL-LAYER NATURAL SORT: Handles complex numeric sequences correctly
+    // LAYER 1 (PRIMARY - Higher Priority): Lesson number (first digit sequence in filename)
+    //         Ensures "1_...", "2_...", "10_..." order (not "1_", "10_", "2_")
+    // LAYER 2 (SECONDARY - Lower Priority): Full numeric sequence across filename
+    //         Handles "file1_v1", "file1_v2", "file1_v10" correctly (not "file1_v1", "file1_v10", "file1_v2")
+    // This avoids lexicographic sorting issues while prioritizing lesson numbers
+    function naturalSort(a, b) {
+        try {
+            const aStr = String(a).trim();
+            const bStr = String(b).trim();
+
+            // Input validation: handle empty/null strings
+            if (!aStr && !bStr) return 0;
+            if (!aStr) return -1;
+            if (!bStr) return 1;
+
+            // PRIMARY LAYER: Extract and compare lesson number (first digit sequence)
+            const aLessonMatch = aStr.match(/^(\d+)/);
+            const bLessonMatch = bStr.match(/^(\d+)/);
+            const aLesson = aLessonMatch ? parseInt(aLessonMatch[1], 10) : -1;
+            const bLesson = bLessonMatch ? parseInt(bLessonMatch[1], 10) : -1;
+
+            // If lesson numbers differ, return comparison (primary sort criterion)
+            if (aLesson !== bLesson) {
+                if (aLesson === -1) return 1;  // No lesson number goes last
+                if (bLesson === -1) return -1; // No lesson number goes last
+                return aLesson - bLesson;      // Numeric difference
+            }
+
+            // SECONDARY LAYER: If lesson numbers match, use chunk-based numeric comparison
+            // Split string into alternating digit and non-digit chunks for proper numeric ordering
+            const aChunks = aStr.match(/\d+|\D+/g) || [];
+            const bChunks = bStr.match(/\d+|\D+/g) || [];
+
+            for (let i = 0; i < Math.max(aChunks.length, bChunks.length); i++) {
+                const aChunk = aChunks[i];
+                const bChunk = bChunks[i];
+
+                // Handle length differences
+                if (!aChunk) return -1;
+                if (!bChunk) return 1;
+
+                // Compare numeric chunks as integers (not strings)
+                if (/^\d+$/.test(aChunk) && /^\d+$/.test(bChunk)) {
+                    const aNum = parseInt(aChunk, 10);
+                    const bNum = parseInt(bChunk, 10);
+                    const diff = aNum - bNum;
+                    if (diff !== 0) return diff; // Numeric comparison ensures 1,2,3...10,11 order
+                } else {
+                    // Compare non-numeric chunks case-insensitively with locale awareness
+                    const diff = aChunk.toLowerCase().localeCompare(
+                        bChunk.toLowerCase(),
+                        undefined,
+                        { numeric: true, sensitivity: 'base' }
+                    );
+                    if (diff !== 0) return diff;
+                }
+            }
+
+            return 0; // Strings are equal
+        } catch (err) {
+            console.warn('Error in naturalSort:', err, 'fallback to string comparison');
+            // Fallback to basic string comparison if something goes wrong
+            return String(a).localeCompare(String(b));
+        }
+    }
+
+    // Extract number from start of filename (optimized with caching friendly approach)
+    function extractNumber(str) {
+        try {
+            if (!str) return -1;
+            const strVal = String(str).trim();
+            const match = strVal.match(/^(\d+)/);
+            return match ? parseInt(match[1], 10) : -1;
+        } catch (e) {
+            console.warn('Error in extractNumber:', e);
+            return -1;
+        }
+    }
+
     function formatLastVisited(hours) {
         if (hours < 1) return 'Just now';
         if (hours < 24) return `${Math.floor(hours)}h ago`;
@@ -2657,6 +2877,35 @@
         const h = Math.floor(seconds/3600), m = Math.floor((seconds%3600)/60), s = seconds%60;
         return h ? `${h}h ${m}m` : m ? `${m}m ${s}s` : `${s}s`;
     }
+
+    // UTILITY: Safe array sorting with natural sort and error handling
+    // Reduces code duplication and ensures consistent sorting behavior
+    function sortByNaturalOrder(array, fieldExtractor = undefined) {
+        try {
+            if (!Array.isArray(array) || array.length === 0) return array;
+
+            return array.slice().sort((a, b) => {
+                try {
+                    // Extract field if fieldExtractor provided, otherwise use item directly
+                    let aVal = fieldExtractor ? fieldExtractor(a) : a;
+                    let bVal = fieldExtractor ? fieldExtractor(b) : b;
+
+                    // Ensure string values for comparison
+                    aVal = String(aVal || '').trim();
+                    bVal = String(bVal || '').trim();
+
+                    return naturalSort(aVal, bVal);
+                } catch (e) {
+                    console.warn('Error in sortByNaturalOrder item comparison:', e);
+                    return 0;
+                }
+            });
+        } catch (err) {
+            console.warn('Error in sortByNaturalOrder:', err);
+            return array || [];
+        }
+    }
+
     function readFileAsDataURL(file) {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
@@ -2665,6 +2914,170 @@
             reader.readAsDataURL(file);
         });
     }
+
+    // ======================= INDEXEDDB IMAGE STORAGE (50MB+ QUOTA) =======================
+    const ImageDB = (() => {
+        const DB_NAME = 'OzzyKnows_Images';
+        const STORE_NAME = 'images';
+        const DB_VERSION = 1;
+        let db = null;
+
+        // Initialize IndexedDB
+        function init() {
+            return new Promise((resolve, reject) => {
+                if (!window.indexedDB) {
+                    console.warn('[ImageDB] IndexedDB not supported, falling back to localStorage');
+                    resolve(false);
+                    return;
+                }
+                const req = window.indexedDB.open(DB_NAME, DB_VERSION);
+                req.onerror = () => {
+                    console.warn('[ImageDB] Failed to open database:', req.error);
+                    reject(req.error);
+                };
+                req.onsuccess = () => {
+                    db = req.result;
+                    console.log('[ImageDB] Database initialized');
+                    resolve(true);
+                };
+                req.onupgradeneeded = (e) => {
+                    const database = e.target.result;
+                    if (!database.objectStoreNames.contains(STORE_NAME)) {
+                        const store = database.createObjectStore(STORE_NAME, { keyPath: 'id' });
+                        store.createIndex('folderId', 'folderId', { unique: false });
+                        console.log('[ImageDB] Object store created');
+                    }
+                };
+            });
+        }
+
+        // Store image data
+        function storeImage(folderId, imageName, dataUrl) {
+            return new Promise((resolve, reject) => {
+                if (!db) {
+                    resolve(null);
+                    return;
+                }
+                try {
+                    const tx = db.transaction([STORE_NAME], 'readwrite');
+                    const store = tx.objectStore(STORE_NAME);
+                    const id = folderId + '::' + imageName;
+                    store.put({ id, folderId, imageName, dataUrl, timestamp: Date.now() });
+                    tx.oncomplete = () => {
+                        console.log('[ImageDB] Stored image:', imageName);
+                        resolve(id);
+                    };
+                    tx.onerror = () => reject(tx.error);
+                } catch (e) {
+                    reject(e);
+                }
+            });
+        }
+
+        // Retrieve image data
+        function getImage(folderId, imageName) {
+            return new Promise((resolve, reject) => {
+                if (!db) {
+                    resolve(null);
+                    return;
+                }
+                try {
+                    const tx = db.transaction([STORE_NAME], 'readonly');
+                    const store = tx.objectStore(STORE_NAME);
+                    const id = folderId + '::' + imageName;
+                    const req = store.get(id);
+                    req.onsuccess = () => {
+                        resolve(req.result?.dataUrl || null);
+                    };
+                    req.onerror = () => reject(req.error);
+                } catch (e) {
+                    resolve(null);
+                }
+            });
+        }
+
+        // Get all images in folder
+        function getFolderImages(folderId) {
+            return new Promise((resolve, reject) => {
+                if (!db) {
+                    resolve([]);
+                    return;
+                }
+                try {
+                    const tx = db.transaction([STORE_NAME], 'readonly');
+                    const store = tx.objectStore(STORE_NAME);
+                    const index = store.index('folderId');
+                    const req = index.getAll(folderId);
+                    req.onsuccess = () => {
+                        resolve(req.result || []);
+                    };
+                    req.onerror = () => reject(req.error);
+                } catch (e) {
+                    resolve([]);
+                }
+            });
+        }
+
+        // Clear folder images
+        function clearFolderImages(folderId) {
+            return new Promise((resolve, reject) => {
+                if (!db) {
+                    resolve();
+                    return;
+                }
+                try {
+                    const tx = db.transaction([STORE_NAME], 'readwrite');
+                    const store = tx.objectStore(STORE_NAME);
+                    const index = store.index('folderId');
+                    const req = index.openCursor(IDBKeyRange.only(folderId));
+                    req.onsuccess = (e) => {
+                        const cursor = e.target.result;
+                        if (cursor) {
+                            cursor.delete();
+                            cursor.continue();
+                        }
+                    };
+                    tx.oncomplete = () => resolve();
+                    tx.onerror = () => reject(tx.error);
+                } catch (e) {
+                    resolve();
+                }
+            });
+        }
+
+        // Check quota usage
+        async function checkQuota() {
+            try {
+                const est = await navigator.storage?.estimate?.();
+                if (est) {
+                    const ratio = est.usage / est.quota;
+                    console.log(`[ImageDB] Storage: ${Math.round(ratio*100)}% (${Math.round(est.usage/1024/1024)}MB / ${Math.round(est.quota/1024/1024)}MB)`);
+                    return ratio;
+                }
+            } catch (e) {
+                console.warn('[ImageDB] Could not estimate quota:', e);
+            }
+            return 0;
+        }
+
+        return { init, storeImage, getImage, getFolderImages, clearFolderImages, checkQuota };
+    })();
+
+    // ===== IMAGE PERSISTENCE FIXES (prevents refresh data loss) =====
+    // REMOVED: compressImageDataURL - now supporting unlimited size via IndexedDB
+    // REMOVED: flagImageForRecovery - not needed with proper IndexedDB
+
+    function isImageDataValid(img) {
+        if (!img) return false;
+        return (typeof img.data === 'string' && img.data.length > 50 && img.data.startsWith('data:')) ||
+               (typeof img.url === 'string' && img.url.length > 50 && img.url.startsWith('data:'));
+    }
+
+    // LINK-BASED STORAGE: Store images by URL instead of data
+    function isImageLink(img) {
+        return img && typeof img.url === 'string' && (img.url.startsWith('http://') || img.url.startsWith('https://') || img.url.startsWith('blob:'));
+    }
+
     function shouldIgnoreImage(name) {
         const n = name.toLowerCase();
         return n.includes('background') || n.includes('backgroundimage') || n.includes('bgimage') || n.includes('bg-') || n.includes('bg_');
@@ -2707,27 +3120,77 @@
     }
 
     function folderDisplayNameRaw(folder) {
-        return folder.name || friendlyFolderName(folder.id);
+        try {
+            if (!folder) return 'Unnamed';
+            return (folder.name && folder.name.trim()) || friendlyFolderName(folder.id) || 'Unnamed';
+        } catch (e) {
+            console.warn('Error in folderDisplayNameRaw:', e);
+            return 'Unnamed';
+        }
     }
 
     function folderDisplayNameVisible(folder) {
-        const n = folderDisplayNameRaw(folder);
-        const stripped = n.replace(/^\d+\s+/, '').trim();
-        return stripped || n;
+        try {
+            const n = folderDisplayNameRaw(folder);
+            const stripped = n.replace(/^\d+\s+/, '').trim();
+            return stripped || n;
+        } catch (e) {
+            console.warn('Error in folderDisplayNameVisible:', e);
+            return 'Unnamed';
+        }
     }
 
+    // Extract leading number from folder name with consistent return values
+    // Returns: positive integer if number found, -1 if no number (goes to end)
     function leadingNumFromFolderName(name) {
-        const m = (name || '').match(/^(\d+)/);
-        return m ? parseInt(m[1], 10) : Infinity;
+        try {
+            const nameStr = (name || '').trim();
+            if (!nameStr) return -1;
+            const m = nameStr.match(/^(\d+)/);
+            if (!m) return -1;
+            const num = parseInt(m[1], 10);
+            return isNaN(num) ? -1 : num;
+        } catch (e) {
+            console.warn('Error in leadingNumFromFolderName:', e);
+            return -1;
+        }
     }
 
     function compareFoldersForDisplay(a, b) {
-        const g = getFolderGroupKey(a.id).localeCompare(getFolderGroupKey(b.id));
-        if (g !== 0) return g;
-        const an = leadingNumFromFolderName(folderDisplayNameRaw(a));
-        const bn = leadingNumFromFolderName(folderDisplayNameRaw(b));
-        if (an !== bn) return an - bn;
-        return folderDisplayNameRaw(a).localeCompare(folderDisplayNameRaw(b), undefined, { numeric: true, sensitivity: 'base' });
+        try {
+            // Input validation & nullability check
+            if (!a || !b) {
+                if (!a && !b) return 0;
+                return a ? -1 : 1;
+            }
+
+            // LAYER 1: Compare folder group keys (first segment of path)
+            const aGroupKey = getFolderGroupKey(a.id);
+            const bGroupKey = getFolderGroupKey(b.id);
+            const groupCmp = aGroupKey.localeCompare(bGroupKey);
+            if (groupCmp !== 0) return groupCmp;
+
+            // LAYER 2: Compare leading numbers (lesson numbers from folder display name)
+            const aDisplayName = folderDisplayNameRaw(a);
+            const bDisplayName = folderDisplayNameRaw(b);
+            const aLeadingNum = leadingNumFromFolderName(aDisplayName);
+            const bLeadingNum = leadingNumFromFolderName(bDisplayName);
+
+            if (aLeadingNum !== bLeadingNum) {
+                // -1 means no leading number (goes last)
+                if (aLeadingNum === -1) return 1;
+                if (bLeadingNum === -1) return -1;
+                return aLeadingNum - bLeadingNum;   // Numeric comparison
+            }
+
+            // LAYER 3: Use natural sort for final comparison of display names
+            // This ensures proper numeric ordering in remaining text
+            return naturalSort(aDisplayName, bDisplayName);
+        } catch (err) {
+            console.warn('Error in compareFoldersForDisplay:', err);
+            // Fallback to simple string comparison
+            return (a?.id || '').localeCompare(b?.id || '');
+        }
     }
 
     function flashSectionHighlight(sectionId) {
@@ -2996,6 +3459,39 @@
             const oldWin = document.getElementById(oldId);
             if (oldWin) oldWin.remove();
         }
+    }
+
+    // === OBSIDIAN DETECTION ===
+    let obsidianCheckInterval = null;
+    function detectObsidianStatus() {
+        const gem = document.querySelector('.obsidian-gem');
+        if (!gem) return;
+
+        // Check multiple indicators that Obsidian might be running
+        const hasObsidianAPI = typeof window.obsidian !== 'undefined' || typeof window.app !== 'undefined';
+        const hasObsidianFlag = localStorage.getItem('obsidian_running') === 'true';
+        const isObsidianEnvironment = typeof (window.electron || {}).ipcRenderer !== 'undefined' || /obsidian/i.test(navigator.userAgent);
+
+        const isRunning = hasObsidianAPI || hasObsidianFlag || isObsidianEnvironment;
+
+        gem.classList.remove('active', 'inactive');
+        gem.classList.add(isRunning ? 'active' : 'inactive');
+
+        // Apply dynamic styling based on status
+        if (isRunning) {
+            gem.style.color = '#64c3ff';
+            gem.style.textShadow = '0 0 8px rgba(100, 195, 255, 0.8)';
+            gem.title = 'Obsidian is running';
+        } else {
+            gem.style.color = '#ef4444';
+            gem.style.textShadow = '0 0 8px rgba(239, 68, 68, 0.6)';
+            gem.title = 'Obsidian is not running';
+        }
+    }
+
+    function initObsidianDetection() {
+        detectObsidianStatus();
+        if (!obsidianCheckInterval) obsidianCheckInterval = setInterval(detectObsidianStatus, 5000);
     }
 
     // === DEBUG PANEL ===
@@ -3389,14 +3885,16 @@
                 name: tf.name,
                 content: tf.content || tf.rawContent || ''
             })),
+            // IMAGE PERSISTENCE IMPROVED: Store image metadata only (not data)
+            // Actual image data goes to IndexedDB for up to 50MB+ storage
             imageFiles: (folder.imageFiles || []).map(img => {
-                // Prefer stored data URL, otherwise try to get from img.url or create from file (if present)
-                let data = null;
-                if (typeof img.data === 'string' && img.data.startsWith('data:')) data = img.data;
-                else if (typeof img.url === 'string' && img.url.startsWith('data:')) data = img.url;
-                // If we have a File object and no data, we could read it now, but that's async.
-                // We'll rely on the fact that when adding folders, we already set img.data.
-                return { id: img.id, name: img.name, data };
+                return {
+                    id: img.id,
+                    name: img.name,
+                    isLink: isImageLink(img), // Track if this is a URL link vs data URL
+                    url: isImageLink(img) ? img.url : null, // Store link if it's a URL
+                    // Note: data URLs stored in IndexedDB during folder load
+                };
             })
         };
     }
@@ -3417,7 +3915,7 @@
     }
 
     /**
-     * Save the entire application state to localStorage.
+     * Save the entire application state: text to localStorage, images to IndexedDB.
      * Returns true if successful, false otherwise.
      */
     function saveState() {
@@ -3428,7 +3926,7 @@
         const selectionFiles = JSON.stringify([...state.selectedFileIds]);
         const appFavJson = JSON.stringify(state.appFavorites || []);
 
-        // First, try to save everything including image data.
+        // First, try to save everything including IndexedDB images
         try {
             const folderJson = JSON.stringify(normalizedFolders);
             store.set('folders', folderJson);
@@ -3437,45 +3935,43 @@
             store.set('selectedFiles', selectionFiles);
             store.set('appFavorites', appFavJson);
             store.set('foldersLastSaved', Date.now().toString());
+
+            // Save images to IndexedDB asynchronously
+            (async () => {
+                try {
+                    for (const folder of state.folders) {
+                        if (!folder.imageFiles) continue;
+                        for (const img of folder.imageFiles) {
+                            // Store only data URLs in IndexedDB, links stay in localStorage
+                            if (img.data && typeof img.data === 'string' && img.data.startsWith('data:')) {
+                                await ImageDB.storeImage(folder.id, img.name, img.data);
+                            }
+                        }
+                    }
+                    console.log('[Persistence] Images stored to IndexedDB');
+                } catch (e) {
+                    console.warn('[Persistence] Error saving images to IndexedDB:', e);
+                }
+            })();
+
             console.log('[Persistence] Full save successful, folders:', normalizedFolders.length);
-            checkStorageQuota(); // optional warning
+            ImageDB.checkQuota(); // optional monitoring
             return true;
         } catch (err) {
-            console.warn('[Persistence] Full save failed, attempting to save without image data', err);
-            // If quota error, try to save without image data.
-            try {
-                const trimmedFolders = normalizedFolders.map(f => ({
-                    id: f.id,
-                    name: f.name,
-                    textFiles: f.textFiles,
-                    imageFiles: f.imageFiles.map(img => ({ id: img.id, name: img.name, data: null })) // drop image data
-                }));
-                const folderJson = JSON.stringify(trimmedFolders);
-                store.set('folders', folderJson);
-                store.set('sectionData', sectionJson);
-                store.set('selectedFolders', selectionFolders);
-                store.set('selectedFiles', selectionFiles);
-                store.set('appFavorites', appFavJson);
-                store.set('foldersLastSaved', Date.now().toString());
-                showToast('Images could not be saved due to storage limits. Text content preserved.', 5000);
-                console.log('[Persistence] Trimmed save successful (no images)');
-                return true;
-            } catch (err2) {
-                console.error('[Persistence] Trimmed save also failed', err2);
-                showToast('Critical: Could not save workspace state. Storage may be full.', 5000);
-                return false;
-            }
+            console.warn('[Persistence] Save failed', err);
+            showToast('Could not save workspace state. Storage may be full.', 5000);
+            return false;
         }
     }
 
     /**
-     * Load the application state from localStorage.
-     * If images were trimmed, they will be missing (data: null).
+     * Load the application state from localStorage and IndexedDB.
+     * Image data is retrieved asynchronously from IndexedDB.
      */
-    function loadState() {
+    async function loadState() {
         console.log('[Persistence] Loading state...');
 
-        // Load folders
+        // Load folders metadata
         const folderRaw = store.get('folders');
         if (folderRaw) {
             try {
@@ -3487,16 +3983,41 @@
                         // Reconstruct text files
                         const textFiles = (Array.isArray(f.textFiles) ? f.textFiles : []).filter(tf => tf && tf.id && tf.name).map(tf => {
                             const content = typeof tf.content === 'string' ? tf.content : '';
-                            // Parse content into parts if needed
                             const parts = Array.isArray(tf.parts) && tf.parts.length ? tf.parts : (content ? parseFileContent(content) : []);
                             return { id: tf.id, name: tf.name, content, parts };
                         });
-                        // Reconstruct image files
-                        const imageFiles = (Array.isArray(f.imageFiles) ? f.imageFiles : []).filter(img => img && img.id && img.name).map(img => {
-                            // img.data may be null if trimmed
-                            const data = (typeof img.data === 'string' && img.data.startsWith('data:')) ? img.data : null;
-                            return { id: img.id, name: img.name, url: data, data: data, file: null };
-                        });
+
+                        // Reconstruct image files - retrieve from IndexedDB if available
+                        const imageFiles = [];
+                        if (Array.isArray(f.imageFiles)) {
+                            for (const img of f.imageFiles) {
+                                if (!img || !img.id || !img.name) continue;
+
+                                // If it's a link-based image (URL), use it directly
+                                if (img.isLink && img.url) {
+                                    imageFiles.push({
+                                        id: img.id,
+                                        name: img.name,
+                                        url: img.url,
+                                        data: img.url,
+                                        file: null,
+                                        isLink: true
+                                    });
+                                } else {
+                                    // Try to retrieve from IndexedDB
+                                    const dataUrl = await ImageDB.getImage(f.id, img.name);
+                                    imageFiles.push({
+                                        id: img.id,
+                                        name: img.name,
+                                        url: dataUrl,
+                                        data: dataUrl,
+                                        file: null,
+                                        isLink: false
+                                    });
+                                }
+                            }
+                        }
+
                         // Only keep folders that have at least one useful file
                         if (textFiles.length === 0 && imageFiles.length === 0) continue;
                         loadedFolders.push({
@@ -3736,12 +4257,23 @@
                 }
                 return folderPath;
             }
+
             for (const [folderPath, group] of folderMap.entries()) {
-                const closest = nearestSelectedFolder(folderPath);
-                group.textFiles.forEach(txt => {
-                    if (!isBlacklistTextFile(txt.name)) addToFinal(closest, 'text', txt);
-                });
-                group.imageFiles.forEach(img => addToFinal(closest, 'image', img));
+                const isImagesFolder = folderPath.toLowerCase().endsWith('/images') || folderPath.toLowerCase() === 'images';
+
+                if (isImagesFolder) {
+                    // For "Images" subfolders, add images directly to parent folder
+                    const parentPath = folderPath.substring(0, folderPath.lastIndexOf('/'));
+                    if (parentPath) {
+                        group.imageFiles.forEach(img => addToFinal(parentPath, 'image', img));
+                    }
+                } else {
+                    const closest = nearestSelectedFolder(folderPath);
+                    group.textFiles.forEach(txt => {
+                        if (!isBlacklistTextFile(txt.name)) addToFinal(closest, 'text', txt);
+                    });
+                    group.imageFiles.forEach(img => addToFinal(closest, 'image', img));
+                }
             }
             // Remove orphan folders that have no text files and no valid images.
             for (const [folderId, folder] of finalFolderMap.entries()) {
@@ -3782,6 +4314,32 @@
             }
             saveState(); // Save after upload
             rerenderAll();
+
+            // IMAGE PERSISTENCE IMPROVED: Store all images to IndexedDB asynchronously
+            (async () => {
+                let imageCount = 0;
+                for (const [path, folder] of finalFolderMap.entries()) {
+                    if (folder.imageFiles && folder.imageFiles.length > 0) {
+                        for (const img of folder.imageFiles) {
+                            if (img.data && typeof img.data === 'string' && img.data.startsWith('data:')) {
+                                await ImageDB.storeImage(folder.id, img.name, img.data);
+                                imageCount++;
+                            } else if (isImageLink(img)) {
+                                // Link-based images (URLs) are stored in memory, will be persisted with metadata
+                                imageCount++;
+                            }
+                        }
+                    }
+                }
+                console.log(`[ImageDB] Stored ${imageCount} images`);
+                if (imageCount > 0) {
+                    const quota = await ImageDB.checkQuota();
+                    if (quota > 0.8) {
+                        showToast('⚠️ IndexedDB storage > 80% full. Consider removing large images.', 6000);
+                    }
+                }
+            })().catch(e => console.warn('[ImageDB] Store error:', e));
+
             const message = `Imported ${finalFolderMap.size} parent folder(s) with ${files.length} files (${errors ? errors + ' errors' : 'all good'}).`;
             showToast(message, 4000);
         });
@@ -4378,21 +4936,42 @@
         }
     }
 
-    function renderFolderList() {
-        const list = $('folderList');
-        if (!list) return;
-        list.innerHTML = '';
-        if (!state.folders.length) {
-            list.innerHTML = '<p style="color:#94a3b8;">No folders. Click "Add Folder(s)" to load some.</p>';
-            return;
-        }
-        const sortedList = [...state.folders].sort(compareFoldersForDisplay);
-        sortedList.forEach(folder => {
+    // Helper function to create a folder element
+    function createFolderElement(folder, folderIndex) {
+        try {
+            if (!folder || typeof folder !== 'object') {
+                console.warn(`Invalid folder at index ${folderIndex}:`, folder);
+                return null;
+            }
+
+            if (!folder.id || typeof folder.id !== 'string') {
+                console.warn(`Folder missing valid id at index ${folderIndex}`);
+                return null;
+            }
+
+            if (!Array.isArray(folder.textFiles)) folder.textFiles = [];
+            if (!Array.isArray(folder.imageFiles)) folder.imageFiles = [];
+
             const folderDiv = document.createElement('div');
             folderDiv.className = 'folder-item';
             folderDiv.dataset.folderId = folder.id;
+            folderDiv.style.borderLeft = '4px solid rgba(100, 227, 255, 0.3)';
+            folderDiv.style.borderRadius = '8px';
+            folderDiv.style.marginBottom = '10px';
+            folderDiv.style.padding = '0px';
+            folderDiv.style.background = 'rgba(30, 41, 59, 0.5)';
+            folderDiv.style.transition = 'all 0.2s ease';
+            folderDiv.style.boxShadow = 'inset 0 1px 2px rgba(0, 0, 0, 0.3)';
+            folderDiv.addEventListener('mouseenter', function() {
+                this.style.background = 'rgba(30, 41, 59, 0.8)';
+                this.style.borderLeftColor = 'rgba(100, 227, 255, 0.6)';
+            });
+            folderDiv.addEventListener('mouseleave', function() {
+                this.style.background = 'rgba(30, 41, 59, 0.5)';
+                this.style.borderLeftColor = 'rgba(100, 227, 255, 0.3)';
+            });
 
-            const rawTitle = folderDisplayNameRaw(folder);
+            const rawTitle = folderDisplayNameRaw(folder) || 'Unnamed Folder';
             const numMatch = rawTitle.match(/^(\d+\s+)(.+)$/);
             const titleHtml = numMatch
                 ? `<span class="folder-name-num" aria-hidden="true">${numMatch[1]}</span><span class="folder-name-visible">${numMatch[2]}</span>`
@@ -4400,85 +4979,564 @@
 
             const header = document.createElement('div');
             header.className = 'folder-header';
+            header.style.padding = '12px 14px';
+            header.style.background = 'linear-gradient(135deg, rgba(100, 227, 255, 0.05), rgba(255, 152, 0, 0.02))';
+            header.style.borderBottom = '1px solid rgba(100, 227, 255, 0.1)';
+            header.style.cursor = 'pointer';
+            header.style.transition = 'all 0.2s ease';
+            header.addEventListener('mouseenter', function() {
+                this.style.background = 'linear-gradient(135deg, rgba(100, 227, 255, 0.1), rgba(255, 152, 0, 0.05))';
+                this.style.borderBottomColor = 'rgba(100, 227, 255, 0.2)';
+            });
+            header.addEventListener('mouseleave', function() {
+                this.style.background = 'linear-gradient(135deg, rgba(100, 227, 255, 0.05), rgba(255, 152, 0, 0.02))';
+                this.style.borderBottomColor = 'rgba(100, 227, 255, 0.1)';
+            });
+            const safeId = (folder.id || '').replace(/"/g, '&quot;').substring(0, 500);
+            const textCount = Math.max(0, folder.textFiles.length);
+            const imgCount = Math.max(0, folder.imageFiles.length);
+
             header.innerHTML = `
                 <div style="display:flex; align-items:center; justify-content:space-between; width:100%; gap:8px;">
-                    <span style="display:flex; align-items:center; gap:8px;">
-                        <input type="checkbox" data-type="folder" data-id="${folder.id}" title="Select folder" ${state.selectedFolderIds.has(folder.id) ? 'checked' : ''}>
-                        <div>
-                            <div class="folder-name" title="${folder.id}">${titleHtml}</div>
-                            <div style="font-size:0.75rem; color:#cbd5e1;">${folder.id}</div>
+                    <span style="display:flex; align-items:center; gap:10px; flex: 1;">
+                        <input type="checkbox" data-type="folder" data-id="${safeId}" title="Click to select this folder (children will also select/deselect)" aria-label="Select folder: ${safeId}" ${state.selectedFolderIds && state.selectedFolderIds.has(folder.id) ? 'checked' : ''} style="width: 18px; height: 18px; cursor: pointer; accent-color: #64e3ff; transition: all 0.2s ease;">
+                        <div style="flex: 1;">
+                            <div class="folder-name" title="${safeId}" style="font-weight: 600; color: #e2e8f0; transition: color 0.2s ease;">${titleHtml}</div>
+                            <div style="font-size:0.75rem; color:#94a3b8; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${safeId}</div>
                         </div>
                     </span>
-                    <span class="folder-count">${folder.textFiles.length} txt · ${folder.imageFiles.length} img</span>
+                    <span class="folder-count" title="${textCount} text files and ${imgCount} image files" style="font-weight:600; color:#64e3ff; font-size: 0.9em; white-space: nowrap; background: rgba(100, 227, 255, 0.1); padding: 4px 10px; border-radius: 6px; transition: all 0.2s ease;">${textCount}📄 ${imgCount}🖼️</span>
                 </div>
             `;
-            header.addEventListener('click', (e) => {
-                if (e.target.tagName !== 'INPUT') {
-                    folderDiv.classList.toggle('expanded');
-                }
+
+            // Add full-row click toggle for folder expand/collapse
+            header.addEventListener('click', function(e) {
+                // Don't toggle if clicking on checkbox
+                if (e.target.type === 'checkbox') return;
+                folderDiv.classList.toggle('expanded');
             });
+
             folderDiv.appendChild(header);
             const filesDiv = document.createElement('div');
             filesDiv.className = 'folder-files';
+            filesDiv.style.padding = '8px 4px';
+            filesDiv.style.background = 'rgba(0, 0, 0, 0.1)';
+            filesDiv.style.borderRadius = '0 0 8px 8px';
 
-            folder.textFiles.forEach(file => {
-                const fileItem = document.createElement('div');
-                fileItem.className = 'file-item';
-                // Hide leading numbers in filenames (e.g., "1 Title.txt" becomes "Title.txt")
-                let displayFileName = file.name.replace(/^\d+\s+/, '').trim();
-                fileItem.innerHTML = `
-                    <span style="display:flex; align-items:center; gap:8px;">
-                        <input type="checkbox" data-type="file" data-id="${file.id}" data-folder-id="${folder.id}" title="Select file" ${state.selectedFileIds.has(`${folder.id}::${file.id}`) ? 'checked' : ''}>
-                        <span class="file-name">${displayFileName}</span>
-                    </span>
-                `;
-                filesDiv.appendChild(fileItem);
-            });
+            // OPTIMIZATION: Sort text files once with two-level system:
+            // PRIMARY: Lesson number (first number in filename)
+            // SECONDARY: Numeric sequence (natural sort to avoid 1,10,11,2,3...)
+            try {
+                const sortedTextFiles = [...(folder.textFiles || [])].sort((a, b) => {
+                    if (!a || !b || !a.name || !b.name) return 0;
+                    return naturalSort(a.name, b.name);
+                });
 
-            folder.imageFiles.forEach(img => {
-                const imgItem = document.createElement('div');
-                imgItem.className = 'file-item';
-                imgItem.innerHTML = `
-                    <span style="display:flex; align-items:center; gap:8px;">
-                        <input type="checkbox" data-type="file" data-id="${img.id}" data-folder-id="${folder.id}" title="Select image" ${state.selectedFileIds.has(`${folder.id}::${img.id}`) ? 'checked' : ''}>
-                        <span class="file-name">📷 ${img.name}</span>
-                    </span>
-                    <span style="color:#93c5fd;">image</span>
-                `;
-                filesDiv.appendChild(imgItem);
-            });
+                sortedTextFiles.forEach((file, fileIndex) => {
+                    try {
+                        if (!file || typeof file !== 'object' || !file.id || !file.name) {
+                            return;
+                        }
+
+                        const fileItem = document.createElement('div');
+                        fileItem.className = 'file-item';
+                        fileItem.style.padding = '8px 10px';
+                        fileItem.style.margin = '4px';
+                        fileItem.style.borderRadius = '6px';
+                        fileItem.style.background = 'rgba(100, 227, 255, 0.05)';
+                        fileItem.style.border = '1px solid rgba(100, 227, 255, 0.1)';
+                        fileItem.style.transition = 'all 0.2s ease';
+                        fileItem.style.cursor = 'pointer';
+                        let displayFileName = (file.name || 'Unnamed').replace(/^\d+\s+/, '').trim().substring(0, 200);
+
+                        const safeFileId = (file.id || '').replace(/"/g, '&quot;');
+                        const isSelected = state.selectedFileIds && state.selectedFileIds.has(`${folder.id}::${file.id}`);
+
+                        fileItem.innerHTML = `
+                            <span style="display:flex; align-items:center; gap:8px; flex:1;">
+                                <input type="checkbox" data-type="file" data-id="${safeFileId}" data-folder-id="${safeId}" title="Select file" ${isSelected ? 'checked' : ''} style="cursor: pointer; accent-color: #64e3ff;">
+                                <span class="file-name" style="cursor:pointer; flex:1; color: #e2e8f0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${displayFileName}</span>
+                            </span>
+                            <span class="file-open-icon" style="cursor:pointer; color:#64e3ff; font-size:1em; font-weight: bold; transition: all 0.2s ease;">🗂</span>
+                        `;
+
+                        fileItem.addEventListener('mouseenter', function() {
+                            this.style.background = 'rgba(100, 227, 255, 0.15)';
+                            this.style.borderColor = 'rgba(100, 227, 255, 0.3)';
+                        });
+                        fileItem.addEventListener('mouseleave', function() {
+                            this.style.background = 'rgba(100, 227, 255, 0.05)';
+                            this.style.borderColor = 'rgba(100, 227, 255, 0.1)';
+                        });
+
+                        const fileNameSpan = fileItem.querySelector('.file-name');
+                        const openIcon = fileItem.querySelector('.file-open-icon');
+                        const openFileHandler = () => {
+                            try {
+                                fileItem.style.opacity = '0.6';
+                                fileItem.style.pointerEvents = 'none';
+                                const timeout = setTimeout(() => {
+                                    fileItem.style.opacity = '1';
+                                    fileItem.style.pointerEvents = 'auto';
+                                }, 300);
+                                openFileWindow(file, folder);
+                                clearTimeout(timeout);
+                                fileItem.style.opacity = '1';
+                                fileItem.style.pointerEvents = 'auto';
+                            } catch (e) {
+                                console.error('Error opening file:', e);
+                                fileItem.style.opacity = '1';
+                                fileItem.style.pointerEvents = 'auto';
+                            }
+                        };
+
+                        if (fileNameSpan) {
+                            fileNameSpan.addEventListener('click', openFileHandler);
+                        }
+                        if (openIcon) {
+                            openIcon.addEventListener('click', openFileHandler);
+                        }
+
+                        filesDiv.appendChild(fileItem);
+                    } catch (fileErr) {
+                        console.warn(`Error rendering text file at index ${fileIndex}:`, fileErr);
+                    }
+                });
+            } catch (textSortErr) {
+                console.warn('Error sorting text files, rendering unsorted:', textSortErr);
+                folder.textFiles.forEach((file, fileIndex) => {
+                    try {
+                        if (!file || typeof file !== 'object' || !file.id || !file.name) return;
+                        const fileItem = document.createElement('div');
+                        fileItem.className = 'file-item';
+                        const displayFileName = (file.name || 'Unnamed').replace(/^\d+\s+/, '').trim().substring(0, 200);
+                        const safeFileId = (file.id || '').replace(/"/g, '&quot;');
+                        const isSelected = state.selectedFileIds && state.selectedFileIds.has(`${folder.id}::${file.id}`);
+                        fileItem.innerHTML = `<span style="display:flex;align-items:center;gap:8px;flex:1;"><input type="checkbox" data-type="file" data-id="${safeFileId}" data-folder-id="${safeId}" ${isSelected ? 'checked' : ''}><span class="file-name" style="cursor:pointer;flex:1;">${displayFileName}</span></span><span class="file-open-icon" style="cursor:pointer;color:#64e3ff;font-size:0.9rem;">→</span>`;
+                        filesDiv.appendChild(fileItem);
+                    } catch (e) {
+                        console.warn(`Fallback text render error at ${fileIndex}:`, e);
+                    }
+                });
+            }
+
+            // OPTIMIZATION: Sort image files once with two-level system:
+            // PRIMARY: Lesson number (first number in filename)
+            // SECONDARY: Numeric sequence (1,2,3... instead of 1,10,11,12,2,3...)
+            // NOTE: Images are NOT shown in folder manager - they appear ONLY in content window gallery
+            // This keeps the folder list clean and focused on text files
 
             folderDiv.appendChild(filesDiv);
-            list.appendChild(folderDiv);
+            return folderDiv;
+        } catch (err) {
+            console.error(`Error creating folder element at index ${folderIndex}:`, err);
+            return null;
+        }
+    }
+
+    function renderFolderList() {
+        try {
+            const list = $('folderList');
+            // SAFEGUARD 1: Check if element exists
+            if (!list) {
+                console.error('folderList element not found');
+                return;
+            }
+
+            list.innerHTML = '';
+
+            // SAFEGUARD 2: Check if state.folders exists and is array
+            if (!state || !state.folders || !Array.isArray(state.folders)) {
+                list.innerHTML = '<p style="color:#ef4444;">Error: Invalid folder state</p>';
+                console.error('state.folders is invalid:', state?.folders);
+                return;
+            }
+
+            // SAFEGUARD 3: Handle empty folders array
+            if (!state.folders.length) {
+                list.innerHTML = '<p style="color:#94a3b8;">No folders. Click "Add Folder(s)" to load some.</p>';
+                return;
+            }
+
+            // SAFEGUARD 4: Sort with error handling
+            let sortedList = [];
+            try {
+                sortedList = [...state.folders].sort(compareFoldersForDisplay);
+            } catch (sortErr) {
+                console.warn('Sort failed, using unsorted list:', sortErr);
+                sortedList = [...state.folders];
+            }
+
+// MIXED FOLDER SEPARATION FIX: Filter out Image-only folders before grouping
+        const usefulFolders = sortedList.filter(folder => {
+            const fname = (folder.name || folder.id || '').toLowerCase().trim();
+            return fname !== 'images' && !fname.includes('__images__');
         });
 
-        list.querySelectorAll('.file-open-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const folderId = btn.dataset.folderId;
-                const fileId = btn.dataset.fileId;
-                const folder = state.folders.find(f => f.id === folderId);
-                const file = folder?.textFiles.find(f => f.id === fileId);
-                if (file) openFileWindow(file, folder);
-            });
-        });
-
-        list.querySelectorAll('input[type=checkbox]').forEach(cb => {
-            cb.addEventListener('click', e => e.stopPropagation());
-            cb.addEventListener('change', () => {
-                const type = cb.dataset.type;
-                const id = cb.dataset.id;
-                const folderId = cb.dataset.folderId;
-                if (type === 'folder') {
-                    if (cb.checked) state.selectedFolderIds.add(id);
-                    else state.selectedFolderIds.delete(id);
-                } else if (type === 'file') {
-                    if (cb.checked) state.selectedFileIds.add(`${folderId}::${id}`);
-                    else state.selectedFileIds.delete(`${folderId}::${id}`);
+        // Group folders by parent subject folder (first part of folder.id)
+        const groupedFolders = {};
+        usefulFolders.forEach((folder) => {
+                const parts = (folder.id || '').split('/').filter(Boolean);
+                const parentSubject = parts.length > 0 ? parts[0] : 'root';
+                if (!groupedFolders[parentSubject]) {
+                    groupedFolders[parentSubject] = [];
                 }
-                saveSelectionState();
+                groupedFolders[parentSubject].push(folder);
             });
-        });
+
+            const subjectGroups = Object.entries(groupedFolders);
+            const hasMultipleGroups = subjectGroups.length >= 2;
+
+            // SAFEGUARD 5: Process each subject group with try-catch
+            subjectGroups.forEach(([parentSubject, foldersInGroup], groupIndex) => {
+                try {
+                    // Create parent subject group header only if we have multiple groups
+                    if (hasMultipleGroups) {
+                        const groupHeaderDiv = document.createElement('div');
+                        groupHeaderDiv.className = 'parent-subject-group';
+                        groupHeaderDiv.dataset.subject = parentSubject;
+                        groupHeaderDiv.style.marginBottom = '20px';
+                        groupHeaderDiv.style.borderTop = '3px solid rgba(100, 227, 255, 0.5)';
+                        groupHeaderDiv.style.borderLeft = '6px solid rgba(255, 152, 0, 0.7)';
+                        groupHeaderDiv.style.borderRadius = '10px';
+                        groupHeaderDiv.style.padding = '14px 16px';
+                        groupHeaderDiv.style.background = 'rgba(15, 23, 42, 0.9)';
+                        groupHeaderDiv.style.boxShadow = 'inset 0 1px 3px rgba(0, 0, 0, 0.5)';
+                        groupHeaderDiv.style.transition = 'all 0.3s ease';
+
+                        const headerButton = document.createElement('div');
+                        headerButton.className = 'parent-subject-header';
+                        headerButton.style.display = 'flex';
+                        headerButton.style.alignItems = 'center';
+                        headerButton.style.gap = '12px';
+                        headerButton.style.cursor = 'pointer';
+                        headerButton.style.userSelect = 'none';
+                        headerButton.style.paddingBottom = '12px';
+                        headerButton.style.borderBottom = '2px solid rgba(100, 180, 255, 0.25)';
+                        headerButton.style.transition = 'border-color 0.3s ease';
+
+                        const toggleIcon = document.createElement('input');
+                        toggleIcon.type = 'checkbox';
+                        toggleIcon.className = 'toggle-icon';
+                        toggleIcon.style.width = '18px';
+                        toggleIcon.style.height = '18px';
+                        toggleIcon.style.cursor = 'pointer';
+                        toggleIcon.style.accentColor = '#64e3ff';
+                        toggleIcon.style.transition = 'all 0.2s ease';
+                        toggleIcon.style.flexShrink = '0';
+                        toggleIcon.checked = false; // Start collapsed
+                        toggleIcon.addEventListener('change', () => {
+                            const isExpanded = toggleIcon.checked;
+                            groupContent.style.maxHeight = isExpanded ? '5000px' : '0px';
+                            groupContent.style.paddingTop = isExpanded ? '12px' : '0px';
+                            groupContent.style.opacity = isExpanded ? '1' : '0.3';
+                            headerButton.style.borderBottomColor = isExpanded ? 'rgba(100, 180, 255, 0.25)' : 'rgba(100, 180, 255, 0.1)';
+
+                            // AUTO-COLLAPSE: Only allow 1 parent group open at a time
+                            if (isExpanded) {
+                                const allToggleCheckboxes = list.querySelectorAll('.parent-subject-group .toggle-icon');
+                                allToggleCheckboxes.forEach(otherCb => {
+                                    if (otherCb !== toggleIcon && otherCb.checked) {
+                                        otherCb.checked = false;
+                                        otherCb.dispatchEvent(new Event('change', { bubbles: true }));
+                                    }
+                                });
+                            }
+                        });
+                        // Stop propagation so checkbox doesn't trigger header click
+                        toggleIcon.addEventListener('click', (e) => e.stopPropagation());
+
+                        const titleSpan = document.createElement('span');
+                        titleSpan.textContent = parentSubject;
+                        titleSpan.style.fontSize = '1.15em';
+                        titleSpan.style.fontWeight = '700';
+                        titleSpan.style.color = '#ffeb3b';
+                        titleSpan.style.letterSpacing = '0.5px';
+
+                        // Calculate total files (text + images) in this group with validation
+                        const totalFiles = foldersInGroup.reduce((sum, folder) => {
+                            const textCount = Array.isArray(folder.textFiles) ? folder.textFiles.length : 0;
+                            const imgCount = Array.isArray(folder.imageFiles) ? folder.imageFiles.length : 0;
+                            return sum + textCount + imgCount;
+                        }, 0);
+
+                        const countSpan = document.createElement('span');
+                        countSpan.textContent = `(${totalFiles} file${totalFiles !== 1 ? 's' : ''})`;
+                        countSpan.style.fontSize = '0.9em';
+                        countSpan.style.color = '#94a3b8';
+                        countSpan.style.marginLeft = '10px';
+                        countSpan.style.fontWeight = '500';
+
+                        headerButton.appendChild(toggleIcon);
+                        headerButton.appendChild(titleSpan);
+                        headerButton.appendChild(countSpan);
+
+                        const groupContent = document.createElement('div');
+                        groupContent.className = 'parent-subject-content';
+                        groupContent.style.paddingTop = '12px';
+                        groupContent.style.maxHeight = '5000px';
+                        groupContent.style.overflow = 'hidden';
+                        groupContent.style.transition = 'max-height 0.3s ease, opacity 0.3s ease';
+                        groupContent.style.opacity = '1';
+
+                        headerButton.addEventListener('click', () => {
+                            // Toggle checkbox when header is clicked (checkbox toggle event fires animation)
+                            toggleIcon.checked = !toggleIcon.checked;
+                        });
+
+                        groupHeaderDiv.appendChild(headerButton);
+                        groupHeaderDiv.appendChild(groupContent);
+                        list.appendChild(groupHeaderDiv);
+
+                        foldersInGroup.forEach((folder, folderIndex) => {
+                            const folderDiv = createFolderElement(folder, folderIndex);
+                            if (folderDiv) groupContent.appendChild(folderDiv);
+                        });
+                    } else {
+                        foldersInGroup.forEach((folder, folderIndex) => {
+                            const folderDiv = createFolderElement(folder, folderIndex);
+                            if (folderDiv) list.appendChild(folderDiv);
+                        });
+                    }
+                } catch (groupErr) {
+                    console.error(`Error rendering subject group ${parentSubject}:`, groupErr);
+                }
+            });
+
+            // SAFEGUARD 12: Event listeners with error handling
+            try {
+                list.querySelectorAll('input[type=checkbox]').forEach((cb, cbIndex) => {
+                    try {
+                        if (!cb) return;
+
+                        cb.addEventListener('click', e => {
+                            try {
+                                e.stopPropagation();
+                            } catch (e) {
+                                console.warn('Error stopping propagation');
+                            }
+                        });
+
+                        cb.addEventListener('change', () => {
+                            try {
+                                const type = cb.dataset.type;
+                                const id = cb.dataset.id;
+                                const folderId = cb.dataset.folderId;
+                                const folderItem = cb.closest('.folder-item');
+
+                                // SAFEGUARD 13: Validate checkbox data
+                                if (!type || !id) {
+                                    console.warn('Checkbox missing data');
+                                    return;
+                                }
+
+                                if (type === 'folder') {
+                                    // Cascade: check/uncheck all files in this folder
+                                    if (folderItem) {
+                                        const fileCheckboxes = folderItem.querySelectorAll('input[data-type="file"]');
+                                        fileCheckboxes.forEach(fileCb => {
+                                            fileCb.checked = cb.checked;
+                                            fileCb.dispatchEvent(new Event('change', { bubbles: true }));
+                                            updateCheckboxVisualFeedback(fileCb);
+                                        });
+                                    }
+                                    if (cb.checked) {
+                                        state.selectedFolderIds.add(id);
+                                        // AUTO-COLLAPSE: Uncheck other selected folders (only 1 open at a time)
+                                        const allFolderCbs = list.querySelectorAll('input[data-type="folder"]');
+                                        allFolderCbs.forEach(otherCb => {
+                                            if (otherCb !== cb && otherCb.checked) {
+                                                otherCb.checked = false;
+                                                otherCb.dispatchEvent(new Event('change', { bubbles: true }));
+                                                state.selectedFolderIds.delete(otherCb.dataset.id);
+                                            }
+                                        });
+                                    } else {
+                                        state.selectedFolderIds.delete(id);
+                                    }
+                                } else if (type === 'file') {
+                                    if (folderId && id) {
+                                        const key = `${folderId}::${id}`;
+                                        if (cb.checked) state.selectedFileIds.add(key);
+                                        else state.selectedFileIds.delete(key);
+                                    }
+                                }
+
+                                // Visual feedback
+                                updateCheckboxVisualFeedback(cb);
+                                saveSelectionState();
+                            } catch (changeErr) {
+                                console.error('Error handling checkbox change:', changeErr);
+                            }
+                        });
+                    } catch (cbErr) {
+                        console.warn(`Error setting up checkbox at index ${cbIndex}:`, cbErr);
+                    }
+                });
+            } catch (eventErr) {
+                console.warn('Error setting up event listeners:', eventErr);
+            }
+        } catch (err) {
+            console.error('Critical error in renderFolderList:', err);
+            const list = $('folderList');
+            if (list) {
+                list.innerHTML = `<p style="color:#ef4444;">Error loading folder list: ${err.message}</p>`;
+            }
+        }
+    }
+
+    // Helper function for visual checkbox feedback
+    function updateCheckboxVisualFeedback(checkbox) {
+        try {
+            const fileItem = checkbox.closest('.file-item');
+            if (fileItem) {
+                if (checkbox.checked) {
+                    fileItem.classList.add('selected');
+                } else {
+                    fileItem.classList.remove('selected');
+                }
+            }
+        } catch (e) {
+            console.warn('Error updating checkbox visual feedback:', e);
+        }
+    }
+
+    // ===== IMAGE SEARCH FUNCTIONALITY =====
+    function initImageSearch() {
+        try {
+            const searchInput = $('imageSearchInput');
+            const clearButton = $('imageClearSearchBtn');
+
+            // Safeguards: Validate elements exist
+            if (!searchInput || !clearButton) {
+                console.warn('Image search elements not found');
+                return;
+            }
+
+            // Event listener for search input with debounce
+            let searchTimeout;
+            searchInput.addEventListener('input', (e) => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    try {
+                        performImageSearch(e.target.value.trim());
+                    } catch (err) {
+                        console.error('Error during image search:', err);
+                    }
+                }, 300); // 300ms debounce
+            });
+
+            // Event listener for clear button
+            clearButton.addEventListener('click', () => {
+                try {
+                    searchInput.value = '';
+                    performImageSearch('');
+                } catch (err) {
+                    console.error('Error clearing search:', err);
+                }
+            });
+
+            // Allow Enter key to trigger search
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    try {
+                        performImageSearch(e.target.value.trim());
+                    } catch (err) {
+                        console.error('Error on Enter key:', err);
+                    }
+                }
+            });
+        } catch (err) {
+            console.error('Failed to initialize image search:', err);
+        }
+    }
+
+    function performImageSearch(query) {
+        try {
+            // Safeguard: Validate query
+            if (typeof query !== 'string') {
+                console.warn('Invalid search query type');
+                return;
+            }
+
+            const folderItems = document.querySelectorAll('.folder-item');
+            if (!folderItems || folderItems.length === 0) {
+                return; // No folders loaded
+            }
+
+            const normalizedQuery = query.toLowerCase().trim();
+            let matchesFound = 0;
+
+            folderItems.forEach((folderItem) => {
+                try {
+                    if (!folderItem) return;
+
+                    // Get all file items in this folder
+                    const fileItems = folderItem.querySelectorAll('.file-item');
+                    let folderHasMatch = false;
+
+                    fileItems.forEach((fileItem) => {
+                        try {
+                            if (!fileItem) return;
+
+                            const fileName = fileItem.textContent.toLowerCase();
+                            const isImage = fileItem.textContent.includes('📷');
+
+                            // Show/hide based on search and image type
+                            if (normalizedQuery === '' || (isImage && fileName.includes(normalizedQuery))) {
+                                fileItem.style.display = '';
+                                if (isImage && normalizedQuery !== '') {
+                                    folderHasMatch = true;
+                                    matchesFound++;
+                                    // Add highlight to matching items
+                                    fileItem.style.backgroundColor = 'rgba(255, 193, 7, 0.2)';
+                                }
+                            } else if (isImage) {
+                                fileItem.style.display = 'none';
+                            } else {
+                                fileItem.style.display = '';
+                            }
+                        } catch (itemErr) {
+                            console.warn('Error processing file item:', itemErr);
+                        }
+                    });
+
+                    // Keep folder expanded if it has matches
+                    if (normalizedQuery !== '') {
+                        if (folderHasMatch) {
+                            folderItem.classList.add('expanded');
+                        } else {
+                            // Hide folder if no image matches (but show all text files)
+                            const hasAnyImages = Array.from(fileItems).some(item => item.textContent.includes('📷'));
+                            if (hasAnyImages) {
+                                folderItem.style.opacity = '0.4';
+                                folderItem.style.pointerEvents = 'none';
+                            }
+                        }
+                    } else {
+                        folderItem.classList.remove('expanded');
+                        folderItem.style.opacity = '1';
+                        folderItem.style.pointerEvents = '';
+                        // Remove highlights
+                        Array.from(fileItems).forEach(item => {
+                            item.style.backgroundColor = '';
+                        });
+                    }
+                } catch (folderErr) {
+                    console.warn('Error processing folder item:', folderErr);
+                }
+            });
+
+            // Update search feedback
+            const searchInput = $('imageSearchInput');
+            if (searchInput && normalizedQuery !== '') {
+                searchInput.style.borderColor = matchesFound > 0 ? '#10b981' : '#ef4444';
+            } else if (searchInput) {
+                searchInput.style.borderColor = '#334155';
+            }
+        } catch (err) {
+            console.error('Search function errored:', err);
+        }
     }
 
     function renderSections() {
@@ -4568,11 +5626,14 @@
         const fragment = document.createDocumentFragment();
         const sortedFolders = [...state.folders].filter(isUsefulFolder).sort(compareFoldersForDisplay);
         const summaryRows = [];
-        let letterIdx = 0;
         let summaryDisplayIndex = 0;
 
+        // Group folders by parent subject for better organization
+        const groupedBySubject = {};
         sortedFolders.forEach((folder) => {
-            if (folder.name.toLowerCase() === 'images' || isHiddenFolder(folder.id)) return;
+            const hasItems = folder.textFiles && folder.textFiles.length > 0;
+            // SUMMARY EMPTY CONTAINERS FIX: Skip folders with no content to avoid empty entries
+            if (folder.name.toLowerCase() === 'images' || isHiddenFolder(folder.id) || !hasItems) return;
             if (summaryRows.length >= MAX_SUMMARY_ENTRIES) return;
 
             summaryDisplayIndex++;
@@ -4580,7 +5641,6 @@
             const summaryNumber = summaryDisplayIndex;
 
             // O for Open (has items), C for Closed (empty)
-            const hasItems = folder.textFiles && folder.textFiles.length > 0;
             const ocLetter = hasItems ? 'O' : 'C';
             const ocClass = hasItems ? 'bracket-O' : 'bracket-C';
 
@@ -4643,6 +5703,7 @@
                 });
 
                 const sectionTitleNorm = displayName.replace(/\s+/g, ' ').trim().toLowerCase();
+                let filesAdded = 0;
 
                 sortedFileItems.forEach((file, idx) => {
                     if (idx >= MAX_FOLDER_DISPLAY_FILES) return;
@@ -4695,9 +5756,13 @@
                     });
 
                     fileList.appendChild(fileItem);
+                    filesAdded++;
                 });
 
-                nestedContainer.appendChild(fileList);
+                // Only append fileList if it has actual files
+                if (filesAdded > 0) {
+                    nestedContainer.appendChild(fileList);
+                }
 
                 // Show count if truncated
                 if (folder.textFiles.length > MAX_FOLDER_DISPLAY_FILES) {
@@ -4718,11 +5783,34 @@
                     e.preventDefault();
                     e.stopPropagation();
                     const isVisible = nestedContainer.style.display !== 'none';
+
+                    // Auto-collapse other nested sections in the same summary box when opening this one
+                    if (!isVisible) {
+                        const otherNestedContainers = document.querySelectorAll('.summary-nested-container');
+                        otherNestedContainers.forEach(container => {
+                            if (container !== nestedContainer && container.style.display !== 'none') {
+                                container.style.display = 'none';
+                                // Also remove the nested-open class from the bracket letter
+                                const otherBracketLetter = container.previousElementSibling?.querySelector('.bracket-letter');
+                                if (otherBracketLetter) {
+                                    otherBracketLetter.classList.remove('nested-open');
+                                }
+                            }
+                        });
+                    }
+
                     nestedContainer.style.display = isVisible ? 'none' : 'block';
                     bracketLetter.classList.toggle('nested-open', !isVisible);
                 });
             }
 
+            // Group by parent subject
+            const parts = (folder.id || '').split('/');
+            const parentSubject = parts.length > 0 ? parts[0] : 'root';
+            if (!groupedBySubject[parentSubject]) {
+                groupedBySubject[parentSubject] = [];
+            }
+            groupedBySubject[parentSubject].push({ line: line, nested: nestedContainer });
             summaryRows.push({ line: line, nested: nestedContainer });
         });
 
@@ -4734,32 +5822,99 @@
             empty.textContent = 'No summary entries yet. Add folders to generate a study summary.';
             fragment.appendChild(empty);
         } else {
-            summaryRows.forEach((item, idx) => {
-                if (idx === MAX_SUMMARY_ENTRIES - 1 && sortedFolders.length > MAX_SUMMARY_ENTRIES) {
-                    const notice = document.createElement('div');
-                    notice.className = 'summary-hint';
-                    notice.textContent = 'Summary truncated at ' + MAX_SUMMARY_ENTRIES + '. Use folder search for more.';
-                    fragment.appendChild(notice);
-                    return;
-                }
+            const subjectGroups = Object.entries(groupedBySubject);
+            const hasMultipleGroups = subjectGroups.length >= 2;
 
-                const line = item.line || item;
-                const nested = item.nested || null;
+            subjectGroups.forEach(([subject, items]) => {
+                try {
+                    if (hasMultipleGroups) {
+                        // Create group container with borders for parent grouping
+                        const groupContainer = document.createElement('div');
+                        groupContainer.className = 'summary-group-container';
+                        groupContainer.style.border = '2px solid rgba(100, 227, 255, 0.4)';
+                        groupContainer.style.borderLeft = '5px solid rgba(255, 152, 0, 0.6)';
+                        groupContainer.style.borderRadius = '8px';
+                        groupContainer.style.padding = '12px';
+                        groupContainer.style.marginBottom = '16px';
+                        groupContainer.style.background = 'rgba(59, 130, 246, 0.05)';
+                        groupContainer.style.transition = 'all 0.2s ease';
 
-                const input = line.querySelector('.summary-number');
-                if (input) {
-                    input.addEventListener('change', function() {
-                        const id = this.dataset.section;
-                        if (id && state.sectionData[id]) {
-                            const n = parseInt(this.value,10) || 0;
-                            state.sectionData[id].pageNumber = n;
-                            store.set('pageNumber_' + id, n);
-                        }
-                    });
-                }
-                fragment.appendChild(line);
-                if (nested) {
-                    fragment.appendChild(nested);
+                        // Group header
+                        const groupHeader = document.createElement('div');
+                        groupHeader.style.fontSize = '0.85em';
+                        groupHeader.style.fontWeight = '600';
+                        groupHeader.style.color = '#64e3ff';
+                        groupHeader.style.marginBottom = '10px';
+                        groupHeader.style.paddingBottom = '8px';
+                        groupHeader.style.borderBottom = '1px solid rgba(100, 227, 255, 0.2)';
+                        groupHeader.style.letterSpacing = '0.5px';
+                        groupHeader.textContent = subject + ` (${items.length})`;
+
+                        groupContainer.appendChild(groupHeader);
+
+                        items.forEach((item, idx) => {
+                            if (idx === MAX_SUMMARY_ENTRIES - 1 && summaryRows.length > MAX_SUMMARY_ENTRIES) {
+                                const notice = document.createElement('div');
+                                notice.className = 'summary-hint';
+                                notice.textContent = 'Summary truncated at ' + MAX_SUMMARY_ENTRIES + '. Use folder search for more.';
+                                groupContainer.appendChild(notice);
+                                return;
+                            }
+
+                            const line = item.line || item;
+                            const nested = item.nested || null;
+
+                            const input = line.querySelector('.summary-number');
+                            if (input) {
+                                input.addEventListener('change', function() {
+                                    const id = this.dataset.section;
+                                    if (id && state.sectionData[id]) {
+                                        const n = parseInt(this.value,10) || 0;
+                                        state.sectionData[id].pageNumber = n;
+                                        store.set('pageNumber_' + id, n);
+                                    }
+                                });
+                            }
+                            groupContainer.appendChild(line);
+                            if (nested) {
+                                groupContainer.appendChild(nested);
+                            }
+                        });
+
+                        fragment.appendChild(groupContainer);
+                    } else {
+                        // No grouping if only one subject
+                        items.forEach((item, idx) => {
+                            if (idx === MAX_SUMMARY_ENTRIES - 1 && summaryRows.length > MAX_SUMMARY_ENTRIES) {
+                                const notice = document.createElement('div');
+                                notice.className = 'summary-hint';
+                                notice.textContent = 'Summary truncated at ' + MAX_SUMMARY_ENTRIES + '. Use folder search for more.';
+                                fragment.appendChild(notice);
+                                return;
+                            }
+
+                            const line = item.line || item;
+                            const nested = item.nested || null;
+
+                            const input = line.querySelector('.summary-number');
+                            if (input) {
+                                input.addEventListener('change', function() {
+                                    const id = this.dataset.section;
+                                    if (id && state.sectionData[id]) {
+                                        const n = parseInt(this.value,10) || 0;
+                                        state.sectionData[id].pageNumber = n;
+                                        store.set('pageNumber_' + id, n);
+                                    }
+                                });
+                            }
+                            fragment.appendChild(line);
+                            if (nested) {
+                                fragment.appendChild(nested);
+                            }
+                        });
+                    }
+                } catch (err) {
+                    console.error(`Error rendering summary group ${subject}:`, err);
                 }
             });
         }
@@ -4942,41 +6097,26 @@
         const windowSegments = (file.parts || []).filter(p => p.type === 'window');
         const allDisplaySegments = mainSegments.length > 0 ? mainSegments : file.parts || [];
 
-        // Generate image squares using stored data URLs
-        const imageSquares = folder.imageFiles.map((img, idx) => {
-            if (!img || !img.name) return '';
-            // Try multiple sources for image URL with fallback chain
-            let url = null;
-            let hasValidData = false;
-
-            // 1. Try data URL (should be complete - reduced threshold to 50 chars for smaller images)
-            if (typeof img.data === 'string' && img.data.length > 50 && img.data.startsWith('data:')) {
-                url = img.data;
-                hasValidData = true;
+        // Generate image squares using stored data URLs - SIMPLE APPROACH like ALPHA
+        const imageSquares = (folder.imageFiles || []).map((img, idx) => {
+            // Use stored data URL if available, otherwise placeholder
+            let url = img.data || img.url;
+            if (!url && img.file) {
+                // This shouldn't happen after refresh, but just in case
+                try { url = URL.createObjectURL(img.file); } catch (e) { url = null; }
             }
-            // 2. Try url property
-            else if (typeof img.url === 'string' && img.url.length > 50 && img.url.startsWith('data:')) {
-                url = img.url;
-                hasValidData = true;
-            }
-            // 3. Try file object (shouldn't happen after refresh, but attempt)
-            else if (img.file && typeof img.file === 'object') {
-                try { url = URL.createObjectURL(img.file); hasValidData = true; } catch (e) { url = null; }
-            }
-            // 4. Fallback to placeholder
-            const placeholderSvg = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Crect fill=%22%23111111%22 width=%22600%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%23666666%22%3EImage Not Available%3C/text%3E%3C/svg%3E';
-            const displayUrl = url || placeholderSvg;
-            const failSvg = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Crect fill=%22%23333333%22 width=%22600%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%23888888%22%3ELoad Failed%3C/text%3E%3C/svg%3E';
+            const displayUrl = url || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Crect fill=%22%23111111%22 width=%22600%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22%23cccccc%22%3ENo Image Available%3C/text%3E%3C/svg%3E';
             return `
-                <div class="image-square" ${!hasValidData ? 'style="opacity:0.6;"' : ''} title="${(img.name || '').replace(/"/g, '&quot;')}">
+                <div class="image-square">
                     <div class="image-display" onclick="openLightbox(this)">
-                        <img src="${displayUrl}" class="zoomable-image" alt="${(img.name || '').replace(/"/g, '&quot;')}" onerror="this.src='${failSvg}';">
+                        <img src="${displayUrl}" class="zoomable-image" alt="${img.name}">
                     </div>
-                    <div class="image-info"><h3>${(img.name || 'Unnamed').substring(0, 30)}</h3></div>
+                    <div class="image-info"><h3>${img.name}</h3></div>
                 </div>
             `;
         }).join('');
 
+        // Generate HTML for all parts upfront - SIMPLE APPROACH like ALPHA
         const partsHtml = allDisplaySegments.map((p, idx) => {
             const partContent = p.html || '';
             return `<div class="window-part" id="${winId}-part-${idx}" style="${idx===0?'display:block;':'display:none;'}">${partContent}</div>`;
@@ -5038,13 +6178,6 @@
         document.body.appendChild(win);
         win.classList.add('active');
         document.body.style.overflow = 'hidden';
-        win.querySelectorAll('.image-display img.zoomable-image').forEach(im => {
-            if (im.decode) im.decode().catch(() => {});
-            im.addEventListener('load', function onImgLoad() {
-                im.removeEventListener('load', onImgLoad);
-                if (im.decode) im.decode().catch(() => {});
-            }, { once: true });
-        });
         state.openWindows.push(winId);
         if (state.openWindows.length > 8) {
             const oldId = state.openWindows.shift();
@@ -5160,7 +6293,7 @@
     function lightboxZoom(e) {
         e.preventDefault();
         const delta = e.deltaY > 0 ? -0.1 : 0.1;
-        state.lightbox.scale = Math.max(0.5, Math.min(3, state.lightbox.scale + delta));
+        state.lightbox.scale = Math.max(0.5, state.lightbox.scale + delta);
         updateLightboxTransform();
     }
 
@@ -5417,13 +6550,47 @@
                 { activity:'Work', start:'23:00', end:'1:30', color:'#16a34a' }
             ]}
         };
-        let cur = 'workday', isMuted = false, curIdx = -1;
+        let cur = 'workday', curIdx = -1;
         let currentScheduleDayKey = null;
         let lastStagePopupAt = 0;
         let polyPopupCooldown = 30 * 1000; // 30 seconds
         let polyHoverPopupNextAllowedAt = 0;
         let checkIval = null;
         const toMins = t => { let [h,m]=t.split(':').map(Number); return h*60+m; };
+
+        function updateAMPMIcon() {
+            const now = new Date();
+            const hours = now.getHours();
+            const icon = hours >= 12 ? '🌙' : '☀️';
+            const elem = $('polyAMPMIcon');
+            if (elem) {
+                elem.textContent = icon;
+                elem.style.transition = 'all 0.3s ease';
+                elem.style.opacity = '0.8';
+            }
+        }
+
+        function updateNextTimer() {
+            const now = new Date();
+            const cm = now.getHours() * 60 + now.getMinutes();
+            const idx = getCurrentSegmentIndex();
+            if (idx === -1 || !SCHEDS[cur]?.segments[idx]) {
+                $('polyNextTime').textContent = '--:--';
+                return;
+            }
+
+            const nextIdx = (idx + 1) % SCHEDS[cur].segments.length;
+            const nextSeg = SCHEDS[cur].segments[nextIdx];
+            const nextStartMins = toMins(nextSeg.start);
+
+            let remainMins = nextStartMins - cm;
+            if (remainMins <= 0) remainMins += 24 * 60;
+
+            const hrs = Math.floor(remainMins / 60);
+            const mins = remainMins % 60;
+            const display = `${hrs}:${String(mins).padStart(2, '0')}`;
+            $('polyNextTime').textContent = display;
+        }
 
         function getDateKey() {
             const now = new Date();
@@ -5486,10 +6653,9 @@
             cur = detectCurrentSchedule();
 
             const p = store.get('polyPrefs');
-            if (p) try { const pp=JSON.parse(p); cur=pp.current||cur; isMuted=!!pp.isMuted; } catch {}
+            if (p) try { const pp=JSON.parse(p); cur=pp.current||cur; } catch {}
             $('polyWorkdayTab').addEventListener('click', () => switchSched('workday'));
             $('polyRestdayTab').addEventListener('click', () => switchSched('restday'));
-            $('polyMuteBtn').addEventListener('click', toggleMute);
             $('stageAlertCloseBtn').addEventListener('click', closeAlert);
             $('stageAlertOverlay').addEventListener('click', e => { if (e.target === $('stageAlertOverlay')) closeAlert(); });
 
@@ -5505,18 +6671,27 @@
             }
 
             updateUI();
+            renderSegs();
+            updateAMPMIcon();
+            updateNextTimer();
         }
         function onWindowOpen() {
-            currentScheduleDayKey = getDateKey();
-            cur = detectCurrentSchedule();
+            const newDateKey = getDateKey();
+            // Only re-detect schedule if it's a new day
+            if (newDateKey !== currentScheduleDayKey) {
+                currentScheduleDayKey = newDateKey;
+                cur = detectCurrentSchedule();
+            }
             renderSegs();
             checkStage();
             polyHoverPopupNextAllowedAt = Date.now() + polyPopupCooldown;
             lastStagePopupAt = Date.now();
             curIdx = getCurrentSegmentIndex();
+            updateAMPMIcon();
+            updateNextTimer();
             // Don't auto-trigger on open anymore; user-trigger is close-button hover.
             // triggerStagePopupNow('open');
-            if (!checkIval) checkIval = setInterval(checkStage, 250);
+            if (!checkIval) checkIval = setInterval(() => { checkStage(); updateAMPMIcon(); updateNextTimer(); }, 250);
         }
         function onWindowClose() {
             clearInterval(checkIval);
@@ -5524,19 +6699,23 @@
             polyHoverPopupNextAllowedAt = 0;
             lastStagePopupAt = 0;
         }
-        function switchSched(type) { cur=type; curIdx=-1; updateUI(); renderSegs(); checkStage(); save(); }
+        function switchSched(type) {
+            cur=type;
+            curIdx=-1;
+            updateUI();
+            renderSegs();
+            checkStage();
+            updateAMPMIcon();
+            updateNextTimer();
+            save();
+            console.log('[PolySchedule] Switched to', type, 'schedule');
+        }
         function updateUI() {
             $('polyWorkdayTab').classList.toggle('active',cur==='workday');
             $('polyRestdayTab').classList.toggle('active',cur==='restday');
             $('polyScheduleName').textContent = SCHEDS[cur].name+' Active';
-            updateMuteUI();
         }
-        function toggleMute() { isMuted=!isMuted; updateMuteUI(); save(); }
-        function updateMuteUI() {
-            $('polyMuteBtn').classList.toggle('muted',isMuted);
-            $('polyMuteIcon').textContent = isMuted?'🔕':'🔔';
-        }
-        function save() { store.set('polyPrefs',JSON.stringify({current:cur,isMuted})); }
+        function save() { store.set('polyPrefs',JSON.stringify({current:cur})); }
         function renderSegs() {
             const c = $('polySegments');
             c.innerHTML = SCHEDS[cur].segments.map((s,i)=>`
@@ -5590,7 +6769,7 @@
             $('stageAlertInterval').textContent = `${seg.start} – ${seg.end}`;
             $('stageAlertBox').className = `stage-alert-box ${seg.activity.toLowerCase()}`;
             $('stageAlertOverlay').classList.add('active');
-            if(!isMuted) beep();
+            beep();
             let c=5;
             const cd = setInterval(()=>{ c--; $('stageAlertCd').textContent=c; if(c<=0) closeAlert(); },1000);
             setTimeout(()=>{ clearInterval(cd); closeAlert(); },5500);
@@ -5647,6 +6826,13 @@
     })();
 
     // === SYMBOL PROCESSOR ===
+    function initSymbolLegend() {
+        const btn = $('symbolLegendBtn');
+        if (btn) {
+            btn.addEventListener('click', () => toggleWindow('symbolLegendModal'));
+        }
+    }
+
     function initSymbolProcessor() {
         $('symbolProcessBtn').addEventListener('click', () => {
             const text = $('symbolInput').value;
@@ -5960,7 +7146,7 @@
     }
 
     // === MAIN INIT ===
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', async () => {
         window.TEXT_LOADER_TABLE_DATA = window.TEXT_LOADER_TABLE_DATA || {};
         window.TEXT_LOADER_EXAMPLE_DATA = window.TEXT_LOADER_EXAMPLE_DATA || {};
 
@@ -5968,8 +7154,20 @@
 
         initSplash();
         initSecurity();
-        loadState(); // Load all saved data first
+
+        // Initialize IndexedDB first for image storage
+        try {
+            await ImageDB.init();
+            console.log('[Init] ImageDB initialized');
+        } catch (e) {
+            console.warn('[Init] ImageDB initialization failed, using localStorage only:', e);
+        }
+
+        // Load state (now supports IndexedDB image retrieval)
+        await loadState();
+
         initCoreManager();
+        initImageSearch();
         initSearch();
         initPageNumberInputs();
         initDebugFPS();
@@ -5980,6 +7178,8 @@
         initAppOpening();
         initExampleSlider();
         initSymbolProcessor();
+        initSymbolLegend();
+        initObsidianDetection();
         ParamControl.init();
         PolySchedule.init();
 
