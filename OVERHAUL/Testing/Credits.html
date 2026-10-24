@@ -1,0 +1,996 @@
+<!-- @format -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Credits</title>
+    <style>
+      :root {
+        --gold: #c9a96e;
+        --red-gold: #c94b4b; /* red-goldish for subtitles */
+        --text-blue: #b3d0ff; /* soft blue for names */
+        --text-dim: #8aa0c0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Initial dark gradient background (no logo yet) */
+      body {
+        background: radial-gradient(
+          ellipse at center,
+          #1a1a28 0%,
+          #0a0a14 100%
+        );
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        font-family:
+          "Georgia", "Times New Roman", "Palatino Linotype", "Book Antiqua",
+          serif;
+        cursor: default;
+        user-select: none;
+        -webkit-user-select: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      /* Logo container – hidden by default, animates when credits start */
+      #logoFullscreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+        transform: scale(0.8);
+        pointer-events: none;
+        background: url("Logo.png") center / cover no-repeat;
+        transition:
+          opacity 1.8s ease,
+          transform 2s cubic-bezier(0.25, 0.1, 0.25, 1);
+      }
+      #logoFullscreen.active {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* Particle canvas */
+      #particlesCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      /* Vignette – subtle, for readability */
+      #vignette {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 2s ease;
+        background: radial-gradient(
+          ellipse at center,
+          transparent 50%,
+          rgba(3, 3, 10, 0.25) 85%
+        );
+      }
+      #vignette.active {
+        opacity: 1;
+      }
+
+      /* Scanlines */
+      #scanlines {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 8;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 1.5s ease;
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 0, 0, 0.03) 2px,
+          rgba(0, 0, 0, 0.03) 4px
+        );
+      }
+      #scanlines.active {
+        opacity: 0.45;
+      }
+
+      /* Button */
+      #buttonContainer {
+        position: relative;
+        z-index: 10;
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #buttonContainer.hidden {
+        opacity: 0;
+        transform: scale(0.9);
+        pointer-events: none;
+      }
+      #creditsBtn {
+        background: rgba(10, 8, 20, 0.65);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 2px solid rgba(200, 165, 110, 0.7);
+        color: var(--gold);
+        font-size: 1.5rem;
+        letter-spacing: 0.35em;
+        padding: 1rem 2.8rem;
+        cursor: pointer;
+        border-radius: 3px;
+        text-transform: uppercase;
+        outline: none;
+        transition: all 0.5s ease;
+        box-shadow: 0 0 30px rgba(180, 140, 80, 0.1);
+      }
+      #creditsBtn:hover {
+        border-color: #e0c78a;
+        color: #f7e2b0;
+        box-shadow: 0 0 45px rgba(200, 155, 90, 0.3);
+        text-shadow: 0 0 25px rgba(220, 180, 120, 0.5);
+        transform: translateY(-2px);
+        letter-spacing: 0.4em;
+      }
+
+      /* Credits overlay */
+      #creditsOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 1.5s ease;
+      }
+      #creditsOverlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      /* Gradient masks – light, letting background through */
+      #creditsMaskTop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 18vh;
+        z-index: 6;
+        pointer-events: none;
+        background: linear-gradient(
+          to bottom,
+          rgba(5, 5, 15, 0.55) 0%,
+          rgba(5, 5, 15, 0.25) 50%,
+          transparent 100%
+        );
+      }
+      #creditsMaskBottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 18vh;
+        z-index: 6;
+        pointer-events: none;
+        background: linear-gradient(
+          to top,
+          rgba(5, 5, 15, 0.55) 0%,
+          rgba(5, 5, 15, 0.25) 50%,
+          transparent 100%
+        );
+      }
+
+      #creditsScroller {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        z-index: 5;
+        will-change: transform;
+      }
+      #creditsContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 8vh 2rem 8vh;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Typography */
+      .credits-section {
+        margin: 2.2rem 0 0.6rem;
+      }
+      .credits-section.first-section {
+        margin-top: 0;
+      }
+      .credits-category {
+        font-size: 1.4rem;
+        font-weight: bold;
+        letter-spacing: 0.2em;
+        color: var(--red-gold); /* red-goldish */
+        text-transform: uppercase;
+        margin-bottom: 0.9rem;
+        text-shadow: 0 0 20px rgba(200, 80, 80, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .credits-category::before,
+      .credits-category::after {
+        content: "◆";
+        font-size: 0.5rem;
+        margin: 0 0.8em;
+        color: rgba(220, 100, 80, 0.7);
+      }
+      .credits-name {
+        font-size: 1.15rem;
+        letter-spacing: 0.06em;
+        color: var(--text-blue); /* blue text */
+        line-height: 2.2;
+        transition:
+          color 0.3s,
+          text-shadow 0.3s;
+        text-shadow: 0 0 4px rgba(150, 180, 220, 0.2);
+      }
+      .credits-name.highlight {
+        color: #ffffff;
+        text-shadow: 0 0 18px rgba(200, 220, 255, 0.6);
+      }
+      .credits-divider {
+        width: 60px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(200, 80, 80, 0.4),
+          transparent
+        );
+        margin: 1.2rem auto;
+      }
+      .credits-final {
+        margin-top: 3rem;
+        font-size: 1.6rem;
+        letter-spacing: 0.25em;
+        color: var(--gold);
+        text-shadow: 0 0 25px rgba(220, 180, 130, 0.6);
+        text-transform: uppercase;
+      }
+      .credits-end-icon {
+        font-size: 2rem;
+        margin-top: 0.8rem;
+        color: var(--gold);
+        opacity: 0.8;
+      }
+
+      #skipHint {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 2rem;
+        z-index: 10;
+        color: rgba(200, 180, 140, 0.55);
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        opacity: 0;
+        transition: opacity 1s ease;
+        pointer-events: none;
+      }
+      #skipHint.visible {
+        opacity: 1;
+      }
+
+      @media (max-width: 600px) {
+        #creditsBtn {
+          font-size: 1.15rem;
+          padding: 0.8rem 1.8rem;
+          letter-spacing: 0.25em;
+        }
+        .credits-category {
+          font-size: 1.1rem;
+          letter-spacing: 0.14em;
+        }
+        .credits-name {
+          font-size: 0.95rem;
+          line-height: 2;
+        }
+        #creditsMaskTop,
+        #creditsMaskBottom {
+          height: 14vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Logo image (hidden initially, animates on credits) -->
+    <div id="logoFullscreen"></div>
+
+    <canvas id="particlesCanvas"></canvas>
+    <div id="vignette"></div>
+    <div id="scanlines"></div>
+
+    <div id="creditsOverlay">
+      <div id="creditsMaskTop"></div>
+      <div id="creditsScroller">
+        <div id="creditsContent"></div>
+      </div>
+      <div id="creditsMaskBottom"></div>
+    </div>
+
+    <div id="skipHint">ESC</div>
+
+    <div id="buttonContainer">
+      <button id="creditsBtn">CREDITS</button>
+    </div>
+
+    <audio
+      id="bgAudio"
+      preload="auto"
+      loop
+    >
+      <source
+        src="Dubioza%20kolektiv%20Free.mp3%20(The%20Pirate%20Bay%20Song).mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <script>
+      (function () {
+        const creditsData = [
+          {
+            category: "Most handsome people",
+            names: ["Lovro Oreški", "Ozzy"],
+          },
+          {
+            category: "Biggest Midgets",
+            names: [
+              "Luka Lovrišec",
+              "Novački Vrtovi 1",
+              "Gayvid",
+              "Donald Trump",
+              "Luka Lovrišec",
+              "Novački Vrtovi 1",
+              "Gayvid",
+              "Donald Trump",
+              "Luka Lovrišec",
+              "Novački Vrtovi 1",
+              "Gayvid",
+              "Donald Trump",
+              "Luka Lovrišec",
+              "Novački Vrtovi 1",
+              "Gayvid",
+              "Donald Trump",
+              "Luka Lovrišec",
+              "Novački Vrtovi 1",
+              "Gayvid",
+              "Donald Trump",
+              "Luka Lovrišec",
+              "Novački Vrtovi 1",
+              "Gayvid",
+              "Donald Trump",
+              "Luka Lovrišec",
+              "Novački Vrtovi 1",
+              "Gayvid",
+              "Donald Trump",
+              "Luka Lovrišec",
+              "Novački Vrtovi 1",
+              "Gayvid",
+              "Donald Trump",
+              "Luka Lovrišec",
+              "Novački Vrtovi 1",
+              "Gayvid",
+              "Donald Trump",
+              "Luka Lovrišec",
+              "Novački Vrtovi 1",
+              "Gayvid",
+              "Donald Trump",
+              "Luka Lovrišec",
+              "Novački Vrtovi 1",
+              "Gayvid",
+              "Donald Trump",
+              "Luka Lovrišec",
+              "Novački Vrtovi 1",
+              "Gayvid",
+              "Donald Trump",
+              "Luka Lovrišec",
+              "Novački Vrtovi 1",
+              "Gayvid",
+              "Donald Trump",
+            ],
+          },
+          {
+            category: "Helpers",
+            names: [
+              "Alexandra Elbakyan",
+              "Anton Napolsky",
+              "Valeriia Ermakova",
+              "Anna Archivist (pseudonym)",
+              "bookwarrior (pseudonym)",
+              "Daniel Khromov",
+              "Igor Osychenko",
+              "Maxim Moshkov",
+              "Gottfrid Svartholm Warg",
+              "Fredrik Neij",
+              "Peter Sunde",
+              "Carl Lundström",
+              "Anakata (alias of Gottfrid Svartholm)",
+              "TiAMO",
+            ],
+          },
+          {
+            category: "Pirate Bay devs",
+            names: [
+              "Aaron Swartz",
+              "Julian Assange",
+              "Chelsea Manning",
+              "Edward Snowden",
+              "Jeremy Hammond",
+              "Barrett Brown",
+              "Daniel Ellsberg",
+              "Glenn Greenwald",
+              "Laura Poitras",
+              "Jacob Appelbaum",
+            ],
+          },
+          {
+            category: "Internet Architects",
+            names: [
+              "Vint Cerf",
+              "Bob Kahn",
+              "Tim Berners-Lee",
+              "Marc Andreessen",
+              "Eric Bina",
+              "Robert Cailliau",
+              "Paul Mockapetris",
+              "Jon Postel",
+              "Radia Perlman",
+              "Louis Pouzin",
+            ],
+          },
+          {
+            category: "UNIX & C devs",
+            names: [
+              "Dennis Ritchie",
+              "Ken Thompson",
+              "Brian Kernighan",
+              "Rob Pike",
+              "Bjarne Stroustrup",
+              "Douglas McIlroy",
+              "Joe Ossanna",
+              "Steve Bourne",
+            ],
+          },
+          {
+            category: "GNU & Free Software",
+            names: [
+              "Richard Stallman",
+              "Eben Moglen",
+              "John Gilmore",
+              "Linus Torvalds",
+              "Eric S. Raymond",
+              "Lawrence Lessig",
+              "Hal Abelson",
+              "Gerald Jay Sussman",
+              "Matthew Garrett",
+              "Bradley M. Kuhn",
+            ],
+          },
+          {
+            category: "Linux Kernel Maintainers",
+            names: [
+              "Greg Kroah-Hartman",
+              "Andrew Morton",
+              "Theodore Ts'o",
+              "Ingo Molnar",
+              "David S. Miller",
+              "Jens Axboe",
+              "Kees Cook",
+              "Jonathan Corbet",
+              "Lennart Poettering",
+              "Kay Sievers",
+            ],
+          },
+          {
+            category: "Open Source Builders",
+            names: [
+              "Bram Cohen",
+              "Shawn Fanning",
+              "Sean Parker",
+              "Kim Dotcom",
+              "Mark Gorton",
+              "Niklas Zennström",
+              "Janus Friis",
+              "Brewster Kahle",
+              "Carl Malamud",
+              "Rick Prelinger",
+              "Jason Scott",
+              "Aaron Halfaker",
+              "Andy Baio",
+              "Markus Persson",
+              "Ernesto Van der Sar",
+            ],
+          },
+          {
+            category: "Language Creators",
+            names: [
+              "Guido van Rossum (Python)",
+              "Brendan Eich (JavaScript)",
+              "Rasmus Lerdorf (PHP)",
+              "Yukihiro Matsumoto (Ruby)",
+              "James Gosling (Java)",
+              "Anders Hejlsberg (C#, TypeScript)",
+              "Larry Wall (Perl)",
+              "John McCarthy (Lisp)",
+              "Simon Peyton Jones (Haskell)",
+              "Graydon Hoare (Rust)",
+            ],
+          },
+          {
+            category: "Web & JavaScript Ecosystem",
+            names: [
+              "John Resig (jQuery)",
+              "Evan You (Vue.js)",
+              "Dan Abramov (Redux, React)",
+              "Addy Osmani (Lighthouse, Workbox)",
+              "Sarah Drasner (Vue, animations)",
+              "Rich Harris (Svelte)",
+              "Ryan Dahl (Node.js)",
+              "Isaac Z. Schlueter (npm)",
+              "TJ Holowaychuk (Express)",
+              "Guillermo Rauch (Next.js, Socket.io)",
+            ],
+          },
+          {
+            category: "CMS & Platforms",
+            names: [
+              "Matt Mullenweg (WordPress)",
+              "Dries Buytaert (Drupal)",
+              "Taylor Otwell (Laravel)",
+              "David Heinemeier Hansson (Rails)",
+              "Joomla! Core Team",
+              "Magento Contributors",
+              "WooCommerce Team",
+            ],
+          },
+          {
+            category: "Digital Rights & Activism",
+            names: [
+              "Cory Doctorow",
+              "Yochai Benkler",
+              "Pamela Samuelson",
+              "Michael Geist",
+              "Julia Reda",
+              "Amelia Andersdotter",
+              "Rick Falkvinge",
+              "Gabriella Coleman",
+              "Nathan Schneider",
+              "Wendy Seltzer",
+              "James Boyle",
+            ],
+          },
+          {
+            category: "Libraries & Preservation",
+            names: [
+              "James Jacobs",
+              "Maria A. Matienzo",
+              "Andy Müller-Maguhn",
+              "Jeremie Zimmermann",
+              "Balázs Bodó",
+              "Katarzyna Szymielewicz",
+              "Joe Karaganis",
+              "Gabriel Weinberg",
+              "Rebecca Giblin",
+              "Timothy Vollmer",
+              "Heather Joseph",
+              "Peter Suber",
+              "Stevan Harnad",
+            ],
+          },
+          {
+            category: "Decentralization & P2P",
+            names: [
+              "Juan Benet (IPFS)",
+              "Muneeb Ali (Stacks)",
+              "David Irvine (MaidSafe)",
+              "Zooko Wilcox-O'Hearn (Zcash)",
+              "Nico Sell (Wickr)",
+              "Moxie Marlinspike (Signal)",
+            ],
+          },
+        ];
+        const finalMessage = "Forever Grateful";
+        const finalIcon = "⬡";
+
+        // ─────────────────────────────────────
+        // DOM ELEMENTS
+        // ─────────────────────────────────────
+        const canvas = document.getElementById("particlesCanvas");
+        const ctx = canvas.getContext("2d");
+        const logoFullscreen = document.getElementById("logoFullscreen");
+        const vignette = document.getElementById("vignette");
+        const scanlines = document.getElementById("scanlines");
+        const creditsOverlay = document.getElementById("creditsOverlay");
+        const creditsScroller = document.getElementById("creditsScroller");
+        const creditsContent = document.getElementById("creditsContent");
+        const buttonContainer = document.getElementById("buttonContainer");
+        const creditsBtn = document.getElementById("creditsBtn");
+        const skipHint = document.getElementById("skipHint");
+        const bgAudio = document.getElementById("bgAudio");
+        const maskTop = document.getElementById("creditsMaskTop");
+        const maskBottom = document.getElementById("creditsMaskBottom");
+
+        // Build credits HTML
+        function buildCreditsContent() {
+          let html = "";
+          creditsData.forEach((section, idx) => {
+            const cls =
+              idx === 0 ? "credits-section first-section" : "credits-section";
+            html += `<div class="${cls}">`;
+            html += `<div class="credits-category">${section.category}</div>`;
+            section.names.forEach((name) => {
+              html += `<div class="credits-name">${name}</div>`;
+            });
+            if (idx < creditsData.length - 1) {
+              html += `<div class="credits-divider"></div>`;
+            }
+            html += `</div>`;
+          });
+          html += `<div class="credits-spacer"></div>`;
+          html += `<div class="credits-divider"></div>`;
+          html += `<div class="credits-final">${finalMessage}</div>`;
+          html += `<div class="credits-end-icon">${finalIcon}</div>`;
+          html += `<div style="height: 6rem;"></div>`;
+          creditsContent.innerHTML = html;
+        }
+        buildCreditsContent();
+
+        // ─────────────────────────────────────
+        // PARTICLES
+        // ─────────────────────────────────────
+        let particles = [];
+        const PARTICLE_COUNT = 180;
+
+        function resizeCanvas() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+        function createParticles() {
+          particles = [];
+          for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push({
+              x: Math.random() * canvas.width,
+              y: Math.random() * canvas.height,
+              radius: Math.random() * 1.6 + 0.3,
+              baseAlpha: Math.random() * 0.6 + 0.25,
+              twinkleSpeed: Math.random() * 0.02 + 0.005,
+              twinkleOffset: Math.random() * Math.PI * 2,
+              driftX: (Math.random() - 0.5) * 0.12,
+              driftY: (Math.random() - 0.5) * 0.06 - 0.02,
+            });
+          }
+          for (let i = 0; i < 15; i++) {
+            const idx = Math.floor(Math.random() * particles.length);
+            particles[idx].radius = Math.random() * 2.3 + 0.8;
+            particles[idx].baseAlpha = 0.55 + Math.random() * 0.35;
+          }
+        }
+        let particlesActive = false;
+        let animationId;
+        function drawParticles(timestamp) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          particles.forEach((p) => {
+            const twinkle =
+              Math.sin(timestamp * p.twinkleSpeed + p.twinkleOffset) * 0.5 +
+              0.5;
+            p.alpha = p.baseAlpha * (0.5 + twinkle * 0.5);
+            p.x += p.driftX;
+            p.y += p.driftY;
+            if (p.x < -10) p.x = canvas.width + 10;
+            if (p.x > canvas.width + 10) p.x = -10;
+            if (p.y < -10) p.y = canvas.height + 10;
+            if (p.y > canvas.height + 10) p.y = -10;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            const r = 180 + Math.random() * 40;
+            const g = 200 + Math.random() * 30;
+            const b = 230 + Math.random() * 25;
+            ctx.fillStyle = `rgba(${r},${g},${b},${p.alpha})`;
+            ctx.fill();
+            if (p.radius > 1.3 && p.alpha > 0.5) {
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.radius * 2.8, 0, Math.PI * 2);
+              ctx.fillStyle = `rgba(${r},${g},${b},${p.alpha * 0.12})`;
+              ctx.fill();
+            }
+          });
+        }
+        function particleLoop(timestamp) {
+          drawParticles(timestamp);
+          animationId = requestAnimationFrame(particleLoop);
+        }
+
+        // ─────────────────────────────────────
+        // CREDITS SCROLL (FAST)
+        // ─────────────────────────────────────
+        let creditsRolling = false;
+        let scrollAnimationId = null;
+        let creditsStartY, creditsEndY, scrollStartTime, scrollDuration;
+        const SCROLL_SPEED = 110;
+
+        function getCreditsScrollParams() {
+          const viewportH = window.innerHeight;
+          const contentH = creditsContent.offsetHeight;
+          const startY = viewportH;
+          const endY = -contentH;
+          const distance = startY - endY;
+          const duration = (distance / SCROLL_SPEED) * 1000;
+          return { startY, endY, duration };
+        }
+        function startCreditsScroll() {
+          const params = getCreditsScrollParams();
+          creditsStartY = params.startY;
+          creditsEndY = params.endY;
+          scrollDuration = params.duration;
+          scrollStartTime = performance.now();
+          creditsRolling = true;
+          creditsScroller.style.transform = `translateY(${creditsStartY}px)`;
+          requestAnimationFrame(animateCreditsScroll);
+        }
+        function animateCreditsScroll(timestamp) {
+          if (!creditsRolling) return;
+          const elapsed = timestamp - scrollStartTime;
+          const progress = Math.min(elapsed / scrollDuration, 1.0);
+          let eased = progress;
+          if (progress < 0.05) {
+            eased = progress * progress * 400;
+            eased = Math.min(eased, progress);
+          } else if (progress > 0.92) {
+            const r = 1 - progress;
+            eased = 1 - Math.min(r * r * 15, r);
+          }
+          const currentY =
+            creditsStartY + (creditsEndY - creditsStartY) * eased;
+          creditsScroller.style.transform = `translateY(${currentY}px)`;
+          highlightCenterNames(currentY);
+          if (progress < 1.0) {
+            scrollAnimationId = requestAnimationFrame(animateCreditsScroll);
+          } else {
+            creditsRolling = false;
+            scrollAnimationId = null;
+            setTimeout(fadeOutCredits, 2500);
+          }
+        }
+        function highlightCenterNames(scrollY) {
+          const viewportH = window.innerHeight;
+          const centerY = viewportH / 2;
+          document.querySelectorAll(".credits-name").forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            const elCenter = rect.top + rect.height / 2;
+            const dist = Math.abs(elCenter - centerY);
+            const zone = viewportH * 0.23;
+            if (dist < zone) {
+              const intensity = 1 - dist / zone;
+              el.classList.add("highlight");
+              el.style.textShadow = `0 0 ${16 + intensity * 20}px rgba(200,220,255,${0.2 + intensity * 0.45})`;
+            } else {
+              el.classList.remove("highlight");
+              el.style.textShadow = "0 0 4px rgba(150,180,220,0.2)";
+            }
+          });
+        }
+        function stopCreditsScroll() {
+          creditsRolling = false;
+          if (scrollAnimationId) {
+            cancelAnimationFrame(scrollAnimationId);
+            scrollAnimationId = null;
+          }
+        }
+
+        // ─────────────────────────────────────
+        // AUDIO (1 second delay)
+        // ─────────────────────────────────────
+        let audioStarted = false;
+        let audioDelayTimeout;
+        const AUDIO_DELAY_MS = 1000;
+        function setupAudio() {
+          const source = bgAudio.querySelector("source");
+          source.src =
+            "Dubioza%20kolektiv%20Free.mp3%20(The%20Pirate%20Bay%20Song).mp3";
+          bgAudio.load();
+        }
+        function startAudioAfterDelay() {
+          if (audioDelayTimeout) clearTimeout(audioDelayTimeout);
+          audioDelayTimeout = setTimeout(() => {
+            playAudio();
+          }, AUDIO_DELAY_MS);
+        }
+        function playAudio() {
+          if (audioStarted) return;
+          const playPromise = bgAudio.play();
+          if (playPromise !== undefined) {
+            playPromise
+              .then(() => {
+                audioStarted = true;
+                bgAudio.volume = 0;
+                fadeInAudio();
+              })
+              .catch(() => {
+                document.addEventListener(
+                  "click",
+                  function retry() {
+                    bgAudio
+                      .play()
+                      .then(() => {
+                        audioStarted = true;
+                        bgAudio.volume = 0;
+                        fadeInAudio();
+                      })
+                      .catch(() => {});
+                    document.removeEventListener("click", retry);
+                  },
+                  { once: true },
+                );
+              });
+          }
+        }
+        function fadeInAudio() {
+          const target = 0.55;
+          const duration = 2000;
+          const start = performance.now();
+          const initial = bgAudio.volume;
+          function step(ts) {
+            const progress = Math.min((ts - start) / duration, 1);
+            bgAudio.volume = initial + (target - initial) * progress;
+            if (progress < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        }
+        function stopAudio() {
+          if (audioDelayTimeout) clearTimeout(audioDelayTimeout);
+          bgAudio.pause();
+          bgAudio.currentTime = 0;
+          bgAudio.volume = 0;
+          audioStarted = false;
+        }
+        function fadeOutAudioAndStop() {
+          const startVol = bgAudio.volume;
+          const start = performance.now();
+          const duration = 1200;
+          function step(ts) {
+            const progress = Math.min((ts - start) / duration, 1);
+            bgAudio.volume = startVol * (1 - progress);
+            if (progress < 1) requestAnimationFrame(step);
+            else stopAudio();
+          }
+          if (startVol > 0.01) requestAnimationFrame(step);
+          else stopAudio();
+        }
+
+        // ─────────────────────────────────────
+        // SHOW / HIDE LOGIC
+        // ─────────────────────────────────────
+        let creditsVisible = false;
+        function showCredits() {
+          if (creditsVisible) return;
+          creditsVisible = true;
+          buttonContainer.classList.add("hidden");
+          // Animate logo fullscreen
+          logoFullscreen.classList.add("active");
+          vignette.classList.add("active");
+          scanlines.classList.add("active");
+          creditsOverlay.classList.add("active");
+          skipHint.classList.add("visible");
+          particlesActive = true;
+          creditsScroller.style.transform = `translateY(${window.innerHeight}px)`;
+          setTimeout(startCreditsScroll, 400);
+          startAudioAfterDelay();
+        }
+        function fadeOutCredits() {
+          logoFullscreen.classList.remove("active");
+          creditsOverlay.classList.remove("active");
+          vignette.classList.remove("active");
+          scanlines.classList.remove("active");
+          skipHint.classList.remove("visible");
+          particlesActive = false;
+          creditsVisible = false;
+          stopCreditsScroll();
+          fadeOutAudioAndStop();
+          setTimeout(() => {
+            buttonContainer.classList.remove("hidden");
+            creditsScroller.style.transform = `translateY(${window.innerHeight}px)`;
+            document.querySelectorAll(".credits-name").forEach((el) => {
+              el.classList.remove("highlight");
+              el.style.textShadow = "0 0 4px rgba(150,180,220,0.2)";
+            });
+          }, 1200);
+        }
+        function hideCredits() {
+          if (!creditsVisible) return;
+          fadeOutCredits();
+        }
+
+        // ─────────────────────────────────────
+        // EVENT HANDLERS (ESC only)
+        // ─────────────────────────────────────
+        creditsBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (!creditsVisible) showCredits();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && creditsVisible) {
+            hideCredits();
+          }
+        });
+
+        // Resize handling
+        let resizeDebounce;
+        window.addEventListener("resize", () => {
+          resizeCanvas();
+          createParticles();
+          if (creditsRolling) {
+            clearTimeout(resizeDebounce);
+            resizeDebounce = setTimeout(() => {
+              stopCreditsScroll();
+              const params = getCreditsScrollParams();
+              creditsStartY = params.startY;
+              creditsEndY = params.endY;
+              scrollDuration = params.duration;
+              scrollStartTime = performance.now();
+              creditsRolling = true;
+              requestAnimationFrame(animateCreditsScroll);
+            }, 350);
+          }
+          if (window.innerWidth <= 600) {
+            maskTop.style.height = "14vh";
+            maskBottom.style.height = "14vh";
+          } else {
+            maskTop.style.height = "18vh";
+            maskBottom.style.height = "18vh";
+          }
+        });
+
+        // Init
+        function init() {
+          resizeCanvas();
+          createParticles();
+          setupAudio();
+          creditsScroller.style.transform = `translateY(${window.innerHeight}px)`;
+          animationId = requestAnimationFrame(particleLoop);
+          if (window.innerWidth <= 600) {
+            maskTop.style.height = "14vh";
+            maskBottom.style.height = "14vh";
+          }
+        }
+        init();
+      })();
+    </script>
+  </body>
+</html>

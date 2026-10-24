@@ -1,0 +1,2306 @@
+<!-- @format -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator - Casio Inspired</title>
+    <style>
+      :root {
+        --calc-bg: #2c2c2e;
+        --calc-body: #3a3a3c;
+        --display-bg: #c8d6c0;
+        --display-text: #1a1a1a;
+        --btn-number: #f0f0f2;
+        --btn-number-hover: #e0e0e3;
+        --btn-number-active: #d1d1d5;
+        --btn-operator: #ff9f0a;
+        --btn-operator-hover: #ffb340;
+        --btn-operator-active: #e08b00;
+        --btn-operator-text: #fff;
+        --btn-function: #5a5a5e;
+        --btn-function-hover: #6e6e72;
+        --btn-function-active: #4a4a4e;
+        --btn-function-text: #fff;
+        --btn-clear: #d9443a;
+        --btn-clear-hover: #e55d53;
+        --btn-clear-active: #c0392b;
+        --btn-equals: #0077ed;
+        --btn-equals-hover: #1a8aff;
+        --btn-equals-active: #005bbf;
+        --btn-memory: #4a6fa5;
+        --btn-memory-hover: #5d82b5;
+        --btn-memory-active: #3d5c8a;
+        --btn-shift: #7b8ca8;
+        --btn-shift-active: #ffcc00;
+        --btn-hyp: #7b8ca8;
+        --btn-hyp-active: #00b894;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        --btn-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        --btn-radius: 8px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          #1a1a2e 0%,
+          #16213e 30%,
+          #0f3460 60%,
+          #1a1a2e 100%
+        );
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        padding: 20px;
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .calculator-container {
+        background: var(--calc-bg);
+        border-radius: 20px;
+        padding: 18px 16px 20px;
+        box-shadow:
+          var(--shadow),
+          0 0 0 3px #1f1f21,
+          0 0 0 6px #2a2a2d,
+          0 0 0 8px #1c1c1e;
+        width: 420px;
+        max-width: 95vw;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+      }
+
+      /* Solar panel strip */
+      .solar-strip {
+        position: absolute;
+        top: 8px;
+        right: 20px;
+        width: 100px;
+        height: 8px;
+        background: linear-gradient(
+          90deg,
+          #1a1a2e 0%,
+          #2d2d44 16%,
+          #1a1a2e 33%,
+          #2d2d44 50%,
+          #1a1a2e 66%,
+          #2d2d44 83%,
+          #1a1a2e 100%
+        );
+        border-radius: 2px;
+        border: 1px solid #222;
+      }
+
+      /* Brand label */
+      .brand-label {
+        color: #888;
+        font-size: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: right;
+        padding-right: 5px;
+        font-weight: 600;
+      }
+
+      /* Mode indicators */
+      .mode-indicators {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 2px 4px;
+      }
+      .mode-indicator {
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        padding: 3px 8px;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: 1px solid transparent;
+        color: #999;
+        background: #333;
+        text-transform: uppercase;
+      }
+      .mode-indicator.active {
+        color: #fff;
+        background: #0077ed;
+        border-color: #005bbf;
+        box-shadow: 0 0 6px rgba(0, 119, 237, 0.5);
+      }
+      .mode-indicator.memory-active {
+        color: #ffcc00;
+        border-color: #ffcc00;
+        background: #3a3520;
+        animation: pulse-memory 1.5s infinite;
+      }
+      @keyframes pulse-memory {
+        0%,
+        100% {
+          box-shadow: 0 0 2px rgba(255, 204, 0, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 8px rgba(255, 204, 0, 0.7);
+        }
+      }
+      .mode-indicator.shift-on {
+        color: #1a1a1a;
+        background: #ffcc00;
+        border-color: #e6b800;
+        box-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+        animation: pulse-shift 0.8s infinite;
+      }
+      @keyframes pulse-shift {
+        0%,
+        100% {
+          box-shadow: 0 0 4px rgba(255, 204, 0, 0.4);
+        }
+        50% {
+          box-shadow: 0 0 12px rgba(255, 204, 0, 0.9);
+        }
+      }
+      .mode-indicator.hyp-on {
+        color: #1a1a1a;
+        background: #00b894;
+        border-color: #009a7b;
+        box-shadow: 0 0 6px rgba(0, 184, 148, 0.5);
+      }
+
+      /* Display */
+      .display {
+        background: var(--display-bg);
+        border-radius: 10px;
+        padding: 14px 16px;
+        min-height: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        border: 3px inset #9aab90;
+        box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+      .display .expression-line {
+        font-size: 15px;
+        color: #555;
+        word-break: break-all;
+        text-align: right;
+        width: 100%;
+        min-height: 22px;
+        line-height: 1.3;
+        letter-spacing: 0.5px;
+        font-family: "Courier New", "SF Mono", "Consolas", monospace;
+        transition: color 0.2s;
+      }
+      .display .result-line {
+        font-size: 34px;
+        font-weight: 700;
+        color: #111;
+        word-break: break-all;
+        text-align: right;
+        width: 100%;
+        min-height: 42px;
+        line-height: 1.2;
+        letter-spacing: 1px;
+        font-family: "Courier New", "SF Mono", "Consolas", monospace;
+        transition: all 0.15s;
+      }
+      .display .result-line.error {
+        color: #c0392b;
+        font-size: 20px;
+      }
+      .display .result-line.preview {
+        color: #777;
+        font-size: 22px;
+        font-weight: 400;
+      }
+
+      /* Button grid */
+      .button-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 7px;
+      }
+
+      /* Buttons */
+      .btn {
+        padding: 12px 4px;
+        font-size: 14px;
+        font-weight: 600;
+        border: none;
+        border-radius: var(--btn-radius);
+        cursor: pointer;
+        transition: all 0.12s ease;
+        box-shadow: var(--btn-shadow);
+        letter-spacing: 0.3px;
+        position: relative;
+        outline: none;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        line-height: 1.1;
+      }
+      .btn:active {
+        transform: translateY(2px);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        transition: all 0.05s ease;
+      }
+      .btn.number {
+        background: var(--btn-number);
+        color: #1a1a1a;
+        font-size: 18px;
+        font-weight: 500;
+      }
+      .btn.number:hover {
+        background: var(--btn-number-hover);
+      }
+      .btn.number:active {
+        background: var(--btn-number-active);
+      }
+      .btn.operator {
+        background: var(--btn-operator);
+        color: var(--btn-operator-text);
+        font-size: 17px;
+        font-weight: 700;
+      }
+      .btn.operator:hover {
+        background: var(--btn-operator-hover);
+      }
+      .btn.operator:active {
+        background: var(--btn-operator-active);
+      }
+      .btn.function {
+        background: var(--btn-function);
+        color: var(--btn-function-text);
+        font-size: 13px;
+        letter-spacing: 0.5px;
+      }
+      .btn.function:hover {
+        background: var(--btn-function-hover);
+      }
+      .btn.function:active {
+        background: var(--btn-function-active);
+      }
+      .btn.clear {
+        background: var(--btn-clear);
+        color: #fff;
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .btn.clear:hover {
+        background: var(--btn-clear-hover);
+      }
+      .btn.clear:active {
+        background: var(--btn-clear-active);
+      }
+      .btn.equals {
+        background: var(--btn-equals);
+        color: #fff;
+        font-size: 22px;
+        font-weight: 700;
+        box-shadow: 0 3px 8px rgba(0, 119, 237, 0.4);
+      }
+      .btn.equals:hover {
+        background: var(--btn-equals-hover);
+        box-shadow: 0 4px 12px rgba(0, 119, 237, 0.6);
+      }
+      .btn.equals:active {
+        background: var(--btn-equals-active);
+        box-shadow: 0 1px 3px rgba(0, 119, 237, 0.3);
+      }
+      .btn.memory {
+        background: var(--btn-memory);
+        color: #fff;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+      }
+      .btn.memory:hover {
+        background: var(--btn-memory-hover);
+      }
+      .btn.memory:active {
+        background: var(--btn-memory-active);
+      }
+      .btn.shift-btn {
+        background: var(--btn-shift);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      .btn.shift-btn.active-shift {
+        background: #ffcc00;
+        color: #1a1a1a;
+        box-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
+      }
+      .btn.hyp-btn {
+        background: var(--btn-hyp);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      .btn.hyp-btn.active-hyp {
+        background: #00b894;
+        color: #1a1a1a;
+        box-shadow: 0 0 10px rgba(0, 184, 148, 0.6);
+      }
+
+      /* History panel */
+      .history-panel {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #2c2c2e;
+        border-radius: 0 0 16px 16px;
+        max-height: 250px;
+        overflow-y: auto;
+        z-index: 10;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        display: none;
+        border: 2px solid #444;
+        border-top: none;
+      }
+      .history-panel.visible {
+        display: block;
+      }
+      .history-item {
+        padding: 10px 14px;
+        cursor: pointer;
+        border-bottom: 1px solid #3a3a3c;
+        color: #ccc;
+        font-family: "Courier New", monospace;
+        transition: background 0.15s;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+      .history-item:hover {
+        background: #3a3a3c;
+      }
+      .history-item .hist-expr {
+        font-size: 13px;
+        color: #aaa;
+        flex: 1;
+        text-align: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .history-item .hist-result {
+        font-size: 16px;
+        font-weight: 700;
+        color: #fff;
+        white-space: nowrap;
+      }
+      .history-clear {
+        text-align: center;
+        padding: 8px;
+        color: #e55d53;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 1px;
+        border-top: 1px solid #444;
+      }
+      .history-clear:hover {
+        background: #3a2020;
+      }
+
+      /* Responsive */
+      @media (max-width: 440px) {
+        .calculator-container {
+          width: 100%;
+          padding: 12px 8px 14px;
+          border-radius: 14px;
+          gap: 6px;
+        }
+        .button-grid {
+          gap: 4px;
+        }
+        .btn {
+          padding: 10px 2px;
+          font-size: 12px;
+          min-height: 40px;
+          border-radius: 6px;
+        }
+        .btn.number {
+          font-size: 15px;
+        }
+        .btn.operator {
+          font-size: 14px;
+        }
+        .btn.equals {
+          font-size: 18px;
+        }
+        .display {
+          padding: 10px 12px;
+          min-height: 70px;
+        }
+        .display .result-line {
+          font-size: 26px;
+          min-height: 32px;
+        }
+        .display .expression-line {
+          font-size: 13px;
+          min-height: 18px;
+        }
+        .solar-strip {
+          width: 70px;
+          height: 6px;
+          top: 6px;
+          right: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator-container" id="calculator">
+      <!-- Solar strip -->
+      <div class="solar-strip"></div>
+      <div class="brand-label">SCIENTIFIC</div>
+
+      <!-- Mode indicators -->
+      <div class="mode-indicators">
+        <span class="mode-indicator active" id="mode-deg" data-mode="DEG">DEG</span>
+        <span class="mode-indicator" id="mode-rad" data-mode="RAD">RAD</span>
+        <span class="mode-indicator" id="mode-grad" data-mode="GRAD">GRAD</span>
+        <span class="mode-indicator" id="mem-indicator" style="display: none">M</span>
+        <span class="mode-indicator" id="shift-indicator" style="display: none">S</span>
+        <span class="mode-indicator" id="hyp-indicator" style="display: none">HYP</span>
+      </div>
+
+      <!-- Display -->
+      <div class="display" id="display">
+        <div class="expression-line" id="expression-line"></div>
+        <div class="result-line" id="result-line">
+          0
+        </div>
+      </div>
+
+      <!-- Button grid -->
+      <div class="button-grid" id="button-grid">
+        <!-- Row 1: SHIFT, HYP, MODE, HIST, ON/AC -->
+        <button class="btn shift-btn" id="btn-shift" data-action="shift">
+          SHIFT
+        </button>
+        <button class="btn hyp-btn" id="btn-hyp" data-action="hyp">
+          HYP
+        </button>
+        <button class="btn function" data-action="mode-toggle">
+          MODE
+        </button>
+        <button class="btn function" data-action="history-toggle">
+          HIST
+        </button>
+        <button class="btn clear" data-action="ac">
+          AC
+        </button>
+
+        <!-- Row 2: √, x², xʸ, log, ln -->
+        <button class="btn function" data-action="sqrt">
+          √
+        </button>
+        <button class="btn function" data-action="square">
+          x²
+        </button>
+        <button class="btn function" data-action="power">
+          xʸ
+        </button>
+        <button class="btn function" data-action="log">
+          log
+        </button>
+        <button class="btn function" data-action="ln">
+          ln
+        </button>
+
+        <!-- Row 3: (-), sin, cos, tan, DEL -->
+        <button class="btn function" data-action="unary-minus">
+          (−)
+        </button>
+        <button class="btn function trig-btn" data-action="sin">
+          sin
+        </button>
+        <button class="btn function trig-btn" data-action="cos">
+          cos
+        </button>
+        <button class="btn function trig-btn" data-action="tan">
+          tan
+        </button>
+        <button class="btn clear" data-action="del" style="background: #b84d45">
+          DEL
+        </button>
+
+        <!-- Row 4: π, e, (, ), n! -->
+        <button class="btn function" data-action="pi">
+          π
+        </button>
+        <button class="btn function" data-action="e">
+          e
+        </button>
+        <button class="btn function" data-action="lparen">
+          (
+        </button>
+        <button class="btn function" data-action="rparen">
+          )
+        </button>
+        <button class="btn function" data-action="factorial">
+          n!
+        </button>
+
+        <!-- Row 5: nCr, nPr, %, EXP, 1/x -->
+        <button class="btn function" data-action="ncr">
+          nCr
+        </button>
+        <button class="btn function" data-action="npr">
+          nPr
+        </button>
+        <button class="btn function" data-action="percent">
+          %
+        </button>
+        <button class="btn function" data-action="exp">
+          ×10ˣ
+        </button>
+        <button class="btn function" data-action="reciprocal">
+          1/x
+        </button>
+
+        <!-- Row 6: 7, 8, 9, ×, ÷ -->
+        <button class="btn number" data-action="digit" data-value="7">
+          7
+        </button>
+        <button class="btn number" data-action="digit" data-value="8">
+          8
+        </button>
+        <button class="btn number" data-action="digit" data-value="9">
+          9
+        </button>
+        <button class="btn operator" data-action="operator" data-value="×">
+          ×
+        </button>
+        <button class="btn operator" data-action="operator" data-value="÷">
+          ÷
+        </button>
+
+        <!-- Row 7: 4, 5, 6, +, - -->
+        <button class="btn number" data-action="digit" data-value="4">
+          4
+        </button>
+        <button class="btn number" data-action="digit" data-value="5">
+          5
+        </button>
+        <button class="btn number" data-action="digit" data-value="6">
+          6
+        </button>
+        <button class="btn operator" data-action="operator" data-value="+">
+          +
+        </button>
+        <button class="btn operator" data-action="operator" data-value="−">
+          −
+        </button>
+
+        <!-- Row 8: 1, 2, 3, ANS, = -->
+        <button class="btn number" data-action="digit" data-value="1">
+          1
+        </button>
+        <button class="btn number" data-action="digit" data-value="2">
+          2
+        </button>
+        <button class="btn number" data-action="digit" data-value="3">
+          3
+        </button>
+        <button class="btn function" data-action="ans">
+          ANS
+        </button>
+        <button class="btn equals" data-action="equals" style="grid-row: span 2">
+          =
+        </button>
+
+        <!-- Row 9: 0, ., M+, M- (merged into row 8 layout) -->
+        <button class="btn number" data-action="digit" data-value="0">
+          0
+        </button>
+        <button class="btn number" data-action="decimal" data-value=".">
+          .
+        </button>
+        <button class="btn memory" data-action="m-plus">
+          M+
+        </button>
+        <button class="btn memory" data-action="m-minus">
+          M−
+        </button>
+      </div>
+
+      <!-- Extra memory row -->
+      <div style="display: flex; gap: 7px; margin-top: 2px">
+        <button class="btn memory" data-action="mc" style="flex: 1">
+          MC
+        </button>
+        <button class="btn memory" data-action="mr" style="flex: 1">
+          MR
+        </button>
+        <button class="btn memory" data-action="ms" style="flex: 1">
+          MS
+        </button>
+      </div>
+
+      <!-- History panel -->
+      <div class="history-panel" id="history-panel">
+        <div id="history-list"></div>
+        <div class="history-clear" id="history-clear">
+          CLEAR HISTORY
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        // ==================== CALCULATOR ENGINE ====================
+        class CalculatorEngine {
+          constructor() {
+            this.reset();
+          }
+
+          reset() {
+            this.expression = ""; // Internal expression string
+            this.displayExpression = ""; // Formatted for display
+            this.justEvaluated = false;
+            this.lastResult = null;
+            this.ansValue = 0;
+            this.memory = 0;
+            this.angleMode = "DEG"; // 'DEG', 'RAD', 'GRAD'
+            this.shiftMode = false;
+            this.hypMode = false;
+            this.history = [];
+            this.errorState = false;
+            this.lastNumberStr = "0"; // Track the last number string being typed
+          }
+
+          // Convert angle based on current mode
+          toRadians(angle) {
+            switch (this.angleMode) {
+              case "DEG":
+                return (angle * Math.PI) / 180;
+              case "GRAD":
+                return (angle * Math.PI) / 200;
+              case "RAD":
+              default:
+                return angle;
+            }
+          }
+
+          fromRadians(radians) {
+            switch (this.angleMode) {
+              case "DEG":
+                return (radians * 180) / Math.PI;
+              case "GRAD":
+                return (radians * 200) / Math.PI;
+              case "RAD":
+              default:
+                return radians;
+            }
+          }
+
+          // Tokenize the expression string
+          tokenize(expr) {
+            const tokens = [];
+            let i = 0;
+
+            // Preprocess: insert implicit multiplication
+            // e.g., "2π" -> "2*π", "2(3)" -> "2*(3)", ")(" -> ")*(", "2sin" -> "2*sin"
+            let processed = "";
+            for (let j = 0; j < expr.length; j++) {
+              const ch = expr[j];
+              processed += ch;
+              if (j < expr.length - 1) {
+                const next = expr[j + 1];
+                // After digit or ) or π or e or ! or °, if next is ( or letter or π or e, insert *
+                const prevIsClosing =
+                  /\d/.test(ch) ||
+                  ch === ")" ||
+                  ch === "π" ||
+                  ch === "e" ||
+                  ch === "!" ||
+                  ch === "°";
+                const nextIsOpening = next === "(" || /[a-zπe]/.test(next);
+                if (
+                  prevIsClosing &&
+                  nextIsOpening &&
+                  ch !== "(" &&
+                  next !== ")"
+                ) {
+                  processed += "*";
+                }
+                // After ) if next is digit
+                if (ch === ")" && /\d/.test(next)) {
+                  processed += "*";
+                }
+              }
+            }
+            // Replace display characters with internal ones
+            processed = processed
+              .replace(/×/g, "*")
+              .replace(/÷/g, "/")
+              .replace(/−/g, "-");
+            // Replace (−) unary minus marker with ~
+            processed = processed.replace(/\(−\)/g, "~");
+            // Handle standalone (−) at start
+            if (processed.startsWith("(−)"))
+              processed = "~" + processed.slice(4);
+            // More replacements
+            processed = processed.replace(/\(−/g, "(~"); // In case of partial
+
+            while (i < processed.length) {
+              const ch = processed[i];
+
+              // Skip whitespace
+              if (ch === " ") {
+                i++;
+                continue;
+              }
+
+              // Unary minus marker
+              if (ch === "~") {
+                tokens.push({ type: "UNARY_MINUS", value: "~" });
+                i++;
+                continue;
+              }
+
+              // Numbers (including decimals and scientific notation)
+              if (
+                /\d/.test(ch) ||
+                (ch === "." &&
+                  i + 1 < processed.length &&
+                  /\d/.test(processed[i + 1]))
+              ) {
+                let numStr = "";
+                while (
+                  i < processed.length &&
+                  (/\d/.test(processed[i]) || processed[i] === ".")
+                ) {
+                  numStr += processed[i];
+                  i++;
+                }
+                // Check for scientific notation like 1E5 or 1e-5
+                if (
+                  i < processed.length &&
+                  (processed[i] === "E" || processed[i] === "e")
+                ) {
+                  numStr += processed[i];
+                  i++;
+                  if (
+                    i < processed.length &&
+                    (processed[i] === "+" || processed[i] === "-")
+                  ) {
+                    numStr += processed[i];
+                    i++;
+                  }
+                  while (i < processed.length && /\d/.test(processed[i])) {
+                    numStr += processed[i];
+                    i++;
+                  }
+                }
+                tokens.push({
+                  type: "NUMBER",
+                  value: parseFloat(numStr),
+                  raw: numStr,
+                });
+                continue;
+              }
+
+              // Constants π and e
+              if (ch === "π") {
+                tokens.push({ type: "NUMBER", value: Math.PI, raw: "π" });
+                i++;
+                continue;
+              }
+              if (
+                ch === "e" &&
+                (i === 0 || !/[a-z]/i.test(processed[i - 1] || "")) &&
+                (i + 1 >= processed.length ||
+                  !/[a-z]/i.test(processed[i + 1] || ""))
+              ) {
+                // Standalone 'e' as Euler's number
+                tokens.push({ type: "NUMBER", value: Math.E, raw: "e" });
+                i++;
+                continue;
+              }
+
+              // Functions and special keywords
+              const funcPatterns = [
+                "asin",
+                "acos",
+                "atan",
+                "asinh",
+                "acosh",
+                "atanh",
+                "sinh",
+                "cosh",
+                "tanh",
+                "sin",
+                "cos",
+                "tan",
+                "sqrt",
+                "cbrt",
+                "log",
+                "ln",
+                "abs",
+                "floor",
+                "ceil",
+                "round",
+                "exp",
+                "ans",
+                "nCr",
+                "nPr",
+              ];
+
+              let matched = false;
+              for (const fn of funcPatterns) {
+                const substr = processed.substring(i, i + fn.length);
+                if (
+                  substr === fn &&
+                  (i + fn.length >= processed.length ||
+                    !/[a-z]/i.test(processed[i + fn.length]))
+                ) {
+                  if (fn === "ans") {
+                    tokens.push({
+                      type: "NUMBER",
+                      value: this.ansValue,
+                      raw: "ans",
+                    });
+                  } else if (fn === "nCr" || fn === "nPr") {
+                    tokens.push({
+                      type: "OPERATOR",
+                      value: fn,
+                      precedence: 3,
+                      associativity: "left",
+                    });
+                  } else {
+                    tokens.push({ type: "FUNCTION", value: fn });
+                  }
+                  i += fn.length;
+                  matched = true;
+                  break;
+                }
+              }
+              if (matched) continue;
+
+              // Operators
+              if (ch === "+" || ch === "-") {
+                // Determine if unary or binary
+                const prevToken =
+                  tokens.length > 0 ? tokens[tokens.length - 1] : null;
+                const isUnary =
+                  !prevToken ||
+                  prevToken.type === "OPERATOR" ||
+                  prevToken.type === "LPAREN" ||
+                  prevToken.type === "FUNCTION" ||
+                  prevToken.type === "UNARY_MINUS" ||
+                  (prevToken.type === "NUMBER" && prevToken.raw === "ans");
+                if (isUnary && ch === "-") {
+                  tokens.push({ type: "UNARY_MINUS", value: "~" });
+                } else if (isUnary && ch === "+") {
+                  // Unary plus is a no-op, skip
+                } else {
+                  tokens.push({
+                    type: "OPERATOR",
+                    value: ch,
+                    precedence: 1,
+                    associativity: "left",
+                  });
+                }
+                i++;
+                continue;
+              }
+              if (ch === "*" || ch === "/") {
+                tokens.push({
+                  type: "OPERATOR",
+                  value: ch,
+                  precedence: 2,
+                  associativity: "left",
+                });
+                i++;
+                continue;
+              }
+              if (ch === "^") {
+                tokens.push({
+                  type: "OPERATOR",
+                  value: "^",
+                  precedence: 4,
+                  associativity: "right",
+                });
+                i++;
+                continue;
+              }
+              if (ch === "!") {
+                tokens.push({
+                  type: "OPERATOR",
+                  value: "!",
+                  precedence: 6,
+                  associativity: "left",
+                  isPostfix: true,
+                });
+                i++;
+                continue;
+              }
+              if (ch === "%") {
+                tokens.push({
+                  type: "OPERATOR",
+                  value: "%",
+                  precedence: 2,
+                  associativity: "left",
+                });
+                i++;
+                continue;
+              }
+
+              // Parentheses
+              if (ch === "(") {
+                tokens.push({ type: "LPAREN", value: "(" });
+                i++;
+                continue;
+              }
+              if (ch === ")") {
+                tokens.push({ type: "RPAREN", value: ")" });
+                i++;
+                continue;
+              }
+
+              // Unknown character, skip
+              i++;
+            }
+            return tokens;
+          }
+
+          // Shunting-yard algorithm: infix tokens -> RPN
+          toRPN(tokens) {
+            const output = [];
+            const opStack = [];
+
+            for (const token of tokens) {
+              if (token.type === "NUMBER") {
+                output.push(token);
+              } else if (token.type === "FUNCTION") {
+                opStack.push(token);
+              } else if (token.type === "UNARY_MINUS") {
+                opStack.push({
+                  type: "UNARY_MINUS",
+                  value: "~",
+                  precedence: 5,
+                  associativity: "right",
+                });
+              } else if (token.type === "OPERATOR") {
+                while (opStack.length > 0) {
+                  const top = opStack[opStack.length - 1];
+                  if (top.type === "LPAREN") break;
+                  if (top.type === "FUNCTION") break;
+                  const topPrec = top.precedence || 0;
+                  const tokPrec = token.precedence || 0;
+                  if (
+                    (token.associativity === "left" && topPrec >= tokPrec) ||
+                    (token.associativity === "right" && topPrec > tokPrec)
+                  ) {
+                    output.push(opStack.pop());
+                  } else {
+                    break;
+                  }
+                }
+                opStack.push(token);
+              } else if (token.type === "LPAREN") {
+                opStack.push(token);
+              } else if (token.type === "RPAREN") {
+                while (
+                  opStack.length > 0 &&
+                  opStack[opStack.length - 1].type !== "LPAREN"
+                ) {
+                  output.push(opStack.pop());
+                }
+                if (
+                  opStack.length > 0 &&
+                  opStack[opStack.length - 1].type === "LPAREN"
+                ) {
+                  opStack.pop(); // Remove LPAREN
+                }
+                // If top is a function, pop it too
+                if (
+                  opStack.length > 0 &&
+                  opStack[opStack.length - 1].type === "FUNCTION"
+                ) {
+                  output.push(opStack.pop());
+                }
+              }
+            }
+
+            while (opStack.length > 0) {
+              const top = opStack.pop();
+              if (top.type === "LPAREN" || top.type === "RPAREN") continue;
+              output.push(top);
+            }
+
+            return output;
+          }
+
+          // Evaluate RPN
+          evaluateRPN(rpn) {
+            const stack = [];
+            const self = this;
+
+            for (const token of rpn) {
+              if (token.type === "NUMBER") {
+                stack.push(token.value);
+              } else if (token.type === "UNARY_MINUS") {
+                const a = stack.pop();
+                stack.push(-a);
+              } else if (token.type === "OPERATOR") {
+                if (token.isPostfix) {
+                  // Postfix operator like factorial
+                  const a = stack.pop();
+                  stack.push(self.applyPostfixOp(token.value, a));
+                } else if (token.value === "nCr" || token.value === "nPr") {
+                  const r = stack.pop();
+                  const n = stack.pop();
+                  stack.push(self.applyCombPerm(token.value, n, r));
+                } else {
+                  const b = stack.pop();
+                  const a = stack.pop();
+                  stack.push(self.applyBinaryOp(token.value, a, b));
+                }
+              } else if (token.type === "FUNCTION") {
+                const a = stack.pop();
+                stack.push(self.applyFunction(token.value, a));
+              }
+            }
+
+            if (stack.length !== 1) {
+              throw new Error("Invalid expression");
+            }
+            return stack[0];
+          }
+
+          applyBinaryOp(op, a, b) {
+            switch (op) {
+              case "+":
+                return a + b;
+              case "-":
+                return a - b;
+              case "*":
+                return a * b;
+              case "/":
+                if (b === 0) throw new Error("Division by zero");
+                return a / b;
+              case "^":
+                return Math.pow(a, b);
+              case "%":
+                return a * (b / 100);
+              default:
+                throw new Error("Unknown operator: " + op);
+            }
+          }
+
+          applyPostfixOp(op, a) {
+            switch (op) {
+              case "!":
+                return this.factorial(a);
+              default:
+                throw new Error("Unknown postfix operator: " + op);
+            }
+          }
+
+          applyCombPerm(op, n, r) {
+            if (
+              n < 0 ||
+              r < 0 ||
+              !Number.isInteger(n) ||
+              !Number.isInteger(r)
+            ) {
+              throw new Error("nCr/nPr require non-negative integers");
+            }
+            if (r > n) return 0;
+            if (op === "nCr") {
+              return (
+                this.factorial(n) / (this.factorial(r) * this.factorial(n - r))
+              );
+            } else {
+              return this.factorial(n) / this.factorial(n - r);
+            }
+          }
+
+          factorial(x) {
+            if (x < 0 || !Number.isInteger(x))
+              throw new Error("Factorial requires non-negative integer");
+            if (x === 0 || x === 1) return 1;
+            if (x > 170) throw new Error("Factorial too large");
+            let result = 1;
+            for (let i = 2; i <= x; i++) result *= i;
+            return result;
+          }
+
+          applyFunction(fn, arg) {
+            switch (fn) {
+              case "sin":
+                return Math.sin(this.toRadians(arg));
+              case "cos":
+                return Math.cos(this.toRadians(arg));
+              case "tan":
+                return Math.tan(this.toRadians(arg));
+              case "asin":
+                return this.fromRadians(
+                  Math.asin(Math.max(-1, Math.min(1, arg))),
+                );
+              case "acos":
+                return this.fromRadians(
+                  Math.acos(Math.max(-1, Math.min(1, arg))),
+                );
+              case "atan":
+                return this.fromRadians(Math.atan(arg));
+              case "sinh":
+                return Math.sinh(arg);
+              case "cosh":
+                return Math.cosh(arg);
+              case "tanh":
+                return Math.tanh(arg);
+              case "asinh":
+                return Math.asinh(arg);
+              case "acosh":
+                return Math.acosh(arg);
+              case "atanh":
+                return Math.atanh(Math.max(-1, Math.min(1, arg)));
+              case "sqrt":
+                if (arg < 0) throw new Error("Cannot sqrt negative");
+                return Math.sqrt(arg);
+              case "cbrt":
+                return Math.cbrt(arg);
+              case "log":
+                if (arg <= 0) throw new Error("log requires positive argument");
+                return Math.log10(arg);
+              case "ln":
+                if (arg <= 0) throw new Error("ln requires positive argument");
+                return Math.log(arg);
+              case "abs":
+                return Math.abs(arg);
+              case "floor":
+                return Math.floor(arg);
+              case "ceil":
+                return Math.ceil(arg);
+              case "round":
+                return Math.round(arg);
+              case "exp":
+                return Math.exp(arg);
+              default:
+                throw new Error("Unknown function: " + fn);
+            }
+          }
+
+          // Main evaluation entry point
+          evaluate(exprStr) {
+            if (!exprStr || exprStr.trim() === "") {
+              return { result: 0, error: null };
+            }
+            try {
+              const tokens = this.tokenize(exprStr);
+              if (tokens.length === 0) return { result: 0, error: null };
+              const rpn = this.toRPN(tokens);
+              const result = this.evaluateRPN(rpn);
+              if (!isFinite(result)) throw new Error("Math error");
+              return { result, error: null };
+            } catch (e) {
+              return { result: null, error: e.message || "Syntax error" };
+            }
+          }
+
+          // Try to evaluate for live preview (lenient)
+          tryEvaluate(exprStr) {
+            const evalResult = this.evaluate(exprStr);
+            return evalResult;
+          }
+
+          // Add to history
+          addHistory(expr, result) {
+            const entry = {
+              expression: expr,
+              result: result,
+              timestamp: Date.now(),
+            };
+            this.history.unshift(entry);
+            if (this.history.length > 50) this.history.pop();
+            return entry;
+          }
+
+          // Memory operations
+          memoryAdd(value) {
+            this.memory += value;
+          }
+          memorySubtract(value) {
+            this.memory -= value;
+          }
+          memoryRecall() {
+            return this.memory;
+          }
+          memoryClear() {
+            this.memory = 0;
+          }
+          memoryStore(value) {
+            this.memory = value;
+          }
+          hasMemory() {
+            return this.memory !== 0;
+          }
+        }
+
+        // ==================== UI CONTROLLER ====================
+        const engine = new CalculatorEngine();
+
+        // DOM elements
+        const expressionLine = document.getElementById("expression-line");
+        const resultLine = document.getElementById("result-line");
+        const display = document.getElementById("display");
+        const buttonGrid = document.getElementById("button-grid");
+        const historyPanel = document.getElementById("history-panel");
+        const historyList = document.getElementById("history-list");
+        const historyClearBtn = document.getElementById("history-clear");
+        const modeDeg = document.getElementById("mode-deg");
+        const modeRad = document.getElementById("mode-rad");
+        const modeGrad = document.getElementById("mode-grad");
+        const memIndicator = document.getElementById("mem-indicator");
+        const shiftIndicator = document.getElementById("shift-indicator");
+        const hypIndicator = document.getElementById("hyp-indicator");
+        const btnShift = document.getElementById("btn-shift");
+        const btnHyp = document.getElementById("btn-hyp");
+
+        // Update display
+        function updateDisplay(previewResult = null, isError = false) {
+          // Update expression line
+          let displayExpr = engine.displayExpression || engine.expression || "";
+          // Make it more readable
+          displayExpr = displayExpr
+            .replace(/\(−\)/g, "(−)")
+            .replace(/×/g, " × ")
+            .replace(/÷/g, " ÷ ")
+            .replace(/\+/g, " + ")
+            .replace(/−/g, " − ")
+            .replace(/\*/g, " × ")
+            .replace(/\//g, " ÷ ")
+            .replace(/\^/g, "^")
+            .trim();
+          // Clean up double spaces
+          displayExpr = displayExpr.replace(/\s+/g, " ").trim();
+          expressionLine.textContent = displayExpr || "";
+
+          // Update result line
+          if (isError && previewResult && previewResult.error) {
+            resultLine.textContent = previewResult.error;
+            resultLine.className = "result-line error";
+          } else if (
+            previewResult !== null &&
+            previewResult !== undefined &&
+            !isError
+          ) {
+            const formatted = formatNumber(previewResult);
+            resultLine.textContent = formatted;
+            resultLine.className = "result-line";
+            // If it's a live preview (not from equals), style it differently
+            if (!engine.justEvaluated && engine.expression.trim() !== "") {
+              resultLine.classList.add("preview");
+            }
+          } else if (engine.justEvaluated && engine.lastResult !== null) {
+            resultLine.textContent = formatNumber(engine.lastResult);
+            resultLine.className = "result-line";
+          } else if (
+            engine.expression === "" ||
+            engine.expression.trim() === ""
+          ) {
+            resultLine.textContent = formatNumber(engine.ansValue);
+            resultLine.className = "result-line";
+          } else {
+            // Show the last number being worked on
+            resultLine.textContent = engine.lastNumberStr || "0";
+            resultLine.className = "result-line preview";
+          }
+
+          // Adjust font size for long results
+          const len = resultLine.textContent.length;
+          if (len > 15) resultLine.style.fontSize = "18px";
+          else if (len > 10) resultLine.style.fontSize = "24px";
+          else resultLine.style.fontSize = "34px";
+        }
+
+        function formatNumber(num) {
+          if (num === null || num === undefined || !isFinite(num))
+            return "Error";
+          // Handle very large or very small numbers
+          if (Math.abs(num) >= 1e15 || (Math.abs(num) < 1e-10 && num !== 0)) {
+            return num.toExponential(10);
+          }
+          // Round to avoid floating point issues
+          let formatted = parseFloat(num.toPrecision(12));
+          let str = formatted.toString();
+          // Limit length
+          if (str.length > 16) {
+            str = parseFloat(formatted.toPrecision(10)).toString();
+          }
+          if (str.length > 16) {
+            str = num.toExponential(8);
+          }
+          return str;
+        }
+
+        // Handle button actions
+        function handleAction(action, value = null) {
+          if (engine.errorState && action !== "ac" && action !== "del") {
+            // If in error state, only allow AC or DEL
+            engine.reset();
+            updateDisplay();
+          }
+
+          switch (action) {
+            case "digit":
+              handleDigit(value);
+              break;
+            case "decimal":
+              handleDecimal();
+              break;
+            case "operator":
+              handleOperator(value);
+              break;
+            case "function-trig":
+              handleTrigFunction(value);
+              break;
+            case "sqrt":
+              handleFunctionInsert("sqrt");
+              break;
+            case "square":
+              handleSquare();
+              break;
+            case "power":
+              handleOperator("^");
+              break;
+            case "log":
+              handleFunctionInsert("log");
+              break;
+            case "ln":
+              handleFunctionInsert("ln");
+              break;
+            case "unary-minus":
+              handleUnaryMinus();
+              break;
+            case "sin":
+            case "cos":
+            case "tan":
+              handleTrigFunction(action);
+              break;
+            case "pi":
+              handleConstant("π");
+              break;
+            case "e":
+              handleConstant("e");
+              break;
+            case "lparen":
+              handleParen("(");
+              break;
+            case "rparen":
+              handleParen(")");
+              break;
+            case "factorial":
+              handleFactorial();
+              break;
+            case "ncr":
+              handleOperator("nCr");
+              break;
+            case "npr":
+              handleOperator("nPr");
+              break;
+            case "percent":
+              handlePercent();
+              break;
+            case "exp":
+              handleExp();
+              break;
+            case "reciprocal":
+              handleReciprocal();
+              break;
+            case "ans":
+              handleAns();
+              break;
+            case "equals":
+              handleEquals();
+              break;
+            case "ac":
+              handleAC();
+              break;
+            case "del":
+              handleDEL();
+              break;
+            case "shift":
+              toggleShift();
+              break;
+            case "hyp":
+              toggleHyp();
+              break;
+            case "mode-toggle":
+              toggleAngleMode();
+              break;
+            case "history-toggle":
+              toggleHistory();
+              break;
+            case "m-plus":
+              handleMemoryAdd();
+              break;
+            case "m-minus":
+              handleMemorySubtract();
+              break;
+            case "mc":
+              handleMemoryClear();
+              break;
+            case "mr":
+              handleMemoryRecall();
+              break;
+            case "ms":
+              handleMemoryStore();
+              break;
+          }
+
+          // Update mode indicators
+          updateIndicators();
+        }
+
+        function handleDigit(digit) {
+          if (engine.justEvaluated) {
+            // Start fresh
+            engine.expression = "";
+            engine.displayExpression = "";
+            engine.justEvaluated = false;
+            engine.lastResult = null;
+            engine.lastNumberStr = "";
+          }
+          engine.expression += digit;
+          engine.displayExpression += digit;
+          engine.lastNumberStr =
+            engine.lastNumberStr === "0" && digit !== "0" ? digit
+            : engine.lastNumberStr === "0" ? "0"
+            : engine.lastNumberStr + digit;
+          if (engine.lastNumberStr === "0" && digit !== "0")
+            engine.lastNumberStr = digit;
+          else if (engine.lastNumberStr === "0") engine.lastNumberStr = "0";
+          else engine.lastNumberStr += digit;
+          engine.errorState = false;
+          updateDisplayWithPreview();
+        }
+
+        function handleDecimal() {
+          if (engine.justEvaluated) {
+            engine.expression = "0.";
+            engine.displayExpression = "0.";
+            engine.justEvaluated = false;
+            engine.lastResult = null;
+            engine.lastNumberStr = "0.";
+            engine.errorState = false;
+            updateDisplayWithPreview();
+            return;
+          }
+          // Check if current number already has a decimal
+          const lastNumMatch = engine.lastNumberStr;
+          if (lastNumMatch && lastNumMatch.includes(".")) return;
+          if (
+            engine.expression === "" ||
+            engine.expression.endsWith(" ") ||
+            engine.expression === "0"
+          ) {
+            engine.expression += "0.";
+            engine.displayExpression += "0.";
+            engine.lastNumberStr = "0.";
+          } else {
+            engine.expression += ".";
+            engine.displayExpression += ".";
+            engine.lastNumberStr += ".";
+          }
+          engine.errorState = false;
+          updateDisplayWithPreview();
+        }
+
+        function handleOperator(op) {
+          engine.justEvaluated = false;
+          engine.errorState = false;
+          let internalOp = op;
+          let displayOp = op;
+          if (op === "×") {
+            internalOp = "*";
+            displayOp = "×";
+          } else if (op === "÷") {
+            internalOp = "/";
+            displayOp = "÷";
+          } else if (op === "−") {
+            internalOp = "-";
+            displayOp = "−";
+          } else if (op === "+") {
+            internalOp = "+";
+            displayOp = "+";
+          } else if (op === "^") {
+            internalOp = "^";
+            displayOp = "^";
+          } else if (op === "nCr") {
+            internalOp = "nCr";
+            displayOp = " nCr ";
+          } else if (op === "nPr") {
+            internalOp = "nPr";
+            displayOp = " nPr ";
+          }
+
+          if (engine.expression === "" && internalOp === "-") {
+            // Start with unary minus
+            engine.expression = "(−)";
+            engine.displayExpression = "(−)";
+            engine.lastNumberStr = "(−)";
+            updateDisplayWithPreview();
+            return;
+          }
+          if (engine.expression === "" || engine.expression.trim() === "") {
+            if (engine.ansValue !== null) {
+              engine.expression = engine.ansValue.toString() + internalOp;
+              engine.displayExpression =
+                formatNumber(engine.ansValue) + displayOp;
+              engine.lastNumberStr = "";
+            }
+            updateDisplayWithPreview();
+            return;
+          }
+          // Replace trailing operator
+          const trimmed = engine.expression.trimEnd();
+          const lastChar = trimmed.charAt(trimmed.length - 1);
+          const lastThree = trimmed.slice(-3);
+          if (
+            ["+", "-", "*", "/", "^"].includes(lastChar) ||
+            lastThree === "nCr" ||
+            lastThree === "nPr"
+          ) {
+            // Replace last operator
+            engine.expression =
+              trimmed
+                .slice(
+                  0,
+                  -Math.max(
+                    1,
+                    lastThree === "nCr" || lastThree === "nPr" ? 3 : 1,
+                  ),
+                )
+                .trimEnd() + internalOp;
+            engine.displayExpression =
+              engine.displayExpression.replace(
+                /[\s]*(×|÷|\+|−|\^|nCr|nPr)[\s]*$/,
+                "",
+              ) + displayOp;
+          } else {
+            engine.expression += internalOp;
+            engine.displayExpression += displayOp;
+          }
+          engine.lastNumberStr = "";
+          updateDisplayWithPreview();
+        }
+
+        function handleTrigFunction(fn) {
+          engine.justEvaluated = false;
+          engine.errorState = false;
+          let actualFn = fn;
+          if (engine.shiftMode && engine.hypMode) {
+            const map = { sin: "asinh", cos: "acosh", tan: "atanh" };
+            actualFn = map[fn] || fn;
+          } else if (engine.shiftMode) {
+            const map = { sin: "asin", cos: "acos", tan: "atan" };
+            actualFn = map[fn] || fn;
+          } else if (engine.hypMode) {
+            const map = { sin: "sinh", cos: "cosh", tan: "tanh" };
+            actualFn = map[fn] || fn;
+          }
+          // Insert function with opening paren
+          if (
+            engine.expression !== "" &&
+            !engine.expression.endsWith("(") &&
+            !["+", "-", "*", "/", "^", "("].includes(
+              engine.expression.trimEnd().slice(-1),
+            ) &&
+            engine.expression.trimEnd().slice(-3) !== "nCr" &&
+            engine.expression.trimEnd().slice(-3) !== "nPr"
+          ) {
+            // Implicit multiplication
+            engine.expression += "*" + actualFn + "(";
+            engine.displayExpression += "×" + actualFn + "(";
+          } else {
+            engine.expression += actualFn + "(";
+            engine.displayExpression += actualFn + "(";
+          }
+          engine.lastNumberStr = "";
+          // Turn off shift/hyp after use
+          engine.shiftMode = false;
+          engine.hypMode = false;
+          updateDisplayWithPreview();
+        }
+
+        function handleFunctionInsert(fn) {
+          engine.justEvaluated = false;
+          engine.errorState = false;
+          let actualFn = fn;
+          if (engine.shiftMode && fn === "sqrt") actualFn = "cbrt";
+          if (engine.shiftMode && fn === "log") actualFn = "exp";
+          if (engine.shiftMode && fn === "ln") actualFn = "exp";
+          if (engine.shiftMode && fn === "sqrt") actualFn = "cbrt";
+
+          if (
+            engine.expression !== "" &&
+            !engine.expression.endsWith("(") &&
+            !["+", "-", "*", "/", "^", "("].includes(
+              engine.expression.trimEnd().slice(-1),
+            ) &&
+            engine.expression.trimEnd().slice(-3) !== "nCr" &&
+            engine.expression.trimEnd().slice(-3) !== "nPr"
+          ) {
+            engine.expression += "*" + actualFn + "(";
+            engine.displayExpression += "×" + actualFn + "(";
+          } else {
+            engine.expression += actualFn + "(";
+            engine.displayExpression += actualFn + "(";
+          }
+          engine.lastNumberStr = "";
+          engine.shiftMode = false;
+          updateDisplayWithPreview();
+        }
+
+        function handleSquare() {
+          engine.justEvaluated = false;
+          engine.errorState = false;
+          if (engine.expression !== "" && engine.expression.trim() !== "") {
+            engine.expression += "^2";
+            engine.displayExpression += "²";
+          }
+          engine.lastNumberStr = "";
+          updateDisplayWithPreview();
+        }
+
+        function handleUnaryMinus() {
+          engine.justEvaluated = false;
+          engine.errorState = false;
+          if (
+            engine.expression === "" ||
+            engine.expression.endsWith("(") ||
+            ["+", "-", "*", "/", "^"].includes(
+              engine.expression.trimEnd().slice(-1),
+            )
+          ) {
+            engine.expression += "(−)";
+            engine.displayExpression += "(−)";
+          } else {
+            engine.expression += "*(−)";
+            engine.displayExpression += "×(−)";
+          }
+          engine.lastNumberStr = "(−)";
+          updateDisplayWithPreview();
+        }
+
+        function handleConstant(constant) {
+          engine.justEvaluated = false;
+          engine.errorState = false;
+          if (
+            engine.expression !== "" &&
+            !engine.expression.endsWith("(") &&
+            !["+", "-", "*", "/", "^", "("].includes(
+              engine.expression.trimEnd().slice(-1),
+            ) &&
+            engine.expression.trimEnd().slice(-3) !== "nCr" &&
+            engine.expression.trimEnd().slice(-3) !== "nPr"
+          ) {
+            engine.expression += "*" + constant;
+            engine.displayExpression += "×" + constant;
+          } else {
+            engine.expression += constant;
+            engine.displayExpression += constant;
+          }
+          engine.lastNumberStr =
+            constant === "π" ? Math.PI.toFixed(10) : Math.E.toFixed(10);
+          updateDisplayWithPreview();
+        }
+
+        function handleParen(paren) {
+          engine.justEvaluated = false;
+          engine.errorState = false;
+          if (
+            paren === "(" &&
+            engine.expression !== "" &&
+            !["+", "-", "*", "/", "^", "("].includes(
+              engine.expression.trimEnd().slice(-1),
+            ) &&
+            engine.expression.trimEnd().slice(-3) !== "nCr" &&
+            engine.expression.trimEnd().slice(-3) !== "nPr" &&
+            engine.expression.trimEnd() !== ""
+          ) {
+            engine.expression += "*(";
+            engine.displayExpression += "×(";
+          } else {
+            engine.expression += paren;
+            engine.displayExpression += paren;
+          }
+          engine.lastNumberStr = "";
+          updateDisplayWithPreview();
+        }
+
+        function handleFactorial() {
+          engine.justEvaluated = false;
+          engine.errorState = false;
+          if (engine.expression !== "" && engine.expression.trim() !== "") {
+            engine.expression += "!";
+            engine.displayExpression += "!";
+          }
+          engine.lastNumberStr = "";
+          updateDisplayWithPreview();
+        }
+
+        function handlePercent() {
+          engine.justEvaluated = false;
+          engine.errorState = false;
+          if (engine.expression !== "" && engine.expression.trim() !== "") {
+            engine.expression += "%";
+            engine.displayExpression += "%";
+          }
+          engine.lastNumberStr = "";
+          updateDisplayWithPreview();
+        }
+
+        function handleExp() {
+          engine.justEvaluated = false;
+          engine.errorState = false;
+          if (engine.expression !== "" && engine.expression.trim() !== "") {
+            engine.expression += "E";
+            engine.displayExpression += "×10^";
+          }
+          engine.lastNumberStr = "";
+          updateDisplayWithPreview();
+        }
+
+        function handleReciprocal() {
+          engine.justEvaluated = false;
+          engine.errorState = false;
+          if (engine.expression !== "" && engine.expression.trim() !== "") {
+            const currentExpr = engine.expression;
+            engine.expression = "1/(" + currentExpr + ")";
+            engine.displayExpression = "1/(" + engine.displayExpression + ")";
+          }
+          engine.lastNumberStr = "";
+          updateDisplayWithPreview();
+        }
+
+        function handleAns() {
+          engine.justEvaluated = false;
+          engine.errorState = false;
+          const ansVal = engine.ansValue;
+          if (
+            engine.expression !== "" &&
+            !engine.expression.endsWith("(") &&
+            !["+", "-", "*", "/", "^", "("].includes(
+              engine.expression.trimEnd().slice(-1),
+            ) &&
+            engine.expression.trimEnd().slice(-3) !== "nCr" &&
+            engine.expression.trimEnd().slice(-3) !== "nPr"
+          ) {
+            engine.expression += "*" + ansVal.toString();
+            engine.displayExpression += "×ANS";
+          } else {
+            engine.expression += ansVal.toString();
+            engine.displayExpression += "ANS";
+          }
+          engine.lastNumberStr = ansVal.toString();
+          updateDisplayWithPreview();
+        }
+
+        function handleEquals() {
+          engine.errorState = false;
+          if (engine.expression.trim() === "") {
+            engine.lastResult = engine.ansValue;
+            engine.justEvaluated = true;
+            updateDisplay(engine.ansValue);
+            return;
+          }
+          const evalResult = engine.evaluate(engine.expression);
+          if (evalResult.error) {
+            engine.errorState = true;
+            engine.lastResult = null;
+            updateDisplay(evalResult, true);
+            return;
+          }
+          engine.lastResult = evalResult.result;
+          engine.ansValue = evalResult.result;
+          engine.justEvaluated = true;
+          engine.lastNumberStr = evalResult.result.toString();
+          // Add to history
+          engine.addHistory(
+            engine.displayExpression || engine.expression,
+            evalResult.result,
+          );
+          updateHistoryPanel();
+          updateDisplay(evalResult.result);
+        }
+
+        function handleAC() {
+          engine.reset();
+          updateDisplay(0);
+          engine.shiftMode = false;
+          engine.hypMode = false;
+          updateIndicators();
+        }
+
+        function handleDEL() {
+          if (engine.justEvaluated) {
+            handleAC();
+            return;
+          }
+          if (engine.expression.length > 0) {
+            // Remove last character intelligently
+            const expr = engine.expression;
+            const displayExpr = engine.displayExpression;
+            // Check if last part is a function name
+            const funcNames = [
+              "asin",
+              "acos",
+              "atan",
+              "asinh",
+              "acosh",
+              "atanh",
+              "sinh",
+              "cosh",
+              "tanh",
+              "sin",
+              "cos",
+              "tan",
+              "sqrt",
+              "cbrt",
+              "log",
+              "ln",
+              "abs",
+              "floor",
+              "ceil",
+              "round",
+              "exp",
+              "nCr",
+              "nPr",
+            ];
+            let removed = false;
+            for (const fn of funcNames) {
+              if (expr.endsWith(fn + "(")) {
+                engine.expression = expr.slice(0, -(fn.length + 1));
+                engine.displayExpression = displayExpr.slice(
+                  0,
+                  -(fn.length + 1),
+                );
+                removed = true;
+                break;
+              }
+              if (expr.endsWith(fn)) {
+                engine.expression = expr.slice(0, -fn.length);
+                engine.displayExpression = displayExpr.slice(0, -fn.length);
+                removed = true;
+                break;
+              }
+            }
+            if (!removed) {
+              // Check for (−) unary minus (3 chars)
+              if (expr.endsWith("(−)")) {
+                engine.expression = expr.slice(0, -3);
+                engine.displayExpression = displayExpr.slice(0, -3);
+              } else if (displayExpr.endsWith("×10^")) {
+                engine.expression = expr.slice(0, -1); // Remove E
+                engine.displayExpression = displayExpr.slice(0, -4);
+              } else {
+                engine.expression = expr.slice(0, -1);
+                engine.displayExpression = displayExpr.slice(0, -1);
+              }
+            }
+            engine.lastNumberStr = "";
+            engine.errorState = false;
+            updateDisplayWithPreview();
+          }
+        }
+
+        function toggleShift() {
+          engine.shiftMode = !engine.shiftMode;
+          if (engine.shiftMode) engine.hypMode = false;
+          updateIndicators();
+          updateShiftHypButtonLabels();
+        }
+
+        function toggleHyp() {
+          engine.hypMode = !engine.hypMode;
+          if (engine.hypMode) engine.shiftMode = false;
+          updateIndicators();
+          updateShiftHypButtonLabels();
+        }
+
+        function updateShiftHypButtonLabels() {
+          // Update trig button labels based on shift/hyp
+          const trigBtns = document.querySelectorAll(".trig-btn");
+          trigBtns.forEach((btn) => {
+            const action = btn.getAttribute("data-action");
+            let label = action;
+            if (engine.shiftMode && engine.hypMode) {
+              const map = { sin: "asinh", cos: "acosh", tan: "atanh" };
+              label = map[action] || action;
+            } else if (engine.shiftMode) {
+              const map = { sin: "asin", cos: "acos", tan: "atan" };
+              label = map[action] || action;
+            } else if (engine.hypMode) {
+              const map = { sin: "sinh", cos: "cosh", tan: "tanh" };
+              label = map[action] || action;
+            }
+            btn.textContent = label;
+          });
+        }
+
+        function toggleAngleMode() {
+          const modes = ["DEG", "RAD", "GRAD"];
+          const currentIndex = modes.indexOf(engine.angleMode);
+          engine.angleMode = modes[(currentIndex + 1) % 3];
+          updateIndicators();
+        }
+
+        function toggleHistory() {
+          historyPanel.classList.toggle("visible");
+          if (historyPanel.classList.contains("visible")) {
+            updateHistoryPanel();
+          }
+        }
+
+        function handleMemoryAdd() {
+          const val =
+            engine.lastResult !== null && engine.justEvaluated ?
+              engine.lastResult
+            : engine.ansValue;
+          engine.memoryAdd(val);
+          updateIndicators();
+        }
+
+        function handleMemorySubtract() {
+          const val =
+            engine.lastResult !== null && engine.justEvaluated ?
+              engine.lastResult
+            : engine.ansValue;
+          engine.memorySubtract(val);
+          updateIndicators();
+        }
+
+        function handleMemoryClear() {
+          engine.memoryClear();
+          updateIndicators();
+        }
+
+        function handleMemoryRecall() {
+          engine.justEvaluated = false;
+          engine.errorState = false;
+          const memVal = engine.memoryRecall();
+          if (
+            engine.expression !== "" &&
+            !engine.expression.endsWith("(") &&
+            !["+", "-", "*", "/", "^", "("].includes(
+              engine.expression.trimEnd().slice(-1),
+            )
+          ) {
+            engine.expression += "*" + memVal.toString();
+            engine.displayExpression += "×MR";
+          } else {
+            engine.expression += memVal.toString();
+            engine.displayExpression += "MR";
+          }
+          engine.lastNumberStr = memVal.toString();
+          updateDisplayWithPreview();
+        }
+
+        function handleMemoryStore() {
+          const val =
+            engine.lastResult !== null && engine.justEvaluated ?
+              engine.lastResult
+            : engine.ansValue;
+          engine.memoryStore(val);
+          updateIndicators();
+        }
+
+        function updateIndicators() {
+          // Angle mode
+          modeDeg.classList.toggle("active", engine.angleMode === "DEG");
+          modeRad.classList.toggle("active", engine.angleMode === "RAD");
+          modeGrad.classList.toggle("active", engine.angleMode === "GRAD");
+
+          // Memory
+          if (engine.hasMemory()) {
+            memIndicator.style.display = "inline-block";
+            memIndicator.classList.add("memory-active");
+          } else {
+            memIndicator.style.display = "none";
+            memIndicator.classList.remove("memory-active");
+          }
+
+          // Shift
+          if (engine.shiftMode) {
+            shiftIndicator.style.display = "inline-block";
+            shiftIndicator.classList.add("shift-on");
+          } else {
+            shiftIndicator.style.display = "none";
+            shiftIndicator.classList.remove("shift-on");
+          }
+
+          // Hyp
+          if (engine.hypMode) {
+            hypIndicator.style.display = "inline-block";
+            hypIndicator.classList.add("hyp-on");
+          } else {
+            hypIndicator.style.display = "none";
+            hypIndicator.classList.remove("hyp-on");
+          }
+
+          // Shift/Hyp button visual states
+          btnShift.classList.toggle("active-shift", engine.shiftMode);
+          btnHyp.classList.toggle("active-hyp", engine.hypMode);
+
+          updateShiftHypButtonLabels();
+        }
+
+        function updateDisplayWithPreview() {
+          if (engine.expression.trim() === "") {
+            updateDisplay(engine.ansValue);
+            return;
+          }
+          const preview = engine.tryEvaluate(engine.expression);
+          if (preview.error) {
+            // Show expression but don't show error for preview (just show last number)
+            resultLine.textContent = engine.lastNumberStr || "";
+            resultLine.className = "result-line preview";
+            expressionLine.textContent =
+              engine.displayExpression || engine.expression || "";
+          } else {
+            updateDisplay(preview.result);
+          }
+        }
+
+        function updateHistoryPanel() {
+          if (engine.history.length === 0) {
+            historyList.innerHTML =
+              '<div style="padding:20px;text-align:center;color:#777;">No history yet</div>';
+          } else {
+            historyList.innerHTML = engine.history
+              .slice(0, 30)
+              .map(
+                (entry, idx) => `
+                        <div class="history-item" data-index="${idx}">
+                            <span class="hist-expr">${escapeHTML(entry.expression)}</span>
+                            <span class="hist-result">${formatNumber(entry.result)}</span>
+                        </div>
+                    `,
+              )
+              .join("");
+            // Add click handlers
+            historyList.querySelectorAll(".history-item").forEach((item) => {
+              item.addEventListener("click", function () {
+                const idx = parseInt(this.getAttribute("data-index"));
+                if (engine.history[idx]) {
+                  engine.expression = engine.history[idx].result.toString();
+                  engine.displayExpression =
+                    engine.history[idx].result.toString();
+                  engine.ansValue = engine.history[idx].result;
+                  engine.lastResult = engine.history[idx].result;
+                  engine.justEvaluated = true;
+                  engine.lastNumberStr = engine.history[idx].result.toString();
+                  engine.errorState = false;
+                  updateDisplay(engine.history[idx].result);
+                  historyPanel.classList.remove("visible");
+                }
+              });
+            });
+          }
+        }
+
+        function escapeHTML(str) {
+          const div = document.createElement("div");
+          div.textContent = str;
+          return div.innerHTML;
+        }
+
+        // ==================== EVENT LISTENERS ====================
+        // Button click handlers
+        document.querySelectorAll(".btn").forEach((btn) => {
+          btn.addEventListener("click", function (e) {
+            const action = this.getAttribute("data-action");
+            const value = this.getAttribute("data-value");
+            if (action) {
+              handleAction(action, value);
+            }
+            // Ripple effect
+            createRipple(e, this);
+          });
+        });
+
+        // Mode indicator click handlers
+        modeDeg.addEventListener("click", () => {
+          engine.angleMode = "DEG";
+          updateIndicators();
+        });
+        modeRad.addEventListener("click", () => {
+          engine.angleMode = "RAD";
+          updateIndicators();
+        });
+        modeGrad.addEventListener("click", () => {
+          engine.angleMode = "GRAD";
+          updateIndicators();
+        });
+
+        // History clear
+        historyClearBtn.addEventListener("click", () => {
+          engine.history = [];
+          updateHistoryPanel();
+        });
+
+        // Close history when clicking outside
+        document.addEventListener("click", function (e) {
+          if (
+            !historyPanel.contains(e.target) &&
+            e.target.getAttribute("data-action") !== "history-toggle"
+          ) {
+            historyPanel.classList.remove("visible");
+          }
+        });
+
+        // Ripple effect
+        function createRipple(event, element) {
+          const ripple = document.createElement("span");
+          ripple.className = "ripple";
+          const rect = element.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          ripple.style.width = ripple.style.height = size + "px";
+          ripple.style.left = event.clientX - rect.left - size / 2 + "px";
+          ripple.style.top = event.clientY - rect.top - size / 2 + "px";
+          ripple.style.position = "absolute";
+          ripple.style.borderRadius = "50%";
+          ripple.style.background = "rgba(255,255,255,0.3)";
+          ripple.style.transform = "scale(0)";
+          ripple.style.animation = "ripple-anim 0.5s ease-out";
+          ripple.style.pointerEvents = "none";
+          ripple.style.zIndex = "0";
+          element.style.position = element.style.position || "relative";
+          element.style.overflow = "hidden";
+          element.appendChild(ripple);
+          setTimeout(() => ripple.remove(), 500);
+        }
+
+        // Add ripple animation style
+        const rippleStyle = document.createElement("style");
+        rippleStyle.textContent = `
+                @keyframes ripple-anim {
+                    to { transform: scale(4); opacity: 0; }
+                }
+            `;
+        document.head.appendChild(rippleStyle);
+
+        // ==================== KEYBOARD SUPPORT ====================
+        document.addEventListener("keydown", function (e) {
+          const key = e.key;
+          let handled = true;
+
+          // Don't intercept when typing in input fields
+          if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")
+            return;
+
+          if (key >= "0" && key <= "9") {
+            handleAction("digit", key);
+          } else if (key === ".") {
+            handleAction("decimal");
+          } else if (key === "+") {
+            handleAction("operator", "+");
+          } else if (key === "-") {
+            handleAction("operator", "−");
+          } else if (key === "*") {
+            handleAction("operator", "×");
+          } else if (key === "/") {
+            handleAction("operator", "÷");
+          } else if (key === "^") {
+            handleAction("power");
+          } else if (key === "(") {
+            handleAction("lparen");
+          } else if (key === ")") {
+            handleAction("rparen");
+          } else if (key === "Enter" || key === "=") {
+            handleAction("equals");
+            e.preventDefault();
+          } else if (key === "Backspace") {
+            handleAction("del");
+          } else if (key === "Escape") {
+            handleAction("ac");
+          } else if (key === "Delete") {
+            handleAction("ac");
+          } else if (key === "%") {
+            handleAction("percent");
+          } else if (key === "!" && e.shiftKey) {
+            handleAction("factorial");
+          } else if (key === "s" && !e.ctrlKey && !e.metaKey) {
+            handleAction("sin");
+          } else if (key === "c" && !e.ctrlKey && !e.metaKey) {
+            handleAction("cos");
+          } else if (key === "t" && !e.ctrlKey && !e.metaKey) {
+            handleAction("tan");
+          } else if (key === "l" && !e.ctrlKey && !e.metaKey) {
+            handleAction("log");
+          } else if (key === "n" && !e.ctrlKey && !e.metaKey) {
+            handleAction("ln");
+          } else if (key === "q" && !e.ctrlKey && !e.metaKey) {
+            handleAction("sqrt");
+          } else if (key === "p" && !e.ctrlKey && !e.metaKey) {
+            handleAction("pi");
+          } else if (key === "e" && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+            handleAction("e");
+          } else if (key === "a" && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+            handleAction("ans");
+          } else {
+            handled = false;
+          }
+
+          if (handled) {
+            e.preventDefault();
+          }
+        });
+
+        // ==================== INITIALIZATION ====================
+        function init() {
+          engine.reset();
+          engine.ansValue = 0;
+          updateDisplay(0);
+          updateIndicators();
+          updateShiftHypButtonLabels();
+        }
+
+        init();
+
+        // Log for debugging
+        console.log("🔢 Scientific Calculator ready!");
+        console.log("  - Mode: DEG/RAD/GRAD toggle");
+        console.log("  - SHIFT for inverse trig functions");
+        console.log("  - HYP for hyperbolic functions");
+        console.log("  - Memory: M+, M−, MC, MR, MS");
+        console.log("  - History panel (HIST button)");
+        console.log("  - Keyboard shortcuts supported");
+        console.log("  - Expression preview as you type");
+        console.log("  - Proper order of operations (PEMDAS)");
+        console.log("  - ANS for previous result");
+        console.log("  - nCr, nPr, factorial, percentage");
+      })();
+    </script>
+  </body>
+</html>

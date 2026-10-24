@@ -1,0 +1,1927 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CRT-9000 — 3‑Mode Tube TV</title>
+    <style>
+        /* ── reset & base ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --tv-body: #2c241e;
+            --tv-body-dark: #1e1814;
+            --tv-body-light: #4a3d34;
+            --tv-bezel: #1a1410;
+            --tv-screen-bg: #0a0806;
+            --scanline: rgba(0, 0, 0, 0.08);
+            --text-light: #e8e0d6;
+            --text-dim: #8a8078;
+            --accent: #c4a882;
+            --shadow-heavy: 0 30px 80px rgba(0, 0, 0, 0.85);
+        }
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            height: 100%;
+            background: radial-gradient(ellipse at 50% 30%, #1a1613 0%, #0a0806 90%);
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.6rem;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            overflow: hidden;
+            flex-direction: column;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 60% 30%, rgba(200, 180, 150, 0.02) 0%, transparent 55%);
+            z-index: -1;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.001) 2px,
+                    rgba(255, 255, 255, 0.001) 3px);
+            pointer-events: none;
+            z-index: -1;
+            mask-image: radial-gradient(ellipse at center, black 15%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 15%, transparent 70%);
+        }
+
+        /* ── main wrapper ── fills viewport */
+        .desk-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            max-height: 100vh;
+            gap: 0.2rem;
+            padding: 0.1rem;
+            flex: 1;
+        }
+
+        /* ── MONITOR UNIT ── 1980s tube TV, BIG ── */
+        .monitor-unit {
+            width: 100%;
+            max-width: 1400px;
+            flex: 1 1 auto;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.7));
+            perspective: 1400px;
+            padding: 0;
+            transition: filter 0.3s ease;
+            height: 100%;
+            max-height: 98vh;
+        }
+        .monitor-unit:hover {
+            filter: drop-shadow(0 28px 70px rgba(0, 0, 0, 0.8));
+        }
+
+        /* ── CRT BODY ── chunky 1980s tube, max size ── */
+        .monitor-body {
+            width: 100%;
+            height: 100%;
+            max-height: 96vh;
+            background: linear-gradient(160deg, #3d342c, #1e1814 60%, #16120e);
+            border-radius: 48px 48px 32px 32px;
+            padding: 2.2rem 2.2rem 1.2rem;
+            border: 2px solid rgba(255, 255, 255, 0.02);
+            box-shadow:
+                inset 0 3px 0 rgba(255, 255, 255, 0.03),
+                inset 0 -6px 0 rgba(0, 0, 0, 0.5),
+                var(--shadow-heavy),
+                0 0 120px rgba(100, 80, 60, 0.03);
+            position: relative;
+            transition: box-shadow 0.4s ease, opacity 0.4s ease;
+            border-radius: 52px 52px 36px 36px;
+            display: flex;
+            flex-direction: column;
+        }
+        .monitor-body::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border-radius: 42px 42px 28px 28px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .monitor-body::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 48px 48px 32px 32px;
+            background: radial-gradient(ellipse at 30% 10%, rgba(255, 255, 255, 0.015) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .monitor-body.powered-off {
+            opacity: 0.4;
+            border-color: rgba(60, 55, 50, 0.12);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+        .monitor-body.powered-off .screen iframe {
+            opacity: 0 !important;
+        }
+        .monitor-body.powered-off .screen .scan-lines,
+        .monitor-body.powered-off .screen .glare,
+        .monitor-body.powered-off .screen .vignette,
+        .monitor-body.powered-off .screen .crt-curve {
+            opacity: 0 !important;
+        }
+        .monitor-body.powered-off .screen {
+            background: #060402 !important;
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.95) !important;
+        }
+        .monitor-body.powered-off .screen::after {
+            opacity: 0 !important;
+        }
+
+        /* ── bezel ── */
+        .bezel {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            border-radius: 28px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 10px;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.015), inset 0 0 40px rgba(0, 0, 0, 0.4);
+            flex: 1;
+        }
+
+        /* ── top bar ── minimal ── */
+        .bezel-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2px 12px 2px 14px;
+            background: rgba(0, 0, 0, 0.12);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.01);
+            min-height: 22px;
+            flex-shrink: 0;
+        }
+        .webcam-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 40% 30%, #3a3530, #0a0806);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02);
+        }
+        .brand-badge {
+            font-size: 7px;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            opacity: 0.4;
+            font-family: 'Courier New', monospace;
+        }
+        .top-status {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .status-dot {
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        .status-dot.online {
+            background: #4ade80;
+            box-shadow: 0 0 8px rgba(74, 222, 128, 0.3);
+        }
+        .status-dot.offline {
+            background: #6a3a2a;
+            box-shadow: 0 0 4px rgba(160, 60, 40, 0.1);
+        }
+        .status-dot.loading {
+            background: #c4a040;
+            box-shadow: 0 0 8px rgba(196, 160, 64, 0.2);
+            animation: pulse-dot 0.7s ease-in-out infinite alternate;
+        }
+        @keyframes pulse-dot {
+            0% {
+                opacity: 0.3;
+                transform: scale(0.7);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.3);
+            }
+        }
+        .status-label {
+            font-size: 5.5px;
+            font-weight: 400;
+            color: var(--text-dim);
+            opacity: 0.3;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* ── screen frame ── expands to fill ── */
+        .screen-frame {
+            width: 100%;
+            flex: 1 1 auto;
+            min-height: 0;
+            background: #060402;
+            border-radius: 14px;
+            padding: 8px;
+            box-shadow:
+                inset 0 0 0 1px rgba(255, 255, 255, 0.01),
+                inset 0 0 80px rgba(0, 0, 0, 0.8);
+            position: relative;
+            overflow: hidden;
+            margin: 2px 0;
+        }
+        .screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            background: #0a0806;
+            transition: filter 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
+            transform: perspective(1400px) rotateX(0.3deg) rotateY(-0.1deg) scale(1.005);
+            transform-origin: center center;
+        }
+        .screen iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #f5f2ed;
+            transition: opacity 0.35s ease;
+            pointer-events: auto;
+            position: relative;
+            z-index: 2;
+            border-radius: 8px;
+        }
+        .screen iframe {
+            pointer-events: auto !important;
+        }
+        .screen-frame {
+            pointer-events: auto !important;
+        }
+
+        /* ── CRT overlays ── */
+        .scan-lines {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 5;
+            background: repeating-linear-gradient(0deg,
+                    transparent, transparent 2px,
+                    var(--scanline) 2px, var(--scanline) 4px);
+            border-radius: 10px;
+            transition: opacity 0.4s ease;
+            opacity: 0.5;
+        }
+        .glare {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 6;
+            border-radius: 10px;
+            background: linear-gradient(150deg,
+                    rgba(255, 255, 255, 0.035) 0%,
+                    rgba(255, 255, 255, 0.008) 20%,
+                    transparent 45%,
+                    rgba(255, 255, 255, 0.005) 80%);
+            transition: opacity 0.4s ease;
+            opacity: 0.6;
+        }
+        .vignette {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 4;
+            border-radius: 10px;
+            background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.45) 100%);
+            transition: opacity 0.4s ease;
+            opacity: 0.65;
+        }
+        .crt-curve {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 7;
+            border-radius: 10px;
+            background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.1) 100%);
+            transition: opacity 0.4s ease;
+            opacity: 0.35;
+        }
+        .screen::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 8;
+            border-radius: 10px;
+            background: linear-gradient(180deg,
+                    rgba(255, 255, 255, 0.006) 0%,
+                    transparent 20%,
+                    transparent 80%,
+                    rgba(0, 0, 0, 0.01) 100%);
+            transition: opacity 0.4s ease;
+            opacity: 1;
+        }
+        .monitor-body.powered-off .screen::after {
+            opacity: 0;
+        }
+
+        .sim-label {
+            position: absolute;
+            bottom: 6px;
+            left: 10px;
+            font-size: 6px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.1);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            z-index: 12;
+            pointer-events: none;
+            text-shadow: 0 0 16px rgba(0, 0, 0, 0.95);
+            font-family: 'Courier New', monospace;
+        }
+
+        /* ── fallback ── big, clear, usable ── */
+        .fallback-message {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(10, 8, 6, 0.94);
+            color: var(--text-dim);
+            text-align: center;
+            padding: 2.5rem;
+            z-index: 10;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            border-radius: 10px;
+            backdrop-filter: blur(8px);
+            gap: 0.6rem;
+        }
+        .fallback-message.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .fallback-message .sim-title {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 1.8rem;
+            letter-spacing: 0.02em;
+        }
+        .fallback-message .sub {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            max-width: 80%;
+            line-height: 1.6;
+        }
+        .fallback-message .error-code {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.15);
+            font-family: 'Courier New', monospace;
+            margin-top: 0.1rem;
+            letter-spacing: 0.05em;
+        }
+        .fallback-message .btn-group {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 0.6rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .fallback-message button,
+        .fallback-message a {
+            background: rgba(60, 55, 50, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--text-light);
+            padding: 0.6rem 1.8rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: background 0.2s, border-color 0.2s, transform 0.15s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            font-family: inherit;
+        }
+        .fallback-message button:hover,
+        .fallback-message a:hover {
+            background: rgba(80, 72, 65, 0.8);
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: scale(1.03);
+        }
+        .fallback-message .retry-btn {
+            background: rgba(80, 72, 65, 0.35);
+            font-size: 0.8rem;
+            padding: 0.4rem 1.4rem;
+        }
+        .fallback-message .retry-btn:hover {
+            background: rgba(100, 90, 80, 0.5);
+        }
+        .fallback-message .primary-btn {
+            background: rgba(80, 72, 65, 0.85);
+        }
+        .fallback-message .primary-btn:hover {
+            background: rgba(100, 90, 80, 0.9);
+        }
+
+        /* ── bezel-bottom ── with mode buttons, compact ── */
+        .bezel-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 3px 10px 2px 12px;
+            background: rgba(0, 0, 0, 0.15);
+            border-top: 1px solid rgba(255, 255, 255, 0.01);
+            gap: 4px;
+            min-height: 32px;
+            flex-shrink: 0;
+            flex-wrap: nowrap;
+        }
+        .model-name {
+            font-size: 6px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            opacity: 0.25;
+            font-family: 'Courier New', monospace;
+            flex-shrink: 0;
+            margin-right: 4px;
+        }
+
+        /* ── mode buttons (inside bezel) ── sleek, compact ── */
+        .mode-btns-inner {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex: 1;
+            justify-content: center;
+            min-width: 0;
+            overflow: hidden;
+        }
+        .mode-btn-tiny {
+            background: rgba(30, 26, 22, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            border-radius: 6px;
+            padding: 2px 10px;
+            font-size: 7px;
+            font-weight: 500;
+            color: var(--text-dim);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', system-ui, sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+            flex-shrink: 1;
+            min-width: 0;
+            max-width: 90px;
+            height: 22px;
+        }
+        .mode-btn-tiny .icon {
+            font-size: 9px;
+            line-height: 1;
+            opacity: 0.5;
+            flex-shrink: 0;
+        }
+        .mode-btn-tiny .label {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex-shrink: 1;
+            min-width: 0;
+            font-size: 6.5px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+        .mode-btn-tiny:hover {
+            background: rgba(50, 44, 38, 0.7);
+            border-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-light);
+        }
+        .mode-btn-tiny:active {
+            transform: scale(0.94);
+        }
+        .mode-btn-tiny.active {
+            background: rgba(60, 54, 48, 0.8);
+            border-color: var(--accent);
+            color: var(--text-light);
+            box-shadow: 0 0 24px rgba(196, 168, 130, 0.05);
+        }
+        .mode-btn-tiny.active .icon {
+            opacity: 0.9;
+        }
+        .mode-btn-tiny .indicator-dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: transparent;
+            transition: background 0.3s;
+            flex-shrink: 0;
+        }
+        .mode-btn-tiny.active .indicator-dot {
+            background: var(--accent);
+            box-shadow: 0 0 8px rgba(196, 168, 130, 0.25);
+        }
+
+        .kb-hint {
+            font-size: 5px;
+            color: rgba(255, 255, 255, 0.06);
+            letter-spacing: 0.1em;
+            font-family: 'Courier New', monospace;
+            pointer-events: none;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-left: 4px;
+        }
+        @media (max-width: 600px) {
+            .kb-hint {
+                display: none;
+            }
+        }
+
+        /* ── power controls ── */
+        .power-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+            margin-left: 2px;
+        }
+        .power-led {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 8px #4ade80, 0 0 18px rgba(74, 222, 128, 0.15);
+            transition: background 0.4s, box-shadow 0.4s;
+            flex-shrink: 0;
+        }
+        .power-led.off {
+            background: #4a1a0a;
+            box-shadow: 0 0 4px rgba(160, 50, 20, 0.08);
+        }
+        .power-btn {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 45% 35%, #4a453e, #1f1b17);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+            transition: transform 0.15s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            padding: 0;
+        }
+        .power-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 3px 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(196, 168, 130, 0.05);
+        }
+        .power-btn:active {
+            transform: scale(0.84);
+        }
+        .power-btn-icon {
+            width: 9px;
+            height: 9px;
+            position: relative;
+            pointer-events: none;
+        }
+        .power-btn-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2.5px;
+            height: 5.5px;
+            border: 1.2px solid rgba(220, 215, 210, 0.5);
+            border-bottom: none;
+            border-radius: 2px 2px 0 0;
+        }
+        .power-btn-icon::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1.5px;
+            height: 2.5px;
+            background: rgba(220, 215, 210, 0.3);
+            border-radius: 0 0 1px 1px;
+        }
+
+        /* ── stand ── minimal, small ── */
+        .stand-neck {
+            width: 14px;
+            height: 10px;
+            background: linear-gradient(180deg, #2a2520, #1a1613);
+            border-radius: 0 0 3px 3px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            margin-top: -2px;
+            flex-shrink: 0;
+        }
+        .stand-base {
+            width: 50px;
+            height: 5px;
+            background: linear-gradient(180deg, #24201c, #14100d);
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+            margin-top: -2px;
+            transform: perspective(120px) rotateX(6deg);
+            flex-shrink: 0;
+        }
+
+        /* ── POWER ANIMATIONS ── ultra realistic CRT ── */
+        .monitor-unit.powering-off .screen {
+            animation: crtPowerOff 0.8s ease-in forwards;
+        }
+        .monitor-unit.powering-off .screen iframe {
+            opacity: 0 !important;
+        }
+        .monitor-unit.powering-off .scan-lines,
+        .monitor-unit.powering-off .glare,
+        .monitor-unit.powering-off .vignette,
+        .monitor-unit.powering-off .crt-curve,
+        .monitor-unit.powering-off .screen::after {
+            opacity: 0 !important;
+        }
+        @keyframes crtPowerOff {
+            0% {
+                filter: brightness(1) contrast(1);
+                transform: perspective(1400px) rotateX(0.3deg) rotateY(-0.1deg) scale(1.005) scaleY(1);
+                background: #0a0806;
+            }
+            6% {
+                filter: brightness(2.5) contrast(2.2);
+                transform: perspective(1400px) rotateX(0.3deg) rotateY(-0.1deg) scale(1.005) scaleY(0.85);
+                background: #0a0806;
+            }
+            18% {
+                filter: brightness(4.2) contrast(3);
+                transform: perspective(1400px) rotateX(0.3deg) rotateY(-0.1deg) scale(1.005) scaleY(0.08);
+                background: #0a0806;
+            }
+            40% {
+                filter: brightness(0.4) contrast(0.1);
+                transform: perspective(1400px) rotateX(0.3deg) rotateY(-0.1deg) scale(1.005) scaleY(0.01);
+                background: #060402;
+            }
+            100% {
+                filter: brightness(0) contrast(0);
+                transform: perspective(1400px) rotateX(0.3deg) rotateY(-0.1deg) scale(1.005) scaleY(0);
+                background: #030101;
+            }
+        }
+
+        .monitor-unit.powering-on .screen {
+            animation: crtPowerOn 1s ease-out forwards;
+        }
+        .monitor-unit.powering-on .screen iframe {
+            opacity: 0 !important;
+        }
+        .monitor-unit.powering-on .scan-lines,
+        .monitor-unit.powering-on .glare,
+        .monitor-unit.powering-on .vignette,
+        .monitor-unit.powering-on .crt-curve,
+        .monitor-unit.powering-on .screen::after {
+            opacity: 0 !important;
+        }
+        @keyframes crtPowerOn {
+            0% {
+                filter: brightness(0) contrast(0);
+                transform: perspective(1400px) rotateX(0.3deg) rotateY(-0.1deg) scale(1.005) scaleY(0);
+                background: #030101;
+            }
+            8% {
+                filter: brightness(0.5) contrast(0.15);
+                transform: perspective(1400px) rotateX(0.3deg) rotateY(-0.1deg) scale(1.005) scaleY(0.015);
+                background: #060402;
+            }
+            22% {
+                filter: brightness(3.8) contrast(2.8);
+                transform: perspective(1400px) rotateX(0.3deg) rotateY(-0.1deg) scale(1.005) scaleY(0.3);
+                background: #1a1410;
+            }
+            42% {
+                filter: brightness(2.2) contrast(2);
+                transform: perspective(1400px) rotateX(0.3deg) rotateY(-0.1deg) scale(1.005) scaleY(0.82);
+                background: #0e0b08;
+            }
+            60% {
+                filter: brightness(1.3) contrast(1.2);
+                transform: perspective(1400px) rotateX(0.3deg) rotateY(-0.1deg) scale(1.005) scaleY(1.01);
+                background: #0a0806;
+            }
+            78% {
+                filter: brightness(1.05) contrast(0.96);
+                transform: perspective(1400px) rotateX(0.3deg) rotateY(-0.1deg) scale(1.005) scaleY(1.0);
+                background: #0a0806;
+            }
+            100% {
+                filter: brightness(1) contrast(1);
+                transform: perspective(1400px) rotateX(0.3deg) rotateY(-0.1deg) scale(1.005) scaleY(1);
+                background: #0a0806;
+            }
+        }
+        .monitor-unit.powering-on .screen iframe {
+            opacity: 1;
+        }
+
+        /* ── timer badge ── */
+        .timer-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 15;
+            font-size: 44px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.35);
+            text-shadow: 0 0 60px rgba(0, 0, 0, 0.95), 0 0 120px rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            letter-spacing: 4px;
+            font-variant-numeric: tabular-nums;
+            font-family: 'Inter', monospace;
+        }
+        .timer-badge.visible {
+            opacity: 1;
+        }
+        .timer-badge .sub {
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.25;
+            display: block;
+            margin-top: 4px;
+            letter-spacing: 6px;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        /* ── fullscreen state ── */
+        .monitor-unit.fullscreen-mode {
+            position: fixed !important;
+            inset: 0 !important;
+            z-index: 9999 !important;
+            width: 100vw !important;
+            max-width: 100vw !important;
+            height: 100vh !important;
+            padding: 1rem !important;
+            background: rgba(8, 6, 4, 0.92) !important;
+            backdrop-filter: blur(24px) !important;
+            -webkit-backdrop-filter: blur(24px) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transform: none !important;
+            filter: none !important;
+            border-radius: 0 !important;
+            margin: 0 !important;
+            gap: 0 !important;
+            overflow: auto !important;
+        }
+        .monitor-unit.fullscreen-mode .monitor-body {
+            max-width: 1400px !important;
+            width: 100% !important;
+            height: auto !important;
+            max-height: 95vh !important;
+            border-radius: 56px 56px 38px 38px !important;
+            padding: 2.5rem 2.5rem 1.5rem !important;
+            box-shadow: 0 40px 140px rgba(0, 0, 0, 0.85), 0 0 180px rgba(100, 80, 60, 0.04) !important;
+        }
+        .monitor-unit.fullscreen-mode .screen-frame {
+            aspect-ratio: 16 / 9 !important;
+            max-height: 78vh !important;
+        }
+        .monitor-unit.fullscreen-mode .screen iframe {
+            pointer-events: auto !important;
+        }
+
+        .close-fullscreen-btn {
+            position: fixed;
+            top: 20px;
+            right: 24px;
+            z-index: 10001;
+            background: rgba(20, 18, 16, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 22px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.15s;
+            box-shadow: 0 4px 28px rgba(0, 0, 0, 0.6);
+            font-weight: 300;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        .close-fullscreen-btn:hover {
+            background: rgba(50, 44, 38, 0.9);
+            color: white;
+            transform: scale(1.06);
+        }
+        .close-fullscreen-btn.visible {
+            display: flex;
+        }
+
+        /* ── loading shimmer ── */
+        .screen.loading iframe {
+            opacity: 0.2 !important;
+        }
+        .screen.loading::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.012) 50%,
+                    transparent 100%);
+            background-size: 200% 100%;
+            animation: shimmer 1.8s infinite;
+            pointer-events: none;
+            border-radius: 10px;
+        }
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        /* ── responsive ── */
+        @media (max-width: 820px) {
+            body {
+                padding: 0.3rem;
+            }
+            .monitor-body {
+                padding: 1.2rem 1.2rem 0.8rem;
+                border-radius: 32px 32px 22px 22px;
+            }
+            .monitor-body::before {
+                border-radius: 26px 26px 18px 18px;
+            }
+            .bezel {
+                padding: 6px;
+                border-radius: 18px;
+            }
+            .screen-frame {
+                padding: 5px;
+                border-radius: 12px;
+            }
+            .screen {
+                border-radius: 8px;
+            }
+            .screen iframe {
+                border-radius: 6px;
+            }
+            .fallback-message .sim-title {
+                font-size: 1.3rem;
+            }
+            .fallback-message .sub {
+                font-size: 0.9rem;
+            }
+            .fallback-message button {
+                padding: 0.4rem 1.2rem;
+                font-size: 0.8rem;
+            }
+            .mode-btn-tiny {
+                font-size: 6px;
+                padding: 1px 6px;
+                max-width: 60px;
+                height: 18px;
+            }
+            .mode-btn-tiny .icon {
+                font-size: 7px;
+            }
+            .mode-btn-tiny .label {
+                font-size: 5.5px;
+            }
+            .power-btn {
+                width: 18px;
+                height: 18px;
+            }
+            .power-btn-icon {
+                width: 7px;
+                height: 7px;
+            }
+            .power-btn-icon::before {
+                height: 4.5px;
+                width: 2px;
+            }
+            .power-btn-icon::after {
+                height: 2px;
+                width: 1.2px;
+            }
+            .model-name {
+                font-size: 5px;
+            }
+            .bezel-bottom {
+                padding: 2px 6px 1px 8px;
+                min-height: 26px;
+            }
+            .stand-neck {
+                width: 12px;
+                height: 8px;
+            }
+            .stand-base {
+                width: 38px;
+                height: 4px;
+            }
+            .timer-badge {
+                font-size: 32px;
+            }
+            .timer-badge .sub {
+                font-size: 10px;
+            }
+            .brand-badge {
+                font-size: 6px;
+            }
+            .sim-label {
+                font-size: 5px;
+                bottom: 4px;
+                left: 8px;
+            }
+            .monitor-unit.fullscreen-mode .monitor-body {
+                padding: 1.2rem 1.2rem 0.8rem !important;
+                border-radius: 30px 30px 20px 20px !important;
+            }
+            .power-led {
+                width: 4px;
+                height: 4px;
+            }
+            .status-label {
+                font-size: 4.5px;
+            }
+            .status-dot {
+                width: 4px;
+                height: 4px;
+            }
+            .kb-hint {
+                font-size: 4px;
+            }
+            .close-fullscreen-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 18px;
+                top: 12px;
+                right: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .monitor-body {
+                padding: 0.8rem 0.8rem 0.5rem;
+                border-radius: 24px 24px 16px 16px;
+            }
+            .bezel {
+                padding: 4px;
+                border-radius: 14px;
+            }
+            .screen-frame {
+                padding: 3px;
+                border-radius: 10px;
+            }
+            .screen {
+                border-radius: 6px;
+            }
+            .mode-btn-tiny {
+                font-size: 5px;
+                padding: 1px 4px;
+                max-width: 44px;
+                border-radius: 4px;
+                height: 15px;
+            }
+            .mode-btn-tiny .icon {
+                font-size: 6px;
+            }
+            .mode-btn-tiny .label {
+                font-size: 4.5px;
+            }
+            .power-btn {
+                width: 15px;
+                height: 15px;
+            }
+            .power-btn-icon {
+                width: 6px;
+                height: 6px;
+            }
+            .power-btn-icon::before {
+                height: 3.5px;
+                width: 1.8px;
+            }
+            .power-btn-icon::after {
+                height: 1.8px;
+                width: 1px;
+            }
+            .model-name {
+                font-size: 4px;
+            }
+            .bezel-bottom {
+                padding: 1px 4px 1px 6px;
+                min-height: 20px;
+                gap: 2px;
+            }
+            .power-controls {
+                gap: 4px;
+            }
+            .stand-neck {
+                width: 10px;
+                height: 6px;
+            }
+            .stand-base {
+                width: 28px;
+                height: 3px;
+            }
+            .timer-badge {
+                font-size: 24px;
+            }
+            .timer-badge .sub {
+                font-size: 8px;
+            }
+            .fallback-message .sim-title {
+                font-size: 1rem;
+            }
+            .fallback-message .sub {
+                font-size: 0.75rem;
+            }
+            .fallback-message button {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.7rem;
+            }
+            .brand-badge {
+                font-size: 5px;
+            }
+            .sim-label {
+                font-size: 4px;
+            }
+            .power-led {
+                width: 3px;
+                height: 3px;
+            }
+            .status-label {
+                font-size: 3.5px;
+            }
+            .status-dot {
+                width: 3px;
+                height: 3px;
+            }
+            .monitor-unit.fullscreen-mode .monitor-body {
+                padding: 0.6rem 0.6rem 0.4rem !important;
+                border-radius: 20px 20px 14px 14px !important;
+            }
+            .close-fullscreen-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 15px;
+                top: 8px;
+                right: 12px;
+            }
+            .bezel-top {
+                padding: 1px 6px 1px 8px;
+                min-height: 16px;
+            }
+            .webcam-dot {
+                width: 3px;
+                height: 3px;
+            }
+        }
+
+        /* ── scrollable iframe ── */
+        .screen iframe {
+            overflow: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+        }
+
+        /* ── extra polish ── */
+        .bezel {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .monitor-body.powered-off .power-led {
+            background: #3a1a0a;
+            box-shadow: 0 0 4px rgba(140, 50, 20, 0.06);
+        }
+        .monitor-body.powered-off .bezel-top .brand-badge {
+            opacity: 0.12;
+        }
+        .monitor-body.powered-off .model-name {
+            opacity: 0.1;
+        }
+        .monitor-body.powered-off .screen .scan-lines {
+            opacity: 0 !important;
+        }
+
+        /* ── channel number display ── */
+        .channel-display {
+            font-size: 6px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.08);
+            letter-spacing: 0.2em;
+            font-family: 'Courier New', monospace;
+            flex-shrink: 0;
+            margin-right: 4px;
+        }
+
+        /* ── knob simulation ── small decorative ── */
+        .knob-deco {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 40% 35%, #3d3630, #1a1613);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02), 0 1px 4px rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .knob-deco::after {
+            content: '';
+            width: 2px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 1px;
+            transform: rotate(30deg);
+        }
+        @media (max-width: 600px) {
+            .knob-deco {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="desk-wrapper">
+        <!-- ── MONITOR UNIT ── -->
+        <div class="monitor-unit" id="monitorUnit" style="pointer-events: auto;">
+            <div class="monitor-body powered-off" id="monitorBody">
+                <div class="bezel">
+                    <div class="bezel-top">
+                        <div class="webcam-dot"></div>
+                        <span class="brand-badge" id="brandBadge">CRT</span>
+                        <div class="top-status">
+                            <span class="status-dot offline" id="statusDot"></span>
+                            <span class="status-label" id="statusLabel">offline</span>
+                        </div>
+                    </div>
+                    <div class="screen-frame" style="pointer-events: auto;">
+                        <div class="screen" id="screen" style="pointer-events: auto;">
+                            <iframe id="mainIframe" src="https://www.frontendmentor.io/home" title="Frontend Mentor" style="opacity:0;" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-storage-access-by-user-activation" loading="lazy" referrerpolicy="no-referrer" allowfullscreen></iframe>
+                            <div class="vignette"></div>
+                            <div class="scan-lines"></div>
+                            <div class="glare"></div>
+                            <div class="crt-curve"></div>
+                            <div class="sim-label" id="simLabel">FRONTEND MENTOR</div>
+                            <div class="fallback-message" id="fallback">
+                                <div class="sim-title" id="fallbackTitle">Frontend Mentor</div>
+                                <div class="sub" id="fallbackSub">This site doesn't allow embedding.</div>
+                                <div class="error-code" id="errorCode">ERR_EMBED_DENIED</div>
+                                <div class="btn-group">
+                                    <button class="primary-btn open-new-tab" id="openNewTabBtn">↗ Open in new tab</button>
+                                    <button class="retry-btn" id="retryBtn">↻ Retry</button>
+                                </div>
+                            </div>
+                            <div class="timer-badge" id="timerBadge">
+                                <span id="timerNum">3</span>
+                                <span class="sub">starting…</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bezel-bottom">
+                        <span class="model-name">CRT-9000</span>
+                        <span class="channel-display" id="channelDisplay">CH-01</span>
+
+                        <!-- mode buttons inside bezel -->
+                        <div class="mode-btns-inner" id="modeBtnsInner">
+                            <button class="mode-btn-tiny active" data-mode="mentor" data-url="https://www.frontendmentor.io/home">
+                                <span class="icon">🎯</span>
+                                <span class="label">FM</span>
+                                <span class="indicator-dot"></span>
+                            </button>
+                            <button class="mode-btn-tiny" data-mode="exercism" data-url="https://exercism.org/dashboard">
+                                <span class="icon">💪</span>
+                                <span class="label">EX</span>
+                                <span class="indicator-dot"></span>
+                            </button>
+                            <button class="mode-btn-tiny" data-mode="odin" data-url="https://www.theodinproject.com/dashboard">
+                                <span class="icon">⚡</span>
+                                <span class="label">TOP</span>
+                                <span class="indicator-dot"></span>
+                            </button>
+                            <span class="kb-hint">⌘1 ⌘2 ⌘3</span>
+                        </div>
+
+                        <div class="power-controls">
+                            <div class="knob-deco"></div>
+                            <div class="power-led off" id="powerLed" aria-label="Power off"></div>
+                            <button class="power-btn" id="powerBtn" aria-label="Toggle power">
+                                <span class="power-btn-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stand-neck"></div>
+            <div class="stand-base"></div>
+        </div>
+    </div>
+
+    <!-- close fullscreen button -->
+    <button class="close-fullscreen-btn" id="closeFullscreenBtn" aria-label="Exit fullscreen">✕</button>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // ── DOM refs ──
+            const unit = document.getElementById('monitorUnit');
+            const body = document.getElementById('monitorBody');
+            const screen = document.getElementById('screen');
+            const iframe = document.getElementById('mainIframe');
+            const powerLed = document.getElementById('powerLed');
+            const powerBtn = document.getElementById('powerBtn');
+            const fallback = document.getElementById('fallback');
+            const fallbackTitle = document.getElementById('fallbackTitle');
+            const fallbackSub = document.getElementById('fallbackSub');
+            const errorCode = document.getElementById('errorCode');
+            const openNewTabBtn = document.getElementById('openNewTabBtn');
+            const retryBtn = document.getElementById('retryBtn');
+            const simLabel = document.getElementById('simLabel');
+            const brandBadge = document.getElementById('brandBadge');
+            const timerBadge = document.getElementById('timerBadge');
+            const timerNum = document.getElementById('timerNum');
+            const closeFsBtn = document.getElementById('closeFullscreenBtn');
+            const statusDot = document.getElementById('statusDot');
+            const statusLabel = document.getElementById('statusLabel');
+            const channelDisplay = document.getElementById('channelDisplay');
+            const modeBtns = document.querySelectorAll('.mode-btn-tiny');
+
+            // ── state ──
+            let isPoweredOn = false;
+            let isAnimating = false;
+            let iframeLoaded = false;
+            let timerStarted = false;
+            let timerDone = false;
+            let timerHandle = null;
+            let activeMode = 'mentor';
+            let activeFullscreen = false;
+            let loadTimeout = null;
+            let retryCount = 0;
+            let isRetrying = false;
+            let networkErrorCount = 0;
+
+            // ── mode config ──
+            const modes = {
+                mentor: {
+                    url: 'https://www.frontendmentor.io/home',
+                    label: 'FRONTEND MENTOR',
+                    brand: 'FM',
+                    title: 'Frontend Mentor',
+                    short: 'FM',
+                    channel: '01'
+                },
+                exercism: {
+                    url: 'https://exercism.org/dashboard',
+                    label: 'EXERCISM',
+                    brand: 'EX',
+                    title: 'Exercism',
+                    short: 'EX',
+                    channel: '02'
+                },
+                odin: {
+                    url: 'https://www.theodinproject.com/dashboard',
+                    label: 'THE ODIN PROJECT',
+                    brand: 'TOP',
+                    title: 'The Odin Project',
+                    short: 'TOP',
+                    channel: '03'
+                }
+            };
+
+            // ── status helpers ──
+            function setStatus(state, label) {
+                statusDot.className = 'status-dot ' + state;
+                statusLabel.textContent = label || state;
+            }
+
+            function setOnline() { setStatus('online', 'online'); }
+
+            function setOffline() { setStatus('offline', 'offline'); }
+
+            function setLoading() { setStatus('loading', 'loading…'); }
+
+            // ── iframe load handling ──
+            function checkIframeLoad() {
+                clearTimeout(loadTimeout);
+                iframeLoaded = false;
+                fallback.classList.remove('active');
+                screen.classList.add('loading');
+                setLoading();
+                retryCount = 0;
+
+                loadTimeout = setTimeout(() => {
+                    if (!iframeLoaded) {
+                        showFallback(
+                            'Connection timeout',
+                            'The site took too long to respond. Check your internet or try again.',
+                            'ERR_TIMEOUT'
+                        );
+                        setOffline();
+                        screen.classList.remove('loading');
+                        networkErrorCount++;
+                    }
+                }, 12000);
+
+                // Remove old listeners to avoid duplicates
+                const newIframe = iframe.cloneNode(true);
+                iframe.parentNode.replaceChild(newIframe, iframe);
+                const oldIframe = iframe;
+                Object.assign(iframe, newIframe);
+
+                iframe.addEventListener('load', onIframeLoad);
+                iframe.addEventListener('error', onIframeError);
+                // Re-set src to trigger load
+                iframe.src = iframe.src;
+            }
+
+            function onIframeLoad() {
+                clearTimeout(loadTimeout);
+                iframeLoaded = true;
+                fallback.classList.remove('active');
+                screen.classList.remove('loading');
+                setOnline();
+                if (isPoweredOn && !body.classList.contains('powered-off')) {
+                    iframe.style.opacity = '1';
+                }
+                retryCount = 0;
+                networkErrorCount = 0;
+            }
+
+            function onIframeError() {
+                clearTimeout(loadTimeout);
+                iframeLoaded = false;
+                // Check if it's a network error or X-Frame
+                const url = iframe.src;
+                // Most likely X-Frame or CORS
+                showFallback(
+                    'Cannot embed this site',
+                    'This site blocks embedding in iframes for security. Open it in a new tab to use it.',
+                    'ERR_EMBED_DENIED'
+                );
+                setOffline();
+                screen.classList.remove('loading');
+                networkErrorCount++;
+            }
+
+            // ── fallback display ──
+            function showFallback(title, sub, code) {
+                const config = modes[activeMode] || modes.mentor;
+                fallbackTitle.textContent = title || config.title;
+                fallbackSub.textContent = sub || 'Could not load this site directly.';
+                errorCode.textContent = code || 'ERR_UNKNOWN';
+                fallback.classList.add('active');
+                screen.classList.remove('loading');
+                iframe.style.opacity = '0';
+                setOffline();
+            }
+
+            function hideFallback() {
+                fallback.classList.remove('active');
+                if (isPoweredOn && iframeLoaded) {
+                    iframe.style.opacity = '1';
+                    setOnline();
+                }
+            }
+
+            // ── open in new tab ──
+            function openSim() {
+                const url = iframe.src;
+                window.open(url, '_blank', 'noopener,noreferrer');
+            }
+            openNewTabBtn.addEventListener('click', openSim);
+
+            // ── retry ──
+            function retryLoad() {
+                if (isRetrying) return;
+                isRetrying = true;
+                retryCount++;
+                hideFallback();
+                setLoading();
+                screen.classList.add('loading');
+                iframe.style.opacity = '0';
+
+                const currentSrc = iframe.src;
+                iframe.src = 'about:blank';
+                setTimeout(() => {
+                    iframe.src = currentSrc;
+                    clearTimeout(loadTimeout);
+                    iframeLoaded = false;
+
+                    loadTimeout = setTimeout(() => {
+                        if (!iframeLoaded) {
+                            showFallback(
+                                'Still cannot load',
+                                'The site keeps refusing connection. Try opening in a new tab.',
+                                'ERR_EMBED_DENIED'
+                            );
+                            setOffline();
+                            screen.classList.remove('loading');
+                            isRetrying = false;
+                            networkErrorCount++;
+                        }
+                    }, 10000);
+
+                    iframe.onload = function() {
+                        clearTimeout(loadTimeout);
+                        iframeLoaded = true;
+                        hideFallback();
+                        setOnline();
+                        screen.classList.remove('loading');
+                        if (isPoweredOn) iframe.style.opacity = '1';
+                        isRetrying = false;
+                        networkErrorCount = 0;
+                    };
+                    iframe.onerror = function() {
+                        clearTimeout(loadTimeout);
+                        iframeLoaded = false;
+                        showFallback(
+                            'Cannot embed this site',
+                            'This site blocks embedding. Open in a new tab to use it.',
+                            'ERR_EMBED_DENIED'
+                        );
+                        setOffline();
+                        screen.classList.remove('loading');
+                        isRetrying = false;
+                        networkErrorCount++;
+                    };
+                }, 500);
+            }
+            retryBtn.addEventListener('click', retryLoad);
+
+            // ── power ──
+            function powerOff() {
+                if (!isPoweredOn || isAnimating) return;
+                isAnimating = true;
+                isPoweredOn = false;
+                body.classList.add('powered-off');
+                body.classList.remove('powering-on');
+                unit.classList.add('powering-off');
+                powerLed.classList.add('off');
+                powerLed.setAttribute('aria-label', 'Power off');
+                iframe.style.opacity = '0';
+                timerBadge.classList.remove('visible');
+                clearTimeout(timerHandle);
+                timerHandle = null;
+                timerStarted = false;
+                timerDone = false;
+                setOffline();
+                setTimeout(() => {
+                    unit.classList.remove('powering-off');
+                    isAnimating = false;
+                }, 850);
+            }
+
+            function powerOn(animate = true) {
+                if (isPoweredOn || isAnimating) return;
+                isAnimating = true;
+                isPoweredOn = true;
+                body.classList.remove('powered-off');
+                if (animate) {
+                    unit.classList.add('powering-on');
+                }
+                powerLed.classList.remove('off');
+                powerLed.setAttribute('aria-label', 'Power on');
+                if (iframeLoaded) {
+                    iframe.style.opacity = '1';
+                    setOnline();
+                } else {
+                    iframe.style.opacity = '1';
+                    screen.classList.add('loading');
+                    setLoading();
+                    clearTimeout(loadTimeout);
+                    loadTimeout = setTimeout(() => {
+                        if (!iframeLoaded) {
+                            showFallback(
+                                'Cannot embed this site',
+                                'This site may not allow embedding. Open in a new tab.',
+                                'ERR_EMBED_DENIED'
+                            );
+                            setOffline();
+                            screen.classList.remove('loading');
+                        }
+                    }, 10000);
+                }
+                timerBadge.classList.remove('visible');
+                clearTimeout(timerHandle);
+                timerHandle = null;
+                timerStarted = false;
+                timerDone = true;
+                if (animate) {
+                    setTimeout(() => {
+                        unit.classList.remove('powering-on');
+                        isAnimating = false;
+                    }, 1050);
+                } else {
+                    isAnimating = false;
+                }
+            }
+
+            function togglePower() {
+                if (isAnimating) return;
+                if (isPoweredOn) powerOff();
+                else powerOn(true);
+            }
+
+            powerBtn.addEventListener('click', togglePower);
+
+            // ── init: start OFF ──
+            body.classList.add('powered-off');
+            powerLed.classList.add('off');
+            iframe.style.opacity = '0';
+            isPoweredOn = false;
+            timerDone = false;
+            timerStarted = false;
+            setOffline();
+
+            // ── viewport detection + timer ──
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !isPoweredOn && !timerStarted && !isAnimating) {
+                        startTimer();
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            observer.observe(unit);
+
+            function startTimer() {
+                if (timerStarted || isPoweredOn || isAnimating) return;
+                timerStarted = true;
+                let count = 3;
+                timerBadge.classList.add('visible');
+                timerNum.textContent = count;
+                timerHandle = setInterval(() => {
+                    count -= 1;
+                    if (count <= 0) {
+                        clearInterval(timerHandle);
+                        timerHandle = null;
+                        timerBadge.classList.remove('visible');
+                        timerDone = true;
+                        if (!isPoweredOn && !isAnimating) {
+                            powerOn(true);
+                        }
+                    } else {
+                        timerNum.textContent = count;
+                    }
+                }, 1000);
+            }
+
+            // ── mode switching ──
+            function switchMode(mode) {
+                if (mode === activeMode && iframeLoaded) return;
+                const config = modes[mode];
+                if (!config) return;
+
+                activeMode = mode;
+
+                // Update UI
+                modeBtns.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.mode === mode);
+                });
+
+                // Update labels
+                simLabel.textContent = config.label;
+                brandBadge.textContent = config.brand;
+                fallbackTitle.textContent = config.title;
+                channelDisplay.textContent = 'CH-' + config.channel;
+
+                // Hide fallback
+                fallback.classList.remove('active');
+
+                // Change iframe
+                const wasPowered = isPoweredOn;
+                if (wasPowered) {
+                    iframe.style.opacity = '0';
+                    screen.classList.add('loading');
+                    setLoading();
+                    setTimeout(() => {
+                        iframe.src = config.url;
+                        iframeLoaded = false;
+                        clearTimeout(loadTimeout);
+                        loadTimeout = setTimeout(() => {
+                            if (!iframeLoaded) {
+                                showFallback(
+                                    'Cannot embed ' + config.title,
+                                    'This site blocks embedding. Open in a new tab.',
+                                    'ERR_EMBED_DENIED'
+                                );
+                                setOffline();
+                                screen.classList.remove('loading');
+                            }
+                        }, 10000);
+                        iframe.onload = function() {
+                            clearTimeout(loadTimeout);
+                            iframeLoaded = true;
+                            hideFallback();
+                            setOnline();
+                            screen.classList.remove('loading');
+                            if (isPoweredOn) iframe.style.opacity = '1';
+                            networkErrorCount = 0;
+                        };
+                        iframe.onerror = function() {
+                            clearTimeout(loadTimeout);
+                            iframeLoaded = false;
+                            showFallback(
+                                'Cannot embed ' + config.title,
+                                'This site blocks embedding. Open in a new tab.',
+                                'ERR_EMBED_DENIED'
+                            );
+                            setOffline();
+                            screen.classList.remove('loading');
+                            networkErrorCount++;
+                        };
+                        setTimeout(() => {
+                            if (isPoweredOn && !body.classList.contains('powered-off')) {
+                                iframe.style.opacity = '1';
+                            }
+                        }, 400);
+                    }, 300);
+                } else {
+                    iframe.src = config.url;
+                    iframeLoaded = false;
+                    screen.classList.add('loading');
+                    setLoading();
+                    clearTimeout(loadTimeout);
+                    loadTimeout = setTimeout(() => {
+                        if (!iframeLoaded) {
+                            showFallback(
+                                'Cannot embed ' + config.title,
+                                'This site blocks embedding. Open in a new tab.',
+                                'ERR_EMBED_DENIED'
+                            );
+                            setOffline();
+                            screen.classList.remove('loading');
+                        }
+                    }, 10000);
+                    iframe.onload = function() {
+                        clearTimeout(loadTimeout);
+                        iframeLoaded = true;
+                        hideFallback();
+                        setOnline();
+                        screen.classList.remove('loading');
+                        if (isPoweredOn) iframe.style.opacity = '1';
+                        networkErrorCount = 0;
+                    };
+                    iframe.onerror = function() {
+                        clearTimeout(loadTimeout);
+                        iframeLoaded = false;
+                        showFallback(
+                            'Cannot embed ' + config.title,
+                            'This site blocks embedding. Open in a new tab.',
+                            'ERR_EMBED_DENIED'
+                        );
+                        setOffline();
+                        screen.classList.remove('loading');
+                        networkErrorCount++;
+                    };
+                }
+
+                try { localStorage.setItem('crt_active_mode', mode); } catch (_) {}
+            }
+
+            // ── mode button clicks ──
+            modeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const mode = btn.dataset.mode;
+                    if (mode && modes[mode]) {
+                        switchMode(mode);
+                    }
+                });
+            });
+
+            // ── keyboard shortcuts ──
+            document.addEventListener('keydown', (e) => {
+                // Ctrl+1, Ctrl+2, Ctrl+3 for modes
+                if (e.ctrlKey || e.metaKey) {
+                    const map = {
+                        '1': 'mentor',
+                        '2': 'exercism',
+                        '3': 'odin'
+                    };
+                    const mode = map[e.key];
+                    if (mode && modes[mode]) {
+                        e.preventDefault();
+                        switchMode(mode);
+                    }
+                }
+                // Space for power toggle
+                if (e.key === ' ' && !e.target.matches('input, textarea, button')) {
+                    e.preventDefault();
+                    togglePower();
+                }
+                // F for fullscreen
+                if ((e.key === 'f' || e.key === 'F') && !e.target.matches('input, textarea, button')) {
+                    e.preventDefault();
+                    toggleFullscreen();
+                }
+                // R for retry
+                if ((e.key === 'r' || e.key === 'R') && !e.target.matches('input, textarea, button')) {
+                    e.preventDefault();
+                    if (fallback.classList.contains('active')) {
+                        retryLoad();
+                    }
+                }
+                // Escape to exit fullscreen
+                if (e.key === 'Escape' && activeFullscreen) {
+                    exitFullscreen();
+                }
+            });
+
+            // ── fullscreen ──
+            function toggleFullscreen() {
+                if (activeFullscreen) {
+                    exitFullscreen();
+                } else {
+                    enterFullscreen();
+                }
+            }
+
+            function enterFullscreen() {
+                if (activeFullscreen) return;
+                if (!isPoweredOn) {
+                    powerOn(true);
+                    setTimeout(() => { doFullscreen(); }, 600);
+                } else {
+                    doFullscreen();
+                }
+            }
+
+            function doFullscreen() {
+                unit.classList.add('fullscreen-mode');
+                activeFullscreen = true;
+                closeFsBtn.classList.add('visible');
+                iframe.style.pointerEvents = 'auto';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                document.body.style.overflow = 'hidden';
+            }
+
+            function exitFullscreen() {
+                if (!activeFullscreen) return;
+                unit.classList.remove('fullscreen-mode');
+                activeFullscreen = false;
+                closeFsBtn.classList.remove('visible');
+                document.body.style.overflow = '';
+            }
+
+            closeFsBtn.addEventListener('click', exitFullscreen);
+
+            // ── restore saved mode ──
+            try {
+                const saved = localStorage.getItem('crt_active_mode');
+                if (saved && modes[saved]) {
+                    activeMode = saved;
+                    const config = modes[saved];
+                    iframe.src = config.url;
+                    simLabel.textContent = config.label;
+                    brandBadge.textContent = config.brand;
+                    fallbackTitle.textContent = config.title;
+                    channelDisplay.textContent = 'CH-' + config.channel;
+                    modeBtns.forEach(btn => {
+                        btn.classList.toggle('active', btn.dataset.mode === saved);
+                    });
+                    iframeLoaded = false;
+                    fallback.classList.remove('active');
+                    screen.classList.add('loading');
+                    setLoading();
+                    clearTimeout(loadTimeout);
+                    loadTimeout = setTimeout(() => {
+                        if (!iframeLoaded) {
+                            showFallback(
+                                'Cannot embed ' + config.title,
+                                'This site blocks embedding. Open in a new tab.',
+                                'ERR_EMBED_DENIED'
+                            );
+                            setOffline();
+                            screen.classList.remove('loading');
+                        }
+                    }, 10000);
+                    iframe.onload = function() {
+                        clearTimeout(loadTimeout);
+                        iframeLoaded = true;
+                        hideFallback();
+                        setOnline();
+                        screen.classList.remove('loading');
+                        if (isPoweredOn) iframe.style.opacity = '1';
+                    };
+                    iframe.onerror = function() {
+                        clearTimeout(loadTimeout);
+                        iframeLoaded = false;
+                        showFallback(
+                            'Cannot embed ' + config.title,
+                            'This site blocks embedding. Open in a new tab.',
+                            'ERR_EMBED_DENIED'
+                        );
+                        setOffline();
+                        screen.classList.remove('loading');
+                    };
+                }
+            } catch (_) {}
+
+            // ── ensure clickthrough ──
+            document.querySelectorAll('.screen-frame, .screen, .monitor-unit').forEach(el => {
+                el.style.pointerEvents = 'auto';
+            });
+
+            // ── prevent double-tap zoom on buttons ──
+            document.querySelectorAll('button').forEach(b => {
+                b.addEventListener('touchstart', (e) => {}, { passive: true });
+            });
+
+            // ── expose API ──
+            window.__crt = {
+                powerOn,
+                powerOff,
+                togglePower,
+                switchMode,
+                modes,
+                activeMode,
+                isPoweredOn,
+                enterFullscreen,
+                exitFullscreen,
+                toggleFullscreen,
+                iframe,
+                unit,
+                retryLoad,
+                openSim,
+                setStatus,
+                setOnline,
+                setOffline,
+                setLoading
+            };
+
+            // ── console welcome ──
+            console.log('%c📺 CRT-9000 %c| %c3 modes • ⌘1 ⌘2 ⌘3 • Space toggle • F fullscreen • R retry',
+                'font-weight:bold;color:#c4a882;', '', 'color:#8a8078;'
+            );
+            console.log('%c💡 Some sites block iframe embedding — use "Open in new tab" for those.',
+                'color:#6a6058;font-style:italic;'
+            );
+
+            // ── handle resize ──
+            window.addEventListener('resize', () => {
+                if (activeFullscreen) { /* re-apply if needed */ }
+            });
+
+            // ── auto-retry after specific errors ──
+            // If we get a network error, we show fallback, user can retry manually
+
+            console.log('🖥️ CRT-9000 ready — enjoy the retro vibes!');
+        })();
+    </script>
+</body>
+</html>

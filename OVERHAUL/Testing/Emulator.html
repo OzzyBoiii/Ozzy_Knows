@@ -1,0 +1,1153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Monitor Emulator Desk — 6 Simulations</title>
+    <style>
+        /* ── reset & base ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg-primary: #0f0c12;
+            --bg-panel: rgba(18, 16, 22, 0.85);
+            --border-glow: rgba(180, 160, 200, 0.12);
+            --text-primary: #f0ecf5;
+            --text-dim: #8a84a0;
+            --accent: #b8a8d0;
+            --accent-glow: rgba(140, 120, 180, 0.3);
+            --monitor-radius: 18px;
+            --screen-radius: 8px;
+            --shadow-heavy: 0 20px 50px rgba(0, 0, 0, 0.7);
+            --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            min-height: 100vh;
+            background: radial-gradient(ellipse at 50% 20%, #1e1828 0%, #0f0c14 70%);
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 1.5rem;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 60% 30%, rgba(200, 170, 230, 0.04) 0%, transparent 55%),
+                radial-gradient(circle at 20% 70%, rgba(160, 130, 200, 0.03) 0%, transparent 50%);
+            z-index: -1;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.003) 2px, rgba(255, 255, 255, 0.003) 3px),
+                repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(0, 0, 0, 0.02) 60px, rgba(0, 0, 0, 0.02) 62px);
+            pointer-events: none;
+            z-index: -1;
+            mask-image: radial-gradient(ellipse at center, black 25%, transparent 75%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 25%, transparent 75%);
+        }
+
+        /* ── desk grid ── */
+        .desk-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 2.2rem 2rem;
+            max-width: 1560px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            padding: 0.5rem 0 2.5rem;
+        }
+
+        /* ── monitor unit ── */
+        .monitor-unit {
+            flex: 0 1 380px;
+            min-width: 300px;
+            max-width: 460px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.55));
+            perspective: 1200px;
+        }
+        .monitor-unit:hover {
+            transform: translateY(-6px);
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.7));
+            z-index: 5;
+        }
+
+        /* ── monitor body — ENHANCED style ── */
+        .monitor-body {
+            width: 100%;
+            background: var(--bg-panel);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: var(--monitor-radius);
+            padding: 18px 18px 14px;
+            border: 1px solid var(--border-glow);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.04),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+                var(--shadow-heavy),
+                0 0 60px rgba(100, 80, 140, 0.06);
+            position: relative;
+            transition: box-shadow 0.4s ease, border-color 0.3s ease;
+        }
+        .monitor-body::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--monitor-radius);
+            background: radial-gradient(ellipse at 30% 10%, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .monitor-body.powered-off {
+            opacity: 0.6;
+            border-color: rgba(100, 90, 110, 0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        .monitor-body.powered-off .screen iframe {
+            opacity: 0 !important;
+        }
+        .monitor-body.powered-off .screen .scan-lines,
+        .monitor-body.powered-off .screen .glare,
+        .monitor-body.powered-off .screen .vignette {
+            opacity: 0 !important;
+        }
+        .monitor-body.powered-off .screen {
+            background: #0a0810 !important;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9) !important;
+        }
+
+        /* ── bezel ── */
+        .bezel {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            border-radius: calc(var(--monitor-radius) - 4px);
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 2px;
+        }
+
+        /* ── top bar ── */
+        .bezel-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 10px 4px 12px;
+            background: rgba(0, 0, 0, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .webcam-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 40% 30%, #2a2a3a, #0a0a12);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+        }
+        .brand-badge {
+            font-size: 8px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        /* ── screen frame ── */
+        .screen-frame {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #06050a;
+            border-radius: var(--screen-radius);
+            padding: 4px;
+            box-shadow:
+                inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+                inset 0 0 20px rgba(0, 0, 0, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+        .screen {
+            width: 100%;
+            height: 100%;
+            border-radius: calc(var(--screen-radius) - 2px);
+            overflow: hidden;
+            position: relative;
+            background: #08060e;
+            transition: filter 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
+        }
+        .screen iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #f5f2f8;
+            transition: opacity 0.35s ease;
+            pointer-events: auto;
+            position: relative;
+            z-index: 2;
+        }
+        /* ensure iframe gets clicks */
+        .screen iframe {
+            pointer-events: auto !important;
+        }
+        .screen-frame {
+            pointer-events: auto !important;
+        }
+
+        /* ── overlays ── */
+        .scan-lines {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 5;
+            background: repeating-linear-gradient(0deg,
+                    transparent, transparent 2px,
+                    rgba(0, 0, 0, 0.025) 2px, rgba(0, 0, 0, 0.025) 4px);
+            border-radius: var(--screen-radius);
+            transition: opacity 0.4s ease;
+        }
+        .glare {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 6;
+            border-radius: var(--screen-radius);
+            background: linear-gradient(150deg,
+                    rgba(255, 255, 255, 0.06) 0%,
+                    rgba(255, 255, 255, 0.01) 20%,
+                    transparent 45%,
+                    rgba(255, 255, 255, 0.015) 80%);
+            transition: opacity 0.4s ease;
+        }
+        .vignette {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 4;
+            border-radius: var(--screen-radius);
+            background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.35) 100%);
+            transition: opacity 0.4s ease;
+        }
+        .sim-label {
+            position: absolute;
+            bottom: 8px;
+            left: 12px;
+            font-size: 7px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.25);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            z-index: 12;
+            pointer-events: none;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        /* ── fallback ── */
+        .fallback-message {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(12, 10, 18, 0.92);
+            color: var(--text-dim);
+            text-align: center;
+            padding: 1.2rem;
+            z-index: 10;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            border-radius: var(--screen-radius);
+            backdrop-filter: blur(4px);
+        }
+        .fallback-message.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .fallback-message .sim-title {
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--text-primary);
+            font-size: 15px;
+        }
+        .fallback-message .sub {
+            font-size: 12px;
+            color: var(--text-dim);
+            max-width: 80%;
+        }
+        .fallback-message button,
+        .fallback-message a {
+            margin-top: 0.8rem;
+            background: rgba(60, 55, 75, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+            padding: 6px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.2s, border-color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .fallback-message button:hover,
+        .fallback-message a:hover {
+            background: rgba(80, 72, 100, 0.7);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ── power & control buttons ── */
+        .bezel-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 10px 2px 12px;
+            background: rgba(0, 0, 0, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+            gap: 8px;
+        }
+        .model-name {
+            font-size: 7px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+        .power-led {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 6px #4ade80, 0 0 14px rgba(74, 222, 128, 0.3);
+            transition: background 0.4s, box-shadow 0.4s;
+            flex-shrink: 0;
+        }
+        .power-led.off {
+            background: #6a2a2a;
+            box-shadow: 0 0 4px rgba(180, 60, 60, 0.3);
+        }
+
+        .power-btn {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 45% 35%, #3a3548, #1a1822);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            transition: transform 0.15s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .power-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 3px 14px rgba(0, 0, 0, 0.6), 0 0 20px rgba(160, 140, 200, 0.15);
+        }
+        .power-btn:active {
+            transform: scale(0.90);
+        }
+        .power-btn-icon {
+            width: 10px;
+            height: 10px;
+            position: relative;
+            pointer-events: none;
+        }
+        .power-btn-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 6.5px;
+            border: 1.5px solid rgba(220, 215, 230, 0.7);
+            border-bottom: none;
+            border-radius: 3px 3px 0 0;
+        }
+        .power-btn-icon::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 3.5px;
+            background: rgba(220, 215, 230, 0.5);
+            border-radius: 0 0 1px 1px;
+        }
+
+        /* ── action buttons (fullscreen, popout, url) ── */
+        .screen-actions {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            z-index: 20;
+            display: flex;
+            gap: 4px;
+            pointer-events: none;
+        }
+        .screen-actions>* {
+            pointer-events: auto;
+        }
+        .action-btn {
+            width: 22px;
+            height: 22px;
+            background: rgba(16, 14, 24, 0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, border-color 0.2s, transform 0.15s;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 13px;
+            line-height: 1;
+        }
+        .action-btn:hover {
+            background: rgba(50, 44, 70, 0.8);
+            border-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            transform: scale(1.05);
+        }
+        .action-btn svg {
+            width: 11px;
+            height: 11px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .action-btn .plus {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1;
+        }
+
+        /* ── stand ── */
+        .stand-neck {
+            width: 26px;
+            height: 22px;
+            background: linear-gradient(180deg, #24222e, #16141e);
+            border-radius: 0 0 4px 4px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+            margin-top: -2px;
+        }
+        .stand-base {
+            width: 82px;
+            height: 10px;
+            background: linear-gradient(180deg, #1e1c28, #12101a);
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+            margin-top: -2px;
+            transform: perspective(120px) rotateX(6deg);
+        }
+
+        /* ── power animations ── */
+        .monitor-unit.powering-off .screen {
+            animation: crtPowerOff 0.5s ease-in forwards;
+        }
+        .monitor-unit.powering-off .screen iframe {
+            opacity: 0 !important;
+        }
+        .monitor-unit.powering-off .scan-lines,
+        .monitor-unit.powering-off .glare,
+        .monitor-unit.powering-off .vignette {
+            opacity: 0 !important;
+        }
+        @keyframes crtPowerOff {
+            0% {
+                filter: brightness(1);
+                transform: scaleY(1);
+            }
+            15% {
+                filter: brightness(2.2);
+                transform: scaleY(0.92);
+            }
+            35% {
+                filter: brightness(3.5);
+                transform: scaleY(0.08);
+            }
+            60% {
+                filter: brightness(0.3);
+                transform: scaleY(0.02);
+                background: #100e18;
+            }
+            100% {
+                filter: brightness(0);
+                transform: scaleY(0);
+                background: #06040a;
+            }
+        }
+
+        .monitor-unit.powering-on .screen {
+            animation: crtPowerOn 0.5s ease-out forwards;
+        }
+        .monitor-unit.powering-on .screen iframe {
+            opacity: 0 !important;
+        }
+        @keyframes crtPowerOn {
+            0% {
+                filter: brightness(0);
+                transform: scaleY(0);
+            }
+            20% {
+                filter: brightness(0.5);
+                transform: scaleY(0.04);
+            }
+            45% {
+                filter: brightness(2.0);
+                transform: scaleY(0.88);
+            }
+            70% {
+                filter: brightness(1.3);
+                transform: scaleY(1.03);
+            }
+            100% {
+                filter: brightness(1);
+                transform: scaleY(1);
+            }
+        }
+        .monitor-unit.powering-on .screen iframe {
+            opacity: 1;
+        }
+
+        /* ── fullscreen state ── */
+        .monitor-unit.fullscreen-mode {
+            position: fixed !important;
+            inset: 0 !important;
+            z-index: 9999 !important;
+            flex: none !important;
+            width: 100vw !important;
+            max-width: 100vw !important;
+            min-width: unset !important;
+            height: 100vh !important;
+            padding: 1.5rem !important;
+            background: rgba(8, 6, 14, 0.92) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transform: none !important;
+            filter: none !important;
+            border-radius: 0 !important;
+            margin: 0 !important;
+            gap: 0 !important;
+            overflow: auto !important;
+        }
+        .monitor-unit.fullscreen-mode .monitor-body {
+            max-width: 1200px !important;
+            width: 100% !important;
+            height: auto !important;
+            border-radius: 24px !important;
+            padding: 28px 28px 20px !important;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 120px rgba(100, 80, 160, 0.08) !important;
+        }
+        .monitor-unit.fullscreen-mode .screen-frame {
+            aspect-ratio: 16 / 9 !important;
+            max-height: 75vh !important;
+        }
+        .monitor-unit.fullscreen-mode .screen iframe {
+            pointer-events: auto !important;
+        }
+
+        /* ── responsive ── */
+        @media (max-width: 1200px) {
+            .desk-grid {
+                gap: 1.8rem 1.2rem;
+            }
+            .monitor-unit {
+                flex: 0 1 340px;
+                min-width: 270px;
+            }
+        }
+        @media (max-width: 760px) {
+            .desk-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 2.2rem;
+            }
+            .monitor-unit {
+                flex: 0 1 auto;
+                width: 94vw;
+                max-width: 440px;
+                min-width: 0;
+            }
+            .monitor-unit.fullscreen-mode {
+                padding: 0.8rem !important;
+            }
+            .monitor-unit.fullscreen-mode .monitor-body {
+                padding: 16px 16px 12px !important;
+                border-radius: 16px !important;
+            }
+        }
+
+        /* ── scrollable content inside iframe fix ── */
+        .screen iframe {
+            overflow: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+        }
+
+        /* ── extra polish ── */
+        .monitor-body .bezel {
+            background: rgba(0, 0, 0, 0.08);
+        }
+        .monitor-body .bezel-top .brand-badge {
+            color: var(--text-dim);
+        }
+        .monitor-body.powered-off .power-led {
+            background: #5a2020;
+            box-shadow: 0 0 4px rgba(180, 50, 50, 0.25);
+        }
+        .monitor-body.powered-off .bezel-top .brand-badge {
+            opacity: 0.3;
+        }
+        .monitor-body.powered-off .model-name {
+            opacity: 0.2;
+        }
+
+        /* timer badge */
+        .timer-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 15;
+            font-size: 28px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.6);
+            text-shadow: 0 0 30px rgba(0, 0, 0, 0.9), 0 0 60px rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            letter-spacing: 2px;
+            font-variant-numeric: tabular-nums;
+        }
+        .timer-badge.visible {
+            opacity: 1;
+        }
+        .timer-badge .sub {
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.5;
+            display: block;
+            margin-top: 4px;
+            letter-spacing: 3px;
+        }
+
+        /* close fullscreen btn */
+        .close-fullscreen-btn {
+            position: fixed;
+            top: 20px;
+            right: 24px;
+            z-index: 10001;
+            background: rgba(20, 18, 30, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 22px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.15s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+        .close-fullscreen-btn:hover {
+            background: rgba(50, 44, 70, 0.9);
+            color: white;
+            transform: scale(1.06);
+        }
+        .close-fullscreen-btn.visible {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="desk-grid" id="deskGrid"></div>
+
+    <!-- close fullscreen button (global) -->
+    <button class="close-fullscreen-btn" id="closeFullscreenBtn" aria-label="Exit fullscreen">✕</button>
+
+    <script>
+        (function() {
+            const deskGrid = document.getElementById('deskGrid');
+            const closeFsBtn = document.getElementById('closeFullscreenBtn');
+
+            // ── 6 simulations with fixed URLs ──
+            const simulations = [{
+                name: 'PhET Quantum Coin Toss',
+                url: 'https://phet.colorado.edu/sims/html/quantum-coin-toss/latest/quantum-coin-toss_en.html',
+                label: 'PHET SIM',
+                brand: 'PhET',
+            }, {
+                name: 'Javalab Mirrors',
+                url: 'https://javalab.org/en/mirrors_en/',
+                label: 'JAVALAB OPTICS',
+                brand: 'JAVALAB',
+            }, {
+                name: 'oPhysics Vector Addition',
+                url: 'https://ophysics.com/k1.html',
+                label: 'OPHYSICS VECTORS',
+                brand: 'OPHYSICS',
+            }, {
+                name: 'ChemCollective Metals Density',
+                url: 'https://chemcollective.org/activities/autograded/108',
+                label: 'CHEM DENSITY',
+                brand: 'CHEM',
+            }, {
+                // Replaced broken CK-12 with a working PhET sim (Bending Light)
+                name: 'PhET Bending Light',
+                url: 'https://phet.colorado.edu/sims/html/bending-light/latest/bending-light_en.html',
+                label: 'PHET OPTICS',
+                brand: 'PhET',
+            }, {
+                // Z-Library with access token to avoid login
+                name: 'Z‑Library Reader',
+                url: 'https://reader.z-library.im/read/61100b1a2182bbaa4d604b6fb8f4d6de4cc8b50edc5a44301998c7061811281c/book/ek7nPQAO5q/the-deal-offcampus-book-1.html?client_key=1fFLi67gBrNRP1j1iPy1&extension=epub&signature=56b1a70d574800aafa3729466f0089c11038ddbd93d3c28cd7f10a2b0f953962&file_access_token=eyJleHAiOjE3ODM0NDI4OTYsInZlciI6IjEuMCIsInR5cCI6IkpXVCIsImFsZyI6IkhTMjU2In0.eyJzdWIiOiJmaWxlX2FjY2VzcyIsImZpbGVfc2hhMjU2IjoiNjExMDBiMWEyMTgyYmJhYTRkNjA0YjZmYjhmNGQ2ZGU0Y2M4YjUwZWRjNWE0NDMwMTk5OGM3MDYxODExMjgxYyIsImFjY2Vzc19sZXZlbCI6ImxpbWl0ZWQiLCJpc19wdWJsaWMiOnRydWV9.ionocVX4bWvrn5wApNJpZ5mOR8xe_FL25lbC2Uxt2pg',
+                label: 'Z‑LIBRARY',
+                brand: 'Z‑LIB',
+                isZlib: true,
+            }, ];
+
+            let activeFullscreenUnit = null;
+            let allMonitors = [];
+
+            // ── build monitors ──
+            simulations.forEach((sim, index) => {
+                const unit = document.createElement('div');
+                unit.className = 'monitor-unit';
+                unit.dataset.index = index;
+                unit.dataset.isZlib = sim.isZlib ? 'true' : 'false';
+
+                // timer badge
+                const timerBadge = document.createElement('div');
+                timerBadge.className = 'timer-badge';
+                timerBadge.id = `timer-${index}`;
+                timerBadge.innerHTML = `<span id="timerNum-${index}">3</span><span class="sub">starting...</span>`;
+
+                unit.innerHTML = `
+                    <div class="monitor-body powered-off" id="monitorBody-${index}">
+                        <div class="bezel">
+                            <div class="bezel-top">
+                                <div class="webcam-dot"></div>
+                                <span class="brand-badge">${sim.brand}</span>
+                            </div>
+                            <div class="screen-frame">
+                                <div class="screen" id="screen-${index}">
+                                    <iframe
+                                        id="iframe-${index}"
+                                        src="${sim.url}"
+                                        title="${sim.name}"
+                                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer"
+                                        allowfullscreen
+                                        style="opacity:0;"
+                                    ></iframe>
+                                    <div class="vignette"></div>
+                                    <div class="scan-lines"></div>
+                                    <div class="glare"></div>
+                                    <div class="sim-label">${sim.label}</div>
+                                    <div class="fallback-message" id="fallback-${index}">
+                                        <div class="sim-title">${sim.name}</div>
+                                        <div class="sub">Could not embed directly.</div>
+                                        <button class="open-new-tab">Open in new tab ↗</button>
+                                    </div>
+                                    <div class="screen-actions">
+                                        <button class="action-btn fullscreen-btn" title="Fullscreen" aria-label="Fullscreen">
+                                            <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                                        </button>
+                                        <button class="action-btn popout-btn" title="Open in new tab" aria-label="Open in new tab">
+                                            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                        </button>
+                                        ${sim.isZlib ? `<button class="action-btn change-url-btn" title="Change book URL" aria-label="Change URL"><span class="plus">+</span></button>` : ''}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bezel-bottom">
+                                <span class="model-name">XR-420</span>
+                                <div class="power-led off" id="led-${index}" aria-label="Power off"></div>
+                                <button class="power-btn" id="power-btn-${index}" aria-label="Toggle power">
+                                    <span class="power-btn-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stand-neck"></div>
+                    <div class="stand-base"></div>
+                `;
+
+                // append timer badge to screen
+                const screenEl = unit.querySelector('.screen');
+                screenEl.appendChild(timerBadge);
+
+                deskGrid.appendChild(unit);
+
+                // store ref
+                const mon = {
+                    unit,
+                    index,
+                    sim,
+                    iframe: unit.querySelector('iframe'),
+                    screen: unit.querySelector('.screen'),
+                    body: unit.querySelector('.monitor-body'),
+                    led: unit.querySelector('.power-led'),
+                    powerBtn: unit.querySelector('.power-btn'),
+                    fallback: unit.querySelector('.fallback-message'),
+                    timerBadge: unit.querySelector('.timer-badge'),
+                    timerNum: unit.querySelector(`#timerNum-${index}`),
+                    openBtn: unit.querySelector('.open-new-tab'),
+                    popoutBtn: unit.querySelector('.popout-btn'),
+                    fsBtn: unit.querySelector('.fullscreen-btn'),
+                    changeUrlBtn: unit.querySelector('.change-url-btn'),
+                };
+                allMonitors.push(mon);
+            });
+
+            // ── init each monitor ──
+            allMonitors.forEach((mon, idx) => {
+                const { unit, iframe, screen, body, led, powerBtn, fallback, timerBadge, timerNum, openBtn,
+                    popoutBtn, fsBtn, changeUrlBtn, sim } = mon;
+
+                let isPoweredOn = false;
+                let isAnimating = false;
+                let iframeLoaded = false;
+                let timerStarted = false;
+                let timerDone = false;
+                let timerHandle = null;
+
+                // ── iframe load detection ──
+                let loadTimeout = null;
+
+                const checkIframeLoad = () => {
+                    loadTimeout = setTimeout(() => {
+                        if (!iframeLoaded) {
+                            fallback.classList.add('active');
+                        }
+                    }, 6000);
+
+                    iframe.addEventListener('load', () => {
+                        clearTimeout(loadTimeout);
+                        iframeLoaded = true;
+                        fallback.classList.remove('active');
+                        if (isPoweredOn && !body.classList.contains('powered-off')) {
+                            iframe.style.opacity = '1';
+                        }
+                    });
+
+                    iframe.addEventListener('error', () => {
+                        clearTimeout(loadTimeout);
+                        iframeLoaded = false;
+                        fallback.classList.add('active');
+                    });
+                };
+                checkIframeLoad();
+
+                // ── open in new tab ──
+                const openSim = (e) => {
+                    if (e) e.stopPropagation();
+                    window.open(iframe.src, '_blank', 'noopener');
+                };
+                if (openBtn) openBtn.addEventListener('click', openSim);
+                popoutBtn.addEventListener('click', openSim);
+
+                // ── fullscreen ──
+                fsBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    enterFullscreen(mon);
+                });
+
+                // ── change URL (Z-library) ──
+                if (changeUrlBtn) {
+                    changeUrlBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const current = iframe.src;
+                        const newUrl = prompt('Paste a new Z‑Library book URL (with token):', current);
+                        if (newUrl && newUrl.trim().startsWith('http')) {
+                            iframe.src = newUrl.trim();
+                            try { localStorage.setItem('zlib_reader_url', newUrl.trim()); } catch (_) {}
+                            iframeLoaded = false;
+                            fallback.classList.remove('active');
+                            if (isPoweredOn) iframe.style.opacity = '1';
+                        } else if (newUrl !== null) {
+                            alert('Invalid URL. Must start with http.');
+                        }
+                    });
+                    // load saved URL
+                    try {
+                        const saved = localStorage.getItem('zlib_reader_url');
+                        if (saved && saved.startsWith('http')) {
+                            iframe.src = saved;
+                        }
+                    } catch (_) {}
+                }
+
+                // ── power ──
+                function powerOff() {
+                    if (!isPoweredOn || isAnimating) return;
+                    isAnimating = true;
+                    isPoweredOn = false;
+                    body.classList.add('powered-off');
+                    body.classList.remove('powering-on');
+                    unit.classList.add('powering-off');
+                    led.classList.add('off');
+                    led.setAttribute('aria-label', 'Power off');
+                    iframe.style.opacity = '0';
+                    timerBadge.classList.remove('visible');
+                    clearTimeout(timerHandle);
+                    timerHandle = null;
+                    timerStarted = false;
+                    timerDone = false;
+                    setTimeout(() => {
+                        unit.classList.remove('powering-off');
+                        isAnimating = false;
+                    }, 550);
+                }
+
+                function powerOn(animate = true) {
+                    if (isPoweredOn || isAnimating) return;
+                    isAnimating = true;
+                    isPoweredOn = true;
+                    body.classList.remove('powered-off');
+                    if (animate) {
+                        unit.classList.add('powering-on');
+                    }
+                    led.classList.remove('off');
+                    led.setAttribute('aria-label', 'Power on');
+                    if (iframeLoaded) {
+                        iframe.style.opacity = '1';
+                    } else {
+                        iframe.style.opacity = '1';
+                    }
+                    timerBadge.classList.remove('visible');
+                    clearTimeout(timerHandle);
+                    timerHandle = null;
+                    timerStarted = false;
+                    timerDone = true;
+                    if (animate) {
+                        setTimeout(() => {
+                            unit.classList.remove('powering-on');
+                            isAnimating = false;
+                        }, 550);
+                    } else {
+                        isAnimating = false;
+                    }
+                }
+
+                function togglePower() {
+                    if (isAnimating) return;
+                    if (isPoweredOn) powerOff();
+                    else powerOn(true);
+                }
+
+                powerBtn.addEventListener('click', togglePower);
+
+                // ── start OFF ──
+                body.classList.add('powered-off');
+                led.classList.add('off');
+                iframe.style.opacity = '0';
+                isPoweredOn = false;
+                timerDone = false;
+                timerStarted = false;
+
+                // ── viewport detection + 3s timer ──
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !isPoweredOn && !timerStarted && !isAnimating) {
+                            startTimer();
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                observer.observe(unit);
+
+                function startTimer() {
+                    if (timerStarted || isPoweredOn || isAnimating) return;
+                    timerStarted = true;
+                    let count = 3;
+                    timerBadge.classList.add('visible');
+                    timerNum.textContent = count;
+                    timerHandle = setInterval(() => {
+                        count -= 1;
+                        if (count <= 0) {
+                            clearInterval(timerHandle);
+                            timerHandle = null;
+                            timerBadge.classList.remove('visible');
+                            timerDone = true;
+                            if (!isPoweredOn && !isAnimating) {
+                                powerOn(true);
+                            }
+                        } else {
+                            timerNum.textContent = count;
+                        }
+                    }, 1000);
+                }
+
+                // store refs on mon
+                mon.isPoweredOn = false;
+                mon.isAnimating = false;
+                mon.iframeLoaded = false;
+                mon.timerStarted = false;
+                mon.timerDone = false;
+                mon.timerHandle = null;
+                mon._powerOff = powerOff;
+                mon._powerOn = powerOn;
+                mon._togglePower = togglePower;
+                mon._startTimer = startTimer;
+                mon._observer = observer;
+
+                // if user manually turns on, cancel timer
+                const origPowerOn = powerOn;
+                powerOn = function(animate) {
+                    clearInterval(timerHandle);
+                    timerHandle = null;
+                    timerStarted = false;
+                    timerDone = true;
+                    timerBadge.classList.remove('visible');
+                    origPowerOn(animate);
+                };
+                mon._powerOn = powerOn;
+
+                // also cancel timer if user turns off
+                const origPowerOff = powerOff;
+                powerOff = function() {
+                    clearInterval(timerHandle);
+                    timerHandle = null;
+                    timerStarted = false;
+                    timerBadge.classList.remove('visible');
+                    origPowerOff();
+                };
+                mon._powerOff = powerOff;
+
+                // override toggle
+                mon._togglePower = function() {
+                    if (isAnimating) return;
+                    if (isPoweredOn) this._powerOff();
+                    else this._powerOn(true);
+                };
+                powerBtn.onclick = () => mon._togglePower();
+
+                // ── expose for fullscreen ──
+                mon._isPoweredOn = () => isPoweredOn;
+                mon._iframeLoaded = () => iframeLoaded;
+                mon._body = body;
+                mon._iframe = iframe;
+                mon._unit = unit;
+                mon._screen = screen;
+                mon._led = led;
+                mon._fallback = fallback;
+                mon._timerBadge = timerBadge;
+            });
+
+            // ── fullscreen logic ──
+            function enterFullscreen(mon) {
+                if (activeFullscreenUnit === mon) {
+                    exitFullscreen();
+                    return;
+                }
+                // exit any existing
+                if (activeFullscreenUnit) exitFullscreen();
+
+                const { unit, _body, _iframe, _screen, _isPoweredOn, _iframeLoaded } = mon;
+                if (!unit) return;
+
+                // ensure powered on
+                if (!_isPoweredOn()) {
+                    mon._powerOn(true);
+                    // wait a bit then proceed
+                    setTimeout(() => {
+                        doFullscreen(mon);
+                    }, 600);
+                } else {
+                    doFullscreen(mon);
+                }
+            }
+
+            function doFullscreen(mon) {
+                const { unit, _body, _iframe, _screen } = mon;
+                if (!unit) return;
+                // mark
+                unit.classList.add('fullscreen-mode');
+                activeFullscreenUnit = mon;
+                closeFsBtn.classList.add('visible');
+                // ensure iframe gets pointer events
+                _iframe.style.pointerEvents = 'auto';
+                // scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                document.body.style.overflow = 'hidden';
+            }
+
+            function exitFullscreen() {
+                if (!activeFullscreenUnit) return;
+                const { unit } = activeFullscreenUnit;
+                if (unit) {
+                    unit.classList.remove('fullscreen-mode');
+                }
+                activeFullscreenUnit = null;
+                closeFsBtn.classList.remove('visible');
+                document.body.style.overflow = '';
+            }
+
+            closeFsBtn.addEventListener('click', exitFullscreen);
+
+            // ESC to exit fullscreen
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && activeFullscreenUnit) {
+                    exitFullscreen();
+                }
+            });
+
+            // ── ensure iframes are interactive ──
+            document.querySelectorAll('.screen-frame, .screen, .monitor-unit').forEach(el => {
+                el.style.pointerEvents = 'auto';
+            });
+
+            // ── handle resize ──
+            window.addEventListener('resize', () => {
+                if (activeFullscreenUnit) {
+                    // re-apply if needed
+                }
+            });
+
+            console.log('%c🖥️ Retro Monitor Desk %c| %c6 sims loaded | Auto‑ON in viewport | Fullscreen ready',
+                'font-weight:bold;color:#b8a8d0;', '', 'color:#8a84a0;', ''
+            );
+        })();
+    </script>
+</body>
+</html>

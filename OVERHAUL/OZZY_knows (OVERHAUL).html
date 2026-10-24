@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Dashboard Portal with Secure Schedule System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+    /* ============================================
+       PASSWORD MODAL (button-triggered)
+    ============================================ */
+    #pw-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+    }
+    #pw-overlay.open { display: flex; }
+
+    .security-container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      width: 90%;
+      max-width: 500px;
+      overflow: hidden;
+      animation: slideUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+
+    .security-header {
+      background: linear-gradient(to right, #667eea, #764ba2);
+      color: white;
+      padding: 40px 30px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .security-header h1 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .security-body {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .password-group {
+      position: relative;
+      margin-bottom: 30px;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .password-input {
+      width: 100%;
+      padding: 20px 60px 20px 25px;
+      border: 2px solid #e0e0e0;
+      border-radius: 15px;
+      font-size: 18px;
+      transition: all 0.3s;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+    .password-input:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    .toggle-password {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #666;
+      font-size: 24px;
+      padding: 10px;
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+    .toggle-password:hover { background: #f5f5f5; }
+
+    .login-button {
+      width: 80%;
+      padding: 20px;
+      background: linear-gradient(to right, #667eea, #764ba2);
+      color: white;
+      border: none;
+      border-radius: 15px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    .login-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(102,126,234,0.3); }
+    .login-button:active { transform: translateY(0); }
+    .login-button:disabled { opacity: 0.7; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
+
+    .error-message {
+      color: #e74c3c;
+      text-align: center;
+      margin: 15px 0;
+      min-height: 24px;
+      font-size: 15px;
+      padding: 15px;
+      background: #fee;
+      border-radius: 10px;
+      border-left: 5px solid #e74c3c;
+      display: none;
+      width: 80%;
+    }
+    .attempts-info {
+      color: #f39c12;
+      text-align: center;
+      margin: 10px 0;
+      font-size: 14px;
+      padding: 12px;
+      background: #fff8e1;
+      border-radius: 10px;
+      display: none;
+      width: 80%;
+    }
+
+    /* Cancel button */
+    .cancel-button {
+      width: 80%;
+      padding: 12px;
+      background: transparent;
+      color: #999;
+      border: 2px solid #ddd;
+      border-radius: 15px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .cancel-button:hover { border-color: #999; color: #666; }
+
+    /* Lockout screen */
+    .lockout-screen { text-align: center; padding: 60px 40px; }
+    .lockout-icon { font-size: 80px; margin-bottom: 25px; color: #e74c3c; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+    #lockout-timer { font-size: 48px; font-weight: bold; color: #e74c3c; margin: 25px 0; font-family: 'Courier New', monospace; }
+    .hidden { display: none !important; }
+
+    /* ============================================
+       SPLASH SCREEN
+    ============================================ */
+    #splash-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      color: white;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      transition: opacity 1s ease;
+      overflow: hidden;
+    }
+    #splash-screen.hide { opacity: 0; pointer-events: none; }
+    .background-logo {
+      position: absolute;
+      width: 100vmin; height: 100vmin;
+      object-fit: contain;
+      opacity: 0.45;
+      filter: blur(1px) brightness(1.5);
+      z-index: 1;
+      pointer-events: none;
+      animation: slowRotate 20s infinite linear;
+    }
+    @keyframes slowRotate { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+    .thank-you-text {
+      font-size: 5rem;
+      font-weight: 800;
+      letter-spacing: 10px;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #ffd700;
+      text-shadow: 0 0 30px #ffaa00, 0 0 60px #ff7700;
+      position: relative;
+      z-index: 3;
+      animation: glowPulse 2s infinite;
+    }
+    @keyframes glowPulse {
+      0%,100%{text-shadow:0 0 30px #ffaa00,0 0 60px #ff7700;opacity:0.9}
+      50%{text-shadow:0 0 50px #ffdd00,0 0 90px #ff9900;opacity:1}
+    }
+    .names-container {
+      display: flex; gap: 4rem; justify-content: center; align-items: center;
+      position: relative; z-index: 3; width: 90%; max-width: 1200px; height: 60vh;
+      background: transparent; overflow: hidden;
+    }
+    .name-column { text-align: center; flex: 1; height: 100%; overflow: hidden; position: relative; }
+    .name-list {
+      font-family: 'Courier New', monospace; font-size: 1.3rem; line-height: 2.2;
+      list-style: none; color: #ffd700;
+      text-shadow: 0 0 15px #ffaa00, 0 0 30px #ff5500;
+      font-weight: 700; background: transparent;
+    }
+    .left-list  { animation: scrollTopToBottom 25s linear infinite; }
+    .right-list { animation: scrollBottomToTop 25s linear infinite; }
+    @keyframes scrollTopToBottom { 0%{transform:translateY(-50%)} 100%{transform:translateY(0%)} }
+    @keyframes scrollBottomToTop { 0%{transform:translateY(0%)} 100%{transform:translateY(-50%)} }
+    .name-list li {
+      background: transparent; margin: 4px 0; padding: 2px 0;
+      white-space: nowrap; opacity: 1 !important; animation: none !important;
+      border: none; transition: all 0.3s; list-style-type: none;
+    }
+    .name-list li:hover { color: #fff; text-shadow: 0 0 25px #ffdd00, 0 0 45px #ffaa00; transform: scale(1.05); }
+    .name-count {
+      position: absolute; bottom: 20px; right: 30px;
+      color: rgba(255,215,0,0.6); font-size: 1rem; z-index: 4;
+      font-weight: 600; padding: 5px 15px; border-radius: 30px;
+      border: 1px solid rgba(255,215,0,0.3);
+    }
+
+    /* ============================================
+       ORIGINAL DASHBOARD STYLES (unchanged)
+    ============================================ */
+    body {
+      background-image: url('Technical Builds/Ozzy_Knows/Learning.jpg');
+      background-repeat: repeat;
+      background-attachment: fixed;
+      background-size: 20% 60%;
+      color: darkgreen;
+      text-align: center;
+      font-style: italic;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    *:focus { outline: 2px solid #5c6bc0; outline-offset: 2px; }
+    html { scroll-padding-top: 80px; }
+
+    #demo {
+      font-size: 2.5rem; color: #c62828; font-weight: bold;
+      padding: 20px; background-color: rgba(255,255,255,0.9);
+      border-radius: 15px; margin: 30px auto; max-width: 600px;
+      border: 3px solid #c62828; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      backdrop-filter: blur(5px);
+    }
+
+    .quotes-grid-container {
+      display: grid; grid-template-columns: 80% 20%; gap: 10px; margin-bottom: 20px;
+    }
+    #quotes-grid-container_2 {
+      display: grid; grid-template-columns: 20% 80%; gap: 10px; margin-bottom: 20px;
+    }
+    .quotes-item {
+      background-color: rgba(173,216,230,0.9); padding: 20px; border: 2px solid darkblue;
+      text-align: center; min-height: 80px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .button-item {
+      background-color: rgba(240,128,128,0.9); padding: 10px; border: 2px solid darkred;
+      display: flex; align-items: center; justify-content: center; border-radius: 10px;
+    }
+    .button-item button {
+      background: transparent; border: none; cursor: pointer;
+      width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+    }
+    .button-item button img { max-width: 100%; max-height: 60px; object-fit: contain; }
+
+    .photo-grid-container {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px; margin-bottom: 30px; padding: 0 20px;
+    }
+    .photo-item {
+      background-color: transparent; padding: 15px; border: 2px solid darkgreen;
+      text-align: center; border-radius: 15px; transition: all 0.3s ease;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1); position: relative;
+    }
+    .photo-item:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.15); background-color: transparent; }
+    .photo-item img {
+      max-width: 100%; height: 180px; object-fit: cover; border-radius: 10px;
+      display: block; margin: 0 auto 10px; border: 2px solid #2e8b57;
+    }
+    .photo-item img.loading {
+      opacity: 0.5;
+      background: linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);
+      background-size: 200% 100%; animation: loading 1.5s infinite;
+    }
+    @keyframes loading { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+    .photo-item a { text-decoration: none; color: #006400; font-weight: bold; font-size: 1.1rem; display: block; margin-top: 10px; }
+
+    /* New Windows */
+    .new-window {
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 90%; max-width: 800px; max-height: 90vh;
+      background-color: white; border: 3px solid #1a237e;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3); display: none;
+      padding: 0; text-align: center; border-radius: 20px; z-index: 1000; overflow: hidden;
+    }
+    .new-window.visible { display: block; }
+    .window-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.7); display: none; z-index: 999;
+    }
+    .window-overlay.visible { display: block; }
+    .window-drag-handle {
+      cursor: move; user-select: none; padding: 15px 25px; margin: 0;
+      background: linear-gradient(135deg, #5c6bc0 0%, #3949ab 100%); color: white;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .window-drag-handle h2 { margin: 0; font-size: 1.3rem; }
+    .window-close-btn {
+      background: #ff6b6b; color: white; border: none; width: 40px; height: 40px;
+      border-radius: 50%; font-size: 20px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;
+    }
+    .window-close-btn:hover { background: #ff5252; transform: rotate(90deg); }
+    .window-content { padding: 25px; overflow-y: auto; max-height: calc(90vh - 80px); }
+
+    /* Settings */
+    .settings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 20px; margin-bottom: 30px; }
+    .settings-card {
+      background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 16px; padding: 25px 15px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .settings-card:hover { border-color: #5c6bc0; box-shadow: 0 10px 20px rgba(92,107,192,0.15); background: white; }
+    .settings-card i { font-size: 2.5rem; color: #5c6bc0; margin-bottom: 15px; }
+    .settings-card span { font-size: 1rem; font-weight: 600; color: #2d3748; text-align: center; line-height: 1.4; }
+    .virtual-card { background: linear-gradient(145deg,#667eea,#764ba2); border: none; color: white; }
+    .virtual-card i, .virtual-card span { color: white; }
+    .virtual-card:hover { background: linear-gradient(145deg,#5a67d8,#6b46a1); }
+
+    /* Stopwatch */
+    .stopwatch-container { background: #1e293b; border-radius: 30px; padding: 30px; color: white; box-shadow: 0 20px 30px rgba(0,0,0,0.3); }
+    #Timer_1 { font-family: 'Courier New',monospace; font-size: 4rem; font-weight: 700; margin: 20px 0; color: #60a5fa; text-shadow: 0 0 10px rgba(96,165,250,0.5); }
+    .stopwatch-controls { display: flex; justify-content: center; gap: 20px; margin: 30px 0; }
+    .stopwatch-btn { width: 70px; height: 70px; border-radius: 50%; border: none; background: #2d3748; color: #e2e8f0; font-size: 1.8rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+    .stopwatch-btn:hover { transform: scale(1.1); }
+    .stopwatch-btn.start { background: #16a34a; color: white; }
+    .stopwatch-btn.stop  { background: #dc2626; color: white; }
+    .stopwatch-btn.reset { background: #f59e0b; color: white; }
+    .stopwatch-btn.lap   { background: #8b5cf6; color: white; }
+    .stopwatch-progress { width: 100%; height: 10px; background: #4b5563; border-radius: 5px; margin: 20px 0; overflow: hidden; }
+    .stopwatch-progress-bar { height: 100%; background: linear-gradient(90deg,#60a5fa,#8b5cf6); width: 0%; transition: width 0.2s linear; }
+    #lapTimes { background: #2d3748; border-radius: 10px; padding: 15px; max-height: 200px; overflow-y: auto; text-align: left; color: #e2e8f0; }
+    #lapTimes h4 { margin: 0 0 10px 0; color: #a0aec0; }
+
+    /* Schedule styles */
+    .secure-polyphasic-schedule { margin-top: 40px; }
+    .secure-schedule-type-selector { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
+    .secure-schedule-btn { padding: 12px 30px; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; background-color: #1e293b; color: #cbd5e1; border: 2px solid #334155; }
+    .secure-schedule-btn.active { background-color: #3b82f6; color: white; border-color: #60a5fa; box-shadow: 0 0 20px rgba(59,130,246,0.3); }
+    .secure-schedule-btn:hover:not(.active) { background-color: #334155; transform: translateY(-2px); }
+    .secure-current-schedule-info { background-color: #1e293b; border-radius: 12px; padding: 25px; margin-top: 30px; border: 1px solid #334155; }
+    .secure-schedule-status { font-size: 1.4rem; color: #e2e8f0; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #334155; }
+    .mute-toggle { background-color: #1e293b; border-radius: 50%; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; cursor: pointer; border: 2px solid #475569; transition: all 0.3s; }
+    .mute-toggle:hover { background-color: #334155; transform: scale(1.1); }
+    .mute-toggle.muted { background-color: #7c2d12; border-color: #dc2626; }
+    .mute-icon { font-size: 1.8rem; color: #f1f5f9; }
+
+    /* Stage alerts */
+    .stage-alert { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(15,23,42,0.98); display: none; justify-content: center; align-items: center; z-index: 5000; animation: fadeIn 0.5s ease; }
+    .stage-alert.active { display: flex; }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+    .alert-content { background: linear-gradient(135deg,#1e293b,#0f172a); border-radius: 20px; padding: 50px; text-align: center; max-width: 600px; width: 90%; border: 3px solid; box-shadow: 0 20px 40px rgba(0,0,0,0.5); animation: pulse 2s infinite; }
+    .alert-rest   { border-color: #3b82f6; box-shadow: 0 0 50px rgba(59,130,246,0.5); }
+    .alert-work   { border-color: #16a34a; box-shadow: 0 0 50px rgba(22,163,74,0.5); }
+    .alert-gaming { border-color: #9333ea; box-shadow: 0 0 50px rgba(147,51,234,0.5); }
+    .alert-title  { font-size: 2.5rem; margin-bottom: 20px; color: #f1f5f9; }
+    .alert-activity { font-size: 4rem; font-weight: 800; margin-bottom: 30px; letter-spacing: 2px; text-transform: uppercase; }
+    .alert-activity.rest   { color: #60a5fa; text-shadow: 0 0 20px rgba(96,165,250,0.7); }
+    .alert-activity.work   { color: #4ade80; text-shadow: 0 0 20px rgba(74,222,128,0.7); }
+    .alert-activity.gaming { color: #a855f7; text-shadow: 0 0 20px rgba(168,85,247,0.7); }
+    .alert-interval { font-size: 2rem; color: #cbd5e1; margin-bottom: 30px; background-color: rgba(15,23,42,0.7); padding: 15px; border-radius: 10px; border: 2px solid #475569; }
+    .alert-countdown { font-size: 1.5rem; color: #94a3b8; margin-bottom: 40px; }
+    .close-alert-btn { background-color: #3b82f6; color: white; border: none; padding: 15px 40px; font-size: 1.2rem; font-weight: 600; border-radius: 10px; cursor: pointer; transition: all 0.3s; }
+    .close-alert-btn:hover { background-color: #2563eb; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37,99,235,0.3); }
+    .alert-footer { margin-top: 30px; color: #64748b; font-size: 0.9rem; }
+
+    .stage-notification { position: fixed; top: 20px; right: 20px; background: linear-gradient(135deg,#1e293b,#0f172a); border-radius: 10px; padding: 15px 20px; border-left: 5px solid; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: none; align-items: center; gap: 15px; z-index: 800; animation: slideInRight 0.5s ease; }
+    .stage-notification.active { display: flex; }
+    @keyframes slideInRight { from{transform:translateX(120%)} to{transform:translateX(0)} }
+    .notification-rest   { border-left-color: #3b82f6; }
+    .notification-work   { border-left-color: #16a34a; }
+    .notification-gaming { border-left-color: #9333ea; }
+    .notification-icon { font-size: 1.8rem; }
+    .notification-content { color: #f1f5f9; }
+    .notification-activity { font-weight: 600; font-size: 1.2rem; }
+    .notification-interval { font-size: 0.9rem; color: #94a3b8; }
+
+    /* Button styles */
+    .button-33 {
+      background-color: #c2fbd7; border-radius: 100px;
+      box-shadow: rgba(44,187,99,.2) 0 -25px 18px -14px inset, rgba(44,187,99,.15) 0 1px 2px, rgba(44,187,99,.15) 0 2px 4px, rgba(44,187,99,.15) 0 4px 8px, rgba(44,187,99,.15) 0 8px 16px, rgba(44,187,99,.15) 0 16px 32px;
+      color: green; cursor: pointer; display: inline-block;
+      font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+      padding: 12px 25px; text-align: center; text-decoration: none;
+      transition: all 250ms; border: 0; font-size: 16px; font-weight: 600;
+      user-select: none; touch-action: manipulation; margin: 5px;
+    }
+    .button-33:hover { box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset, rgba(44,187,99,.25) 0 1px 2px, rgba(44,187,99,.25) 0 2px 4px, rgba(44,187,99,.25) 0 4px 8px, rgba(44,187,99,.25) 0 8px 16px, rgba(44,187,99,.25) 0 16px 32px; transform: scale(1.05) rotate(-1deg); }
+
+    h1 { color: #1a237e; margin: 30px 0 20px; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); padding: 10px; background-color: rgba(255,255,255,0.8); border-radius: 10px; display: inline-block; }
+
+    .grid-container1 { background-color: rgba(255,255,255,0.9); padding: 25px; border-radius: 15px; margin: 30px auto; max-width: 1200px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+    .grid-container1 h1 { background-color: transparent; }
+    /* NEW: other subjects grid with 4 items per row */
+    .grid-container1 h5 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .grid-container1 a {
+      background-color: #5c6bc0; color: white; padding: 12px; border-radius: 8px;
+      text-decoration: none; font-weight: 600; transition: all 0.3s ease;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 60px; font-size: 1rem; position: relative;
+    }
+    .grid-container1 a:hover { background-color: #3949ab; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+    /* Responsive: on smaller screens, reduce to 2 or 1 */
+    @media (max-width: 768px) {
+      .grid-container1 h5 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .grid-container1 h5 { grid-template-columns: 1fr; }
+    }
+
+    /* School Portal */
+    .portal-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 15px; margin: 20px 0; }
+    .portal-card { background: white; border-radius: 12px; padding: 15px; display: flex; align-items: center; cursor: pointer; transition: all 0.3s ease; border: 2px solid #e0e0e0; text-decoration: none; color: #333; text-align: left; position: relative; }
+    .portal-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.15); border-color: #5c6bc0; }
+    .portal-card i { font-size: 2rem; margin-right: 15px; color: #3949ab; width: 50px; text-align: center; }
+    .portal-info { flex: 1; }
+    .portal-name { font-weight: 700; margin-bottom: 5px; color: #1a237e; font-size: 1.1rem; }
+    .portal-desc { font-size: 0.85rem; color: #666; }
+    .local-badge { display: inline-block; background: #4caf50; color: white; font-size: 0.7rem; padding: 3px 10px; border-radius: 12px; margin-top: 5px; }
+    .web-badge   { display: inline-block; background: #2196f3; color: white; font-size: 0.7rem; padding: 3px 10px; border-radius: 12px; margin-top: 5px; }
+    .powershell-card { background: linear-gradient(to right,#012456,#1d4f8b); color: white; }
+    .powershell-card .portal-name, .powershell-card i { color: white; }
+    .powershell-card .portal-desc { color: rgba(255,255,255,0.9); }
+
+    /* Filter chips */
+    .filter-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; justify-content: center; }
+    .filter-chip { background: #e0e0e0; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: all 0.3s ease; }
+    .filter-chip.active { background: #5c6bc0; color: white; }
+    .filter-chip:hover { background: #d0d0d0; }
+    .filter-chip.active:hover { background: #3949ab; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Toast */
+    .toast { position: fixed; bottom: 20px; right: 20px; background: #333; color: white; padding: 15px 20px; border-radius: 5px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transform: translateY(100px); opacity: 0; transition: all 0.3s ease; z-index: 8000; }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* Back to top */
+    #backToTop { position: fixed; bottom: 30px; right: 30px; background-color: #5c6bc0; color: white; width: 50px; height: 50px; border-radius: 50%; display: none; justify-content: center; align-items: center; font-size: 24px; cursor: pointer; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: all 0.3s ease; }
+    #backToTop:hover { background-color: #3949ab; transform: translateY(-3px); }
+
+    /* Tooltips */
+    [data-tooltip] { position: relative; }
+    [data-tooltip]:before { content: attr(data-tooltip); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 10; }
+    [data-tooltip]:hover:before { opacity: 1; visibility: visible; }
+
+    /* Add item button */
+    .add-item-button { background-color: #4CAF50; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; margin: 10px 0; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s; }
+    .add-item-button:hover { background-color: #45a049; transform: translateY(-2px); }
+
+    /* File manager */
+    .file-manager-container { width: 100%; background: white; border-radius: 16px; overflow: hidden; font-family: 'Segoe UI',system-ui,sans-serif; }
+    .file-manager-title { color: #1e293b; font-size: 24px; font-weight: 600; margin-bottom: 4px; display: flex; align-items: center; gap: 12px; }
+    .file-manager-subtitle { color: #64748b; font-size: 14px; }
+    .file-manager-content { display: flex; flex-direction: column; min-height: 500px; }
+    .input-section { padding: 24px 32px; background: white; border-bottom: 1px solid #e2e8f0; }
+    .mode-switch { display: flex; background: #f1f5f9; border-radius: 10px; padding: 6px; margin-bottom: 24px; }
+    .mode-btn { flex: 1; padding: 12px; border: none; background: transparent; color: #64748b; font-size: 14px; font-weight: 500; cursor: pointer; border-radius: 8px; transition: all 0.2s; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .mode-btn.active { background: white; color: #667eea; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .file-input-wrapper { margin-bottom: 20px; }
+    .file-input-label { display: block; padding: 20px; background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 12px; color: #64748b; text-align: center; cursor: pointer; font-size: 15px; transition: all 0.2s; }
+    .file-input-label:hover { border-color: #667eea; background: #edf2f7; }
+    .file-input { display: none; }
+    .selected-file-info { padding: 16px; background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; }
+    .selected-file-name { color: #0369a1; font-weight: 500; font-size: 14px; }
+    .remove-selected { background: none; border: none; color: #dc2626; cursor: pointer; font-size: 20px; padding: 0 8px; }
+    .url-input-group { display: flex; gap: 12px; margin-bottom: 20px; }
+    .url-input { flex: 1; padding: 14px 20px; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 14px; transition: border-color 0.2s; }
+    .url-input:focus { outline: none; border-color: #667eea; }
+    .fm-button { background: #667eea; color: white; border: none; padding: 14px 28px; border-radius: 10px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; gap: 8px; }
+    .fm-button:hover { background: #5a67d8; }
+    .fm-button.secondary { background: #94a3b8; }
+    .fm-button.secondary:hover { background: #64748b; }
+    .files-section { padding: 24px 32px; flex: 1; display: flex; flex-direction: column; }
+    .files-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .files-title { color: #1e293b; font-size: 18px; font-weight: 600; }
+    .files-count { color: #64748b; font-size: 14px; }
+    .search-box { position: relative; margin-bottom: 20px; }
+    .search-input { width: 100%; padding: 14px 20px 14px 48px; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 14px; transition: border-color 0.2s; }
+    .search-input:focus { outline: none; border-color: #667eea; }
+    .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
+    .files-container { flex: 1; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; }
+    .files-list { max-height: 400px; overflow-y: auto; }
+    .file-item { padding: 16px 20px; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 16px; transition: background 0.2s; }
+    .file-item:hover { background: #f8fafc; }
+    .file-checkbox { width: 20px; height: 20px; cursor: pointer; accent-color: #667eea; }
+    .file-icon { font-size: 20px; color: #667eea; width: 24px; }
+    .file-details { flex: 1; min-width: 0; }
+    .file-name { color: #1e293b; font-weight: 500; font-size: 14px; margin-bottom: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .file-type { color: #64748b; font-size: 12px; background: #f1f5f9; padding: 2px 8px; border-radius: 4px; display: inline-block; }
+    .file-actions { display: flex; gap: 8px; opacity: 0; transition: opacity 0.2s; }
+    .file-item:hover .file-actions { opacity: 1; }
+    .action-btn { padding: 6px 12px; border: 1px solid #e2e8f0; background: white; border-radius: 6px; font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s; }
+    .action-btn.open:hover  { background: #f0f9ff; border-color: #7dd3fc; color: #0369a1; }
+    .action-btn.remove:hover{ background: #fef2f2; border-color: #fca5a5; color: #dc2626; }
+    .empty-state { text-align: center; padding: 60px 20px; color: #94a3b8; }
+    .empty-icon { font-size: 48px; margin-bottom: 16px; opacity: 0.5; }
+    .batch-actions { padding: 20px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; background: #f8fafc; }
+    .selection-info { color: #64748b; font-size: 14px; }
+    .batch-buttons { display: flex; gap: 12px; }
+    .batch-btn { padding: 10px 20px; border: none; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.2s; }
+    .batch-btn.open   { background: #dbeafe; color: #1d4ed8; }
+    .batch-btn.open:hover { background: #bfdbfe; }
+    .batch-btn.remove { background: #fee2e2; color: #dc2626; }
+    .batch-btn.remove:hover { background: #fecaca; }
+
+    /* Context menu */
+    .context-menu { position: fixed; background: white; border: 1px solid #ccc; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); z-index: 9000; border-radius: 4px; overflow: hidden; }
+    .context-menu-item { padding: 8px 12px; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; gap: 6px; }
+    .context-menu-item:hover { background: #f0f0f0; }
+
+    /* ── GRAPH WINDOW (enhanced) ── */
+    #graph-window { max-width: 1000px; }
+    #graph-window .window-content { padding: 0; background: #0d0d17; display: flex; flex-direction: column; }
+    .graph-controls {
+      background: #1e293b;
+      padding: 12px 20px;
+      border-bottom: 1px solid #334155;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .graph-controls-left {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .graph-controls-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .graph-search {
+      background: #0f172a;
+      border: 1px solid #475569;
+      color: #e2e8f0;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      width: 200px;
+    }
+    .graph-search:focus {
+      outline: none;
+      border-color: #60a5fa;
+    }
+    .graph-legend {
+      display: flex;
+      gap: 16px;
+      font-size: 0.8rem;
+      color: #cbd5e1;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .legend-color.folder { background: #f39c12; }
+    .legend-color.html   { background: #3498db; }
+    .legend-color.text   { background: #2ecc71; }
+    .graph-status {
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+    #d3-container {
+      width: 100%;
+      height: 500px;
+      background: #0d0d17;
+      position: relative;
+      display: block;
+    }
+    .graph-info-bar {
+      background: rgba(20,20,35,0.9);
+      border-top: 1px solid #3c3c54;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: #c0c0e0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-style: normal;
+    }
+    .graph-badge { background: #2d2d44; padding: 4px 12px; border-radius: 30px; color: #a9b7ff; font-weight: 500; border: 1px solid #4b4b6e; }
+    .graph-note  { color: #9aa5ce; font-style: italic; }
+
+    /* graph SVG classes */
+    .g-links line { stroke: #565f89; stroke-width: 1.5; stroke-opacity: 0.4; transition: stroke-opacity 0.15s, stroke 0.15s; }
+    .g-nodes circle { stroke: #0d0d17; stroke-width: 2; cursor: pointer; transition: filter 0.2s; filter: drop-shadow(0 0 4px rgba(255,255,255,0.2)); }
+    .g-labels text { font-size: 10px; fill: #bcbcda; paint-order: stroke; stroke: #1a1a2a; stroke-width: 2px; pointer-events: none; user-select: none; transition: opacity 0.2s, fill 0.2s; }
+    .g-links line.hl   { stroke: #bb9af7 !important; stroke-opacity: 0.9 !important; stroke-width: 2.5 !important; }
+    .g-labels text.hl  { fill: white !important; font-weight: 500; }
+    .node-highlight circle { filter: drop-shadow(0 0 8px #ffaa00); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .quotes-grid-container, #quotes-grid-container_2 { grid-template-columns: 1fr; margin: 10px; }
+      .photo-grid-container { grid-template-columns: repeat(2,1fr); gap: 15px; padding: 0 10px; }
+      .photo-item img { height: 140px; }
+      .grid-container1 h5 { grid-template-columns: repeat(2,1fr); }
+      h1 { font-size: 1.8rem; padding: 8px; }
+      #demo { font-size: 1.5rem; padding: 10px; }
+      .new-window { width: 95%; }
+      .settings-grid { grid-template-columns: repeat(2,1fr); }
+      .graph-controls { flex-direction: column; align-items: stretch; }
+      .graph-controls-left, .graph-controls-right { justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .photo-grid-container { grid-template-columns: 1fr; }
+      .grid-container1 h5 { grid-template-columns: 1fr; }
+      .settings-grid { grid-template-columns: 1fr; }
+      .portal-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-color-scheme: dark) {
+      .new-window { background-color: #2d2d2d; color: #f0f0f0; border-color: #444; }
+      .portal-card { background-color: #3d3d3d; color: #f0f0f0; border-color: #555; }
+      .portal-name { color: #f0f0f0; }
+      .portal-desc { color: #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================
+     SPLASH SCREEN
+============================================ -->
+<div id="splash-screen">
+  <img src="../../../../logo.png" alt="" class="background-logo" onerror="this.style.display='none'">
+  <div class="thank-you-text">THANK YOU!!!</div>
+  <div class="names-container">
+    <div class="name-column"><ul class="name-list left-list"  id="left-names"></ul></div>
+    <div class="name-column"><ul class="name-list right-list" id="right-names"></ul></div>
+  </div>
+  <div class="name-count" id="name-count"></div>
+</div>
+
+<!-- ============================================
+     PASSWORD MODAL (shown on button click)
+============================================ -->
+<div id="pw-overlay">
+  <!-- Login form -->
+  <div class="security-container" id="login-container">
+    <div class="security-header">
+      <h1><i class="fas fa-lock"></i> Secure Access</h1>
+      <p style="margin-top:10px;opacity:0.9">Authentication Required</p>
+    </div>
+    <div class="security-body">
+      <div class="password-group">
+        <input type="password" id="password-input" class="password-input"
+               placeholder="Enter master password" autocomplete="off">
+        <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">
+          <i class="fas fa-eye" id="pw-eye"></i>
+        </button>
+      </div>
+      <button id="login-button" class="login-button" onclick="checkPassword()">
+        <i class="fas fa-unlock-alt"></i> Access
+      </button>
+      <div id="error-message" class="error-message"></div>
+      <div id="attempts-info" class="attempts-info"></div>
+      <button class="cancel-button" onclick="closePwModal()">Cancel</button>
+    </div>
+  </div>
+  <!-- Lockout screen -->
+  <div class="security-container hidden" id="lockout-container">
+    <div class="lockout-screen">
+      <div class="lockout-icon"><i class="fas fa-lock"></i></div>
+      <h2 style="color:#e74c3c;margin-bottom:10px">Security Lockout</h2>
+      <p style="color:#666;margin-bottom:20px">Too many failed login attempts</p>
+      <div id="lockout-timer">01:00</div>
+      <p style="color:#999;font-size:12px;margin-top:30px"><i class="fas fa-exclamation-triangle"></i> System temporarily locked</p>
+      <button class="cancel-button" style="margin-top:20px" onclick="closePwModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     MAIN CONTENT (always visible)
+============================================ -->
+<div id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</div>
+<div id="toastContainer"></div>
+<div class="window-overlay" id="window-overlay" onclick="closeAllWindows()"></div>
+
+<!-- First Quotes Grid -->
+<div class="quotes-grid-container">
+  <div class="quotes-item" id="quotes-item-1"></div>
+  <div class="button-item">
+    <button id="Button_1" onclick="handleProtectedButton('settings-window')" title="Settings" data-tooltip="Settings">
+      <img src="Technical Builds/Ozzy_Knows/Settings_Logo.png" alt="Settings">
+    </button>
+  </div>
+</div>
+
+<!-- Countdown Timer -->
+<p id="demo"></p>
+
+<!-- Main Subjects -->
+<h1 id="Link_1">OSNOVNI PREDMETI (&#8595;)</h1>
+<div class="photo-grid-container" id="mainSubjects">
+  <div class="photo-item">
+    <a href="http://127.0.0.1:5500/Course/Biology/Biology.html" title="Biologija">
+      <img src="Course/Biology/Background_image.png" alt="Biology" loading="lazy">
+      <span>Biologija</span>
+    </a>
+  </div>
+  <div class="photo-item">
+    <a href="http://127.0.0.1:5500/Course/English/English.html" target="_blank" title="Engleski">
+      <img src="Course/English/Background.png" alt="English" loading="lazy">
+      <span>Engleski</span>
+    </a>
+  </div>
+  <div class="photo-item">
+    <a href="http://127.0.0.1:5500/Course/Fizika/Fizika.html" target="_blank" title="Fizika">
+      <img src="Course/Fizika/Background_Image.png" alt="Physics" loading="lazy">
+      <span>Fizika</span>
+    </a>
+  </div>
+  <div class="photo-item">
+    <a href="http://127.0.0.1:5500/Course/Hrvatski/Hrvatski.html" title="Hrvatski">
+      <img src="Course/Hrvatski/Background_image.png" alt="Croatian" loading="lazy">
+      <span>Hrvatski</span>
+    </a>
+  </div>
+  <div class="photo-item">
+    <a href="http://127.0.0.1:5500/Course/Kemija/Kemija.html" title="Kemija">
+      <img src="Course/Kemija/Background_image.png" alt="Chemistry" loading="lazy">
+      <span>Kemija</span>
+    </a>
+  </div>
+  <div class="photo-item">
+    <a href="http://127.0.0.1:5500/Course/Math/Math.html" title="Math">
+      <img src="Course/Math/Background_Image.png" alt="Mathematics" loading="lazy">
+      <span>Matematika</span>
+    </a>
+  </div>
+</div>
+
+<!-- Other Subjects - modified grid to 4 items per row -->
+<div class="grid-container1" id="otherSubjects">
+  <h1 id="Link_2">OSTALI PREDMETI (↓)</h1>
+  <h5>
+    <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Logika/Logika.html" data-tooltip="Logika"><i class="fas fa-brain"></i> Logika</a>
+    <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Povijest/Povijest.html" data-tooltip="Povijest"><i class="fas fa-landmark"></i> Povijest</a>
+    <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Psihologija/Psihologija.html" data-tooltip="Psihologija"><i class="fas fa-user-friends"></i> Psihologija</a>
+    <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Socijologija/%C5%9Eocijologija.html" data-tooltip="Socijologija"><i class="fas fa-users"></i> Socijologija</a>
+    <a href="https://learngerman.dw.com/en/learn-german/s-9528" target="_blank" data-tooltip="Deutsch"><i class="fas fa-language"></i> Deutsch</a>
+    <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Likovni.html" data-tooltip="Likovni"><i class="fas fa-palette"></i> Likovni</a>
+    <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Nutricionizam/Nutricionizam.html" data-tooltip="Nutricionizam"><i class="fas fa-apple-alt"></i> Nutricionizam</a>
+    <a href="http://127.0.0.1:5500/Course/Ostali%20predmeti%20(nije%20za%20maturu%20(3,4%20razredi))/Glazbeni/Glazbeni.html" data-tooltip="Glazbeni"><i class="fas fa-music"></i> Glazbeni</a>
+  </h5>
+</div>
+
+<!-- Second Quotes Grid — Button 3 now opens Graph -->
+<div class="quotes-grid-container" id="quotes-grid-container_2">
+  <div class="button-item">
+    <button id="Button_3" onclick="handleProtectedButton('graph-window')" title="Graph View" data-tooltip="Graph View">
+      <img src="Technical Builds/Ozzy_Knows/Linking_Logo.png" alt="Graph View">
+    </button>
+  </div>
+  <div class="quotes-item" id="quotes-item-2"></div>
+</div>
+
+<!-- ============================================
+     WINDOWS
+============================================ -->
+
+<!-- Settings Window -->
+<div id="settings-window" class="new-window">
+  <div class="window-drag-handle" id="drag-settings">
+    <h2><i class="fas fa-cog"></i> Settings Panel</h2>
+    <button class="window-close-btn" onclick="toggleNewWindow('settings-window')"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="window-content">
+    <div class="settings-grid">
+      <div class="settings-card" onclick="toggleNewWindow('empty-window')"><i class="fas fa-link"></i><span>Quick Links</span></div>
+      <div class="settings-card" onclick="toggleNewWindow('stopwatch-window')"><i class="fas fa-stopwatch"></i><span>Timer</span></div>
+      <div class="settings-card" onclick="toggleNewWindow('school-portal-window')"><i class="fas fa-school"></i><span>School Portal</span></div>
+      <div class="settings-card" onclick="toggleNewWindow('html-look-window')"><i class="fas fa-code"></i><span>HTML Look</span></div>
+      <div class="settings-card" onclick="window.open('http://127.0.0.1:5500/Technical%20Builds/Testing/EMERGANCY/Debug%20panel/Debug_Tool.html','_blank')"><i class="fas fa-bug"></i><span>Universal Debug panel</span></div>
+      <div class="settings-card" onclick="toggleNewWindow('testing-prototypes-window')"><i class="fas fa-flask"></i><span>Testing &amp; Prototypes</span></div>
+      <div class="settings-card" onclick="toggleNewWindow('secure-schedule-window')"><i class="fas fa-shield-alt"></i><span>Secure Schedule System</span></div>
+      <div class="settings-card virtual-card" onclick="window.open('http://127.0.0.1:5500/Course/Internet/Virtual%20Component%20for%20Testing%20(HQ).html','_blank')"><i class="fas fa-vr-cardboard"></i><span>Virtual Component for Testing (HQ)</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Graph Window (Button 3) - Enhanced with dynamic folder loader -->
+<div id="graph-window" class="new-window" style="max-width:1000px">
+  <div class="window-drag-handle" id="drag-graph">
+    <h2><i class="fas fa-project-diagram"></i> Ozzy_Knows · Graph View</h2>
+    <button class="window-close-btn" onclick="toggleNewWindow('graph-window')"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="window-content" style="padding:0;background:#0d0d17">
+    <div class="graph-controls">
+      <div class="graph-controls-left">
+        <button id="loadOzzyFolderBtn" class="button-33" style="margin:0; background: #5c6bc0; color:white;"><i class="fas fa-folder-open"></i> Load Ozzy_Knows Folder</button>
+        <div class="graph-legend">
+          <div class="legend-item"><div class="legend-color folder"></div><span>Folders</span></div>
+          <div class="legend-item"><div class="legend-color html"></div><span>HTML</span></div>
+          <div class="legend-item"><div class="legend-color text"></div><span>MD/TXT</span></div>
+        </div>
+      </div>
+      <div class="graph-controls-right">
+        <input type="text" id="graphSearch" class="graph-search" placeholder="Search nodes...">
+        <span id="graphStatus" class="graph-status">Ready</span>
+      </div>
+    </div>
+    <div id="d3-container"></div>
+    <div class="graph-info-bar">
+      <span class="graph-badge">📁 Ozzy_Knows</span>
+      <span>Folders (orange) · HTML (blue) · MD/TXT (green)</span>
+      <span class="graph-note">✨ drag • hover to highlight connections</span>
+    </div>
+  </div>
+</div>
+
+<!-- Secure Schedule System Window -->
+<div id="secure-schedule-window" class="new-window" style="max-width:900px">
+  <div class="window-drag-handle" id="drag-schedule">
+    <h2><i class="fas fa-shield-alt"></i> Secure Schedule System</h2>
+    <button class="window-close-btn" onclick="toggleNewWindow('secure-schedule-window')"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="window-content">
+    <div class="secure-polyphasic-schedule">
+      <div style="text-align:center;margin-bottom:30px;position:relative">
+        <h1 style="color:#60a5fa;margin-bottom:10px;font-size:2.2rem;letter-spacing:1px">Secure Schedule Monitor</h1>
+        <p style="color:#94a3b8;font-size:1rem;max-width:800px;margin:0 auto">Automated stage alerts for workday and restday schedules</p>
+        <div class="mute-toggle" id="muteToggle" style="position:absolute;top:10px;right:10px">
+          <div class="mute-icon" id="muteIcon">🔔</div>
+        </div>
+        <div style="position:absolute;top:10px;left:10px;background:#1e293b;border-radius:10px;padding:10px 15px;border:2px solid #475569;color:#94a3b8;font-size:0.9rem">
+          Next stage in: <span id="nextStageTime">--:--</span>
+        </div>
+      </div>
+      <div class="secure-schedule-type-selector">
+        <button class="secure-schedule-btn active" id="secureWorkdayBtn" onclick="switchSecureSchedule('workday')">Workday Schedule</button>
+        <button class="secure-schedule-btn" id="secureRestdayBtn" onclick="switchSecureSchedule('restday')">Restday Schedule</button>
+      </div>
+      <div class="secure-current-schedule-info">
+        <h2 class="secure-schedule-status" id="secureScheduleName">Workday Schedule Active</h2>
+        <p style="color:#94a3b8;margin-bottom:20px">The secure schedule system is actively monitoring time segments. Stage alerts will appear automatically.</p>
+        <p style="color:#60a5fa;font-weight:500">Current status: <span id="secureCurrentActivity">Monitoring...</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- School Portal Window -->
+<div id="school-portal-window" class="new-window">
+  <div class="window-drag-handle" id="drag-portal">
+    <h2><i class="fas fa-school"></i> School Programs &amp; Resources Portal</h2>
+    <button class="window-close-btn" onclick="toggleNewWindow('school-portal-window')"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="window-content">
+    <p style="color:#666;margin-bottom:20px">Access local programs and educational websites</p>
+    <button class="add-item-button" onclick="addNewPortalItem()"><i class="fas fa-plus"></i> Add New Item</button>
+    <div class="filter-chips" id="portalFilters">
+      <span class="filter-chip active" data-filter="local" onclick="filterPortal('local')">Local Apps</span>
+      <span class="filter-chip" data-filter="website" onclick="filterPortal('website')">Websites</span>
+    </div>
+    <input type="text" id="portalSearch" placeholder="Search within portal..." style="width:100%;padding:12px;margin-bottom:20px;border-radius:8px;border:2px solid #ddd">
+    <div id="local-programs-tab" class="tab-content active"><div class="portal-grid" id="localProgramsContainer"></div></div>
+    <div id="websites-tab" class="tab-content"><div class="portal-grid" id="websitesContainer"></div></div>
+    <div style="margin-top:20px;font-size:0.9rem;color:#666"><i class="fas fa-info-circle"></i> Tip: Right-click any item for more options</div>
+  </div>
+</div>
+
+<!-- Stopwatch Window -->
+<div id="stopwatch-window" class="new-window">
+  <div class="window-drag-handle" id="drag-stopwatch">
+    <h2><i class="fas fa-stopwatch"></i> Stopwatch</h2>
+    <button class="window-close-btn" onclick="toggleNewWindow('stopwatch-window')"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="window-content">
+    <div class="stopwatch-container">
+      <h1 id="Timer_1">00:00:00</h1>
+      <div class="stopwatch-controls">
+        <button class="stopwatch-btn start" onclick="watchStart()"><i class="fas fa-play"></i></button>
+        <button class="stopwatch-btn stop"  onclick="watchStop()"><i class="fas fa-stop"></i></button>
+        <button class="stopwatch-btn reset" onclick="confirmReset()"><i class="fas fa-undo-alt"></i></button>
+        <button class="stopwatch-btn lap"   onclick="addLap()"><i class="fas fa-flag"></i></button>
+      </div>
+      <div class="stopwatch-progress"><div class="stopwatch-progress-bar" id="stopwatchProgress"></div></div>
+      <div id="lapTimes"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Quick Links Window -->
+<div id="empty-window" class="new-window">
+  <div class="window-drag-handle" id="drag-quicklinks">
+    <h2><i class="fas fa-external-link-alt"></i> Quick Links</h2>
+    <button class="window-close-btn" onclick="toggleNewWindow('empty-window')"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="window-content">
+    <div style="text-align:left;padding:20px">
+      <a href="https://scholar.google.com/" target="_blank" class="button-33" style="display:block;margin:10px 0"><i class="fas fa-search"></i> Istraživanje podataka (projekti)</a>
+      <a href="https://www.science.org/" target="_blank" class="button-33" style="display:block;margin:10px 0"><i class="fas fa-newspaper"></i> Novosti_1</a>
+      <a href="https://www.ccdc.cam.ac.uk/" target="_blank" class="button-33" style="display:block;margin:10px 0"><i class="fas fa-flask"></i> Novosti (UK)</a>
+    </div>
+    <div style="margin-top:20px">
+      <button class="button-33" onclick="copyAllLinks()"><i class="fas fa-copy"></i> Copy All Links</button>
+    </div>
+  </div>
+</div>
+
+<!-- HTML Look Window -->
+<div id="html-look-window" class="new-window">
+  <div class="window-drag-handle" id="drag-htmllook">
+    <h2><i class="fas fa-code"></i> HTML Look Templates</h2>
+    <button class="window-close-btn" onclick="toggleNewWindow('html-look-window')"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="window-content">
+    <p style="color:#666;margin-bottom:20px">Ready-to-use HTML templates for different types of pages</p>
+    <div style="text-align:left;padding:20px">
+      <a href="http://localhost:8080/Technical%20Builds/Testing/Osnovni%20izgled%20Stranice%20(SPOREDNI%20PREDMET).html" target="_blank" class="button-33" style="display:block;margin:10px 0"><i class="fas fa-book"></i> Side Subject Template</a>
+      <a href="http://localhost:8080/Technical%20Builds/Testing/Osnovni%20izgled%20Stranice%20(GLAVNI%20PREDMET).html" target="_blank" class="button-33" style="display:block;margin:10px 0"><i class="fas fa-graduation-cap"></i> Main Subject Template</a>
+      <a href="http://localhost:8080/Technical%20Builds/Functioning%20Prototypes/The_Final_Look.html" target="_blank" class="button-33" style="display:block;margin:10px 0"><i class="fas fa-paint-brush"></i> Final Design Prototype</a>
+    </div>
+    <div style="margin-top:30px;text-align:left;background:#f8f9fa;padding:15px;border-radius:10px">
+      <h4 style="margin-top:0;color:#1a237e"><i class="fas fa-lightbulb"></i> Usage Tips:</h4>
+      <ul style="margin-bottom:0;color:#666"><li>Click any template to open it in a new tab</li><li>All templates are responsive and mobile-friendly</li><li>Customize colors and content to match your needs</li></ul>
+    </div>
+  </div>
+</div>
+
+<!-- Testing and Prototypes Window -->
+<div id="testing-prototypes-window" class="new-window" style="max-width:1200px">
+  <div class="window-drag-handle" id="drag-filemgr">
+    <h2><i class="fas fa-flask"></i> Testing &amp; Prototypes - HTML File Manager</h2>
+    <button class="window-close-btn" onclick="toggleNewWindow('testing-prototypes-window')"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="window-content">
+    <div class="file-manager-container" id="fileManagerContainer">
+      <div id="fileManagerContent">
+        <header>
+          <h1 class="file-manager-title"><span>📁</span> HTML File Manager</h1>
+          <p class="file-manager-subtitle">Manage and open HTML files in new tabs</p>
+        </header>
+        <div class="file-manager-content">
+          <div class="input-section">
+            <div class="mode-switch">
+              <button class="mode-btn active" onclick="fileManagerSystem.switchMode('file')"><span>📄</span> File Mode</button>
+              <button class="mode-btn" onclick="fileManagerSystem.switchMode('url')"><span>🌐</span> URL Mode</button>
+            </div>
+            <div id="fileMode">
+              <div class="file-input-wrapper">
+                <input type="file" id="htmlFileInput" class="file-input" accept=".html,.htm" onchange="fileManagerSystem.handleFileSelect(event)">
+                <label for="htmlFileInput" class="file-input-label">📁 Click to select HTML files or drag &amp; drop here</label>
+              </div>
+              <div class="selected-file-info" id="selectedFileInfo" style="display:none">
+                <div><div style="font-size:12px;color:#64748b;margin-bottom:2px">Selected File:</div><div class="selected-file-name" id="selectedFileName">No file selected</div></div>
+                <button class="remove-selected" onclick="fileManagerSystem.clearSelectedFile()">×</button>
+              </div>
+              <div style="display:flex;gap:12px">
+                <button class="fm-button" onclick="fileManagerSystem.loadSelectedFile()"><span>📂</span> Add HTML File</button>
+                <button class="fm-button secondary" onclick="fileManagerSystem.clearAllFiles()"><span>🗑️</span> Clear All Files</button>
+              </div>
+            </div>
+            <div id="urlMode" style="display:none">
+              <div class="url-input-group">
+                <input type="text" id="webUrlInput" class="url-input" placeholder="https://example.com">
+                <button class="fm-button" onclick="fileManagerSystem.loadWebURL()"><span>🌐</span> Add Web URL</button>
+              </div>
+            </div>
+          </div>
+          <div class="files-section">
+            <div class="files-header">
+              <div class="files-title">Your Files</div>
+              <div class="files-count"><span id="fileCount">0</span> files loaded</div>
+            </div>
+            <div class="search-box">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="fileSearch" class="search-input" placeholder="Search files by name or URL..." onkeyup="fileManagerSystem.filterFiles()">
+            </div>
+            <div class="files-container">
+              <div class="files-list" id="filesList">
+                <div class="empty-state"><div class="empty-icon">📁</div><p>No files loaded yet</p><p style="font-size:13px;margin-top:8px">Add HTML files or web URLs to get started</p></div>
+              </div>
+              <div class="batch-actions" id="batchActions" style="display:none">
+                <div class="selection-info"><span id="selectedCount">0</span> files selected</div>
+                <div class="batch-buttons">
+                  <button class="batch-btn open"   onclick="fileManagerSystem.openSelectedFiles()"><span>↗️</span> Open Selected</button>
+                  <button class="batch-btn remove" onclick="fileManagerSystem.removeSelectedFiles()"><span>🗑️</span> Remove Selected</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Stage Alerts -->
+<div class="stage-alert" id="stageAlert">
+  <div class="alert-content" id="alertContent">
+    <h2 class="alert-title">Stage Change</h2>
+    <div class="alert-activity rest" id="alertActivity">REST</div>
+    <div class="alert-interval" id="alertInterval">1:30 - 6:00</div>
+    <div class="alert-countdown">Alert will close in <span id="countdownTimer">5</span> seconds</div>
+    <button class="close-alert-btn" id="closeAlertBtn" onclick="closeStageAlert()">Continue</button>
+    <div class="alert-footer">Next stage will start automatically</div>
+  </div>
+</div>
+
+<div class="stage-notification" id="stageNotification">
+  <div class="notification-icon" id="notificationIcon">⏰</div>
+  <div class="notification-content">
+    <div class="notification-activity" id="notificationActivity">Rest Stage</div>
+    <div class="notification-interval" id="notificationInterval">1:30 - 6:00</div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   SECURITY CONFIG & STATE (unchanged)
+============================================================ */
+const SECURITY_CONFIG = { MASTER_PASSWORD: "cross123!", MAX_ATTEMPTS: 5, LOCKOUT_MINUTES: 1 };
+let securityState = {
+  failedAttempts: parseInt(localStorage.getItem('sz_attempts') || '0'),
+  lockoutUntil:   parseInt(localStorage.getItem('sz_lockout')  || '0'),
+  pendingWindow:  null
+};
+
+function handleProtectedButton(windowId) {
+  securityState.pendingWindow = windowId;
+  if (Date.now() < securityState.lockoutUntil) {
+    openPwModal();
+    showLockoutScreen();
+    startLockoutTimer();
+    return;
+  }
+  openPwModal();
+}
+
+function openPwModal() {
+  document.getElementById('pw-overlay').classList.add('open');
+  const inp = document.getElementById('password-input');
+  inp.value = '';
+  inp.type = 'password';
+  document.getElementById('pw-eye').className = 'fas fa-eye';
+  document.getElementById('error-message').style.display = 'none';
+  if (securityState.failedAttempts > 0) updateAttemptsDisplay();
+  if (Date.now() < securityState.lockoutUntil) { showLockoutScreen(); }
+  else { showLoginScreen(); setTimeout(() => inp.focus(), 50); }
+}
+
+function closePwModal() {
+  document.getElementById('pw-overlay').classList.remove('open');
+  securityState.pendingWindow = null;
+}
+
+function showLoginScreen() {
+  document.getElementById('login-container').classList.remove('hidden');
+  document.getElementById('lockout-container').classList.add('hidden');
+}
+function showLockoutScreen() {
+  document.getElementById('login-container').classList.add('hidden');
+  document.getElementById('lockout-container').classList.remove('hidden');
+}
+
+function togglePasswordVisibility() {
+  const inp  = document.getElementById('password-input');
+  const icon = document.getElementById('pw-eye');
+  if (inp.type === 'password') { inp.type = 'text'; icon.className = 'fas fa-eye-slash'; }
+  else                          { inp.type = 'password'; icon.className = 'fas fa-eye'; }
+}
+
+function checkPassword() {
+  if (Date.now() < securityState.lockoutUntil) { showLockoutScreen(); startLockoutTimer(); return; }
+  const password = document.getElementById('password-input').value.trim();
+  const errEl    = document.getElementById('error-message');
+  errEl.style.display = 'none';
+  if (!password) { showError('Please enter the master password'); return; }
+  const btn = document.getElementById('login-button');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
+  setTimeout(() => {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fas fa-unlock-alt"></i> Access';
+    if (password === SECURITY_CONFIG.MASTER_PASSWORD) handleLoginSuccess();
+    else handleLoginFailure();
+  }, 800);
+}
+
+function handleLoginSuccess() {
+  securityState.failedAttempts = 0;
+  securityState.lockoutUntil   = 0;
+  localStorage.removeItem('sz_attempts');
+  localStorage.removeItem('sz_lockout');
+  const target = securityState.pendingWindow;
+  closePwModal();
+  if (target) {
+    if (target === 'graph-window') openGraphWindow();
+    else toggleNewWindow(target);
+  }
+  showToast('Access granted', 'success');
+}
+
+function handleLoginFailure() {
+  securityState.failedAttempts++;
+  localStorage.setItem('sz_attempts', securityState.failedAttempts.toString());
+  showError('<i class="fas fa-times-circle"></i> Invalid master password');
+  updateAttemptsDisplay();
+  document.getElementById('password-input').value = '';
+  document.getElementById('password-input').focus();
+  if (securityState.failedAttempts >= SECURITY_CONFIG.MAX_ATTEMPTS) activateLockout();
+}
+
+function showError(msg) {
+  const el = document.getElementById('error-message');
+  el.innerHTML = msg; el.style.display = 'block';
+}
+function updateAttemptsDisplay() {
+  const el = document.getElementById('attempts-info');
+  el.textContent = `Attempt ${securityState.failedAttempts} of ${SECURITY_CONFIG.MAX_ATTEMPTS}`;
+  el.style.display = 'block';
+}
+
+function activateLockout() {
+  const until = Date.now() + SECURITY_CONFIG.LOCKOUT_MINUTES * 60000;
+  securityState.lockoutUntil = until;
+  localStorage.setItem('sz_lockout', until.toString());
+  showLockoutScreen();
+  startLockoutTimer();
+}
+
+function startLockoutTimer() {
+  const tick = () => {
+    const rem = securityState.lockoutUntil - Date.now();
+    if (rem <= 0) {
+      securityState.failedAttempts = 0; securityState.lockoutUntil = 0;
+      localStorage.removeItem('sz_lockout'); localStorage.setItem('sz_attempts', '0');
+      document.getElementById('lockout-timer').textContent = '00:00';
+      showLoginScreen();
+      document.getElementById('attempts-info').style.display = 'none';
+      return;
+    }
+    const m = Math.floor(rem / 60000), s = Math.floor((rem % 60000) / 1000);
+    document.getElementById('lockout-timer').textContent =
+      String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+    setTimeout(tick, 500);
+  };
+  tick();
+}
+
+document.getElementById('password-input').addEventListener('keypress', e => { if (e.key === 'Enter') checkPassword(); });
+
+/* ============================================================
+   WINDOW SYSTEM (original toggleNewWindow logic preserved)
+============================================================ */
+const toggleNewWindow = (windowId) => {
+  const win     = document.getElementById(windowId);
+  const overlay = document.getElementById('window-overlay');
+  if (!win || !overlay) return;
+  const isVisible = win.classList.contains('visible');
+
+  if (isVisible && windowId !== 'settings-window') {
+    win.classList.remove('visible');
+    const settingsWin = document.getElementById('settings-window');
+    if (settingsWin && !settingsWin.classList.contains('visible')) {
+      settingsWin.classList.add('visible');
+      overlay.classList.add('visible');
+    } else {
+      overlay.classList.add('visible');
+    }
+  } else if (isVisible && windowId === 'settings-window') {
+    win.classList.remove('visible');
+    const anyVisible = Array.from(document.querySelectorAll('.new-window')).some(w => w.classList.contains('visible'));
+    if (!anyVisible) overlay.classList.remove('visible');
+  } else {
+    document.querySelectorAll('.new-window').forEach(w => w.classList.remove('visible'));
+    win.classList.add('visible');
+    overlay.classList.add('visible');
+    if (windowId === 'school-portal-window') {
+      const lastTab = localStorage.getItem('lastActiveTab') || 'local';
+      setTimeout(() => { const chip = document.querySelector(`.filter-chip[data-filter="${lastTab === 'local-programs-tab' ? 'local' : 'website'}"]`); if (chip) chip.click(); }, 10);
+    }
+    if (windowId === 'testing-prototypes-window') setTimeout(() => fileManagerSystem.init(), 100);
+    if (windowId === 'secure-schedule-window')    setTimeout(() => updateSecureScheduleButtons(), 100);
+    if (windowId === 'graph-window') {
+      setTimeout(() => {
+        const storedPath = localStorage.getItem('ozzy_folder_path');
+        if (storedPath) {
+          // We can't automatically load the folder because we don't have the files.
+          // Instead, we show a message prompting to reload.
+          document.getElementById('graphStatus').textContent = 'Saved folder path found. Click "Load Ozzy_Knows Folder" to reload.';
+        } else {
+          document.getElementById('graphStatus').textContent = 'Click the button to select your Ozzy_Knows folder.';
+        }
+      }, 100);
+    }
+  }
+};
+
+const closeAllWindows = () => {
+  document.querySelectorAll('.new-window, .window-overlay').forEach(el => el.classList.remove('visible'));
+};
+
+/* Draggable windows */
+['settings','graph','schedule','portal','stopwatch','quicklinks','htmllook','filemgr'].forEach(id => {
+  const handle = document.getElementById('drag-' + id);
+  const panel  = document.getElementById(id === 'quicklinks' ? 'empty-window' :
+                                         id === 'htmllook'   ? 'html-look-window' :
+                                         id === 'filemgr'    ? 'testing-prototypes-window' :
+                                         id + '-window');
+  if (!handle || !panel) return;
+  let dragging = false, sx = 0, sy = 0;
+  handle.addEventListener('mousedown', e => {
+    if (e.button !== 0) return;
+    dragging = true;
+    const r = panel.getBoundingClientRect();
+    sx = e.clientX - r.left; sy = e.clientY - r.top;
+    panel.style.transition = 'none'; e.preventDefault();
+  });
+  document.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    let nx = e.clientX - sx, ny = e.clientY - sy;
+    nx = Math.max(0, Math.min(window.innerWidth  - panel.offsetWidth,  nx));
+    ny = Math.max(0, Math.min(window.innerHeight - panel.offsetHeight, ny));
+    panel.style.top = ny + 'px'; panel.style.left = nx + 'px';
+    panel.style.transform = 'none';
+  });
+  document.addEventListener('mouseup', () => dragging = false);
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAllWindows(); });
+
+/* ============================================================
+   DYNAMIC D3 GRAPH (Folder Scanner & Builder) - HIERARCHICAL VERSION
+============================================================ */
+let graphSimulation = null;
+let graphSvg = null;
+let graphGroup = null;
+let graphNodes = [];
+let graphLinks = [];
+let graphNodeMap = new Map();
+
+function openGraphWindow() {
+  toggleNewWindow('graph-window');
+}
+
+// Load folder via directory picker
+document.addEventListener('DOMContentLoaded', () => {
+  const loadBtn = document.getElementById('loadOzzyFolderBtn');
+  if (loadBtn) {
+    loadBtn.addEventListener('click', () => {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.webkitdirectory = true;
+      input.directory = true;
+      input.multiple = true;
+      input.onchange = async (e) => {
+        const files = Array.from(e.target.files);
+        if (files.length === 0) return;
+        const statusSpan = document.getElementById('graphStatus');
+        if (statusSpan) statusSpan.textContent = 'Processing files...';
+        const graphData = await buildGraphFromFiles(files);
+        if (statusSpan) statusSpan.textContent = `Loaded ${graphData.nodes.length} nodes, ${graphData.links.length} links`;
+        renderGraph(graphData);
+        // Save folder info? Not possible to save files, but we can save a flag.
+        localStorage.setItem('ozzy_folder_path', 'loaded');
+      };
+      input.click();
+    });
+  }
+
+  const searchInput = document.getElementById('graphSearch');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      if (!graphNodes || graphNodes.length === 0) return;
+      graphNodes.forEach(node => {
+        const text = document.querySelector(`.g-labels text[data-id="${node.id}"]`);
+        if (text) {
+          const matches = node.name.toLowerCase().includes(query);
+          text.style.opacity = matches ? 1 : 0.2;
+          const circle = document.querySelector(`.g-nodes circle[data-id="${node.id}"]`);
+          if (circle) circle.style.opacity = matches ? 1 : 0.2;
+        }
+      });
+    });
+  }
+});
+
+async function buildGraphFromFiles(files) {
+  const nodesMap = new Map(); // id -> { id, name, type, path, parentId? }
+  const linksSet = new Set(); // store "src->tgt" strings
+  const fileContents = new Map(); // for HTML parsing
+  const rootName = "Ozzy_Knows";
+
+  // Helper to add node
+  function addNode(id, name, type, parentId = null) {
+    if (!nodesMap.has(id)) {
+      nodesMap.set(id, { id, name, type, parentId });
+    } else {
+      // Ensure parent is set if not already
+      const existing = nodesMap.get(id);
+      if (!existing.parentId && parentId) existing.parentId = parentId;
+    }
+    return nodesMap.get(id);
+  }
+
+  // Helper to add link
+  function addLink(src, tgt) {
+    const key = `${src}->${tgt}`;
+    if (!linksSet.has(key)) {
+      linksSet.add(key);
+    }
+  }
+
+  // First pass: create nodes for folders and files
+  for (const file of files) {
+    const relPath = file.webkitRelativePath;
+    const parts = relPath.split('/');
+    // Add folder nodes for each segment, linking parent-child
+    let currentPath = '';
+    let lastParent = null;
+    for (let i = 0; i < parts.length - 1; i++) {
+      const part = parts[i];
+      if (i === 0) currentPath = part;
+      else currentPath = currentPath + '/' + part;
+      const folderId = currentPath;
+      const folderNode = addNode(folderId, part, 'folder', lastParent);
+      if (lastParent) addLink(lastParent, folderId);
+      lastParent = folderId;
+    }
+    // Add file node
+    const fileName = parts[parts.length-1];
+    const fileId = relPath;
+    let fileType = 'file';
+    if (fileName.endsWith('.html') || fileName.endsWith('.htm')) fileType = 'html';
+    else if (fileName.endsWith('.md') || fileName.endsWith('.txt')) fileType = 'text';
+    else continue; // ignore other files
+    const fileNode = addNode(fileId, fileName, fileType, lastParent);
+    if (lastParent) addLink(lastParent, fileId);
+    // Store file content for later link extraction
+    if (fileType === 'html') {
+      const content = await readFileContent(file);
+      fileContents.set(fileId, content);
+    }
+  }
+
+  // Second pass: for HTML files, parse links to other files (within the same root)
+  for (const [fileId, content] of fileContents.entries()) {
+    const linkRegex = /href=["']([^"']+)["']/g;
+    let match;
+    while ((match = linkRegex.exec(content)) !== null) {
+      let href = match[1];
+      // Resolve relative path to absolute within the root
+      const fileDir = fileId.substring(0, fileId.lastIndexOf('/'));
+      let targetId;
+      if (href.startsWith('/')) {
+        // absolute from root (assuming root is first part of path)
+        targetId = rootName + href;
+      } else if (href.startsWith('./')) {
+        href = href.substring(2);
+        targetId = fileDir ? fileDir + '/' + href : href;
+      } else if (href.startsWith('../')) {
+        let up = 0;
+        while (href.startsWith('../')) {
+          up++;
+          href = href.substring(3);
+        }
+        let dirParts = fileDir.split('/');
+        dirParts = dirParts.slice(0, dirParts.length - up);
+        targetId = (dirParts.length ? dirParts.join('/') + '/' : '') + href;
+      } else {
+        targetId = fileDir ? fileDir + '/' + href : href;
+      }
+      // Ensure targetId does not start with rootPath duplicate
+      if (!targetId.startsWith(rootName)) targetId = rootName + '/' + targetId;
+      // Normalize: remove redundant slashes
+      targetId = targetId.replace(/\/+/g, '/');
+      // Check if target exists in nodesMap
+      if (nodesMap.has(targetId)) {
+        addLink(fileId, targetId);
+      }
+    }
+  }
+
+  // Prepare nodes and links arrays
+  const nodes = Array.from(nodesMap.values());
+  const links = Array.from(linksSet).map(key => {
+    const [src, tgt] = key.split('->');
+    return { source: src, target: tgt };
+  });
+
+  // Find Ozzy_knows.html node (case-insensitive)
+  const ozzyNode = nodes.find(n => n.name.toLowerCase() === 'ozzy_knows.html');
+  return { nodes, links, centerNodeId: ozzyNode ? ozzyNode.id : null };
+}
+
+function readFileContent(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = e => resolve(e.target.result);
+    reader.onerror = reject;
+    reader.readAsText(file);
+  });
+}
+
+function renderGraph(data) {
+  const container = document.getElementById('d3-container');
+  if (!container) return;
+  container.innerHTML = ''; // clear previous
+  const { nodes, links, centerNodeId } = data;
+  if (nodes.length === 0) {
+    container.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100%;color:#94a3b8;">No valid files found in selected folder.</div>';
+    return;
+  }
+
+  const W = container.clientWidth || 860, H = 500;
+
+  const svg = d3.select(container).append('svg')
+    .attr('width', W).attr('height', H)
+    .style('display','block').style('background','#0d0d17')
+    .call(d3.zoom().scaleExtent([0.1,8]).on('zoom', e => {
+      if (graphGroup) graphGroup.attr('transform', e.transform);
+    }));
+
+  const g = svg.append('g');
+  graphGroup = g;
+
+  // Define colors based on type
+  const color = d => {
+    if (d.type === 'folder') return '#f39c12';
+    if (d.type === 'html') return '#3498db';
+    if (d.type === 'text') return '#2ecc71';
+    return '#95a5a6';
+  };
+
+  const linkGroup = g.append('g').attr('class','g-links')
+    .selectAll('line').data(links).enter().append('line')
+    .attr('stroke','#565f89').attr('stroke-width',1.5).attr('stroke-opacity',0.4);
+
+  const nodeGroup = g.append('g').attr('class','g-nodes')
+    .selectAll('circle').data(nodes).enter().append('circle')
+    .attr('r', d => d.type === 'folder' ? 10 : (d.type === 'html' ? 8 : 6))
+    .attr('fill', d => color(d))
+    .attr('stroke','#0d0d17').attr('stroke-width',2)
+    .style('cursor','grab')
+    .style('filter', d => `drop-shadow(0 0 4px ${color(d)}88)`)
+    .attr('data-id', d => d.id)
+    .call(d3.drag()
+      .on('start', (ev,d) => { if(!graphSimulation) return; if(!ev.active) graphSimulation.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
+      .on('drag',  (ev,d) => { d.fx=ev.x; d.fy=ev.y; })
+      .on('end',   (ev,d) => { if(!graphSimulation) return; if(!ev.active) graphSimulation.alphaTarget(0); d.fx=null; d.fy=null; }));
+
+  const labelGroup = g.append('g').attr('class','g-labels')
+    .selectAll('text').data(nodes).enter().append('text')
+    .attr('font-size','10px').attr('fill','#bcbcda')
+    .attr('paint-order','stroke').attr('stroke','#1a1a2a').attr('stroke-width','2px')
+    .attr('dx',14).attr('dy',4).style('pointer-events','none').style('user-select','none')
+    .attr('data-id', d => d.id)
+    .text(d => d.name);
+
+  // Define forces: hierarchical attraction to parent nodes, and radial from center for root
+  const sim = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links).id(d => d.id).distance(d => {
+      // If link is folder->file, shorter distance; if file->file, longer
+      const source = nodes.find(n => n.id === d.source.id);
+      const target = nodes.find(n => n.id === d.target.id);
+      if (source.type === 'folder' && target.type !== 'folder') return 80;
+      if (source.type !== 'folder' && target.type === 'folder') return 80;
+      return 120;
+    }).strength(0.5))
+    .force('charge', d3.forceManyBody().strength(d => d.type === 'folder' ? -200 : -100))
+    .force('center', d3.forceCenter(W/2, H/2))
+    .force('collide', d3.forceCollide().radius(d => (d.type === 'folder' ? 25 : 15)).strength(0.5))
+    .force('radial', d3.forceRadial(200, W/2, H/2).strength(d => d.id === centerNodeId ? 1 : 0.2)); // pull root to center
+
+  // If we have a central node, give it a slight initial position to center
+  if (centerNodeId) {
+    const centerNode = nodes.find(n => n.id === centerNodeId);
+    if (centerNode) {
+      centerNode.fx = W/2;
+      centerNode.fy = H/2;
+    }
+  }
+
+  sim.on('tick', () => {
+    linkGroup.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y)
+             .attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+    nodeGroup.attr('cx',d=>d.x).attr('cy',d=>d.y);
+    labelGroup.attr('x',d=>d.x).attr('y',d=>d.y);
+  });
+
+  // Highlight on hover
+  nodeGroup
+    .on('mouseenter', function(event, d) {
+      linkGroup.classed('hl', l => l.source.id===d.id || l.target.id===d.id);
+      labelGroup.classed('hl', n => n.id===d.id);
+      d3.select(this).attr('r', d.type === 'folder' ? 13 : (d.type === 'html' ? 11 : 9));
+    })
+    .on('mouseleave', function(event, d) {
+      linkGroup.classed('hl', false);
+      labelGroup.classed('hl', false);
+      d3.select(this).attr('r', d.type === 'folder' ? 10 : (d.type === 'html' ? 8 : 6));
+    });
+
+  linkGroup
+    .on('mouseenter', function(event, l) {
+      d3.select(this).classed('hl', true);
+      nodeGroup.classed('hl', n => n.id===l.source.id||n.id===l.target.id);
+      labelGroup.classed('hl', n => n.id===l.source.id||n.id===l.target.id);
+    })
+    .on('mouseleave', () => { linkGroup.classed('hl',false); nodeGroup.classed('hl',false); labelGroup.classed('hl',false); });
+
+  // Store simulation and nodes for later updates
+  graphSimulation = sim;
+  graphNodes = nodes;
+  graphLinks = links;
+  graphNodeMap.clear();
+  nodes.forEach(n => graphNodeMap.set(n.id, n));
+
+  sim.alpha(1).restart();
+}
+
+/* ============================================================
+   SCHEDULE SYSTEM (unchanged)
+============================================================ */
+const SECURE_SCHEDULES = {
+  workday: {
+    name: "Workday Schedule",
+    period1: { segments: [ {activity:"Rest",start:"1:30",end:"6:00"}, {activity:"Work",start:"6:00",end:"13:30"} ] },
+    period2: { segments: [ {activity:"Work",start:"13:30",end:"17:00"}, {activity:"Rest",start:"17:00",end:"17:45"}, {activity:"Work",start:"17:45",end:"19:50"}, {activity:"Rest",start:"19:50",end:"20:35"}, {activity:"Work",start:"20:35",end:"22:40"}, {activity:"Rest",start:"22:40",end:"23:25"}, {activity:"Work",start:"23:25",end:"1:30"} ] }
+  },
+  restday: {
+    name: "Restday Schedule",
+    period1: { segments: [ {activity:"Rest",start:"1:30",end:"6:00"}, {activity:"Work",start:"6:00",end:"8:30"}, {activity:"Rest",start:"8:30",end:"9:25"}, {activity:"Work",start:"9:25",end:"11:55"}, {activity:"Rest",start:"11:55",end:"12:50"}, {activity:"Work",start:"12:50",end:"13:30"} ] },
+    period2: { segments: [ {activity:"Work",start:"13:30",end:"15:20"}, {activity:"Rest",start:"15:20",end:"16:15"}, {activity:"Work",start:"16:15",end:"18:45"}, {activity:"Rest",start:"18:45",end:"19:40"}, {activity:"Gaming",start:"19:40",end:"23:00"}, {activity:"Work",start:"23:00",end:"1:30"} ] }
+  }
+};
+let secureCurrentSchedule = 'workday';
+let isSecureMuted = false;
+let secureCurrentSegmentIndex = -1;
+let secureAlertTimeout = null;
+let secureCountdownInterval = null;
+
+function timeToMinutes(t) { const [h,m] = t.split(':').map(Number); return h*60+m; }
+
+function loadSecureSchedulePreferences() {
+  try {
+    const p = JSON.parse(localStorage.getItem('sz_sched') || '{}');
+    if (p.schedule) secureCurrentSchedule = p.schedule;
+    if (p.muted !== undefined) isSecureMuted = p.muted;
+    updateSecureScheduleButtons();
+    updateSecureMuteToggle();
+  } catch(e) {}
+}
+function saveSecureSchedulePreferences() {
+  localStorage.setItem('sz_sched', JSON.stringify({schedule:secureCurrentSchedule, muted:isSecureMuted}));
+}
+
+function checkSecureCurrentStage() {
+  const now = new Date();
+  const curMin = now.getHours()*60 + now.getMinutes();
+  const sched  = SECURE_SCHEDULES[secureCurrentSchedule];
+  const allSegs = [...sched.period1.segments, ...sched.period2.segments];
+  let curSeg = null, nextSeg = null;
+
+  for (let i = 0; i < allSegs.length; i++) {
+    const s = timeToMinutes(allSegs[i].start), e = timeToMinutes(allSegs[i].end);
+    const inRange = (e > s) ? (curMin >= s && curMin < e) : (curMin >= s || curMin < e);
+    if (inRange) {
+      curSeg  = {...allSegs[i], index: i};
+      nextSeg = allSegs[(i+1) % allSegs.length];
+      break;
+    }
+  }
+  if (curSeg) {
+    const actEl = document.getElementById('secureCurrentActivity');
+    if (actEl) actEl.textContent = `${curSeg.activity} (${curSeg.start}-${curSeg.end})`;
+    if (curSeg.index !== secureCurrentSegmentIndex) {
+      secureCurrentSegmentIndex = curSeg.index;
+      showStageAlert(curSeg);
+      showStageNotification(curSeg);
+    }
+    if (nextSeg) {
+      const nm = timeToMinutes(nextSeg.start);
+      let diff = (nm > curMin) ? nm - curMin : (1440 - curMin) + nm;
+      const h = Math.floor(diff/60), m = diff%60;
+      const el = document.getElementById('nextStageTime');
+      if (el) el.textContent = (h > 0 ? h+'h ' : '') + m + 'm';
+    }
+  }
+}
+
+function switchSecureSchedule(type) {
+  if (secureCurrentSchedule !== type) {
+    secureCurrentSchedule = type;
+    secureCurrentSegmentIndex = -1;
+    updateSecureScheduleButtons();
+    const el = document.getElementById('secureScheduleName');
+    if (el) el.textContent = SECURE_SCHEDULES[type].name + ' Active';
+    saveSecureSchedulePreferences();
+  }
+}
+function updateSecureScheduleButtons() {
+  document.getElementById('secureWorkdayBtn')?.classList.toggle('active', secureCurrentSchedule === 'workday');
+  document.getElementById('secureRestdayBtn')?.classList.toggle('active', secureCurrentSchedule === 'restday');
+}
+
+function showStageAlert(seg) {
+  clearSecureAlertTimers();
+  document.getElementById('alertActivity').textContent  = seg.activity.toUpperCase();
+  document.getElementById('alertActivity').className    = 'alert-activity ' + seg.activity.toLowerCase();
+  document.getElementById('alertInterval').textContent  = `${seg.start} - ${seg.end}`;
+  document.getElementById('alertContent').className     = `alert-content alert-${seg.activity.toLowerCase()}`;
+  let cd = 5;
+  document.getElementById('countdownTimer').textContent = cd;
+  document.getElementById('stageAlert').classList.add('active');
+  if (!isSecureMuted) playAlertSound();
+  secureCountdownInterval = setInterval(() => {
+    cd--; document.getElementById('countdownTimer').textContent = cd;
+    if (cd <= 0) closeStageAlert();
+  }, 1000);
+  secureAlertTimeout = setTimeout(closeStageAlert, 5500);
+}
+function closeStageAlert() {
+  document.getElementById('stageAlert').classList.remove('active');
+  clearSecureAlertTimers();
+}
+function clearSecureAlertTimers() {
+  if (secureAlertTimeout)    { clearTimeout(secureAlertTimeout);    secureAlertTimeout = null; }
+  if (secureCountdownInterval){ clearInterval(secureCountdownInterval); secureCountdownInterval = null; }
+}
+function showStageNotification(seg) {
+  const icons = {Rest:'😴', Work:'💼', Gaming:'🎮'};
+  document.getElementById('notificationActivity').textContent = seg.activity + ' Stage';
+  document.getElementById('notificationInterval').textContent = `${seg.start} - ${seg.end}`;
+  document.getElementById('notificationIcon').textContent = icons[seg.activity] || '⏰';
+  const notif = document.getElementById('stageNotification');
+  notif.className = `stage-notification active notification-${seg.activity.toLowerCase()}`;
+  setTimeout(() => notif.classList.remove('active'), 3000);
+}
+function toggleSecureMute() {
+  isSecureMuted = !isSecureMuted;
+  document.getElementById('muteToggle').classList.toggle('muted', isSecureMuted);
+  document.getElementById('muteIcon').textContent = isSecureMuted ? '🔕' : '🔔';
+  saveSecureSchedulePreferences();
+}
+function updateSecureMuteToggle() {
+  document.getElementById('muteToggle')?.classList.toggle('muted', isSecureMuted);
+  const mi = document.getElementById('muteIcon');
+  if (mi) mi.textContent = isSecureMuted ? '🔕' : '🔔';
+}
+function playAlertSound() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator(), gain = ctx.createGain();
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.frequency.value = 800; osc.type = 'sine';
+    gain.gain.setValueAtTime(0.3, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.5);
+    osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.5);
+  } catch(e) {}
+}
+
+document.getElementById('muteToggle').addEventListener('click', toggleSecureMute);
+document.getElementById('stageAlert').addEventListener('click', e => { if (e.target === document.getElementById('stageAlert')) closeStageAlert(); });
+
+loadSecureSchedulePreferences();
+setInterval(checkSecureCurrentStage, 1000);
+checkSecureCurrentStage();
+
+/* ============================================================
+   QUOTES (expanded list)
+============================================================ */
+const textItems = [
+  "Everybody lies",
+  "It always seems impossible until it is done.",
+  "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
+  "Either you run the day or the day runs you.",
+  "Education is the most powerful weapon which you can use to change the world.",
+  "The only way to do great work is to love what you do.",
+  "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+  "The future belongs to those who believe in the beauty of their dreams.",
+  "Strive not to be a success, but rather to be of value.",
+  "The only limit to our realization of tomorrow is our doubts of today.",
+  "Life is what happens when you're busy making other plans.",
+  "The journey of a thousand miles begins with one step.",
+  "What you get by achieving your goals is not as important as what you become by achieving your goals.",
+  "Believe you can and you're halfway there.",
+  "It does not matter how slowly you go as long as you do not stop.",
+  "You are never too old to set another goal or to dream a new dream.",
+  "The secret of getting ahead is getting started.",
+  "Your time is limited, don't waste it living someone else's life.",
+  "If you can dream it, you can do it.",
+  "The only way to achieve the impossible is to believe it is possible."
+];
+let currentIndex = 0;
+const rotateQuotes = () => {
+  const q1 = document.getElementById('quotes-item-1');
+  const q2 = document.getElementById('quotes-item-2');
+  if (q1) q1.textContent = textItems[currentIndex];
+  if (q2) q2.textContent = textItems[(currentIndex+1) % textItems.length];
+  currentIndex = (currentIndex+1) % textItems.length;
+};
+setInterval(rotateQuotes, 5000);
+rotateQuotes();
+
+/* ============================================================
+   COUNTDOWN TIMER (unchanged)
+============================================================ */
+const countDownDate = new Date("Jun 13, 2026 00:00:00").getTime();
+setInterval(() => {
+  const dist = countDownDate - Date.now();
+  const el   = document.getElementById('demo');
+  if (!el) return;
+  if (dist < 0) { el.innerHTML = 'EXPIRED'; return; }
+  const d = Math.floor(dist/86400000), h = Math.floor((dist%86400000)/3600000),
+        m = Math.floor((dist%3600000)/60000), s = Math.floor((dist%60000)/1000);
+  el.innerHTML = `<i class="fas fa-hourglass-half"></i> ${d}d ${h}h ${m}m ${s}s`;
+}, 1000);
+
+/* ============================================================
+   STOPWATCH (unchanged)
+============================================================ */
+let [swSec, swMin, swHrs] = [0,0,0], swTimer = null, laps = [], lapCount = 0;
+const updateTimerDisplay = () => {
+  const el = document.getElementById('Timer_1');
+  if (el) el.textContent = `${String(swHrs).padStart(2,'0')}:${String(swMin).padStart(2,'0')}:${String(swSec).padStart(2,'0')}`;
+  const bar = document.getElementById('stopwatchProgress');
+  if (bar) bar.style.width = ((swHrs*3600+swMin*60+swSec) % 60 / 60 * 100) + '%';
+};
+const swTick = () => {
+  swSec++;
+  if (swSec===60){swSec=0;swMin++;if(swMin===60){swMin=0;swHrs++;}}
+  updateTimerDisplay();
+};
+const watchStart = () => { if (!swTimer) { swTimer = setInterval(swTick,1000); showToast('Stopwatch started','success'); } };
+const watchStop  = () => { clearInterval(swTimer); swTimer = null; showToast('Stopwatch stopped','info'); };
+const watchReset = () => { watchStop(); swSec=swMin=swHrs=0; laps=[]; lapCount=0; updateTimerDisplay(); updateLapDisplay(); };
+const confirmReset = () => { if (swTimer||laps.length){if(confirm('Reset the stopwatch? This will clear all lap times.')) watchReset();}else watchReset(); };
+const addLap = () => {
+  if (!swTimer) return;
+  lapCount++;
+  const t = `${String(swHrs).padStart(2,'0')}:${String(swMin).padStart(2,'0')}:${String(swSec).padStart(2,'0')}`;
+  laps.push({number:lapCount,time:t}); updateLapDisplay(); showToast(`Lap ${lapCount}: ${t}`,'info');
+};
+const updateLapDisplay = () => {
+  const c = document.getElementById('lapTimes');
+  if (!c) return;
+  c.innerHTML = '<h4>Lap Times:</h4>';
+  if (!laps.length) { c.innerHTML += '<div style="text-align:center;color:#999;padding:10px">No lap times recorded</div>'; return; }
+  laps.forEach(lap => {
+    const d = document.createElement('div');
+    d.style.cssText = 'padding:5px;border-bottom:1px solid #eee';
+    d.innerHTML = `<strong>Lap ${lap.number}:</strong> ${lap.time}`;
+    c.appendChild(d);
+  });
+};
+
+/* ============================================================
+   SCHOOL PORTAL (unchanged)
+============================================================ */
+const localApps = [
+  { name:"Python",                protocol:"python://open",   icon:"fab fa-python",      description:"Python programming environment",        badge:"Local App" },
+  { name:"Prezentacije (POWERSHELL)",protocol:"powershell",   icon:"fas fa-terminal",    description:"Run development server for presentations",badge:"Local Script", specialClass:"powershell-card" },
+  { name:"Obsidian",              protocol:"obsidian://open", icon:"fas fa-brain",       description:"Knowledge base (second brain)",          badge:"Local App" },
+  { name:"Anki",                  protocol:"anki://open",     icon:"fas fa-layer-group", description:"Flashcard learning",                     badge:"Local App" }
+];
+const websites = [
+  { name:"Mehaničko Inženjerstvo", url:"https://books.google.hr/books?id=SoL9ZpRnLrgC&printsec=frontcover&hl=hr", icon:"fas fa-book", description:"Mechanical engineering textbook", badge:"Website" },
+  { name:"Minecraft Redeem", url:"https://www.techfornerd.com/minecraft-redeem-codes/", icon:"fas fa-gamepad", description:"Minecraft redeem codes", badge:"Website" },
+  { name:"Kućni Internet", url:"http://192.168.5.1/", icon:"fas fa-wifi", description:"Home internet router", badge:"Local Network" },
+  { name:"IZZI", url:"https://hr.izzi.digital/#/", icon:"fas fa-tv", description:"IZZI digital platform", badge:"Website" },
+  { name:"Loomen", url:"https://loomen.carnet.hr/", icon:"fas fa-chalkboard-teacher", description:"Educational platform", badge:"Website" },
+  { name:"Elektronički udžbenici", url:"https://digitalni.element.hr/", icon:"fas fa-laptop", description:"Digital textbooks", badge:"Website" },
+  { name:"Learn German", url:"https://learngerman.dw.com/en/learn-german/s-9528", icon:"fas fa-language", description:"German language learning", badge:"Website" },
+  { name:"Github", url:"https://github.com/", icon:"fab fa-github", description:"Code repository", badge:"Website" },
+  { name:"Stack Overflow", url:"https://stackoverflow.co/", icon:"fab fa-stack-overflow", description:"Developer community", badge:"Website" },
+  { name:"GamDie", url:"https://apunkagames.cfd/gamdie/", icon:"fas fa-dice", description:"Gaming website", badge:"Website" },
+  { name:"Youtube Music", url:"https://music.youtube.com/", icon:"fab fa-youtube", description:"Music streaming", badge:"Website" },
+  { name:"Perplexity AI", url:"https://www.perplexity.ai/", icon:"fas fa-robot", description:"AI search assistant", badge:"Website" },
+  { name:"OnlineConverter", url:"https://theonlineconverter.com/", icon:"fas fa-exchange-alt", description:"File format converter", badge:"Website" },
+  { name:"Internet Archive", url:"https://archive.org/details/image", icon:"fas fa-archive", description:"Digital library", badge:"Website" },
+  { name:"Šah", url:"https://www.chess.com/", icon:"fas fa-chess", description:"Chess games", badge:"Website" },
+  { name:"Pathology Archive", url:"https://meridian.allenpress.com/aplm", icon:"fas fa-microscope", description:"Pathology resources", badge:"Website" },
+  { name:"Srednja.hr Kvizovi", url:"https://kvizovi.srednja.hr/", icon:"fas fa-question-circle", description:"Educational quizzes", badge:"Website" },
+  { name:"Google Translate", url:"https://translate.google.com/?sl=auto&tl=en&op=translate", icon:"fas fa-language", description:"Language translation", badge:"Website" },
+  { name:"MorseChat", url:"https://morse.halb.it/?channel=training", icon:"fas fa-comment", description:"Morse code training", badge:"Website" },
+  { name:"Google Drive", url:"https://workspace.google.com/products/drive/", icon:"fab fa-google-drive", description:"Cloud storage", badge:"Website" },
+  { name:"Songsterr", url:"https://www.songsterr.com/", icon:"fas fa-guitar", description:"Guitar tabs", badge:"Website" },
+  { name:"Muziker", url:"https://www.muziker.hr/", icon:"fas fa-music", description:"Music instruments store", badge:"Website" },
+  { name:"Eat this much", url:"https://www.eatthismuch.com/", icon:"fas fa-utensils", description:"Meal planning", badge:"Website" },
+  { name:"Cronometer", url:"https://cronometer.com/", icon:"fas fa-apple-alt", description:"Nutrition tracking", badge:"Website" },
+  { name:"Organizacija", url:"https://clickup.com/", icon:"fas fa-tasks", description:"Task management", badge:"Website" },
+  { name:"Kognitivnost", url:"https://www.wolframalpha.com/", icon:"fas fa-brain", description:"Computational intelligence", badge:"Website" },
+  { name:"Biologija Google Drive", url:"https://drive.google.com/drive/folders/13McGA8CtjM-Momg2Z84q8cD0dHn5YfAz", icon:"fas fa-dna", description:"Biology resources", badge:"Google Drive" },
+  { name:"Fizika pripreme", url:"https://drive.google.com/drive/folders/13u7_d_-rlDyTqMhCr8EPWOgCVotsPhZe", icon:"fas fa-atom", description:"Physics preparation materials", badge:"Google Drive" }
+];
+
+const createAppCard = (app) => {
+  const card = document.createElement('a');
+  card.className = `portal-card ${app.specialClass || ''}`;
+  card.href = '#';
+  card.setAttribute('title', app.description);
+  card.onclick = function(e) {
+    e.preventDefault();
+    if (app.protocol === 'powershell') alert("To run your presentation server:\n1. Open PowerShell\n2. Navigate to your project directory\n3. Run: npm run dev");
+    else { window.location.href = app.protocol; setTimeout(() => { if (confirm(`If ${app.name} didn't open, make sure it's installed.\nOpen shortcuts folder?`)) window.open('file:///C:/Users/CrozzyBoii/Documents/Shortcuts/School'); }, 1000); }
+  };
+  card.innerHTML = `<i class="${app.icon}"></i><div class="portal-info"><div class="portal-name">${app.name}</div><div class="portal-desc">${app.description}</div><span class="local-badge">${app.badge}</span></div>`;
+  return card;
+};
+const createWebsiteCard = (site) => {
+  const card = document.createElement('a');
+  card.className = 'portal-card';
+  card.href = site.url; card.target = '_blank';
+  card.setAttribute('title', site.description);
+  card.innerHTML = `<i class="${site.icon}"></i><div class="portal-info"><div class="portal-name">${site.name}</div><div class="portal-desc">${site.description}</div><span class="web-badge">${site.badge}</span></div>`;
+  return card;
+};
+
+function addNewPortalItem() {
+  const type = prompt("Enter type (local or website):");
+  if (!type || !['local','website'].includes(type)) { alert("Please enter 'local' or 'website'"); return; }
+  const name = prompt("Enter name:"); if (!name) return;
+  const description = prompt("Enter description:");
+  const icon = prompt("Enter icon class (e.g., fas fa-book):") || "fas fa-question";
+  if (type === 'local') {
+    const protocol = prompt("Enter protocol or 'powershell':"); if (!protocol) return;
+    const app = {name, protocol, icon, description: description||"Custom local application", badge:"Local App"};
+    if (protocol==='powershell') {app.specialClass="powershell-card"; app.badge="Local Script";}
+    localApps.push(app);
+    document.getElementById('localProgramsContainer')?.appendChild(createAppCard(app));
+    showToast('Added: ' + name, 'success');
+  } else {
+    let url = prompt("Enter website URL:"); if (!url) return;
+    if (!url.startsWith('http')) url = 'https://' + url;
+    const site = {name, url, icon, description: description||"Custom website", badge:"Website"};
+    websites.push(site);
+    document.getElementById('websitesContainer')?.appendChild(createWebsiteCard(site));
+    showToast('Added: ' + name, 'success');
+  }
+}
+
+const filterPortal = (type) => {
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  document.querySelector(`.filter-chip[data-filter="${type}"]`).classList.add('active');
+  const local = document.getElementById('local-programs-tab');
+  const web   = document.getElementById('websites-tab');
+  if (type === 'local') { local.classList.add('active'); web.classList.remove('active'); localStorage.setItem('lastActiveTab','local-programs-tab'); }
+  else                  { local.classList.remove('active'); web.classList.add('active'); localStorage.setItem('lastActiveTab','websites-tab'); }
+};
+
+const searchPortal = () => {
+  const q = (document.getElementById('portalSearch')?.value || '').toLowerCase();
+  document.querySelectorAll('.portal-card').forEach(card => {
+    const name = card.querySelector('.portal-name')?.textContent.toLowerCase() || '';
+    const desc = card.querySelector('.portal-desc')?.textContent.toLowerCase() || '';
+    card.style.display = (name.includes(q) || desc.includes(q)) ? 'flex' : 'none';
+  });
+};
+
+/* Context menu */
+let contextMenu = null;
+document.addEventListener('contextmenu', e => {
+  if (e.target.closest('.portal-card')) {
+    e.preventDefault();
+    if (contextMenu) contextMenu.remove();
+    const card = e.target.closest('.portal-card');
+    contextMenu = document.createElement('div');
+    contextMenu.className = 'context-menu';
+    contextMenu.style.left = e.pageX + 'px';
+    contextMenu.style.top  = e.pageY + 'px';
+    const href = card.href || '#';
+    contextMenu.innerHTML = `<div class="context-menu-item" onclick="window.open('${href}','_blank')"><i class="fas fa-external-link-alt"></i> Open in New Tab</div><div class="context-menu-item" onclick="copyToClipboard('${href}')"><i class="fas fa-copy"></i> Copy Link</div>`;
+    document.body.appendChild(contextMenu);
+  }
+});
+document.addEventListener('click', () => { if (contextMenu) { contextMenu.remove(); contextMenu = null; } });
+const copyToClipboard = (text) => { navigator.clipboard.writeText(text).then(() => showToast('Link copied!','success')); if (contextMenu) contextMenu.remove(); };
+
+/* ============================================================
+   TOAST
+============================================================ */
+const showToast = (msg, type = 'info') => {
+  const c = document.getElementById('toastContainer');
+  if (!c) return;
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.innerHTML = `<i class="fas fa-${type==='success'?'check-circle':type==='error'?'exclamation-circle':'info-circle'}"></i> ${msg}`;
+  c.appendChild(t);
+  setTimeout(() => t.classList.add('show'), 10);
+  setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 3000);
+};
+
+const copyAllLinks = () => {
+  const links = Array.from(document.querySelectorAll('#empty-window a.button-33')).map(a => a.href).filter(Boolean).join('\n');
+  navigator.clipboard.writeText(links).then(() => showToast('All links copied!','success')).catch(() => showToast('Failed to copy','error'));
+};
+
+/* Back to top */
+window.addEventListener('scroll', () => {
+  document.getElementById('backToTop').style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+});
+
+/* ============================================================
+   FILE MANAGER SYSTEM (unchanged)
+============================================================ */
+const fileManagerSystem = {
+  state: { loadedFiles:[], selectedFile:null, currentMode:'file', currentSearch:'', selectedFileIds: new Set() },
+  init() { this.loadSavedFiles(); this.setupDragAndDrop(); this.updateFileList(); this.updateFileCount(); },
+  switchMode(mode) {
+    this.state.currentMode = mode;
+    document.querySelectorAll('#fileManagerContainer .mode-btn').forEach(b => b.classList.remove('active'));
+    const btns = document.querySelectorAll('#fileManagerContainer .mode-btn');
+    if (btns[0] && mode==='file') btns[0].classList.add('active');
+    if (btns[1] && mode==='url')  btns[1].classList.add('active');
+    document.getElementById('fileMode').style.display  = mode==='file' ? 'block' : 'none';
+    document.getElementById('urlMode').style.display   = mode==='url'  ? 'block' : 'none';
+    if (mode==='url') this.clearSelectedFile();
+    else { const u = document.getElementById('webUrlInput'); if (u) u.value=''; }
+  },
+  handleFileSelect(ev) {
+    const f = ev.target.files[0]; if (!f) return;
+    if (!/\.(html|htm)$/i.test(f.name)) { alert('Please select an HTML file'); return; }
+    this.state.selectedFile = f;
+    document.getElementById('selectedFileName').textContent = f.name;
+    document.getElementById('selectedFileInfo').style.display = 'flex';
+  },
+  clearSelectedFile() { this.state.selectedFile=null; document.getElementById('htmlFileInput').value=''; document.getElementById('selectedFileInfo').style.display='none'; },
+  loadSelectedFile() {
+    if (!this.state.selectedFile) { alert('Please select an HTML file first'); return; }
+    if (this.state.loadedFiles.find(f=>f.name===this.state.selectedFile.name) && !confirm(`"${this.state.selectedFile.name}" already exists. Add again?`)) return;
+    const url = URL.createObjectURL(this.state.selectedFile);
+    this.state.loadedFiles.unshift({id:Date.now().toString(), name:this.state.selectedFile.name, url, type:'html', isSelected:false});
+    this.saveFiles(); this.clearSelectedFile(); this.updateFileList(); this.updateFileCount();
+    document.getElementById('filesList').scrollTop = 0;
+  },
+  loadWebURL() {
+    const inp = document.getElementById('webUrlInput'); if (!inp) return;
+    let url = inp.value.trim(); if (!url) { alert('Please enter a URL'); return; }
+    if (!url.startsWith('http')) url = 'https://' + url;
+    try { new URL(url); } catch(e) { alert('Invalid URL'); return; }
+    const u = new URL(url); let name = u.hostname; if (u.pathname !== '/' && u.pathname.length > 1) name += u.pathname;
+    if (this.state.loadedFiles.find(f=>f.url===url) && !confirm(`"${name}" already exists. Add again?`)) return;
+    this.state.loadedFiles.unshift({id:Date.now().toString(), name, url, type:'web', isSelected:false});
+    this.saveFiles(); inp.value=''; this.updateFileList(); this.updateFileCount();
+  },
+  loadSavedFiles() { try { this.state.loadedFiles = JSON.parse(localStorage.getItem('fm_files')||'[]'); } catch(e){ this.state.loadedFiles=[]; } },
+  saveFiles() { localStorage.setItem('fm_files', JSON.stringify(this.state.loadedFiles)); },
+  updateFileList() {
+    const c = document.getElementById('filesList'); if (!c) return;
+    const ff = this.getFilteredFiles();
+    if (!ff.length) { c.innerHTML=`<div class="empty-state"><div class="empty-icon">📁</div><p>${this.state.loadedFiles.length?'No files match your search':'No files loaded yet'}</p></div>`; this.updateBatchActions(); return; }
+    c.innerHTML = ff.map(f => `<div class="file-item" data-file-id="${f.id}"><input type="checkbox" class="file-checkbox" ${f.isSelected?'checked':''} onchange="fileManagerSystem.toggleFileSelection('${f.id}',this.checked)"><div class="file-icon">${f.type==='html'?'📄':'🌐'}</div><div class="file-details"><div class="file-name" title="${f.name}">${this.truncateText(f.name,40)}</div><div><span class="file-type">${f.type==='html'?'HTML File':'Web URL'}</span></div></div><div class="file-actions"><button class="action-btn open" onclick="fileManagerSystem.openFileInNewTab('${f.id}')">↗️ Open</button><button class="action-btn remove" onclick="fileManagerSystem.removeSingleFile('${f.id}')">🗑️ Remove</button></div></div>`).join('');
+    this.updateBatchActions();
+  },
+  getFilteredFiles() { if (!this.state.currentSearch) return this.state.loadedFiles; const q = this.state.currentSearch; return this.state.loadedFiles.filter(f => f.name.toLowerCase().includes(q)||(f.url&&f.url.toLowerCase().includes(q))); },
+  filterFiles() { const s = document.getElementById('fileSearch'); if (s) { this.state.currentSearch = s.value.toLowerCase(); this.updateFileList(); } },
+  toggleFileSelection(id, sel) { const f = this.state.loadedFiles.find(x=>x.id===id); if (f) { f.isSelected=sel; sel?this.state.selectedFileIds.add(id):this.state.selectedFileIds.delete(id); this.saveFiles(); this.updateBatchActions(); } },
+  updateBatchActions() { const ba=document.getElementById('batchActions'),sc=document.getElementById('selectedCount'); if(ba&&sc){const n=this.state.selectedFileIds.size; if(n>0){ba.style.display='flex';sc.textContent=n;}else ba.style.display='none';} },
+  openSelectedFiles() { if(!this.state.selectedFileIds.size){alert('No files selected');return;} this.state.loadedFiles.filter(f=>this.state.selectedFileIds.has(f.id)).forEach(f=>window.open(f.url,'_blank')); this.clearSelection(); },
+  removeSelectedFiles() { if(!this.state.selectedFileIds.size){alert('No files selected');return;} if(!confirm(`Remove ${this.state.selectedFileIds.size} file(s)?`))return; this.state.loadedFiles.forEach(f=>{if(this.state.selectedFileIds.has(f.id)&&f.type==='html'&&f.url.startsWith('blob:'))URL.revokeObjectURL(f.url);}); this.state.loadedFiles=this.state.loadedFiles.filter(f=>!this.state.selectedFileIds.has(f.id)); this.clearSelection(); this.saveFiles(); this.updateFileList(); this.updateFileCount(); },
+  openFileInNewTab(id) { const f=this.state.loadedFiles.find(x=>x.id===id); if(f)window.open(f.url,'_blank'); },
+  removeSingleFile(id) { const f=this.state.loadedFiles.find(x=>x.id===id); if(!f||!confirm(`Remove "${f.name}"?`))return; if(f.type==='html'&&f.url.startsWith('blob:'))URL.revokeObjectURL(f.url); this.state.loadedFiles=this.state.loadedFiles.filter(x=>x.id!==id); if(this.state.selectedFileIds.has(id))this.state.selectedFileIds.delete(id); this.saveFiles(); this.updateFileList(); this.updateFileCount(); },
+  clearAllFiles() { if(!this.state.loadedFiles.length)return; if(!confirm(`Remove all ${this.state.loadedFiles.length} files?`))return; this.state.loadedFiles.forEach(f=>{if(f.type==='html'&&f.url.startsWith('blob:'))URL.revokeObjectURL(f.url);}); this.state.loadedFiles=[]; this.state.selectedFileIds.clear(); this.saveFiles(); this.updateFileList(); this.updateFileCount(); this.updateBatchActions(); },
+  clearSelection() { this.state.loadedFiles.forEach(f=>f.isSelected=false); this.state.selectedFileIds.clear(); this.saveFiles(); this.updateFileList(); this.updateBatchActions(); },
+  updateFileCount() { const el=document.getElementById('fileCount'); if(el)el.textContent=this.state.loadedFiles.length; },
+  setupDragAndDrop() {
+    const drop = document.querySelector('#fileManagerContainer .file-input-label'); if (!drop) return;
+    ['dragenter','dragover','dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();e.stopPropagation();},false));
+    ['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,()=>{drop.style.borderColor='#667eea';drop.style.background='#e0e7ff';},false));
+    ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,()=>{drop.style.borderColor='';drop.style.background='';},false));
+    drop.addEventListener('drop', e => {
+      const f = e.dataTransfer.files[0]; if (!f) return;
+      if (!/\.(html|htm)$/i.test(f.name)) { alert('Please drop an HTML file'); return; }
+      const inp = document.getElementById('htmlFileInput'); if (!inp) return;
+      const dt = new DataTransfer(); dt.items.add(f); inp.files = dt.files;
+      inp.dispatchEvent(new Event('change',{bubbles:true}));
+    },false);
+  },
+  truncateText(t,max) { return !t||t.length<=max?t:t.substring(0,max-3)+'...'; }
+};
+
+/* ============================================================
+   SPLASH SCREEN
+============================================================ */
+(function() {
+  const names = [
+    "Alexandra Elbakyan","Anton Napolsky","Valeriia Ermakova","Anna Archivist (pseudonym)",
+    "bookwarrior (pseudonym)","Daniel Khromov","Igor Osychenko","Maxim Moshkov",
+    "Gottfrid Svartholm Warg","Fredrik Neij","Peter Sunde","Carl Lundström",
+    "Anakata (alias of Gottfrid Svartholm)","TiAMO","Aaron Swartz","Julian Assange",
+    "Chelsea Manning","Edward Snowden","Jeremy Hammond","Barrett Brown",
+    "Bram Cohen","Shawn Fanning","Sean Parker","Kim Dotcom","Mark Gorton",
+    "Niklas Zennström","Janus Friis","Brewster Kahle","Carl Malamud","Rick Prelinger",
+    "Jason Scott","Aaron Halfaker","Andy Baio","Maria A. Matienzo","James Jacobs",
+    "Lawrence Lessig","Jimmy Wales","Richard Stallman","Linus Torvalds","Eric S. Raymond",
+    "Cory Doctorow","Yochai Benkler","John Gilmore","Mitch Kapor","Rick Falkvinge",
+    "Julia Reda","Amelia Andersdotter","Christian Engström","Mikuláš Peksa","Falkvinge supporters",
+    "Daniel Ellsberg","Glenn Greenwald","Laura Poitras","Jacob Appelbaum","Andy Müller-Maguhn",
+    "Jeremie Zimmermann","Cory Ondrejka","Markus Persson","Ernesto Van der Sar","Andy Maxwell",
+    "Balázs Bodó","Katarzyna Szymielewicz","Joe Karaganis","Gabriel Weinberg","Benkler collaborators (multiple)",
+    "Rasmus Fleischer","Jonas Andersson Schwarz","Felix Stalder","Gabriella Coleman","Nathan Schneider",
+    "Ethan Zuckerman","Clay Shirky","Aaron Shaw","Aram Sinnreich","Siva Vaidhyanathan",
+    "Wendy Seltzer","James Boyle","Pamela Samuelson","Michael Geist","Hal Abelson",
+    "Eben Moglen","Lawrence Liang","Nader El-Sayed","Pranesh Prakash","Renata Avila",
+    "Corynne McSherry","Danny O'Brien","Rebecca Giblin","Timothy Vollmer","Heather Joseph",
+    "Peter Suber","Stevan Harnad"
+  ].sort((a,b) => a.localeCompare(b));
+
+  const extended = [...names,...names,...names];
+  const lEl = document.getElementById('left-names');
+  const rEl = document.getElementById('right-names');
+  const cEl = document.getElementById('name-count');
+
+  extended.forEach(n => {
+    const li1 = document.createElement('li'); li1.textContent = n; lEl.appendChild(li1);
+    const li2 = document.createElement('li'); li2.textContent = n; rEl.appendChild(li2);
+  });
+  if (cEl) cEl.textContent = `✨ ${names.length} names ✨`;
+
+  const splash = document.getElementById('splash-screen');
+  setTimeout(() => {
+    splash.classList.add('hide');
+    setTimeout(() => splash.style.display = 'none', 1000);
+  }, 10000);
+})();
+
+/* ============================================================
+   INIT
+============================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  // Portal cards
+  const lc = document.getElementById('localProgramsContainer');
+  const wc = document.getElementById('websitesContainer');
+  if (lc) localApps.forEach(app => lc.appendChild(createAppCard(app)));
+  if (wc) websites.forEach(site => wc.appendChild(createWebsiteCard(site)));
+
+  // Portal search
+  document.getElementById('portalSearch')?.addEventListener('input', searchPortal);
+
+  // File manager URL enter key
+  document.getElementById('webUrlInput')?.addEventListener('keypress', e => { if(e.key==='Enter') fileManagerSystem.loadWebURL(); });
+
+  // Image loading states
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('load',  function() { this.classList.remove('loading'); });
+    img.addEventListener('error', function() { this.classList.remove('loading'); this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNlZWVlZWUiLz48dGV4dCB4PSIxMDAiIHk9IjEwMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+SW1hZ2Ugbm90IGZvdW5kPC90ZXh0Pjwvc3ZnPg=='; });
+    if (!img.complete) img.classList.add('loading');
+  });
+});
+</script>
+</body>
+</html>

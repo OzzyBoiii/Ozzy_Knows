@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Window Component</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* ============================================================
+                   NEW WINDOW – BASE CONTAINER (the "NewWindow" shell)
+                   ============================================================ */
+        .newWindow {
+            position: fixed;
+            top: 5%;
+            left: 5%;
+            height: 90%;
+            width: 90%;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border: 2px solid #ff9800;
+            display: none;
+            grid-template-columns: 35% 65%;
+            grid-template-areas: "images content";
+            padding: 15px;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .newWindow.active {
+            display: grid;
+            animation: popIn 0.5s ease-out;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* layout variants */
+        .newWindow.swapped {
+            grid-template-columns: 65% 35%;
+            grid-template-areas: "content images";
+        }
+
+        .newWindow.no-images {
+            grid-template-columns: 100%;
+            grid-template-areas: "content";
+        }
+
+        .newWindow.no-images .window-column {
+            display: none;
+        }
+
+        /* ---- left column (images) ---- */
+        .window-column {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            grid-area: images;
+            justify-content: flex-start;
+            align-items: center;
+            border-right: 2px solid rgba(255, 255, 255, 0.1);
+            padding: 0 15px;
+        }
+
+        .title-grid-container {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 10px;
+            background: rgba(0, 0, 0, 0.3);
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .title-grid-container h3 {
+            text-align: center;
+            margin: 0;
+            color: #ffeb3b;
+            font-size: 1.4rem;
+        }
+
+        .image-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            max-width: 800px;
+            height: calc(100vh - 200px);
+        }
+
+        .image-square {
+            height: 400px;
+            width: 100%;
+            min-width: 400px;
+            flex-shrink: 0;
+            border: 2px solid #ff9800;
+            overflow: hidden;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .image-controls .button-87 {
+            padding: 8px 12px;
+            margin: 0;
+            font-size: 0.8em;
+        }
+
+        .image-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+            height: 300px;
+            padding: 15px;
+            overflow: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .image-display img {
+            max-width: 100%;
+            max-height: 100%;
+            transition: transform 0.3s ease;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .image-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .image-info h3 {
+            font-size: 1.3rem;
+            padding: 5px;
+            margin: 0;
+            color: #ffeb3b;
+        }
+
+        /* ---- right column (content) ---- */
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            padding: 0 15px;
+            grid-area: content;
+        }
+
+        .newWindow.no-images .content-container {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+        }
+
+        .text-controls-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .text-controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 6px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .text-zoom-controls {
+            display: contents;
+        }
+
+        .layout-controls {
+            display: contents;
+            justify-self: end;
+        }
+
+        .text-content {
+            padding: 30px;
+            overflow: auto;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            height: 100%;
+            text-align: center;
+        }
+
+        .newWindow.no-images .text-content {
+            height: calc(100% - 60px);
+        }
+
+        .zoomable-text {
+            display: inline-block;
+            max-width: 90%;
+            margin: 0 auto;
+            font-size: 1.2em;
+            color: #fff;
+            line-height: 1.8;
+            text-align: left;
+            padding: 0 20px;
+        }
+
+        .text-close-button {
+            display: none;
+        }
+
+        .newWindow.no-images .text-close-button {
+            display: block;
+        }
+
+        /* ============================================================
+                   BUTTON STYLES (reused inside window)
+                   ============================================================ */
+        .button-87 {
+            margin: 10px;
+            padding: 15px 30px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: background-position 0.3s ease, transform 0.2s, box-shadow 0.2s;
+            background-size: 200% auto;
+            color: white;
+            border-radius: 10px;
+            display: inline-block;
+            border: 0;
+            font-weight: 700;
+            box-shadow: 0 0 14px -7px #F09819;
+            background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
+            cursor: pointer;
+            user-select: none;
+            touch-action: manipulation;
+        }
+
+        .button-87:hover {
+            background-position: right center;
+            color: #fff;
+            text-decoration: none;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-87:active {
+            transform: scale(0.95);
+        }
+
+        /* ============================================================
+                   ENHANCED EXAMPLE SLIDER (the "Example Window" content)
+                   ============================================================ */
+        .enh-slider-wrap {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            border-radius: 15px;
+            background: rgba(10, 15, 35, 0.7);
+            border: 2px solid #ff9800;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .enh-slider-track {
+            display: flex;
+            transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+
+        .enh-slide {
+            flex: 0 0 100%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.15);
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+
+        .enh-slide.active {
+            opacity: 1;
+        }
+
+        .enh-slide h3 {
+            color: #ff9800;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .enh-slide ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            max-width: 360px;
+        }
+
+        .enh-slide li {
+            padding: 9px 18px;
+            margin: 7px 0;
+            background: rgba(255, 152, 0, 0.15);
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .enh-slide img {
+            max-width: 100%;
+            max-height: 160px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        .enh-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .enh-counter {
+            font-family: 'Courier New', monospace;
+            color: #ff9800;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 152, 0, 0.4);
+            position: absolute;
+            top: -28px;
+            right: 0;
+        }
+
+        .enh-dots {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .enh-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .enh-dot.active {
+            background: #ff9800;
+            transform: scale(1.4);
+            box-shadow: 0 0 8px rgba(255, 152, 0, 0.8);
+        }
+
+        .enh-dot:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(1.2);
+        }
+
+        .enh-progress {
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+
+        .enh-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ff9800, #ffdb58);
+            transition: width 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .enh-autoplay-btn {
+            background: rgba(255, 152, 0, 0.15);
+            border: 1px solid rgba(255, 152, 0, 0.4);
+            color: #ff9800;
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .enh-autoplay-btn.playing {
+            background: rgba(255, 152, 0, 0.3);
+        }
+
+        .enh-hint {
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        /* ============================================================
+                   RESPONSIVE
+                   ============================================================ */
+        @media (max-width: 768px) {
+            .newWindow {
+                width: 95%;
+                left: 2.5%;
+                grid-template-columns: 100%;
+                grid-template-areas: "content";
+            }
+
+            .window-column {
+                display: none;
+            }
+
+            .image-square {
+                height: 300px;
+                min-width: 300px;
+            }
+
+            .zoomable-text {
+                padding: 0;
+                max-width: 100%;
+            }
+        }
+
+        /* ============================================================
+                   DEMO PAGE – just to show the trigger button
+                   ============================================================ */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0f172a;
+            font-family: "Asap", sans-serif;
+            color: #fff;
+        }
+
+        .demo-card {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .demo-card h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.3rem;
+            color: #ffeb3b;
+        }
+
+        .demo-card p {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    DEMO PAGE – triggers the NewWindow containing the Example slider
+    ============================================================ -->
+    <div class="demo-card">
+        <h1>📦 Example Window</h1>
+        <p>Click the button below to open the <strong>NewWindow</strong> container<br>
+            with the <strong>Example Slider</strong> inside it.</p>
+        <button class="button-87" data-toggle-window="newWindow_3">
+            <i class="fas fa-window-maximize"></i> Open Example Window
+        </button>
+        <div style="margin-top:1rem;font-size:0.85rem;color:#64748b;">
+            ← → arrow keys · auto‑play · zoom &amp; layout controls
+        </div>
+    </div>
+
+    <!-- ============================================================
+    NEW WINDOW – the container shell (NewWindow)
+    The Example Slider lives inside .text-content → .zoomable-text
+    ============================================================ -->
+    <div class="newWindow" id="newWindow_3" role="dialog" aria-label="Example Window" aria-modal="true">
+
+        <!-- LEFT COLUMN: images -->
+        <div class="window-column">
+            <div class="title-grid-container">
+                <h3>Example Visualizations</h3>
+                <button class="button-87" data-toggle-window="newWindow_3">Close</button>
+            </div>
+            <div class="image-container">
+
+                <!-- Image 1 -->
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" data-zoom-in="image5">+</button>
+                        <button class="button-87" data-zoom-out="image5">−</button>
+                        <button class="button-87" data-zoom-reset="image5">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img class="zoomable-image" id="image5" src="https://via.placeholder.com/600x400/1a2a6c/ffffff?text=Geometric+Representation" alt="Geometric Representation">
+                    </div>
+                    <div class="image-info"><h3>Geometric Representation</h3></div>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="image-square">
+                    <div class="image-controls">
+                        <button class="button-87" data-zoom-in="image6">+</button>
+                        <button class="button-87" data-zoom-out="image6">−</button>
+                        <button class="button-87" data-zoom-reset="image6">Reset</button>
+                    </div>
+                    <div class="image-display">
+                        <img class="zoomable-image" id="image6" src="https://via.placeholder.com/600x400/2a5298/ffffff?text=Perpendicular+Construction" alt="Perpendicular Construction">
+                    </div>
+                    <div class="image-info"><h3>Perpendicular Construction</h3></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: content + Example Slider -->
+        <div class="content-container">
+
+            <!-- text controls (zoom, layout, close) -->
+            <div class="text-controls-container">
+                <div class="text-controls-grid">
+                    <div class="text-zoom-controls">
+                        <button class="button-87" data-text-zoom-in="newWindow_3">Text +</button>
+                        <button class="button-87" data-text-zoom-out="newWindow_3">Text −</button>
+                        <button class="button-87" data-text-zoom-reset="newWindow_3">Reset</button>
+                        <button class="button-87 text-close-button" data-toggle-window="newWindow_3">Close</button>
+                    </div>
+                    <div class="layout-controls">
+                        <button class="button-87" data-cycle-layout="newWindow_3">🖼️ ↔</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- text content – the Example Slider lives here -->
+            <div class="text-content">
+                <div class="zoomable-text">
+
+                    <!-- =============================================
+                    ENHANCED EXAMPLE SLIDER (the "Example Window")
+                    ============================================= -->
+                    <div class="enh-slider-wrap" id="enhSliderWrap">
+                        <div class="enh-slider-track" id="enhSliderTrack">
+
+                            <!-- Slide 1 -->
+                            <div class="enh-slide active">
+                                <h3>Algebra Basics</h3>
+                                <ul>
+                                    <li>Linear equations: y = mx + b</li>
+                                    <li>Quadratic formulas: ax² + bx + c = 0</li>
+                                    <li>Polynomial expressions &amp; factoring</li>
+                                    <li>Exponential and logarithmic functions</li>
+                                </ul>
+                            </div>
+
+                            <!-- Slide 2 -->
+                            <div class="enh-slide">
+                                <h3>Geometry Concepts</h3>
+                                <img src="https://via.placeholder.com/450x160/1a2a6c/ffffff?text=Geometry+Visual" alt="Geometry">
+                                <ul>
+                                    <li>Pythagorean theorem: a² + b² = c²</li>
+                                    <li>Circle properties and π calculations</li>
+                                    <li>Trigonometric ratios: sin, cos, tan</li>
+                                </ul>
+                            </div>
+
+                            <!-- Slide 3 -->
+                            <div class="enh-slide">
+                                <h3>Calculus Fundamentals</h3>
+                                <ul>
+                                    <li>Limits and continuity analysis</li>
+                                    <li>Derivatives — rate of change</li>
+                                    <li>Integrals — area under curves</li>
+                                    <li>Differential equations</li>
+                                </ul>
+                            </div>
+
+                            <!-- Slide 4 -->
+                            <div class="enh-slide">
+                                <img src="https://via.placeholder.com/450x160/2a5298/ffffff?text=Math+Visualization" alt="Math Vis">
+                                <h3>Visual Learning</h3>
+                                <ul>
+                                    <li>Graphical representations</li>
+                                    <li>Geometric proofs &amp; constructions</li>
+                                    <li>Statistical graphs and charts</li>
+                                </ul>
+                            </div>
+
+                        </div><!-- /enh-slider-track -->
+                    </div><!-- /enh-slider-wrap -->
+
+                    <!-- progress bar -->
+                    <div class="enh-progress">
+                        <div class="enh-progress-bar" id="enhProgressBar"></div>
+                    </div>
+
+                    <!-- controls -->
+                    <div class="enh-controls">
+                        <div class="enh-counter" id="enhCounter">1/4</div>
+                        <button class="button-87" id="enhPrevBtn" style="margin:0;padding:8px 18px;">‹ Prev</button>
+                        <div class="enh-dots" id="enhDots"></div>
+                        <button class="button-87" id="enhNextBtn" style="margin:0;padding:8px 18px;">Next ›</button>
+                        <button class="enh-autoplay-btn" id="enhAutoplayBtn">▶ Auto</button>
+                    </div>
+                    <div class="enh-hint">Arrow keys ← → or swipe to navigate</div>
+                    <!-- =============================================
+                    END EXAMPLE SLIDER
+                    ============================================= -->
+
+                </div><!-- /zoomable-text -->
+            </div><!-- /text-content -->
+        </div><!-- /content-container -->
+    </div><!-- /newWindow_3 -->
+
+    <!-- ============================================================
+    JAVASCRIPT – all logic for the NewWindow + Example Slider
+    ============================================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            /* ------------------------------------------------------------
+               STATE
+               ------------------------------------------------------------ */
+            const state = {
+                // image zoom
+                imageScales: {},
+                zoomInterval: null,
+
+                // text zoom
+                textScales: {},
+
+                // layout
+                layoutIndex: 0,
+                LAYOUT_STATES: ['default', 'swapped', 'no-images'],
+
+                // slider
+                exampleSlide: 0,
+                exampleCount: 4,
+                autoTimer: null,
+                isAnimating: false,
+                touchStartX: 0,
+            };
+
+            /* ------------------------------------------------------------
+               UTILITY
+               ------------------------------------------------------------ */
+            const $ = id => document.getElementById(id);
+            const throttle = (fn, ms) => {
+                let t;
+                return (...a) => { if (!t) { fn(...a);
+                        t = setTimeout(() => t = null, ms); } };
+            };
+
+            /* ------------------------------------------------------------
+               WINDOW TOGGLE
+               ------------------------------------------------------------ */
+            function toggleWindow(windowId) {
+                const win = $(windowId);
+                if (!win) return;
+
+                if (win.classList.contains('active')) {
+                    win.classList.remove('active');
+                    document.body.style.overflow = '';
+                    // stop auto-play when closing
+                    if (windowId === 'newWindow_3') stopAutoPlay();
+                } else {
+                    // close all other windows
+                    document.querySelectorAll('.newWindow.active').forEach(w => {
+                        w.classList.remove('active');
+                    });
+                    win.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+
+                    // init slider if it's the example window
+                    if (windowId === 'newWindow_3') initExampleSlider();
+                }
+            }
+
+            /* ------------------------------------------------------------
+               IMAGE ZOOM
+               ------------------------------------------------------------ */
+            function startZoom(direction, imageId) {
+                stopZoom();
+                const fn = () => {
+                    const s = state.imageScales;
+                    if (!s[imageId]) s[imageId] = 1;
+                    s[imageId] = direction === 'in' ?
+                        s[imageId] + 0.1 :
+                        Math.max(0.5, s[imageId] - 0.1);
+                    const img = $(imageId);
+                    if (img) img.style.transform = 'scale(' + s[imageId] + ')';
+                };
+                fn();
+                state.zoomInterval = setInterval(fn, 80);
+            }
+
+            function stopZoom() {
+                if (state.zoomInterval) {
+                    clearInterval(state.zoomInterval);
+                    state.zoomInterval = null;
+                }
+            }
+
+            function resetZoom(imageId) {
+                state.imageScales[imageId] = 1;
+                const img = $(imageId);
+                if (img) {
+                    img.style.transform = 'scale(1)';
+                    if (img.parentElement) img.parentElement.scrollTop = 0;
+                }
+            }
+
+            /* ------------------------------------------------------------
+               TEXT ZOOM
+               ------------------------------------------------------------ */
+            function zoomInText(windowId) {
+                const s = state.textScales;
+                s[windowId] = (s[windowId] || 1) + 0.1;
+                document.querySelectorAll('#' + windowId + ' .zoomable-text')
+                    .forEach(el => el.style.fontSize = s[windowId] + 'em');
+            }
+
+            function zoomOutText(windowId) {
+                const s = state.textScales;
+                s[windowId] = Math.max(0.5, (s[windowId] || 1) - 0.1);
+                document.querySelectorAll('#' + windowId + ' .zoomable-text')
+                    .forEach(el => el.style.fontSize = s[windowId] + 'em');
+            }
+
+            function resetZoomText(windowId) {
+                state.textScales[windowId] = 1;
+                document.querySelectorAll('#' + windowId + ' .zoomable-text')
+                    .forEach(el => el.style.fontSize = '1em');
+            }
+
+            /* ------------------------------------------------------------
+               LAYOUT CYCLING
+               ------------------------------------------------------------ */
+            function cycleLayout(windowId) {
+                const win = $(windowId);
+                if (!win) return;
+                win.classList.remove('swapped', 'no-images');
+                state.layoutIndex = (state.layoutIndex + 1) % state.LAYOUT_STATES.length;
+                const next = state.LAYOUT_STATES[state.layoutIndex];
+                if (next !== 'default') win.classList.add(next);
+            }
+
+            /* ------------------------------------------------------------
+               ENHANCED EXAMPLE SLIDER
+               ------------------------------------------------------------ */
+            function initExampleSlider() {
+                // build dots if they don't exist
+                const dots = $('enhDots');
+                if (!dots) return;
+                if (dots.children.length === 0) {
+                    for (let i = 0; i < state.exampleCount; i++) {
+                        const d = document.createElement('div');
+                        d.className = 'enh-dot' + (i === 0 ? ' active' : '');
+                        d.addEventListener('click', function() {
+                            goToSlide(i);
+                            stopAutoPlay();
+                        });
+                        dots.appendChild(d);
+                    }
+                }
+                // ensure progress bar is set
+                updateSliderUI();
+
+                // bind controls (only once)
+                if (!window._enhSliderBound) {
+                    window._enhSliderBound = true;
+                    bindSliderEvents();
+                }
+
+                // start auto-play if not already running
+                if (!state.autoTimer) startAutoPlay();
+            }
+
+            function goToSlide(idx) {
+                if (state.isAnimating) return;
+                state.isAnimating = true;
+                state.exampleSlide = Math.max(0, Math.min(idx, state.exampleCount - 1));
+
+                const track = $('enhSliderTrack');
+                if (track) {
+                    track.style.transform = 'translateX(-' + (state.exampleSlide * 100) + '%)';
+                }
+
+                // active class on slides
+                document.querySelectorAll('.enh-slide').forEach((s, i) => {
+                    s.classList.toggle('active', i === state.exampleSlide);
+                });
+
+                updateSliderUI();
+                setTimeout(() => { state.isAnimating = false; }, 580);
+            }
+
+            function slideExample(dir) {
+                goToSlide(state.exampleSlide + dir);
+                stopAutoPlay();
+            }
+
+            function updateSliderUI() {
+                // dots
+                document.querySelectorAll('.enh-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === state.exampleSlide);
+                });
+
+                // counter
+                const cnt = $('enhCounter');
+                if (cnt) cnt.textContent = (state.exampleSlide + 1) + '/' + state.exampleCount;
+
+                // progress bar
+                const bar = $('enhProgressBar');
+                if (bar) {
+                    bar.style.width = (((state.exampleSlide + 1) / state.exampleCount) * 100) + '%';
+                }
+
+                // prev/next opacity
+                const prevBtn = $('enhPrevBtn');
+                const nextBtn = $('enhNextBtn');
+                if (prevBtn) prevBtn.style.opacity = state.exampleSlide === 0 ? '0.4' : '1';
+                if (nextBtn) nextBtn.style.opacity = state.exampleSlide === state.exampleCount - 1 ? '0.4' : '1';
+            }
+
+            /* ---- auto-play ---- */
+            function startAutoPlay() {
+                stopAutoPlay();
+                state.autoTimer = setInterval(function() {
+                    goToSlide((state.exampleSlide + 1) % state.exampleCount);
+                }, 3500);
+                const btn = $('enhAutoplayBtn');
+                if (btn) {
+                    btn.textContent = '⏸ Auto';
+                    btn.classList.add('playing');
+                }
+            }
+
+            function stopAutoPlay() {
+                clearInterval(state.autoTimer);
+                state.autoTimer = null;
+                const btn = $('enhAutoplayBtn');
+                if (btn) {
+                    btn.textContent = '▶ Auto';
+                    btn.classList.remove('playing');
+                }
+            }
+
+            function toggleAutoPlay() {
+                state.autoTimer ? stopAutoPlay() : startAutoPlay();
+            }
+
+            /* ---- bind slider events ---- */
+            function bindSliderEvents() {
+                const prevBtn = $('enhPrevBtn');
+                const nextBtn = $('enhNextBtn');
+                const autoBtn = $('enhAutoplayBtn');
+
+                if (prevBtn) prevBtn.addEventListener('click', function() { slideExample(-1); });
+                if (nextBtn) nextBtn.addEventListener('click', function() { slideExample(1); });
+                if (autoBtn) autoBtn.addEventListener('click', toggleAutoPlay);
+
+                // touch swipe
+                const wrap = $('enhSliderWrap');
+                if (wrap) {
+                    wrap.addEventListener('touchstart', function(e) {
+                        state.touchStartX = e.changedTouches[0].screenX;
+                    }, { passive: true });
+
+                    wrap.addEventListener('touchend', function(e) {
+                        const dx = state.touchStartX - e.changedTouches[0].screenX;
+                        if (Math.abs(dx) > 40) {
+                            slideExample(dx > 0 ? 1 : -1);
+                            stopAutoPlay();
+                        }
+                    }, { passive: true });
+
+                    // pause auto on hover
+                    wrap.addEventListener('mouseenter', stopAutoPlay);
+                }
+
+                // keyboard arrows (only when window is open)
+                document.addEventListener('keydown', function(e) {
+                    const win = $('newWindow_3');
+                    if (!win || !win.classList.contains('active')) return;
+                    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+                    if (e.key === 'ArrowLeft') {
+                        slideExample(-1);
+                        stopAutoPlay();
+                        e.preventDefault();
+                    }
+                    if (e.key === 'ArrowRight') {
+                        slideExample(1);
+                        stopAutoPlay();
+                        e.preventDefault();
+                    }
+                });
+            }
+
+            /* ------------------------------------------------------------
+               DELEGATED EVENT LISTENERS (clicks on buttons inside window)
+               ------------------------------------------------------------ */
+            function initDelegatedEvents() {
+                document.addEventListener('click', function(e) {
+                    const btn = e.target.closest('button, [data-toggle-window]');
+                    if (!btn) return;
+
+                    // window toggle
+                    const tw = btn.dataset.toggleWindow || btn.getAttribute('data-toggle-window');
+                    if (tw) {
+                        toggleWindow(tw);
+                        return;
+                    }
+
+                    // image zoom
+                    if (btn.dataset.zoomIn) { startZoom('in', btn.dataset.zoomIn); return; }
+                    if (btn.dataset.zoomOut) { startZoom('out', btn.dataset.zoomOut); return; }
+                    if (btn.dataset.zoomReset) { resetZoom(btn.dataset.zoomReset); return; }
+
+                    // text zoom
+                    if (btn.dataset.textZoomIn) { zoomInText(btn.dataset.textZoomIn); return; }
+                    if (btn.dataset.textZoomOut) { zoomOutText(btn.dataset.textZoomOut); return; }
+                    if (btn.dataset.textZoomReset) { resetZoomText(btn.dataset.textZoomReset); return; }
+
+                    // layout cycle
+                    if (btn.dataset.cycleLayout) { cycleLayout(btn.dataset.cycleLayout); return; }
+                });
+
+                // stop zoom on mouseup / mouseleave
+                document.addEventListener('mouseup', stopZoom);
+                document.addEventListener('mouseleave', stopZoom);
+
+                // ESC closes window
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        document.querySelectorAll('.newWindow.active').forEach(w => {
+                            w.classList.remove('active');
+                            document.body.style.overflow = '';
+                            if (w.id === 'newWindow_3') stopAutoPlay();
+                        });
+                    }
+                });
+
+                // click outside window to close
+                document.addEventListener('click', function(e) {
+                    document.querySelectorAll('.newWindow.active').forEach(win => {
+                        if (!win.contains(e.target) && !e.target.closest('[data-toggle-window]')) {
+                            win.classList.remove('active');
+                            document.body.style.overflow = '';
+                            if (win.id === 'newWindow_3') stopAutoPlay();
+                        }
+                    });
+                });
+            }
+
+            /* ------------------------------------------------------------
+               DRAG-TO-PAN on images
+               ------------------------------------------------------------ */
+            function initDrag() {
+                let isDragging = false;
+                let dragStart = { x: 0, y: 0 };
+                let dragScroll = { x: 0, y: 0 };
+                let dragImageId = null;
+
+                document.addEventListener('mousedown', function(e) {
+                    const display = e.target.closest('.image-display');
+                    if (!display) return;
+                    isDragging = true;
+                    dragStart = { x: e.clientX, y: e.clientY };
+                    dragScroll = { x: display.scrollLeft, y: display.scrollTop };
+                    const img = display.querySelector('img');
+                    dragImageId = img ? img.id : null;
+                    display.style.cursor = 'grabbing';
+                    e.preventDefault();
+                }, { passive: false });
+
+                document.addEventListener('mousemove', function(e) {
+                    if (!isDragging || !dragImageId) return;
+                    const img = $(dragImageId);
+                    if (!img) return;
+                    const c = img.parentElement;
+                    c.scrollLeft = dragScroll.x - (e.clientX - dragStart.x);
+                    c.scrollTop = dragScroll.y - (e.clientY - dragStart.y);
+                });
+
+                document.addEventListener('mouseup', function() {
+                    isDragging = false;
+                    document.querySelectorAll('.image-display').forEach(d => d.style.cursor = 'grab');
+                    dragImageId = null;
+                });
+            }
+
+            /* ------------------------------------------------------------
+               INIT
+               ------------------------------------------------------------ */
+            document.addEventListener('DOMContentLoaded', function() {
+                initDelegatedEvents();
+                initDrag();
+
+                // pre-build slider dots so they're ready when window opens
+                // but only if the dots container exists
+                const dots = $('enhDots');
+                if (dots && dots.children.length === 0) {
+                    for (let i = 0; i < state.exampleCount; i++) {
+                        const d = document.createElement('div');
+                        d.className = 'enh-dot' + (i === 0 ? ' active' : '');
+                        d.addEventListener('click', function() {
+                            goToSlide(i);
+                            stopAutoPlay();
+                        });
+                        dots.appendChild(d);
+                    }
+                    updateSliderUI();
+                }
+
+                // If the window is already open on load (unlikely), init slider
+                if ($('newWindow_3') && $('newWindow_3').classList.contains('active')) {
+                    initExampleSlider();
+                }
+
+                console.log('✅ Example Window + NewWindow container ready.');
+                console.log('📌 Click "Open Example Window" to launch.');
+            });
+
+            /* ------------------------------------------------------------
+               EXPOSE GLOBALS (for inline onclick / debugging)
+               ------------------------------------------------------------ */
+            window.toggleWindow = toggleWindow;
+            window.startZoom = startZoom;
+            window.stopZoom = stopZoom;
+            window.resetZoom = resetZoom;
+            window.zoomInText = zoomInText;
+            window.zoomOutText = zoomOutText;
+            window.resetZoomText = resetZoomText;
+            window.cycleLayout = cycleLayout;
+            window.goToSlide = goToSlide;
+            window.slideExample = slideExample;
+            window.startAutoPlay = startAutoPlay;
+            window.stopAutoPlay = stopAutoPlay;
+            window.toggleAutoPlay = toggleAutoPlay;
+
+        })();
+    </script>
+</body>
+</html>

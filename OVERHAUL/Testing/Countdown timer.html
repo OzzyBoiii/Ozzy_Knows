@@ -1,0 +1,922 @@
+<!-- @format -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Elegant Countdown · Date & Duration</title>
+    <!-- Font Awesome 6 for icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(145deg, #0b0f1c 0%, #1a1f33 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        padding: 1.5rem;
+        margin: 0;
+      }
+
+      .timer-card {
+        max-width: 700px;
+        width: 100%;
+        background: rgba(20, 25, 45, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 2.5rem;
+        padding: 2.5rem 2rem;
+        box-shadow:
+          0 30px 60px rgba(0, 0, 0, 0.6),
+          0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+        color: #e0e7ff;
+        transition: all 0.2s ease;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 3rem;
+        padding: 0.4rem;
+        backdrop-filter: blur(10px);
+      }
+
+      .tab {
+        flex: 1;
+        text-align: center;
+        padding: 0.9rem 0.5rem;
+        border-radius: 2.5rem;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 0.95rem;
+        letter-spacing: 0.3px;
+        color: #94a3b8;
+        transition: all 0.25s;
+        background: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+      }
+
+      .tab i {
+        font-size: 1rem;
+      }
+
+      .tab.active {
+        background: #3b82f6;
+        color: white;
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+      }
+
+      .tab:hover:not(.active) {
+        background: rgba(255, 255, 255, 0.08);
+        color: #cbd5e1;
+      }
+
+      .input-panel {
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 1.8rem;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .date-input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        background: #0f1322;
+        border-radius: 1rem;
+        border: 1px solid #334155;
+        padding: 0.5rem 1rem;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .date-input-wrapper:focus-within {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+      }
+
+      .date-input-wrapper i {
+        color: #60a5fa;
+        font-size: 1.4rem;
+        margin-right: 0.7rem;
+      }
+
+      .date-input-wrapper input[type="datetime-local"] {
+        background: transparent;
+        border: none;
+        width: 100%;
+        padding: 0.8rem 0;
+        font-size: 1.1rem;
+        color: #f1f5f9;
+        outline: none;
+        font-family: inherit;
+        color-scheme: dark;
+      }
+
+      .date-input-wrapper
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+        filter: invert(0.8);
+        cursor: pointer;
+      }
+
+      .duration-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .duration-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .duration-field label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.7px;
+        color: #94a3b8;
+        font-weight: 600;
+      }
+
+      .duration-field input {
+        background: #0f1322;
+        border: 1px solid #334155;
+        border-radius: 0.8rem;
+        padding: 0.7rem 0.5rem;
+        color: #f1f5f9;
+        font-size: 1rem;
+        font-weight: 500;
+        text-align: center;
+        outline: none;
+        transition: all 0.2s;
+        -moz-appearance: textfield;
+      }
+
+      .duration-field input::-webkit-outer-spin-button,
+      .duration-field input::-webkit-inner-spin-button {
+        opacity: 0.6;
+      }
+
+      .duration-field input:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+      }
+
+      .quick-hours {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-top: 0.8rem;
+        background: rgba(59, 130, 246, 0.08);
+        border-radius: 1rem;
+        padding: 0.8rem 1rem;
+        border: 1px dashed #3b82f640;
+      }
+
+      .quick-hours span {
+        font-size: 0.9rem;
+        color: #93c5fd;
+        white-space: nowrap;
+      }
+
+      .quick-hours input {
+        flex: 1;
+        background: #0f1322;
+        border: 1px solid #334155;
+        border-radius: 0.6rem;
+        padding: 0.55rem 0.7rem;
+        color: white;
+        font-weight: 600;
+        text-align: center;
+        max-width: 120px;
+      }
+
+      .quick-hours button {
+        background: #3b82f6;
+        border: none;
+        color: white;
+        font-weight: 600;
+        padding: 0.55rem 1.2rem;
+        border-radius: 0.6rem;
+        cursor: pointer;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+
+      .quick-hours button:hover {
+        background: #2563eb;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin: 1.5rem 0 1rem;
+      }
+
+      .btn {
+        flex: 1;
+        padding: 0.9rem 1.2rem;
+        border-radius: 1.2rem;
+        border: none;
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        transition: all 0.25s;
+        background: rgba(255, 255, 255, 0.05);
+        color: #cbd5e1;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .btn.primary {
+        background: #3b82f6;
+        color: white;
+        border: 1px solid #3b82f6;
+        box-shadow: 0 6px 18px rgba(59, 130, 246, 0.4);
+      }
+
+      .btn.primary:hover {
+        background: #2563eb;
+      }
+
+      .btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .countdown-display {
+        background: #0b0f1c;
+        border-radius: 2rem;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        border: 1px solid #2d3548;
+        margin: 1.8rem 0;
+      }
+
+      .timer-label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        color: #64748b;
+        margin-bottom: 0.8rem;
+      }
+
+      #countdown {
+        font-family: "Fira Code", "Courier New", monospace;
+        font-size: clamp(2rem, 8vw, 3.5rem);
+        font-weight: 700;
+        color: #60a5fa;
+        text-shadow: 0 0 15px #3b82f680;
+        word-break: break-word;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+
+      #countdown i {
+        color: #f59e0b;
+        font-size: 2.2rem;
+        animation: pulse 2s infinite;
+      }
+
+      #countdown.expired {
+        color: #ef4444;
+        text-shadow: 0 0 20px #ef4444;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      .target-info {
+        font-size: 0.9rem;
+        color: #94a3b8;
+        margin-top: 0.5rem;
+      }
+
+      .toast-area {
+        position: fixed;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        pointer-events: none;
+      }
+
+      .toast {
+        background: #1e293b;
+        border-left: 5px solid #f59e0b;
+        border-radius: 1rem;
+        padding: 1rem 1.8rem;
+        color: #f8fafc;
+        font-weight: 600;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        animation: slideIn 0.3s ease-out;
+        pointer-events: auto;
+        max-width: 350px;
+        backdrop-filter: blur(12px);
+        background: rgba(30, 41, 59, 0.9);
+      }
+
+      .toast i {
+        font-size: 1.4rem;
+        color: #fbbf24;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateX(120%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="timer-card">
+      <!-- Tab switcher -->
+      <div class="tabs">
+        <button
+          class="tab active"
+          id="tabDate"
+        >
+          <i class="far fa-calendar-alt"></i> Date Countdown
+        </button>
+        <button
+          class="tab"
+          id="tabDuration"
+        >
+          <i class="fas fa-hourglass-start"></i> Duration Countdown
+        </button>
+      </div>
+
+      <!-- DATE MODE PANEL -->
+      <div
+        class="input-panel"
+        id="panelDate"
+      >
+        <div class="date-input-wrapper">
+          <i class="far fa-calendar-check"></i>
+          <input
+            id="datePicker"
+            type="datetime-local"
+          />
+        </div>
+      </div>
+
+      <!-- DURATION MODE PANEL (hidden initially) -->
+      <div
+        class="input-panel"
+        id="panelDuration"
+        style="display: none"
+      >
+        <div class="duration-grid">
+          <div class="duration-field">
+            <label>Years</label
+            ><input
+              id="years"
+              type="number"
+              value="0"
+              min="0"
+              placeholder="0"
+            />
+          </div>
+          <div class="duration-field">
+            <label>Months</label
+            ><input
+              id="months"
+              type="number"
+              value="0"
+              min="0"
+              placeholder="0"
+            />
+          </div>
+          <div class="duration-field">
+            <label>Weeks</label
+            ><input
+              id="weeks"
+              type="number"
+              value="0"
+              min="0"
+              placeholder="0"
+            />
+          </div>
+          <div class="duration-field">
+            <label>Days</label
+            ><input
+              id="days"
+              type="number"
+              value="0"
+              min="0"
+              placeholder="0"
+            />
+          </div>
+          <div class="duration-field">
+            <label>Hours</label
+            ><input
+              id="hours"
+              type="number"
+              value="0"
+              min="0"
+              placeholder="0"
+            />
+          </div>
+          <div class="duration-field">
+            <label>Minutes</label
+            ><input
+              id="minutes"
+              type="number"
+              value="0"
+              min="0"
+              placeholder="0"
+            />
+          </div>
+          <div class="duration-field">
+            <label>Seconds</label
+            ><input
+              id="seconds"
+              type="number"
+              value="0"
+              min="0"
+              placeholder="0"
+            />
+          </div>
+        </div>
+        <div class="quick-hours">
+          <span><i class="fas fa-calculator"></i> Quick Hours:</span>
+          <input
+            id="quickHoursInput"
+            type="number"
+            min="0"
+            placeholder="e.g., 10000"
+          />
+          <button id="applyQuickHours">
+            <i class="fas fa-bolt"></i> Apply
+          </button>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="action-buttons">
+        <button
+          class="btn primary"
+          id="startBtn"
+        >
+          <i class="fas fa-play"></i> Start Countdown
+        </button>
+        <button
+          class="btn"
+          id="resetBtn"
+        >
+          <i class="fas fa-undo-alt"></i> Reset
+        </button>
+      </div>
+
+      <!-- Countdown display -->
+      <div class="countdown-display">
+        <div class="timer-label">Time remaining</div>
+        <div id="countdown">
+          <i class="fas fa-hourglass-half"></i> 0d 0h 0m 0s
+        </div>
+        <div
+          class="target-info"
+          id="targetInfo"
+        ></div>
+      </div>
+    </div>
+
+    <!-- Toast container for reminders -->
+    <div
+      class="toast-area"
+      id="toastContainer"
+    ></div>
+
+    <script>
+      (function () {
+        // ---------- DOM references ----------
+        const tabDate = document.getElementById("tabDate");
+        const tabDuration = document.getElementById("tabDuration");
+        const panelDate = document.getElementById("panelDate");
+        const panelDuration = document.getElementById("panelDuration");
+        const datePicker = document.getElementById("datePicker");
+        const yearsInp = document.getElementById("years");
+        const monthsInp = document.getElementById("months");
+        const weeksInp = document.getElementById("weeks");
+        const daysInp = document.getElementById("days");
+        const hoursInp = document.getElementById("hours");
+        const minutesInp = document.getElementById("minutes");
+        const secondsInp = document.getElementById("seconds");
+        const quickHoursInput = document.getElementById("quickHoursInput");
+        const applyQuickBtn = document.getElementById("applyQuickHours");
+        const startBtn = document.getElementById("startBtn");
+        const resetBtn = document.getElementById("resetBtn");
+        const countdownEl = document.getElementById("countdown");
+        const targetInfoEl = document.getElementById("targetInfo");
+        const toastContainer = document.getElementById("toastContainer");
+
+        // ---------- State ----------
+        let currentMode = "date"; // 'date' or 'duration'
+        let targetTimestamp = null; // milliseconds
+        let timerInterval = null;
+        let reminderFlags = {
+          hour: false,
+          halfHour: false,
+          quarterHour: false,
+          fiveMin: false,
+        };
+
+        // Audio context for beep (lazy init)
+        let audioCtx = null;
+        function getAudioContext() {
+          if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          }
+          return audioCtx;
+        }
+
+        function playBeep() {
+          try {
+            const ctx = getAudioContext();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.frequency.value = 880;
+            osc.type = "sine";
+            gain.gain.setValueAtTime(0.3, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(
+              0.001,
+              ctx.currentTime + 0.15,
+            );
+            osc.start(ctx.currentTime);
+            osc.stop(ctx.currentTime + 0.2);
+          } catch (e) {
+            // ignore audio errors
+          }
+        }
+
+        // ---------- Tab switching ----------
+        function setMode(mode) {
+          currentMode = mode;
+          if (mode === "date") {
+            tabDate.classList.add("active");
+            tabDuration.classList.remove("active");
+            panelDate.style.display = "block";
+            panelDuration.style.display = "none";
+          } else {
+            tabDuration.classList.add("active");
+            tabDate.classList.remove("active");
+            panelDate.style.display = "none";
+            panelDuration.style.display = "block";
+          }
+          // Reset reminder flags when switching mode (optional)
+          resetReminders();
+        }
+
+        tabDate.addEventListener("click", () => setMode("date"));
+        tabDuration.addEventListener("click", () => setMode("duration"));
+
+        // ---------- Quick hours → fill duration fields ----------
+        function applyQuickHours() {
+          const totalHours = parseFloat(quickHoursInput.value);
+          if (isNaN(totalHours) || totalHours < 0) {
+            alert("Please enter a valid number of hours.");
+            return;
+          }
+          // Convert total hours into years, days, hours (using averages)
+          const totalSeconds = totalHours * 3600;
+          const SEC_YEAR = 365.25 * 24 * 3600;
+          const SEC_DAY = 24 * 3600;
+
+          const years = Math.floor(totalSeconds / SEC_YEAR);
+          const remainingAfterYears = totalSeconds - years * SEC_YEAR;
+          const days = Math.floor(remainingAfterYears / SEC_DAY);
+          const hours = Math.floor(
+            (remainingAfterYears - days * SEC_DAY) / 3600,
+          );
+          const minutes = Math.floor(
+            (remainingAfterYears - days * SEC_DAY - hours * 3600) / 60,
+          );
+          const seconds = Math.floor(
+            remainingAfterYears - days * SEC_DAY - hours * 3600 - minutes * 60,
+          );
+
+          // Fill the form fields
+          yearsInp.value = years;
+          monthsInp.value = 0;
+          weeksInp.value = 0;
+          daysInp.value = days;
+          hoursInp.value = hours;
+          minutesInp.value = minutes;
+          secondsInp.value = seconds;
+
+          quickHoursInput.value = ""; // clear
+        }
+        applyQuickBtn.addEventListener("click", applyQuickHours);
+
+        // ---------- Calculate target timestamp based on mode ----------
+        function getTargetFromDate() {
+          const val = datePicker.value;
+          if (!val) {
+            alert("Please select a future date and time.");
+            return null;
+          }
+          const date = new Date(val);
+          const ts = date.getTime();
+          if (ts <= Date.now()) {
+            alert("Please select a date/time in the future.");
+            return null;
+          }
+          return ts;
+        }
+
+        function getTargetFromDuration() {
+          // Read all fields, default to 0
+          const y = parseInt(yearsInp.value) || 0;
+          const mo = parseInt(monthsInp.value) || 0;
+          const w = parseInt(weeksInp.value) || 0;
+          const d = parseInt(daysInp.value) || 0;
+          const h = parseInt(hoursInp.value) || 0;
+          const mi = parseInt(minutesInp.value) || 0;
+          const s = parseInt(secondsInp.value) || 0;
+
+          // Convert to total milliseconds using average durations
+          const totalMillis =
+            y * 365.25 * 24 * 3600 * 1000 +
+            mo * 30.4375 * 24 * 3600 * 1000 +
+            w * 7 * 24 * 3600 * 1000 +
+            d * 24 * 3600 * 1000 +
+            h * 3600 * 1000 +
+            mi * 60 * 1000 +
+            s * 1000;
+
+          if (totalMillis <= 0) {
+            alert("Please enter a duration greater than zero.");
+            return null;
+          }
+          return Date.now() + totalMillis;
+        }
+
+        function getTargetTimestamp() {
+          if (currentMode === "date") {
+            return getTargetFromDate();
+          } else {
+            return getTargetFromDuration();
+          }
+        }
+
+        // ---------- Format time left ----------
+        function formatTimeLeft(ms) {
+          if (ms <= 0) return { text: "EXPIRED", expired: true };
+          const totalSeconds = Math.floor(ms / 1000);
+          const days = Math.floor(totalSeconds / 86400);
+          const hours = Math.floor((totalSeconds % 86400) / 3600);
+          const minutes = Math.floor((totalSeconds % 3600) / 60);
+          const seconds = totalSeconds % 60;
+          return {
+            text: `${days}d ${hours}h ${minutes}m ${seconds}s`,
+            expired: false,
+            totalSeconds,
+          };
+        }
+
+        // ---------- Display update ----------
+        function updateDisplay() {
+          if (!targetTimestamp) {
+            countdownEl.innerHTML = `<i class="fas fa-hourglass-half"></i> 0d 0h 0m 0s`;
+            countdownEl.classList.remove("expired");
+            targetInfoEl.textContent = "";
+            return;
+          }
+
+          const now = Date.now();
+          const diff = targetTimestamp - now;
+          const { text, expired, totalSeconds } = formatTimeLeft(diff);
+
+          if (expired) {
+            countdownEl.innerHTML = `<i class="fas fa-hourglass-end"></i> ${text}`;
+            countdownEl.classList.add("expired");
+            targetInfoEl.textContent = "Time is up!";
+            stopTimer();
+            showToast("⏰ Time is up!", true);
+            playBeep();
+            // Reset reminder flags
+            resetReminders();
+          } else {
+            countdownEl.innerHTML = `<i class="fas fa-hourglass-half"></i> ${text}`;
+            countdownEl.classList.remove("expired");
+            const targetDate = new Date(targetTimestamp);
+            targetInfoEl.textContent = `Target: ${targetDate.toLocaleString()}`;
+          }
+
+          // Check reminders based on totalSeconds
+          checkReminders(totalSeconds);
+        }
+
+        // ---------- Reminders ----------
+        function resetReminders() {
+          reminderFlags.hour = false;
+          reminderFlags.halfHour = false;
+          reminderFlags.quarterHour = false;
+          reminderFlags.fiveMin = false;
+        }
+
+        function checkReminders(totalSeconds) {
+          if (!targetTimestamp || totalSeconds === undefined) return;
+
+          // Define thresholds in seconds
+          const thresholds = [
+            {
+              key: "hour",
+              seconds: 3600,
+              msg: "1 hour remaining",
+              icon: "fa-clock",
+            },
+            {
+              key: "halfHour",
+              seconds: 1800,
+              msg: "30 minutes remaining",
+              icon: "fa-clock",
+            },
+            {
+              key: "quarterHour",
+              seconds: 900,
+              msg: "15 minutes remaining",
+              icon: "fa-hourglass-half",
+            },
+            {
+              key: "fiveMin",
+              seconds: 300,
+              msg: "5 minutes remaining",
+              icon: "fa-hourglass-end",
+            },
+          ];
+
+          for (const t of thresholds) {
+            if (!reminderFlags[t.key] && totalSeconds <= t.seconds) {
+              reminderFlags[t.key] = true;
+              showToast(`⏳ ${t.msg}`, true);
+              playBeep();
+              // Also try to send a browser notification if permitted
+              sendBrowserNotification(t.msg);
+            }
+          }
+        }
+
+        function showToast(message, sound = false) {
+          const toast = document.createElement("div");
+          toast.className = "toast";
+          toast.innerHTML = `<i class="fas fa-bell"></i> ${message}`;
+          toastContainer.appendChild(toast);
+          setTimeout(() => {
+            toast.style.opacity = "0";
+            toast.style.transform = "translateX(120%)";
+            toast.style.transition = "all 0.3s ease";
+            setTimeout(() => toast.remove(), 300);
+          }, 4000);
+        }
+
+        // Browser notification (if allowed)
+        function sendBrowserNotification(msg) {
+          if (!("Notification" in window)) return;
+          if (Notification.permission === "granted") {
+            new Notification("Countdown Reminder", {
+              body: msg,
+              icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%233b82f6'/%3E%3Ctext x='50' y='65' text-anchor='middle' fill='white' font-size='40'%3E⏳%3C/text%3E%3C/svg%3E",
+            });
+          } else if (Notification.permission === "default") {
+            Notification.requestPermission();
+          }
+        }
+
+        // ---------- Timer control ----------
+        function startTimer() {
+          const newTarget = getTargetTimestamp();
+          if (!newTarget) return;
+
+          // Clear any existing timer
+          stopTimer();
+          targetTimestamp = newTarget;
+          resetReminders();
+
+          // Update display immediately
+          updateDisplay();
+
+          // Start interval
+          timerInterval = setInterval(() => {
+            if (targetTimestamp && Date.now() >= targetTimestamp) {
+              updateDisplay(); // will handle expiry
+              stopTimer();
+            } else {
+              updateDisplay();
+            }
+          }, 200);
+        }
+
+        function stopTimer() {
+          if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+          }
+          // Don't clear targetTimestamp so display stays
+        }
+
+        function resetAll() {
+          stopTimer();
+          targetTimestamp = null;
+          resetReminders();
+          countdownEl.innerHTML = `<i class="fas fa-hourglass-half"></i> 0d 0h 0m 0s`;
+          countdownEl.classList.remove("expired");
+          targetInfoEl.textContent = "";
+          // Clear input fields (optional)
+          datePicker.value = "";
+          yearsInp.value = 0;
+          monthsInp.value = 0;
+          weeksInp.value = 0;
+          daysInp.value = 0;
+          hoursInp.value = 0;
+          minutesInp.value = 0;
+          secondsInp.value = 0;
+          quickHoursInput.value = "";
+        }
+
+        // ---------- Event listeners ----------
+        startBtn.addEventListener("click", startTimer);
+        resetBtn.addEventListener("click", resetAll);
+
+        // Set default datetime-local to one hour from now (for convenience)
+        function setDefaultDate() {
+          const now = new Date();
+          now.setHours(now.getHours() + 1, 0, 0, 0);
+          // Format to YYYY-MM-DDTHH:MM
+          const year = now.getFullYear();
+          const month = String(now.getMonth() + 1).padStart(2, "0");
+          const day = String(now.getDate()).padStart(2, "0");
+          const hours = String(now.getHours()).padStart(2, "0");
+          const minutes = String(now.getMinutes()).padStart(2, "0");
+          datePicker.value = `${year}-${month}-${day}T${hours}:${minutes}`;
+        }
+        setDefaultDate();
+
+        // Request notification permission on load (quietly)
+        if (window.Notification && Notification.permission === "default") {
+          Notification.requestPermission();
+        }
+
+        // Cleanup on page unload
+        window.addEventListener("beforeunload", () => {
+          stopTimer();
+        });
+      })();
+    </script>
+  </body>
+</html>

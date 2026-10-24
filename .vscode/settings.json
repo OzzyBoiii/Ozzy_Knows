@@ -1,3 +1,17 @@
 {
-  "aider-composer.pythonPath": "C:\\Program Files\\Python312\\"
+  "aider-composer.pythonPath": "C:\\Program Files\\Python312\\",
+  "rust-analyzer.linkedProjects": [
+    "C:\\Users\\CrozzyBoii\\Documents\\Ozzy_Knower\\src-tauri\\Cargo.toml"
+  ],
+  "rust-analyzer.check.command": "clippy",
+  "rust-analyzer.check.allTargets": false,
+  "files.watcherExclude": {
+    "**/Technical Builds/src-tauri/target/**": true,
+    "**/Technical Builds/node_modules/**": true,
+    "**/Technical Builds/src-tauri/.cargo/**": true
+  },
+  "search.exclude": {
+    "**/Technical Builds/src-tauri/target": true,
+    "**/Technical Builds/node_modules": true
+  }
 }

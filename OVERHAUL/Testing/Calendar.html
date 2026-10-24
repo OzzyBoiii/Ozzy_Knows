@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Calendar Countdown · Student Planner</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at 20% 20%, #1e2a4a, #0b0f1c);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      padding: 1.5rem;
+    }
+
+    /* newWindow shell – same dark gradient */
+    .newWindow {
+      position: fixed;
+      top: 5%;
+      left: 5%;
+      height: 90%;
+      width: 90%;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      border: 2px solid #ff9800;
+      display: none;
+      grid-template-columns: 35% 65%;
+      grid-template-areas: "images content";
+      padding: 15px;
+      box-sizing: border-box;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    .newWindow.active {
+      display: grid;
+      animation: popIn 0.5s ease-out;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .newWindow.swapped {
+      grid-template-columns: 65% 35%;
+      grid-template-areas: "content images";
+    }
+
+    .newWindow.no-images {
+      grid-template-columns: 100%;
+      grid-template-areas: "content";
+    }
+
+    .newWindow.no-images .window-column {
+      display: none;
+    }
+
+    .window-column {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      grid-area: images;
+      border-right: 2px solid rgba(255, 255, 255, 0.1);
+      padding: 0 15px;
+    }
+
+    .title-grid-container {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: 15px 10px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .title-grid-container h3 {
+      color: #ffeb3b;
+      margin: 0;
+    }
+
+    .image-container {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .image-square {
+      background: rgba(0, 0, 0, 0.3);
+      border: 2px solid #ff9800;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .image-controls {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .image-display {
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: auto;
+      cursor: grab;
+    }
+
+    .image-display img {
+      max-width: 90%;
+      max-height: 90%;
+      transition: transform 0.3s;
+      border-radius: 8px;
+    }
+
+    .image-info {
+      padding: 12px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.4);
+      color: #ffeb3b;
+    }
+
+    .content-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      padding: 0 15px;
+      grid-area: content;
+    }
+
+    .text-controls-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .button-87 {
+      padding: 10px 18px;
+      text-transform: uppercase;
+      background-size: 200% auto;
+      color: white;
+      border-radius: 8px;
+      border: 0;
+      font-weight: 700;
+      box-shadow: 0 0 14px -7px #F09819;
+      background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 4px;
+      font-size: 0.85rem;
+    }
+
+    .button-87:hover {
+      background-position: right center;
+      transform: translateY(-2px);
+    }
+
+    .text-content {
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    /* Calendar styles */
+    .calendar-section {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      height: 100%;
+    }
+
+    .calendar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .month-title {
+      font-size: 1.6rem;
+      color: #ffeb3b;
+      font-weight: 700;
+      background: rgba(0,0,0,0.4);
+      padding: 5px 20px;
+      border-radius: 30px;
+      white-space: nowrap;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: rgba(0,0,0,0.4);
+      border-radius: 30px;
+      padding: 5px 15px;
+    }
+
+    .search-box input {
+      background: transparent;
+      border: none;
+      color: white;
+      padding: 8px;
+      outline: none;
+      font-size: 0.9rem;
+      width: 130px;
+    }
+
+    .search-box i {
+      color: #ff9800;
+      margin-right: 5px;
+    }
+
+    .weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      font-weight: 700;
+      color: #ff9800;
+      margin-top: 10px;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      margin: 10px 0;
+    }
+
+    .cal-day {
+      aspect-ratio: 1 / 1;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.2s;
+      font-weight: 500;
+      position: relative;
+      color: #e0e7ff;
+    }
+
+    .cal-day:hover {
+      background: rgba(255,152,0,0.25);
+      transform: scale(1.05);
+    }
+
+    .cal-day.today {
+      border: 2px solid #ffeb3b;
+    }
+
+    .cal-day.other-month {
+      opacity: 0.4;
+    }
+
+    .cal-day.has-task {
+      box-shadow: inset 0 0 0 2px #ff9800;
+    }
+
+    .cal-day.pinned::after {
+      content: "📌";
+      position: absolute;
+      top: 2px;
+      right: 4px;
+      font-size: 0.7rem;
+    }
+
+    .day-number {
+      font-size: 1rem;
+    }
+
+    .task-dot {
+      width: 6px;
+      height: 6px;
+      background: #ff9800;
+      border-radius: 50%;
+      margin-top: 2px;
+    }
+
+    /* task form popup */
+    .task-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #1e293b;
+      border: 2px solid #ff9800;
+      border-radius: 20px;
+      padding: 25px;
+      z-index: 2000;
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 280px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    .task-popup input {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+      background: #0f1322;
+      color: white;
+    }
+
+    .countdown-panel {
+      background: rgba(0,0,0,0.3);
+      border-radius: 15px;
+      padding: 15px;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    .big-countdown {
+      font-family: 'Courier New', monospace;
+      font-size: 2rem;
+      color: #60a5fa;
+      text-shadow: 0 0 15px #3b82f680;
+    }
+
+    .enh-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .newWindow {
+        grid-template-columns: 100%;
+        grid-template-areas: "content";
+        width: 95%;
+        left: 2.5%;
+      }
+      .window-column { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- demo trigger -->
+  <div style="text-align:center;">
+    <button class="button-87" data-toggle-window="newWindow_3" style="font-size:1.2rem; padding:15px 30px;">
+      <i class="fas fa-calendar-alt"></i> Open Calendar & Countdown
+    </button>
+  </div>
+
+  <!-- NEW WINDOW -->
+  <div class="newWindow" id="newWindow_3">
+    <!-- left column with images (kept for style) -->
+    <div class="window-column">
+      <div class="title-grid-container">
+        <h3>Visual References</h3>
+        <button class="button-87" data-toggle-window="newWindow_3">Close</button>
+      </div>
+      <div class="image-container">
+        <div class="image-square">
+          <div class="image-controls">
+            <button class="button-87" data-zoom-in="img1">+</button>
+            <button class="button-87" data-zoom-out="img1">−</button>
+            <button class="button-87" data-zoom-reset="img1">Reset</button>
+          </div>
+          <div class="image-display"><img id="img1" src="https://via.placeholder.com/400x300/1a2a6c/ffffff?text=Study+Planning" alt="planning"></div>
+          <div class="image-info">Planning</div>
+        </div>
+        <div class="image-square">
+          <div class="image-controls">
+            <button class="button-87" data-zoom-in="img2">+</button>
+            <button class="button-87" data-zoom-out="img2">−</button>
+            <button class="button-87" data-zoom-reset="img2">Reset</button>
+          </div>
+          <div class="image-display"><img id="img2" src="https://via.placeholder.com/400x300/2a5298/ffffff?text=Deadlines" alt="deadlines"></div>
+          <div class="image-info">Deadlines</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- right column with calendar & countdown -->
+    <div class="content-container">
+      <div class="text-controls-container">
+        <button class="button-87" data-text-zoom-in="newWindow_3">Text +</button>
+        <button class="button-87" data-text-zoom-out="newWindow_3">Text −</button>
+        <button class="button-87" data-text-zoom-reset="newWindow_3">Reset</button>
+        <button class="button-87" data-cycle-layout="newWindow_3">🖼️ ↔</button>
+        <button class="button-87 text-close-button" data-toggle-window="newWindow_3">Close</button>
+      </div>
+
+      <div class="text-content">
+        <div class="zoomable-text">
+          <div class="calendar-section">
+            <!-- Month navigation & search -->
+            <div class="calendar-header">
+              <button class="button-87" id="prevMonthBtn" style="padding:8px 16px;">‹</button>
+              <div class="month-title" id="monthTitle">June 2026</div>
+              <button class="button-87" id="nextMonthBtn" style="padding:8px 16px;">›</button>
+              <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input id="dateSearch" type="text" placeholder="Go to date">
+              </div>
+            </div>
+
+            <!-- Weekday headers -->
+            <div class="weekdays">
+              <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+            </div>
+
+            <!-- Calendar grid -->
+            <div class="calendar-grid" id="calendarGrid"></div>
+
+            <!-- Task popup -->
+            <div class="task-popup" id="taskPopup">
+              <label style="color:white;">Task name:</label>
+              <input id="taskNameInput" type="text" placeholder="e.g., Math exam">
+              <label style="color:white;">Time (optional):</label>
+              <input id="taskTimeInput" type="time" value="23:59">
+              <button class="button-87" id="saveTaskBtn">Save Task</button>
+              <button class="button-87" id="cancelTaskBtn" style="background:#555;">Cancel</button>
+            </div>
+
+            <!-- Countdown display panel -->
+            <div class="countdown-panel">
+              <div style="color:#ffeb3b; margin-bottom:5px;">⏳ Next Deadline</div>
+              <div class="big-countdown" id="liveCountdown">--</div>
+              <div id="countdownBreakdown" style="color:#94a3b8; font-size:0.9rem;"></div>
+              <div id="currentTaskLabel" style="margin-top:8px; color:#fbbf24;"></div>
+            </div>
+
+            <!-- Navigation dots (now for months, optional) -->
+            <div class="enh-controls">
+              <button class="button-87" id="todayBtn">Today</button>
+              <button class="button-87" id="clearTasksBtn">Clear All Tasks</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // ---------- GLOBAL STATE ----------
+      const state = {
+        currentMonth: new Date(),
+        tasks: [],            // { id, name, dateStr, time, timestamp }
+        pinnedDates: new Set(),
+        selectedDate: null,   // for task popup
+        reminderFlags: {},
+        prevRemaining: null,
+        countdownInterval: null,
+        activeTaskId: null,
+      };
+
+      // ---------- DOM refs ----------
+      const monthTitle = document.getElementById('monthTitle');
+      const calendarGrid = document.getElementById('calendarGrid');
+      const taskPopup = document.getElementById('taskPopup');
+      const saveTaskBtn = document.getElementById('saveTaskBtn');
+      const cancelTaskBtn = document.getElementById('cancelTaskBtn');
+      const liveCountdown = document.getElementById('liveCountdown');
+      const countdownBreakdown = document.getElementById('countdownBreakdown');
+      const currentTaskLabel = document.getElementById('currentTaskLabel');
+      const todayBtn = document.getElementById('todayBtn');
+      const clearTasksBtn = document.getElementById('clearTasksBtn');
+      const prevMonthBtn = document.getElementById('prevMonthBtn');
+      const nextMonthBtn = document.getElementById('nextMonthBtn');
+      const dateSearch = document.getElementById('dateSearch');
+
+      // ---------- Helpers ----------
+      function formatDateKey(date) {
+        return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
+      }
+
+      function sameDay(d1, d2) {
+        return d1.getFullYear() === d2.getFullYear() &&
+               d1.getMonth() === d2.getMonth() &&
+               d1.getDate() === d2.getDate();
+      }
+
+      // ---------- Calendar rendering ----------
+      function renderCalendar() {
+        const year = state.currentMonth.getFullYear();
+        const month = state.currentMonth.getMonth();
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+        const startDayOfWeek = (firstDay.getDay() + 6) % 7; // Monday=0
+        const daysInMonth = lastDay.getDate();
+
+        monthTitle.textContent = firstDay.toLocaleString('default', { month: 'long', year: 'numeric' });
+
+        let html = '';
+        // Previous month fill
+        const prevMonth = new Date(year, month, 0);
+        const prevDays = prevMonth.getDate();
+        for (let i = startDayOfWeek - 1; i >= 0; i--) {
+          const day = prevDays - i;
+          const d = new Date(year, month - 1, day);
+          html += renderDayCell(d, true);
+        }
+        // Current month
+        for (let day = 1; day <= daysInMonth; day++) {
+          const d = new Date(year, month, day);
+          html += renderDayCell(d, false);
+        }
+        // Next month fill
+        const totalCells = Math.ceil((startDayOfWeek + daysInMonth) / 7) * 7;
+        const nextDays = totalCells - (startDayOfWeek + daysInMonth);
+        for (let day = 1; day <= nextDays; day++) {
+          const d = new Date(year, month + 1, day);
+          html += renderDayCell(d, true);
+        }
+        calendarGrid.innerHTML = html;
+      }
+
+      function renderDayCell(date, isOtherMonth) {
+        const key = formatDateKey(date);
+        const taskCount = state.tasks.filter(t => t.dateStr === key).length;
+        const pinned = state.pinnedDates.has(key);
+        const today = sameDay(date, new Date());
+        let classes = 'cal-day';
+        if (isOtherMonth) classes += ' other-month';
+        if (today) classes += ' today';
+        if (taskCount > 0) classes += ' has-task';
+        if (pinned) classes += ' pinned';
+
+        return `
+          <div class="${classes}" data-date="${key}" onclick="handleDayClick('${key}')" oncontextmenu="handleDayRightClick(event, '${key}')">
+            <span class="day-number">${date.getDate()}</span>
+            ${taskCount > 0 ? `<div class="task-dot" style="margin-top:2px;"></div>` : ''}
+          </div>`;
+      }
+
+      window.handleDayClick = function(dateKey) {
+        state.selectedDate = dateKey;
+        document.getElementById('taskNameInput').value = '';
+        document.getElementById('taskTimeInput').value = '23:59';
+        taskPopup.style.display = 'flex';
+      };
+
+      window.handleDayRightClick = function(e, dateKey) {
+        e.preventDefault();
+        if (state.pinnedDates.has(dateKey)) {
+          state.pinnedDates.delete(dateKey);
+        } else {
+          state.pinnedDates.add(dateKey);
+        }
+        renderCalendar();
+        saveToStorage();
+      };
+
+      // ---------- Task management ----------
+      function addTask(name, dateKey, timeStr) {
+        const [h, m] = timeStr.split(':').map(Number);
+        const [y, mo, d] = dateKey.split('-').map(Number);
+        const deadline = new Date(y, mo-1, d, h, m);
+        const task = {
+          id: Date.now().toString(),
+          name,
+          dateStr: dateKey,
+          time: timeStr,
+          timestamp: deadline.getTime(),
+        };
+        state.tasks.push(task);
+        saveToStorage();
+        renderCalendar();
+        updateActiveCountdown();
+      }
+
+      function clearAllTasks() {
+        if (confirm('Remove all tasks?')) {
+          state.tasks = [];
+          saveToStorage();
+          renderCalendar();
+          updateActiveCountdown();
+        }
+      }
+
+      function getUpcomingTask() {
+        const now = Date.now();
+        return state.tasks.filter(t => t.timestamp > now).sort((a,b) => a.timestamp - b.timestamp)[0] || null;
+      }
+
+      // ---------- Countdown logic ----------
+      function updateActiveCountdown() {
+        const task = getUpcomingTask();
+        if (task) {
+          state.activeTaskId = task.id;
+          currentTaskLabel.textContent = `📌 ${task.name} · ${new Date(task.timestamp).toLocaleString()}`;
+          startCountdownInterval(task.timestamp);
+        } else {
+          state.activeTaskId = null;
+          currentTaskLabel.textContent = 'No upcoming deadlines';
+          liveCountdown.innerHTML = '--';
+          countdownBreakdown.textContent = '';
+          stopCountdownInterval();
+        }
+      }
+
+      function startCountdownInterval(targetMs) {
+        stopCountdownInterval();
+        state.prevRemaining = targetMs - Date.now();
+        updateCountdownDisplay(targetMs);
+        state.countdownInterval = setInterval(() => {
+          const remaining = targetMs - Date.now();
+          if (remaining <= 0) {
+            liveCountdown.innerHTML = '<i class="fas fa-hourglass-end"></i> EXPIRED';
+            countdownBreakdown.textContent = '';
+            stopCountdownInterval();
+            return;
+          }
+          updateCountdownDisplay(targetMs);
+          checkReminders(remaining);
+          state.prevRemaining = remaining;
+        }, 200);
+      }
+
+      function stopCountdownInterval() {
+        if (state.countdownInterval) {
+          clearInterval(state.countdownInterval);
+          state.countdownInterval = null;
+        }
+      }
+
+      function updateCountdownDisplay(targetMs) {
+        const remaining = targetMs - Date.now();
+        if (remaining <= 0) {
+          liveCountdown.innerHTML = 'EXPIRED';
+          countdownBreakdown.textContent = '';
+          return;
+        }
+        const totalSeconds = Math.floor(remaining / 1000);
+        // Approximate breakdown
+        const years = Math.floor(totalSeconds / (365.25*24*3600));
+        const afterYears = totalSeconds - years * 365.25*24*3600;
+        const months = Math.floor(afterYears / (30.4375*24*3600));
+        const afterMonths = afterYears - months * 30.4375*24*3600;
+        const weeks = Math.floor(afterMonths / (7*24*3600));
+        const afterWeeks = afterMonths - weeks * 7*24*3600;
+        const days = Math.floor(afterWeeks / (24*3600));
+        const afterDays = afterWeeks - days * 24*3600;
+        const hours = Math.floor(afterDays / 3600);
+        const afterHours = afterDays - hours * 3600;
+        const minutes = Math.floor(afterHours / 60);
+        const seconds = Math.floor(afterHours - minutes * 60);
+
+        let mainText = '';
+        if (years > 0) mainText += `${years}y `;
+        if (months > 0 || years > 0) mainText += `${months}mo `;
+        if (weeks > 0 || months > 0 || years > 0) mainText += `${weeks}w `;
+        mainText += `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        liveCountdown.innerHTML = `<i class="fas fa-hourglass-half"></i> ${mainText}`;
+        countdownBreakdown.textContent = `≈ ${years}y ${months}mo ${weeks}w ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+
+      function checkReminders(remainingMs) {
+        if (!state.prevRemaining) return;
+        const thresholds = [
+          { sec: 3600, msg: '1 hour remaining' },
+          { sec: 1800, msg: '30 minutes remaining' },
+          { sec: 900, msg: '15 minutes remaining' },
+          { sec: 300, msg: '5 minutes remaining' },
+        ];
+        const prevSec = Math.floor(state.prevRemaining / 1000);
+        const currSec = Math.floor(remainingMs / 1000);
+
+        for (const t of thresholds) {
+          if (prevSec > t.sec && currSec <= t.sec) {
+            showToast(`⏰ ${t.msg}`);
+            playBeep();
+            break; // only one at a time
+          }
+        }
+      }
+
+      // ---------- Toast & sound ----------
+      function showToast(msg) {
+        const toast = document.createElement('div');
+        toast.style.position = 'fixed';
+        toast.style.bottom = '20px';
+        toast.style.right = '20px';
+        toast.style.background = '#1e293b';
+        toast.style.borderLeft = '5px solid #ff9800';
+        toast.style.padding = '12px 20px';
+        toast.style.borderRadius = '10px';
+        toast.style.color = 'white';
+        toast.style.zIndex = '9999';
+        toast.textContent = msg;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3500);
+      }
+
+      function playBeep() {
+        try {
+          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.frequency.value = 800;
+          gain.gain.setValueAtTime(0.2, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.3);
+        } catch(e) {}
+      }
+
+      // ---------- Persistence ----------
+      function saveToStorage() {
+        localStorage.setItem('calendarTasks', JSON.stringify(state.tasks));
+        localStorage.setItem('pinnedDates', JSON.stringify([...state.pinnedDates]));
+      }
+
+      function loadFromStorage() {
+        const savedTasks = localStorage.getItem('calendarTasks');
+        if (savedTasks) state.tasks = JSON.parse(savedTasks);
+        const savedPins = localStorage.getItem('pinnedDates');
+        if (savedPins) state.pinnedDates = new Set(JSON.parse(savedPins));
+      }
+
+      // ---------- Month navigation ----------
+      function changeMonth(delta) {
+        state.currentMonth.setMonth(state.currentMonth.getMonth() + delta);
+        renderCalendar();
+      }
+
+      function goToToday() {
+        state.currentMonth = new Date();
+        renderCalendar();
+      }
+
+      // ---------- Search date ----------
+      dateSearch.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          const input = dateSearch.value.trim();
+          const parsed = new Date(input);
+          if (!isNaN(parsed)) {
+            state.currentMonth = new Date(parsed.getFullYear(), parsed.getMonth(), 1);
+            renderCalendar();
+          } else {
+            alert('Invalid date format. Try YYYY-MM-DD or natural date.');
+          }
+          dateSearch.value = '';
+        }
+      });
+
+      // ---------- Task popup events ----------
+      saveTaskBtn.addEventListener('click', () => {
+        const name = document.getElementById('taskNameInput').value.trim();
+        if (!name) { alert('Enter a task name'); return; }
+        const time = document.getElementById('taskTimeInput').value;
+        addTask(name, state.selectedDate, time);
+        taskPopup.style.display = 'none';
+      });
+
+      cancelTaskBtn.addEventListener('click', () => {
+        taskPopup.style.display = 'none';
+      });
+
+      // ---------- Window toggle & controls (from original) ----------
+      function toggleWindow(windowId) {
+        const win = document.getElementById(windowId);
+        if (!win) return;
+        if (win.classList.contains('active')) {
+          win.classList.remove('active');
+          document.body.style.overflow = '';
+          stopCountdownInterval();
+        } else {
+          document.querySelectorAll('.newWindow.active').forEach(w => w.classList.remove('active'));
+          win.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          renderCalendar();
+          updateActiveCountdown();
+        }
+      }
+
+      // Zoom & layout (keep simple)
+      let textScale = 1;
+      function zoomText(delta) {
+        textScale = Math.max(0.6, textScale + delta);
+        document.querySelectorAll('.zoomable-text').forEach(el => el.style.fontSize = textScale + 'em');
+      }
+
+      let layoutIdx = 0;
+      const layouts = ['default', 'swapped', 'no-images'];
+      function cycleLayout(winId) {
+        const win = document.getElementById(winId);
+        win.classList.remove('swapped', 'no-images');
+        layoutIdx = (layoutIdx + 1) % layouts.length;
+        if (layouts[layoutIdx] !== 'default') win.classList.add(layouts[layoutIdx]);
+      }
+
+      // Image zoom (simple)
+      const scales = {};
+      function zoomImage(id, factor) {
+        if (!scales[id]) scales[id] = 1;
+        scales[id] = Math.max(0.5, scales[id] + factor);
+        document.getElementById(id).style.transform = `scale(${scales[id]})`;
+      }
+
+      // ---------- Event delegation ----------
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('button');
+        if (!btn) return;
+        if (btn.dataset.toggleWindow) toggleWindow(btn.dataset.toggleWindow);
+        if (btn.dataset.textZoomIn) zoomText(0.1);
+        if (btn.dataset.textZoomOut) zoomText(-0.1);
+        if (btn.dataset.textZoomReset) { textScale = 1; document.querySelectorAll('.zoomable-text').forEach(el => el.style.fontSize = '1em'); }
+        if (btn.dataset.cycleLayout) cycleLayout(btn.dataset.cycleLayout);
+        if (btn.dataset.zoomIn) zoomImage(btn.dataset.zoomIn, 0.1);
+        if (btn.dataset.zoomOut) zoomImage(btn.dataset.zoomOut, -0.1);
+        if (btn.dataset.zoomReset) { scales[btn.dataset.zoomReset] = 1; document.getElementById(btn.dataset.zoomReset).style.transform = 'scale(1)'; }
+      });
+
+      prevMonthBtn.addEventListener('click', () => changeMonth(-1));
+      nextMonthBtn.addEventListener('click', () => changeMonth(1));
+      todayBtn.addEventListener('click', goToToday);
+      clearTasksBtn.addEventListener('click', clearAllTasks);
+
+      // Close on ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          document.querySelectorAll('.newWindow.active').forEach(w => {
+            w.classList.remove('active');
+            document.body.style.overflow = '';
+            stopCountdownInterval();
+          });
+        }
+      });
+
+      // Init
+      loadFromStorage();
+      renderCalendar();
+      updateActiveCountdown();
+
+      // Expose for inline onclick
+      window.toggleWindow = toggleWindow;
+    })();
+  </script>
+</body>
+</html>

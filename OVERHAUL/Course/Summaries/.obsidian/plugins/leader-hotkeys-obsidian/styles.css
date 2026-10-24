@@ -1,0 +1,30 @@
+.leader-hotkeys-setting-prepend-text {
+  padding-right: 10px;
+}
+
+.leader-hotkeys-setting-append-text {
+  padding: 0 10px;
+}
+
+.leader-hotkeys-kbd {
+  padding: 2px;
+  margin: 5px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 3px;
+}
+
+.leader-hotkeys-scroll {
+  overflow: auto;
+}
+
+.leader-hotkeys-pending {
+  opacity: 0.5;
+}
+
+.leader-hotkeys-kbd-confirm {
+  border-color: var(--color-green);
+}
+
+.leader-hotkeys-kbd-cancel {
+  border-color: var(--color-red);
+}

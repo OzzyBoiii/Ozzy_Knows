@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Višejezični prevodilac – CSS zastave & .txt rječnici</title>
+    <style>
+        :root {
+            --bg: #f5f7fa;
+            --card: #ffffff;
+            --text: #1a2b3c;
+            --accent: #1f5b7a;
+            --light-accent: #e6f0f7;
+            --border: #dce4ee;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: linear-gradient(160deg, #e8edf5 0%, #dce3ed 100%);
+            font-family: 'Segoe UI', 'Noto Sans', 'DejaVu Sans', system-ui, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: var(--text);
+        }
+        .app {
+            max-width: 880px;
+            width: 100%;
+            background: var(--card);
+            border-radius: 36px;
+            padding: 30px 32px 28px;
+            box-shadow: var(--shadow);
+            border: 1px solid #e2e8f0;
+        }
+        h2 {
+            text-align: center;
+            font-weight: 650;
+            color: #0f2b3d;
+            margin-bottom: 18px;
+            font-size: 1.8rem;
+            letter-spacing: -0.3px;
+        }
+
+        /* ── FILE LOADER ── */
+        .file-loader {
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: 20px;
+            padding: 18px 22px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+            justify-content: center;
+        }
+        .file-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 8px 14px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        .file-row label {
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: #33495d;
+            white-space: nowrap;
+        }
+        .file-row input[type="file"] {
+            font-size: 0.78rem;
+            max-width: 160px;
+        }
+        .dict-status {
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: center;
+            width: 100%;
+            margin-top: 4px;
+        }
+        .dict-status.ready {
+            color: #1a7a3a;
+        }
+        .dict-status.waiting {
+            color: #b45309;
+        }
+
+        /* ── TARGET BAR ── */
+        .target-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            background: #f1f5f9;
+            padding: 12px 22px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+        .target-label {
+            font-weight: 600;
+            color: #1f4863;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CSS FLAG BUTTONS */
+        .flag-btn {
+            width: 56px;
+            height: 38px;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            flex-shrink: 0;
+        }
+        .flag-btn.active {
+            border-color: #1f5b7a;
+            box-shadow: 0 0 0 4px rgba(31, 91, 122, 0.2);
+            transform: scale(1.06);
+        }
+        .flag-btn:hover {
+            transform: scale(1.04);
+        }
+
+        /* Croatian flag */
+        .flag-hr {
+            background: linear-gradient(to bottom,
+                    #e1000f 0% 33.33%,
+                    #ffffff 33.33% 66.66%,
+                    #0093dd 66.66% 100%);
+        }
+        .flag-hr::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 3px;
+            box-shadow: inset 0 0 0 1px #c00;
+            /* simplified shield */
+            clip-path: polygon(50% 0%, 100% 10%, 100% 80%, 50% 100%, 0% 80%, 0% 10%);
+        }
+
+        /* GB Union Flag */
+        .flag-gb {
+            background: #012169;
+        }
+        .flag-gb::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(0deg, transparent 44%, #ffffff 44% 56%, transparent 56%),
+                linear-gradient(90deg, transparent 44%, #ffffff 44% 56%, transparent 56%),
+                linear-gradient(135deg, transparent 42%, #c8102e 42% 58%, transparent 58%),
+                linear-gradient(225deg, transparent 42%, #c8102e 42% 58%, transparent 58%),
+                linear-gradient(135deg, transparent 38%, #ffffff 38% 62%, transparent 62%),
+                linear-gradient(225deg, transparent 38%, #ffffff 38% 62%, transparent 62%);
+        }
+
+        /* Interslavic / Interlingua-style flag */
+        .flag-isv {
+            background: linear-gradient(135deg,
+                    #ffffff 0% 48%,
+                    #f0c000 48% 52%,
+                    #ffffff 52% 100%),
+                linear-gradient(to bottom,
+                    #ffffff 0% 48%,
+                    #0072ce 48% 100%);
+            background-blend-mode: normal;
+        }
+        .flag-isv::after {
+            content: "★";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #f0c000;
+            font-size: 22px;
+            text-shadow: 0 0 2px white;
+            line-height: 1;
+        }
+
+        /* Script toggles */
+        .script-toggles {
+            display: flex;
+            gap: 8px;
+            margin-left: 4px;
+        }
+        .script-btn {
+            background: #e2eaf2;
+            border: 1.5px solid #b0c5d6;
+            border-radius: 20px;
+            padding: 7px 16px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #1f4863;
+            transition: 0.2s;
+        }
+        .script-btn.active {
+            background: #1f5b7a;
+            color: white;
+            border-color: #1f5b7a;
+        }
+
+        /* ── TEXTAREA ── */
+        textarea {
+            width: 100%;
+            height: 140px;
+            border: 2px solid var(--border);
+            border-radius: 22px;
+            padding: 18px 22px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            resize: vertical;
+            font-family: inherit;
+            background: #fdfdfd;
+            transition: 0.2s;
+            color: #1a2b3c;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(31, 91, 122, 0.08);
+        }
+
+        /* ── SOURCE SECTION ── */
+        .source-section {
+            background: #f8fafc;
+            border-radius: 22px;
+            padding: 16px 22px;
+            margin: 16px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 14px;
+            border: 1px solid #e9eff4;
+        }
+        .source-label {
+            font-weight: 600;
+            color: #14374a;
+            font-size: 0.9rem;
+        }
+        .confidence-bars {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .lang-confidence {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 24px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+            background: white;
+        }
+        .lang-confidence.selected {
+            border-color: #e07b39;
+            background: #fff7f0;
+        }
+        /* small flag in candidate */
+        .mini-flag {
+            width: 32px;
+            height: 22px;
+            border-radius: 4px;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+        .mini-flag.mf-hr {
+            background: linear-gradient(to bottom, #e1000f 0% 33%, #fff 33% 66%, #0093dd 66% 100%);
+        }
+        .mini-flag.mf-gb {
+            background: #012169;
+        }
+        .mini-flag.mf-gb::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(0deg, transparent 43%, #fff 43% 57%, transparent 57%),
+                linear-gradient(90deg, transparent 43%, #fff 43% 57%, transparent 57%),
+                linear-gradient(135deg, transparent 40%, #c8102e 40% 60%, transparent 60%),
+                linear-gradient(225deg, transparent 40%, #c8102e 40% 60%, transparent 60%),
+                linear-gradient(135deg, transparent 36%, #fff 36% 64%, transparent 64%),
+                linear-gradient(225deg, transparent 36%, #fff 36% 64%, transparent 64%);
+        }
+        .mini-flag.mf-isv {
+            background: linear-gradient(135deg, #fff 0% 47%, #f0c000 47% 53%, #fff 53% 100%),
+                linear-gradient(to bottom, #fff 0% 47%, #0072ce 47% 100%);
+        }
+        .mini-flag.mf-isv::after {
+            content: "★";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #f0c000;
+            font-size: 10px;
+        }
+
+        .bar-container {
+            width: 60px;
+            height: 7px;
+            background: #e2eaf2;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            border-radius: 10px;
+        }
+        .perc {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #1f4863;
+            min-width: 36px;
+        }
+
+        /* ── OUTPUT ── */
+        .output-box {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 22px;
+            padding: 24px 26px;
+            font-size: 1.15rem;
+            line-height: 1.75;
+            min-height: 100px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: #1a2b3c;
+        }
+        .output-box span {
+            cursor: help;
+            border-bottom: 1px dotted #99b8cc;
+        }
+        .action-row {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 14px;
+        }
+        button {
+            background: var(--accent);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 11px 26px;
+            border-radius: 28px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        button.secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+        button:hover {
+            background: #14465c;
+        }
+        button.secondary:hover {
+            background: #e6f0f7;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <h2>🌍 Višejezični prevodilac</h2>
+
+        <!-- FILE LOADER -->
+        <div class="file-loader">
+            <div class="file-row">
+                <label>🇭🇷 Hrvatski</label>
+                <input id="hrFileInput" type="file" accept=".txt">
+            </div>
+            <div class="file-row">
+                <label>🇬🇧 English</label>
+                <input id="enFileInput" type="file" accept=".txt">
+            </div>
+            <div class="file-row">
+                <label>🌐 Medžuslov.</label>
+                <input id="isvFileInput" type="file" accept=".txt">
+            </div>
+            <span class="dict-status waiting" id="dictStatus">⏳ Učitajte sve tri .txt datoteke</span>
+        </div>
+
+        <!-- TARGET BAR with CSS flags -->
+        <div class="target-bar">
+            <span class="target-label">Ciljni jezik</span>
+            <button class="flag-btn flag-hr active" data-target="hr" title="Hrvatski"></button>
+            <button class="flag-btn flag-gb" data-target="en" title="English"></button>
+            <button class="flag-btn flag-isv" data-target="isv-lat" title="Medžuslovjansky"></button>
+            <div class="script-toggles" id="scriptToggles" style="display:none;">
+                <button class="script-btn active" data-script="lat">Lat</button>
+                <button class="script-btn" data-script="cyr">Ћир</button>
+            </div>
+        </div>
+
+        <textarea id="userInput" placeholder="Upišite tekst na hrvatskom, engleskom ili medžuslovjanskom..."></textarea>
+
+        <!-- SOURCE DETECTION -->
+        <div class="source-section">
+            <span class="source-label">🔍 Izvorni jezik</span>
+            <div class="confidence-bars" id="confidenceContainer"></div>
+            <span id="autoDetectedLabel" style="font-weight:500;color:#2c5a6e;margin-left:auto;"></span>
+        </div>
+
+        <!-- OUTPUT -->
+        <div class="output-box" id="translatedOutput">Prijevod će se pojaviti ovdje...</div>
+
+        <div class="action-row">
+            <button class="secondary" id="clearBtn">Obriši</button>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ─── STATE ────────────────────────────
+            let hrLines = [],
+                enLines = [],
+                isvLines = [];
+            let hrSet = new Set(),
+                enSet = new Set(),
+                isvSet = new Set();
+            let dictionariesReady = false;
+
+            let targetLang = 'hr'; // 'hr' | 'en' | 'isv-lat' | 'isv-cyr'
+            let isvScript = 'lat'; // 'lat' | 'cyr'
+            let selectedSource = null; // manual override
+
+            // ─── DOM ──────────────────────────────
+            const hrFileInput = document.getElementById('hrFileInput');
+            const enFileInput = document.getElementById('enFileInput');
+            const isvFileInput = document.getElementById('isvFileInput');
+            const dictStatus = document.getElementById('dictStatus');
+            const inputEl = document.getElementById('userInput');
+            const outputEl = document.getElementById('translatedOutput');
+            const confidenceContainer = document.getElementById('confidenceContainer');
+            const autoLabel = document.getElementById('autoDetectedLabel');
+            const targetBtns = document.querySelectorAll('.flag-btn');
+            const scriptToggles = document.getElementById('scriptToggles');
+            const scriptBtns = document.querySelectorAll('.script-btn');
+            const clearBtn = document.getElementById('clearBtn');
+
+            // ─── FILE READING ─────────────────────
+            function readFile(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = reject;
+                    reader.readAsText(file);
+                });
+            }
+
+            function parseLines(text) {
+                return text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+            }
+
+            async function loadDictionary(file, type) {
+                if (!file) return;
+                try {
+                    const content = await readFile(file);
+                    const lines = parseLines(content);
+                    if (type === 'hr') {
+                        hrLines = lines;
+                        hrSet = new Set(lines.map(w => w.toLowerCase()));
+                    } else if (type === 'en') {
+                        enLines = lines;
+                        enSet = new Set(lines.map(w => w.toLowerCase()));
+                    } else if (type === 'isv') {
+                        isvLines = lines;
+                        isvSet = new Set(lines.map(w => w.toLowerCase()));
+                    }
+                    checkReady();
+                } catch (e) {
+                    alert('Greška pri čitanju datoteke: ' + e);
+                }
+            }
+
+            function checkReady() {
+                if (hrLines.length > 0 && enLines.length > 0 && isvLines.length > 0) {
+                    dictionariesReady = true;
+                    dictStatus.textContent = '✅ Svi rječnici učitani (' + hrLines.length + ' riječi svaki)';
+                    dictStatus.className = 'dict-status ready';
+                    refreshAll();
+                } else {
+                    dictionariesReady = false;
+                    dictStatus.textContent = '⏳ Učitajte sve tri .txt datoteke';
+                    dictStatus.className = 'dict-status waiting';
+                }
+            }
+
+            // Event listeners for file inputs
+            hrFileInput.addEventListener('change', (e) => loadDictionary(e.target.files[0], 'hr'));
+            enFileInput.addEventListener('change', (e) => loadDictionary(e.target.files[0], 'en'));
+            isvFileInput.addEventListener('change', (e) => loadDictionary(e.target.files[0], 'isv'));
+
+            // ─── CYRILLIC CONVERTER ──────────────
+            function toCyrillic(str) {
+                let s = str;
+                s = s.replace(/DŽ/g, 'ДЖ').replace(/Dž/g, 'Дж').replace(/dž/g, 'дж');
+                s = s.replace(/LJ/g, 'Љ').replace(/Lj/g, 'Љ').replace(/lj/g, 'љ');
+                s = s.replace(/NJ/g, 'Њ').replace(/Nj/g, 'Њ').replace(/nj/g, 'њ');
+                const map = {
+                    'A': 'А','a': 'а','B': 'Б','b': 'б','C': 'Ц','c': 'ц',
+                    'Č': 'Ч','č': 'ч','D': 'Д','d': 'д','E': 'Е','e': 'е',
+                    'Ě': 'Є','ě': 'є','F': 'Ф','f': 'ф','G': 'Г','g': 'г',
+                    'H': 'Х','h': 'х','I': 'И','i': 'и','J': 'Ј','j': 'ј',
+                    'K': 'К','k': 'к','L': 'Л','l': 'л','M': 'М','m': 'м',
+                    'N': 'Н','n': 'н','O': 'О','o': 'о','P': 'П','p': 'п',
+                    'R': 'Р','r': 'р','S': 'С','s': 'с','Š': 'Ш','š': 'ш',
+                    'T': 'Т','t': 'т','U': 'У','u': 'у','V': 'В','v': 'в',
+                    'Y': 'Ы','y': 'ы','Z': 'З','z': 'з','Ž': 'Ж','ž': 'ж'
+                };
+                let res = '';
+                for (let ch of s) res += map[ch] || ch;
+                return res;
+            }
+
+            // ─── TARGET LANGUAGE ──────────────────
+            function getEffectiveTarget() {
+                if (targetLang === 'isv-lat' || targetLang === 'isv-cyr') {
+                    return isvScript === 'cyr' ? 'isv-cyr' : 'isv-lat';
+                }
+                return targetLang;
+            }
+
+            function updateTargetUI() {
+                targetBtns.forEach(btn => {
+                    const t = btn.dataset.target;
+                    const isActive = (t === 'isv-lat' && (targetLang === 'isv-lat' || targetLang ===
+                        'isv-cyr')) || t === targetLang;
+                    btn.classList.toggle('active', isActive);
+                });
+                const showScript = (targetLang === 'isv-lat' || targetLang === 'isv-cyr');
+                scriptToggles.style.display = showScript ? 'flex' : 'none';
+                scriptBtns.forEach(b => b.classList.toggle('active', b.dataset.script === isvScript));
+            }
+
+            targetBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const t = btn.dataset.target;
+                    if (t === 'isv-lat') {
+                        targetLang = isvScript === 'cyr' ? 'isv-cyr' : 'isv-lat';
+                    } else {
+                        targetLang = t;
+                    }
+                    updateTargetUI();
+                    updateOutput();
+                });
+            });
+
+            scriptBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    isvScript = btn.dataset.script;
+                    targetLang = isvScript === 'cyr' ? 'isv-cyr' : 'isv-lat';
+                    updateTargetUI();
+                    updateOutput();
+                });
+            });
+
+            // ─── WORD ANALYSIS ────────────────────
+            function tokenize(text) {
+                return text.toLowerCase().split(/[^a-zčćžšđěèéêëàâîïôûùüÿćńśźžłóżńćśźžÀ-ÿ]+/i).filter(t => t);
+            }
+
+            function getConfidence(tokens) {
+                if (!dictionariesReady) return { hr: 0, en: 0, isv: 0 };
+                let hr = 0,
+                    en = 0,
+                    isv = 0;
+                for (let t of tokens) {
+                    if (hrSet.has(t)) hr++;
+                    if (enSet.has(t)) en++;
+                    if (isvSet.has(t)) isv++;
+                }
+                return { hr, en, isv };
+            }
+
+            function detectBest(conf) {
+                const total = conf.hr + conf.en + conf.isv || 1;
+                if (conf.hr / total > 0.5) return 'hr';
+                if (conf.en / total > 0.5) return 'en';
+                if (conf.isv / total > 0.5) return 'isv-lat';
+                return null;
+            }
+
+            // ─── TRANSLATION ──────────────────────
+            function getWordTranslation(word, sourceLang, target) {
+                const lower = word.toLowerCase();
+                let idx = -1;
+                if (sourceLang === 'hr') idx = hrLines.findIndex(l => l.toLowerCase() === lower);
+                else if (sourceLang === 'en') idx = enLines.findIndex(l => l.toLowerCase() === lower);
+                else if (sourceLang === 'isv-lat') idx = isvLines.findIndex(l => l.toLowerCase() === lower);
+                if (idx === -1) return null;
+
+                let translated;
+                if (target === 'hr') translated = hrLines[idx];
+                else if (target === 'en') translated = enLines[idx];
+                else if (target === 'isv-lat') translated = isvLines[idx];
+                else if (target === 'isv-cyr') translated = toCyrillic(isvLines[idx]);
+
+                if (word[0] && word[0] === word[0].toUpperCase() && translated && translated.length) {
+                    translated = translated[0].toUpperCase() + translated.slice(1);
+                }
+                return translated;
+            }
+
+            function buildTranslatedHTML(text, sourceLang, target) {
+                const parts = text.split(/([^a-zA-ZčćžšđěČĆŽŠĐĚèéêëàâîïôûùüÿćńśźžłóżńćśźžÀ-ÿ]+)/);
+                let html = '';
+                for (let part of parts) {
+                    if (/[a-zA-ZčćžšđěČĆŽŠĐĚèéêëàâîïôûùüÿćńśźžłóżńćśźžÀ-ÿ]/.test(part)) {
+                        const tr = getWordTranslation(part, sourceLang, target);
+                        html += tr ? `<span title="${part}">${tr}</span>` : `<span title="nepoznato">${part}</span>`;
+                    } else {
+                        html += part;
+                    }
+                }
+                return html;
+            }
+
+            function updateOutput() {
+                const text = inputEl.value.trim();
+                if (!text || !dictionariesReady) {
+                    outputEl.innerHTML = 'Prijevod će se pojaviti ovdje...';
+                    return;
+                }
+                const tokens = tokenize(text);
+                const conf = getConfidence(tokens);
+                let source = selectedSource || detectBest(conf);
+                if (!source) {
+                    outputEl.innerHTML = '⏳ Odaberite izvorni jezik klikom na zastavu ispod';
+                    return;
+                }
+                outputEl.innerHTML = buildTranslatedHTML(text, source, getEffectiveTarget());
+            }
+
+            // ─── CONFIDENCE BARS ──────────────────
+            function renderConfidence() {
+                if (!dictionariesReady) {
+                    confidenceContainer.innerHTML = '';
+                    autoLabel.textContent = '';
+                    return;
+                }
+                const text = inputEl.value.trim();
+                const tokens = tokenize(text);
+                const conf = getConfidence(tokens);
+                const total = conf.hr + conf.en + conf.isv || 1;
+
+                const langs = [
+                    { key: 'hr', cls: 'mf-hr', count: conf.hr },
+                    { key: 'en', cls: 'mf-gb', count: conf.en },
+                    { key: 'isv', cls: 'mf-isv', count: conf.isv }
+                ];
+
+                let html = '';
+                for (let l of langs) {
+                    const perc = Math.round((l.count / total) * 100);
+                    const selClass = (selectedSource === l.key || (selectedSource === 'isv-lat' && l.key === 'isv')) ?
+                        ' selected' : '';
+                    html += `
+                <div class="lang-confidence${selClass}" data-lang="${l.key}">
+                  <div class="mini-flag ${l.cls}"></div>
+                  <div class="bar-container"><div class="bar-fill" style="width:${perc}%"></div></div>
+                  <span class="perc">${perc}%</span>
+                </div>`;
+                }
+                confidenceContainer.innerHTML = html;
+
+                document.querySelectorAll('.lang-confidence').forEach(el => {
+                    el.addEventListener('click', () => {
+                        const lang = el.dataset.lang;
+                        selectedSource = lang === 'isv' ? 'isv-lat' : lang;
+                        renderConfidence();
+                        updateOutput();
+                    });
+                });
+
+                const best = detectBest(conf);
+                autoLabel.textContent = selectedSource ?
+                    'ručno' :
+                    (best ? 'automatski' : '');
+            }
+
+            function refreshAll() {
+                renderConfidence();
+                updateOutput();
+            }
+
+            // ─── INPUT EVENTS ─────────────────────
+            inputEl.addEventListener('input', () => {
+                selectedSource = null;
+                renderConfidence();
+                updateOutput();
+            });
+
+            clearBtn.addEventListener('click', () => {
+                inputEl.value = '';
+                selectedSource = null;
+                refreshAll();
+            });
+
+            // ─── INIT ─────────────────────────────
+            updateTargetUI();
+            refreshAll();
+        })();
+    </script>
+</body>
+</html>
